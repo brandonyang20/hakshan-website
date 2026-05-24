@@ -750,16 +750,16 @@ get_header();
         <div class="gen__year">1958</div>
         <div>
           <h3><span data-en>The first generation</span><span data-zh>第 一 代</span></h3>
-          <p><span data-en>A tin-roofed kitchen in Hulu Selangor. Salted chicken cooked over rambutan-wood fire, fed to villagers walking home from the rubber tap. The recipes live in her hands — not yet on paper.</span>
-            <span data-zh>乌鲁雪兰莪一间锌板顶小厨房，红毛丹木火上焗盐鸡，喂给从橡胶园归来的村民。食谱在她手上，还没写下来。</span></p>
+          <p><span data-en>A tin-roofed kitchen in Seremban. Salted chicken cooked over rambutan-wood fire, fed to villagers walking home from the rubber tap. The recipes live in her hands — not yet on paper.</span>
+            <span data-zh>芙蓉一间锌板顶小厨房，红毛丹木火上焗盐鸡，喂给从橡胶园归来的村民。食谱在她手上，还没写下来。</span></p>
         </div>
       </div>
       <div class="gen">
         <div class="gen__year">1986</div>
         <div>
           <h3><span data-en>The second generation</span><span data-zh>第 二 代</span></h3>
-          <p><span data-en>The daughter takes over the wok. She is the first to write the recipes down — onto loose yellow paper, in pencil, with margin notes about which kampung the chicken should come from. The shophouse moves to Kepong; the book moves with it.</span>
-            <span data-zh>女儿接过镬。她第一次把食谱写下来 — 写在泛黄的纸上，用铅笔，旁边批注着鸡要从哪个甘榜来。店屋搬到甲洞，那叠纸跟着搬。</span></p>
+          <p><span data-en>The daughter takes over the wok. She is the first to write the recipes down — onto loose yellow paper, in pencil, with margin notes about which kampung the chicken should come from. The kitchen moves to Kuala Lumpur; the book moves with it.</span>
+            <span data-zh>女儿接过镬。她第一次把食谱写下来 — 写在泛黄的纸上，用铅笔，旁边批注着鸡要从哪个甘榜来。厨房搬到吉隆坡，那叠纸跟着搬。</span></p>
         </div>
       </div>
       <div class="gen">
