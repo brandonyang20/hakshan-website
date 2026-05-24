@@ -329,35 +329,48 @@ get_header();
 </section>
 
 <?php
-$outlets = array(
-  array( 'slug' => 'usj',       'name' => 'USJ Taipan',         'cn' => '梳 邦 再 也',         'city' => 'SUBANG JAYA',  'label' => 'USJ Taipan · main dining hall, evening',
-         'addr' => 'Block A, USJ 10 Taipan Business Centre, 47620 Subang Jaya, Selangor',
-         'hours'=> 'Daily 11:00 — 22:00', 'seats' => '120 + private 24 · Charity table', 'phone' => '+60 16-246 2970' ),
-  array( 'slug' => 'menjalara', 'name' => 'Menjalara',          'cn' => '甲 洞 · 满 家 拉',      'city' => 'KEPONG',       'label' => 'Menjalara · entrance and brass signage',
-         'addr' => 'Unit R1-G-3, R1 Gallery, No 10, Jalan Idaman 1/62A, Bandar Menjalara, 52200 KL',
-         'hours'=> 'Daily 11:00 — 22:00', 'seats' => '96 + private 18 · Charity table',  'phone' => '+60 3-6266 3211' ),
-  array( 'slug' => 'cheras',    'name' => 'Cheras Traders Sq.', 'cn' => '蕉 赖',               'city' => 'CHERAS',       'label' => 'Cheras Traders Square · open kitchen',
-         'addr' => 'Lot G-32, Cheras Traders Square, Jalan Cheras 56100, Kuala Lumpur',
-         'hours'=> 'Daily 11:00 — 22:00', 'seats' => '110 · Charity table',              'phone' => '+60 3-9101 6622' ),
-  array( 'slug' => 'puchong',   'name' => 'Bandar Puteri',      'cn' => '蒲 种',               'city' => 'PUCHONG',      'label' => 'Bandar Puteri Puchong · dining hall',
-         'addr' => '53G, Jalan Puteri 1/4, Bandar Puteri Puchong, 47100 Selangor',
-         'hours'=> 'Daily 11:00 — 22:00', 'seats' => '88 · Charity table',               'phone' => '+60 3-8068 9933' ),
-  array( 'slug' => 'conezion',  'name' => 'IOI Conezion',       'cn' => '布 城',               'city' => 'PUTRAJAYA',    'label' => 'IOI Conezion · terrace, evening',
-         'addr' => 'B-G-06, IOI Conezion, Persiaran IRC 3, IOI Resort City, 62502 Putrajaya',
-         'hours'=> 'Daily 11:00 — 22:00', 'seats' => '104 · Charity table',              'phone' => '+60 3-8911 2030' ),
-  array( 'slug' => 'kajang',    'name' => 'Budiman Park',       'cn' => '加 影 · 步 帝 文',     'city' => 'KAJANG',       'label' => 'Budiman Park · entrance',
-         'addr' => '23A, Jalan Budiman, Off Jalan Sungai Long, Budiman Business Park, 43000 Kajang',
-         'hours'=> 'Daily 11:00 — 22:00', 'seats' => '72 · Charity table',               'phone' => '+60 3-8732 4567' ),
-  array( 'slug' => 'kiara',     'name' => 'Arcoris Plaza',      'cn' => '满 家 乐',             'city' => 'MONT KIARA',   'label' => 'Arcoris Mont Kiara · main hall',
-         'addr' => 'Unit G-16 & G-17, Ground Level, Arcoris Plaza, 10 Jalan Kiara, 50480 Mont Kiara',
-         'hours'=> 'Daily 11:00 — 22:00', 'seats' => '132 + private 28 · Charity table', 'phone' => '+60 3-6203 9988' ),
-  array( 'slug' => 'parkcity',  'name' => 'The Waterfront',     'cn' => '公 园 城',             'city' => 'DESA PARKCITY','label' => 'The Waterfront ParkCity · evening',
-         'addr' => 'Lot GF-05, The Waterfront @ ParkCity, Persiaran Residen, 52200 Desa ParkCity',
-         'hours'=> 'Daily 11:00 — 22:00', 'seats' => '92 · Charity table',               'phone' => '+60 3-6280 1100' ),
-  array( 'slug' => 'arkadia',   'name' => 'Plaza Arkadia',      'cn' => '阿 卡 迪 亚',          'city' => 'DESA PARKCITY','label' => 'Plaza Arkadia · open kitchen',
-         'addr' => 'Unit F-G-7, Plaza Arkadia, 3 Jalan Intisari Perdana, 52200 Desa ParkCity',
-         'hours'=> 'Daily 11:00 — 22:00', 'seats' => '78 · Charity table',               'phone' => '+60 3-6263 8800' ),
-);
+// Pull outlets from the CPT; fall back to a hardcoded list if nothing is in the DB yet.
+$outlets        = array();
+$outlet_posts   = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
+$outlet_has_img = array();
+
+if ( ! empty( $outlet_posts ) ) {
+	foreach ( $outlet_posts as $outlet_post ) {
+		$data       = hakshan_get_outlet_data( $outlet_post->ID );
+		$outlets[]  = $data;
+		$outlet_has_img[ $data['slug'] ] = ! empty( $data['image_html'] );
+	}
+} else {
+	$outlets = array(
+		array( 'slug' => 'usj',       'name' => 'USJ Taipan',         'cn' => '梳 邦 再 也',         'city' => 'SUBANG JAYA',  'label' => 'USJ Taipan · main dining hall, evening',
+		       'addr' => 'Block A, USJ 10 Taipan Business Centre, 47620 Subang Jaya, Selangor',
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '120 + private 24 · Charity table', 'phone' => '+60 16-246 2970', 'image_html' => '', 'image_url' => '' ),
+		array( 'slug' => 'menjalara', 'name' => 'Menjalara',          'cn' => '甲 洞 · 满 家 拉',      'city' => 'KEPONG',       'label' => 'Menjalara · entrance and brass signage',
+		       'addr' => 'Unit R1-G-3, R1 Gallery, No 10, Jalan Idaman 1/62A, Bandar Menjalara, 52200 KL',
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '96 + private 18 · Charity table',  'phone' => '+60 3-6266 3211', 'image_html' => '', 'image_url' => '' ),
+		array( 'slug' => 'cheras',    'name' => 'Cheras Traders Sq.', 'cn' => '蕉 赖',               'city' => 'CHERAS',       'label' => 'Cheras Traders Square · open kitchen',
+		       'addr' => 'Lot G-32, Cheras Traders Square, Jalan Cheras 56100, Kuala Lumpur',
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '110 · Charity table',              'phone' => '+60 3-9101 6622', 'image_html' => '', 'image_url' => '' ),
+		array( 'slug' => 'puchong',   'name' => 'Bandar Puteri',      'cn' => '蒲 种',               'city' => 'PUCHONG',      'label' => 'Bandar Puteri Puchong · dining hall',
+		       'addr' => '53G, Jalan Puteri 1/4, Bandar Puteri Puchong, 47100 Selangor',
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '88 · Charity table',               'phone' => '+60 3-8068 9933', 'image_html' => '', 'image_url' => '' ),
+		array( 'slug' => 'conezion',  'name' => 'IOI Conezion',       'cn' => '布 城',               'city' => 'PUTRAJAYA',    'label' => 'IOI Conezion · terrace, evening',
+		       'addr' => 'B-G-06, IOI Conezion, Persiaran IRC 3, IOI Resort City, 62502 Putrajaya',
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '104 · Charity table',              'phone' => '+60 3-8911 2030', 'image_html' => '', 'image_url' => '' ),
+		array( 'slug' => 'kajang',    'name' => 'Budiman Park',       'cn' => '加 影 · 步 帝 文',     'city' => 'KAJANG',       'label' => 'Budiman Park · entrance',
+		       'addr' => '23A, Jalan Budiman, Off Jalan Sungai Long, Budiman Business Park, 43000 Kajang',
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '72 · Charity table',               'phone' => '+60 3-8732 4567', 'image_html' => '', 'image_url' => '' ),
+		array( 'slug' => 'kiara',     'name' => 'Arcoris Plaza',      'cn' => '满 家 乐',             'city' => 'MONT KIARA',   'label' => 'Arcoris Mont Kiara · main hall',
+		       'addr' => 'Unit G-16 & G-17, Ground Level, Arcoris Plaza, 10 Jalan Kiara, 50480 Mont Kiara',
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '132 + private 28 · Charity table', 'phone' => '+60 3-6203 9988', 'image_html' => '', 'image_url' => '' ),
+		array( 'slug' => 'parkcity',  'name' => 'The Waterfront',     'cn' => '公 园 城',             'city' => 'DESA PARKCITY','label' => 'The Waterfront ParkCity · evening',
+		       'addr' => 'Lot GF-05, The Waterfront @ ParkCity, Persiaran Residen, 52200 Desa ParkCity',
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '92 · Charity table',               'phone' => '+60 3-6280 1100', 'image_html' => '', 'image_url' => '' ),
+		array( 'slug' => 'arkadia',   'name' => 'Plaza Arkadia',      'cn' => '阿 卡 迪 亚',          'city' => 'DESA PARKCITY','label' => 'Plaza Arkadia · open kitchen',
+		       'addr' => 'Unit F-G-7, Plaza Arkadia, 3 Jalan Intisari Perdana, 52200 Desa ParkCity',
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '78 · Charity table',               'phone' => '+60 3-6263 8800', 'image_html' => '', 'image_url' => '' ),
+	);
+}
 ?>
 
 <nav class="map-band">
@@ -370,7 +383,7 @@ $outlets = array(
 <section class="outlets-grid">
   <?php foreach ( $outlets as $o ) : ?>
     <button class="og-card" data-open="<?php echo esc_attr( $o['slug'] ); ?>" data-reveal>
-      <div class="og-card__visual"><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div></div>
+      <div class="og-card__visual"><?php if ( ! empty( $o['image_html'] ) ) : echo $o['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div><?php endif; ?></div>
       <div><h3><?php echo esc_html( $o['name'] ); ?></h3><div class="city"><?php echo esc_html( ucwords( strtolower( $o['city'] ) ) ); ?></div></div>
       <div class="meta"><span></span><span class="arr">→</span></div>
     </button>
@@ -424,17 +437,18 @@ $outlets = array(
     $js_outlets = array();
     foreach ( $outlets as $o ) {
       $js_outlets[ $o['slug'] ] = array(
-        'num'     => str_pad( (string) ( array_search( $o['slug'], array_column( $outlets, 'slug' ), true ) + 1 ), 2, '0', STR_PAD_LEFT ),
-        'badge'   => '',
-        'badgeZh' => '',
-        'name'    => $o['name'],
-        'cn'      => $o['cn'],
-        'city'    => $o['city'],
-        'addr'    => $o['addr'],
-        'hours'   => $o['hours'],
-        'seats'   => $o['seats'],
-        'phone'   => $o['phone'],
-        'photo'   => $o['label'],
+        'num'      => str_pad( (string) ( array_search( $o['slug'], array_column( $outlets, 'slug' ), true ) + 1 ), 2, '0', STR_PAD_LEFT ),
+        'badge'    => '',
+        'badgeZh'  => '',
+        'name'     => $o['name'],
+        'cn'       => $o['cn'],
+        'city'     => $o['city'],
+        'addr'     => $o['addr'],
+        'hours'    => $o['hours'],
+        'seats'    => $o['seats'],
+        'phone'    => $o['phone'],
+        'photo'    => $o['label'],
+        'imageUrl' => ! empty( $o['image_url'] ) ? $o['image_url'] : '',
       );
     }
     echo wp_json_encode( $js_outlets );
@@ -455,7 +469,16 @@ $outlets = array(
     } else {
       badgeEl.style.display = "none";
     }
-    document.getElementById("omPh").setAttribute("data-label", o.photo);
+    const omPh = document.getElementById("omPh");
+    if (o.imageUrl) {
+      omPh.style.backgroundImage = "url('" + o.imageUrl + "')";
+      omPh.style.backgroundSize = "cover";
+      omPh.style.backgroundPosition = "center";
+      omPh.setAttribute("data-label", "");
+    } else {
+      omPh.style.backgroundImage = "";
+      omPh.setAttribute("data-label", o.photo);
+    }
     document.getElementById("omCity").textContent = o.city;
     const title = document.getElementById("omTitle");
     title.innerHTML = o.name + '<span class="cn">' + o.cn + '</span>';
