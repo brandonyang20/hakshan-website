@@ -147,11 +147,6 @@ function hakshan_dish_field_schema() {
 			'type'        => 'text',
 			'placeholder' => '盐 焗 鸡',
 		),
-		'dish_cn'      => array(
-			'label'       => __( 'Chinese name — secondary / longer (e.g. 客家盐焗鸡)', 'hakshan' ),
-			'type'        => 'text',
-			'placeholder' => '客 家 盐 焗 鸡',
-		),
 		'dish_label'   => array(
 			'label'       => __( 'Image caption / placeholder label (English, lowercase)', 'hakshan' ),
 			'type'        => 'text',
