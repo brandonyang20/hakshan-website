@@ -114,6 +114,26 @@ body[data-lang="zh"] { font-family: var(--cn); }
 
 img { display: block; max-width: 100%; }
 
+/* Featured-image fill: make WP-rendered <img> behave like the .ph placeholder
+   inside any aspect-ratio'd card visual, so it covers the slot without
+   pushing the card past its intended size. */
+.oc-card__visual img,
+.sc-card__visual img,
+.og-card__visual img,
+.dish__visual img,
+.anchor__visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.oc-card__visual,
+.sc-card__visual,
+.og-card__visual,
+.dish__visual,
+.anchor__visual { overflow: hidden; }
+
 a { color: inherit; text-decoration: none; }
 
 ::selection { background: var(--forest); color: var(--cream); }
