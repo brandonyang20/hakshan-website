@@ -803,17 +803,35 @@ get_header();
   <div class="sigs__carousel-wrap" data-reveal>
     <div class="sigs__carousel" id="scCarousel">
       <?php
-      $signatures = array(
-        array( 'label' => 'salt-baked chicken · whole, paper-wrapped', 'en' => 'Salt-Baked Chicken', 'zh' => '盐 焗 鸡', 'cn' => '客 家 盐 焗 鸡', 'desc_en' => 'Free-range hen, sea salt, kraft paper. Forty minutes in the embers.', 'desc_zh' => '走 地 鸡、海 盐、牛 皮 纸，炭 火 中 四 十 分 钟。' ),
-        array( 'label' => 'mui choy kau yuk · braised pork belly', 'en' => 'Mui Choy Pork Belly', 'zh' => '梅 菜 扣 肉', 'cn' => '梅 菜 扣 肉', 'desc_en' => 'Five-spice belly steamed with pickled mustard greens, the way Ah Por taught it.', 'desc_zh' => '五 香 三 层 肉，与 阿 婆 腌 的 梅 干 菜 同 蒸。' ),
-        array( 'label' => 'abacus seeds · suan pan zi', 'en' => 'Abacus Seeds', 'zh' => '算 盘 子', 'cn' => '算 盘 子', 'desc_en' => 'Taro and tapioca, pinched by hand. Chewy at the centre, savoury at the edge.', 'desc_zh' => '芋 头 与 木 薯，一 颗 颗 手 捏，中 心 软 糯，边 缘 咸 香。' ),
-        array( 'label' => 'lei cha · thunder tea rice', 'en' => 'Thunder Tea Rice', 'zh' => '擂 茶 饭', 'cn' => '擂 茶 饭', 'desc_en' => 'Twelve herbs, ground in a wooden mortar. A bowl that drinks like a meal.', 'desc_zh' => '十 二 种 香 草，杵 臼 现 磨。一 碗 茶，也 是 一 顿 饭。' ),
-        array( 'label' => 'ginger-sprout braised duck', 'en' => 'Ginger-Sprout Duck', 'zh' => '姜 芽 焖 鸭', 'cn' => '姜 芽 焖 鸭', 'desc_en' => 'Three hours on low flame, young ginger sprouts, dark caramel sauce.', 'desc_zh' => '三 小 时 慢 火，姜 芽 爆 香，老 抽 收 汁。' ),
-        array( 'label' => 'rice-wine chicken soup · clay pot', 'en' => 'Rice-Wine Chicken Soup', 'zh' => '糯 米 酒 鸡 汤', 'cn' => '糯 米 酒 鸡 汤', 'desc_en' => 'Glutinous rice wine, kampung chicken, ginger, sesame oil.', 'desc_zh' => '糯 米 酒、甘 榜 鸡、老 姜、麻 油。' ),
-      );
-      $menu_url = hakshan_nav_url( 'menu' ) . '#signatures';
-      foreach ( $signatures as $s ) :
-        ?>
+      $menu_url   = hakshan_nav_url( 'menu' ) . '#signatures';
+      $signatures = function_exists( 'hakshan_get_signature_dishes' ) ? hakshan_get_signature_dishes( 6 ) : array();
+
+      if ( ! empty( $signatures ) ) :
+        foreach ( $signatures as $sig_post ) :
+          $s = hakshan_get_dish_data( $sig_post->ID );
+          ?>
+        <a class="sc-card" href="<?php echo esc_url( $menu_url ); ?>">
+          <div class="sc-card__visual"><?php if ( $s['image_html'] ) : echo $s['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $s['label'] ); ?>"></div><?php endif; ?></div>
+          <div class="sc-card__body">
+            <h3><span data-en><?php echo esc_html( $s['en'] ); ?></span><span data-zh><?php echo esc_html( $s['zh'] ); ?></span>
+              <span class="cn"><?php echo esc_html( $s['cn'] ); ?></span></h3>
+            <p><span data-en><?php echo esc_html( $s['desc_en'] ); ?></span>
+              <span data-zh><?php echo esc_html( $s['desc_zh'] ); ?></span></p>
+          </div>
+        </a>
+        <?php endforeach;
+      else :
+        // Fallback before the seeder has populated the CPT.
+        $signatures_fallback = array(
+          array( 'label' => 'salt-baked chicken · whole, paper-wrapped', 'en' => 'Salt-Baked Chicken', 'zh' => '盐 焗 鸡', 'cn' => '客 家 盐 焗 鸡', 'desc_en' => 'Free-range hen, sea salt, kraft paper. Forty minutes in the embers.', 'desc_zh' => '走 地 鸡、海 盐、牛 皮 纸，炭 火 中 四 十 分 钟。' ),
+          array( 'label' => 'mui choy kau yuk · braised pork belly', 'en' => 'Mui Choy Pork Belly', 'zh' => '梅 菜 扣 肉', 'cn' => '梅 菜 扣 肉', 'desc_en' => 'Five-spice belly steamed with pickled mustard greens, the way Ah Por taught it.', 'desc_zh' => '五 香 三 层 肉，与 阿 婆 腌 的 梅 干 菜 同 蒸。' ),
+          array( 'label' => 'abacus seeds · suan pan zi', 'en' => 'Abacus Seeds', 'zh' => '算 盘 子', 'cn' => '算 盘 子', 'desc_en' => 'Taro and tapioca, pinched by hand. Chewy at the centre, savoury at the edge.', 'desc_zh' => '芋 头 与 木 薯，一 颗 颗 手 捏，中 心 软 糯，边 缘 咸 香。' ),
+          array( 'label' => 'lei cha · thunder tea rice', 'en' => 'Thunder Tea Rice', 'zh' => '擂 茶 饭', 'cn' => '擂 茶 饭', 'desc_en' => 'Twelve herbs, ground in a wooden mortar. A bowl that drinks like a meal.', 'desc_zh' => '十 二 种 香 草，杵 臼 现 磨。一 碗 茶，也 是 一 顿 饭。' ),
+          array( 'label' => 'ginger-sprout braised duck', 'en' => 'Ginger-Sprout Duck', 'zh' => '姜 芽 焖 鸭', 'cn' => '姜 芽 焖 鸭', 'desc_en' => 'Three hours on low flame, young ginger sprouts, dark caramel sauce.', 'desc_zh' => '三 小 时 慢 火，姜 芽 爆 香，老 抽 收 汁。' ),
+          array( 'label' => 'rice-wine chicken soup · clay pot', 'en' => 'Rice-Wine Chicken Soup', 'zh' => '糯 米 酒 鸡 汤', 'cn' => '糯 米 酒 鸡 汤', 'desc_en' => 'Glutinous rice wine, kampung chicken, ginger, sesame oil.', 'desc_zh' => '糯 米 酒、甘 榜 鸡、老 姜、麻 油。' ),
+        );
+        foreach ( $signatures_fallback as $s ) :
+          ?>
         <a class="sc-card" href="<?php echo esc_url( $menu_url ); ?>">
           <div class="sc-card__visual"><div class="ph" data-label="<?php echo esc_attr( $s['label'] ); ?>"></div></div>
           <div class="sc-card__body">
@@ -823,7 +841,9 @@ get_header();
               <span data-zh><?php echo esc_html( $s['desc_zh'] ); ?></span></p>
           </div>
         </a>
-      <?php endforeach; ?>
+        <?php endforeach;
+      endif;
+      ?>
     </div>
 
     <div class="oc-nav">
