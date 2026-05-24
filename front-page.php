@@ -750,16 +750,16 @@ get_header();
         <div class="gen__year">1958</div>
         <div>
           <h3><span data-en>The first generation</span><span data-zh>第 一 代</span></h3>
-          <p><span data-en>A tin-roofed kitchen in Seremban. Salted chicken cooked over rambutan-wood fire, fed to villagers walking home from the rubber tap. The recipes live in her hands — not yet on paper.</span>
-            <span data-zh>芙蓉一间锌板顶小厨房，红毛丹木火上焗盐鸡，喂给从橡胶园归来的村民。食谱在她手上，还没写下来。</span></p>
+          <p><span data-en>A home kitchen in Seremban. Salted chicken cooked over rambutan-wood fire. Every meal is hers; every meal is for the family. The recipes live in her hands — nothing is written down.</span>
+            <span data-zh>芙蓉一间家中厨房。红毛丹木火上焗盐鸡。每一餐都是她下厨，每一餐都给家人。食谱在她手上 — 一字未落于纸。</span></p>
         </div>
       </div>
       <div class="gen">
-        <div class="gen__year">1986</div>
+        <div class="gen__year">2008</div>
         <div>
           <h3><span data-en>The second generation</span><span data-zh>第 二 代</span></h3>
-          <p><span data-en>The daughter takes over the wok. She is the first to write the recipes down — onto loose yellow paper, in pencil, with margin notes about which kampung the chicken should come from. The kitchen moves to Kuala Lumpur; the book moves with it.</span>
-            <span data-zh>女儿接过镬。她第一次把食谱写下来 — 写在泛黄的纸上，用铅笔，旁边批注着鸡要从哪个甘榜来。厨房搬到吉隆坡，那叠纸跟着搬。</span></p>
+          <p><span data-en>The daughter moves to Kuala Lumpur and opens the family's first restaurant. For the first time, the recipes leave the home — pencilled onto loose yellow paper, with margin notes about which kampung the chicken should come from. Same dishes, sharpened by service.</span>
+            <span data-zh>女儿移居吉隆坡，开了家中第一家餐厅。食谱第一次走出家门 — 用铅笔写在泛黄的纸上，旁边批注着鸡要从哪个甘榜来。同样的菜，越做越精到。</span></p>
         </div>
       </div>
       <div class="gen">
@@ -773,9 +773,9 @@ get_header();
       <div class="gen">
         <div class="gen__year">2026</div>
         <div>
-          <h3><span data-en>Same paper, more kitchens</span><span data-zh>同 一 叠 纸</span></h3>
-          <p><span data-en>The paper has never been retyped. The original sits in the central kitchen; pencilled copies hang in nine more. Every dish on every menu traces back to a pencilled margin note in the original book.</span>
-            <span data-zh>那叠纸至今没有重打过。原稿留在中央厨房，铅笔字的复印本挂在另外九家。今天菜单上的每一道菜，都能在原稿的铅笔旁批里找到出处。</span></p>
+          <h3><span data-en>Same paper, sharper hands</span><span data-zh>同 一 叠 纸</span></h3>
+          <p><span data-en>The paper has never been retyped. The original sits in the central kitchen; pencilled copies hang in nine more. Same dishes — sharpened by every generation that cooked them.</span>
+            <span data-zh>那叠纸至今没有重打过。原稿留在中央厨房，铅笔字的复印本挂在另外九家。同样的菜 — 每一代下厨的人，都把它做得更精到。</span></p>
         </div>
       </div>
     </div>
