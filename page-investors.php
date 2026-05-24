@@ -445,13 +445,13 @@ get_header();
       <span data-zh>投 资 者 关 系</span>
     </span>
     <h1>
-      <span data-en>An 18-year recipe,<br/><em>opening doors.</em></span>
-      <span data-zh>十 八 年 的 火 候，<br/><em>正 在 开 门。</em></span>
+      <span data-en>An 18-year kitchen,<br/><em>a new door.</em></span>
+      <span data-zh>十 八 年 的 厨 房，<br/><em>新 开 一 扇 门。</em></span>
     </h1>
   </div>
   <p>
-    <span data-en>Hakshan Cuisines is a Hakka restaurant group built on three convictions: that good food should be affordable, that profitability and philanthropy belong in the same line item, and that a kitchen earns its growth slowly. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
-    <span data-zh>客 善 客 家 餐 饮 集 团 秉 承 三 个 信 念：好 的 食 物 应 当 平 价、盈 利 与 慈 善 同 处 一 行、以 及 餐 厅 须 凭 时 间 累 积 增 长。目 前 营 运 中 共 九 家 门 店 与 一 家 云 厨 房，第 十 家 门 店 与 第 三 家 云 厨 房 将 于 下 月 开 业。</span>
+    <span data-en>Hakshan Cuisines (客善) is a sub-brand of Ying Ker Lou (迎客楼) — an eighteen-year-old Hakka cuisine operator that has opened thirteen retail outlets across Malaysia's major shopping malls. Launched in February 2024, Hakshan inherits Ying Ker Lou's central kitchen, SOPs and supply chain intact, and meets the customer at a more accessible price point: an RM 15 set, with fifteen percent of every ringgit structurally returned to community causes. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
+    <span data-zh>客 善 是 迎 客 楼 的 子 品 牌 — 迎 客 楼 是 一 个 经 营 十 八 年、于 各 大 商 场 开 设 过 十 三 家 门 店 的 客 家 料 理 老 字 号。客 善 于 2024 年 2 月 启 动，沿 用 迎 客 楼 的 中 央 厨 房、营 业 流 程 与 供 应 链，将 同 一 厨 房 的 菜 品 带 到 更 平 易 的 价 位 — RM 15 套 餐，营 收 的 15% 以 制 度 形 式 回 馈 社 区。目 前 营 运 中 共 九 家 门 店 与 一 家 云 厨 房，第 十 家 门 店 与 第 三 家 云 厨 房 将 于 下 月 开 业。</span>
   </p>
 </section>
 
@@ -460,17 +460,17 @@ get_header();
   <div class="inv-stats__grid" data-reveal>
     <div class="inv-stat">
       <div class="num">18<span class="unit">yrs</span></div>
-      <div class="lbl"><span data-en>Food supply chain</span><span data-zh>食 品 供 应 链</span></div>
-      <div class="sub"><span data-en>End-to-end ingredient sourcing</span><span data-zh>从 源 头 到 厨 房</span></div>
+      <div class="lbl"><span data-en>Ying Ker Lou, the parent brand</span><span data-zh>母 品 牌 · 迎 客 楼</span></div>
+      <div class="sub"><span data-en>Pioneer of Malaysian Hakka cuisine</span><span data-zh>马 来 西 亚 客 家 菜 老 字 号</span></div>
     </div>
     <div class="inv-stat">
-      <div class="num">13<span class="unit">yrs</span></div>
-      <div class="lbl"><span data-en>Franchise operations</span><span data-zh>加 盟 运 营</span></div>
-      <div class="sub"><span data-en>SOPs refined across every outlet</span><span data-zh>多 店 通 用 标 准 作 业 流 程</span></div>
+      <div class="num">13</div>
+      <div class="lbl"><span data-en>Ying Ker Lou outlets opened</span><span data-zh>迎 客 楼 历 来 门 店</span></div>
+      <div class="sub"><span data-en>Across major shopping malls</span><span data-zh>分 布 于 各 大 商 场</span></div>
     </div>
     <div class="inv-stat">
       <div class="num">9 + 1</div>
-      <div class="lbl"><span data-en>Retail + cloud kitchen</span><span data-zh>门 店 + 云 厨 房</span></div>
+      <div class="lbl"><span data-en>Hakshan outlets, since Feb 2024</span><span data-zh>客 善 门 店 · 2024 年 2 月 至 今</span></div>
       <div class="sub"><span data-en>10th retail &amp; 3rd cloud kitchen · next month</span><span data-zh>第 10 家 门 店 与 第 3 家 云 厨 房 · 下 月</span></div>
     </div>
     <div class="inv-stat">
@@ -499,13 +499,13 @@ get_header();
       <span data-zh>每 一 餐，不 仅 是 一 道 菜，更 是 对 社 区 的 一 份 贡 献。盈 利 与 慈 善，同 在 一 行 之 中。</span>
     </p>
     <p>
-      <span data-en>Hakshan's strategy revolves around making authentic Hakka cuisine accessible to a wide audience — at a price point built around an RM 15 set. With 18 years of food supply-chain experience and 13 years of franchise operations, the model is refined enough that every outlet looks, tastes and runs the same way, and disciplined enough that every outlet contributes a fixed share of revenue to community causes.</span>
-      <span data-zh>客 善 的 策 略，是 让 真 正 的 客 家 菜 走 入 大 众 — 主 力 套 餐 定 价 RM 15。十 八 年 的 食 品 供 应 链 经 验、十 三 年 的 加 盟 运 营，让 模 式 足 够 成 熟：每 一 家 门 店 的 外 观、味 道、流 程 一 致；每 一 家 门 店 都 把 营 收 的 固 定 比 例 投 入 社 区。</span>
+      <span data-en>Hakshan's strategy is to take Ying Ker Lou's kitchen — eighteen years of supply-chain depth, thirteen retail outlets opened, a working central kitchen and a refined SOP set — and meet the customer at a more accessible price: an RM 15 set, with fifteen percent of every ringgit committed to community causes. The kitchen is not new. The price point and the philanthropic discipline are.</span>
+      <span data-zh>客 善 的 策 略，是 把 迎 客 楼 已 经 走 通 的 厨 房 — 十 八 年 的 供 应 链 积 累、历 来 十 三 家 门 店、自 营 中 央 厨 房 与 成 熟 的 标 准 作 业 流 程 — 带 到 更 平 易 的 价 位 ：RM 15 套 餐，营 收 的 15% 制 度 化 地 回 馈 社 区。厨 房 不 是 新 的，新 的 是 价 位 与 这 份 慈 善 纪 律。</span>
     </p>
     <span class="small"><span data-en>WHAT MAKES THE MODEL DEFENSIBLE</span><span data-zh>模 式 的 护 城 河</span></span>
     <p>
-      <span data-en>A central kitchen owned in-house. Standard Operating Procedures across every outlet. An ingredient supply chain refined over 18 years. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book — three generations of Hakka cuisine — that is not for franchise sale.</span>
-      <span data-zh>自 营 中 央 厨 房。每 家 门 店 通 用 的 标 准 作 业 流 程。十 八 年 打 磨 的 食 材 供 应 链。「零 浪 费」是 厨 房 纪 律，不 是 营 销 口 号。三 代 人 的 客 家 食 谱 — 不 对 外 出 售。</span>
+      <span data-en>An in-house central kitchen, inherited from Ying Ker Lou. Standard Operating Procedures applied to every Hakshan outlet from day one — not invented under deadline. An ingredient supply chain refined over eighteen years of Ying Ker Lou operations. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book — three generations of Hakka cuisine — that is not for franchise sale.</span>
+      <span data-zh>自 营 中 央 厨 房 — 沿 用 自 迎 客 楼。每 一 家 客 善 门 店 自 开 业 第 一 日 起 即 使 用 成 熟 的 标 准 作 业 流 程 — 不 是 临 时 拼 凑 出 来 的。迎 客 楼 十 八 年 打 磨 的 食 材 供 应 链。「零 浪 费」是 厨 房 纪 律，不 是 营 销 口 号。三 代 人 的 客 家 食 谱 — 不 对 外 出 售。</span>
     </p>
     <span class="small"><span data-en>WHY NOW</span><span data-zh>为 何 此 时</span></span>
     <p>
