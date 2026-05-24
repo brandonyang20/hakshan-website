@@ -38,7 +38,7 @@ get_header();
 </nav>
 
 <?php
-$menu_sections = array(
+$menu_sections_fallback = array(
   array(
     'id'        => 'signatures',
     'ch'        => '招 牌',
@@ -147,8 +147,48 @@ $menu_sections = array(
   ),
 );
 
-foreach ( $menu_sections as $section ) :
-  ?>
+// Pull live sections + dishes from the CPT. Fall back to hardcoded data only if
+// the CPT is empty (e.g. before the seeder has run on a fresh install).
+$section_terms = function_exists( 'hakshan_get_menu_sections' ) ? hakshan_get_menu_sections() : array();
+
+if ( ! empty( $section_terms ) ) :
+  foreach ( $section_terms as $section_term ) :
+    $dishes = hakshan_get_dishes_for_section( $section_term->term_id );
+    if ( empty( $dishes ) ) {
+      continue;
+    }
+    $title_zh = get_term_meta( $section_term->term_id, 'title_zh', true );
+    $title_cn = get_term_meta( $section_term->term_id, 'title_cn', true );
+    $ch       = get_term_meta( $section_term->term_id, 'ch', true );
+    $lead_en  = get_term_meta( $section_term->term_id, 'lead_en', true );
+    $lead_zh  = get_term_meta( $section_term->term_id, 'lead_zh', true );
+    ?>
+<section class="menu-section" id="<?php echo esc_attr( $section_term->slug ); ?>">
+  <div class="menu-section__head">
+    <div>
+      <span class="ch"><?php echo esc_html( $ch ); ?></span>
+      <h2><span data-en><?php echo wp_kses_post( $section_term->name ); ?></span><span data-zh><?php echo esc_html( $title_zh ); ?></span><span class="cn"><?php echo esc_html( $title_cn ); ?></span></h2>
+    </div>
+    <p><span data-en><?php echo wp_kses_post( $lead_en ); ?></span>
+      <span data-zh><?php echo esc_html( $lead_zh ); ?></span></p>
+  </div>
+  <div class="menu-section__list">
+    <?php foreach ( $dishes as $dish_post ) :
+      $d = hakshan_get_dish_data( $dish_post->ID );
+      ?>
+    <div class="dish"><div class="dish__visual"><?php if ( $d['image_html'] ) : echo $d['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $d['label'] ); ?>"></div><?php endif; ?></div><div>
+      <h3><span data-en><?php echo esc_html( $d['en'] ); ?></span><span data-zh><?php echo esc_html( $d['zh'] ); ?></span> <span class="cn"><?php echo esc_html( $d['cn'] ); ?></span></h3>
+      <p><span data-en><?php echo wp_kses_post( $d['desc_en'] ); ?></span>
+        <span data-zh><?php echo esc_html( $d['desc_zh'] ); ?></span></p>
+    </div></div>
+    <?php endforeach; ?>
+  </div>
+</section>
+  <?php endforeach;
+else :
+  // Fallback: render from the hardcoded array if nothing's in the DB yet.
+  foreach ( $menu_sections_fallback as $section ) :
+    ?>
 <section class="menu-section" id="<?php echo esc_attr( $section['id'] ); ?>">
   <div class="menu-section__head">
     <div>
@@ -168,7 +208,9 @@ foreach ( $menu_sections as $section ) :
     <?php endforeach; ?>
   </div>
 </section>
-<?php endforeach; ?>
+  <?php endforeach;
+endif;
+?>
 
 <section class="section" style="text-align: center;">
   <span class="h-eyebrow"><span class="dot"></span>
