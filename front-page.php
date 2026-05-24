@@ -763,19 +763,19 @@ get_header();
         </div>
       </div>
       <div class="gen">
-        <div class="gen__year">2018</div>
+        <div class="gen__year">2024</div>
         <div>
           <h3><span data-en>The third generation</span><span data-zh>第 三 代</span></h3>
-          <p><span data-en>Hakshan opens its first dining room in USJ. Same dishes. Same paper. The book stays in the kitchen; the chairs are new.</span>
-            <span data-zh>客善在 USJ 开出第一间餐厅。菜还是那些菜，纸还是那叠纸。食谱留在厨房里，椅子换了。</span></p>
+          <p><span data-en>In February 2024, Hakshan opens its first dining room in USJ. Same dishes. Same paper. The book stays in the kitchen; the chairs are new.</span>
+            <span data-zh>2024 年 2 月，客善在 USJ 开出第一间餐厅。菜还是那些菜，纸还是那叠纸。食谱留在厨房里，椅子换了。</span></p>
         </div>
       </div>
       <div class="gen">
         <div class="gen__year">2026</div>
         <div>
           <h3><span data-en>Same paper, more kitchens</span><span data-zh>同 一 叠 纸</span></h3>
-          <p><span data-en>The paper has never been retyped. The original sits in the central kitchen; pencilled copies hang in nine more. Every dish on every menu traces back to a margin note left two generations ago.</span>
-            <span data-zh>那叠纸至今没有重打过。原稿留在中央厨房，铅笔字的复印本挂在另外九家。今天菜单上的每一道菜，都能在两代以前的旁批里找到出处。</span></p>
+          <p><span data-en>The paper has never been retyped. The original sits in the central kitchen; pencilled copies hang in nine more. Every dish on every menu traces back to a pencilled margin note in the original book.</span>
+            <span data-zh>那叠纸至今没有重打过。原稿留在中央厨房，铅笔字的复印本挂在另外九家。今天菜单上的每一道菜，都能在原稿的铅笔旁批里找到出处。</span></p>
         </div>
       </div>
     </div>
