@@ -933,32 +933,48 @@ get_header();
     <div class="outlets__carousel-wrap" data-reveal>
       <div class="outlets__carousel" id="ocCarousel">
         <?php
-        $outlets_url = hakshan_nav_url( 'outlets' );
-        $outlets     = array(
-          array( 'slug' => 'usj',       'label' => 'USJ Taipan · main dining hall', 'name' => 'USJ Taipan',     'city' => 'Subang Jaya' ),
-          array( 'slug' => 'menjalara', 'label' => 'Menjalara · entrance',          'name' => 'Menjalara',      'city' => 'Kepong' ),
-          array( 'slug' => 'cheras',    'label' => 'Cheras Traders · open kitchen', 'name' => 'Cheras Traders', 'city' => 'Cheras' ),
-          array( 'slug' => 'puchong',   'label' => 'Bandar Puteri · dining hall',   'name' => 'Bandar Puteri',  'city' => 'Puchong' ),
-          array( 'slug' => 'conezion',  'label' => 'IOI Conezion · terrace',        'name' => 'IOI Conezion',   'city' => 'Putrajaya' ),
-          array( 'slug' => 'kajang',    'label' => 'Budiman Park · entrance',       'name' => 'Budiman Park',   'city' => 'Kajang' ),
-          array( 'slug' => 'kiara',     'label' => 'Arcoris Mont Kiara · main hall','name' => 'Arcoris Plaza',  'city' => 'Mont Kiara' ),
-          array( 'slug' => 'parkcity',  'label' => 'The Waterfront · evening service','name' => 'The Waterfront','city' => 'Desa ParkCity' ),
-          array( 'slug' => 'arkadia',   'label' => 'Plaza Arkadia · open kitchen',  'name' => 'Plaza Arkadia',  'city' => 'Desa ParkCity' ),
-        );
-        foreach ( $outlets as $o ) :
-          ?>
-          <a class="oc-card" href="<?php echo esc_url( $outlets_url . '#' . $o['slug'] ); ?>">
-            <div class="oc-card__visual"><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div></div>
-            <div><h3><?php echo esc_html( $o['name'] ); ?></h3><div class="city"><?php echo esc_html( $o['city'] ); ?></div></div>
-            <div class="meta"><span></span><span class="arr">→</span></div>
-          </a>
-        <?php endforeach; ?>
+        $outlets_url      = hakshan_nav_url( 'outlets' );
+        $outlet_post_list = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
+
+        if ( ! empty( $outlet_post_list ) ) :
+          foreach ( $outlet_post_list as $outlet_post ) :
+            $o = hakshan_get_outlet_data( $outlet_post->ID );
+            $city_display = $o['city'] ? ucwords( strtolower( $o['city'] ) ) : '';
+            ?>
+            <a class="oc-card" href="<?php echo esc_url( $outlets_url . '#' . $o['slug'] ); ?>">
+              <div class="oc-card__visual"><?php if ( ! empty( $o['image_html'] ) ) : echo $o['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div><?php endif; ?></div>
+              <div><h3><?php echo esc_html( $o['name'] ); ?></h3><div class="city"><?php echo esc_html( $city_display ); ?></div></div>
+              <div class="meta"><span></span><span class="arr">→</span></div>
+            </a>
+          <?php endforeach;
+        else :
+          $outlets_fallback = array(
+            array( 'slug' => 'usj',       'label' => 'USJ Taipan · main dining hall', 'name' => 'USJ Taipan',     'city' => 'Subang Jaya' ),
+            array( 'slug' => 'menjalara', 'label' => 'Menjalara · entrance',          'name' => 'Menjalara',      'city' => 'Kepong' ),
+            array( 'slug' => 'cheras',    'label' => 'Cheras Traders · open kitchen', 'name' => 'Cheras Traders', 'city' => 'Cheras' ),
+            array( 'slug' => 'puchong',   'label' => 'Bandar Puteri · dining hall',   'name' => 'Bandar Puteri',  'city' => 'Puchong' ),
+            array( 'slug' => 'conezion',  'label' => 'IOI Conezion · terrace',        'name' => 'IOI Conezion',   'city' => 'Putrajaya' ),
+            array( 'slug' => 'kajang',    'label' => 'Budiman Park · entrance',       'name' => 'Budiman Park',   'city' => 'Kajang' ),
+            array( 'slug' => 'kiara',     'label' => 'Arcoris Mont Kiara · main hall','name' => 'Arcoris Plaza',  'city' => 'Mont Kiara' ),
+            array( 'slug' => 'parkcity',  'label' => 'The Waterfront · evening service','name' => 'The Waterfront','city' => 'Desa ParkCity' ),
+            array( 'slug' => 'arkadia',   'label' => 'Plaza Arkadia · open kitchen',  'name' => 'Plaza Arkadia',  'city' => 'Desa ParkCity' ),
+          );
+          foreach ( $outlets_fallback as $o ) :
+            ?>
+            <a class="oc-card" href="<?php echo esc_url( $outlets_url . '#' . $o['slug'] ); ?>">
+              <div class="oc-card__visual"><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div></div>
+              <div><h3><?php echo esc_html( $o['name'] ); ?></h3><div class="city"><?php echo esc_html( $o['city'] ); ?></div></div>
+              <div class="meta"><span></span><span class="arr">→</span></div>
+            </a>
+          <?php endforeach;
+        endif;
+        ?>
       </div>
 
       <div class="oc-nav">
         <div class="oc-nav__count">
           <strong id="ocCount">1</strong>
-          <span> / 9</span>
+          <span> / <?php echo esc_html( ! empty( $outlet_post_list ) ? count( $outlet_post_list ) : count( $outlets_fallback ) ); ?></span>
         </div>
         <div class="oc-nav__progress"><div class="fill" id="ocFill"></div></div>
         <div class="oc-nav__buttons">
