@@ -450,8 +450,8 @@ get_header();
     </h1>
   </div>
   <p>
-    <span data-en>Hakshan Cuisines (客善) is a sub-brand of Ying Ker Lou (迎客楼) — an eighteen-year-old Hakka cuisine operator that has opened thirteen retail outlets across Malaysia's major shopping malls. Launched in February 2024, Hakshan inherits Ying Ker Lou's central kitchen, SOPs and supply chain intact, and meets the customer at a more accessible price point: an RM 15 set, with fifteen percent of every ringgit structurally returned to community causes. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
-    <span data-zh>客 善 是 迎 客 楼 的 子 品 牌 — 迎 客 楼 是 一 个 经 营 十 八 年、于 各 大 商 场 开 设 过 十 三 家 门 店 的 客 家 料 理 老 字 号。客 善 于 2024 年 2 月 启 动，沿 用 迎 客 楼 的 中 央 厨 房、营 业 流 程 与 供 应 链，将 同 一 厨 房 的 菜 品 带 到 更 平 易 的 价 位 — RM 15 套 餐，营 收 的 15% 以 制 度 形 式 回 馈 社 区。目 前 营 运 中 共 九 家 门 店 与 一 家 云 厨 房，第 十 家 门 店 与 第 三 家 云 厨 房 将 于 下 月 开 业。</span>
+    <span data-en>Hakshan Cuisines (客善) was established as an independent venture in February 2024, led by the team behind Ying Ker Lou (迎客楼) — an eighteen-year-old Hakka cuisine brand they grew to thirteen retail outlets across Malaysia's major shopping malls. Hakshan applies the same operating discipline to a more accessible price point: an RM 15 set, with fifteen percent of every ringgit structurally returned to community causes. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
+    <span data-zh>客 善 于 2024 年 2 月 以 独 立 实 体 成 立，由 迎 客 楼 的 创 始 团 队 主 理 — 迎 客 楼 是 团 队 历 时 十 八 年 打 造、于 各 大 商 场 开 设 过 十 三 家 门 店 的 客 家 料 理 老 字 号。客 善 把 同 一 套 运 营 纪 律 带 到 更 平 易 的 价 位 — RM 15 套 餐，营 收 的 15% 以 制 度 形 式 回 馈 社 区。目 前 营 运 中 共 九 家 门 店 与 一 家 云 厨 房，第 十 家 门 店 与 第 三 家 云 厨 房 将 于 下 月 开 业。</span>
   </p>
 </section>
 
@@ -460,13 +460,13 @@ get_header();
   <div class="inv-stats__grid" data-reveal>
     <div class="inv-stat">
       <div class="num">18<span class="unit">yrs</span></div>
-      <div class="lbl"><span data-en>Ying Ker Lou, the parent brand</span><span data-zh>母 品 牌 · 迎 客 楼</span></div>
-      <div class="sub"><span data-en>Pioneer of Malaysian Hakka cuisine</span><span data-zh>马 来 西 亚 客 家 菜 老 字 号</span></div>
+      <div class="lbl"><span data-en>The team's operating track record</span><span data-zh>团 队 经 营 资 历</span></div>
+      <div class="sub"><span data-en>Eighteen years building Ying Ker Lou</span><span data-zh>十 八 年 经 营 迎 客 楼</span></div>
     </div>
     <div class="inv-stat">
       <div class="num">13</div>
-      <div class="lbl"><span data-en>Ying Ker Lou outlets opened</span><span data-zh>迎 客 楼 历 来 门 店</span></div>
-      <div class="sub"><span data-en>Across major shopping malls</span><span data-zh>分 布 于 各 大 商 场</span></div>
+      <div class="lbl"><span data-en>Outlets opened by the same team</span><span data-zh>同 团 队 历 来 开 设 门 店</span></div>
+      <div class="sub"><span data-en>Across major Malaysian shopping malls</span><span data-zh>分 布 于 各 大 商 场</span></div>
     </div>
     <div class="inv-stat">
       <div class="num">9 + 1</div>
@@ -499,13 +499,13 @@ get_header();
       <span data-zh>每 一 餐，不 仅 是 一 道 菜，更 是 对 社 区 的 一 份 贡 献。盈 利 与 慈 善，同 在 一 行 之 中。</span>
     </p>
     <p>
-      <span data-en>Hakshan's strategy is to take Ying Ker Lou's kitchen — eighteen years of supply-chain depth, thirteen retail outlets opened, a working central kitchen and a refined SOP set — and meet the customer at a more accessible price: an RM 15 set, with fifteen percent of every ringgit committed to community causes. The kitchen is not new. The price point and the philanthropic discipline are.</span>
-      <span data-zh>客 善 的 策 略，是 把 迎 客 楼 已 经 走 通 的 厨 房 — 十 八 年 的 供 应 链 积 累、历 来 十 三 家 门 店、自 营 中 央 厨 房 与 成 熟 的 标 准 作 业 流 程 — 带 到 更 平 易 的 价 位 ：RM 15 套 餐，营 收 的 15% 制 度 化 地 回 馈 社 区。厨 房 不 是 新 的，新 的 是 价 位 与 这 份 慈 善 纪 律。</span>
+      <span data-en>Hakshan's proposition begins with eighteen years of accumulated operating experience. The founding team built Ying Ker Lou into a thirteen-outlet Hakka cuisine brand across major Malaysian malls; with Hakshan, they apply the same operating discipline to a more accessible price point — an RM 15 set, with fifteen percent of every ringgit committed to community causes. The expertise is not new. The brand, the price point and the philanthropic discipline are.</span>
+      <span data-zh>客 善 的 提 案，始 于 团 队 累 积 的 十 八 年 经 验。这 支 曾 一 手 打 造 迎 客 楼、于 各 大 商 场 开 出 十 三 家 客 家 门 店 的 团 队，如 今 以 客 善 把 同 一 套 运 营 纪 律 带 到 更 平 易 的 价 位 — RM 15 套 餐，营 收 的 15% 制 度 化 地 回 馈 社 区。经 验 不 是 新 的，新 的 是 品 牌、价 位 与 这 份 慈 善 纪 律。</span>
     </p>
     <span class="small"><span data-en>WHAT MAKES THE MODEL DEFENSIBLE</span><span data-zh>模 式 的 护 城 河</span></span>
     <p>
-      <span data-en>An in-house central kitchen, inherited from Ying Ker Lou. Standard Operating Procedures applied to every Hakshan outlet from day one — not invented under deadline. An ingredient supply chain refined over eighteen years of Ying Ker Lou operations. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book — three generations of Hakka cuisine — that is not for franchise sale.</span>
-      <span data-zh>自 营 中 央 厨 房 — 沿 用 自 迎 客 楼。每 一 家 客 善 门 店 自 开 业 第 一 日 起 即 使 用 成 熟 的 标 准 作 业 流 程 — 不 是 临 时 拼 凑 出 来 的。迎 客 楼 十 八 年 打 磨 的 食 材 供 应 链。「零 浪 费」是 厨 房 纪 律，不 是 营 销 口 号。三 代 人 的 客 家 食 谱 — 不 对 外 出 售。</span>
+      <span data-en>A central kitchen built and operated by the team. Standard Operating Procedures honed across eighteen years and thirteen prior outlets, applied to every Hakshan outlet from day one — not invented under deadline. Supplier relationships eighteen years deep. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book — three generations of Hakka cuisine — that is not for franchise sale.</span>
+      <span data-zh>团 队 自 营 中 央 厨 房。标 准 作 业 流 程 经 十 八 年、十 三 家 门 店 沉 淀，自 第 一 间 客 善 门 店 开 业 之 日 起 即 投 入 使 用 — 不 是 临 时 拼 凑 出 来 的。十 八 年 累 积 的 供 应 商 关 系。「零 浪 费」是 厨 房 纪 律，不 是 营 销 口 号。三 代 人 的 客 家 食 谱 — 不 对 外 出 售。</span>
     </p>
     <span class="small"><span data-en>WHY NOW</span><span data-zh>为 何 此 时</span></span>
     <p>
