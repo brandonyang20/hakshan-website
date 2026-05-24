@@ -813,8 +813,7 @@ get_header();
         <a class="sc-card" href="<?php echo esc_url( $menu_url ); ?>">
           <div class="sc-card__visual"><?php if ( $s['image_html'] ) : echo $s['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $s['label'] ); ?>"></div><?php endif; ?></div>
           <div class="sc-card__body">
-            <h3><span data-en><?php echo esc_html( $s['en'] ); ?></span><span data-zh><?php echo esc_html( $s['zh'] ); ?></span>
-              <span class="cn"><?php echo esc_html( $s['cn'] ); ?></span></h3>
+            <h3><span data-en><?php echo esc_html( $s['en'] ); ?></span><span data-zh><?php echo esc_html( $s['zh'] ); ?></span></h3>
             <p><span data-en><?php echo esc_html( $s['desc_en'] ); ?></span>
               <span data-zh><?php echo esc_html( $s['desc_zh'] ); ?></span></p>
           </div>
@@ -835,8 +834,7 @@ get_header();
         <a class="sc-card" href="<?php echo esc_url( $menu_url ); ?>">
           <div class="sc-card__visual"><div class="ph" data-label="<?php echo esc_attr( $s['label'] ); ?>"></div></div>
           <div class="sc-card__body">
-            <h3><span data-en><?php echo esc_html( $s['en'] ); ?></span><span data-zh><?php echo esc_html( $s['zh'] ); ?></span>
-              <span class="cn"><?php echo esc_html( $s['cn'] ); ?></span></h3>
+            <h3><span data-en><?php echo esc_html( $s['en'] ); ?></span><span data-zh><?php echo esc_html( $s['zh'] ); ?></span></h3>
             <p><span data-en><?php echo esc_html( $s['desc_en'] ); ?></span>
               <span data-zh><?php echo esc_html( $s['desc_zh'] ); ?></span></p>
           </div>

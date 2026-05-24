@@ -177,7 +177,7 @@ if ( ! empty( $section_terms ) ) :
       $d = hakshan_get_dish_data( $dish_post->ID );
       ?>
     <div class="dish"><div class="dish__visual"><?php if ( $d['image_html'] ) : echo $d['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $d['label'] ); ?>"></div><?php endif; ?></div><div>
-      <h3><span data-en><?php echo esc_html( $d['en'] ); ?></span><span data-zh><?php echo esc_html( $d['zh'] ); ?></span> <span class="cn"><?php echo esc_html( $d['cn'] ); ?></span></h3>
+      <h3><span data-en><?php echo esc_html( $d['en'] ); ?></span><span data-zh><?php echo esc_html( $d['zh'] ); ?></span></h3>
       <p><span data-en><?php echo wp_kses_post( $d['desc_en'] ); ?></span>
         <span data-zh><?php echo esc_html( $d['desc_zh'] ); ?></span></p>
     </div></div>
@@ -201,7 +201,7 @@ else :
   <div class="menu-section__list">
     <?php foreach ( $section['dishes'] as $dish ) : ?>
     <div class="dish"><div class="dish__visual"><div class="ph" data-label="<?php echo esc_attr( $dish['label'] ); ?>"></div></div><div>
-      <h3><span data-en><?php echo esc_html( $dish['en'] ); ?></span><span data-zh><?php echo esc_html( $dish['zh'] ); ?></span> <span class="cn"><?php echo esc_html( $dish['cn'] ); ?></span></h3>
+      <h3><span data-en><?php echo esc_html( $dish['en'] ); ?></span><span data-zh><?php echo esc_html( $dish['zh'] ); ?></span></h3>
       <p><span data-en><?php echo wp_kses_post( $dish['desc_en'] ); ?></span>
         <span data-zh><?php echo esc_html( $dish['desc_zh'] ); ?></span></p>
     </div></div>
