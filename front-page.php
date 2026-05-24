@@ -750,8 +750,8 @@ get_header();
         <div class="gen__year">1958</div>
         <div>
           <h3><span data-en>The first generation</span><span data-zh>第 一 代</span></h3>
-          <p><span data-en>A home kitchen in Seremban. Salted chicken cooked over rambutan-wood fire. Every meal is hers; every meal is for the family. The recipes live in her hands — nothing is written down.</span>
-            <span data-zh>芙蓉一间家中厨房。红毛丹木火上焗盐鸡。每一餐都是她下厨，每一餐都给家人。食谱在她手上 — 一字未落于纸。</span></p>
+          <p><span data-en>A home kitchen in Seremban. Every meal is hers; every meal is for the family. The recipes live in her hands — nothing is written down.</span>
+            <span data-zh>芙蓉一间家中厨房。每一餐都是她下厨，每一餐都给家人。食谱在她手上 — 一字未落于纸。</span></p>
         </div>
       </div>
       <div class="gen">
@@ -766,8 +766,8 @@ get_header();
         <div class="gen__year">2024</div>
         <div>
           <h3><span data-en>The third generation</span><span data-zh>第 三 代</span></h3>
-          <p><span data-en>In February 2024, Hakshan opens its first dining room in USJ. Same dishes. Same paper. The book stays in the kitchen; the chairs are new.</span>
-            <span data-zh>2024 年 2 月，客善在 USJ 开出第一间餐厅。菜还是那些菜，纸还是那叠纸。食谱留在厨房里，椅子换了。</span></p>
+          <p><span data-en>In February 2024, Hakshan opens its first dining room in USJ. Same dishes, same recipe, new chairs.</span>
+            <span data-zh>2024 年 2 月，客善在 USJ 开出第一间餐厅。菜没变，食谱没变，椅子换了。</span></p>
         </div>
       </div>
       <div class="gen">
