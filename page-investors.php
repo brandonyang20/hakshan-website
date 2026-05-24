@@ -54,104 +54,7 @@ get_header();
     color: var(--forest);
   }
 
-  /* Trajectory chart */
-  .trajectory {
-    background: var(--cream);
-    padding: clamp(80px, 12vw, 140px) var(--rail);
-    border-top: 1px solid var(--line-soft);
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .trajectory__inner { max-width: var(--maxw); margin: 0 auto; }
-  .trajectory__head {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: end;
-    margin-bottom: 56px;
-  }
-  .trajectory__head h2 {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1;
-    margin: 12px 0 0;
-    letter-spacing: -0.02em;
-  }
-  .trajectory__head h2 em { color: var(--forest); }
-  .trajectory__head p {
-    font-size: 15px;
-    color: var(--ink-soft);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .traj-chart {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    padding: 32px 32px 24px;
-  }
-  .traj-chart__head {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    padding-bottom: 24px;
-    border-bottom: 1px dashed var(--line);
-    margin-bottom: 24px;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--forest);
-  }
-  .traj-chart__head strong {
-    display: block;
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 22px;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-    margin-bottom: 6px;
-    text-transform: none;
-  }
-
-  .bars {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 12px;
-    align-items: end;
-    height: 240px;
-    margin-bottom: 16px;
-  }
-  .bar {
-    background: var(--cream);
-    border-top: 1px solid var(--forest);
-    position: relative;
-    transition: background 0.2s;
-  }
-  .bar:hover { background: var(--forest); }
-  .bar .val {
-    position: absolute;
-    top: -22px; left: 0; right: 0;
-    text-align: center;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.04em;
-    color: var(--forest);
-  }
-  .bars-axis {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 12px;
-    padding-top: 8px;
-    border-top: 1px solid var(--line);
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    color: var(--mute);
-    text-align: center;
-  }
-
-  /* Charity model */
+  /* Charity / Unit-economics flow */
   .model {
     padding: clamp(80px, 12vw, 140px) var(--rail);
     max-width: var(--maxw);
@@ -239,16 +142,22 @@ get_header();
   }
   .model-node.accent { background: var(--cream); }
 
-  /* Governance row */
-  .gov {
+  /* Footprint list */
+  .footprint {
     background: var(--cream);
     padding: clamp(80px, 12vw, 140px) var(--rail);
     border-top: 1px solid var(--line-soft);
     border-bottom: 1px solid var(--line-soft);
   }
-  .gov__inner { max-width: var(--maxw); margin: 0 auto; }
-  .gov__head { margin-bottom: 48px; max-width: 800px; }
-  .gov__head h2 {
+  .footprint__inner { max-width: var(--maxw); margin: 0 auto; }
+  .footprint__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  .footprint__head h2 {
     font-family: var(--serif);
     font-style: italic;
     font-size: clamp(36px, 5vw, 64px);
@@ -256,20 +165,26 @@ get_header();
     margin: 12px 0 0;
     letter-spacing: -0.02em;
   }
-  .gov__head h2 em { color: var(--forest); }
-  .gov__list {
+  .footprint__head h2 em { color: var(--forest); }
+  .footprint__head p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .fp-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
     border-top: 1px solid var(--line);
   }
-  .gov-row {
+  .fp-row {
     padding: 28px 32px 28px 0;
     border-bottom: 1px solid var(--line);
   }
-  .gov-row + .gov-row { border-left: 1px solid var(--line); padding-left: 32px; }
-  .gov-row:nth-child(3n+1) { padding-left: 0; border-left: none; }
-  .gov-row h4 {
+  .fp-row + .fp-row { border-left: 1px solid var(--line); padding-left: 32px; }
+  .fp-row:nth-child(3n+1) { padding-left: 0; border-left: none; }
+  .fp-row h4 {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.16em;
@@ -277,18 +192,178 @@ get_header();
     color: var(--forest);
     margin: 0 0 12px;
   }
-  .gov-row .name {
+  .fp-row .name {
     font-family: var(--serif);
     font-style: italic;
     font-size: 26px;
     margin: 0 0 6px;
     letter-spacing: -0.01em;
   }
-  .gov-row p {
+  .fp-row p {
     font-size: 13px;
     line-height: 1.6;
     color: var(--ink-soft);
     margin: 0;
+  }
+
+  /* Investment terms */
+  .terms {
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .terms__head { margin-bottom: 48px; max-width: 800px; }
+  .terms__head h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 5.6vw, 76px);
+    line-height: 1;
+    margin: 12px 0 0;
+    letter-spacing: -0.025em;
+  }
+  .terms__head h2 em { color: var(--forest); }
+  .terms__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .terms-card {
+    padding: 32px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .terms-card.accent { background: var(--cream); border-color: var(--forest); }
+  .terms-card .ix {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--forest);
+    text-transform: uppercase;
+  }
+  .terms-card h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .terms-card h3 em { color: var(--forest); }
+  .terms-card .vals { display: grid; gap: 12px; margin-top: 4px; }
+  .terms-card .vals .row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--line);
+    gap: 16px;
+  }
+  .terms-card .vals .row:last-child { border-bottom: none; padding-bottom: 0; }
+  .terms-card .vals dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    flex-shrink: 0;
+  }
+  .terms-card .vals dd {
+    margin: 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    text-align: right;
+  }
+  .terms-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .terms-card .pill {
+    align-self: flex-start;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: var(--forest);
+    color: var(--cream);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .terms-card.accent .pill { background: var(--ink); }
+  .terms__note {
+    margin-top: 40px;
+    padding: 20px 24px;
+    border-left: 3px solid var(--forest);
+    background: var(--cream);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 64ch;
+  }
+
+  /* Returns row (reuses governance grid pattern) */
+  .returns {
+    background: var(--cream);
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .returns__inner { max-width: var(--maxw); margin: 0 auto; }
+  .returns__head { margin-bottom: 48px; max-width: 800px; }
+  .returns__head h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    margin: 12px 0 0;
+    letter-spacing: -0.02em;
+  }
+  .returns__head h2 em { color: var(--forest); }
+  .returns__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .ret-row {
+    padding: 28px 32px 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .ret-row + .ret-row { border-left: 1px solid var(--line); padding-left: 32px; }
+  .ret-row:nth-child(3n+1) { padding-left: 0; border-left: none; }
+  .ret-row h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin: 0 0 12px;
+  }
+  .ret-row .name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .ret-row p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .returns__note {
+    margin-top: 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
   }
 
   /* Pull quote */
@@ -328,13 +403,37 @@ get_header();
     padding-bottom: clamp(60px, 8vw, 100px);
   }
 
+  /* Investor contact form embed */
+  .inv-contact .form-wrap {
+    background: var(--cream);
+    padding: 28px;
+    color: var(--ink);
+  }
+  .inv-contact .form-wrap h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+    color: var(--forest);
+  }
+  .inv-contact .form-wrap p,
+  .inv-contact .form-wrap label {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
   @media (max-width: 980px) {
-    .inv-narrative, .trajectory__head, .model__head { grid-template-columns: 1fr; gap: 32px; }
+    .inv-narrative, .footprint__head, .model__head { grid-template-columns: 1fr; gap: 32px; }
     .model__flow { grid-template-columns: 1fr 1fr; gap: 32px; }
     .model-node::after { display: none; }
-    .gov__list { grid-template-columns: 1fr; }
-    .gov-row, .gov-row + .gov-row { padding-left: 0; border-left: none; }
+    .fp-grid, .returns__list { grid-template-columns: 1fr; }
+    .fp-row, .fp-row + .fp-row,
+    .ret-row, .ret-row + .ret-row { padding-left: 0; border-left: none; }
     .inv-stats__grid { grid-template-columns: 1fr 1fr; }
+    .terms__grid { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -346,13 +445,13 @@ get_header();
       <span data-zh>投 资 者 关 系</span>
     </span>
     <h1>
-      <span data-en>Quietly,<br/><em>and on time.</em></span>
-      <span data-zh>静 静 地，<br/><em>且 准 时。</em></span>
+      <span data-en>An 18-year recipe,<br/><em>opening doors.</em></span>
+      <span data-zh>十 八 年 的 火 候，<br/><em>正 在 开 门。</em></span>
     </h1>
   </div>
   <p>
-    <span data-en>Hakshan is a privately-held Sdn. Bhd. registered in Malaysia. We publish audited financials annually, the charity ledger quarterly, and the recipe book never. Below is the public picture.</span>
-    <span data-zh>客 善 是 一 家 在 马 来 西 亚 注 册 的 私 人 有 限 公 司。我 们 每 年 公 布 审 计 财 报，每 季 度 公 布 慈 善 账 目，而 食 谱 从 不 公 开。以 下 为 公 共 部 分。</span>
+    <span data-en>Hakshan Cuisines is a Hakka restaurant group built on three convictions: that good food should be affordable, that profitability and philanthropy belong in the same line item, and that a kitchen earns its growth slowly. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
+    <span data-zh>客 善 客 家 餐 饮 集 团 秉 承 三 个 信 念：好 的 食 物 应 当 平 价、盈 利 与 慈 善 同 处 一 行、以 及 餐 厅 须 凭 时 间 累 积 增 长。目 前 营 运 中 共 九 家 门 店 与 一 家 云 厨 房，第 十 家 门 店 与 第 三 家 云 厨 房 将 于 下 月 开 业。</span>
   </p>
 </section>
 
@@ -360,29 +459,29 @@ get_header();
 <section class="inv-stats">
   <div class="inv-stats__grid" data-reveal>
     <div class="inv-stat">
-      <div class="num">RM 86<span class="unit">m</span></div>
-      <div class="lbl"><span data-en>Revenue · FY 2025</span><span data-zh>营 收 · 2025 财 年</span></div>
-      <div class="sub"><span data-en>+ 38% YoY · pre-audit</span><span data-zh>同 比 + 38% · 审 计 前</span></div>
+      <div class="num">18<span class="unit">yrs</span></div>
+      <div class="lbl"><span data-en>Food supply chain</span><span data-zh>食 品 供 应 链</span></div>
+      <div class="sub"><span data-en>End-to-end ingredient sourcing</span><span data-zh>从 源 头 到 厨 房</span></div>
     </div>
     <div class="inv-stat">
-      <div class="num">22<span class="unit">%</span></div>
-      <div class="lbl"><span data-en>EBITDA margin · FY 2025</span><span data-zh>EBITDA 利 润 率 · 2025</span></div>
-      <div class="sub"><span data-en>F&amp;B sector avg: 12%</span><span data-zh>餐 饮 业 平 均：12%</span></div>
+      <div class="num">13<span class="unit">yrs</span></div>
+      <div class="lbl"><span data-en>Franchise operations</span><span data-zh>加 盟 运 营</span></div>
+      <div class="sub"><span data-en>SOPs refined across every outlet</span><span data-zh>多 店 通 用 标 准 作 业 流 程</span></div>
     </div>
     <div class="inv-stat">
-      <div class="num">9</div>
-      <div class="lbl"><span data-en>Outlets · Klang Valley</span><span data-zh>分 店 · 巴 生 谷</span></div>
-      <div class="sub"><span data-en>10th opens Penang, Apr 2026</span><span data-zh>第 十 家 槟 城 · 2026 年 4 月</span></div>
+      <div class="num">9 + 1</div>
+      <div class="lbl"><span data-en>Retail + cloud kitchen</span><span data-zh>门 店 + 云 厨 房</span></div>
+      <div class="sub"><span data-en>10th retail &amp; 3rd cloud kitchen · next month</span><span data-zh>第 10 家 门 店 与 第 3 家 云 厨 房 · 下 月</span></div>
     </div>
     <div class="inv-stat">
-      <div class="num">RM 2.4<span class="unit">M</span></div>
-      <div class="lbl"><span data-en>Donated to charity · since 2018</span><span data-zh>累 计 慈 善 · 自 2018</span></div>
-      <div class="sub"><span data-en>≈ 3.1% of cumulative revenue</span><span data-zh>≈ 累 计 营 收 3.1%</span></div>
+      <div class="num">15<span class="unit">%</span></div>
+      <div class="lbl"><span data-en>Of revenue to charity</span><span data-zh>营 收 投 入 慈 善</span></div>
+      <div class="sub"><span data-en>Structural · not a side initiative</span><span data-zh>制 度 化 · 非 附 加 项 目</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============== NARRATIVE ============== -->
+<!-- ============== NARRATIVE — INVESTMENT CASE ============== -->
 <section class="inv-narrative">
   <div data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
@@ -390,145 +489,143 @@ get_header();
       <span data-zh>一 · 投 资 要 点</span>
     </span>
     <h2>
-      <span data-en>A small kitchen,<br/><em>compounding.</em></span>
-      <span data-zh>一 间 小 厨 房，<br/><em>正 在 复 利。</em></span>
+      <span data-en>Affordable food,<br/><em>with intent.</em></span>
+      <span data-zh>平 价 的 食 物，<br/><em>有 心 的 经 营。</em></span>
     </h2>
   </div>
   <div class="inv-narrative__body" data-reveal>
     <p class="lead">
-      <span data-en>We open at the pace of trust, not capital. Eight years, nine outlets, one recipe book — and the same wok master at every opening.</span>
-      <span data-zh>我 们 不 按 资 金 节 奏 开 店，按 信 任 节 奏。八 年，九 家，一 本 食 谱 — 每 一 家 新 店 开 张，都 由 同 一 位 主 厨 亲 自 掌 勺。</span>
+      <span data-en>Each meal isn't just a culinary delight — it's a contribution to the community. Profit and philanthropy share the same line item.</span>
+      <span data-zh>每 一 餐，不 仅 是 一 道 菜，更 是 对 社 区 的 一 份 贡 献。盈 利 与 慈 善，同 在 一 行 之 中。</span>
     </p>
     <p>
-      <span data-en>Hakshan is a quiet, profitable, slow-compounding Hakka restaurant group. Our unit economics are unfashionably good for the F&amp;B sector — 22% EBITDA, 14-month payback per outlet, and a customer who comes back 4.3 times a year. The charity model is funded entirely out of the gross margin and has never required outside capital.</span>
-      <span data-zh>客 善 是 一 间 安 静、盈 利、慢 速 复 利 的 客 家 餐 饮 集 团。在 餐 饮 业，我 们 的 单 店 经 济 学 出 奇 地 好 — EBITDA 22%，单 店 14 个 月 回 本，客 人 年 均 回 访 4.3 次。慈 善 模 式 完 全 由 毛 利 承 担，至 今 无 需 外 部 资 金。</span>
+      <span data-en>Hakshan's strategy revolves around making authentic Hakka cuisine accessible to a wide audience — at a price point built around an RM 15 set. With 18 years of food supply-chain experience and 13 years of franchise operations, the model is refined enough that every outlet looks, tastes and runs the same way, and disciplined enough that every outlet contributes a fixed share of revenue to community causes.</span>
+      <span data-zh>客 善 的 策 略，是 让 真 正 的 客 家 菜 走 入 大 众 — 主 力 套 餐 定 价 RM 15。十 八 年 的 食 品 供 应 链 经 验、十 三 年 的 加 盟 运 营，让 模 式 足 够 成 熟：每 一 家 门 店 的 外 观、味 道、流 程 一 致；每 一 家 门 店 都 把 营 收 的 固 定 比 例 投 入 社 区。</span>
+    </p>
+    <span class="small"><span data-en>WHAT MAKES THE MODEL DEFENSIBLE</span><span data-zh>模 式 的 护 城 河</span></span>
+    <p>
+      <span data-en>A central kitchen owned in-house. Standard Operating Procedures across every outlet. An ingredient supply chain refined over 18 years. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book — three generations of Hakka cuisine — that is not for franchise sale.</span>
+      <span data-zh>自 营 中 央 厨 房。每 家 门 店 通 用 的 标 准 作 业 流 程。十 八 年 打 磨 的 食 材 供 应 链。「零 浪 费」是 厨 房 纪 律，不 是 营 销 口 号。三 代 人 的 客 家 食 谱 — 不 对 外 出 售。</span>
     </p>
     <span class="small"><span data-en>WHY NOW</span><span data-zh>为 何 此 时</span></span>
     <p>
-      <span data-en>We are raising a small, friends-and-strategics Series A in Q2 2026 to fund the Penang outlet, the second Mont Kiara location, and a long-overdue refresh of the central kitchen. We are not raising more than we can use within 24 months. We are not raising to expand outside Malaysia.</span>
-      <span data-zh>我 们 拟 于 2026 年 第 二 季 度 进 行 一 轮 小 规 模 A 轮 — 仅 限 朋 友 与 战 略 投 资 人 — 用 于 槟 城 分 店、第 二 间 满 家 乐 店、与 拖 延 已 久 的 中 央 厨 房 翻 新。融 资 额 不 超 过 24 个 月 内 可 使 用 部 分。我 们 不 会 用 这 笔 钱 出 海。</span>
-    </p>
-    <span class="small"><span data-en>WHAT WE WILL NEVER DO</span><span data-zh>我 们 永 不 会 做 的</span></span>
-    <p>
-      <span data-en>Franchise the recipe book. Sell branded sauces in supermarkets. List on a public exchange. Cut the charity contribution. Replace the wood-fire salt-baking. Print the charity amount on the receipt.</span>
-      <span data-zh>把 食 谱 卖 给 加 盟 商。在 超 市 卖 自 牌 酱 料。挂 牌 上 市。削 减 慈 善 比 例。改 用 电 烤 取 代 木 火 盐 焗。把 慈 善 金 额 印 上 收 据。</span>
+      <span data-en>Expansion is already in motion. The 10th retail outlet and the 3rd cloud kitchen open next month. A Penang outlet (Tanjong Tokong) is targeted for Q2 2026. Pipeline locations include Damansara Uptown, SS15 Subang, the Sunway University area, SS2 Petaling Jaya and Section 14 Petaling Jaya — each chosen for its community profile, not its rent yield.</span>
+      <span data-zh>扩 张 已 在 进 行。第 十 家 门 店 与 第 三 家 云 厨 房 将 于 下 月 开 业。槟 城 丹 绒 道 光 店 计 划 于 2026 年 第 二 季 度 开 业。待 进 入 的 地 段 包 括：白 沙 罗 上 城、梳 邦 SS15、双 威 大 学 一 带、八 打 灵 SS2、八 打 灵 14 区 — 选 址 看 的 是 社 区 气 质，不 是 租 金 回 报。</span>
     </p>
   </div>
 </section>
 
-<!-- ============== TRAJECTORY ============== -->
-<section class="trajectory">
-  <div class="trajectory__inner">
-    <div class="trajectory__head" data-reveal>
-      <div>
-        <span class="h-eyebrow"><span class="dot"></span>
-          <span data-en>II · TRAJECTORY · 2018 → 2025</span>
-          <span data-zh>二 · 增 长 轨 迹 · 2018 → 2025</span>
-        </span>
-        <h2>
-          <span data-en>Slow line,<br/><em>up and to the right.</em></span>
-          <span data-zh>一 条 缓 缓 的 线，<br/><em>向 右 上 方。</em></span>
-        </h2>
-      </div>
-      <p>
-        <span data-en>Group revenue (RM, millions), audited FY 2018 — 2024; pre-audit FY 2025. CAGR over the period: 41.2%. No outlet has ever closed.</span>
-        <span data-zh>集 团 营 收（RM 百 万），2018 — 2024 经 审 计；2025 财 年 审 计 前 数 据。期 间 复 合 增 长 率：41.2%。从 未 关 闭 任 何 一 家 分 店。</span>
-      </p>
-    </div>
-
-    <div class="traj-chart" data-reveal>
-      <div class="traj-chart__head">
-        <div>
-          <strong><span data-en>Revenue, RM million</span><span data-zh>营 收 · 百 万 令 吉</span></strong>
-          <span data-en>SOURCE · ANNUAL AUDIT, BAKER TILLY MY · FY18—FY25</span>
-          <span data-zh>来 源 · 年 度 审 计，Baker Tilly MY · 18—25 财 年</span>
-        </div>
-        <span>FY18 — FY25</span>
-      </div>
-      <div class="bars">
-        <div class="bar" style="height: 9%;"><span class="val">4</span></div>
-        <div class="bar" style="height: 19%;"><span class="val">9</span></div>
-        <div class="bar" style="height: 28%;"><span class="val">14</span></div>
-        <div class="bar" style="height: 36%;"><span class="val">19</span></div>
-        <div class="bar" style="height: 48%;"><span class="val">28</span></div>
-        <div class="bar" style="height: 62%;"><span class="val">42</span></div>
-        <div class="bar" style="height: 88%;"><span class="val">62</span></div>
-        <div class="bar" style="height: 100%; background: var(--forest);"><span class="val" style="color: var(--ink); font-weight: 500;">86</span></div>
-      </div>
-      <div class="bars-axis">
-        <div>FY18</div><div>FY19</div><div>FY20</div><div>FY21</div>
-        <div>FY22</div><div>FY23</div><div>FY24</div><div>FY25e</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== CHARITY MODEL ============== -->
+<!-- ============== UNIT ECONOMICS — FRANCHISE COST FLOW ============== -->
 <section class="model" id="model">
   <div class="model__head" data-reveal>
     <div>
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>III · THE CHARITY MODEL</span>
-        <span data-zh>三 · 慈 善 模 式</span>
+        <span data-en>II · UNIT ECONOMICS</span>
+        <span data-zh>二 · 单 店 经 济 学</span>
       </span>
       <h2>
-        <span data-en>The flow,<br/>in <em>five steps.</em></span>
-        <span data-zh>五 步 之 <em>流。</em></span>
+        <span data-en>Every ringgit,<br/><em>accounted for.</em></span>
+        <span data-zh>每 一 元，<br/><em>都 有 去 处。</em></span>
       </h2>
     </div>
     <p>
-      <span data-en>A fixed percentage of every bill is routed the same evening, never quarterly. The mechanism is audited by MyCare, published in the quarterly charity ledger, and is the single line we will not move on.</span>
-      <span data-zh>每 张 账 单 的 固 定 比 例 于 当 晚 划 出 — 从 不 按 季 结 算。机 制 由 MyCare 年 度 审 计，每 季 公 布 慈 善 账 目；这 是 我 们 唯 一 不 会 让 步 的 一 条 线。</span>
+      <span data-en>Each franchise is engineered around a fixed cost structure. Food is held at 30% of revenue; operating expense (rent, utilities, ~10 staff) at 21%; charity at 15% — non-negotiable. What's left is the net margin, which the model targets at roughly one-third of revenue.</span>
+      <span data-zh>每 一 家 加 盟 店 的 成 本 结 构 固 定：食 材 30%；运 营 费 用（租 金、水 电、约 10 名 员 工）21%；慈 善 15% — 不 可 调 整。剩 下 的，便 是 净 利 率，模 型 大 致 定 在 营 收 的 三 分 之 一。</span>
     </p>
   </div>
 
   <div class="model__flow" data-reveal>
     <div class="model-node">
-      <span class="ix">N° 01</span>
-      <h4><span data-en>The bill</span><span data-zh>账 单</span>
-        <span class="cn">一 张 单</span></h4>
-      <p><span data-en>Dinner paid normally. Receipt shows the food.</span>
-        <span data-zh>正 常 付 账。收 据 只 显 示 菜 品。</span></p>
+      <div class="ix">01 · REVENUE</div>
+      <h4><span data-en>Revenue</span><span data-zh>营 业 额</span><span class="cn">营 业 额</span></h4>
+      <p><span data-en>RM 15 set as the core price anchor. Per-franchise monthly target supplied on request.</span>
+        <span data-zh>RM 15 套 餐 为 核 心 锚 点。单 店 月 度 目 标 应 求 提 供。</span></p>
     </div>
     <div class="model-node">
-      <span class="ix">N° 02</span>
-      <h4><span data-en>Fixed split</span><span data-zh>固 定 划 拨</span>
-        <span class="cn">固 定 比 例</span></h4>
-      <p><span data-en>3.1% routed automatically that same evening.</span>
-        <span data-zh>当 晚 自 动 划 出 3.1%。</span></p>
+      <div class="ix">02 · FOOD</div>
+      <h4><span data-en>Food cost</span><span data-zh>食 材 成 本</span><span class="cn">食 材 成 本</span></h4>
+      <p><span data-en>30% of revenue. Fresh ingredients sourced through the in-house supply chain.</span>
+        <span data-zh>占 营 收 30%。新 鲜 食 材 由 自 营 供 应 链 统 一 采 购。</span></p>
+    </div>
+    <div class="model-node">
+      <div class="ix">03 · OPEX</div>
+      <h4><span data-en>Operating expense</span><span data-zh>运 营 费 用</span><span class="cn">运 营 费 用</span></h4>
+      <p><span data-en>21% — rent, utilities, and a team of around ten per outlet.</span>
+        <span data-zh>占 21% — 含 租 金、水 电、约 十 人 团 队。</span></p>
     </div>
     <div class="model-node accent">
-      <span class="ix">N° 03</span>
-      <h4><span data-en>The charity holding</span><span data-zh>慈 善 账 户</span>
-        <span class="cn">慈 善 户</span></h4>
-      <p><span data-en>Ringfenced sub-account. Audited yearly, public quarterly.</span>
-        <span data-zh>独 立 子 账 户。年 度 审 计，每 季 公 开。</span></p>
+      <div class="ix">04 · CHARITY</div>
+      <h4><span data-en>Charity contribution</span><span data-zh>慈 善 投 入</span><span class="cn">慈 善 投 入</span></h4>
+      <p><span data-en>15% of revenue — structural. Allocated to education, elderly care and animal welfare.</span>
+        <span data-zh>占 营 收 15% — 制 度 化。用 于 教 育、敬 老、关 爱 流 浪 动 物。</span></p>
     </div>
     <div class="model-node">
-      <span class="ix">N° 04</span>
-      <h4><span data-en>42 partner kitchens</span><span data-zh>42 家 厨 房</span>
-        <span class="cn">合 作 厨 房</span></h4>
-      <p><span data-en>Community + elder care. Klang Valley, Pahang, Negeri Sembilan.</span>
-        <span data-zh>社 区 与 长 者 送 餐。雪 · 彭 · 森。</span></p>
-    </div>
-    <div class="model-node">
-      <span class="ix">N° 05</span>
-      <h4><span data-en>One open seat</span><span data-zh>一 张 桌</span>
-        <span class="cn">慈 善 桌</span></h4>
-      <p><span data-en>Reserved nightly, all 9 outlets. No questions asked.</span>
-        <span data-zh>9 家 每 晚 保 留 · 不 问 来 历。</span></p>
+      <div class="ix">05 · NET</div>
+      <h4><span data-en>Net margin</span><span data-zh>净 利 率</span><span class="cn">净 利 率</span></h4>
+      <p><span data-en>Targeted at ~33.5% of revenue. Full per-franchise figures available on request.</span>
+        <span data-zh>目 标 约 营 收 33.5%。完 整 单 店 财 务 数 据 应 求 提 供。</span></p>
     </div>
   </div>
+</section>
 
-  <div class="inv-stats__grid" data-reveal>
-    <div class="inv-stat"><div class="num">3.1<span class="unit">%</span></div>
-      <div class="lbl"><span data-en>Of revenue · fixed split</span><span data-zh>营 收 比 例 · 固 定</span></div></div>
-    <div class="inv-stat"><div class="num">186<span class="unit">k</span></div>
-      <div class="lbl"><span data-en>Meals donated · since 2018</span><span data-zh>累 计 餐 数 · 自 2018</span></div></div>
-    <div class="inv-stat"><div class="num">42</div>
-      <div class="lbl"><span data-en>Partner kitchens</span><span data-zh>合 作 厨 房</span></div></div>
-    <div class="inv-stat"><div class="num">9 / 9</div>
-      <div class="lbl"><span data-en>Outlets with charity table</span><span data-zh>设 慈 善 桌 分 店</span></div></div>
+<!-- ============== FOOTPRINT & EXPANSION ============== -->
+<section class="footprint" id="footprint">
+  <div class="footprint__inner">
+    <div class="footprint__head" data-reveal>
+      <div>
+        <span class="h-eyebrow"><span class="dot"></span>
+          <span data-en>III · FOOTPRINT &amp; EXPANSION</span>
+          <span data-zh>三 · 现 有 与 扩 张</span>
+        </span>
+        <h2>
+          <span data-en>Where the kitchens<br/><em>are, and aren't yet.</em></span>
+          <span data-zh>厨 房 现 在 哪 里，<br/><em>下 一 步 在 哪 里。</em></span>
+        </h2>
+      </div>
+      <p>
+        <span data-en>Hakshan grows at the pace of its supply chain — not its capital. Every new location is chosen for its community profile and proximity to the central kitchen. No outlet has been closed since launch.</span>
+        <span data-zh>客 善 的 扩 张 节 奏，跟 着 供 应 链，而 非 资 金。每 一 个 新 址，都 看 社 区 气 质 与 中 央 厨 房 的 距 离。开 业 以 来 无 一 家 门 店 关 闭。</span>
+      </p>
+    </div>
+
+    <div class="fp-grid" data-reveal>
+      <div class="fp-row">
+        <h4><span data-en>OPERATING NOW</span><span data-zh>目 前 营 运</span></h4>
+        <div class="name"><span data-en>9 retail + 1 cloud</span><span data-zh>9 门 店 + 1 云 厨 房</span></div>
+        <p><span data-en>Klang Valley: USJ Taipan, Menjalara, Cheras Traders Sq., Bandar Puteri Puchong, IOI Conezion, Budiman Park Kajang, Arcoris Mont Kiara, The Waterfront ParkCity, Plaza Arkadia.</span>
+          <span data-zh>巴 生 谷：USJ Taipan、满 家 拉、蕉 赖 Traders、蒲 种 Bandar Puteri、布 城 IOI Conezion、加 影 Budiman Park、满 家 乐 Arcoris、ParkCity Waterfront、Plaza Arkadia。</span></p>
+      </div>
+      <div class="fp-row">
+        <h4><span data-en>OPENING NEXT MONTH</span><span data-zh>下 月 开 业</span></h4>
+        <div class="name"><span data-en>10th retail · 3rd cloud</span><span data-zh>第 10 门 店 · 第 3 云 厨 房</span></div>
+        <p><span data-en>Tenth retail outlet and third cloud kitchen go live. Capacity for the year's catering and delivery demand effectively doubles.</span>
+          <span data-zh>第 十 家 门 店 与 第 三 家 云 厨 房 同 步 启 用。今 年 外 送 与 包 办 产 能 大 致 翻 倍。</span></p>
+      </div>
+      <div class="fp-row">
+        <h4><span data-en>Q2 2026 · PENANG</span><span data-zh>2026 Q2 · 槟 城</span></h4>
+        <div class="name"><span data-en>Tanjong Tokong</span><span data-zh>丹 绒 道 光</span></div>
+        <p><span data-en>First outlet outside the Klang Valley. Soft launch invitations open via the investor mailing list.</span>
+          <span data-zh>巴 生 谷 以 外 的 首 店。软 开 邀 请 通 过 投 资 人 名 单 发 出。</span></p>
+      </div>
+      <div class="fp-row">
+        <h4><span data-en>PIPELINE · 2026—2027</span><span data-zh>规 划 中 · 2026—2027</span></h4>
+        <div class="name"><span data-en>Five Klang Valley sites</span><span data-zh>五 个 巴 生 谷 地 段</span></div>
+        <p><span data-en>Damansara Uptown · SS15 Subang · Sunway University · SS2 Petaling Jaya · Section 14 Petaling Jaya. Each shortlisted for community fit, not footfall alone.</span>
+          <span data-zh>白 沙 罗 上 城 · 梳 邦 SS15 · 双 威 大 学 一 带 · 八 打 灵 SS2 · 八 打 灵 14 区。看 社 区 气 质，不 只 看 人 流。</span></p>
+      </div>
+      <div class="fp-row">
+        <h4><span data-en>ON THE HORIZON</span><span data-zh>远 期 规 划</span></h4>
+        <div class="name"><span data-en>Singapore</span><span data-zh>新 加 坡</span></div>
+        <p><span data-en>First overseas market under study. No commitments made; supply-chain feasibility under review.</span>
+          <span data-zh>首 个 海 外 市 场 研 究 中。尚 未 承 诺；供 应 链 可 行 性 评 估 进 行 中。</span></p>
+      </div>
+      <div class="fp-row">
+        <h4><span data-en>NEVER</span><span data-zh>不 会 做 的</span></h4>
+        <div class="name"><span data-en>The recipe book</span><span data-zh>食 谱 本</span></div>
+        <p><span data-en>The recipe book is not for franchise sale. The wok master trains every kitchen lead in person.</span>
+          <span data-zh>食 谱 不 对 外 出 售。每 一 位 厨 房 主 管 由 主 厨 亲 自 培 训。</span></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -536,131 +633,134 @@ get_header();
 <section class="pull-quote">
   <div class="inner" data-reveal>
     <p>
-      <span data-en>"If you're going to give, <em>give quietly.</em> Don't make the guest feel like they bought you a halo."</span>
-      <span data-zh>「要 给，就 静 静 地 给 — <em>别 让 客 人</em> 觉 得 他 给 你 买 了 个 光 环。」</span>
+      <span data-en>A good person inspires <em>goodness in others.</em></span>
+      <span data-zh>善 人 者，<em>人 必 善 之。</em></span>
     </p>
     <div class="by">
-      <span data-en>— TAN WEI KEONG, FOUNDER · ON THE CHARITY MODEL, 2018</span>
-      <span data-zh>— 陈 伟 强 · 创 办 人 · 谈 慈 善 模 式，2018</span>
+      <span data-en>— THE PHILOSOPHY BEHIND HAKSHAN'S BUSINESS MODEL</span>
+      <span data-zh>— 客 善 商 业 模 式 的 信 念</span>
     </div>
   </div>
 </section>
 
-<!-- ============== ANNUAL REPORTS / DOCS ============== -->
-<section class="inv-section" id="reports">
-  <span class="h-eyebrow"><span class="dot"></span>
-    <span data-en>IV · ANNUAL REPORTS &amp; LEDGERS</span>
-    <span data-zh>四 · 年 报 与 慈 善 账 目</span>
-  </span>
-  <h2 data-reveal>
-    <span data-en>The full<br/><em>file room.</em></span>
-    <span data-zh>完 整 <em>档 案。</em></span>
-  </h2>
+<!-- ============== INVESTMENT TERMS ============== -->
+<section class="terms" id="terms">
+  <div class="terms__head" data-reveal>
+    <span class="h-eyebrow"><span class="dot"></span>
+      <span data-en>IV · INVESTMENT TERMS</span>
+      <span data-zh>四 · 投 资 条 款</span>
+    </span>
+    <h2>
+      <span data-en>The shape<br/>of the <em>offer.</em></span>
+      <span data-zh>这 一 轮 的 <em>形 状。</em></span>
+    </h2>
+  </div>
 
-  <div class="docs" data-reveal>
-    <?php
-    $docs = array(
-      array( 'num' => 'N° 01', 'h_en' => 'Annual Report · FY 2024',          'h_zh' => '年 度 报 告 · 2024',     'm_en' => 'AUDITED · BAKER TILLY MY', 'm_zh' => '审 计 · BAKER TILLY MY', 'size' => '4.2 MB · 84pp' ),
-      array( 'num' => 'N° 02', 'h_en' => 'Charity Ledger · Q4 2025',         'h_zh' => '慈 善 账 目 · 2025 Q4',  'm_en' => 'VERIFIED · MYCARE',        'm_zh' => '认 证 · MYCARE',         'size' => '1.1 MB · 22pp' ),
-      array( 'num' => 'N° 03', 'h_en' => 'Series A Deck · 2026',             'h_zh' => 'A 轮 路 演 · 2026',      'm_en' => 'NDA REQUIRED',             'm_zh' => '需 签 保 密 协 议',       'size' => '12.4 MB · 38pp' ),
-      array( 'num' => 'N° 04', 'h_en' => 'Charity Ledger · Q3 2025',         'h_zh' => '慈 善 账 目 · 2025 Q3',  'm_en' => 'VERIFIED · MYCARE',        'm_zh' => '认 证 · MYCARE',         'size' => '1.0 MB · 22pp' ),
-      array( 'num' => 'N° 05', 'h_en' => 'Annual Report · FY 2023',          'h_zh' => '年 度 报 告 · 2023',     'm_en' => 'AUDITED · BAKER TILLY MY', 'm_zh' => '审 计 · BAKER TILLY MY', 'size' => '3.6 MB · 76pp' ),
-      array( 'num' => 'N° 06', 'h_en' => 'Sustainability Statement · 2025',  'h_zh' => '可 持 续 声 明 · 2025',  'm_en' => 'SCOPE 1 + 2 + 3',          'm_zh' => 'SCOPE 1 + 2 + 3',         'size' => '2.1 MB · 32pp' ),
-    );
-    foreach ( $docs as $d ) :
-      ?>
-      <a class="doc" href="#">
-        <div class="doc__num"><?php echo esc_html( $d['num'] ); ?></div>
-        <h3><span data-en><?php echo esc_html( $d['h_en'] ); ?></span><span data-zh><?php echo esc_html( $d['h_zh'] ); ?></span></h3>
-        <div class="meta"><span data-en><?php echo esc_html( $d['m_en'] ); ?></span><span data-zh><?php echo esc_html( $d['m_zh'] ); ?></span></div>
-        <div class="size"><?php echo esc_html( $d['size'] ); ?></div>
-        <div class="pdf">PDF</div>
-      </a>
-    <?php endforeach; ?>
+  <div class="terms__grid" data-reveal>
+    <div class="terms-card">
+      <span class="pill"><span data-en>STRUCTURE</span><span data-zh>结 构</span></span>
+      <h3><span data-en>Per-franchise <em>equity</em></span><span data-zh>按 单 店 <em>认 购</em></span></h3>
+      <dl class="vals">
+        <div class="row"><dt><span data-en>Valuation</span><span data-zh>估 值</span></dt><dd>RM 1,000,000</dd></div>
+        <div class="row"><dt><span data-en>Open for investment</span><span data-zh>开 放 认 购</span></dt><dd>RM 400,000 (40%)</dd></div>
+        <div class="row"><dt><span data-en>Share type</span><span data-zh>股 份 类 型</span></dt><dd><span data-en>Ordinary</span><span data-zh>普 通 股</span></dd></div>
+        <div class="row"><dt><span data-en>Per lot</span><span data-zh>每 单 位</span></dt><dd>RM 20,000 · 2%</dd></div>
+      </dl>
+    </div>
+
+    <div class="terms-card">
+      <span class="pill"><span data-en>PACKAGE A</span><span data-zh>方 案 A</span></span>
+      <h3><span data-en>Under <em>5 lots</em></span><span data-zh>少 于 <em>五 单 位</em></span></h3>
+      <p><span data-en>Investment below RM 100,000. Equity stake in a single Hakshan retail outlet, with profit-share once initial capital is recovered.</span>
+        <span data-zh>认 购 金 额 低 于 RM 100,000。持 有 单 一 客 善 门 店 股 权，资 本 收 回 后 参 与 利 润 分 享。</span></p>
+    </div>
+
+    <div class="terms-card accent">
+      <span class="pill"><span data-en>PACKAGE B</span><span data-zh>方 案 B</span></span>
+      <h3><span data-en>5 lots <em>and above</em></span><span data-zh>五 单 位 <em>及 以 上</em></span></h3>
+      <p><span data-en>Investment from RM 100,000. Shareholder owns one retail outlet plus access to up to three cloud kitchens — the company's structural safety net for outlet-level underperformance.</span>
+        <span data-zh>认 购 金 额 RM 100,000 以 上。持 有 一 间 门 店，并 可 配 置 至 多 三 间 云 厨 房 — 公 司 用 以 对 冲 单 店 表 现 的 制 度 性 安 排。</span></p>
+    </div>
+  </div>
+
+  <div class="terms__note" data-reveal>
+    <span data-en><strong>Cloud Kitchen safety net.</strong> If a retail outlet under-performs against the model, the company may open up to three cloud kitchens under the investor in non-competing areas, with the intent of supplementing revenue. Specific allocations are agreed case-by-case.</span>
+    <span data-zh><strong>云 厨 房 兜 底 机 制。</strong>若 门 店 表 现 不 及 模 型 预 期，公 司 可 在 不 与 现 有 门 店 竞 争 的 地 段，为 该 投 资 人 开 设 至 多 三 间 云 厨 房，用 以 补 充 营 收。具 体 安 排 视 个 案 商 定。</span>
   </div>
 </section>
 
-<!-- ============== GOVERNANCE ============== -->
-<section class="gov">
-  <div class="gov__inner">
-    <div class="gov__head" data-reveal>
+<!-- ============== RETURNS & ASSURANCE ============== -->
+<section class="returns" id="returns">
+  <div class="returns__inner">
+    <div class="returns__head" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>V · GOVERNANCE &amp; ADVISORY</span>
-        <span data-zh>五 · 治 理 与 顾 问</span>
+        <span data-en>V · RETURNS &amp; ASSURANCE</span>
+        <span data-zh>五 · 回 报 与 保 障</span>
       </span>
       <h2>
-        <span data-en>Who answers<br/>the <em>hard questions.</em></span>
-        <span data-zh>谁 在 回 答<br/><em>难 的 问 题。</em></span>
+        <span data-en>Capital <em>first.</em><br/>Profit-share <em>after.</em></span>
+        <span data-zh><em>先 还 本，</em><br/><em>后 分 润。</em></span>
       </h2>
     </div>
-    <div class="gov__list" data-reveal>
-      <div class="gov-row">
-        <h4><span data-en>CHAIR &amp; FOUNDER</span><span data-zh>董 事 长 兼 创 办 人</span></h4>
-        <div class="name"><span data-en>Tan Wei Ming</span><span data-zh>陈 伟 明</span></div>
-        <p><span data-en>Third generation. Wok master, USJ Taipan. Holds the recipe book.</span>
-          <span data-zh>第 三 代。USJ 主 厨。掌 食 谱。</span></p>
+    <div class="returns__list" data-reveal>
+      <div class="ret-row">
+        <h4><span data-en>CAPITAL RECOVERY</span><span data-zh>本 金 回 收</span></h4>
+        <div class="name"><span data-en>100% of net profit</span><span data-zh>净 利 100%</span></div>
+        <p><span data-en>Until each investor has fully recovered their initial investment, 100% of the franchise's net profit is directed back to investors before any other distribution.</span>
+          <span data-zh>在 投 资 人 本 金 完 全 收 回 之 前，门 店 净 利 的 100% 优 先 用 于 偿 还 本 金，再 进 行 其 他 分 配。</span></p>
       </div>
-      <div class="gov-row">
-        <h4><span data-en>CFO</span><span data-zh>财 务 总 监</span></h4>
-        <div class="name"><span data-en>Cheong Mei Yin</span><span data-zh>张 美 燕</span></div>
-        <p><span data-en>Joined 2020. Built the charity audit pipeline with MyCare.</span>
-          <span data-zh>2020 年 入 职。与 MyCare 共 建 慈 善 审 计 流 程。</span></p>
+      <div class="ret-row">
+        <h4><span data-en>TARGET PAYBACK</span><span data-zh>预 期 回 本</span></h4>
+        <div class="name"><span data-en>Within the first year</span><span data-zh>首 年 内</span></div>
+        <p><span data-en>Internal modelling targets capital recovery within the first year of operation. Projection only — actual payback depends on outlet performance and is not guaranteed.</span>
+          <span data-zh>内 部 模 型 以 开 业 首 年 内 回 本 为 目 标。仅 为 预 测 — 实 际 回 本 视 门 店 表 现，不 构 成 担 保。</span></p>
       </div>
-      <div class="gov-row">
-        <h4><span data-en>HEAD OF CHARITY</span><span data-zh>慈 善 主 任</span></h4>
-        <div class="name"><span data-en>Lim Jia Hui</span><span data-zh>林 嘉 慧</span></div>
-        <p><span data-en>Liaison with 42 partner kitchens. Former Mercy Malaysia.</span>
-          <span data-zh>联 络 42 家 合 作 厨 房。前 Mercy Malaysia 成 员。</span></p>
+      <div class="ret-row">
+        <h4><span data-en>POST-RECOVERY</span><span data-zh>回 本 之 后</span></h4>
+        <div class="name"><span data-en>Ongoing profit-share</span><span data-zh>持 续 利 润 分 享</span></div>
+        <p><span data-en>Once capital is recovered, investors participate in the franchise's ongoing profits according to their equity stake.</span>
+          <span data-zh>本 金 收 回 后，投 资 人 按 持 股 比 例 参 与 门 店 的 持 续 利 润 分 配。</span></p>
       </div>
-      <div class="gov-row">
-        <h4><span data-en>ADVISOR · F&amp;B</span><span data-zh>餐 饮 顾 问</span></h4>
-        <div class="name"><span data-en>YB Datuk Tan Sri Chiew</span><span data-zh>YB 拿 督 周</span></div>
-        <p><span data-en>Founder of Sungei Wang F&amp;B Group. Strategic advisor since 2021.</span>
-          <span data-zh>双 河 餐 饮 集 团 创 办 人。2021 起 担 任 战 略 顾 问。</span></p>
-      </div>
-      <div class="gov-row">
-        <h4><span data-en>ADVISOR · HERITAGE</span><span data-zh>文 化 顾 问</span></h4>
-        <div class="name"><span data-en>Prof. Wong Kim Hoe</span><span data-zh>王 金 和 教 授</span></div>
-        <p><span data-en>UM Hakka Studies. Ensures the recipe book stays the recipe book.</span>
-          <span data-zh>马 大 客 家 研 究。守 护 食 谱 的 原 貌。</span></p>
-      </div>
-      <div class="gov-row">
-        <h4><span data-en>AUDITOR</span><span data-zh>审 计</span></h4>
-        <div class="name">Baker Tilly Malaysia</div>
-        <p><span data-en>Annual audit since FY 2019. Quarterly charity ledger verification by MyCare.</span>
-          <span data-zh>自 2019 年 起 年 度 审 计。慈 善 账 目 由 MyCare 每 季 审 核。</span></p>
-      </div>
+    </div>
+    <div class="returns__note">
+      <span data-en>* PROJECTIONS, NOT GUARANTEES. ACTUAL OUTCOMES DEPEND ON OUTLET PERFORMANCE.</span>
+      <span data-zh>* 上 述 为 预 测，不 构 成 担 保。实 际 结 果 取 决 于 门 店 表 现。</span>
     </div>
   </div>
 </section>
 
 <!-- ============== INV CONTACT ============== -->
-<section class="inv-contact">
+<section class="inv-contact" id="contact">
   <div class="inv-contact__inner">
     <div data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>VI · INVESTOR RELATIONS</span>
-        <span data-zh>六 · 投 资 者 关 系</span>
+        <span data-en>VI · REQUEST THE PACK</span>
+        <span data-zh>六 · 索 取 投 资 资 料</span>
       </span>
       <h2>
         <span data-en>For the<br/>longer<br/><em>conversations.</em></span>
         <span data-zh>更 长 的<br/><em>对 话。</em></span>
       </h2>
+      <div class="card" style="margin-top: 32px;">
+        <h4><span data-en>Direct contact</span><span data-zh>直 接 联 系</span></h4>
+        <p><a href="mailto:hello@hakshan.com" style="color: var(--cream);">hello@hakshan.com</a></p>
+      </div>
     </div>
-    <div data-reveal style="display: grid; gap: 24px;">
-      <div class="card">
-        <h4><span data-en>Investor Relations</span><span data-zh>投 资 者 关 系</span></h4>
-        <p><a href="mailto:ir@hakshan.com" style="color: var(--cream);">ir@hakshan.com</a></p>
-      </div>
-      <div class="card">
-        <h4><span data-en>CFO Direct · By Introduction</span><span data-zh>CFO 直 联 · 需 引 荐</span></h4>
-        <p><span data-en>Cheong Mei Yin — open to existing investors and family offices already on the cap table.</span>
-          <span data-zh>张 美 燕 — 仅 对 现 有 投 资 人 与 已 在 股 东 名 册 的 家 族 办 公 室 开 放。</span></p>
-      </div>
-      <div class="card">
-        <h4><span data-en>Series A · Q2 2026</span><span data-zh>A 轮 · 2026 Q2</span></h4>
-        <p><span data-en>Currently in conversation with strategic partners. We expect to close before the Penang opening.</span>
-          <span data-zh>目 前 正 与 战 略 伙 伴 沟 通。预 计 在 槟 城 开 业 前 关 闭。</span></p>
+    <div data-reveal>
+      <div class="form-wrap">
+        <h4><span data-en>Tell us about you</span><span data-zh>请 留 下 您 的 信 息</span></h4>
+        <?php
+        // Contact Form 7 embed.
+        // Replace REPLACE_ME with the actual form ID once the investor form is created in WP admin
+        // (Contact → Contact Forms). Until then, the placeholder below renders nothing on the front-end.
+        $investor_form_shortcode = '[contact-form-7 id="REPLACE_ME" title="Investor Inquiry"]';
+        $rendered = do_shortcode( $investor_form_shortcode );
+        if ( trim( $rendered ) === trim( $investor_form_shortcode ) || empty( $rendered ) ) {
+          echo '<p><em>' . esc_html__( 'Contact form not yet configured. Please email hello@hakshan.com in the meantime.', 'hakshan' ) . '</em></p>';
+        } else {
+          echo $rendered;
+        }
+        ?>
       </div>
     </div>
   </div>
