@@ -749,33 +749,33 @@ get_header();
       <div class="gen">
         <div class="gen__year">1958</div>
         <div>
-          <h3><span data-en>Ah Por's kitchen</span><span data-zh>阿婆的厨房</span></h3>
-          <p><span data-en>A tin-roofed kitchen in Hulu Selangor. Salted chicken cooked over rambutan-wood fire for villagers walking home from the rubber tap.</span>
-            <span data-zh>乌鲁雪兰莪一间锌板顶小厨房，红毛丹木火上焗盐鸡，喂给从橡胶园归来的村民。</span></p>
+          <h3><span data-en>The first generation</span><span data-zh>第 一 代</span></h3>
+          <p><span data-en>A tin-roofed kitchen in Hulu Selangor. Salted chicken cooked over rambutan-wood fire, fed to villagers walking home from the rubber tap. The recipes live in her hands — not yet on paper.</span>
+            <span data-zh>乌鲁雪兰莪一间锌板顶小厨房，红毛丹木火上焗盐鸡，喂给从橡胶园归来的村民。食谱在她手上，还没写下来。</span></p>
         </div>
       </div>
       <div class="gen">
         <div class="gen__year">1986</div>
         <div>
-          <h3><span data-en>The shophouse years</span><span data-zh>店屋时代</span></h3>
-          <p><span data-en>Father moves the family to Kepong. A two-table shophouse with one wok and one rice cooker. The recipe book travels with him.</span>
-            <span data-zh>父亲举家迁至甲洞，开了一间两张桌的店屋，一锅一镬。食谱也跟着搬了家。</span></p>
+          <h3><span data-en>The second generation</span><span data-zh>第 二 代</span></h3>
+          <p><span data-en>The daughter takes over the wok. She is the first to write the recipes down — onto loose yellow paper, in pencil, with margin notes about which kampung the chicken should come from. The shophouse moves to Kepong; the book moves with it.</span>
+            <span data-zh>女儿接过镬。她第一次把食谱写下来 — 写在泛黄的纸上，用铅笔，旁边批注着鸡要从哪个甘榜来。店屋搬到甲洞，那叠纸跟着搬。</span></p>
         </div>
       </div>
       <div class="gen">
         <div class="gen__year">2018</div>
         <div>
-          <h3><span data-en>Hakshan opens</span><span data-zh>客善开业</span></h3>
-          <p><span data-en>The third generation opens the first dining room in USJ. Same dishes. Same book. New chairs.</span>
-            <span data-zh>第三代在 USJ 开出第一间餐厅。菜还是那些菜，食谱还是那本，只是椅子换了。</span></p>
+          <h3><span data-en>The third generation</span><span data-zh>第 三 代</span></h3>
+          <p><span data-en>Hakshan opens its first dining room in USJ. Same dishes. Same paper. The book stays in the kitchen; the chairs are new.</span>
+            <span data-zh>客善在 USJ 开出第一间餐厅。菜还是那些菜，纸还是那叠纸。食谱留在厨房里，椅子换了。</span></p>
         </div>
       </div>
       <div class="gen">
         <div class="gen__year">2026</div>
         <div>
-          <h3><span data-en>Nine kitchens</span><span data-zh>九家厨房</span></h3>
-          <p><span data-en>Nine dining rooms across Klang Valley. Every outlet runs a charity table — one seat that always belongs to someone else.</span>
-            <span data-zh>九家分店遍布巴生谷，每家都设有「慈善桌」，那张桌永远留给别人。</span></p>
+          <h3><span data-en>Same paper, more kitchens</span><span data-zh>同 一 叠 纸</span></h3>
+          <p><span data-en>The paper has never been retyped. The original sits in the central kitchen; pencilled copies hang in nine more. Every dish on every menu traces back to a margin note left two generations ago.</span>
+            <span data-zh>那叠纸至今没有重打过。原稿留在中央厨房，铅笔字的复印本挂在另外九家。今天菜单上的每一道菜，都能在两代以前的旁批里找到出处。</span></p>
         </div>
       </div>
     </div>
