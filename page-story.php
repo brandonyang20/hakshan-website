@@ -1,10 +1,15 @@
 <?php
-/* Template Name: Our Story */
+/**
+ * Template Name: Our Story
+ * Template Post Type: page
+ *
+ * @package Hakshan
+ */
+
 get_header();
 ?>
-<main>
-
 <style>
+  /* Story-specific extras */
   .timeline {
     background: var(--cream);
     padding: clamp(80px, 12vw, 140px) var(--rail);
@@ -70,6 +75,7 @@ get_header();
     max-width: 50ch;
   }
 
+  /* Three portraits */
   .portraits {
     padding: clamp(80px, 12vw, 140px) var(--rail);
     max-width: var(--maxw);
@@ -91,10 +97,15 @@ get_header();
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
-  .portrait { display: grid; gap: 18px; }
-  .portrait__visual { aspect-ratio: 3/4; position: relative; }
+  .portrait {
+    display: grid;
+    gap: 18px;
+  }
+  .portrait__visual {
+    aspect-ratio: 3/4;
+    position: relative;
+  }
   .portrait__visual .ph { position: absolute; inset: 0; }
-  .portrait__visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .portrait__num {
     font-family: var(--mono);
     font-size: 11px;
@@ -124,6 +135,7 @@ get_header();
     margin: 0;
   }
 
+  /* Cinematic break (same vocabulary as v1) */
   .cinema-break {
     position: relative;
     min-height: 70vh;
@@ -148,7 +160,11 @@ get_header();
     opacity: 0.35;
     pointer-events: none;
   }
-  .cinema-break__inner { position: relative; z-index: 2; text-align: center; max-width: 1000px; }
+  .cinema-break__inner {
+    position: relative; z-index: 2;
+    text-align: center;
+    max-width: 1000px;
+  }
   .cinema-break .small {
     font-family: var(--mono);
     font-size: 11px;
@@ -169,6 +185,7 @@ get_header();
   }
   .cinema-break .line em { color: #c4b18a; }
 
+  /* Charity block */
   .charity-block {
     background: var(--forest);
     color: var(--cream);
@@ -231,6 +248,7 @@ get_header();
     line-height: 1.5;
   }
 
+  /* Press snippets */
   .press {
     padding: clamp(80px, 12vw, 140px) var(--rail);
     max-width: var(--maxw);
@@ -245,7 +263,10 @@ get_header();
     margin: 12px 0 0;
     letter-spacing: -0.02em;
   }
-  .press__list { display: grid; border-top: 1px solid var(--line); }
+  .press__list {
+    display: grid;
+    border-top: 1px solid var(--line);
+  }
   .press__row {
     display: grid;
     grid-template-columns: 180px 1fr 180px;
@@ -278,6 +299,7 @@ get_header();
     text-align: right;
   }
 
+  /* Closing CTA */
   .story-close {
     padding: clamp(80px, 12vw, 140px) var(--rail);
     text-align: center;
@@ -303,7 +325,12 @@ get_header();
     display: block;
     opacity: 0.7;
   }
-  .story-close__buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .story-close__buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
   @media (max-width: 980px) {
     .timeline__inner, .charity-block__inner { grid-template-columns: 1fr; gap: 32px; }
@@ -315,7 +342,7 @@ get_header();
   }
 </style>
 
-<!-- HERO -->
+<!-- ============== HERO ============== -->
 <section class="story-hero">
   <span class="h-eyebrow"><span class="dot"></span>
     <span data-en>OUR STORY · 三 代 故 事</span>
@@ -331,7 +358,7 @@ get_header();
   </p>
 </section>
 
-<!-- TIMELINE -->
+<!-- ============== TIMELINE ============== -->
 <section class="timeline">
   <div class="timeline__inner">
     <div data-reveal>
@@ -345,65 +372,44 @@ get_header();
       </h2>
     </div>
     <div class="timeline__list" data-reveal>
-      <div class="tl-row">
-        <div class="year">1958</div>
-        <div class="cn-big">阿婆</div>
-        <div>
-          <h3><span data-en>Ah Por opens a stove</span><span data-zh>阿 婆 开 灶</span></h3>
-          <p><span data-en>A tin-roofed kitchen in Hulu Selangor. Salt-baked chicken in kraft paper, mui choy belly that takes the better part of a Saturday, rice-wine soup for any woman who has just given birth.</span>
-            <span data-zh>乌鲁雪兰莪一间锌板顶小厨房。牛皮纸盐焗鸡、要做大半个星期六的梅菜扣肉、谁家添丁就煮的糯米酒汤。</span></p>
+      <?php
+      $timeline = array(
+        array( 'year' => '1958', 'cn' => '阿婆',  'h_en' => 'Ah Por opens a stove',          'h_zh' => '阿 婆 开 灶',
+               'p_en' => 'A tin-roofed kitchen in Hulu Selangor. Salt-baked chicken in kraft paper, mui choy belly that takes the better part of a Saturday, rice-wine soup for any woman who has just given birth.',
+               'p_zh' => '乌鲁雪兰莪一间锌板顶小厨房。牛皮纸盐焗鸡、要做大半个星期六的梅菜扣肉、谁家添丁就煮的糯米酒汤。' ),
+        array( 'year' => '1962', 'cn' => '食 谱', 'h_en' => 'The tin under the rice barrel', 'h_zh' => '米 缸 下 的 铁 罐',
+               'p_en' => 'Ah Por starts writing things down on the backs of kuih paper. She does it because she suspects she won\'t always remember. She is right.',
+               'p_zh' => '阿婆开始把方子写在糕粿纸的背面 — 因为她怀疑自己总有一天会忘。她猜对了。' ),
+        array( 'year' => '1986', 'cn' => '爸爸',  'h_en' => 'The shophouse years, Kepong',   'h_zh' => '店 屋 时 代 · 甲 洞',
+               'p_en' => 'Father takes the recipe book to a two-table shophouse on Jalan Kepong. He doesn\'t rename anything. He doesn\'t modernise anything. He just keeps cooking, and people keep showing up.',
+               'p_zh' => '父亲把食谱带到甲洞一间两张桌的店屋。他没改名，没现代化任何菜式，只是继续煮 — 而人，也继续来。' ),
+        array( 'year' => '2018', 'cn' => '客 善', 'h_en' => 'Hakshan opens, USJ Taipan',     'h_zh' => '客 善 开 业 · USJ',
+               'p_en' => 'The third generation opens the first dining room. Same dishes. Same book. New chairs, warmer light, a seat reserved every night for someone who can\'t pay.',
+               'p_zh' => '第三代开出第一间餐厅。菜不变、食谱不变，只换了椅子；并每晚为付不起饭钱的人留下一张桌。' ),
+        array( 'year' => '2021', 'cn' => '三 家', 'h_en' => 'Three rooms, no compromises',   'h_zh' => '三 家 · 不 妥 协',
+               'p_en' => 'Cheras and Menjalara open within eight months of each other. The wok master from KL personally cooks the first service at each new outlet — a habit we have not broken since.',
+               'p_zh' => '蕉赖与满家拉前后八个月内开张。KL 的主厨亲自掌勺新店头一日 — 这个习惯至今未改。' ),
+        array( 'year' => '2026', 'cn' => '九 家', 'h_en' => 'Nine kitchens, one ledger',     'h_zh' => '九 家 厨 房 · 一 本 账',
+               'p_en' => 'Nine dining rooms across the Klang Valley. Every outlet runs the same recipe book and the same charity table. Outlet 10 opens in Penang this April.',
+               'p_zh' => '九家分店遍布巴生谷，同一本食谱、同一张慈善桌。第十家 2026 年 4 月落户槟城。' ),
+      );
+      foreach ( $timeline as $row ) :
+        ?>
+        <div class="tl-row">
+          <div class="year"><?php echo esc_html( $row['year'] ); ?></div>
+          <div class="cn-big"><?php echo esc_html( $row['cn'] ); ?></div>
+          <div>
+            <h3><span data-en><?php echo esc_html( $row['h_en'] ); ?></span><span data-zh><?php echo esc_html( $row['h_zh'] ); ?></span></h3>
+            <p><span data-en><?php echo esc_html( $row['p_en'] ); ?></span>
+              <span data-zh><?php echo esc_html( $row['p_zh'] ); ?></span></p>
+          </div>
         </div>
-      </div>
-      <div class="tl-row">
-        <div class="year">1962</div>
-        <div class="cn-big">食 谱</div>
-        <div>
-          <h3><span data-en>The tin under the rice barrel</span><span data-zh>米 缸 下 的 铁 罐</span></h3>
-          <p><span data-en>Ah Por starts writing things down on the backs of kuih paper. She does it because she suspects she won't always remember. She is right.</span>
-            <span data-zh>阿婆开始把方子写在糕粿纸的背面 — 因为她怀疑自己总有一天会忘。她猜对了。</span></p>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="year">1986</div>
-        <div class="cn-big">爸爸</div>
-        <div>
-          <h3><span data-en>The shophouse years, Kepong</span><span data-zh>店 屋 时 代 · 甲 洞</span></h3>
-          <p><span data-en>Father takes the recipe book to a two-table shophouse on Jalan Kepong. He doesn't rename anything. He doesn't modernise anything. He just keeps cooking, and people keep showing up.</span>
-            <span data-zh>父亲把食谱带到甲洞一间两张桌的店屋。他没改名，没现代化任何菜式，只是继续煮 — 而人，也继续来。</span></p>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="year">2018</div>
-        <div class="cn-big">客 善</div>
-        <div>
-          <h3><span data-en>Hakshan opens, USJ Taipan</span><span data-zh>客 善 开 业 · USJ</span></h3>
-          <p><span data-en>The third generation opens the first dining room. Same dishes. Same book. New chairs, warmer light, a seat reserved every night for someone who can't pay.</span>
-            <span data-zh>第三代开出第一间餐厅。菜不变、食谱不变，只换了椅子；并每晚为付不起饭钱的人留下一张桌。</span></p>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="year">2021</div>
-        <div class="cn-big">三 家</div>
-        <div>
-          <h3><span data-en>Three rooms, no compromises</span><span data-zh>三 家 · 不 妥 协</span></h3>
-          <p><span data-en>Cheras and Menjalara open within eight months of each other. The wok master from KL personally cooks the first service at each new outlet — a habit we have not broken since.</span>
-            <span data-zh>蕉赖与满家拉前后八个月内开张。KL 的主厨亲自掌勺新店头一日 — 这个习惯至今未改。</span></p>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="year">2026</div>
-        <div class="cn-big">九 家</div>
-        <div>
-          <h3><span data-en>Nine kitchens, one ledger</span><span data-zh>九 家 厨 房 · 一 本 账</span></h3>
-          <p><span data-en>Nine dining rooms across the Klang Valley. Every outlet runs the same recipe book and the same charity table. Outlet 10 opens in Penang this April.</span>
-            <span data-zh>九家分店遍布巴生谷，同一本食谱、同一张慈善桌。第十家 2026 年 4 月落户槟城。</span></p>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
 
-<!-- PULL QUOTE -->
+<!-- ============== PULL QUOTE ============== -->
 <section class="story-pull">
   <div data-reveal>
     <p class="quote">
@@ -417,7 +423,7 @@ get_header();
   </div>
 </section>
 
-<!-- STORY BODY -->
+<!-- ============== STORY BODY ============== -->
 <section class="story-body">
   <div data-reveal>
     <span class="small"><span data-en>I · A KITCHEN, A STOVE, SIX CHILDREN</span><span data-zh>一 · 一 厨 一 灶 六 个 孩 子</span></span>
@@ -459,7 +465,7 @@ get_header();
   </div>
 </section>
 
-<!-- CINEMATIC BREAK -->
+<!-- ============== CINEMATIC BREAK ============== -->
 <section class="cinema-break">
   <div class="cinema-break__inner" data-reveal>
     <div class="small">
@@ -474,7 +480,7 @@ get_header();
   </div>
 </section>
 
-<!-- THREE PORTRAITS -->
+<!-- ============== THREE PORTRAITS ============== -->
 <section class="portraits">
   <div class="portraits__head" data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
@@ -526,7 +532,7 @@ get_header();
   </div>
 </section>
 
-<!-- CHARITY -->
+<!-- ============== CHARITY ============== -->
 <section class="charity-block" id="charity">
   <div class="charity-block__inner">
     <div data-reveal>
@@ -562,7 +568,7 @@ get_header();
   </div>
 </section>
 
-<!-- PRESS -->
+<!-- ============== PRESS ============== -->
 <section class="press" id="press">
   <div class="press__head" data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
@@ -610,7 +616,7 @@ get_header();
   </div>
 </section>
 
-<!-- CLOSE -->
+<!-- ============== CLOSE ============== -->
 <section class="story-close">
   <div class="story-close__inner" data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
@@ -623,15 +629,11 @@ get_header();
     </h2>
     <span class="cn">客 来 茶 当 酒</span>
     <div class="story-close__buttons">
-      <a class="btn" href="<?php echo esc_url(home_url('/contact/#reserve')); ?>">
-        <span data-en>Reserve a table</span><span data-zh>预 订 座 位</span><span class="arr">→</span>
-      </a>
-      <a class="btn btn--ghost" href="<?php echo esc_url(home_url('/menu/')); ?>">
-        <span data-en>See the menu</span><span data-zh>查 看 菜 单</span>
-      </a>
+      <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) . '#reserve' ); ?>"><span data-en>Reserve a table</span><span data-zh>预 订 座 位</span><span class="arr">→</span></a>
+      <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>"><span data-en>See the menu</span><span data-zh>查 看 菜 单</span></a>
     </div>
   </div>
 </section>
 
-</main>
-<?php get_footer(); ?>
+<?php
+get_footer();

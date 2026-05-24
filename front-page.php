@@ -1,171 +1,731 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Front page template — Hakshan home.
+ *
+ * @package Hakshan
+ */
+
+get_header();
+?>
 <style>
-/* ===== Homepage-only styles ===== */
-.hero-a {
-  position: relative; min-height: 100vh;
-  margin-top: -77px; padding-top: 77px;
-  display: grid; place-items: center; overflow: hidden;
-}
-.hero-a::before {
-  content: ""; position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 40%, rgba(235,223,196,.55) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 100%, rgba(201,190,159,.22) 0%, transparent 65%);
-  pointer-events: none;
-}
-.hero-a::after {
-  content: ""; position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.32  0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  mix-blend-mode: multiply; opacity: .4; pointer-events: none;
-}
-.hero-a__logo { position: relative; z-index: 2; text-align: center; padding: 0 var(--rail); }
-.hero-a__logo img { width: clamp(200px,35vw,500px); max-height: 53vh; height: auto; object-fit: contain; display: block; margin: 0 auto; user-select: none; -webkit-user-drag: none; }
-.hero-a__scroll {
-  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 2;
-  font-family: var(--mono); font-size: 10px; letter-spacing: .36em; text-transform: uppercase;
-  color: var(--forest); opacity: .55; display: flex; flex-direction: column; align-items: center; gap: 12px;
-  animation: scrollNudge 2.4s ease-in-out infinite;
-}
-.hero-a__scroll::after { content: ""; width: 1px; height: 28px; background: var(--forest); opacity: .4; }
-@keyframes scrollNudge {
-  0%,100% { transform: translate(-50%,0); opacity:.55; }
-  50%      { transform: translate(-50%,6px); opacity:.9; }
-}
+  /* ===== Direction A · Quiet Editorial ===== */
+  body { background: var(--paper); }
 
-/* Signatures carousel */
-.sigs { background: var(--cream); }
-.sigs__head { display: flex; justify-content: space-between; align-items: end; max-width: var(--maxw); margin: 0 auto 56px; gap: 48px; }
-.sigs__head h2 { font-family: var(--serif); font-style: italic; font-size: clamp(40px,6vw,80px); line-height: 1; margin: 12px 0 0; letter-spacing: -.02em; }
-.sigs__carousel-wrap { position: relative; max-width: var(--maxw); margin: 0 auto; }
-.sigs__carousel { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 0 8px; margin: 0 calc(var(--rail)*-1); padding-left: max(var(--rail),6vw); padding-right: max(var(--rail),6vw); scroll-padding-left: max(var(--rail),6vw); scroll-behavior: smooth; }
-.sigs__carousel::-webkit-scrollbar { display: none; }
-.sc-card { flex: 0 0 clamp(280px,28vw,360px); scroll-snap-align: start; background: var(--paper); border: 1px solid var(--line); display: grid; transition: background .3s ease, transform .3s ease; cursor: pointer; text-decoration: none; color: inherit; }
-.sc-card:hover { background: #fefcf7; transform: translateY(-4px); }
-.sc-card__visual { aspect-ratio: 4/5; position: relative; overflow: hidden; }
-.sc-card__visual .ph { position: absolute; inset: 0; }
-.sc-card__visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.sc-card__body { padding: 22px 24px; display: grid; gap: 10px; align-content: start; }
-.sc-card h3 { font-family: var(--serif); font-style: italic; font-size: 24px; margin: 0 0 4px; letter-spacing: -.01em; line-height: 1.1; }
-.sc-card h3 .cn { display: block; font-family: var(--cn); font-style: normal; font-weight: 400; font-size: 13px; color: var(--forest); letter-spacing: .2em; margin: 8px 0 0; opacity: .7; }
-.sc-card p { font-size: 13px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .hero-a {
+    position: relative;
+    min-height: 100vh;
+    margin-top: -77px; /* pull behind the sticky nav so logo gets the full screen */
+    padding-top: 77px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  /* Warm wash + grain on the cream paper */
+  .hero-a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(235, 223, 196, 0.55) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(201, 190, 159, 0.22) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.32  0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .hero-a__logo {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 var(--rail);
+  }
+  .hero-a__logo img {
+    width: clamp(200px, 35vw, 500px);
+    max-height: 53vh;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .hero-a__scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--forest);
+    opacity: 0.55;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    animation: scrollNudge 2.4s ease-in-out infinite;
+  }
+  .hero-a__scroll::after {
+    content: "";
+    width: 1px;
+    height: 28px;
+    background: var(--forest);
+    opacity: 0.4;
+  }
+  @keyframes scrollNudge {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.55; }
+    50%      { transform: translate(-50%, 6px); opacity: 0.9; }
+  }
 
-/* Three Generations */
-.gens { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: var(--maxw); margin: 0 auto; align-items: start; }
-.gens__copy h2 { font-family: var(--serif); font-style: italic; font-size: clamp(48px,7vw,96px); line-height: .95; margin: 16px 0 32px; letter-spacing: -.025em; }
-.gens__timeline { display: grid; gap: 0; }
-.gen { padding: 32px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 80px 1fr; gap: 32px; align-items: start; }
-.gen:last-child { border-bottom: none; }
-.gen__year { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: var(--forest); padding-top: 6px; }
-.gen h3 { font-family: var(--serif); font-style: italic; font-size: 30px; margin: 0 0 8px; letter-spacing: -.01em; }
-.gen p { margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-soft); }
+  .marquee {
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 22px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    color: var(--forest);
+  }
+  .marquee__track {
+    display: inline-block;
+    animation: marquee 40s linear infinite;
+  }
+  .marquee__track span {
+    margin: 0 36px;
+    opacity: 0.8;
+  }
+  .marquee__track .dot {
+    color: var(--ink);
+    font-style: normal;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
 
-/* Charity band */
-.charity { background: var(--forest); color: var(--cream); padding: clamp(80px,12vw,140px) var(--rail); display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center; }
-.charity__inner { max-width: var(--maxw); margin: 0 auto; display: contents; }
-.charity h2 { font-family: var(--serif); font-style: italic; font-size: clamp(48px,6.5vw,88px); line-height: .95; margin: 16px 0 0; letter-spacing: -.02em; }
-.charity h2 em { font-style: italic; }
-.charity h2 .underline { border-bottom: 2px solid var(--cream); padding-bottom: 4px; }
-.charity .h-eyebrow { color: var(--cream); opacity: .7; }
-.charity .h-eyebrow .dot { background: var(--cream); }
-.charity p { font-size: 17px; line-height: 1.7; opacity: .85; max-width: 60ch; }
-.charity__stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(235,223,196,.2); }
-.charity__stats .num { font-family: var(--serif); font-style: italic; font-size: 56px; line-height: 1; letter-spacing: -.02em; }
-.charity__stats .lbl { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .7; margin-top: 8px; }
+  /* Signature dish — single anchor */
+  .anchor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .anchor__visual {
+    aspect-ratio: 1/1;
+    position: relative;
+  }
+  .anchor__visual .ph { position: absolute; inset: 0; }
+  .anchor__num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 200px;
+    line-height: 1;
+    color: var(--cream);
+    position: absolute;
+    top: -40px; left: -28px;
+    z-index: -1;
+  }
+  .anchor h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 5.6vw, 76px);
+    line-height: 1;
+    margin: 16px 0 24px;
+    letter-spacing: -0.02em;
+  }
+  .anchor h2 .cn {
+    font-family: var(--cn);
+    font-style: normal;
+    display: block;
+    font-size: 0.45em;
+    color: var(--forest);
+    letter-spacing: 0.2em;
+    margin-top: 14px;
+  }
+  .anchor p { color: var(--ink-soft); }
+  .anchor__row {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    align-items: center;
+  }
 
-/* Gallery */
-.gallery { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: repeat(12,1fr); grid-auto-rows: 120px; gap: 16px; }
-.gallery .ph { position: relative; }
-.gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.g1 { grid-column: 1/7;  grid-row: span 4; }
-.g2 { grid-column: 7/13; grid-row: span 3; }
-.g3 { grid-column: 7/10; grid-row: span 3; }
-.g4 { grid-column: 10/13; grid-row: span 3; }
-.g5 { grid-column: 1/5;  grid-row: span 2; }
-.g6 { grid-column: 5/13; grid-row: span 2; }
+  /* Signatures carousel (uses .oc-card pattern) */
+  .sigs {
+    background: var(--cream);
+  }
+  .sigs__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    max-width: var(--maxw);
+    margin: 0 auto 56px;
+    gap: 48px;
+  }
+  .sigs__head h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    margin: 12px 0 0;
+    letter-spacing: -0.02em;
+  }
+  .sigs__carousel-wrap {
+    position: relative;
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .sigs__carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 4px 0 8px;
+    margin: 0 calc(var(--rail) * -1);
+    padding-left: max(var(--rail), 6vw);
+    padding-right: max(var(--rail), 6vw);
+    scroll-padding-left: max(var(--rail), 6vw);
+    scroll-behavior: smooth;
+  }
+  .sigs__carousel::-webkit-scrollbar { display: none; }
+  .sc-card {
+    flex: 0 0 clamp(280px, 28vw, 360px);
+    scroll-snap-align: start;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    display: grid;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  .sc-card:hover { background: #fefcf7; transform: translateY(-4px); }
+  .sc-card__visual {
+    aspect-ratio: 4/5;
+    position: relative;
+  }
+  .sc-card__visual .ph { position: absolute; inset: 0; }
+  .sc-card__visual .num {
+    position: absolute;
+    top: 14px; left: 14px;
+    background: rgba(249, 247, 242, 0.92);
+    backdrop-filter: blur(4px);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--forest);
+    z-index: 2;
+  }
+  .sc-card__visual .tag {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--forest);
+    color: var(--cream);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .sc-card__body {
+    padding: 22px 24px;
+    display: grid;
+    gap: 10px;
+    align-content: start;
+  }
+  .sc-card h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .sc-card h3 .cn {
+    display: block;
+    font-family: var(--cn);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--forest);
+    letter-spacing: 0.2em;
+    margin: 8px 0 0;
+    opacity: 0.7;
+  }
+  .sc-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .sc-card__foot {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--forest);
+  }
+  .sc-card__foot .arr {
+    font-family: var(--serif);
+    font-size: 22px;
+    transition: transform 0.25s ease;
+  }
+  .sc-card:hover .sc-card__foot .arr { transform: translateX(6px); }
 
-/* Outlets carousel */
-.outlets { max-width: var(--maxw); margin: 0 auto; }
-.outlets__head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 56px; gap: 48px; }
-.outlets__head h2 { font-family: var(--serif); font-style: italic; font-size: clamp(40px,6vw,80px); line-height: 1; margin: 12px 0 0; letter-spacing: -.02em; }
-.outlets__carousel-wrap { position: relative; }
-.outlets__carousel { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 0 8px; margin: 0 calc(var(--rail)*-1); padding-left: max(var(--rail),6vw); padding-right: max(var(--rail),6vw); scroll-padding-left: max(var(--rail),6vw); scroll-behavior: smooth; }
-.outlets__carousel::-webkit-scrollbar { display: none; }
-.oc-card { flex: 0 0 clamp(280px,30vw,380px); scroll-snap-align: start; background: var(--paper); border: 1px solid var(--line); padding: 24px; display: grid; gap: 18px; transition: background .3s ease, transform .3s ease; cursor: pointer; text-decoration: none; color: inherit; }
-.oc-card:hover { background: var(--cream); transform: translateY(-4px); }
-.oc-card__visual { aspect-ratio: 4/3; position: relative; overflow: hidden; margin: -24px -24px 0; }
-.oc-card__visual .ph { position: absolute; inset: 0; }
-.oc-card__visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.oc-card h3 { font-family: var(--serif); font-style: italic; font-size: 26px; margin: 0 0 4px; letter-spacing: -.01em; }
-.oc-card .city { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--forest); opacity: .75; }
-.oc-card .meta { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 11px; color: var(--ink-soft); }
-.oc-card .meta .arr { font-family: var(--serif); font-size: 22px; color: var(--forest); transition: transform .25s ease; }
-.oc-card:hover .meta .arr { transform: translateX(6px); }
+  /* Three Generations */
+  .gens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    align-items: start;
+  }
+  .gens__copy h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    margin: 16px 0 32px;
+    letter-spacing: -0.025em;
+  }
+  .gens__timeline {
+    display: grid;
+    gap: 0;
+  }
+  .gen {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .gen:last-child { border-bottom: none; }
+  .gen__year {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--forest);
+    padding-top: 6px;
+  }
+  .gen h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 30px;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .gen p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
 
-/* Carousel controls */
-.oc-nav { margin-top: 32px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
-.oc-nav__buttons { display: flex; gap: 12px; }
-.oc-nav__btn { width: 56px; height: 56px; border: 1px solid var(--forest); background: transparent; color: var(--forest); border-radius: 50%; cursor: pointer; font-family: var(--serif); font-style: italic; font-size: 22px; display: grid; place-items: center; transition: background .2s, color .2s; padding: 0; }
-.oc-nav__btn:hover { background: var(--forest); color: var(--cream); }
-.oc-nav__btn:disabled { opacity: .3; cursor: default; background: transparent; color: var(--forest); }
-.oc-nav__progress { flex: 1; height: 1px; background: var(--line); position: relative; max-width: 360px; }
-.oc-nav__progress .fill { position: absolute; top: -1px; left: 0; height: 3px; background: var(--forest); transition: width .3s ease; width: 10%; }
-.oc-nav__count { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; color: var(--forest); white-space: nowrap; }
-.oc-nav__count strong { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--ink); letter-spacing: -.005em; }
+  /* Charity band */
+  .charity {
+    background: var(--forest);
+    color: var(--cream);
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .charity__inner { max-width: var(--maxw); margin: 0 auto; display: contents; }
+  .charity h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(48px, 6.5vw, 88px);
+    line-height: 0.95;
+    margin: 16px 0 0;
+    letter-spacing: -0.02em;
+  }
+  .charity h2 em { font-style: italic; }
+  .charity h2 .underline { border-bottom: 2px solid var(--cream); padding-bottom: 4px; }
+  .charity .h-eyebrow { color: var(--cream); opacity: 0.7; }
+  .charity .h-eyebrow .dot { background: var(--cream); }
+  .charity p { font-size: 17px; line-height: 1.7; opacity: 0.85; max-width: 60ch; }
+  .charity__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(235, 223, 196, 0.2);
+  }
+  .charity__stats .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .charity__stats .lbl {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 8px;
+  }
 
-/* Cinematic break */
-.cinema-break { position: relative; min-height: 78vh; overflow: hidden; display: grid; place-items: center; background: radial-gradient(ellipse at 50% 60%, rgba(196,177,138,.22) 0%, transparent 55%), radial-gradient(ellipse at 30% 30%, rgba(196,177,138,.08) 0%, transparent 40%), linear-gradient(180deg,#1a1410 0%,#2a1f15 45%,#14181a 100%); color: #EBDFC4; padding: 120px var(--rail); }
-.cinema-break::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.55) 100%); pointer-events: none; }
-.cinema-break::after { content: ""; position: absolute; inset: 0; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.65 0 0 0 0.1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); mix-blend-mode: overlay; opacity: .35; pointer-events: none; }
-.cinema-break .steam { position: absolute; inset: auto 0 0 0; height: 60%; pointer-events: none; z-index: 1; }
-.cinema-break .steam span { position: absolute; bottom: 20%; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(235,223,196,.18) 0%, transparent 60%); filter: blur(20px); animation: cinema-rise 9s ease-in-out infinite; }
-.cinema-break .steam span:nth-child(1) { left: 38%; animation-delay: 0s; }
-.cinema-break .steam span:nth-child(2) { left: 50%; animation-delay: 2.6s; width: 300px; height: 300px; }
-.cinema-break .steam span:nth-child(3) { left: 60%; animation-delay: 5.2s; }
-@keyframes cinema-rise { 0% { transform: translateY(0) scale(.8); opacity: 0; } 25% { opacity: .55; } 100% { transform: translateY(-260px) scale(1.6); opacity: 0; } }
-.cinema-break__inner { position: relative; z-index: 2; max-width: 1100px; text-align: center; }
-.cinema-break__top { font-family: var(--mono); font-size: 11px; letter-spacing: .32em; text-transform: uppercase; color: rgba(235,223,196,.6); margin-bottom: 40px; }
-.cinema-break__top .cn { font-family: var(--cn); margin-right: 14px; opacity: .85; letter-spacing: .5em; }
-.cinema-break p { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(40px,6vw,92px); line-height: 1.1; margin: 0; color: #EBDFC4; letter-spacing: -.005em; text-wrap: balance; text-shadow: 0 2px 32px rgba(0,0,0,.55); }
-.cinema-break p em { color: #c4b18a; }
-.cinema-break p .cn-line { font-family: var(--cn); font-style: normal; font-weight: 400; letter-spacing: .04em; display: block; font-size: .55em; margin-top: 32px; opacity: .85; }
-.cinema-break__foot { margin-top: 56px; font-family: var(--mono); font-size: 10px; letter-spacing: .32em; text-transform: uppercase; color: rgba(235,223,196,.55); }
+  /* Atmosphere gallery */
+  .gallery {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 120px;
+    gap: 16px;
+  }
+  .gallery .ph { position: relative; }
+  .g1 { grid-column: 1 / 7;  grid-row: span 4; }
+  .g2 { grid-column: 7 / 13; grid-row: span 3; }
+  .g3 { grid-column: 7 / 10; grid-row: span 3; }
+  .g4 { grid-column: 10 / 13; grid-row: span 3; }
+  .g5 { grid-column: 1 / 5;  grid-row: span 2; }
+  .g6 { grid-column: 5 / 13; grid-row: span 2; }
 
-/* Reservation CTA */
-.book { background: var(--cream); padding: clamp(80px,12vw,160px) var(--rail); text-align: center; }
-.book .inner { max-width: 900px; margin: 0 auto; }
-.book h2 { font-family: var(--serif); font-style: italic; font-size: clamp(56px,9vw,132px); line-height: .95; margin: 16px 0 32px; letter-spacing: -.025em; }
-.book h2 .cn { font-family: var(--cn); font-style: normal; display: block; font-size: .3em; color: var(--forest); letter-spacing: .3em; margin-top: 16px; }
-.book p { color: var(--ink-soft); max-width: 50ch; margin: 0 auto 40px; }
-.book__buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  /* Outlets carousel band */
+  .outlets {
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .outlets__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 56px;
+    gap: 48px;
+  }
+  .outlets__head h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1;
+    margin: 12px 0 0;
+    letter-spacing: -0.02em;
+  }
+  .outlets__carousel-wrap {
+    position: relative;
+  }
+  .outlets__carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 4px 0 8px;
+    margin: 0 calc(var(--rail) * -1);
+    padding-left: max(var(--rail), 6vw);
+    padding-right: max(var(--rail), 6vw);
+    scroll-padding-left: max(var(--rail), 6vw);
+    scroll-behavior: smooth;
+  }
+  .outlets__carousel::-webkit-scrollbar { display: none; }
+  .oc-card {
+    flex: 0 0 clamp(280px, 30vw, 380px);
+    scroll-snap-align: start;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 24px;
+    display: grid;
+    gap: 18px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  .oc-card:hover { background: var(--cream); transform: translateY(-4px); }
+  .oc-card__visual {
+    aspect-ratio: 4/3;
+    position: relative;
+    margin: -24px -24px 0;
+  }
+  .oc-card__visual .ph { position: absolute; inset: 0; }
+  .oc-card__visual .num {
+    position: absolute;
+    top: 14px; left: 14px;
+    background: rgba(249, 247, 242, 0.92);
+    backdrop-filter: blur(4px);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--forest);
+    z-index: 2;
+  }
+  .oc-card__visual .badge {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--forest);
+    color: var(--cream);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .oc-card h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .oc-card .city {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--forest);
+    opacity: 0.75;
+  }
+  .oc-card .meta {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+  .oc-card .meta .arr {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--forest);
+    transition: transform 0.25s ease;
+  }
+  .oc-card:hover .meta .arr { transform: translateX(6px); }
 
-@media (max-width: 980px) {
-  .hero-a, .gens, .charity { grid-template-columns: 1fr; gap: 48px; }
-  .outlets__head, .sigs__head { flex-direction: column; align-items: start; }
-  .oc-nav__progress { display: none; }
-  .gallery { grid-template-columns: repeat(6,1fr); }
-  .g1 { grid-column: 1/7; grid-row: span 3; }
-  .g2 { grid-column: 1/7; grid-row: span 2; }
-  .g3 { grid-column: 1/4; grid-row: span 2; }
-  .g4 { grid-column: 4/7; grid-row: span 2; }
-  .g5 { grid-column: 1/4; grid-row: span 2; }
-  .g6 { grid-column: 4/7; grid-row: span 2; }
-}
+  /* Carousel controls */
+  .oc-nav {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+  }
+  .oc-nav__buttons { display: flex; gap: 12px; }
+  .oc-nav__btn {
+    width: 56px; height: 56px;
+    border: 1px solid var(--forest);
+    background: transparent;
+    color: var(--forest);
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s, color 0.2s;
+    padding: 0;
+  }
+  .oc-nav__btn:hover { background: var(--forest); color: var(--cream); }
+  .oc-nav__btn:disabled { opacity: 0.3; cursor: default; background: transparent; color: var(--forest); }
+  .oc-nav__progress {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    position: relative;
+    max-width: 360px;
+  }
+  .oc-nav__progress .fill {
+    position: absolute;
+    top: -1px; left: 0;
+    height: 3px;
+    background: var(--forest);
+    transition: width 0.3s ease, transform 0.3s ease;
+    width: 30%;
+  }
+  .oc-nav__count {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--forest);
+    white-space: nowrap;
+  }
+  .oc-nav__count strong { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--ink); letter-spacing: -0.005em; }
+
+  /* Reservation CTA */
+  .book {
+    background: var(--cream);
+    padding: clamp(80px, 12vw, 160px) var(--rail);
+    text-align: center;
+  }
+  .book .inner { max-width: 900px; margin: 0 auto; }
+  .book h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(56px, 9vw, 132px);
+    line-height: 0.95;
+    margin: 16px 0 32px;
+    letter-spacing: -0.025em;
+  }
+  .book h2 .cn {
+    font-family: var(--cn);
+    font-style: normal;
+    display: block;
+    font-size: 0.3em;
+    color: var(--forest);
+    letter-spacing: 0.3em;
+    margin-top: 16px;
+  }
+  .book p { color: var(--ink-soft); max-width: 50ch; margin: 0 auto 40px; }
+  .book__buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* Cinematic dark band — section break between Generations and Charity */
+  .cinema-break {
+    position: relative;
+    min-height: 78vh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(ellipse at 50% 60%, rgba(196, 177, 138, 0.22) 0%, transparent 55%),
+      radial-gradient(ellipse at 30% 30%, rgba(196, 177, 138, 0.08) 0%, transparent 40%),
+      linear-gradient(180deg, #1a1410 0%, #2a1f15 45%, #14181a 100%);
+    color: #EBDFC4;
+    padding: 120px var(--rail);
+  }
+  .cinema-break::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%);
+    pointer-events: none;
+  }
+  .cinema-break::after {
+    /* film grain */
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.65 0 0 0 0.1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  /* steam wisps */
+  .cinema-break .steam {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 60%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .cinema-break .steam span {
+    position: absolute;
+    bottom: 20%;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(235, 223, 196, 0.18) 0%, transparent 60%);
+    filter: blur(20px);
+    animation: cinema-rise 9s ease-in-out infinite;
+  }
+  .cinema-break .steam span:nth-child(1) { left: 38%; animation-delay: 0s; }
+  .cinema-break .steam span:nth-child(2) { left: 50%; animation-delay: 2.6s; width: 300px; height: 300px; }
+  .cinema-break .steam span:nth-child(3) { left: 60%; animation-delay: 5.2s; }
+  @keyframes cinema-rise {
+    0%   { transform: translateY(0) scale(0.8); opacity: 0; }
+    25%  { opacity: 0.55; }
+    100% { transform: translateY(-260px) scale(1.6); opacity: 0; }
+  }
+  .cinema-break__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    text-align: center;
+  }
+  .cinema-break__top {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(235, 223, 196, 0.6);
+    margin-bottom: 40px;
+  }
+  .cinema-break__top .cn {
+    font-family: var(--cn);
+    margin-right: 14px;
+    opacity: 0.85;
+    letter-spacing: 0.5em;
+  }
+  .cinema-break p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 92px);
+    line-height: 1.1;
+    margin: 0;
+    color: #EBDFC4;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+    text-shadow: 0 2px 32px rgba(0, 0, 0, 0.55);
+  }
+  .cinema-break p em { color: #c4b18a; }
+  .cinema-break p .cn-line {
+    font-family: var(--cn);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    display: block;
+    font-size: 0.55em;
+    margin-top: 32px;
+    opacity: 0.85;
+  }
+  .cinema-break__foot {
+    margin-top: 56px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(235, 223, 196, 0.55);
+  }
+
+  @media (max-width: 980px) {
+    .hero-a, .anchor, .gens, .charity { grid-template-columns: 1fr; gap: 48px; }
+    .outlets__head, .sigs__head { flex-direction: column; align-items: start; }
+    .oc-nav__progress { display: none; }
+  }
 </style>
 
-<main>
-
-<!-- ===== HERO ===== -->
+<!-- ============== HERO ============== -->
 <section class="hero-a">
   <div class="hero-a__logo" data-reveal>
-    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/brand/hakshan-logo-ground.png'); ?>"
-         alt="Hakshan 客善 · 三代人的传承" width="500" height="300" />
+    <img src="<?php echo esc_url( get_theme_file_uri( 'assets/brand/hakshan-logo-ground.png' ) ); ?>" alt="Hakshan 客善 · 三代人的传承" />
   </div>
   <div class="hero-a__scroll" aria-hidden="true">
-    <span data-en>SCROLL</span><span data-zh>下 滑</span>
+    <span data-en>SCROLL</span>
+    <span data-zh>下 滑</span>
   </div>
 </section>
 
-<!-- ===== THREE GENERATIONS ===== -->
+<!-- ============== THREE GENERATIONS ============== -->
 <section class="section">
   <div class="gens">
     <div class="gens__copy" data-reveal>
@@ -180,7 +740,7 @@
         <span data-en>The book is not really a book. It's a stack of yellowed paper, soy stains, and margin notes our grandmother kept in a tin under the rice barrel. We are still cooking out of it.</span>
         <span data-zh>那本食谱，其实只是奶奶藏在米缸下的一沓泛黄纸，沾着酱油渍，写满旁批。我们至今仍照着它来做菜。</span>
       </p>
-      <a class="btn btn--ghost" href="<?php echo esc_url(home_url('/story/')); ?>" style="margin-top:24px;">
+      <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>" style="margin-top: 24px;">
         <span data-en>Read the story</span><span data-zh>阅读故事</span>
         <span class="arr">→</span>
       </a>
@@ -190,8 +750,8 @@
         <div class="gen__year">1958</div>
         <div>
           <h3><span data-en>Ah Por's kitchen</span><span data-zh>阿婆的厨房</span></h3>
-          <p><span data-en>A tin-roofed kitchen in Hulu Selangor. Salted chicken over rambutan-wood fire for villagers walking home from the rubber tap.</span>
-             <span data-zh>乌鲁雪兰莪一间锌板顶小厨房，红毛丹木火上焗盐鸡，喂给从橡胶园归来的村民。</span></p>
+          <p><span data-en>A tin-roofed kitchen in Hulu Selangor. Salted chicken cooked over rambutan-wood fire for villagers walking home from the rubber tap.</span>
+            <span data-zh>乌鲁雪兰莪一间锌板顶小厨房，红毛丹木火上焗盐鸡，喂给从橡胶园归来的村民。</span></p>
         </div>
       </div>
       <div class="gen">
@@ -199,7 +759,7 @@
         <div>
           <h3><span data-en>The shophouse years</span><span data-zh>店屋时代</span></h3>
           <p><span data-en>Father moves the family to Kepong. A two-table shophouse with one wok and one rice cooker. The recipe book travels with him.</span>
-             <span data-zh>父亲举家迁至甲洞，开了一间两张桌的店屋，一锅一镬。食谱也跟着搬了家。</span></p>
+            <span data-zh>父亲举家迁至甲洞，开了一间两张桌的店屋，一锅一镬。食谱也跟着搬了家。</span></p>
         </div>
       </div>
       <div class="gen">
@@ -207,7 +767,7 @@
         <div>
           <h3><span data-en>Hakshan opens</span><span data-zh>客善开业</span></h3>
           <p><span data-en>The third generation opens the first dining room in USJ. Same dishes. Same book. New chairs.</span>
-             <span data-zh>第三代在 USJ 开出第一间餐厅。菜还是那些菜，食谱还是那本，只是椅子换了。</span></p>
+            <span data-zh>第三代在 USJ 开出第一间餐厅。菜还是那些菜，食谱还是那本，只是椅子换了。</span></p>
         </div>
       </div>
       <div class="gen">
@@ -215,14 +775,14 @@
         <div>
           <h3><span data-en>Nine kitchens</span><span data-zh>九家厨房</span></h3>
           <p><span data-en>Nine dining rooms across Klang Valley. Every outlet runs a charity table — one seat that always belongs to someone else.</span>
-             <span data-zh>九家分店遍布巴生谷，每家都设有「慈善桌」，那张桌永远留给别人。</span></p>
+            <span data-zh>九家分店遍布巴生谷，每家都设有「慈善桌」，那张桌永远留给别人。</span></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SIGNATURES CAROUSEL ===== -->
+<!-- ============== SIGNATURES CAROUSEL ============== -->
 <section class="section sigs">
   <div class="sigs__head">
     <div data-reveal>
@@ -234,7 +794,7 @@
         <span data-zh>我们做的，<br/><em>就是这些。</em></span>
       </h2>
     </div>
-    <a class="btn btn--ghost" href="<?php echo esc_url(home_url('/menu/')); ?>" data-reveal>
+    <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>" data-reveal>
       <span data-en>Full menu</span><span data-zh>完整菜单</span>
       <span class="arr">→</span>
     </a>
@@ -243,80 +803,34 @@
   <div class="sigs__carousel-wrap" data-reveal>
     <div class="sigs__carousel" id="scCarousel">
       <?php
-      $sig_query = new WP_Query([
-          'post_type'      => 'menu_item',
-          'posts_per_page' => 12,
-          'tax_query'      => [[
-              'taxonomy' => 'dish_category',
-              'field'    => 'slug',
-              'terms'    => 'signatures',
-          ]],
-          'orderby' => 'menu_order',
-          'order'   => 'ASC',
-      ]);
-
-      if ($sig_query->have_posts()):
-          while ($sig_query->have_posts()): $sig_query->the_post();
-              $zh_name = get_post_meta(get_the_ID(), '_hakshan_zh_name', true);
-              $zh_desc = get_post_meta(get_the_ID(), '_hakshan_zh_description', true);
-              $en_desc = get_the_excerpt() ?: wp_trim_words(get_the_content(), 20);
-              ?>
-              <a class="sc-card" href="<?php echo esc_url(home_url('/menu/#signatures')); ?>">
-                <div class="sc-card__visual">
-                  <?php if (has_post_thumbnail()):
-                      echo get_the_post_thumbnail(null, 'dish-card', ['loading'=>'lazy']);
-                  else: ?>
-                    <div class="ph" data-label="<?php echo esc_attr(get_the_title()); ?>"></div>
-                  <?php endif; ?>
-                </div>
-                <div class="sc-card__body">
-                  <h3>
-                    <span data-en><?php the_title(); ?></span>
-                    <?php if ($zh_name): ?><span data-zh><?php echo esc_html($zh_name); ?></span><?php endif; ?>
-                    <?php if ($zh_name): ?><span class="cn"><?php echo esc_html($zh_name); ?></span><?php endif; ?>
-                  </h3>
-                  <p>
-                    <span data-en><?php echo esc_html($en_desc); ?></span>
-                    <?php if ($zh_desc): ?><span data-zh><?php echo esc_html($zh_desc); ?></span><?php endif; ?>
-                  </p>
-                </div>
-              </a>
-              <?php
-          endwhile;
-          wp_reset_postdata();
-      else:
-          /* Fallback placeholder cards if no CPT content */
-          $defaults = [
-              ['en'=>'Salt-Baked Chicken','zh'=>'客家盐焗鸡','desc'=>'Free-range hen, sea salt, kraft paper.','label'=>'salt-baked chicken'],
-              ['en'=>'Mui Choy Pork Belly','zh'=>'梅菜扣肉','desc'=>'Five-spice belly, pickled mustard greens, two hours steaming.','label'=>'mui choy pork belly'],
-              ['en'=>'Abacus Seeds','zh'=>'算盘子','desc'=>'Hand-pinched taro & tapioca, stir-fried with mushroom.','label'=>'abacus seeds'],
-              ['en'=>'Thunder Tea Rice','zh'=>'擂茶饭','desc'=>'Twelve herbs, ground by mortar. Served with seven toppings.','label'=>'thunder tea rice'],
-              ['en'=>'Ginger-Sprout Duck','zh'=>'姜芽焖鸭','desc'=>'Three hours on low flame, young ginger sprouts.','label'=>'ginger-sprout duck'],
-              ['en'=>'Rice-Wine Chicken Soup','zh'=>'糯米酒鸡汤','desc'=>'Glutinous rice wine, kampung chicken, ginger.','label'=>'rice-wine soup'],
-          ];
-          foreach ($defaults as $d): ?>
-              <a class="sc-card" href="<?php echo esc_url(home_url('/menu/#signatures')); ?>">
-                <div class="sc-card__visual">
-                  <div class="ph" data-label="<?php echo esc_attr($d['label']); ?>"></div>
-                </div>
-                <div class="sc-card__body">
-                  <h3>
-                    <span data-en><?php echo esc_html($d['en']); ?></span>
-                    <span data-zh><?php echo esc_html($d['zh']); ?></span>
-                    <span class="cn"><?php echo esc_html($d['zh']); ?></span>
-                  </h3>
-                  <p><span data-en><?php echo esc_html($d['desc']); ?></span></p>
-                </div>
-              </a>
-          <?php endforeach;
-      endif; ?>
+      $signatures = array(
+        array( 'label' => 'salt-baked chicken · whole, paper-wrapped', 'en' => 'Salt-Baked Chicken', 'zh' => '盐 焗 鸡', 'cn' => '客 家 盐 焗 鸡', 'desc_en' => 'Free-range hen, sea salt, kraft paper. Forty minutes in the embers.', 'desc_zh' => '走 地 鸡、海 盐、牛 皮 纸，炭 火 中 四 十 分 钟。' ),
+        array( 'label' => 'mui choy kau yuk · braised pork belly', 'en' => 'Mui Choy Pork Belly', 'zh' => '梅 菜 扣 肉', 'cn' => '梅 菜 扣 肉', 'desc_en' => 'Five-spice belly steamed with pickled mustard greens, the way Ah Por taught it.', 'desc_zh' => '五 香 三 层 肉，与 阿 婆 腌 的 梅 干 菜 同 蒸。' ),
+        array( 'label' => 'abacus seeds · suan pan zi', 'en' => 'Abacus Seeds', 'zh' => '算 盘 子', 'cn' => '算 盘 子', 'desc_en' => 'Taro and tapioca, pinched by hand. Chewy at the centre, savoury at the edge.', 'desc_zh' => '芋 头 与 木 薯，一 颗 颗 手 捏，中 心 软 糯，边 缘 咸 香。' ),
+        array( 'label' => 'lei cha · thunder tea rice', 'en' => 'Thunder Tea Rice', 'zh' => '擂 茶 饭', 'cn' => '擂 茶 饭', 'desc_en' => 'Twelve herbs, ground in a wooden mortar. A bowl that drinks like a meal.', 'desc_zh' => '十 二 种 香 草，杵 臼 现 磨。一 碗 茶，也 是 一 顿 饭。' ),
+        array( 'label' => 'ginger-sprout braised duck', 'en' => 'Ginger-Sprout Duck', 'zh' => '姜 芽 焖 鸭', 'cn' => '姜 芽 焖 鸭', 'desc_en' => 'Three hours on low flame, young ginger sprouts, dark caramel sauce.', 'desc_zh' => '三 小 时 慢 火，姜 芽 爆 香，老 抽 收 汁。' ),
+        array( 'label' => 'rice-wine chicken soup · clay pot', 'en' => 'Rice-Wine Chicken Soup', 'zh' => '糯 米 酒 鸡 汤', 'cn' => '糯 米 酒 鸡 汤', 'desc_en' => 'Glutinous rice wine, kampung chicken, ginger, sesame oil.', 'desc_zh' => '糯 米 酒、甘 榜 鸡、老 姜、麻 油。' ),
+      );
+      $menu_url = hakshan_nav_url( 'menu' ) . '#signatures';
+      foreach ( $signatures as $s ) :
+        ?>
+        <a class="sc-card" href="<?php echo esc_url( $menu_url ); ?>">
+          <div class="sc-card__visual"><div class="ph" data-label="<?php echo esc_attr( $s['label'] ); ?>"></div></div>
+          <div class="sc-card__body">
+            <h3><span data-en><?php echo esc_html( $s['en'] ); ?></span><span data-zh><?php echo esc_html( $s['zh'] ); ?></span>
+              <span class="cn"><?php echo esc_html( $s['cn'] ); ?></span></h3>
+            <p><span data-en><?php echo esc_html( $s['desc_en'] ); ?></span>
+              <span data-zh><?php echo esc_html( $s['desc_zh'] ); ?></span></p>
+          </div>
+        </a>
+      <?php endforeach; ?>
     </div>
 
     <div class="oc-nav">
-      <div class="oc-nav__count"><strong id="scCount">01</strong><span> / <?php
-        $total_sigs = $sig_query->found_posts ?: 6;
-        echo $total_sigs;
-      ?></span></div>
+      <div class="oc-nav__count">
+        <strong id="scCount">01</strong>
+        <span> / 6</span>
+      </div>
       <div class="oc-nav__progress"><div class="fill" id="scFill"></div></div>
       <div class="oc-nav__buttons">
         <button class="oc-nav__btn" id="scPrev" aria-label="Previous">←</button>
@@ -326,7 +840,7 @@
   </div>
 </section>
 
-<!-- ===== CINEMATIC BREAK ===== -->
+<!-- ============== CINEMATIC BREAK ============== -->
 <section class="cinema-break">
   <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="cinema-break__inner" data-reveal>
@@ -347,7 +861,7 @@
   </div>
 </section>
 
-<!-- ===== CHARITY ===== -->
+<!-- ============== CHARITY ============== -->
 <section class="charity">
   <div data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
@@ -360,8 +874,8 @@
   </div>
   <div data-reveal>
     <p>
-      <span data-en>Hakshan is Malaysia's first dining-with-charity restaurant. A fixed portion of every bill goes to community kitchens, elder-care meals, and scholarships for kitchen apprentices from rural Hakka villages.</span>
-      <span data-zh>客善是马来西亚首家「用餐即行善」的餐厅。每一张账单都有固定比例，捐给社区厨房、长者送餐与乡村客家学徒奖学金。</span>
+      <span data-en>Hakshan is Malaysia's first dining-with-charity restaurant. A fixed portion of every bill goes to community kitchens, elder-care meals, and scholarships for kitchen apprentices from rural Hakka villages. We don't print the amount on the receipt. You just know.</span>
+      <span data-zh>客善是马来西亚首家「用餐即行善」的餐厅。每一张账单都有固定比例，捐给社区厨房、长者送餐与乡村客家学徒奖学金。我们不会把金额印在收据上，但你心里清楚。</span>
     </p>
     <div class="charity__stats">
       <div>
@@ -380,7 +894,7 @@
   </div>
 </section>
 
-<!-- ===== OUTLETS CAROUSEL ===== -->
+<!-- ============== OUTLETS ============== -->
 <section class="section">
   <div class="outlets">
     <div class="outlets__head" data-reveal>
@@ -393,68 +907,40 @@
           <span data-zh>九 间<br/><em>厨 房。</em></span>
         </h2>
       </div>
-      <a class="btn btn--ghost" href="<?php echo esc_url(home_url('/outlets/')); ?>">
+      <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'outlets' ) ); ?>">
         <span data-en>All outlets &amp; map</span><span data-zh>所有门店与地图</span>
         <span class="arr">→</span>
       </a>
     </div>
-
     <div class="outlets__carousel-wrap" data-reveal>
       <div class="outlets__carousel" id="ocCarousel">
         <?php
-        $oc_query = new WP_Query([
-            'post_type'      => 'outlet',
-            'posts_per_page' => -1,
-            'orderby'        => 'menu_order',
-            'order'          => 'ASC',
-        ]);
-
-        if ($oc_query->have_posts()):
-            while ($oc_query->have_posts()): $oc_query->the_post();
-                $slug = get_post_field('post_name');
-                $city = get_post_meta(get_the_ID(), '_hakshan_city', true);
-                ?>
-                <a class="oc-card" href="<?php echo esc_url(home_url('/outlets/#' . $slug)); ?>">
-                  <div class="oc-card__visual">
-                    <?php if (has_post_thumbnail()):
-                        echo get_the_post_thumbnail(null, 'outlet-card', ['loading'=>'lazy']);
-                    else: ?>
-                      <div class="ph" data-label="<?php echo esc_attr(get_the_title()); ?>"></div>
-                    <?php endif; ?>
-                  </div>
-                  <div><h3><?php the_title(); ?></h3><div class="city"><?php echo esc_html($city); ?></div></div>
-                  <div class="meta"><span></span><span class="arr">→</span></div>
-                </a>
-                <?php
-            endwhile;
-            wp_reset_postdata();
-        else:
-            /* Fallback if no outlets in CPT */
-            $fallback_outlets = [
-                ['name'=>'USJ Taipan','city'=>'Subang Jaya','slug'=>'usj'],
-                ['name'=>'Menjalara','city'=>'Kepong','slug'=>'menjalara'],
-                ['name'=>'Cheras Traders','city'=>'Cheras','slug'=>'cheras'],
-                ['name'=>'Bandar Puteri','city'=>'Puchong','slug'=>'puchong'],
-                ['name'=>'IOI Conezion','city'=>'Putrajaya','slug'=>'conezion'],
-                ['name'=>'Budiman Park','city'=>'Kajang','slug'=>'kajang'],
-                ['name'=>'Arcoris Plaza','city'=>'Mont Kiara','slug'=>'kiara'],
-                ['name'=>'The Waterfront','city'=>'Desa ParkCity','slug'=>'parkcity'],
-                ['name'=>'Plaza Arkadia','city'=>'Desa ParkCity','slug'=>'arkadia'],
-            ];
-            foreach ($fallback_outlets as $o): ?>
-                <a class="oc-card" href="<?php echo esc_url(home_url('/outlets/#' . $o['slug'])); ?>">
-                  <div class="oc-card__visual"><div class="ph" data-label="<?php echo esc_attr($o['name']); ?>"></div></div>
-                  <div><h3><?php echo esc_html($o['name']); ?></h3><div class="city"><?php echo esc_html($o['city']); ?></div></div>
-                  <div class="meta"><span></span><span class="arr">→</span></div>
-                </a>
-            <?php endforeach;
-        endif; ?>
+        $outlets_url = hakshan_nav_url( 'outlets' );
+        $outlets     = array(
+          array( 'slug' => 'usj',       'label' => 'USJ Taipan · main dining hall', 'name' => 'USJ Taipan',     'city' => 'Subang Jaya' ),
+          array( 'slug' => 'menjalara', 'label' => 'Menjalara · entrance',          'name' => 'Menjalara',      'city' => 'Kepong' ),
+          array( 'slug' => 'cheras',    'label' => 'Cheras Traders · open kitchen', 'name' => 'Cheras Traders', 'city' => 'Cheras' ),
+          array( 'slug' => 'puchong',   'label' => 'Bandar Puteri · dining hall',   'name' => 'Bandar Puteri',  'city' => 'Puchong' ),
+          array( 'slug' => 'conezion',  'label' => 'IOI Conezion · terrace',        'name' => 'IOI Conezion',   'city' => 'Putrajaya' ),
+          array( 'slug' => 'kajang',    'label' => 'Budiman Park · entrance',       'name' => 'Budiman Park',   'city' => 'Kajang' ),
+          array( 'slug' => 'kiara',     'label' => 'Arcoris Mont Kiara · main hall','name' => 'Arcoris Plaza',  'city' => 'Mont Kiara' ),
+          array( 'slug' => 'parkcity',  'label' => 'The Waterfront · evening service','name' => 'The Waterfront','city' => 'Desa ParkCity' ),
+          array( 'slug' => 'arkadia',   'label' => 'Plaza Arkadia · open kitchen',  'name' => 'Plaza Arkadia',  'city' => 'Desa ParkCity' ),
+        );
+        foreach ( $outlets as $o ) :
+          ?>
+          <a class="oc-card" href="<?php echo esc_url( $outlets_url . '#' . $o['slug'] ); ?>">
+            <div class="oc-card__visual"><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div></div>
+            <div><h3><?php echo esc_html( $o['name'] ); ?></h3><div class="city"><?php echo esc_html( $o['city'] ); ?></div></div>
+            <div class="meta"><span></span><span class="arr">→</span></div>
+          </a>
+        <?php endforeach; ?>
       </div>
 
       <div class="oc-nav">
         <div class="oc-nav__count">
-          <strong id="ocCount">01</strong>
-          <span> / <?php echo max($oc_query->found_posts, 9); ?></span>
+          <strong id="ocCount">1</strong>
+          <span> / 9</span>
         </div>
         <div class="oc-nav__progress"><div class="fill" id="ocFill"></div></div>
         <div class="oc-nav__buttons">
@@ -466,13 +952,13 @@
   </div>
 </section>
 
-<!-- ===== GALLERY ===== -->
+<!-- ============== GALLERY ============== -->
 <section class="section">
-  <div style="max-width:var(--maxw);margin:0 auto 56px;" data-reveal>
+  <div style="max-width: var(--maxw); margin: 0 auto 56px;" data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
       <span data-en>ATMOSPHERE</span><span data-zh>空 间</span>
     </span>
-    <h2 style="font-family:var(--serif);font-style:italic;font-size:clamp(40px,6vw,80px);line-height:1;margin:12px 0 0;letter-spacing:-.02em;max-width:14ch;">
+    <h2 style="font-family: var(--serif); font-style: italic; font-size: clamp(40px, 6vw, 80px); line-height: 1; margin: 12px 0 0; letter-spacing: -0.02em; max-width: 14ch;">
       <span data-en>Wood, paper,<br/>warm light, <em>low voices.</em></span>
       <span data-zh>木、纸、<br/>暖光、<em>轻声。</em></span>
     </h2>
@@ -487,7 +973,7 @@
   </div>
 </section>
 
-<!-- ===== RESERVATION ===== -->
+<!-- ============== BOOK ============== -->
 <section class="book" id="book">
   <div class="inner" data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
@@ -503,15 +989,47 @@
       <span data-zh>所有门店欢迎散客。六人以上、包房或慈善桌请提前预约。</span>
     </p>
     <div class="book__buttons">
-      <a class="btn" href="<?php echo esc_url(home_url('/contact/#reserve')); ?>">
-        <span data-en>Reserve online</span><span data-zh>在线预订</span><span class="arr">→</span>
-      </a>
-      <a class="btn btn--ghost" href="tel:+60162462970">
-        <span data-en>Call +60 16-246 2970</span><span data-zh>致电 +60 16-246 2970</span>
-      </a>
+      <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) . '#reserve' ); ?>"><span data-en>Reserve online</span><span data-zh>在线预订</span><span class="arr">→</span></a>
+      <a class="btn btn--ghost" href="tel:+60162462970"><span data-en>Call +60 16-246 2970</span><span data-zh>致电 +60 16-246 2970</span></a>
     </div>
   </div>
 </section>
 
-</main>
-<?php get_footer(); ?>
+<script>
+  // Generic carousel — wires up any [track, prev, next, fill, count] quartet
+  function initCarousel(trackId, prevId, nextId, fillId, countId) {
+    const track = document.getElementById(trackId);
+    const prev = document.getElementById(prevId);
+    const next = document.getElementById(nextId);
+    const fill = document.getElementById(fillId);
+    const count = document.getElementById(countId);
+    if (!track) return;
+    const cards = track.children;
+    function step() {
+      const card = cards[0];
+      const style = getComputedStyle(track);
+      const gap = parseFloat(style.gap) || 24;
+      return card.getBoundingClientRect().width + gap;
+    }
+    function update() {
+      const s = step();
+      const idx = Math.round(track.scrollLeft / s);
+      const max = Math.max(1, cards.length - 1);
+      const pct = Math.min(100, (idx / max) * 100);
+      if (fill) fill.style.width = Math.max(10, pct) + "%";
+      if (count) count.textContent = (idx + 1).toString().padStart(2, "0");
+      if (prev) prev.disabled = track.scrollLeft <= 4;
+      if (next) next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    }
+    if (prev) prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+    if (next) next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+    track.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+  initCarousel("scCarousel", "scPrev", "scNext", "scFill", "scCount");
+  initCarousel("ocCarousel", "ocPrev", "ocNext", "ocFill", "ocCount");
+</script>
+
+<?php
+get_footer();

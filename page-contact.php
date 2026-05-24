@@ -1,10 +1,15 @@
 <?php
-/* Template Name: Contact */
+/**
+ * Template Name: Contact
+ * Template Post Type: page
+ *
+ * @package Hakshan
+ */
+
 get_header();
 ?>
-<main>
-
 <style>
+  /* Contact-specific extras */
   .contact-section {
     padding: clamp(60px, 8vw, 100px) var(--rail);
     max-width: var(--maxw);
@@ -50,16 +55,21 @@ get_header();
     max-width: 50ch;
   }
 
+  /* Reservation specifics */
   .reserve-form-block {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 80px;
     align-items: start;
   }
-  .reserve-info { display: grid; gap: 24px; align-content: start; }
+  .reserve-info {
+    display: grid;
+    gap: 24px;
+    align-content: start;
+  }
   .reserve-info .card {
     padding: 24px;
-    background: var(--paper);
+    background: var(--cream);
     border: 1px solid var(--line-soft);
   }
   .reserve-info .card h4 {
@@ -88,6 +98,7 @@ get_header();
     margin-top: 8px;
   }
 
+  /* Outlet pick row inside form */
   .pick-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -107,7 +118,11 @@ get_header();
     letter-spacing: -0.005em;
   }
   .pick-row .chip:hover { background: var(--cream); border-color: var(--forest); }
-  .pick-row .chip.is-on { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+  .pick-row .chip.is-on {
+    background: var(--forest);
+    color: var(--cream);
+    border-color: var(--forest);
+  }
 
   .submit-row {
     margin-top: 16px;
@@ -127,6 +142,7 @@ get_header();
     line-height: 1.5;
   }
 
+  /* Press grid */
   .press-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -157,7 +173,12 @@ get_header();
     letter-spacing: -0.01em;
     line-height: 1.1;
   }
-  .press-card p { font-size: 14px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .press-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
   .press-card .link {
     margin-top: auto;
     padding-top: 12px;
@@ -170,7 +191,11 @@ get_header();
   .press-card .link .arr { transition: transform 0.2s; display: inline-block; margin-left: 6px; }
   .press-card:hover .arr { transform: translateX(4px); }
 
-  .careers-list { display: grid; border-top: 1px solid var(--line); }
+  /* Careers list */
+  .careers-list {
+    display: grid;
+    border-top: 1px solid var(--line);
+  }
   .career {
     display: grid;
     grid-template-columns: 80px 1.4fr 1fr 1fr 60px;
@@ -180,17 +205,45 @@ get_header();
     align-items: center;
     transition: padding 0.2s ease, background 0.2s ease;
     cursor: pointer;
-    text-decoration: none;
-    color: inherit;
   }
   .career:hover { padding-left: 16px; background: var(--cream); }
-  .career .ix { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--forest); }
-  .career h3 { font-family: var(--serif); font-style: italic; font-size: 26px; margin: 0 0 4px; letter-spacing: -0.01em; }
-  .career .sub { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); }
-  .career .where, .career .when { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.04em; }
-  .career .arr { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--forest); text-align: right; transition: transform 0.2s; }
+  .career .ix {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--forest);
+  }
+  .career h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .career .sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .career .where, .career .when {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+  .career .arr {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--forest);
+    text-align: right;
+    transition: transform 0.2s;
+  }
   .career:hover .arr { transform: translateX(8px); }
 
+  /* General info row */
   .info-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -198,7 +251,14 @@ get_header();
     padding-top: 32px;
     border-top: 1px solid var(--line);
   }
-  .info-cell h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--forest); margin: 0 0 14px; }
+  .info-cell h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin: 0 0 14px;
+  }
   .info-cell a, .info-cell p {
     font-family: var(--serif);
     font-style: italic;
@@ -209,10 +269,16 @@ get_header();
     letter-spacing: -0.005em;
     display: block;
   }
-  .info-cell a:hover { color: var(--forest); }
-  .info-cell .small { font-family: var(--sans); font-style: normal; font-size: 13px; color: var(--ink-soft); margin-top: 8px; line-height: 1.6; }
-  .info-cell .small a { font-family: var(--sans); font-style: normal; font-size: 13px; color: var(--forest); display: inline; }
+  .info-cell .small {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 8px;
+    line-height: 1.6;
+  }
 
+  /* Quiet closer */
   .quiet-close {
     padding: clamp(80px, 12vw, 140px) var(--rail);
     text-align: center;
@@ -232,11 +298,14 @@ get_header();
     margin-right: auto;
   }
   .quiet-close h2 em { color: var(--forest); }
-  .quiet-close .cn { font-family: var(--cn); font-size: 14px; letter-spacing: 0.55em; color: var(--forest); padding-left: 0.55em; opacity: 0.7; }
-
-  .reserve-status { margin-top: 16px; font-size: 14px; line-height: 1.5; }
-  .reserve-status--ok { color: var(--forest); }
-  .reserve-status--err { color: #b94a3a; }
+  .quiet-close .cn {
+    font-family: var(--cn);
+    font-size: 14px;
+    letter-spacing: 0.55em;
+    color: var(--forest);
+    padding-left: 0.55em;
+    opacity: 0.7;
+  }
 
   @media (max-width: 980px) {
     .reserve-form-block { grid-template-columns: 1fr; gap: 48px; }
@@ -247,7 +316,7 @@ get_header();
   }
 </style>
 
-<!-- HERO -->
+<!-- ============== HERO ============== -->
 <section class="page-head">
   <div>
     <span class="h-eyebrow"><span class="dot"></span>
@@ -265,7 +334,7 @@ get_header();
   </p>
 </section>
 
-<!-- RESERVATIONS -->
+<!-- ============== RESERVATIONS ============== -->
 <section class="contact-section dark" id="reserve">
   <div class="inner">
     <div class="section-head" data-reveal>
@@ -286,10 +355,10 @@ get_header();
     </div>
 
     <div class="reserve-form-block">
-      <form class="contact-form" id="reservationForm" data-reveal>
+      <form class="contact-form" data-reveal onsubmit="event.preventDefault(); alert('Reservation submitted — we will confirm by phone within an hour.');">
         <div>
           <label><span data-en>Outlet</span><span data-zh>分 店</span></label>
-          <div class="pick-row">
+          <div class="pick-row" id="outletPick">
             <button type="button" class="chip is-on" data-val="usj">USJ Taipan</button>
             <button type="button" class="chip" data-val="menjalara">Menjalara</button>
             <button type="button" class="chip" data-val="cheras">Cheras Traders</button>
@@ -321,12 +390,12 @@ get_header();
           <div>
             <label><span data-en>Occasion · optional</span><span data-zh>场 合 · 可 选</span></label>
             <select name="occasion">
-              <option value="">None</option>
-              <option value="birthday">Birthday · 生 日</option>
-              <option value="family">Family gathering · 家 宴</option>
-              <option value="business">Business · 商 务</option>
-              <option value="anniversary">Anniversary · 周 年</option>
-              <option value="charity">The charity table · 慈 善 桌</option>
+              <option>None · 无</option>
+              <option>Birthday · 生 日</option>
+              <option>Family gathering · 家 宴</option>
+              <option>Business · 商 务</option>
+              <option>Anniversary · 周 年</option>
+              <option>The charity table · 慈 善 桌</option>
             </select>
           </div>
         </div>
@@ -357,44 +426,35 @@ get_header();
             <span data-en>WE'LL CONFIRM BY PHONE WITHIN ONE HOUR · 11:00 — 22:00</span>
             <span data-zh>我 们 将 在 一 小 时 内 电 话 确 认 · 11:00 — 22:00</span>
           </span>
-          <button class="btn" type="submit">
-            <span data-en>Reserve</span><span data-zh>提 交 预 订</span><span class="arr">→</span>
-          </button>
+          <button class="btn" type="submit"><span data-en>Reserve</span><span data-zh>提 交 预 订</span><span class="arr">→</span></button>
         </div>
-        <div id="reserveStatus" class="reserve-status" aria-live="polite"></div>
       </form>
 
       <div class="reserve-info" data-reveal>
         <div class="card">
           <h4><span data-en>Call directly</span><span data-zh>电 话 预 订</span></h4>
           <p>+60 16-246 2970</p>
-          <div class="small">
-            <span data-en>Daily 11:00 — 22:00 · all reservations route through the USJ flagship and are forwarded.</span>
-            <span data-zh>每 日 11:00 — 22:00 · 所 有 预 订 通 过 USJ 旗 舰 店 统 一 接 待 后 转 至 各 分 店。</span>
-          </div>
+          <div class="small"><span data-en>Daily 11:00 — 22:00 · all reservations route through the USJ flagship and are forwarded.</span>
+            <span data-zh>每 日 11:00 — 22:00 · 所 有 预 订 通 过 USJ 旗 舰 店 统 一 接 待 后 转 至 各 分 店。</span></div>
         </div>
         <div class="card">
           <h4><span data-en>Whatsapp</span><span data-zh>WhatsApp</span></h4>
           <p>+60 16-246 2970</p>
-          <div class="small">
-            <span data-en>Send a screenshot of the outlet you want, your party size, and a date. We'll reply with a slot.</span>
-            <span data-zh>把 想 去 的 分 店 截 图 给 我 们，附 人 数 与 日 期。我 们 回 你 一 个 时 段。</span>
-          </div>
+          <div class="small"><span data-en>Send a screenshot of the outlet you want, your party size, and a date. We'll reply with a slot.</span>
+            <span data-zh>把 想 去 的 分 店 截 图 给 我 们，附 人 数 与 日 期。我 们 回 你 一 个 时 段。</span></div>
         </div>
         <div class="card">
           <h4><span data-en>The charity table</span><span data-zh>慈 善 桌</span></h4>
           <p><span data-en>Always available, always free.</span><span data-zh>永 远 留 着，永 远 免 费。</span></p>
-          <div class="small">
-            <span data-en>One seat per outlet, every night. No questions asked. Walk in, sit down, eat. We'll fill the bowl.</span>
-            <span data-zh>每 家 每 晚 一 张 桌。不 问 来 历。推 门 入 座，我 们 会 盛 上 一 碗。</span>
-          </div>
+          <div class="small"><span data-en>One seat per outlet, every night. No questions asked. Walk in, sit down, eat. We'll fill the bowl.</span>
+            <span data-zh>每 家 每 晚 一 张 桌。不 问 来 历。推 门 入 座，我 们 会 盛 上 一 碗。</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRESS -->
+<!-- ============== PRESS ============== -->
 <section class="contact-section">
   <div class="section-head" data-reveal>
     <div>
@@ -422,7 +482,7 @@ get_header();
     </div>
     <div class="press-card">
       <h4><span data-en>BRAND ASSETS</span><span data-zh>品 牌 素 材</span></h4>
-      <h3><span data-en>Press kit · <?php echo date('Y'); ?></span><span data-zh>媒 体 包 · <?php echo date('Y'); ?></span></h3>
+      <h3><span data-en>Press kit · 2026</span><span data-zh>媒 体 包 · 2026</span></h3>
       <p><span data-en>Logo, photography library, founder bios, charity model fact sheet, recipe-book spreads — high-res.</span>
         <span data-zh>标 志、图 库、创 办 人 简 介、慈 善 模 式 简 报、食 谱 内 页 — 高 清。</span></p>
       <div class="link">Download · 84MB <span class="arr">↓</span></div>
@@ -432,16 +492,12 @@ get_header();
       <h3><span data-en>The Edge, Tatler, SCMP</span><span data-zh>The Edge, Tatler, SCMP</span></h3>
       <p><span data-en>Read what's been written about the charity model, the recipe book, and three generations of Hakka cooking.</span>
         <span data-zh>了 解 外 界 对 慈 善 模 式、食 谱 与 三 代 客 家 烹 饪 的 报 道。</span></p>
-      <div class="link">
-        <a href="<?php echo esc_url(home_url('/story/#press')); ?>" style="color: inherit;">
-          <span data-en>See press page</span><span data-zh>查 看 报 道</span> <span class="arr">→</span>
-        </a>
-      </div>
+      <div class="link"><a href="<?php echo esc_url( hakshan_nav_url( 'story' ) . '#press' ); ?>" style="color: inherit;">See press page <span class="arr">→</span></a></div>
     </div>
   </div>
 </section>
 
-<!-- CAREERS -->
+<!-- ============== CAREERS ============== -->
 <section class="contact-section dark">
   <div class="inner">
     <div class="section-head" data-reveal>
@@ -461,61 +517,32 @@ get_header();
       </p>
     </div>
     <div class="careers-list" data-reveal>
-      <a class="career" href="#">
-        <span class="ix">N° 01</span>
-        <div>
-          <h3><span data-en>Kitchen Apprentice · Scholarship</span><span data-zh>厨 房 学 徒 · 奖 学 金</span></h3>
-          <div class="sub"><span data-en>2-year programme · room &amp; board</span><span data-zh>两 年 课 程 · 含 食 宿</span></div>
-        </div>
-        <div class="where">USJ Taipan · KL</div>
-        <div class="when"><span data-en>Applications · rolling</span><span data-zh>滚 动 招 募</span></div>
-        <div class="arr">→</div>
-      </a>
-      <a class="career" href="#">
-        <span class="ix">N° 02</span>
-        <div>
-          <h3><span data-en>Wok Master · Senior</span><span data-zh>主 厨 · 资 深</span></h3>
-          <div class="sub"><span data-en>Lead kitchen, single outlet</span><span data-zh>独 立 主 持 一 间 厨 房</span></div>
-        </div>
-        <div class="where">Mont Kiara</div>
-        <div class="when"><span data-en>Apply by · 30 Jun <?php echo date('Y'); ?></span><span data-zh>截 止 · <?php echo date('Y'); ?> 年 6 月 30</span></div>
-        <div class="arr">→</div>
-      </a>
-      <a class="career" href="#">
-        <span class="ix">N° 03</span>
-        <div>
-          <h3><span data-en>Service Captain</span><span data-zh>领 班</span></h3>
-          <div class="sub"><span data-en>Daily 11:00 — 22:00, bilingual</span><span data-zh>每 日 11:00 — 22:00，双 语</span></div>
-        </div>
-        <div class="where">Cheras Traders</div>
-        <div class="when"><span data-en>Apply by · 14 May <?php echo date('Y'); ?></span><span data-zh>截 止 · <?php echo date('Y'); ?> 年 5 月 14</span></div>
-        <div class="arr">→</div>
-      </a>
-      <a class="career" href="#">
-        <span class="ix">N° 04</span>
-        <div>
-          <h3><span data-en>Charity Programme Coordinator</span><span data-zh>慈 善 项 目 协 调 员</span></h3>
-          <div class="sub"><span data-en>Liaise with 42 partner kitchens</span><span data-zh>联 络 42 家 合 作 厨 房</span></div>
-        </div>
-        <div class="where">USJ Taipan · HQ</div>
-        <div class="when"><span data-en>Apply by · 22 May <?php echo date('Y'); ?></span><span data-zh>截 止 · <?php echo date('Y'); ?> 年 5 月 22</span></div>
-        <div class="arr">→</div>
-      </a>
-      <a class="career" href="#">
-        <span class="ix">N° 05</span>
-        <div>
-          <h3><span data-en>Brand &amp; Editorial Designer</span><span data-zh>品 牌 与 出 版 设 计 师</span></h3>
-          <div class="sub"><span data-en>Print-led · the recipe book, vol. 04</span><span data-zh>以 印 刷 为 主 · 食 谱 第 四 卷</span></div>
-        </div>
-        <div class="where">USJ Taipan · HQ</div>
-        <div class="when"><span data-en>Apply by · 30 Apr <?php echo date('Y'); ?></span><span data-zh>截 止 · <?php echo date('Y'); ?> 年 4 月 30</span></div>
-        <div class="arr">→</div>
-      </a>
+      <?php
+      $careers = array(
+        array( 'ix' => 'N° 01', 'h_en' => 'Kitchen Apprentice · Scholarship', 'h_zh' => '厨 房 学 徒 · 奖 学 金', 's_en' => '2-year programme · room &amp; board',  's_zh' => '两 年 课 程 · 含 食 宿', 'where' => 'USJ Taipan · KL', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
+        array( 'ix' => 'N° 02', 'h_en' => 'Wok Master · Senior',              'h_zh' => '主 厨 · 资 深',             's_en' => 'Lead kitchen, single outlet',           's_zh' => '独 立 主 持 一 间 厨 房',   'where' => 'Mont Kiara',     'w_en' => 'Apply by · 30 Jun 2026',       'w_zh' => '截 止 · 2026 年 6 月 30' ),
+        array( 'ix' => 'N° 03', 'h_en' => 'Service Captain',                  'h_zh' => '领 班',                     's_en' => 'Daily 11:00 — 22:00, bilingual',        's_zh' => '每 日 11:00 — 22:00，双 语', 'where' => 'Cheras Traders', 'w_en' => 'Apply by · 14 May 2026',       'w_zh' => '截 止 · 2026 年 5 月 14' ),
+        array( 'ix' => 'N° 04', 'h_en' => 'Charity Programme Coordinator',    'h_zh' => '慈 善 项 目 协 调 员',       's_en' => 'Liaise with 42 partner kitchens',       's_zh' => '联 络 42 家 合 作 厨 房',    'where' => 'USJ Taipan · HQ','w_en' => 'Apply by · 22 May 2026',       'w_zh' => '截 止 · 2026 年 5 月 22' ),
+        array( 'ix' => 'N° 05', 'h_en' => 'Brand &amp; Editorial Designer',   'h_zh' => '品 牌 与 出 版 设 计 师',     's_en' => 'Print-led · the recipe book, vol. 04',  's_zh' => '以 印 刷 为 主 · 食 谱 第 四 卷', 'where' => 'USJ Taipan · HQ','w_en' => 'Apply by · 30 Apr 2026',       'w_zh' => '截 止 · 2026 年 4 月 30' ),
+      );
+      foreach ( $careers as $c ) :
+        ?>
+        <a class="career" href="#">
+          <span class="ix"><?php echo esc_html( $c['ix'] ); ?></span>
+          <div>
+            <h3><span data-en><?php echo wp_kses_post( $c['h_en'] ); ?></span><span data-zh><?php echo esc_html( $c['h_zh'] ); ?></span></h3>
+            <div class="sub"><span data-en><?php echo wp_kses_post( $c['s_en'] ); ?></span><span data-zh><?php echo esc_html( $c['s_zh'] ); ?></span></div>
+          </div>
+          <div class="where"><?php echo esc_html( $c['where'] ); ?></div>
+          <div class="when"><span data-en><?php echo esc_html( $c['w_en'] ); ?></span><span data-zh><?php echo esc_html( $c['w_zh'] ); ?></span></div>
+          <div class="arr">→</div>
+        </a>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
 
-<!-- GENERAL INFO -->
+<!-- ============== GENERAL INFO ============== -->
 <section class="contact-section">
   <div class="section-head" data-reveal>
     <div>
@@ -543,9 +570,8 @@ get_header();
       <h4><span data-en>Investors</span><span data-zh>投 资 者</span></h4>
       <a href="mailto:ir@hakshan.com">ir@hakshan.com</a>
       <div class="small">
-        <a href="<?php echo esc_url(home_url('/investors/')); ?>">
-          <span data-en>Investor relations page →</span><span data-zh>投 资 者 关 系 页 →</span>
-        </a>
+        <span data-en><a href="<?php echo esc_url( hakshan_nav_url( 'investors' ) ); ?>">Investor relations page →</a></span>
+        <span data-zh><a href="<?php echo esc_url( hakshan_nav_url( 'investors' ) ); ?>">投 资 者 关 系 页 →</a></span>
       </div>
     </div>
     <div class="info-cell">
@@ -561,7 +587,7 @@ get_header();
   </div>
 </section>
 
-<!-- QUIET CLOSER -->
+<!-- ============== QUIET CLOSER ============== -->
 <section class="quiet-close">
   <div data-reveal>
     <h2>
@@ -572,5 +598,16 @@ get_header();
   </div>
 </section>
 
-</main>
-<?php get_footer(); ?>
+<script>
+  // Outlet chip picker
+  (function() {
+    const chips = document.querySelectorAll("#outletPick .chip");
+    chips.forEach(c => c.addEventListener("click", () => {
+      chips.forEach(x => x.classList.remove("is-on"));
+      c.classList.add("is-on");
+    }));
+  })();
+</script>
+
+<?php
+get_footer();

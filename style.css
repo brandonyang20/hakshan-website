@@ -1,12 +1,18 @@
 /*
 Theme Name: Hakshan
-Theme URI: https://hakshan.com
-Author: Hakshan Sdn. Bhd.
-Description: Official Hakshan 客善 website theme. Hakka cooking, kept whole.
+Theme URI: https://hakshan.com/
+Author: Hakshan
+Author URI: https://hakshan.com/
+Description: Hakshan 客善 — editorial WordPress theme built from the Claude Design handoff. Quiet, slow, and intentionally low-chrome. Brother 1816 typeface, bilingual EN/ZH content via the in-page language toggle.
 Version: 1.0.0
 Requires at least: 6.0
 Tested up to: 6.7
-Requires PHP: 8.0
-License: Proprietary
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: hakshan
+Tags: restaurant, editorial, custom-menu, translation-ready
 */
+
+/* All real styles live in assets/css/styles.css and assets/css/inner.css.
+   This file exists solely to register theme metadata with WordPress. */

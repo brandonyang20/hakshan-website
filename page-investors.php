@@ -1,10 +1,15 @@
 <?php
-/* Template Name: Investors */
+/**
+ * Template Name: Investors
+ * Template Post Type: page
+ *
+ * @package Hakshan
+ */
+
 get_header();
 ?>
-<main>
-
 <style>
+  /* Investor-specific extras */
   .inv-narrative {
     padding: clamp(80px, 12vw, 140px) var(--rail);
     max-width: var(--maxw);
@@ -24,7 +29,13 @@ get_header();
     max-width: 12ch;
   }
   .inv-narrative > div:first-child h2 em { color: var(--forest); }
-  .inv-narrative__body p { font-size: 17px; line-height: 1.75; color: var(--ink); margin: 0 0 18px; max-width: 60ch; }
+  .inv-narrative__body p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin: 0 0 18px;
+    max-width: 60ch;
+  }
   .inv-narrative__body p.lead {
     font-family: var(--serif);
     font-style: italic;
@@ -43,6 +54,7 @@ get_header();
     color: var(--forest);
   }
 
+  /* Trajectory chart */
   .trajectory {
     background: var(--cream);
     padding: clamp(80px, 12vw, 140px) var(--rail);
@@ -66,7 +78,12 @@ get_header();
     letter-spacing: -0.02em;
   }
   .trajectory__head h2 em { color: var(--forest); }
-  .trajectory__head p { font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin: 0; }
+  .trajectory__head p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0;
+  }
 
   .traj-chart {
     background: var(--paper);
@@ -96,6 +113,7 @@ get_header();
     margin-bottom: 6px;
     text-transform: none;
   }
+
   .bars {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -111,14 +129,7 @@ get_header();
     transition: background 0.2s;
   }
   .bar:hover { background: var(--forest); }
-  .traj-bar {
-    background: var(--cream);
-    border-top: 1px solid var(--forest);
-    position: relative;
-    transition: height 0.9s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
-  }
-  .traj-bar:hover { background: var(--forest); }
-  .traj-bar .val, .bar .val {
+  .bar .val {
     position: absolute;
     top: -22px; left: 0; right: 0;
     text-align: center;
@@ -140,6 +151,7 @@ get_header();
     text-align: center;
   }
 
+  /* Charity model */
   .model {
     padding: clamp(80px, 12vw, 140px) var(--rail);
     max-width: var(--maxw);
@@ -162,7 +174,13 @@ get_header();
     max-width: 14ch;
   }
   .model__head h2 em { color: var(--forest); }
-  .model__head p { font-size: 16px; line-height: 1.7; color: var(--ink-soft); margin: 0; max-width: 56ch; }
+  .model__head p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 56ch;
+  }
   .model__flow {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -189,12 +207,39 @@ get_header();
     z-index: 2;
   }
   .model-node:last-child::after { display: none; }
-  .model-node .ix { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--forest); }
-  .model-node h4 { font-family: var(--serif); font-style: italic; font-size: 22px; margin: 0; line-height: 1.1; letter-spacing: -0.005em; }
-  .model-node h4 .cn { font-family: var(--cn); font-style: normal; font-size: 12px; color: var(--forest); letter-spacing: 0.2em; display: block; margin-top: 6px; opacity: 0.7; }
-  .model-node p { font-size: 13px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .model-node .ix {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--forest);
+  }
+  .model-node h4 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+  }
+  .model-node h4 .cn {
+    font-family: var(--cn);
+    font-style: normal;
+    font-size: 12px;
+    color: var(--forest);
+    letter-spacing: 0.2em;
+    display: block;
+    margin-top: 6px;
+    opacity: 0.7;
+  }
+  .model-node p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
   .model-node.accent { background: var(--cream); }
 
+  /* Governance row */
   .gov {
     background: var(--cream);
     padding: clamp(80px, 12vw, 140px) var(--rail);
@@ -203,18 +248,58 @@ get_header();
   }
   .gov__inner { max-width: var(--maxw); margin: 0 auto; }
   .gov__head { margin-bottom: 48px; max-width: 800px; }
-  .gov__head h2 { font-family: var(--serif); font-style: italic; font-size: clamp(36px, 5vw, 64px); line-height: 1; margin: 12px 0 0; letter-spacing: -0.02em; }
+  .gov__head h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    margin: 12px 0 0;
+    letter-spacing: -0.02em;
+  }
   .gov__head h2 em { color: var(--forest); }
-  .gov__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
-  .gov-row { padding: 28px 32px 28px 0; border-bottom: 1px solid var(--line); }
+  .gov__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .gov-row {
+    padding: 28px 32px 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
   .gov-row + .gov-row { border-left: 1px solid var(--line); padding-left: 32px; }
   .gov-row:nth-child(3n+1) { padding-left: 0; border-left: none; }
-  .gov-row h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--forest); margin: 0 0 12px; }
-  .gov-row .name { font-family: var(--serif); font-style: italic; font-size: 26px; margin: 0 0 6px; letter-spacing: -0.01em; }
-  .gov-row p { font-size: 13px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .gov-row h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin: 0 0 12px;
+  }
+  .gov-row .name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .gov-row p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
 
-  .pull-quote { padding: clamp(80px, 12vw, 140px) var(--rail); text-align: center; }
-  .pull-quote .inner { max-width: 960px; margin: 0 auto; }
+  /* Pull quote */
+  .pull-quote {
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+    text-align: center;
+  }
+  .pull-quote .inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
   .pull-quote p {
     font-family: var(--serif);
     font-style: italic;
@@ -228,87 +313,20 @@ get_header();
     letter-spacing: -0.015em;
     text-wrap: balance;
   }
-  .pull-quote .by { margin-top: 32px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute); }
+  .pull-quote .by {
+    margin-top: 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
 
+  /* Inv stats: adjust internal layout for richer cells */
   .inv-stats {
     padding-top: clamp(60px, 8vw, 100px);
     padding-bottom: clamp(60px, 8vw, 100px);
   }
-
-  .inv-section {
-    padding: clamp(80px, 12vw, 140px) var(--rail);
-    max-width: var(--maxw);
-    margin: 0 auto;
-  }
-  .inv-section h2 {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(48px, 7vw, 96px);
-    line-height: 0.95;
-    margin: 12px 0 40px;
-    letter-spacing: -0.025em;
-    max-width: 12ch;
-  }
-  .inv-section h2 em { color: var(--forest); }
-
-  .docs { display: grid; gap: 0; border-top: 1px solid var(--line); }
-  .doc {
-    display: grid;
-    grid-template-columns: 80px 1fr 200px 80px 56px;
-    gap: 32px;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-    transition: padding-left 0.2s ease, background 0.2s ease;
-  }
-  .doc:hover { padding-left: 16px; background: var(--cream); }
-  .doc__num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--forest); }
-  .doc h3 { font-family: var(--serif); font-style: italic; font-size: 22px; margin: 0; letter-spacing: -0.01em; }
-  .doc .meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--forest); }
-  .doc .size { font-family: var(--mono); font-size: 11px; color: var(--mute); }
-  .doc .pdf {
-    background: var(--forest);
-    color: var(--cream);
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    padding: 6px 10px;
-    text-align: center;
-  }
-
-  .inv-contact {
-    padding: clamp(80px, 12vw, 140px) var(--rail);
-    background: var(--forest);
-    color: var(--cream);
-  }
-  .inv-contact__inner {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .inv-contact .h-eyebrow { color: var(--cream); opacity: 0.7; }
-  .inv-contact .h-eyebrow .dot { background: var(--cream); }
-  .inv-contact h2 {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(48px, 7vw, 96px);
-    line-height: 0.95;
-    margin: 12px 0 0;
-    letter-spacing: -0.025em;
-  }
-  .inv-contact .card {
-    padding: 28px 32px;
-    border: 1px solid rgba(235, 223, 196, 0.2);
-  }
-  .inv-contact .card h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(235, 223, 196, 0.6); margin: 0 0 10px; }
-  .inv-contact .card p { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.4; margin: 0; letter-spacing: -0.005em; color: var(--cream); }
-  .inv-contact .card p a { color: var(--cream); }
-  .inv-contact .card .small { font-family: var(--sans); font-style: normal; font-size: 13px; color: rgba(235, 223, 196, 0.7); line-height: 1.6; margin-top: 8px; }
 
   @media (max-width: 980px) {
     .inv-narrative, .trajectory__head, .model__head { grid-template-columns: 1fr; gap: 32px; }
@@ -317,13 +335,10 @@ get_header();
     .gov__list { grid-template-columns: 1fr; }
     .gov-row, .gov-row + .gov-row { padding-left: 0; border-left: none; }
     .inv-stats__grid { grid-template-columns: 1fr 1fr; }
-    .inv-contact__inner { grid-template-columns: 1fr; gap: 48px; }
-    .doc { grid-template-columns: 60px 1fr 56px; }
-    .doc .meta, .doc .size { display: none; }
   }
 </style>
 
-<!-- HERO -->
+<!-- ============== HERO ============== -->
 <section class="inv-hero">
   <div>
     <span class="h-eyebrow"><span class="dot"></span>
@@ -341,7 +356,7 @@ get_header();
   </p>
 </section>
 
-<!-- KEY STATS -->
+<!-- ============== KEY STATS ============== -->
 <section class="inv-stats">
   <div class="inv-stats__grid" data-reveal>
     <div class="inv-stat">
@@ -357,7 +372,7 @@ get_header();
     <div class="inv-stat">
       <div class="num">9</div>
       <div class="lbl"><span data-en>Outlets · Klang Valley</span><span data-zh>分 店 · 巴 生 谷</span></div>
-      <div class="sub"><span data-en>10th opens Penang, Apr <?php echo date('Y'); ?></span><span data-zh>第 十 家 槟 城 · <?php echo date('Y'); ?> 年 4 月</span></div>
+      <div class="sub"><span data-en>10th opens Penang, Apr 2026</span><span data-zh>第 十 家 槟 城 · 2026 年 4 月</span></div>
     </div>
     <div class="inv-stat">
       <div class="num">RM 2.4<span class="unit">M</span></div>
@@ -367,7 +382,7 @@ get_header();
   </div>
 </section>
 
-<!-- NARRATIVE -->
+<!-- ============== NARRATIVE ============== -->
 <section class="inv-narrative">
   <div data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
@@ -390,8 +405,8 @@ get_header();
     </p>
     <span class="small"><span data-en>WHY NOW</span><span data-zh>为 何 此 时</span></span>
     <p>
-      <span data-en>We are raising a small, friends-and-strategics Series A in Q2 <?php echo date('Y'); ?> to fund the Penang outlet, the second Mont Kiara location, and a long-overdue refresh of the central kitchen. We are not raising more than we can use within 24 months. We are not raising to expand outside Malaysia.</span>
-      <span data-zh>我 们 拟 于 <?php echo date('Y'); ?> 年 第 二 季 度 进 行 一 轮 小 规 模 A 轮 — 仅 限 朋 友 与 战 略 投 资 人 — 用 于 槟 城 分 店、第 二 间 满 家 乐 店、与 拖 延 已 久 的 中 央 厨 房 翻 新。融 资 额 不 超 过 24 个 月 内 可 使 用 部 分。我 们 不 会 用 这 笔 钱 出 海。</span>
+      <span data-en>We are raising a small, friends-and-strategics Series A in Q2 2026 to fund the Penang outlet, the second Mont Kiara location, and a long-overdue refresh of the central kitchen. We are not raising more than we can use within 24 months. We are not raising to expand outside Malaysia.</span>
+      <span data-zh>我 们 拟 于 2026 年 第 二 季 度 进 行 一 轮 小 规 模 A 轮 — 仅 限 朋 友 与 战 略 投 资 人 — 用 于 槟 城 分 店、第 二 间 满 家 乐 店、与 拖 延 已 久 的 中 央 厨 房 翻 新。融 资 额 不 超 过 24 个 月 内 可 使 用 部 分。我 们 不 会 用 这 笔 钱 出 海。</span>
     </p>
     <span class="small"><span data-en>WHAT WE WILL NEVER DO</span><span data-zh>我 们 永 不 会 做 的</span></span>
     <p>
@@ -401,7 +416,7 @@ get_header();
   </div>
 </section>
 
-<!-- TRAJECTORY -->
+<!-- ============== TRAJECTORY ============== -->
 <section class="trajectory">
   <div class="trajectory__inner">
     <div class="trajectory__head" data-reveal>
@@ -431,14 +446,14 @@ get_header();
         <span>FY18 — FY25</span>
       </div>
       <div class="bars">
-        <div class="traj-bar" data-pct="9"><span class="val">4</span></div>
-        <div class="traj-bar" data-pct="19"><span class="val">9</span></div>
-        <div class="traj-bar" data-pct="28"><span class="val">14</span></div>
-        <div class="traj-bar" data-pct="36"><span class="val">19</span></div>
-        <div class="traj-bar" data-pct="48"><span class="val">28</span></div>
-        <div class="traj-bar" data-pct="62"><span class="val">42</span></div>
-        <div class="traj-bar" data-pct="88"><span class="val">62</span></div>
-        <div class="traj-bar" data-pct="100" style="background: var(--forest);"><span class="val" style="color: var(--ink); font-weight: 500;">86</span></div>
+        <div class="bar" style="height: 9%;"><span class="val">4</span></div>
+        <div class="bar" style="height: 19%;"><span class="val">9</span></div>
+        <div class="bar" style="height: 28%;"><span class="val">14</span></div>
+        <div class="bar" style="height: 36%;"><span class="val">19</span></div>
+        <div class="bar" style="height: 48%;"><span class="val">28</span></div>
+        <div class="bar" style="height: 62%;"><span class="val">42</span></div>
+        <div class="bar" style="height: 88%;"><span class="val">62</span></div>
+        <div class="bar" style="height: 100%; background: var(--forest);"><span class="val" style="color: var(--ink); font-weight: 500;">86</span></div>
       </div>
       <div class="bars-axis">
         <div>FY18</div><div>FY19</div><div>FY20</div><div>FY21</div>
@@ -448,7 +463,7 @@ get_header();
   </div>
 </section>
 
-<!-- CHARITY MODEL -->
+<!-- ============== CHARITY MODEL ============== -->
 <section class="model" id="model">
   <div class="model__head" data-reveal>
     <div>
@@ -470,28 +485,38 @@ get_header();
   <div class="model__flow" data-reveal>
     <div class="model-node">
       <span class="ix">N° 01</span>
-      <h4><span data-en>The bill</span><span data-zh>账 单</span><span class="cn">一 张 单</span></h4>
-      <p><span data-en>Dinner paid normally. Receipt shows the food.</span><span data-zh>正 常 付 账。收 据 只 显 示 菜 品。</span></p>
+      <h4><span data-en>The bill</span><span data-zh>账 单</span>
+        <span class="cn">一 张 单</span></h4>
+      <p><span data-en>Dinner paid normally. Receipt shows the food.</span>
+        <span data-zh>正 常 付 账。收 据 只 显 示 菜 品。</span></p>
     </div>
     <div class="model-node">
       <span class="ix">N° 02</span>
-      <h4><span data-en>Fixed split</span><span data-zh>固 定 划 拨</span><span class="cn">固 定 比 例</span></h4>
-      <p><span data-en>3.1% routed automatically that same evening.</span><span data-zh>当 晚 自 动 划 出 3.1%。</span></p>
+      <h4><span data-en>Fixed split</span><span data-zh>固 定 划 拨</span>
+        <span class="cn">固 定 比 例</span></h4>
+      <p><span data-en>3.1% routed automatically that same evening.</span>
+        <span data-zh>当 晚 自 动 划 出 3.1%。</span></p>
     </div>
     <div class="model-node accent">
       <span class="ix">N° 03</span>
-      <h4><span data-en>The charity holding</span><span data-zh>慈 善 账 户</span><span class="cn">慈 善 户</span></h4>
-      <p><span data-en>Ringfenced sub-account. Audited yearly, public quarterly.</span><span data-zh>独 立 子 账 户。年 度 审 计，每 季 公 开。</span></p>
+      <h4><span data-en>The charity holding</span><span data-zh>慈 善 账 户</span>
+        <span class="cn">慈 善 户</span></h4>
+      <p><span data-en>Ringfenced sub-account. Audited yearly, public quarterly.</span>
+        <span data-zh>独 立 子 账 户。年 度 审 计，每 季 公 开。</span></p>
     </div>
     <div class="model-node">
       <span class="ix">N° 04</span>
-      <h4><span data-en>42 partner kitchens</span><span data-zh>42 家 厨 房</span><span class="cn">合 作 厨 房</span></h4>
-      <p><span data-en>Community + elder care. Klang Valley, Pahang, Negeri Sembilan.</span><span data-zh>社 区 与 长 者 送 餐。雪 · 彭 · 森。</span></p>
+      <h4><span data-en>42 partner kitchens</span><span data-zh>42 家 厨 房</span>
+        <span class="cn">合 作 厨 房</span></h4>
+      <p><span data-en>Community + elder care. Klang Valley, Pahang, Negeri Sembilan.</span>
+        <span data-zh>社 区 与 长 者 送 餐。雪 · 彭 · 森。</span></p>
     </div>
     <div class="model-node">
       <span class="ix">N° 05</span>
-      <h4><span data-en>One open seat</span><span data-zh>一 张 桌</span><span class="cn">慈 善 桌</span></h4>
-      <p><span data-en>Reserved nightly, all 9 outlets. No questions asked.</span><span data-zh>9 家 每 晚 保 留 · 不 问 来 历。</span></p>
+      <h4><span data-en>One open seat</span><span data-zh>一 张 桌</span>
+        <span class="cn">慈 善 桌</span></h4>
+      <p><span data-en>Reserved nightly, all 9 outlets. No questions asked.</span>
+        <span data-zh>9 家 每 晚 保 留 · 不 问 来 历。</span></p>
     </div>
   </div>
 
@@ -507,7 +532,7 @@ get_header();
   </div>
 </section>
 
-<!-- PULL QUOTE -->
+<!-- ============== PULL QUOTE ============== -->
 <section class="pull-quote">
   <div class="inner" data-reveal>
     <p>
@@ -521,7 +546,7 @@ get_header();
   </div>
 </section>
 
-<!-- ANNUAL REPORTS -->
+<!-- ============== ANNUAL REPORTS / DOCS ============== -->
 <section class="inv-section" id="reports">
   <span class="h-eyebrow"><span class="dot"></span>
     <span data-en>IV · ANNUAL REPORTS &amp; LEDGERS</span>
@@ -533,52 +558,29 @@ get_header();
   </h2>
 
   <div class="docs" data-reveal>
-    <a class="doc" href="#">
-      <div class="doc__num">N° 01</div>
-      <h3><span data-en>Annual Report · FY 2024</span><span data-zh>年 度 报 告 · 2024</span></h3>
-      <div class="meta"><span data-en>AUDITED · BAKER TILLY MY</span><span data-zh>审 计 · BAKER TILLY MY</span></div>
-      <div class="size">4.2 MB · 84pp</div>
-      <div class="pdf">PDF</div>
-    </a>
-    <a class="doc" href="#">
-      <div class="doc__num">N° 02</div>
-      <h3><span data-en>Charity Ledger · Q4 2025</span><span data-zh>慈 善 账 目 · 2025 Q4</span></h3>
-      <div class="meta"><span data-en>VERIFIED · MYCARE</span><span data-zh>认 证 · MYCARE</span></div>
-      <div class="size">1.1 MB · 22pp</div>
-      <div class="pdf">PDF</div>
-    </a>
-    <a class="doc" href="#">
-      <div class="doc__num">N° 03</div>
-      <h3><span data-en>Series A Deck · <?php echo date('Y'); ?></span><span data-zh>A 轮 路 演 · <?php echo date('Y'); ?></span></h3>
-      <div class="meta"><span data-en>NDA REQUIRED</span><span data-zh>需 签 保 密 协 议</span></div>
-      <div class="size">12.4 MB · 38pp</div>
-      <div class="pdf">PDF</div>
-    </a>
-    <a class="doc" href="#">
-      <div class="doc__num">N° 04</div>
-      <h3><span data-en>Charity Ledger · Q3 2025</span><span data-zh>慈 善 账 目 · 2025 Q3</span></h3>
-      <div class="meta"><span data-en>VERIFIED · MYCARE</span><span data-zh>认 证 · MYCARE</span></div>
-      <div class="size">1.0 MB · 22pp</div>
-      <div class="pdf">PDF</div>
-    </a>
-    <a class="doc" href="#">
-      <div class="doc__num">N° 05</div>
-      <h3><span data-en>Annual Report · FY 2023</span><span data-zh>年 度 报 告 · 2023</span></h3>
-      <div class="meta"><span data-en>AUDITED · BAKER TILLY MY</span><span data-zh>审 计 · BAKER TILLY MY</span></div>
-      <div class="size">3.6 MB · 76pp</div>
-      <div class="pdf">PDF</div>
-    </a>
-    <a class="doc" href="#">
-      <div class="doc__num">N° 06</div>
-      <h3><span data-en>Sustainability Statement · 2025</span><span data-zh>可 持 续 声 明 · 2025</span></h3>
-      <div class="meta"><span data-en>SCOPE 1 + 2 + 3</span><span data-zh>SCOPE 1 + 2 + 3</span></div>
-      <div class="size">2.1 MB · 32pp</div>
-      <div class="pdf">PDF</div>
-    </a>
+    <?php
+    $docs = array(
+      array( 'num' => 'N° 01', 'h_en' => 'Annual Report · FY 2024',          'h_zh' => '年 度 报 告 · 2024',     'm_en' => 'AUDITED · BAKER TILLY MY', 'm_zh' => '审 计 · BAKER TILLY MY', 'size' => '4.2 MB · 84pp' ),
+      array( 'num' => 'N° 02', 'h_en' => 'Charity Ledger · Q4 2025',         'h_zh' => '慈 善 账 目 · 2025 Q4',  'm_en' => 'VERIFIED · MYCARE',        'm_zh' => '认 证 · MYCARE',         'size' => '1.1 MB · 22pp' ),
+      array( 'num' => 'N° 03', 'h_en' => 'Series A Deck · 2026',             'h_zh' => 'A 轮 路 演 · 2026',      'm_en' => 'NDA REQUIRED',             'm_zh' => '需 签 保 密 协 议',       'size' => '12.4 MB · 38pp' ),
+      array( 'num' => 'N° 04', 'h_en' => 'Charity Ledger · Q3 2025',         'h_zh' => '慈 善 账 目 · 2025 Q3',  'm_en' => 'VERIFIED · MYCARE',        'm_zh' => '认 证 · MYCARE',         'size' => '1.0 MB · 22pp' ),
+      array( 'num' => 'N° 05', 'h_en' => 'Annual Report · FY 2023',          'h_zh' => '年 度 报 告 · 2023',     'm_en' => 'AUDITED · BAKER TILLY MY', 'm_zh' => '审 计 · BAKER TILLY MY', 'size' => '3.6 MB · 76pp' ),
+      array( 'num' => 'N° 06', 'h_en' => 'Sustainability Statement · 2025',  'h_zh' => '可 持 续 声 明 · 2025',  'm_en' => 'SCOPE 1 + 2 + 3',          'm_zh' => 'SCOPE 1 + 2 + 3',         'size' => '2.1 MB · 32pp' ),
+    );
+    foreach ( $docs as $d ) :
+      ?>
+      <a class="doc" href="#">
+        <div class="doc__num"><?php echo esc_html( $d['num'] ); ?></div>
+        <h3><span data-en><?php echo esc_html( $d['h_en'] ); ?></span><span data-zh><?php echo esc_html( $d['h_zh'] ); ?></span></h3>
+        <div class="meta"><span data-en><?php echo esc_html( $d['m_en'] ); ?></span><span data-zh><?php echo esc_html( $d['m_zh'] ); ?></span></div>
+        <div class="size"><?php echo esc_html( $d['size'] ); ?></div>
+        <div class="pdf">PDF</div>
+      </a>
+    <?php endforeach; ?>
   </div>
 </section>
 
-<!-- GOVERNANCE -->
+<!-- ============== GOVERNANCE ============== -->
 <section class="gov">
   <div class="gov__inner">
     <div class="gov__head" data-reveal>
@@ -595,38 +597,44 @@ get_header();
       <div class="gov-row">
         <h4><span data-en>CHAIR &amp; FOUNDER</span><span data-zh>董 事 长 兼 创 办 人</span></h4>
         <div class="name"><span data-en>Tan Wei Ming</span><span data-zh>陈 伟 明</span></div>
-        <p><span data-en>Third generation. Wok master, USJ Taipan. Holds the recipe book.</span><span data-zh>第 三 代。USJ 主 厨。掌 食 谱。</span></p>
+        <p><span data-en>Third generation. Wok master, USJ Taipan. Holds the recipe book.</span>
+          <span data-zh>第 三 代。USJ 主 厨。掌 食 谱。</span></p>
       </div>
       <div class="gov-row">
         <h4><span data-en>CFO</span><span data-zh>财 务 总 监</span></h4>
         <div class="name"><span data-en>Cheong Mei Yin</span><span data-zh>张 美 燕</span></div>
-        <p><span data-en>Joined 2020. Built the charity audit pipeline with MyCare.</span><span data-zh>2020 年 入 职。与 MyCare 共 建 慈 善 审 计 流 程。</span></p>
+        <p><span data-en>Joined 2020. Built the charity audit pipeline with MyCare.</span>
+          <span data-zh>2020 年 入 职。与 MyCare 共 建 慈 善 审 计 流 程。</span></p>
       </div>
       <div class="gov-row">
         <h4><span data-en>HEAD OF CHARITY</span><span data-zh>慈 善 主 任</span></h4>
         <div class="name"><span data-en>Lim Jia Hui</span><span data-zh>林 嘉 慧</span></div>
-        <p><span data-en>Liaison with 42 partner kitchens. Former Mercy Malaysia.</span><span data-zh>联 络 42 家 合 作 厨 房。前 Mercy Malaysia 成 员。</span></p>
+        <p><span data-en>Liaison with 42 partner kitchens. Former Mercy Malaysia.</span>
+          <span data-zh>联 络 42 家 合 作 厨 房。前 Mercy Malaysia 成 员。</span></p>
       </div>
       <div class="gov-row">
         <h4><span data-en>ADVISOR · F&amp;B</span><span data-zh>餐 饮 顾 问</span></h4>
         <div class="name"><span data-en>YB Datuk Tan Sri Chiew</span><span data-zh>YB 拿 督 周</span></div>
-        <p><span data-en>Founder of Sungei Wang F&amp;B Group. Strategic advisor since 2021.</span><span data-zh>双 河 餐 饮 集 团 创 办 人。2021 起 担 任 战 略 顾 问。</span></p>
+        <p><span data-en>Founder of Sungei Wang F&amp;B Group. Strategic advisor since 2021.</span>
+          <span data-zh>双 河 餐 饮 集 团 创 办 人。2021 起 担 任 战 略 顾 问。</span></p>
       </div>
       <div class="gov-row">
         <h4><span data-en>ADVISOR · HERITAGE</span><span data-zh>文 化 顾 问</span></h4>
         <div class="name"><span data-en>Prof. Wong Kim Hoe</span><span data-zh>王 金 和 教 授</span></div>
-        <p><span data-en>UM Hakka Studies. Ensures the recipe book stays the recipe book.</span><span data-zh>马 大 客 家 研 究。守 护 食 谱 的 原 貌。</span></p>
+        <p><span data-en>UM Hakka Studies. Ensures the recipe book stays the recipe book.</span>
+          <span data-zh>马 大 客 家 研 究。守 护 食 谱 的 原 貌。</span></p>
       </div>
       <div class="gov-row">
         <h4><span data-en>AUDITOR</span><span data-zh>审 计</span></h4>
         <div class="name">Baker Tilly Malaysia</div>
-        <p><span data-en>Annual audit since FY 2019. Quarterly charity ledger verification by MyCare.</span><span data-zh>自 2019 年 起 年 度 审 计。慈 善 账 目 由 MyCare 每 季 审 核。</span></p>
+        <p><span data-en>Annual audit since FY 2019. Quarterly charity ledger verification by MyCare.</span>
+          <span data-zh>自 2019 年 起 年 度 审 计。慈 善 账 目 由 MyCare 每 季 审 核。</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INVESTOR CONTACT -->
+<!-- ============== INV CONTACT ============== -->
 <section class="inv-contact">
   <div class="inv-contact__inner">
     <div data-reveal>
@@ -642,25 +650,21 @@ get_header();
     <div data-reveal style="display: grid; gap: 24px;">
       <div class="card">
         <h4><span data-en>Investor Relations</span><span data-zh>投 资 者 关 系</span></h4>
-        <p><a href="mailto:ir@hakshan.com">ir@hakshan.com</a></p>
+        <p><a href="mailto:ir@hakshan.com" style="color: var(--cream);">ir@hakshan.com</a></p>
       </div>
       <div class="card">
         <h4><span data-en>CFO Direct · By Introduction</span><span data-zh>CFO 直 联 · 需 引 荐</span></h4>
-        <p>
-          <span data-en>Cheong Mei Yin — open to existing investors and family offices already on the cap table.</span>
-          <span data-zh>张 美 燕 — 仅 对 现 有 投 资 人 与 已 在 股 东 名 册 的 家 族 办 公 室 开 放。</span>
-        </p>
+        <p><span data-en>Cheong Mei Yin — open to existing investors and family offices already on the cap table.</span>
+          <span data-zh>张 美 燕 — 仅 对 现 有 投 资 人 与 已 在 股 东 名 册 的 家 族 办 公 室 开 放。</span></p>
       </div>
       <div class="card">
-        <h4><span data-en>Series A · Q2 <?php echo date('Y'); ?></span><span data-zh>A 轮 · <?php echo date('Y'); ?> Q2</span></h4>
-        <p>
-          <span data-en>Currently in conversation with strategic partners. We expect to close before the Penang opening.</span>
-          <span data-zh>目 前 正 与 战 略 伙 伴 沟 通。预 计 在 槟 城 开 业 前 关 闭。</span>
-        </p>
+        <h4><span data-en>Series A · Q2 2026</span><span data-zh>A 轮 · 2026 Q2</span></h4>
+        <p><span data-en>Currently in conversation with strategic partners. We expect to close before the Penang opening.</span>
+          <span data-zh>目 前 正 与 战 略 伙 伴 沟 通。预 计 在 槟 城 开 业 前 关 闭。</span></p>
       </div>
     </div>
   </div>
 </section>
 
-</main>
-<?php get_footer(); ?>
+<?php
+get_footer();
