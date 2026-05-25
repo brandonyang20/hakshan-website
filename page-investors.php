@@ -442,16 +442,16 @@ get_header();
   <div>
     <span class="h-eyebrow"><span class="dot"></span>
       <span data-en>INVESTOR RELATIONS · 投 资 者 关 系</span>
-      <span data-zh>投 资 者 关 系</span>
+      <span data-zh>投资者关系</span>
     </span>
     <h1>
       <span data-en>An 18-year kitchen,<br/><em>a new door.</em></span>
-      <span data-zh>十 八 年 的 厨 房，<br/><em>新 开 一 扇 门。</em></span>
+      <span data-zh>十八年的厨房，<br/><em>新开一扇门。</em></span>
     </h1>
   </div>
   <p>
     <span data-en>Hakshan Cuisines (客善) was established as an independent venture in February 2024, led by the team behind Ying Ker Lou (迎客楼) — an eighteen-year-old Hakka cuisine brand they grew to thirteen retail outlets across Malaysia's major shopping malls. Hakshan applies the same operating discipline to a more accessible price point: an RM 15 set, with fifteen percent of every ringgit structurally returned to community causes. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
-    <span data-zh>客 善 于 2024 年 2 月 以 独 立 实 体 成 立，由 迎 客 楼 的 创 始 团 队 主 理 — 迎 客 楼 是 团 队 历 时 十 八 年 打 造、于 各 大 商 场 开 设 过 十 三 家 门 店 的 客 家 料 理 老 字 号。客 善 把 同 一 套 运 营 纪 律 带 到 更 平 易 的 价 位 — RM 15 套 餐，营 收 的 15% 以 制 度 形 式 回 馈 社 区。目 前 营 运 中 共 九 家 门 店 与 一 家 云 厨 房，第 十 家 门 店 与 第 三 家 云 厨 房 将 于 下 月 开 业。</span>
+    <span data-zh>客善于2024年2月以独立实体成立，由迎客楼的创始团队主理 — 迎客楼是团队历时十八年打造、于各大商场开设过十三家门店的客家料理老字号。客善把同一套运营纪律带到更平易的价位 — RM 15套餐，营收的15% 以制度形式回馈社区。目前营运中共九家门店与一家云厨房，第十家门店与第三家云厨房将于下月开业。</span>
   </p>
 </section>
 
@@ -461,22 +461,22 @@ get_header();
     <div class="inv-stat">
       <div class="num">18<span class="unit">yrs</span></div>
       <div class="lbl"><span data-en>The team's operating track record</span><span data-zh>团 队 经 营 资 历</span></div>
-      <div class="sub"><span data-en>Eighteen years building Ying Ker Lou</span><span data-zh>十 八 年 经 营 迎 客 楼</span></div>
+      <div class="sub"><span data-en>Eighteen years building Ying Ker Lou</span><span data-zh>十八年经营迎客楼</span></div>
     </div>
     <div class="inv-stat">
       <div class="num">13</div>
       <div class="lbl"><span data-en>Outlets opened by the same team</span><span data-zh>同 团 队 历 来 开 设 门 店</span></div>
-      <div class="sub"><span data-en>Across major Malaysian shopping malls</span><span data-zh>分 布 于 各 大 商 场</span></div>
+      <div class="sub"><span data-en>Across major Malaysian shopping malls</span><span data-zh>分布于各大商场</span></div>
     </div>
     <div class="inv-stat">
       <div class="num">9 + 1</div>
       <div class="lbl"><span data-en>Hakshan outlets, since Feb 2024</span><span data-zh>客 善 门 店 · 2024 年 2 月 至 今</span></div>
-      <div class="sub"><span data-en>10th retail &amp; 3rd cloud kitchen · next month</span><span data-zh>第 10 家 门 店 与 第 3 家 云 厨 房 · 下 月</span></div>
+      <div class="sub"><span data-en>10th retail &amp; 3rd cloud kitchen · next month</span><span data-zh>第10家门店与第3家云厨房·下月</span></div>
     </div>
     <div class="inv-stat">
       <div class="num">15<span class="unit">%</span></div>
       <div class="lbl"><span data-en>Of revenue to charity</span><span data-zh>营 收 投 入 慈 善</span></div>
-      <div class="sub"><span data-en>Structural · not a side initiative</span><span data-zh>制 度 化 · 非 附 加 项 目</span></div>
+      <div class="sub"><span data-en>Structural · not a side initiative</span><span data-zh>制度化·非附加项目</span></div>
     </div>
   </div>
 </section>
@@ -486,31 +486,31 @@ get_header();
   <div data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
       <span data-en>I · THE INVESTMENT CASE</span>
-      <span data-zh>一 · 投 资 要 点</span>
+      <span data-zh>一·投资要点</span>
     </span>
     <h2>
       <span data-en>Affordable food,<br/><em>with intent.</em></span>
-      <span data-zh>平 价 的 食 物，<br/><em>有 心 的 经 营。</em></span>
+      <span data-zh>平价的食物，<br/><em>有心的经营。</em></span>
     </h2>
   </div>
   <div class="inv-narrative__body" data-reveal>
     <p class="lead">
-      <span data-en>Each meal isn't just a culinary delight — it's a contribution to the community. Profit and philanthropy share the same line item.</span>
-      <span data-zh>每 一 餐，不 仅 是 一 道 菜，更 是 对 社 区 的 一 份 贡 献。盈 利 与 慈 善，同 在 一 行 之 中。</span>
+      <span data-en>Fifteen percent of every ringgit — written into the structure, not bolted onto the profit. Philanthropy and profit share the same line item.</span>
+      <span data-zh>营收的15%，写进结构里，不是从利润里抽出来的。慈善与盈利，写在同一行。</span>
     </p>
     <p>
-      <span data-en>Hakshan's proposition begins with eighteen years of accumulated operating experience. The founding team built Ying Ker Lou into a thirteen-outlet Hakka cuisine brand across major Malaysian malls; with Hakshan, they apply the same operating discipline to a more accessible price point — an RM 15 set, with fifteen percent of every ringgit committed to community causes. The expertise is not new. The brand, the price point and the philanthropic discipline are.</span>
-      <span data-zh>客 善 的 提 案，始 于 团 队 累 积 的 十 八 年 经 验。这 支 曾 一 手 打 造 迎 客 楼、于 各 大 商 场 开 出 十 三 家 客 家 门 店 的 团 队，如 今 以 客 善 把 同 一 套 运 营 纪 律 带 到 更 平 易 的 价 位 — RM 15 套 餐，营 收 的 15% 制 度 化 地 回 馈 社 区。经 验 不 是 新 的，新 的 是 品 牌、价 位 与 这 份 慈 善 纪 律。</span>
+      <span data-en>Hakshan's proposition begins with eighteen years of accumulated operating experience. The founding team built Ying Ker Lou into a thirteen-outlet Hakka cuisine brand across major Malaysian malls; with Hakshan, they apply the same operating discipline to a more accessible price point — an RM 15 set, with fifteen percent of every ringgit committed to community causes. The expertise is not new. The brand, the price point, and the discipline of giving are.</span>
+      <span data-zh>客善的提案，始于团队累积的十八年经验。这支曾一手打造迎客楼、于各大商场开出十三家客家门店的团队，如今以客善把同一套运营纪律带到更平易的价位 — RM 15套餐，营收的15% 制度化地回馈社区。经验不是新的，新的是品牌、价位，与这份给予的纪律。</span>
     </p>
-    <span class="small"><span data-en>WHAT MAKES THE MODEL DEFENSIBLE</span><span data-zh>模 式 的 护 城 河</span></span>
+    <span class="small"><span data-en>WHAT MAKES THE MODEL DEFENSIBLE</span><span data-zh>模式的护城河</span></span>
     <p>
       <span data-en>A central kitchen built and operated by the team. Standard Operating Procedures honed across eighteen years and thirteen prior outlets, applied to every Hakshan outlet from day one — not invented under deadline. Supplier relationships eighteen years deep. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book — three generations of Hakka cuisine — that is not for franchise sale.</span>
-      <span data-zh>团 队 自 营 中 央 厨 房。标 准 作 业 流 程 经 十 八 年、十 三 家 门 店 沉 淀，自 第 一 间 客 善 门 店 开 业 之 日 起 即 投 入 使 用 — 不 是 临 时 拼 凑 出 来 的。十 八 年 累 积 的 供 应 商 关 系。「零 浪 费」是 厨 房 纪 律，不 是 营 销 口 号。三 代 人 的 客 家 食 谱 — 不 对 外 出 售。</span>
+      <span data-zh>团队自营中央厨房。标准作业流程经十八年、十三家门店沉淀，自第一间客善门店开业之日起即投入使用 — 不是临时拼凑出来的。十八年累积的供应商关系。「零浪费」是厨房纪律，不是营销口号。三代人的客家食谱 — 不对外出售。</span>
     </p>
-    <span class="small"><span data-en>WHY NOW</span><span data-zh>为 何 此 时</span></span>
+    <span class="small"><span data-en>WHY NOW</span><span data-zh>为何此时</span></span>
     <p>
       <span data-en>Expansion is already in motion. The 10th retail outlet and the 3rd cloud kitchen open next month. A Penang outlet (Tanjong Tokong) is targeted for Q2 2026. Pipeline locations include Damansara Uptown, SS15 Subang, the Sunway University area, SS2 Petaling Jaya and Section 14 Petaling Jaya — each chosen for its community profile, not its rent yield.</span>
-      <span data-zh>扩 张 已 在 进 行。第 十 家 门 店 与 第 三 家 云 厨 房 将 于 下 月 开 业。槟 城 丹 绒 道 光 店 计 划 于 2026 年 第 二 季 度 开 业。待 进 入 的 地 段 包 括：白 沙 罗 上 城、梳 邦 SS15、双 威 大 学 一 带、八 打 灵 SS2、八 打 灵 14 区 — 选 址 看 的 是 社 区 气 质，不 是 租 金 回 报。</span>
+      <span data-zh>扩张已在进行。第十家门店与第三家云厨房将于下月开业。槟城丹绒道光店计划于2026年第二季度开业。待进入的地段包括：白沙罗上城、梳邦 SS15、双威大学一带、八打灵 SS2、八打灵14区 — 选址看的是社区气质，不是租金回报。</span>
     </p>
   </div>
 </section>
@@ -521,16 +521,16 @@ get_header();
     <div>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>II · UNIT ECONOMICS</span>
-        <span data-zh>二 · 单 店 经 济 学</span>
+        <span data-zh>二·单店经济学</span>
       </span>
       <h2>
         <span data-en>Every ringgit,<br/><em>accounted for.</em></span>
-        <span data-zh>每 一 元，<br/><em>都 有 去 处。</em></span>
+        <span data-zh>每一元，<br/><em>都有去处。</em></span>
       </h2>
     </div>
     <p>
       <span data-en>Each franchise is engineered around a fixed cost structure. Food is held at 30% of revenue; operating expense (rent, utilities, ~10 staff) at 21%; charity at 15% — non-negotiable. What's left is the net margin, which the model targets at roughly one-third of revenue.</span>
-      <span data-zh>每 一 家 加 盟 店 的 成 本 结 构 固 定：食 材 30%；运 营 费 用（租 金、水 电、约 10 名 员 工）21%；慈 善 15% — 不 可 调 整。剩 下 的，便 是 净 利 率，模 型 大 致 定 在 营 收 的 三 分 之 一。</span>
+      <span data-zh>每一家加盟店的成本结构固定：食材30%；运营费用（租金、水电、约10名员工）21%；慈善15% — 不可调整。剩下的，便是净利率，模型大致定在营收的三分之一。</span>
     </p>
   </div>
 
@@ -539,31 +539,31 @@ get_header();
       <div class="ix">01 · REVENUE</div>
       <h4><span data-en>Revenue</span><span data-zh>营 业 额</span><span class="cn">营 业 额</span></h4>
       <p><span data-en>RM 15 set as the core price anchor. Per-franchise monthly target supplied on request.</span>
-        <span data-zh>RM 15 套 餐 为 核 心 锚 点。单 店 月 度 目 标 应 求 提 供。</span></p>
+        <span data-zh>RM 15套餐为核心锚点。单店月度目标应求提供。</span></p>
     </div>
     <div class="model-node">
       <div class="ix">02 · FOOD</div>
       <h4><span data-en>Food cost</span><span data-zh>食 材 成 本</span><span class="cn">食 材 成 本</span></h4>
       <p><span data-en>30% of revenue. Fresh ingredients sourced through the in-house supply chain.</span>
-        <span data-zh>占 营 收 30%。新 鲜 食 材 由 自 营 供 应 链 统 一 采 购。</span></p>
+        <span data-zh>占营收30%。新鲜食材由自营供应链统一采购。</span></p>
     </div>
     <div class="model-node">
       <div class="ix">03 · OPEX</div>
       <h4><span data-en>Operating expense</span><span data-zh>运 营 费 用</span><span class="cn">运 营 费 用</span></h4>
       <p><span data-en>21% — rent, utilities, and a team of around ten per outlet.</span>
-        <span data-zh>占 21% — 含 租 金、水 电、约 十 人 团 队。</span></p>
+        <span data-zh>占21% — 含租金、水电、约十人团队。</span></p>
     </div>
     <div class="model-node accent">
       <div class="ix">04 · CHARITY</div>
       <h4><span data-en>Charity contribution</span><span data-zh>慈 善 投 入</span><span class="cn">慈 善 投 入</span></h4>
       <p><span data-en>15% of revenue — structural. Allocated to education, elderly care and animal welfare.</span>
-        <span data-zh>占 营 收 15% — 制 度 化。用 于 教 育、敬 老、关 爱 流 浪 动 物。</span></p>
+        <span data-zh>占营收15% — 制度化。用于教育、敬老、关爱流浪动物。</span></p>
     </div>
     <div class="model-node">
       <div class="ix">05 · NET</div>
       <h4><span data-en>Net margin</span><span data-zh>净 利 率</span><span class="cn">净 利 率</span></h4>
       <p><span data-en>Targeted at ~33.5% of revenue. Full per-franchise figures available on request.</span>
-        <span data-zh>目 标 约 营 收 33.5%。完 整 单 店 财 务 数 据 应 求 提 供。</span></p>
+        <span data-zh>目标约为营收的33.5%。完整单店财务数据应求提供。</span></p>
     </div>
   </div>
 </section>
@@ -575,16 +575,16 @@ get_header();
       <div>
         <span class="h-eyebrow"><span class="dot"></span>
           <span data-en>III · FOOTPRINT &amp; EXPANSION</span>
-          <span data-zh>三 · 现 有 与 扩 张</span>
+          <span data-zh>三·现有与扩张</span>
         </span>
         <h2>
           <span data-en>Where the kitchens<br/><em>are, and aren't yet.</em></span>
-          <span data-zh>厨 房 现 在 哪 里，<br/><em>下 一 步 在 哪 里。</em></span>
+          <span data-zh>厨房现在哪里，<br/><em>下一步在哪里。</em></span>
         </h2>
       </div>
       <p>
         <span data-en>Hakshan grows at the pace of its supply chain — not its capital. Every new location is chosen for its community profile and proximity to the central kitchen. No outlet has been closed since launch.</span>
-        <span data-zh>客 善 的 扩 张 节 奏，跟 着 供 应 链，而 非 资 金。每 一 个 新 址，都 看 社 区 气 质 与 中 央 厨 房 的 距 离。开 业 以 来 无 一 家 门 店 关 闭。</span>
+        <span data-zh>客善的扩张节奏，跟着供应链，而非资金。每一个新址，都看社区气质与中央厨房的距离。开业以来无一家门店关闭。</span>
       </p>
     </div>
 
@@ -593,37 +593,37 @@ get_header();
         <h4><span data-en>OPERATING NOW</span><span data-zh>目 前 营 运</span></h4>
         <div class="name"><span data-en>9 retail + 1 cloud</span><span data-zh>9 门 店 + 1 云 厨 房</span></div>
         <p><span data-en>Klang Valley: USJ Taipan, Menjalara, Cheras Traders Sq., Bandar Puteri Puchong, IOI Conezion, Budiman Park Kajang, Arcoris Mont Kiara, The Waterfront ParkCity, Plaza Arkadia.</span>
-          <span data-zh>巴 生 谷：USJ Taipan、满 家 拉、蕉 赖 Traders、蒲 种 Bandar Puteri、布 城 IOI Conezion、加 影 Budiman Park、满 家 乐 Arcoris、ParkCity Waterfront、Plaza Arkadia。</span></p>
+          <span data-zh>巴生谷：USJ Taipan、满家拉、蕉赖 Traders、蒲种 Bandar Puteri、布城 IOI Conezion、加影 Budiman Park、满家乐 Arcoris、ParkCity Waterfront、Plaza Arkadia。</span></p>
       </div>
       <div class="fp-row">
         <h4><span data-en>OPENING NEXT MONTH</span><span data-zh>下 月 开 业</span></h4>
         <div class="name"><span data-en>10th retail · 3rd cloud</span><span data-zh>第 10 门 店 · 第 3 云 厨 房</span></div>
         <p><span data-en>Tenth retail outlet and third cloud kitchen go live. Capacity for the year's catering and delivery demand effectively doubles.</span>
-          <span data-zh>第 十 家 门 店 与 第 三 家 云 厨 房 同 步 启 用。今 年 外 送 与 包 办 产 能 大 致 翻 倍。</span></p>
+          <span data-zh>第十家门店与第三家云厨房同步启用。今年外送与包办产能大致翻倍。</span></p>
       </div>
       <div class="fp-row">
         <h4><span data-en>Q2 2026 · PENANG</span><span data-zh>2026 Q2 · 槟 城</span></h4>
         <div class="name"><span data-en>Tanjong Tokong</span><span data-zh>丹 绒 道 光</span></div>
         <p><span data-en>First outlet outside the Klang Valley. Soft launch invitations open via the investor mailing list.</span>
-          <span data-zh>巴 生 谷 以 外 的 首 店。软 开 邀 请 通 过 投 资 人 名 单 发 出。</span></p>
+          <span data-zh>巴生谷以外的首店。软开邀请通过投资人名单发出。</span></p>
       </div>
       <div class="fp-row">
         <h4><span data-en>PIPELINE · 2026—2027</span><span data-zh>规 划 中 · 2026—2027</span></h4>
         <div class="name"><span data-en>Five Klang Valley sites</span><span data-zh>五 个 巴 生 谷 地 段</span></div>
         <p><span data-en>Damansara Uptown · SS15 Subang · Sunway University · SS2 Petaling Jaya · Section 14 Petaling Jaya. Each shortlisted for community fit, not footfall alone.</span>
-          <span data-zh>白 沙 罗 上 城 · 梳 邦 SS15 · 双 威 大 学 一 带 · 八 打 灵 SS2 · 八 打 灵 14 区。看 社 区 气 质，不 只 看 人 流。</span></p>
+          <span data-zh>白沙罗上城·梳邦 SS15·双威大学一带·八打灵 SS2·八打灵14区。看社区气质，不只看人流。</span></p>
       </div>
       <div class="fp-row">
         <h4><span data-en>ON THE HORIZON</span><span data-zh>远 期 规 划</span></h4>
         <div class="name"><span data-en>Singapore</span><span data-zh>新 加 坡</span></div>
         <p><span data-en>First overseas market under study. No commitments made; supply-chain feasibility under review.</span>
-          <span data-zh>首 个 海 外 市 场 研 究 中。尚 未 承 诺；供 应 链 可 行 性 评 估 进 行 中。</span></p>
+          <span data-zh>首个海外市场研究中。尚未承诺；供应链可行性评估进行中。</span></p>
       </div>
       <div class="fp-row">
         <h4><span data-en>NEVER</span><span data-zh>不 会 做 的</span></h4>
         <div class="name"><span data-en>The recipe book</span><span data-zh>食 谱 本</span></div>
         <p><span data-en>The recipe book is not for franchise sale. The wok master trains every kitchen lead in person.</span>
-          <span data-zh>食 谱 不 对 外 出 售。每 一 位 厨 房 主 管 由 主 厨 亲 自 培 训。</span></p>
+          <span data-zh>食谱不对外出售。每一位厨房主管由主厨亲自培训。</span></p>
       </div>
     </div>
   </div>
@@ -634,11 +634,11 @@ get_header();
   <div class="inner" data-reveal>
     <p>
       <span data-en>A good person inspires <em>goodness in others.</em></span>
-      <span data-zh>善 人 者，<em>人 必 善 之。</em></span>
+      <span data-zh>善人者，<em>人必善之。</em></span>
     </p>
     <div class="by">
       <span data-en>— THE PHILOSOPHY BEHIND HAKSHAN'S BUSINESS MODEL</span>
-      <span data-zh>— 客 善 商 业 模 式 的 信 念</span>
+      <span data-zh>— 客善商业模式的信念</span>
     </div>
   </div>
 </section>
@@ -648,11 +648,11 @@ get_header();
   <div class="terms__head" data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
       <span data-en>IV · INVESTMENT TERMS</span>
-      <span data-zh>四 · 投 资 条 款</span>
+      <span data-zh>四·投资条款</span>
     </span>
     <h2>
       <span data-en>The shape<br/>of the <em>offer.</em></span>
-      <span data-zh>这 一 轮 的 <em>形 状。</em></span>
+      <span data-zh>这一轮的 <em>形状。</em></span>
     </h2>
   </div>
 
@@ -661,10 +661,10 @@ get_header();
       <span class="pill"><span data-en>STRUCTURE</span><span data-zh>结 构</span></span>
       <h3><span data-en>Per-franchise <em>equity</em></span><span data-zh>按 单 店 <em>认 购</em></span></h3>
       <dl class="vals">
-        <div class="row"><dt><span data-en>Valuation</span><span data-zh>估 值</span></dt><dd>RM 1,000,000</dd></div>
-        <div class="row"><dt><span data-en>Open for investment</span><span data-zh>开 放 认 购</span></dt><dd>RM 400,000 (40%)</dd></div>
-        <div class="row"><dt><span data-en>Share type</span><span data-zh>股 份 类 型</span></dt><dd><span data-en>Ordinary</span><span data-zh>普 通 股</span></dd></div>
-        <div class="row"><dt><span data-en>Per lot</span><span data-zh>每 单 位</span></dt><dd>RM 20,000 · 2%</dd></div>
+        <div class="row"><dt><span data-en>Valuation</span><span data-zh>估值</span></dt><dd>RM 1,000,000</dd></div>
+        <div class="row"><dt><span data-en>Open for investment</span><span data-zh>开放认购</span></dt><dd>RM 400,000 (40%)</dd></div>
+        <div class="row"><dt><span data-en>Share type</span><span data-zh>股份类型</span></dt><dd><span data-en>Ordinary</span><span data-zh>普通股</span></dd></div>
+        <div class="row"><dt><span data-en>Per lot</span><span data-zh>每单位</span></dt><dd>RM 20,000 · 2%</dd></div>
       </dl>
     </div>
 
@@ -672,20 +672,20 @@ get_header();
       <span class="pill"><span data-en>PACKAGE A</span><span data-zh>方 案 A</span></span>
       <h3><span data-en>Under <em>5 lots</em></span><span data-zh>少 于 <em>五 单 位</em></span></h3>
       <p><span data-en>Investment below RM 100,000. Equity stake in a single Hakshan retail outlet, with profit-share once initial capital is recovered.</span>
-        <span data-zh>认 购 金 额 低 于 RM 100,000。持 有 单 一 客 善 门 店 股 权，资 本 收 回 后 参 与 利 润 分 享。</span></p>
+        <span data-zh>认购金额低于 RM 100,000。持有单一客善门店股权，资本收回后参与利润分享。</span></p>
     </div>
 
     <div class="terms-card accent">
       <span class="pill"><span data-en>PACKAGE B</span><span data-zh>方 案 B</span></span>
       <h3><span data-en>5 lots <em>and above</em></span><span data-zh>五 单 位 <em>及 以 上</em></span></h3>
       <p><span data-en>Investment from RM 100,000. Shareholder owns one retail outlet plus access to up to three cloud kitchens — the company's structural safety net for outlet-level underperformance.</span>
-        <span data-zh>认 购 金 额 RM 100,000 以 上。持 有 一 间 门 店，并 可 配 置 至 多 三 间 云 厨 房 — 公 司 用 以 对 冲 单 店 表 现 的 制 度 性 安 排。</span></p>
+        <span data-zh>认购金额 RM 100,000以上。持有一间门店，并可配置至多三间云厨房 — 公司用以对冲单店表现的制度性安排。</span></p>
     </div>
   </div>
 
   <div class="terms__note" data-reveal>
     <span data-en><strong>Cloud Kitchen safety net.</strong> If a retail outlet under-performs against the model, the company may open up to three cloud kitchens under the investor in non-competing areas, with the intent of supplementing revenue. Specific allocations are agreed case-by-case.</span>
-    <span data-zh><strong>云 厨 房 兜 底 机 制。</strong>若 门 店 表 现 不 及 模 型 预 期，公 司 可 在 不 与 现 有 门 店 竞 争 的 地 段，为 该 投 资 人 开 设 至 多 三 间 云 厨 房，用 以 补 充 营 收。具 体 安 排 视 个 案 商 定。</span>
+    <span data-zh><strong>云厨房兜底机制。</strong>若门店表现不及模型预期，公司可在不与现有门店竞争的地段，为该投资人开设至多三间云厨房，用以补充营收。具体安排视个案商定。</span>
   </div>
 </section>
 
@@ -695,11 +695,11 @@ get_header();
     <div class="returns__head" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>V · RETURNS &amp; ASSURANCE</span>
-        <span data-zh>五 · 回 报 与 保 障</span>
+        <span data-zh>五·回报与保障</span>
       </span>
       <h2>
         <span data-en>Capital <em>first.</em><br/>Profit-share <em>after.</em></span>
-        <span data-zh><em>先 还 本，</em><br/><em>后 分 润。</em></span>
+        <span data-zh><em>先还本，</em><br/><em>后分润。</em></span>
       </h2>
     </div>
     <div class="returns__list" data-reveal>
@@ -707,24 +707,24 @@ get_header();
         <h4><span data-en>CAPITAL RECOVERY</span><span data-zh>本 金 回 收</span></h4>
         <div class="name"><span data-en>100% of net profit</span><span data-zh>净 利 100%</span></div>
         <p><span data-en>Until each investor has fully recovered their initial investment, 100% of the franchise's net profit is directed back to investors before any other distribution.</span>
-          <span data-zh>在 投 资 人 本 金 完 全 收 回 之 前，门 店 净 利 的 100% 优 先 用 于 偿 还 本 金，再 进 行 其 他 分 配。</span></p>
+          <span data-zh>在投资人本金完全收回之前，门店净利的100% 优先用于偿还本金，再进行其他分配。</span></p>
       </div>
       <div class="ret-row">
         <h4><span data-en>TARGET PAYBACK</span><span data-zh>预 期 回 本</span></h4>
         <div class="name"><span data-en>Within the first year</span><span data-zh>首 年 内</span></div>
         <p><span data-en>Internal modelling targets capital recovery within the first year of operation. Projection only — actual payback depends on outlet performance and is not guaranteed.</span>
-          <span data-zh>内 部 模 型 以 开 业 首 年 内 回 本 为 目 标。仅 为 预 测 — 实 际 回 本 视 门 店 表 现，不 构 成 担 保。</span></p>
+          <span data-zh>内部模型以开业首年内回本为目标。仅为预测 — 实际回本视门店表现，不构成担保。</span></p>
       </div>
       <div class="ret-row">
         <h4><span data-en>POST-RECOVERY</span><span data-zh>回 本 之 后</span></h4>
         <div class="name"><span data-en>Ongoing profit-share</span><span data-zh>持 续 利 润 分 享</span></div>
         <p><span data-en>Once capital is recovered, investors participate in the franchise's ongoing profits according to their equity stake.</span>
-          <span data-zh>本 金 收 回 后，投 资 人 按 持 股 比 例 参 与 门 店 的 持 续 利 润 分 配。</span></p>
+          <span data-zh>本金收回后，投资人按持股比例参与门店的持续利润分配。</span></p>
       </div>
     </div>
     <div class="returns__note">
       <span data-en>* PROJECTIONS, NOT GUARANTEES. ACTUAL OUTCOMES DEPEND ON OUTLET PERFORMANCE.</span>
-      <span data-zh>* 上 述 为 预 测，不 构 成 担 保。实 际 结 果 取 决 于 门 店 表 现。</span>
+      <span data-zh>* 上述为预测，不构成担保。实际结果取决于门店表现。</span>
     </div>
   </div>
 </section>
@@ -735,11 +735,11 @@ get_header();
     <div data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>VI · REQUEST THE PACK</span>
-        <span data-zh>六 · 索 取 投 资 资 料</span>
+        <span data-zh>六·索取投资资料</span>
       </span>
       <h2>
         <span data-en>For the<br/>longer<br/><em>conversations.</em></span>
-        <span data-zh>更 长 的<br/><em>对 话。</em></span>
+        <span data-zh>更长的<br/><em>对话。</em></span>
       </h2>
       <div class="card" style="margin-top: 32px;">
         <h4><span data-en>Direct contact</span><span data-zh>直 接 联 系</span></h4>

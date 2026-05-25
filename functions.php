@@ -297,7 +297,7 @@ function hakshan_render_footer() {
 		</div>
 		<div class="foot__bottom">
 			<span>© <?php echo esc_html( date_i18n( 'Y' ) ); ?> Hakshan Sdn. Bhd. — <span data-en>All rights reserved.</span><span data-zh>版权所有。</span></span>
-			<span data-en>Hakka cooking, kept whole.</span><span data-zh>三代人的传承</span>
+			<span data-en>Three generations of Hakka.</span><span data-zh>三代人的传承</span>
 		</div>
 	</footer>
 	<?php

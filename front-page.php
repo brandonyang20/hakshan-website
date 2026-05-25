@@ -721,7 +721,7 @@ get_header();
   </div>
   <div class="hero-a__scroll" aria-hidden="true">
     <span data-en>SCROLL</span>
-    <span data-zh>下 滑</span>
+    <span data-zh>下滑</span>
   </div>
 </section>
 
@@ -730,15 +730,15 @@ get_header();
   <div class="gens">
     <div class="gens__copy" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>OUR STORY</span><span data-zh>三 代 故 事</span>
+        <span data-en>OUR STORY</span><span data-zh>三代故事</span>
       </span>
       <h2>
         <span data-en>Three<br/>generations.<br/><em>One recipe book.</em></span>
         <span data-zh>三代人，<br/><em>一本食谱。</em></span>
       </h2>
       <p class="h-body">
-        <span data-en>The book is not really a book. It's a stack of yellowed paper, soy stains, and margin notes our grandmother kept in a tin under the rice barrel. We are still cooking out of it.</span>
-        <span data-zh>那本食谱，其实只是奶奶藏在米缸下的一沓泛黄纸，沾着酱油渍，写满旁批。我们至今仍照着它来做菜。</span>
+        <span data-en>It's not really a book. It's a stack of yellowed paper, pencilled notes, and three generations of cooks who never quite agreed on how dark the wok should look. We're still cooking out of it.</span>
+        <span data-zh>那其实不是一本书。是一沓泛黄的纸、铅笔的字，与三代下厨的人 — 他们从没真正同意过镬要黑到什么程度。我们至今还在照着它做菜。</span>
       </p>
       <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>" style="margin-top: 24px;">
         <span data-en>Read the story</span><span data-zh>阅读故事</span>
@@ -767,7 +767,7 @@ get_header();
         <div>
           <h3><span data-en>The third generation</span><span data-zh>第 三 代</span></h3>
           <p><span data-en>In February 2024, Hakshan opens its first dining room in USJ. Same dishes, same recipe, new chairs.</span>
-            <span data-zh>2024 年 2 月，客善在 USJ 开出第一间餐厅。菜没变，食谱没变，椅子换了。</span></p>
+            <span data-zh>2024年2月，客善在 USJ 开出第一间餐厅。菜没变，食谱没变，椅子换了。</span></p>
         </div>
       </div>
       <div class="gen">
@@ -865,7 +865,7 @@ get_header();
     <div class="cinema-break__top">
       <span class="cn">慢 火</span>
       <span data-en>NOTHING TO DO BUT WAIT</span>
-      <span data-zh>除 了 等，无 事 可 做</span>
+      <span data-zh>除了等，无事可做</span>
     </div>
     <p>
       <span data-en>Three hours, <em>one pot,</em><br/>and a kitchen that has nothing<br/>left to do but <em>wait.</em></span>
@@ -874,7 +874,7 @@ get_header();
     </p>
     <div class="cinema-break__foot">
       <span data-en>↓ DINING WITH PURPOSE ↓</span>
-      <span data-zh>↓ 用 餐 即 行 善 ↓</span>
+      <span data-zh>↓ 用餐即行善 ↓</span>
     </div>
   </div>
 </section>
@@ -883,7 +883,7 @@ get_header();
 <section class="charity">
   <div data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>DINING WITH PURPOSE</span><span data-zh>用 餐 慈 善</span>
+      <span data-en>DINING WITH PURPOSE</span><span data-zh>用餐慈善</span>
     </span>
     <h2>
       <span data-en>Every plate<br/>buys <em class="underline">one more</em>.</span>
@@ -893,7 +893,7 @@ get_header();
   <div data-reveal>
     <p>
       <span data-en>Fifteen percent of every bill at every outlet goes to community causes — written into the P&amp;L of each kitchen, not added on top. We don't print the amount on the receipt. You just know.</span>
-      <span data-zh>每 一 家 门 店 的 每 一 张 账 单，15% 直 接 投 入 社 区 用 途 — 这 一 笔 写 在 厨 房 的 损 益 表 里，不 是 额 外 附 加 的。我 们 不 把 金 额 印 在 收 据 上。但 你 心 里 清 楚。</span>
+      <span data-zh>每一家门店的每一张账单，15% 直接投入社区用途 — 这一笔写在厨房的损益表里，不是额外附加的。我们不把金额印在收据上。但你心里清楚。</span>
     </p>
     <div class="charity__stats">
       <div>
@@ -918,11 +918,11 @@ get_header();
     <div class="outlets__head" data-reveal>
       <div>
         <span class="h-eyebrow"><span class="dot"></span>
-          <span data-en>VISIT US</span><span data-zh>到 访</span>
+          <span data-en>VISIT US</span><span data-zh>到访</span>
         </span>
         <h2>
           <span data-en>Nine<br/><em>kitchens.</em></span>
-          <span data-zh>九 间<br/><em>厨 房。</em></span>
+          <span data-zh>九间<br/><em>厨房。</em></span>
         </h2>
       </div>
       <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'outlets' ) ); ?>">
@@ -990,7 +990,7 @@ get_header();
 <section class="section">
   <div style="max-width: var(--maxw); margin: 0 auto 56px;" data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>ATMOSPHERE</span><span data-zh>空 间</span>
+      <span data-en>ATMOSPHERE</span><span data-zh>空间</span>
     </span>
     <h2 style="font-family: var(--serif); font-style: italic; font-size: clamp(40px, 6vw, 80px); line-height: 1; margin: 12px 0 0; letter-spacing: -0.02em; max-width: 14ch;">
       <span data-en>Wood, paper,<br/>warm light, <em>low voices.</em></span>
@@ -1011,11 +1011,11 @@ get_header();
 <section class="book" id="book">
   <div class="inner" data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>RESERVE A TABLE</span><span data-zh>预 订 座 位</span>
+      <span data-en>RESERVE A TABLE</span><span data-zh>预订座位</span>
     </span>
     <h2>
       <span data-en>Stay for the<br/><em>second pot.</em></span>
-      <span data-zh>多 留 一 会，<br/><em>再 添 一 壶。</em></span>
+      <span data-zh>多留一会，<br/><em>再添一壶。</em></span>
       <span class="cn" data-en>客来茶当酒</span>
     </h2>
     <p>

@@ -314,11 +314,11 @@ get_header();
   <div class="outlets-hero__inner">
     <div>
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>NINE OUTLETS · KLANG VALLEY</span><span data-zh>九 家 门 店 · 巴 生 谷</span>
+        <span data-en>NINE OUTLETS · KLANG VALLEY</span><span data-zh>九家门店·巴生谷</span>
       </span>
       <h1>
         <span data-en>Find your<br/><em>nearest.</em></span>
-        <span data-zh>就 近<br/><em>而 来。</em></span>
+        <span data-zh>就近<br/><em>而来。</em></span>
       </h1>
     </div>
     <p>
@@ -393,15 +393,15 @@ if ( ! empty( $outlet_posts ) ) {
 <section class="section" style="text-align: center;">
   <span class="h-eyebrow"><span class="dot"></span>
     <span data-en>EXPANSION 2026 — SINGAPORE · PENANG</span>
-    <span data-zh>2026 拓 展 — 新 加 坡 · 槟 城</span>
+    <span data-zh>2026拓展 — 新加坡·槟城</span>
   </span>
   <h2 style="font-family: var(--serif); font-style: italic; font-size: clamp(40px, 6vw, 80px); line-height: 0.95; margin: 16px 0 24px; letter-spacing: -0.025em;">
     <span data-en>Outlet <em>10</em> opens next month.</span>
-    <span data-zh>第 <em>十</em> 家 · 下 月 开 业。</span>
+    <span data-zh>第 <em>十</em> 家·下月开业。</span>
   </h2>
   <p style="color: var(--ink-soft); max-width: 50ch; margin: 0 auto 32px;">
     <span data-en>The 10th retail outlet opens locally next month, alongside the 3rd cloud kitchen. Penang (Tanjong Tokong) follows in Q2 2026. Sign up to be invited to the soft launch.</span>
-    <span data-zh>第 10 家 门 店 与 第 3 家 云 厨 房 将 于 下 月 同 步 开 业。槟 城 丹 绒 道 光 店 紧 随 其 后，2026 年 第 二 季 度 开 业。订 阅 即 可 获 得 软 开 邀 请。</span>
+    <span data-zh>第10家门店与第3家云厨房将于下月同步开业。槟城丹绒道光店紧随其后，2026年第二季度开业。订阅即可获得软开邀请。</span>
   </p>
   <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) ); ?>"><span data-en>Join the list</span><span data-zh>加入名单</span><span class="arr">→</span></a>
 </section>

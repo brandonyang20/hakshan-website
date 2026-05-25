@@ -321,16 +321,16 @@ get_header();
   <div>
     <span class="h-eyebrow"><span class="dot"></span>
       <span data-en>GET IN TOUCH · 联 系 我 们</span>
-      <span data-zh>联 系 我 们</span>
+      <span data-zh>联系我们</span>
     </span>
     <h1>
       <span data-en>Open<br/><em>door.</em></span>
-      <span data-zh>开 着<br/><em>的 门。</em></span>
+      <span data-zh>开着<br/><em>的门。</em></span>
     </h1>
   </div>
   <p>
     <span data-en>Reservations, press, careers, kitchen apprenticeships, and the rare invitation to cook with us. Walk-ins are always welcome at every outlet; everything else is below.</span>
-    <span data-zh>预 订、媒 体、招 聘、厨 房 学 徒，以 及 偶 尔 邀 请 与 我 们 一 起 下 厨。每 家 门 店 均 欢 迎 散 客；其 余 事 项 详 见 下 方。</span>
+    <span data-zh>预订、媒体、招聘、厨房学徒，以及偶尔邀请与我们一起下厨。每家门店均欢迎散客；其余事项详见下方。</span>
   </p>
 </section>
 
@@ -341,23 +341,23 @@ get_header();
       <div>
         <span class="h-eyebrow"><span class="dot"></span>
           <span data-en>I · RESERVATIONS</span>
-          <span data-zh>一 · 预 订 座 位</span>
+          <span data-zh>一·预订座位</span>
         </span>
         <h2>
           <span data-en>Reserve a<br/><em>table.</em></span>
-          <span data-zh>预 订 <em>座 位。</em></span>
+          <span data-zh>预订 <em>座位。</em></span>
         </h2>
       </div>
       <p>
         <span data-en>Walk-ins welcome at every outlet. Book ahead for parties of six or more, private rooms, or pre-orders of dishes that take more than an afternoon to prepare.</span>
-        <span data-zh>所 有 门 店 欢 迎 散 客。六 人 以 上、包 房，或 需 提 前 准 备 半 日 以 上 的 菜 式，请 提 前 预 约。</span>
+        <span data-zh>所有门店欢迎散客。六人以上、包房，或需提前准备半日以上的菜式，请提前预约。</span>
       </p>
     </div>
 
     <div class="reserve-form-block">
       <form class="contact-form" data-reveal onsubmit="event.preventDefault(); alert('Reservation submitted — we will confirm by phone within an hour.');">
         <div>
-          <label><span data-en>Outlet</span><span data-zh>分 店</span></label>
+          <label><span data-en>Outlet</span><span data-zh>分店</span></label>
           <div class="pick-row" id="outletPick">
             <button type="button" class="chip is-on" data-val="usj">USJ Taipan</button>
             <button type="button" class="chip" data-val="menjalara">Menjalara</button>
@@ -373,22 +373,22 @@ get_header();
 
         <div class="contact-row">
           <div>
-            <label><span data-en>Date</span><span data-zh>日 期</span></label>
+            <label><span data-en>Date</span><span data-zh>日期</span></label>
             <input type="date" name="date" />
           </div>
           <div>
-            <label><span data-en>Time</span><span data-zh>时 间</span></label>
+            <label><span data-en>Time</span><span data-zh>时间</span></label>
             <input type="time" name="time" />
           </div>
         </div>
 
         <div class="contact-row">
           <div>
-            <label><span data-en>Party size</span><span data-zh>人 数</span></label>
+            <label><span data-en>Party size</span><span data-zh>人数</span></label>
             <input type="number" name="party" min="1" max="20" placeholder="4" />
           </div>
           <div>
-            <label><span data-en>Occasion · optional</span><span data-zh>场 合 · 可 选</span></label>
+            <label><span data-en>Occasion · optional</span><span data-zh>场合·可选</span></label>
             <select name="occasion">
               <option>None · 无</option>
               <option>Birthday · 生 日</option>
@@ -400,32 +400,32 @@ get_header();
         </div>
 
         <div>
-          <label><span data-en>Your name</span><span data-zh>姓 名</span></label>
+          <label><span data-en>Your name</span><span data-zh>姓名</span></label>
           <input type="text" name="name" placeholder="Your full name" />
         </div>
 
         <div class="contact-row">
           <div>
-            <label><span data-en>Phone</span><span data-zh>电 话</span></label>
+            <label><span data-en>Phone</span><span data-zh>电话</span></label>
             <input type="tel" name="phone" placeholder="+60 12-345 6789" />
           </div>
           <div>
-            <label><span data-en>Email</span><span data-zh>电 邮</span></label>
+            <label><span data-en>Email</span><span data-zh>电邮</span></label>
             <input type="email" name="email" placeholder="you@email.com" />
           </div>
         </div>
 
         <div>
-          <label><span data-en>Notes — allergies, pre-orders, the second pot of tea</span><span data-zh>备 注 — 过 敏、预 订 菜、加 一 壶 茶</span></label>
+          <label><span data-en>Notes — allergies, pre-orders, the second pot of tea</span><span data-zh>备注 — 过敏、预订菜、加一壶茶</span></label>
           <textarea name="notes" rows="3" placeholder="—"></textarea>
         </div>
 
         <div class="submit-row">
           <span class="terms">
             <span data-en>WE'LL CONFIRM BY PHONE WITHIN ONE HOUR · 11:00 — 22:00</span>
-            <span data-zh>我 们 将 在 一 小 时 内 电 话 确 认 · 11:00 — 22:00</span>
+            <span data-zh>我们将在一小时内电话确认·11:00 — 22:00</span>
           </span>
-          <button class="btn" type="submit"><span data-en>Reserve</span><span data-zh>提 交 预 订</span><span class="arr">→</span></button>
+          <button class="btn" type="submit"><span data-en>Reserve</span><span data-zh>提交预订</span><span class="arr">→</span></button>
         </div>
       </form>
 
@@ -434,19 +434,19 @@ get_header();
           <h4><span data-en>Call directly</span><span data-zh>电 话 预 订</span></h4>
           <p>+60 16-246 2970</p>
           <div class="small"><span data-en>Daily 11:00 — 22:00 · all reservations route through the USJ flagship and are forwarded.</span>
-            <span data-zh>每 日 11:00 — 22:00 · 所 有 预 订 通 过 USJ 旗 舰 店 统 一 接 待 后 转 至 各 分 店。</span></div>
+            <span data-zh>每日11:00 — 22:00·所有预订通过 USJ 旗舰店统一接待后转至各分店。</span></div>
         </div>
         <div class="card">
           <h4><span data-en>Whatsapp</span><span data-zh>WhatsApp</span></h4>
           <p>+60 16-246 2970</p>
           <div class="small"><span data-en>Send a screenshot of the outlet you want, your party size, and a date. We'll reply with a slot.</span>
-            <span data-zh>把 想 去 的 分 店 截 图 给 我 们，附 人 数 与 日 期。我 们 回 你 一 个 时 段。</span></div>
+            <span data-zh>把想去的分店截图给我们，附人数与日期。我们回你一个时段。</span></div>
         </div>
         <div class="card">
           <h4><span data-en>Large party · private room</span><span data-zh>包 房 · 大 桌</span></h4>
-          <p><span data-en>Twenty people and up.</span><span data-zh>二 十 人 以 上。</span></p>
+          <p><span data-en>Twenty people and up.</span><span data-zh>二十人以上。</span></p>
           <div class="small"><span data-en>Tell us the outlet, the date and the headcount, and we'll set the room. Same kitchen, longer table.</span>
-            <span data-zh>告 诉 我 们 分 店、日 期 与 人 数，我 们 把 房 间 留 好。同 一 个 厨 房，桌 子 长 一 些。</span></div>
+            <span data-zh>告诉我们分店、日期与人数，我们把房间留好。同一个厨房，桌子长一些。</span></div>
         </div>
       </div>
     </div>
@@ -459,16 +459,16 @@ get_header();
     <div>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>II · PRESS &amp; MEDIA</span>
-        <span data-zh>二 · 媒 体 联 络</span>
+        <span data-zh>二·媒体联络</span>
       </span>
       <h2>
         <span data-en>For the<br/><em>journalists.</em></span>
-        <span data-zh>媒 体 <em>查 询。</em></span>
+        <span data-zh>媒体 <em>查询。</em></span>
       </h2>
     </div>
     <p>
       <span data-en>Stories, interviews, behind-the-pass photography, the recipe book in person. We answer within two business days. We do not pay for placement.</span>
-      <span data-zh>报 道、访 谈、厨 房 跟 拍、食 谱 实 物 取 材。两 个 工 作 日 内 回 复。我 们 不 购 买 任 何 媒 体 位 置。</span>
+      <span data-zh>报道、访谈、厨房跟拍、食谱实物取材。两个工作日内回复。我们不购买任何媒体位置。</span>
     </p>
   </div>
   <div class="press-grid" data-reveal>
@@ -476,21 +476,21 @@ get_header();
       <h4><span data-en>PRESS INQUIRIES</span><span data-zh>媒 体 查 询</span></h4>
       <h3><span data-en>Press desk</span><span data-zh>媒 体 联 络</span></h3>
       <p><span data-en>Interviews, statements, kitchen visits, founder availability. We reply within two business days.</span>
-        <span data-zh>访 谈、声 明、入 厨 拍 摄、创 办 人 档 期。两 个 工 作 日 内 回 复。</span></p>
+        <span data-zh>访谈、声明、入厨拍摄、创办人档期。两个工作日内回复。</span></p>
       <div class="link"><a href="mailto:press@hakshan.com" style="color: inherit;">press@hakshan.com <span class="arr">→</span></a></div>
     </div>
     <div class="press-card">
       <h4><span data-en>BRAND ASSETS</span><span data-zh>品 牌 素 材</span></h4>
       <h3><span data-en>Press kit on request</span><span data-zh>媒 体 包 · 应 求 提 供</span></h3>
       <p><span data-en>Logo, photography library, charity model fact sheet — sent by email on request.</span>
-        <span data-zh>标 志、图 库、慈 善 模 式 简 报 — 应 求 以 电 邮 寄 送。</span></p>
+        <span data-zh>标志、图库、慈善模式简报 — 应求以电邮寄送。</span></p>
       <div class="link"><a href="mailto:press@hakshan.com?subject=Press%20kit%20request" style="color: inherit;">Request kit <span class="arr">→</span></a></div>
     </div>
     <div class="press-card">
       <h4><span data-en>KITCHEN VISITS</span><span data-zh>厨 房 探 访</span></h4>
       <h3><span data-en>By appointment</span><span data-zh>预 约 制</span></h3>
       <p><span data-en>Behind-the-pass photography and central-kitchen tours, arranged in advance — outside service hours, so the line keeps moving.</span>
-        <span data-zh>厨 房 跟 拍 与 中 央 厨 房 参 观，须 提 前 预 约 — 安 排 在 营 业 时 段 之 外，避 免 影 响 出 餐。</span></p>
+        <span data-zh>厨房跟拍与中央厨房参观，须提前预约 — 安排在营业时段之外，避免影响出餐。</span></p>
       <div class="link"><a href="mailto:press@hakshan.com?subject=Kitchen%20visit" style="color: inherit;">Arrange a visit <span class="arr">→</span></a></div>
     </div>
   </div>
@@ -503,16 +503,16 @@ get_header();
       <div>
         <span class="h-eyebrow"><span class="dot"></span>
           <span data-en>III · CAREERS &amp; APPRENTICESHIPS</span>
-          <span data-zh>三 · 招 聘 与 学 徒</span>
+          <span data-zh>三·招聘与学徒</span>
         </span>
         <h2>
           <span data-en>Come<br/>cook with <em>us.</em></span>
-          <span data-zh>来 同<br/><em>掌 厨。</em></span>
+          <span data-zh>来同<br/><em>掌厨。</em></span>
         </h2>
       </div>
       <p>
         <span data-en>We hire slowly. Apprentices are trained at the central kitchen before they ever stand at an outlet wok — every kitchen lead at every outlet went through this pipeline.</span>
-        <span data-zh>招 人 不 急。学 徒 先 在 中 央 厨 房 受 训，然 后 才 进 入 门 店。每 一 家 门 店 的 厨 房 主 管，皆 由 此 路 培 养 而 来。</span>
+        <span data-zh>招人不急。学徒先在中央厨房受训，然后才进入门店。每一家门店的厨房主管，皆由此路培养而来。</span>
       </p>
     </div>
     <div class="careers-list" data-reveal>
@@ -547,41 +547,41 @@ get_header();
     <div>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>IV · GENERAL · INVESTORS · PARTNERS</span>
-        <span data-zh>四 · 一 般 · 投 资 · 合 作</span>
+        <span data-zh>四·一般·投资·合作</span>
       </span>
       <h2>
         <span data-en>Other<br/><em>ways in.</em></span>
-        <span data-zh>其 他 <em>入 口。</em></span>
+        <span data-zh>其他 <em>入口。</em></span>
       </h2>
     </div>
     <p>
       <span data-en>For investor relations, supplier inquiries, community partnerships, and anything that doesn't fit a category above.</span>
-      <span data-zh>投 资 者 关 系、供 应 商 联 络、社 区 合 作，以 及 不 属 于 上 述 类 别 的 任 何 事 项。</span>
+      <span data-zh>投资者关系、供应商联络、社区合作，以及不属于上述类别的任何事项。</span>
     </p>
   </div>
   <div class="info-row" data-reveal>
     <div class="info-cell">
       <h4><span data-en>General</span><span data-zh>一 般 联 络</span></h4>
       <a href="mailto:hello@hakshan.com">hello@hakshan.com</a>
-      <div class="small"><span data-en>For anything that doesn't fit a category above.</span><span data-zh>不 属 上 述 类 别 的 任 何 事 项。</span></div>
+      <div class="small"><span data-en>For anything that doesn't fit a category above.</span><span data-zh>不属上述类别的任何事项。</span></div>
     </div>
     <div class="info-cell">
       <h4><span data-en>Investors</span><span data-zh>投 资 者</span></h4>
       <a href="mailto:ir@hakshan.com">ir@hakshan.com</a>
       <div class="small">
         <span data-en><a href="<?php echo esc_url( hakshan_nav_url( 'investors' ) ); ?>">Investor relations page →</a></span>
-        <span data-zh><a href="<?php echo esc_url( hakshan_nav_url( 'investors' ) ); ?>">投 资 者 关 系 页 →</a></span>
+        <span data-zh><a href="<?php echo esc_url( hakshan_nav_url( 'investors' ) ); ?>">投资者关系页 →</a></span>
       </div>
     </div>
     <div class="info-cell">
       <h4><span data-en>Suppliers</span><span data-zh>供 应 商</span></h4>
       <a href="mailto:procurement@hakshan.com">procurement@hakshan.com</a>
-      <div class="small"><span data-en>We source mostly within 80km of every outlet.</span><span data-zh>我 们 大 多 在 各 门 店 80 公 里 内 采 购。</span></div>
+      <div class="small"><span data-en>We source mostly within 80km of every outlet.</span><span data-zh>我们大多在各门店80公里内采购。</span></div>
     </div>
     <div class="info-cell">
       <h4><span data-en>Community partners</span><span data-zh>社 区 合 作</span></h4>
       <a href="mailto:hello@hakshan.com">hello@hakshan.com</a>
-      <div class="small"><span data-en>Fifteen percent of every ringgit goes to community causes. Partners welcome.</span><span data-zh>营 收 的 15% 投 入 社 区 用 途。欢 迎 合 作。</span></div>
+      <div class="small"><span data-en>Fifteen percent of every ringgit goes to community causes. Partners welcome.</span><span data-zh>营收的15% 投入社区用途。欢迎合作。</span></div>
     </div>
   </div>
 </section>
@@ -591,7 +591,7 @@ get_header();
   <div data-reveal>
     <h2>
       <span data-en>Or just<br/><em>walk in.</em></span>
-      <span data-zh>或 者，<br/><em>径 自 推 门。</em></span>
+      <span data-zh>或者，<br/><em>径自推门。</em></span>
     </h2>
     <span class="cn">客 来 茶 当 酒</span>
   </div>
