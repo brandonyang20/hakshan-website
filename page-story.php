@@ -353,8 +353,8 @@ get_header();
     <span data-zh>三 代 人，<br/><em>一 本 食 谱。</em></span>
   </h1>
   <p class="deck">
-    <span data-en>It is not really a book. It is a stack of yellowed paper, soy stains, and margin notes our grandmother kept in a tin under the rice barrel. We are still cooking out of it.</span>
-    <span data-zh>那 其 实 不 是 一 本 书。那 是 一 沓 泛 黄 的 纸，沾 着 酱 油 渍、写 满 旁 批，奶 奶 藏 在 米 缸 下 的 铁 罐 里。我 们 至 今 还 在 照 着 它 做 菜。</span>
+    <span data-en>It is not really a book. It is a stack of yellowed paper, pencilled notes, and three generations of cooks who never quite agreed on how dark the wok should look. We are still cooking out of it.</span>
+    <span data-zh>那 其 实 不 是 一 本 书。是 一 沓 泛 黄 的 纸、铅 笔 的 字，与 三 代 下 厨 的 人 — 他 们 从 没 真 正 同 意 过 镬 要 黑 到 什 么 程 度。我 们 至 今 还 在 照 着 它 做 菜。</span>
   </p>
 </section>
 
@@ -374,24 +374,21 @@ get_header();
     <div class="timeline__list" data-reveal>
       <?php
       $timeline = array(
-        array( 'year' => '1958', 'cn' => '阿婆',  'h_en' => 'Ah Por opens a stove',          'h_zh' => '阿 婆 开 灶',
-               'p_en' => 'A tin-roofed kitchen in Hulu Selangor. Salt-baked chicken in kraft paper, mui choy belly that takes the better part of a Saturday, rice-wine soup for any woman who has just given birth.',
-               'p_zh' => '乌鲁雪兰莪一间锌板顶小厨房。牛皮纸盐焗鸡、要做大半个星期六的梅菜扣肉、谁家添丁就煮的糯米酒汤。' ),
-        array( 'year' => '1962', 'cn' => '食 谱', 'h_en' => 'The tin under the rice barrel', 'h_zh' => '米 缸 下 的 铁 罐',
-               'p_en' => 'Ah Por starts writing things down on the backs of kuih paper. She does it because she suspects she won\'t always remember. She is right.',
-               'p_zh' => '阿婆开始把方子写在糕粿纸的背面 — 因为她怀疑自己总有一天会忘。她猜对了。' ),
-        array( 'year' => '1986', 'cn' => '爸爸',  'h_en' => 'The shophouse years, Kepong',   'h_zh' => '店 屋 时 代 · 甲 洞',
-               'p_en' => 'Father takes the recipe book to a two-table shophouse on Jalan Kepong. He doesn\'t rename anything. He doesn\'t modernise anything. He just keeps cooking, and people keep showing up.',
-               'p_zh' => '父亲把食谱带到甲洞一间两张桌的店屋。他没改名，没现代化任何菜式，只是继续煮 — 而人，也继续来。' ),
-        array( 'year' => '2018', 'cn' => '客 善', 'h_en' => 'Hakshan opens, USJ Taipan',     'h_zh' => '客 善 开 业 · USJ',
-               'p_en' => 'The third generation opens the first dining room. Same dishes. Same book. New chairs, warmer light, a seat reserved every night for someone who can\'t pay.',
-               'p_zh' => '第三代开出第一间餐厅。菜不变、食谱不变，只换了椅子；并每晚为付不起饭钱的人留下一张桌。' ),
-        array( 'year' => '2021', 'cn' => '三 家', 'h_en' => 'Three rooms, no compromises',   'h_zh' => '三 家 · 不 妥 协',
-               'p_en' => 'Cheras and Menjalara open within eight months of each other. The wok master from KL personally cooks the first service at each new outlet — a habit we have not broken since.',
-               'p_zh' => '蕉赖与满家拉前后八个月内开张。KL 的主厨亲自掌勺新店头一日 — 这个习惯至今未改。' ),
-        array( 'year' => '2026', 'cn' => '九 家', 'h_en' => 'Nine kitchens, one ledger',     'h_zh' => '九 家 厨 房 · 一 本 账',
-               'p_en' => 'Nine dining rooms across the Klang Valley. Every outlet runs the same recipe book and the same charity table. Outlet 10 opens in Penang this April.',
-               'p_zh' => '九家分店遍布巴生谷，同一本食谱、同一张慈善桌。第十家 2026 年 4 月落户槟城。' ),
+        array( 'year' => '1958', 'cn' => '第 一 代', 'h_en' => 'A home kitchen, Seremban',     'h_zh' => '芙 蓉 · 家 中 厨 房',
+               'p_en' => 'The first generation cooks Hakka food at home — salt-baked chicken, mui choy belly, rice-wine chicken soup. No restaurant. No staff. Just a stove, a wok, and a family that keeps showing up to eat.',
+               'p_zh' => '第 一 代 在 家 中 煮 客 家 菜 — 盐 焗 鸡、梅 菜 扣 肉、糯 米 酒 鸡 汤。没 有 餐 厅，没 有 员 工。只 有 一 个 灶、一 只 镬，和 一 屋 子 总 回 来 吃 饭 的 家 人。' ),
+        array( 'year' => '2008', 'cn' => '第 二 代', 'h_en' => 'The recipes head north',      'h_zh' => '食 谱 北 上',
+               'p_en' => 'The daughter moves to Kuala Lumpur and opens the family\'s first restaurant. For the first time, the dishes are written down — in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
+               'p_zh' => '女 儿 北 上 吉 隆 坡，开 了 家 中 第 一 家 餐 厅。第 一 次，那 些 菜 被 写 下 来 — 用 铅 笔，写 在 糕 粿 纸 背 面。食 谱 没 变。厨 房，第 一 次 要 招 待 陌 生 人。' ),
+        array( 'year' => '2024', 'cn' => '第 三 代', 'h_en' => 'Hakshan opens, USJ',          'h_zh' => '客 善 开 业 · USJ',
+               'p_en' => 'February 2024. The third generation opens Hakshan in USJ. Same recipes — refined by every cook who has held the book since 1958. Same paper. New chairs. A new price point: an RM 15 set. A new rule: fifteen percent of every bill, written into the kitchen\'s costs, returned to community causes.',
+               'p_zh' => '2024 年 2 月。第 三 代 在 USJ 开 出 客 善。食 谱 还 是 那 一 本 — 自 1958 年 起，每 一 位 下 厨 的 人 都 留 了 一 笔。纸 还 是 那 叠 纸。椅 子 换 了。价 位 换 了 — RM 15 套 餐。规 则 也 换 了 — 每 一 张 账 单 的 15%，写 进 厨 房 的 成 本 里，回 馈 社 区。' ),
+        array( 'year' => '2025', 'cn' => '巴 生 谷', 'h_en' => 'Eight more kitchens',         'h_zh' => '再 添 八 家',
+               'p_en' => 'Eight more outlets open within twenty-two months — Menjalara, Cheras, Bandar Puteri Puchong, IOI Conezion, Budiman Park Kajang, Arcoris Mont Kiara, The Waterfront ParkCity, Plaza Arkadia. Same recipes, same standards, same pencilled paper in every kitchen.',
+               'p_zh' => '二 十 二 个 月 内，再 开 八 家 — 满 家 拉、蕉 赖、蒲 种 Bandar Puteri、IOI Conezion、加 影、满 家 乐、ParkCity、Plaza Arkadia。同 样 的 食 谱，同 样 的 标 准，同 样 那 叠 铅 笔 字 的 纸。' ),
+        array( 'year' => '2026', 'cn' => '今 天',    'h_en' => 'Ten kitchens, one book',      'h_zh' => '十 家 厨 房，一 本 食 谱',
+               'p_en' => 'Nine retail outlets and one cloud kitchen across the Klang Valley. The tenth retail outlet and the third cloud kitchen open next month. Penang follows in the second quarter. The book stays in the central kitchen.',
+               'p_zh' => '巴 生 谷 九 家 门 店 与 一 家 云 厨 房。第 十 家 门 店 与 第 三 家 云 厨 房 将 于 下 月 开 业。槟 城 紧 随 其 后，第 二 季 度 开 业。那 本 书，留 在 中 央 厨 房。' ),
       );
       foreach ( $timeline as $row ) :
         ?>
@@ -417,8 +414,8 @@ get_header();
       <span data-zh>「这 道 菜 不 靠 调 味，<em>靠 的 是 等。</em>」</span>
     </p>
     <div class="by">
-      <span data-en>— AH POR, on her salt-baked chicken, c. 1986</span>
-      <span data-zh>— 阿 婆 谈 盐 焗 鸡，约 1986</span>
+      <span data-en>— A SAYING IN OUR KITCHEN</span>
+      <span data-zh>— 厨 房 里 的 一 句 老 话</span>
     </div>
   </div>
 </section>
@@ -426,41 +423,46 @@ get_header();
 <!-- ============== STORY BODY ============== -->
 <section class="story-body">
   <div data-reveal>
-    <span class="small"><span data-en>I · A KITCHEN, A STOVE, SIX CHILDREN</span><span data-zh>一 · 一 厨 一 灶 六 个 孩 子</span></span>
+    <span class="small"><span data-en>I · IN SEREMBAN, A STOVE</span><span data-zh>一 · 芙 蓉，一 个 灶</span></span>
     <p style="font-size: 22px; line-height: 1.5;">
-      <span data-en>Ah Por started cooking for her village in 1958. She did not have a restaurant. She had a stove, six children, and a long list of rubber tappers who walked past her gate at 7pm hungry. The salted chicken came out at 7:15. Whatever was left in the wok at 9pm went home with whoever was still there.</span>
-      <span data-zh>1958 年，阿婆开始为村里人煮饭。她没有餐厅，只有一个炉灶、六个孩子，和一长串晚上七点路过她家门、饿着肚子的橡胶工。盐焗鸡七点一刻准时出炉。九点锅里剩下的，就分给还没走的人。</span>
+      <span data-en>In 1958, the first generation cooked Hakka food at home in Seremban. Not in a restaurant. Not for a customer. For a family. The stove was wood-fired. The recipes lived in her hands. Nothing was written down — she didn't think she needed to, and she didn't think anyone else would.</span>
+      <span data-zh>1958 年，第 一 代 在 芙 蓉 的 家 中 煮 客 家 菜。不 是 餐 厅，不 是 给 客 人 — 是 给 家 人。灶 是 柴 火 灶。食 谱 在 她 手 里。一 字 未 落 于 纸 — 她 不 觉 得 自 己 需 要，也 不 觉 得 别 人 会 需 要。</span>
     </p>
 
     <div class="figure">
-      <div class="ph" data-label="Ah Por, c. 1962 · Hulu Selangor"></div>
-      <div class="caption"><span data-en>↑ Pl. 01 · Ah Por, Hulu Selangor, c. 1962</span><span data-zh>↑ 图 一 · 阿 婆 于 乌 鲁 雪 兰 莪，约 1962</span></div>
+      <div class="ph" data-label="First generation · a home kitchen in Seremban, c. 1958"></div>
+      <div class="caption"><span data-en>↑ Pl. 01 · A home kitchen in Seremban, c. 1958</span><span data-zh>↑ 图 一 · 芙 蓉 的 家 中 厨 房，约 1958</span></div>
     </div>
 
-    <span class="small"><span data-en>II · A FATHER WHO DID NOT CHANGE MUCH</span><span data-zh>二 · 一 个 没 改 太 多 的 父 亲</span></span>
+    <span class="small"><span data-en>II · THE RECIPES GO NORTH</span><span data-zh>二 · 食 谱 北 上</span></span>
     <p>
-      <span data-en>Father moved the family to Kepong in 1986. He opened a two-table shophouse and put a wok and a rice cooker behind the counter. He could have modernised the menu. He could have hired a chef. Instead he carried Ah Por's recipe book downstairs every morning and cooked out of it himself until 2014.</span>
-      <span data-zh>1986 年，父亲把全家搬到甲洞，开了一间两张桌的店屋，柜台后摆一个炒锅、一个电饭煲。他完全可以现代化菜单，可以请大厨；但他每天早上把阿婆的食谱抱下楼，照着它一路煮到 2014 年。</span>
+      <span data-en>Fifty years later, the second generation moved to Kuala Lumpur and opened the family's first restaurant — a place that would have to feed people who weren't family. For the first time, the dishes were written down. The paper was kuih paper. The ink was pencil. The notes — which kampung the chicken should come from, how dark the wok should look before the pork belly went in, how long to wait — were written in the spaces where they wouldn't slow service down.</span>
+      <span data-zh>五 十 年 后，第 二 代 北 上。她 把 食 谱 带 到 吉 隆 坡，开 了 家 中 第 一 家 餐 厅 — 一 间 要 招 待 陌 生 人 的 餐 厅。第 一 次，那 些 菜 被 写 下 来。纸 是 糕 粿 纸。字 是 铅 笔 字。批 注 — 鸡 要 从 哪 个 甘 榜 来、镬 要 黑 到 什 么 程 度 才 下 三 层 肉、要 等 多 久 — 都 写 在 不 妨 碍 出 餐 的 空 白 处。</span>
     </p>
     <p>
-      <span data-en>He did make one change. He started writing his own notes in the margins, in the spaces Ah Por had left blank. He never showed us. We found them after he died.</span>
-      <span data-zh>他确实改了一件事 — 他开始在阿婆的空白处加批注。从未给我们看过。直到他过世，我们整理那本食谱时才发现。</span>
+      <span data-en>The recipes did not change. The kitchen, suddenly, had to feed strangers.</span>
+      <span data-zh>食 谱 没 变。厨 房，第 一 次 要 招 待 陌 生 人。</span>
     </p>
+
+    <div class="figure">
+      <div class="ph" data-label="Second generation · pencil notes on kuih paper, c. 2008"></div>
+      <div class="caption"><span data-en>↑ Pl. 02 · The first written copy of the family recipes, c. 2008</span><span data-zh>↑ 图 二 · 家 中 食 谱 首 次 落 笔，约 2008</span></div>
+    </div>
 
     <h3><span data-en>The third generation opens a door</span><span data-zh>第 三 代 推 开 一 扇 门</span></h3>
     <p>
-      <span data-en>In 2018 we opened the first dining room under the name Hakshan 客善 — guest, kindness. The name was Father's idea. He was eighty-one. He insisted the receipt show no charity contribution. "If you're going to give," he said, "give quietly. Don't make the guest feel like they bought you a halo."</span>
-      <span data-zh>2018 年，我们以「客善」之名开出第一间餐厅 — 客者，善也。这名字是父亲起的。他八十一岁。他坚持收据上不能印任何慈善捐款金额。「要给，就静静地给，」他说，「别让客人觉得他给你买了个光环。」</span>
+      <span data-en>In February 2024, the third generation opened Hakshan (客善) in USJ — guest, kindness. Same recipes, refined by every cook who has held the book since 1958. Same paper — the original sits in the central kitchen; pencilled copies hang in every outlet that opens. The chairs are new.</span>
+      <span data-zh>2024 年 2 月，第 三 代 在 USJ 开 出 客 善 — 客 者，善 也。食 谱 还 是 那 一 本 — 自 1958 年 起，每 一 位 下 厨 的 人 都 留 了 一 笔。纸 还 是 那 叠 纸 — 原 稿 留 在 中 央 厨 房，新 开 的 每 一 家 门 店 都 挂 着 铅 笔 字 的 复 印 本。椅 子 换 了。</span>
     </p>
     <p>
-      <span data-en>So we don't. The charity model runs quietly in the back of the house. The receipt shows nothing. The chair — one per outlet, every night — is always set, always laid, always waiting. Whoever needs it knows where it is.</span>
-      <span data-zh>所以我们没有。慈善的部分静静运转在后厨。收据上什么也没有。那张桌 — 每家分店一张，每晚都摆好、铺好、等着 — 谁需要，谁就知道在哪。</span>
+      <span data-en>The price point is new too — an RM 15 set, more accessible than any restaurant the family has run before. And the discipline that comes with it: fifteen percent of every bill is written into the kitchen's costs and returned to community causes. Not from the profit. From every ringgit. The receipt doesn't say so. You just know.</span>
+      <span data-zh>价 位 也 是 新 的 — RM 15 套 餐，比 家 中 任 何 一 个 餐 厅 都 平 易。配 套 的 还 有 一 份 纪 律：每 一 张 账 单 的 15%，直 接 写 进 厨 房 的 成 本 里，回 馈 社 区。不 是 从 利 润 出 — 是 从 营 收 出。收 据 上 不 写。但 你 心 里 清 楚。</span>
     </p>
 
     <div class="figure">
-      <div class="ph" data-label="The recipe book · open spread, 1958–present"></div>
-      <div class="caption"><span data-en>↑ Pl. 02 · The recipe book, opened to mui choy belly · margin in Ah Por's hand (left), in Father's hand (right)</span>
-        <span data-zh>↑ 图 二 · 食 谱 翻 至 梅 菜 扣 肉 · 左 为 阿 婆 笔 迹，右 为 父 亲 笔 迹</span></div>
+      <div class="ph" data-label="Third generation · the central kitchen, Feb 2024"></div>
+      <div class="caption"><span data-en>↑ Pl. 03 · The central kitchen, the same recipes, ready for service · USJ, Feb 2024</span>
+        <span data-zh>↑ 图 三 · 中 央 厨 房 · 同 一 本 食 谱，准 备 出 餐 · USJ，2024 年 2 月</span></div>
     </div>
   </div>
 </section>
@@ -474,8 +476,8 @@ get_header();
       <span data-zh>我 们 留 下 的</span>
     </div>
     <p class="line">
-      <span data-en>The book. <em>The fire.</em><br/>The seat that always belongs<br/>to <em>someone else.</em></span>
-      <span data-zh>那 本 食 谱。<em>那 把 火。</em><br/>那 张 桌 — <em>永 远 留 给 别 人 的。</em></span>
+      <span data-en>The book. <em>The fire.</em><br/>The share that always belongs<br/>to <em>someone else.</em></span>
+      <span data-zh>那 本 食 谱。<em>那 把 火。</em><br/>那 一 份 — <em>永 远 属 于 别 人 的。</em></span>
     </p>
   </div>
 </section>
@@ -494,39 +496,36 @@ get_header();
   </div>
   <div class="portraits__grid" data-reveal>
     <div class="portrait">
-      <div class="portrait__visual"><div class="ph" data-label="Tan Mui Lan (Ah Por) · 1962"></div></div>
+      <div class="portrait__visual"><div class="ph" data-label="First generation · a home kitchen in Seremban, c. 1958"></div></div>
       <div class="portrait__num">FIRST GENERATION · 一 代</div>
       <h3>
-        <span data-en>Tan Mui Lan</span><span data-zh>陈 梅 兰</span>
-        <span class="cn">阿 婆</span>
+        <span data-en>She cooked at home</span><span data-zh>她 在 家 中 下 厨</span>
       </h3>
       <p>
-        <span data-en>Born Sungai Lembing 1932. Cooked for her village from 1958 until she could no longer stand at the stove. Wrote the book on the backs of kuih paper.</span>
-        <span data-zh>1932 年生于双溪宁宜。自 1958 起为全村煮饭，直至无法久站。把食谱写在糕粿纸背面。</span>
+        <span data-en>Seremban, from 1958. Hakka dishes cooked at home — salt-baked chicken, mui choy belly, rice-wine chicken soup. Never ran a restaurant. The recipes lived in her hands.</span>
+        <span data-zh>1958 年 起，于 芙 蓉。家 中 烹 客 家 菜 — 盐 焗 鸡、梅 菜 扣 肉、糯 米 酒 鸡 汤。一 生 未 开 餐 厅。食 谱，在 她 手 上。</span>
       </p>
     </div>
     <div class="portrait">
-      <div class="portrait__visual"><div class="ph" data-label="Tan Wei Keong · 1992, Kepong shophouse"></div></div>
+      <div class="portrait__visual"><div class="ph" data-label="Second generation · pencil notes on kuih paper, c. 2008"></div></div>
       <div class="portrait__num">SECOND GENERATION · 二 代</div>
       <h3>
-        <span data-en>Tan Wei Keong</span><span data-zh>陈 伟 强</span>
-        <span class="cn">爸 爸</span>
+        <span data-en>She wrote it down</span><span data-zh>她 把 食 谱 写 下 来</span>
       </h3>
       <p>
-        <span data-en>Born 1944. Moved the kitchen to Kepong in 1986. Cooked behind the same wok for twenty-eight years. Added his own marginalia, in red ink.</span>
-        <span data-zh>1944 年生。1986 年将厨房迁至甲洞。在同一只炒锅后做了二十八年。以红笔在阿婆的食谱旁添批注。</span>
+        <span data-en>Brought the recipes north to Kuala Lumpur around 2008 and opened the family's first restaurant. Wrote the dishes down for the first time — in pencil, on the back of kuih paper. The recipes did not change. The kitchen, suddenly, had to feed strangers.</span>
+        <span data-zh>约 2008 年，把 食 谱 带 到 吉 隆 坡，开 了 家 中 第 一 家 餐 厅。第 一 次 把 菜 写 下 来 — 用 铅 笔，写 在 糕 粿 纸 背 面。食 谱 没 变。厨 房，第 一 次 要 招 待 陌 生 人。</span>
       </p>
     </div>
     <div class="portrait">
-      <div class="portrait__visual"><div class="ph" data-label="Tan Wei Ming &amp; siblings · 2018, USJ kitchen"></div></div>
+      <div class="portrait__visual"><div class="ph" data-label="Third generation · the central kitchen, Feb 2024"></div></div>
       <div class="portrait__num">THIRD GENERATION · 三 代</div>
       <h3>
-        <span data-en>Wei Ming &amp; siblings</span><span data-zh>伟 明 与 兄 妹</span>
-        <span class="cn">我 们</span>
+        <span data-en>Same recipes, new room</span><span data-zh>同 一 本 食 谱，新 的 厅</span>
       </h3>
       <p>
-        <span data-en>Opened Hakshan in 2018, USJ Taipan. Run the kitchens. Wrote the charity model. Have not yet added our own marginalia — but we are taking notes.</span>
-        <span data-zh>2018 年于 USJ 创立客善。掌厨、运营、起草慈善模式。我们还没在食谱上添过批注 — 但已开始记录。</span>
+        <span data-en>Opened Hakshan in USJ, February 2024. Same recipes. Same paper. New chairs, new price point, and a new rule: fifteen percent of every bill, written into the kitchen's costs, returned to community causes.</span>
+        <span data-zh>2024 年 2 月，在 USJ 开 出 客 善。食 谱 不 变，纸 不 变。椅 子 换 了，价 位 换 了，规 则 也 换 了 — 每 一 张 账 单 的 15%，写 进 厨 房 的 成 本 里，回 馈 社 区。</span>
       </p>
     </div>
   </div>
@@ -547,71 +546,23 @@ get_header();
     </div>
     <div data-reveal>
       <p class="lead">
-        <span data-en>Hakshan is Malaysia's first dining-with-charity restaurant. We do not print the amount on the receipt. You just know.</span>
-        <span data-zh>客善是马来西亚首家「用餐即行善」的餐厅。我们不把金额印在收据上 — 但你心里清楚。</span>
+        <span data-en>Fifteen percent of every bill at every outlet leaves the till at the end of service. We do not print the amount on the receipt. You just know.</span>
+        <span data-zh>每 一 家 门 店 的 每 一 张 账 单，15% 在 营 业 结 束 时 即 离 开 钱 箱。我 们 不 把 金 额 印 在 收 据 上。但 你 心 里 清 楚。</span>
       </p>
       <p>
-        <span data-en>A fixed share of every bill leaves the till the same night and arrives at someone else's table — community kitchens, elder-care meals, and scholarships for kitchen apprentices from rural Hakka villages. Every outlet runs a charity table: one seat that always belongs to someone else.</span>
-        <span data-zh>每一张账单的固定比例，当晚就离开钱箱，到别人的饭桌上 — 社区厨房、长者送餐、与乡村客家学徒奖学金。每家分店都设有一张「慈善桌」 — 那张桌永远留给别人。</span>
+        <span data-en>A fixed share of every ringgit is allocated to three focus areas: education, elderly care, and animal welfare. It is not a donation made out of profit. It is written into the kitchen's cost structure — at the same line as rent, food, and staff. It cannot be skipped because there isn't a flag to skip it.</span>
+        <span data-zh>每 一 元 营 收 的 固 定 比 例，投 入 三 个 方 向：教 育、长 者 关 怀、动 物 福 利。这 不 是 用 利 润 做 的 捐 赠，而 是 写 进 厨 房 成 本 结 构 里 的 一 行 — 与 租 金、食 材、人 工 同 一 行。无 法 被 跳 过，因 为 根 本 没 有 跳 过 它 的 选 项。</span>
       </p>
       <div class="charity-block__stats">
-        <div><div class="num">186<span style="font-size: 0.55em; opacity: 0.7;">k</span></div>
-          <div class="lbl"><span data-en>Meals donated · 42 partner kitchens</span><span data-zh>已 捐 餐 数 · 42 家 合 作 厨 房</span></div></div>
-        <div><div class="num">RM 2.4M</div>
-          <div class="lbl"><span data-en>Contributed since 2018 · MyCare audited</span><span data-zh>自 2018 累 计 · MyCare 审 计</span></div></div>
-        <div><div class="num">9 / 9</div>
-          <div class="lbl"><span data-en>Outlets with a charity table · every night</span><span data-zh>设 慈 善 桌 分 店 · 每 晚 不 间 断</span></div></div>
-        <div><div class="num">9</div>
-          <div class="lbl"><span data-en>Apprentices per year · Hulu Selangor, Bentong</span><span data-zh>每 年 学 徒 · 乌鲁雪兰莪、文 冬</span></div></div>
+        <div><div class="num">15<span style="font-size: 0.55em; opacity: 0.7;">%</span></div>
+          <div class="lbl"><span data-en>Of every ringgit</span><span data-zh>每 一 元 营 收</span></div></div>
+        <div><div class="num">9 + 1</div>
+          <div class="lbl"><span data-en>Outlets participating · all of them</span><span data-zh>参 与 门 店 · 全 部</span></div></div>
+        <div><div class="num">3</div>
+          <div class="lbl"><span data-en>Focus areas · education, elders, animals</span><span data-zh>三 个 方 向 · 教 育、长 者、动 物</span></div></div>
+        <div><div class="num">Feb 2024</div>
+          <div class="lbl"><span data-en>Built in from day one · not bolted on later</span><span data-zh>开 业 即 制 度 · 非 事 后 附 加</span></div></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== PRESS ============== -->
-<section class="press" id="press">
-  <div class="press__head" data-reveal>
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>WHAT OTHERS HAVE SAID</span>
-      <span data-zh>外 界 之 声</span>
-    </span>
-    <h2>
-      <span data-en>In the<br/><em>press.</em></span>
-      <span data-zh><em>报 章</em> 之 间。</span>
-    </h2>
-  </div>
-  <div class="press__list" data-reveal>
-    <div class="press__row">
-      <div class="who">The Edge Malaysia</div>
-      <blockquote>
-        <span data-en>"The most quietly radical restaurant in the Klang Valley — a Hakka grandmother's recipe book, scaled into nine kitchens, with the till politely turned away from the camera."</span>
-        <span data-zh>「巴 生 谷 最 静 默 而 激 进 的 餐 厅 — 一 本 客 家 奶 奶 的 食 谱，扩 至 九 家 厨 房，钱 箱 始 终 礼 貌 地 别 过 镜 头。」</span>
-      </blockquote>
-      <div class="date">22 Mar 2024</div>
-    </div>
-    <div class="press__row">
-      <div class="who">Tatler Asia</div>
-      <blockquote>
-        <span data-en>"Hakshan does not sell heritage. It practises it — three hours at a time, on a low flame."</span>
-        <span data-zh>「客 善 不 出 售『传 承』 — 它 实 践 它，每 次 三 小 时，慢 火 细 炖。」</span>
-      </blockquote>
-      <div class="date">08 Nov 2023</div>
-    </div>
-    <div class="press__row">
-      <div class="who">South China Morning Post</div>
-      <blockquote>
-        <span data-en>"The empty seat at every Hakshan outlet is the most generous design decision in Malaysian dining this decade."</span>
-        <span data-zh>「客 善 每 家 分 店 的 那 张 空 桌 — 是 这 十 年 大 马 餐 饮 最 慷 慨 的 设 计。」</span>
-      </blockquote>
-      <div class="date">14 Jun 2023</div>
-    </div>
-    <div class="press__row">
-      <div class="who">星 洲 日 报 · Sin Chew</div>
-      <blockquote>
-        <span data-en>"三 代 人 守 一 本 书 — 没 有 故 事 营 销，只 有 一 锅 又 一 锅 煮 给 客 人 的 饭。"</span>
-        <span data-zh>「三 代 人 守 一 本 书 — 没 有 故 事 营 销，只 有 一 锅 又 一 锅 煮 给 客 人 的 饭。」</span>
-      </blockquote>
-      <div class="date">02 Feb 2023</div>
     </div>
   </div>
 </section>
