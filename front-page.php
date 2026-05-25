@@ -823,7 +823,7 @@ get_header();
         // Fallback before the seeder has populated the CPT.
         $signatures_fallback = array(
           array( 'label' => 'salt-baked chicken · whole, paper-wrapped', 'en' => 'Salt-Baked Chicken', 'zh' => '盐 焗 鸡', 'cn' => '客 家 盐 焗 鸡', 'desc_en' => 'Free-range hen, sea salt, kraft paper. Forty minutes in the embers.', 'desc_zh' => '走 地 鸡、海 盐、牛 皮 纸，炭 火 中 四 十 分 钟。' ),
-          array( 'label' => 'mui choy kau yuk · braised pork belly', 'en' => 'Mui Choy Pork Belly', 'zh' => '梅 菜 扣 肉', 'cn' => '梅 菜 扣 肉', 'desc_en' => 'Five-spice belly steamed with pickled mustard greens, the way Ah Por taught it.', 'desc_zh' => '五 香 三 层 肉，与 阿 婆 腌 的 梅 干 菜 同 蒸。' ),
+          array( 'label' => 'mui choy kau yuk · braised pork belly', 'en' => 'Mui Choy Pork Belly', 'zh' => '梅 菜 扣 肉', 'cn' => '梅 菜 扣 肉', 'desc_en' => 'Five-spice belly steamed with pickled mustard greens, in the family tradition.', 'desc_zh' => '五 香 三 层 肉，与 家 中 自 腌 的 梅 干 菜 同 蒸。' ),
           array( 'label' => 'abacus seeds · suan pan zi', 'en' => 'Abacus Seeds', 'zh' => '算 盘 子', 'cn' => '算 盘 子', 'desc_en' => 'Taro and tapioca, pinched by hand. Chewy at the centre, savoury at the edge.', 'desc_zh' => '芋 头 与 木 薯，一 颗 颗 手 捏，中 心 软 糯，边 缘 咸 香。' ),
           array( 'label' => 'lei cha · thunder tea rice', 'en' => 'Thunder Tea Rice', 'zh' => '擂 茶 饭', 'cn' => '擂 茶 饭', 'desc_en' => 'Twelve herbs, ground in a wooden mortar. A bowl that drinks like a meal.', 'desc_zh' => '十 二 种 香 草，杵 臼 现 磨。一 碗 茶，也 是 一 顿 饭。' ),
           array( 'label' => 'ginger-sprout braised duck', 'en' => 'Ginger-Sprout Duck', 'zh' => '姜 芽 焖 鸭', 'cn' => '姜 芽 焖 鸭', 'desc_en' => 'Three hours on low flame, young ginger sprouts, dark caramel sauce.', 'desc_zh' => '三 小 时 慢 火，姜 芽 爆 香，老 抽 收 汁。' ),
@@ -892,21 +892,21 @@ get_header();
   </div>
   <div data-reveal>
     <p>
-      <span data-en>Hakshan is Malaysia's first dining-with-charity restaurant. A fixed portion of every bill goes to community kitchens, elder-care meals, and scholarships for kitchen apprentices from rural Hakka villages. We don't print the amount on the receipt. You just know.</span>
-      <span data-zh>客善是马来西亚首家「用餐即行善」的餐厅。每一张账单都有固定比例，捐给社区厨房、长者送餐与乡村客家学徒奖学金。我们不会把金额印在收据上，但你心里清楚。</span>
+      <span data-en>Fifteen percent of every bill at every outlet goes to community causes — written into the P&amp;L of each kitchen, not added on top. We don't print the amount on the receipt. You just know.</span>
+      <span data-zh>每 一 家 门 店 的 每 一 张 账 单，15% 直 接 投 入 社 区 用 途 — 这 一 笔 写 在 厨 房 的 损 益 表 里，不 是 额 外 附 加 的。我 们 不 把 金 额 印 在 收 据 上。但 你 心 里 清 楚。</span>
     </p>
     <div class="charity__stats">
       <div>
-        <div class="num">186k</div>
-        <div class="lbl"><span data-en>Meals donated</span><span data-zh>捐赠餐数</span></div>
+        <div class="num">15<span style="font-size: 0.55em; opacity: 0.7;">%</span></div>
+        <div class="lbl"><span data-en>Of every ringgit</span><span data-zh>每 一 元 营 收</span></div>
       </div>
       <div>
-        <div class="num">42</div>
-        <div class="lbl"><span data-en>Partner kitchens</span><span data-zh>合作厨房</span></div>
+        <div class="num">9 + 1</div>
+        <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
       </div>
       <div>
-        <div class="num">9</div>
-        <div class="lbl"><span data-en>Scholars/year</span><span data-zh>奖学金/年</span></div>
+        <div class="num">3</div>
+        <div class="lbl"><span data-en>Focus areas · education, elders, animals</span><span data-zh>三 个 方 向 · 教 育、长 者、动 物</span></div>
       </div>
     </div>
   </div>
@@ -1019,8 +1019,8 @@ get_header();
       <span class="cn" data-en>客来茶当酒</span>
     </h2>
     <p>
-      <span data-en>Walk-ins welcome at every outlet. Book ahead for parties of six or more, private rooms, or the charity table.</span>
-      <span data-zh>所有门店欢迎散客。六人以上、包房或慈善桌请提前预约。</span>
+      <span data-en>Walk-ins welcome at every outlet. Book ahead for parties of six or more, private rooms, or dishes that need a head start.</span>
+      <span data-zh>所有门店欢迎散客。六人以上、包房，或需提前准备的菜式，请提前预约。</span>
     </p>
     <div class="book__buttons">
       <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) . '#reserve' ); ?>"><span data-en>Reserve online</span><span data-zh>在线预订</span><span class="arr">→</span></a>

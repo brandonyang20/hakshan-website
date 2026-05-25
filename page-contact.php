@@ -349,8 +349,8 @@ get_header();
         </h2>
       </div>
       <p>
-        <span data-en>Walk-ins welcome at every outlet. Book ahead for parties of six or more, private rooms, the charity table, or pre-orders of dishes that take more than an afternoon to prepare.</span>
-        <span data-zh>所 有 门 店 欢 迎 散 客。六 人 以 上、包 房、慈 善 桌，或 需 提 前 准 备 半 日 以 上 的 菜 式，请 提 前 预 约。</span>
+        <span data-en>Walk-ins welcome at every outlet. Book ahead for parties of six or more, private rooms, or pre-orders of dishes that take more than an afternoon to prepare.</span>
+        <span data-zh>所 有 门 店 欢 迎 散 客。六 人 以 上、包 房，或 需 提 前 准 备 半 日 以 上 的 菜 式，请 提 前 预 约。</span>
       </p>
     </div>
 
@@ -395,14 +395,13 @@ get_header();
               <option>Family gathering · 家 宴</option>
               <option>Business · 商 务</option>
               <option>Anniversary · 周 年</option>
-              <option>The charity table · 慈 善 桌</option>
             </select>
           </div>
         </div>
 
         <div>
           <label><span data-en>Your name</span><span data-zh>姓 名</span></label>
-          <input type="text" name="name" placeholder="Tan Wei Ming" />
+          <input type="text" name="name" placeholder="Your full name" />
         </div>
 
         <div class="contact-row">
@@ -444,10 +443,10 @@ get_header();
             <span data-zh>把 想 去 的 分 店 截 图 给 我 们，附 人 数 与 日 期。我 们 回 你 一 个 时 段。</span></div>
         </div>
         <div class="card">
-          <h4><span data-en>The charity table</span><span data-zh>慈 善 桌</span></h4>
-          <p><span data-en>Always available, always free.</span><span data-zh>永 远 留 着，永 远 免 费。</span></p>
-          <div class="small"><span data-en>One seat per outlet, every night. No questions asked. Walk in, sit down, eat. We'll fill the bowl.</span>
-            <span data-zh>每 家 每 晚 一 张 桌。不 问 来 历。推 门 入 座，我 们 会 盛 上 一 碗。</span></div>
+          <h4><span data-en>Large party · private room</span><span data-zh>包 房 · 大 桌</span></h4>
+          <p><span data-en>Twenty people and up.</span><span data-zh>二 十 人 以 上。</span></p>
+          <div class="small"><span data-en>Tell us the outlet, the date and the headcount, and we'll set the room. Same kitchen, longer table.</span>
+            <span data-zh>告 诉 我 们 分 店、日 期 与 人 数，我 们 把 房 间 留 好。同 一 个 厨 房，桌 子 长 一 些。</span></div>
         </div>
       </div>
     </div>
@@ -475,24 +474,24 @@ get_header();
   <div class="press-grid" data-reveal>
     <div class="press-card">
       <h4><span data-en>PRESS INQUIRIES</span><span data-zh>媒 体 查 询</span></h4>
-      <h3><span data-en>Yvonne Lim</span><span data-zh>林 韵 芳</span></h3>
-      <p><span data-en>Director of Communications — interviews, statements, kitchen visits, founder availability.</span>
-        <span data-zh>传 讯 总 监 — 访 谈、声 明、入 厨 拍 摄、创 办 人 档 期。</span></p>
-      <div class="link">press@hakshan.com <span class="arr">→</span></div>
+      <h3><span data-en>Press desk</span><span data-zh>媒 体 联 络</span></h3>
+      <p><span data-en>Interviews, statements, kitchen visits, founder availability. We reply within two business days.</span>
+        <span data-zh>访 谈、声 明、入 厨 拍 摄、创 办 人 档 期。两 个 工 作 日 内 回 复。</span></p>
+      <div class="link"><a href="mailto:press@hakshan.com" style="color: inherit;">press@hakshan.com <span class="arr">→</span></a></div>
     </div>
     <div class="press-card">
       <h4><span data-en>BRAND ASSETS</span><span data-zh>品 牌 素 材</span></h4>
-      <h3><span data-en>Press kit · 2026</span><span data-zh>媒 体 包 · 2026</span></h3>
-      <p><span data-en>Logo, photography library, founder bios, charity model fact sheet, recipe-book spreads — high-res.</span>
-        <span data-zh>标 志、图 库、创 办 人 简 介、慈 善 模 式 简 报、食 谱 内 页 — 高 清。</span></p>
-      <div class="link">Download · 84MB <span class="arr">↓</span></div>
+      <h3><span data-en>Press kit on request</span><span data-zh>媒 体 包 · 应 求 提 供</span></h3>
+      <p><span data-en>Logo, photography library, charity model fact sheet — sent by email on request.</span>
+        <span data-zh>标 志、图 库、慈 善 模 式 简 报 — 应 求 以 电 邮 寄 送。</span></p>
+      <div class="link"><a href="mailto:press@hakshan.com?subject=Press%20kit%20request" style="color: inherit;">Request kit <span class="arr">→</span></a></div>
     </div>
     <div class="press-card">
-      <h4><span data-en>RECENT COVERAGE</span><span data-zh>近 期 报 道</span></h4>
-      <h3><span data-en>The Edge, Tatler, SCMP</span><span data-zh>The Edge, Tatler, SCMP</span></h3>
-      <p><span data-en>Read what's been written about the charity model, the recipe book, and three generations of Hakka cooking.</span>
-        <span data-zh>了 解 外 界 对 慈 善 模 式、食 谱 与 三 代 客 家 烹 饪 的 报 道。</span></p>
-      <div class="link"><a href="<?php echo esc_url( hakshan_nav_url( 'story' ) . '#press' ); ?>" style="color: inherit;">See press page <span class="arr">→</span></a></div>
+      <h4><span data-en>KITCHEN VISITS</span><span data-zh>厨 房 探 访</span></h4>
+      <h3><span data-en>By appointment</span><span data-zh>预 约 制</span></h3>
+      <p><span data-en>Behind-the-pass photography and central-kitchen tours, arranged in advance — outside service hours, so the line keeps moving.</span>
+        <span data-zh>厨 房 跟 拍 与 中 央 厨 房 参 观，须 提 前 预 约 — 安 排 在 营 业 时 段 之 外，避 免 影 响 出 餐。</span></p>
+      <div class="link"><a href="mailto:press@hakshan.com?subject=Kitchen%20visit" style="color: inherit;">Arrange a visit <span class="arr">→</span></a></div>
     </div>
   </div>
 </section>
@@ -512,18 +511,18 @@ get_header();
         </h2>
       </div>
       <p>
-        <span data-en>We hire slowly. Apprentices from Hulu Selangor, Bentong, and Sungai Lembing are funded by the charity scholarship — nine seats per year, room and board included.</span>
-        <span data-zh>招 人 不 急。来 自 乌鲁雪兰莪、文 冬、双 溪 宁 宜 的 学 徒 由 慈 善 奖 学 金 资 助 — 每 年 九 位，含 食 宿。</span>
+        <span data-en>We hire slowly. Apprentices are trained at the central kitchen before they ever stand at an outlet wok — every kitchen lead at every outlet went through this pipeline.</span>
+        <span data-zh>招 人 不 急。学 徒 先 在 中 央 厨 房 受 训，然 后 才 进 入 门 店。每 一 家 门 店 的 厨 房 主 管，皆 由 此 路 培 养 而 来。</span>
       </p>
     </div>
     <div class="careers-list" data-reveal>
       <?php
       $careers = array(
-        array( 'ix' => 'N° 01', 'h_en' => 'Kitchen Apprentice · Scholarship', 'h_zh' => '厨 房 学 徒 · 奖 学 金', 's_en' => '2-year programme · room &amp; board',  's_zh' => '两 年 课 程 · 含 食 宿', 'where' => 'USJ Taipan · KL', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
-        array( 'ix' => 'N° 02', 'h_en' => 'Wok Master · Senior',              'h_zh' => '主 厨 · 资 深',             's_en' => 'Lead kitchen, single outlet',           's_zh' => '独 立 主 持 一 间 厨 房',   'where' => 'Mont Kiara',     'w_en' => 'Apply by · 30 Jun 2026',       'w_zh' => '截 止 · 2026 年 6 月 30' ),
-        array( 'ix' => 'N° 03', 'h_en' => 'Service Captain',                  'h_zh' => '领 班',                     's_en' => 'Daily 11:00 — 22:00, bilingual',        's_zh' => '每 日 11:00 — 22:00，双 语', 'where' => 'Cheras Traders', 'w_en' => 'Apply by · 14 May 2026',       'w_zh' => '截 止 · 2026 年 5 月 14' ),
-        array( 'ix' => 'N° 04', 'h_en' => 'Charity Programme Coordinator',    'h_zh' => '慈 善 项 目 协 调 员',       's_en' => 'Liaise with 42 partner kitchens',       's_zh' => '联 络 42 家 合 作 厨 房',    'where' => 'USJ Taipan · HQ','w_en' => 'Apply by · 22 May 2026',       'w_zh' => '截 止 · 2026 年 5 月 22' ),
-        array( 'ix' => 'N° 05', 'h_en' => 'Brand &amp; Editorial Designer',   'h_zh' => '品 牌 与 出 版 设 计 师',     's_en' => 'Print-led · the recipe book, vol. 04',  's_zh' => '以 印 刷 为 主 · 食 谱 第 四 卷', 'where' => 'USJ Taipan · HQ','w_en' => 'Apply by · 30 Apr 2026',       'w_zh' => '截 止 · 2026 年 4 月 30' ),
+        array( 'ix' => 'N° 01', 'h_en' => 'Kitchen Apprentice',               'h_zh' => '厨 房 学 徒',               's_en' => 'Central-kitchen training · 12-month programme',  's_zh' => '中 央 厨 房 培 训 · 十 二 个 月', 'where' => 'USJ Taipan · HQ', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
+        array( 'ix' => 'N° 02', 'h_en' => 'Outlet Kitchen Lead',              'h_zh' => '门 店 厨 房 主 管',         's_en' => 'Lead a single outlet kitchen',                   's_zh' => '独 立 主 持 一 间 门 店 厨 房',   'where' => 'Mont Kiara',     'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
+        array( 'ix' => 'N° 03', 'h_en' => 'Service Captain',                  'h_zh' => '领 班',                     's_en' => 'Daily 11:00 — 22:00, bilingual',                's_zh' => '每 日 11:00 — 22:00，双 语',     'where' => 'Cheras Traders', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
+        array( 'ix' => 'N° 04', 'h_en' => 'Community Programmes Officer',     'h_zh' => '社 区 项 目 主 任',         's_en' => 'Coordinate the 15% community allocation',        's_zh' => '统 筹 营 收 15% 的 社 区 投 入',  'where' => 'USJ Taipan · HQ','w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
+        array( 'ix' => 'N° 05', 'h_en' => 'Front-of-House',                   'h_zh' => '门 店 前 厅',               's_en' => 'Daily service, all outlets',                     's_zh' => '日 常 服 务，各 门 店',           'where' => 'Klang Valley',   'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
       );
       foreach ( $careers as $c ) :
         ?>
@@ -556,8 +555,8 @@ get_header();
       </h2>
     </div>
     <p>
-      <span data-en>For investor relations, supplier inquiries, charity partnerships, and the occasional letter from a stranger about Ah Por.</span>
-      <span data-zh>投 资 者 关 系、供 应 商 联 络、慈 善 合 作，以 及 偶 尔 关 于 阿 婆 的 信 件。</span>
+      <span data-en>For investor relations, supplier inquiries, community partnerships, and anything that doesn't fit a category above.</span>
+      <span data-zh>投 资 者 关 系、供 应 商 联 络、社 区 合 作，以 及 不 属 于 上 述 类 别 的 任 何 事 项。</span>
     </p>
   </div>
   <div class="info-row" data-reveal>
@@ -580,9 +579,9 @@ get_header();
       <div class="small"><span data-en>We source mostly within 80km of every outlet.</span><span data-zh>我 们 大 多 在 各 门 店 80 公 里 内 采 购。</span></div>
     </div>
     <div class="info-cell">
-      <h4><span data-en>Charity partners</span><span data-zh>慈 善 合 作</span></h4>
-      <a href="mailto:charity@hakshan.com">charity@hakshan.com</a>
-      <div class="small"><span data-en>42 partner kitchens. Always taking applications.</span><span data-zh>已 有 42 家 合 作 厨 房。常 年 接 受 申 请。</span></div>
+      <h4><span data-en>Community partners</span><span data-zh>社 区 合 作</span></h4>
+      <a href="mailto:hello@hakshan.com">hello@hakshan.com</a>
+      <div class="small"><span data-en>Fifteen percent of every ringgit goes to community causes. Partners welcome.</span><span data-zh>营 收 的 15% 投 入 社 区 用 途。欢 迎 合 作。</span></div>
     </div>
   </div>
 </section>

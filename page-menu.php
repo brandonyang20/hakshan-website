@@ -45,8 +45,8 @@ $menu_sections_fallback = array(
     'title_en'  => 'Signatures',
     'title_zh'  => '招 牌 菜',
     'title_cn'  => '招 牌',
-    'lead_en'   => 'Six dishes the kitchen will never take off the menu. Ah Por\'s six.',
-    'lead_zh'   => '六道我们永远不会下架的菜 — 阿婆留下的六道。',
+    'lead_en'   => 'Six dishes the kitchen will never take off the menu.',
+    'lead_zh'   => '六道我们永远不会下架的菜。',
     'dishes'    => array(
       array( 'label' => 'salt-baked chicken · paper-wrapped',   'en' => 'Salt-Baked Chicken',       'zh' => '客家盐焗鸡', 'cn' => '客家盐焗鸡', 'desc_en' => 'Whole free-range hen wrapped in kraft paper, baked in coarse sea salt over rambutan-wood embers.', 'desc_zh' => '整只走地鸡，牛皮纸裹，红毛丹炭火粗海盐焗。' ),
       array( 'label' => 'mui choy pork belly · cross-section',  'en' => 'Mui Choy Pork Belly',      'zh' => '梅菜扣肉',   'cn' => '梅菜扣肉',   'desc_en' => 'Five-spice belly, pickled mustard greens, two hours steaming.', 'desc_zh' => '五香三层肉，自家腌梅干菜，两小时同蒸。' ),

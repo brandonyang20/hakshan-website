@@ -322,8 +322,8 @@ get_header();
       </h1>
     </div>
     <p>
-      <span data-en>Every outlet runs the same recipe book, the same charity table, and the same kitchen master from KL. Click any room to see the address, hours, and seating.</span>
-      <span data-zh>每家分店都用同一本食谱、设同一张慈善桌、由 KL 来的同一位主厨监督。点击任意一家可查看地址、营业时间与座位。</span>
+      <span data-en>Every outlet runs the same recipe and the same kitchen discipline — the central kitchen prepares, every outlet plates. Click any room to see the address, hours, and seating.</span>
+      <span data-zh>每家分店都用同一本食谱、同一套厨房纪律 — 中央厨房统一预备，各分店现场出菜。点击任意一家可查看地址、营业时间与座位。</span>
     </p>
   </div>
 </section>
@@ -344,31 +344,31 @@ if ( ! empty( $outlet_posts ) ) {
 	$outlets = array(
 		array( 'slug' => 'usj',       'name' => 'USJ Taipan',         'cn' => '梳 邦 再 也',         'city' => 'SUBANG JAYA',  'label' => 'USJ Taipan · main dining hall, evening',
 		       'addr' => 'Block A, USJ 10 Taipan Business Centre, 47620 Subang Jaya, Selangor',
-		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '120 + private 24 · Charity table', 'phone' => '+60 16-246 2970', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '120 + private 24', 'phone' => '+60 16-246 2970', 'image_html' => '', 'image_url' => '' ),
 		array( 'slug' => 'menjalara', 'name' => 'Menjalara',          'cn' => '甲 洞 · 满 家 拉',      'city' => 'KEPONG',       'label' => 'Menjalara · entrance and brass signage',
 		       'addr' => 'Unit R1-G-3, R1 Gallery, No 10, Jalan Idaman 1/62A, Bandar Menjalara, 52200 KL',
-		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '96 + private 18 · Charity table',  'phone' => '+60 3-6266 3211', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '96 + private 18',  'phone' => '+60 3-6266 3211', 'image_html' => '', 'image_url' => '' ),
 		array( 'slug' => 'cheras',    'name' => 'Cheras Traders Sq.', 'cn' => '蕉 赖',               'city' => 'CHERAS',       'label' => 'Cheras Traders Square · open kitchen',
 		       'addr' => 'Lot G-32, Cheras Traders Square, Jalan Cheras 56100, Kuala Lumpur',
-		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '110 · Charity table',              'phone' => '+60 3-9101 6622', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '110',              'phone' => '+60 3-9101 6622', 'image_html' => '', 'image_url' => '' ),
 		array( 'slug' => 'puchong',   'name' => 'Bandar Puteri',      'cn' => '蒲 种',               'city' => 'PUCHONG',      'label' => 'Bandar Puteri Puchong · dining hall',
 		       'addr' => '53G, Jalan Puteri 1/4, Bandar Puteri Puchong, 47100 Selangor',
-		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '88 · Charity table',               'phone' => '+60 3-8068 9933', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '88',               'phone' => '+60 3-8068 9933', 'image_html' => '', 'image_url' => '' ),
 		array( 'slug' => 'conezion',  'name' => 'IOI Conezion',       'cn' => '布 城',               'city' => 'PUTRAJAYA',    'label' => 'IOI Conezion · terrace, evening',
 		       'addr' => 'B-G-06, IOI Conezion, Persiaran IRC 3, IOI Resort City, 62502 Putrajaya',
-		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '104 · Charity table',              'phone' => '+60 3-8911 2030', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '104',              'phone' => '+60 3-8911 2030', 'image_html' => '', 'image_url' => '' ),
 		array( 'slug' => 'kajang',    'name' => 'Budiman Park',       'cn' => '加 影 · 步 帝 文',     'city' => 'KAJANG',       'label' => 'Budiman Park · entrance',
 		       'addr' => '23A, Jalan Budiman, Off Jalan Sungai Long, Budiman Business Park, 43000 Kajang',
-		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '72 · Charity table',               'phone' => '+60 3-8732 4567', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '72',               'phone' => '+60 3-8732 4567', 'image_html' => '', 'image_url' => '' ),
 		array( 'slug' => 'kiara',     'name' => 'Arcoris Plaza',      'cn' => '满 家 乐',             'city' => 'MONT KIARA',   'label' => 'Arcoris Mont Kiara · main hall',
 		       'addr' => 'Unit G-16 & G-17, Ground Level, Arcoris Plaza, 10 Jalan Kiara, 50480 Mont Kiara',
-		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '132 + private 28 · Charity table', 'phone' => '+60 3-6203 9988', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '132 + private 28', 'phone' => '+60 3-6203 9988', 'image_html' => '', 'image_url' => '' ),
 		array( 'slug' => 'parkcity',  'name' => 'The Waterfront',     'cn' => '公 园 城',             'city' => 'DESA PARKCITY','label' => 'The Waterfront ParkCity · evening',
 		       'addr' => 'Lot GF-05, The Waterfront @ ParkCity, Persiaran Residen, 52200 Desa ParkCity',
-		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '92 · Charity table',               'phone' => '+60 3-6280 1100', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '92',               'phone' => '+60 3-6280 1100', 'image_html' => '', 'image_url' => '' ),
 		array( 'slug' => 'arkadia',   'name' => 'Plaza Arkadia',      'cn' => '阿 卡 迪 亚',          'city' => 'DESA PARKCITY','label' => 'Plaza Arkadia · open kitchen',
 		       'addr' => 'Unit F-G-7, Plaza Arkadia, 3 Jalan Intisari Perdana, 52200 Desa ParkCity',
-		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '78 · Charity table',               'phone' => '+60 3-6263 8800', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00 — 22:00', 'seats' => '78',               'phone' => '+60 3-6263 8800', 'image_html' => '', 'image_url' => '' ),
 	);
 }
 ?>
@@ -396,12 +396,12 @@ if ( ! empty( $outlet_posts ) ) {
     <span data-zh>2026 拓 展 — 新 加 坡 · 槟 城</span>
   </span>
   <h2 style="font-family: var(--serif); font-style: italic; font-size: clamp(40px, 6vw, 80px); line-height: 0.95; margin: 16px 0 24px; letter-spacing: -0.025em;">
-    <span data-en>Outlet <em>10</em> opens in spring.</span>
-    <span data-zh>第 <em>十</em> 家 春 季 开 业。</span>
+    <span data-en>Outlet <em>10</em> opens next month.</span>
+    <span data-zh>第 <em>十</em> 家 · 下 月 开 业。</span>
   </h2>
   <p style="color: var(--ink-soft); max-width: 50ch; margin: 0 auto 32px;">
-    <span data-en>Penang, Tanjong Tokong — opening April 2026. Sign up to be invited to the soft launch.</span>
-    <span data-zh>槟城丹绒道光 — 2026 年 4 月开业。订阅即可获得软开邀请。</span>
+    <span data-en>The 10th retail outlet opens locally next month, alongside the 3rd cloud kitchen. Penang (Tanjong Tokong) follows in Q2 2026. Sign up to be invited to the soft launch.</span>
+    <span data-zh>第 10 家 门 店 与 第 3 家 云 厨 房 将 于 下 月 同 步 开 业。槟 城 丹 绒 道 光 店 紧 随 其 后，2026 年 第 二 季 度 开 业。订 阅 即 可 获 得 软 开 邀 请。</span>
   </p>
   <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) ); ?>"><span data-en>Join the list</span><span data-zh>加入名单</span><span class="arr">→</span></a>
 </section>
