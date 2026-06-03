@@ -378,10 +378,48 @@ function hakshan_get_dishes_for_section( $term_id, $limit = -1 ) {
  */
 function hakshan_get_signature_dishes( $limit = 6 ) {
 	$term = get_term_by( 'slug', 'signatures', 'dish_section' );
+
 	if ( ! $term || is_wp_error( $term ) ) {
-		return array();
+		$candidates = get_terms(
+			array(
+				'taxonomy'   => 'dish_section',
+				'hide_empty' => false,
+			)
+		);
+		if ( ! is_wp_error( $candidates ) ) {
+			foreach ( $candidates as $candidate ) {
+				$slug_match = ( 0 === strpos( $candidate->slug, 'signature' ) );
+				$name_match = ( false !== stripos( $candidate->name, 'signature' ) )
+					|| ( false !== strpos( $candidate->name, '招牌' ) );
+				if ( $slug_match || $name_match ) {
+					$term = $candidate;
+					break;
+				}
+			}
+		}
 	}
-	return hakshan_get_dishes_for_section( $term->term_id, $limit );
+
+	if ( $term && ! is_wp_error( $term ) ) {
+		$posts = hakshan_get_dishes_for_section( $term->term_id, $limit );
+		if ( ! empty( $posts ) ) {
+			return $posts;
+		}
+	}
+
+	// Final fallback: first N dishes by menu_order, so the carousel reflects
+	// live CPT content even when no section matches "signatures".
+	$query = new WP_Query(
+		array(
+			'post_type'      => 'dish',
+			'posts_per_page' => $limit,
+			'orderby'        => array(
+				'menu_order' => 'ASC',
+				'date'       => 'ASC',
+			),
+			'no_found_rows'  => true,
+		)
+	);
+	return $query->posts;
 }
 
 /**

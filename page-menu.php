@@ -25,19 +25,11 @@ get_header();
   </p>
 </section>
 
-<nav class="menu-toc">
-  <div class="menu-toc__inner">
-    <a href="#signatures"><span data-en>Signatures</span><span data-zh>招 牌</span></a>
-    <a href="#chicken"><span data-en>Salt &amp; Smoke</span><span data-zh>盐 与 烟</span></a>
-    <a href="#braised"><span data-en>Braised &amp; Stewed</span><span data-zh>焖 与 炖</span></a>
-    <a href="#yong"><span data-en>Yong Tau Foo</span><span data-zh>酿 豆 腐</span></a>
-    <a href="#rice"><span data-en>Rice &amp; Noodles</span><span data-zh>饭 与 面</span></a>
-    <a href="#soup"><span data-en>Soups &amp; Wines</span><span data-zh>汤 与 酒</span></a>
-    <a href="#sweet"><span data-en>Sweet</span><span data-zh>甜 品</span></a>
-  </div>
-</nav>
-
 <?php
+// Pull live sections from the CPT once; reuse for both the TOC and the
+// body below so the two can never drift out of sync.
+$toc_sections = function_exists( 'hakshan_get_menu_sections' ) ? hakshan_get_menu_sections() : array();
+
 $menu_sections_fallback = array(
   array(
     'id'        => 'signatures',
@@ -147,9 +139,33 @@ $menu_sections_fallback = array(
   ),
 );
 
-// Pull live sections + dishes from the CPT. Fall back to hardcoded data only if
-// the CPT is empty (e.g. before the seeder has run on a fresh install).
-$section_terms = function_exists( 'hakshan_get_menu_sections' ) ? hakshan_get_menu_sections() : array();
+// $toc_sections (collected at the top of the file) drives the TOC; we re-use
+// the same value here so the TOC and rendered sections can never drift.
+$section_terms = $toc_sections;
+?>
+<nav class="menu-toc">
+  <div class="menu-toc__inner">
+    <?php if ( ! empty( $section_terms ) ) :
+      foreach ( $section_terms as $toc_term ) :
+        $toc_zh = get_term_meta( $toc_term->term_id, 'title_zh', true );
+        ?>
+        <a href="#<?php echo esc_attr( $toc_term->slug ); ?>">
+          <span data-en><?php echo esc_html( $toc_term->name ); ?></span>
+          <span data-zh><?php echo esc_html( $toc_zh ? $toc_zh : $toc_term->name ); ?></span>
+        </a>
+      <?php endforeach;
+    else :
+      foreach ( $menu_sections_fallback as $fallback_section ) : ?>
+        <a href="#<?php echo esc_attr( $fallback_section['id'] ); ?>">
+          <span data-en><?php echo wp_kses_post( $fallback_section['title_en'] ); ?></span>
+          <span data-zh><?php echo esc_html( $fallback_section['title_zh'] ); ?></span>
+        </a>
+      <?php endforeach;
+    endif; ?>
+  </div>
+</nav>
+
+<?php
 
 if ( ! empty( $section_terms ) ) :
   foreach ( $section_terms as $section_term ) :
