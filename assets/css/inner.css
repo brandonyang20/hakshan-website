@@ -1,5 +1,27 @@
 /* ============= Inner page styles (Menu, Outlets, Story, Contact, Investors) ============= */
 
+/* Chinese characters fill their em box, so the tight 0.9–0.95
+   line-heights used for the EN serif italic display headings let
+   adjacent lines overlap in ZH. Loosen them when [data-lang="zh"]
+   is active on the <html> root. */
+[data-lang="zh"] .page-head h1,
+[data-lang="zh"] .outlets-hero h1,
+[data-lang="zh"] .timeline__inner h2,
+[data-lang="zh"] .portraits__head h2,
+[data-lang="zh"] .charity-block h2,
+[data-lang="zh"] .footprint__head h2,
+[data-lang="zh"] .model__head h2,
+[data-lang="zh"] .returns__head h2,
+[data-lang="zh"] .terms__head h2,
+[data-lang="zh"] .pull-quote p,
+[data-lang="zh"] .quiet-close h2,
+[data-lang="zh"] .story-pull p.quote,
+[data-lang="zh"] .inv-narrative h2,
+[data-lang="zh"] .inv-hero h1,
+[data-lang="zh"] .inv-contact h2 {
+  line-height: 1.1;
+}
+
 .page-head {
   padding: clamp(80px, 12vw, 140px) var(--rail) clamp(40px, 6vw, 80px);
   max-width: var(--maxw);

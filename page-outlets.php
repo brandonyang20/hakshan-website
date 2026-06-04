@@ -295,9 +295,6 @@ get_header();
 <section class="outlets-hero">
   <div class="outlets-hero__inner">
     <div>
-      <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>NINE OUTLETS · KLANG VALLEY</span><span data-zh>九家门店·巴生谷</span>
-      </span>
       <h1>
         <span data-en>Find your<br/><em>nearest.</em></span>
         <span data-zh>离你<br/><em>最近。</em></span>
