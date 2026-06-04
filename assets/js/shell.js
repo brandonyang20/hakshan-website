@@ -113,15 +113,22 @@
     if (!toc || !track) return;
 
     const nav = document.querySelector(".nav");
+    const adminBar = document.getElementById("wpadminbar");
 
-    // 1) Sticky top tracks the header height instead of a hardcoded 65px.
+    // 1) Sticky top tracks live nav height (+ WP admin bar when present).
+    //    Written to a CSS custom property so the CSS rule
+    //    `top: var(--menu-toc-top)` picks it up cleanly.
     const updateStickyTop = () => {
-      if (!nav) return;
-      const h = Math.round(nav.getBoundingClientRect().height);
-      toc.style.top = h + "px";
+      const navH = nav ? nav.getBoundingClientRect().height : 0;
+      const barH = adminBar ? adminBar.getBoundingClientRect().height : 0;
+      const total = Math.round(navH + barH);
+      document.documentElement.style.setProperty("--menu-toc-top", total + "px");
     };
     updateStickyTop();
     window.addEventListener("resize", updateStickyTop);
+    // Re-measure after fonts/images have settled, since the logo image
+    // grows the nav once it loads.
+    window.addEventListener("load", updateStickyTop);
 
     // 2) Drag-to-scroll (mouse + touch + pen via Pointer Events).
     let isDown = false;
@@ -167,18 +174,19 @@
       });
     });
 
-    // 3) Scrollspy — highlight the link for the section under the TOC.
+    // 3) Scrollspy — highlight the link for the section currently under
+    //    the sticky TOC. Walks all targets on every scroll tick (rAF
+    //    throttled) instead of using IntersectionObserver, because
+    //    sticky elements break naive root-based intersection logic.
     const links = Array.from(track.querySelectorAll("a[href^='#']"));
-    const targets = links
-      .map((a) => {
-        try {
-          return { a, section: document.querySelector(a.getAttribute("href")) };
-        } catch (_) {
-          return { a, section: null };
-        }
-      })
-      .filter((t) => t.section);
-
+    const targets = [];
+    for (const a of links) {
+      const href = a.getAttribute("href");
+      if (!href || href.length < 2) continue;
+      let section = null;
+      try { section = document.querySelector(href); } catch (_) {}
+      if (section) targets.push({ a, section });
+    }
     if (!targets.length) return;
 
     let activeLink = null;
@@ -187,38 +195,44 @@
       activeLink = link;
       links.forEach((l) => l.classList.toggle("is-active", l === link));
       if (!link) return;
-      // Centre the active link inside the scrollable strip.
       const linkRect = link.getBoundingClientRect();
       const trackRect = track.getBoundingClientRect();
-      if (linkRect.left < trackRect.left || linkRect.right > trackRect.right) {
+      if (linkRect.left < trackRect.left + 24 || linkRect.right > trackRect.right - 24) {
         const offset = link.offsetLeft - track.clientWidth / 2 + link.clientWidth / 2;
         track.scrollTo({ left: offset, behavior: "smooth" });
       }
     };
 
-    const onScroll = () => {
+    const recomputeActive = () => {
       const tocBottom = toc.getBoundingClientRect().bottom;
+      // Pick the LAST section whose top has crossed below the TOC bottom
+      // (with a 4px lead-in so the active flips right as the heading
+      // touches the TOC).
       let current = targets[0];
       for (const t of targets) {
-        if (t.section.getBoundingClientRect().top <= tocBottom + 24) {
+        const top = t.section.getBoundingClientRect().top;
+        if (top - tocBottom <= 4) {
           current = t;
+        } else {
+          break;
         }
       }
       setActive(current.a);
     };
 
     let rafId = null;
-    const queueScroll = () => {
+    const queueRecompute = () => {
       if (rafId !== null) return;
       rafId = window.requestAnimationFrame(() => {
         rafId = null;
-        onScroll();
+        recomputeActive();
       });
     };
 
-    window.addEventListener("scroll", queueScroll, { passive: true });
-    window.addEventListener("resize", queueScroll);
-    onScroll();
+    window.addEventListener("scroll", queueRecompute, { passive: true });
+    window.addEventListener("resize", queueRecompute);
+    window.addEventListener("load", queueRecompute);
+    recomputeActive();
   }
 
   function boot() {
