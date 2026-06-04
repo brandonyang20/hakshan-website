@@ -335,10 +335,23 @@ get_header();
   @media (max-width: 980px) {
     .timeline__inner, .charity-block__inner { grid-template-columns: 1fr; gap: 32px; }
     .portraits__grid { grid-template-columns: 1fr; }
-    .tl-row { grid-template-columns: 1fr 1fr; }
-    .tl-row p { grid-column: 1 / -1; }
+    .tl-row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 24px 0;
+    }
+    .tl-row .year { font-size: 36px; }
+    .tl-row .cn-big { font-size: 22px; }
     .press__row { grid-template-columns: 1fr; gap: 8px; }
     .press__row .date { text-align: left; }
+  }
+
+  /* English readers don't have context for the decorative Chinese gen
+     label, so collapse the cn-big column when EN is active. */
+  [data-lang="en"] .tl-row .cn-big { display: none; }
+  [data-lang="en"] .tl-row { grid-template-columns: 120px 1fr; }
+  @media (max-width: 980px) {
+    [data-lang="en"] .tl-row { grid-template-columns: 1fr; }
   }
 </style>
 
