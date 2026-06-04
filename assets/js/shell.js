@@ -115,30 +115,38 @@
     let startX = 0;
     let startScroll = 0;
     let moved = false;
+    let activePointerId = null;
 
-    track.addEventListener("mousedown", (e) => {
+    track.addEventListener("pointerdown", (e) => {
+      // Ignore non-primary mouse buttons; allow touch and pen.
+      if (e.pointerType === "mouse" && e.button !== 0) return;
       isDown = true;
       moved = false;
-      startX = e.pageX;
+      startX = e.clientX;
       startScroll = track.scrollLeft;
+      activePointerId = e.pointerId;
+      try { track.setPointerCapture(e.pointerId); } catch (_) {}
       track.classList.add("is-dragging");
     });
-    track.addEventListener("mouseleave", () => {
-      isDown = false;
-      track.classList.remove("is-dragging");
-    });
-    track.addEventListener("mouseup", () => {
-      isDown = false;
-      track.classList.remove("is-dragging");
-    });
-    track.addEventListener("mousemove", (e) => {
-      if (!isDown) return;
-      const delta = e.pageX - startX;
+
+    track.addEventListener("pointermove", (e) => {
+      if (!isDown || e.pointerId !== activePointerId) return;
+      const delta = e.clientX - startX;
       if (Math.abs(delta) > 4) moved = true;
       track.scrollLeft = startScroll - delta;
     });
 
-    // Suppress link navigation when the gesture was a drag, not a click.
+    const endGesture = (e) => {
+      if (e.pointerId !== activePointerId) return;
+      isDown = false;
+      activePointerId = null;
+      track.classList.remove("is-dragging");
+      try { track.releasePointerCapture(e.pointerId); } catch (_) {}
+    };
+    track.addEventListener("pointerup", endGesture);
+    track.addEventListener("pointercancel", endGesture);
+
+    // Suppress link navigation when the gesture was a drag, not a tap/click.
     track.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", (e) => {
         if (moved) {
