@@ -226,11 +226,7 @@ endif;
 ?>
 
 <section class="section" style="text-align: center;">
-  <span class="h-eyebrow"><span class="dot"></span>
-    <span data-en>FULL MENU PDF</span><span data-zh>下 载 完 整 菜 单</span>
-  </span>
-  <div style="margin-top: 24px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-    <a class="btn" href="#"><span data-en>Download PDF · 2.1MB</span><span data-zh>下载 PDF · 2.1MB</span><span class="arr">↓</span></a>
+  <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
     <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'outlets' ) ); ?>"><span data-en>Find an outlet</span><span data-zh>查找门店</span><span class="arr">→</span></a>
   </div>
 </section>
