@@ -176,10 +176,36 @@
   margin: 6px 0 0;
 }
 .dish .price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin: 8px 0 4px;
   font-family: var(--mono);
   font-size: 13px;
-  color: var(--forest);
   white-space: nowrap;
+}
+.dish .price__normal {
+  color: var(--mute);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  opacity: 0.7;
+}
+.dish .price__member,
+.dish .price__single {
+  color: var(--forest);
+  font-weight: 700;
+  font-size: 14px;
+}
+.dish .price__tag {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  opacity: 0.7;
+  padding: 1px 6px;
+  border: 1px solid var(--forest);
+  border-radius: 999px;
 }
 .dish .tag {
   display: inline-block;

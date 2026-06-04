@@ -187,10 +187,25 @@ if ( ! empty( $section_terms ) ) :
   </div>
   <div class="menu-section__list">
     <?php foreach ( $dishes as $dish_post ) :
-      $d = hakshan_get_dish_data( $dish_post->ID );
+      $d            = hakshan_get_dish_data( $dish_post->ID );
+      $has_normal   = ! empty( $d['price_normal'] );
+      $has_member   = ! empty( $d['price_member'] );
       ?>
     <div class="dish"><div class="dish__visual"><?php if ( $d['image_html'] ) : echo $d['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $d['label'] ); ?>"></div><?php endif; ?></div><div>
       <h3><span data-en><?php echo esc_html( $d['en'] ); ?></span><span data-zh><?php echo esc_html( $d['zh'] ); ?></span></h3>
+      <?php if ( $has_normal || $has_member ) : ?>
+        <div class="price">
+          <?php if ( $has_normal && $has_member ) : ?>
+            <span class="price__normal"><?php echo esc_html( $d['price_normal'] ); ?></span>
+            <span class="price__member"><?php echo esc_html( $d['price_member'] ); ?></span>
+            <span class="price__tag"><span data-en>member</span><span data-zh>会员价</span></span>
+          <?php elseif ( $has_member ) : ?>
+            <span class="price__member"><?php echo esc_html( $d['price_member'] ); ?></span>
+          <?php else : ?>
+            <span class="price__single"><?php echo esc_html( $d['price_normal'] ); ?></span>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
       <p><span data-en><?php echo wp_kses_post( $d['desc_en'] ); ?></span>
         <span data-zh><?php echo esc_html( $d['desc_zh'] ); ?></span></p>
     </div></div>

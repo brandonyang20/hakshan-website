@@ -142,25 +142,35 @@ add_action( 'save_post_dish', 'hakshan_save_dish_section' );
 
 function hakshan_dish_field_schema() {
 	return array(
-		'dish_zh'      => array(
+		'dish_zh'           => array(
 			'label'       => __( 'Chinese name — display (e.g. 盐 焗 鸡)', 'hakshan' ),
 			'type'        => 'text',
 			'placeholder' => '盐 焗 鸡',
 		),
-		'dish_label'   => array(
+		'dish_label'        => array(
 			'label'       => __( 'Image caption / placeholder label (English, lowercase)', 'hakshan' ),
 			'type'        => 'text',
 			'placeholder' => 'salt-baked chicken · paper-wrapped',
 		),
-		'dish_desc_en' => array(
+		'dish_desc_en'      => array(
 			'label'       => __( 'Description — English', 'hakshan' ),
 			'type'        => 'textarea',
 			'placeholder' => '',
 		),
-		'dish_desc_zh' => array(
+		'dish_desc_zh'      => array(
 			'label'       => __( 'Description — Chinese', 'hakshan' ),
 			'type'        => 'textarea',
 			'placeholder' => '',
+		),
+		'dish_price_normal' => array(
+			'label'       => __( 'Price — normal (e.g. RM 18). Shown struck-through if a member price is also set.', 'hakshan' ),
+			'type'        => 'text',
+			'placeholder' => 'RM 18',
+		),
+		'dish_price_member' => array(
+			'label'       => __( 'Price — member (e.g. RM 15). Highlighted as the active price. Leave empty if the dish has no member discount.', 'hakshan' ),
+			'type'        => 'text',
+			'placeholder' => 'RM 15',
 		),
 	);
 }
@@ -430,14 +440,16 @@ function hakshan_get_signature_dishes( $limit = 6 ) {
  */
 function hakshan_get_dish_data( $post_id ) {
 	return array(
-		'en'         => get_the_title( $post_id ),
-		'zh'         => get_post_meta( $post_id, 'dish_zh', true ),
-		'cn'         => get_post_meta( $post_id, 'dish_cn', true ),
-		'label'      => get_post_meta( $post_id, 'dish_label', true ),
-		'desc_en'    => get_post_meta( $post_id, 'dish_desc_en', true ),
-		'desc_zh'    => get_post_meta( $post_id, 'dish_desc_zh', true ),
-		'image_id'   => (int) get_post_thumbnail_id( $post_id ),
-		'image_html' => get_the_post_thumbnail( $post_id, 'large' ),
+		'en'           => get_the_title( $post_id ),
+		'zh'           => get_post_meta( $post_id, 'dish_zh', true ),
+		'cn'           => get_post_meta( $post_id, 'dish_cn', true ),
+		'label'        => get_post_meta( $post_id, 'dish_label', true ),
+		'desc_en'      => get_post_meta( $post_id, 'dish_desc_en', true ),
+		'desc_zh'      => get_post_meta( $post_id, 'dish_desc_zh', true ),
+		'price_normal' => get_post_meta( $post_id, 'dish_price_normal', true ),
+		'price_member' => get_post_meta( $post_id, 'dish_price_member', true ),
+		'image_id'     => (int) get_post_thumbnail_id( $post_id ),
+		'image_html'   => get_the_post_thumbnail( $post_id, 'large' ),
 	);
 }
 
