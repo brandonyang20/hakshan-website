@@ -380,8 +380,8 @@ get_header();
                'p_en' => 'The 2nd generation moves to Kuala Lumpur and opens the family\'s first restaurant. For the first time, the dishes are written down — in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
                'p_zh' => '第二代北上吉隆坡，开了家中第一家餐厅。第一次，那些菜被写下来 — 用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。' ),
         array( 'year' => '2024', 'h_en' => 'Hakshan opens, USJ',          'h_zh' => '客 善 开 业 · USJ',
-               'p_en' => 'February 2024. The 3rd generation opens Hakshan in USJ. Same recipes — refined by every cook who has held the book since 1958. Same paper. New chairs. A new price point: an RM 15 set. A new rule: fifteen percent of every bill, written into the kitchen\'s costs, returned to community causes.',
-               'p_zh' => '2024年2月。第三代在 USJ 开出客善。食谱还是那一本 — 自1958年起，每一位下厨的人都留了一笔。纸还是那叠纸。椅子换了。价位换了 — RM 15套餐。规则也换了 — 每一张账单的15%，写进厨房的成本里，回馈社区。' ),
+               'p_en' => 'February. The 3rd generation opens Hakshan in USJ — 客善, guest, kindness. Same recipes, same paper, new chairs. RM 15 a set. Fifteen percent of every ringgit, written into the kitchen\'s costs, returned to the community.',
+               'p_zh' => '二月，第三代在 USJ 开出客善 — 客者，善也。食谱不变，纸不变，椅子换了。RM 15一套。营收的15%，写进厨房的成本里，回馈社区。' ),
         array( 'year' => '2025', 'h_en' => 'Eight more kitchens',         'h_zh' => '再 添 八 家',
                'p_en' => 'Eight more outlets open within twenty-two months — Menjalara, Cheras, Bandar Puteri Puchong, IOI Conezion, Budiman Park Kajang, Arcoris Mont Kiara, The Waterfront ParkCity, Plaza Arkadia. Same recipes, same standards, same pencilled paper in every kitchen.',
                'p_zh' => '二十二个月内，再开八家 — 满家拉、蕉赖、蒲种 Bandar Puteri、IOI Conezion、加影、满家乐、ParkCity、Plaza Arkadia。同样的食谱，同样的标准，同样那叠铅笔字的纸。' ),
@@ -414,53 +414,6 @@ get_header();
     <div class="by">
       <span data-en>— A SAYING IN OUR KITCHEN</span>
       <span data-zh>— 厨房里的一句老话</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============== STORY BODY ============== -->
-<section class="story-body">
-  <div data-reveal>
-    <span class="small"><span data-en>I · IN SEREMBAN, A STOVE</span><span data-zh>一·芙蓉，一个灶</span></span>
-    <p style="font-size: 22px; line-height: 1.5;">
-      <span data-en>In 1958, the first generation cooked Hakka food at home in Seremban. Not in a restaurant. Not for a customer. For a family. The stove was wood-fired. The recipes lived in her hands. Nothing was written down — she didn't think she needed to, and she didn't think anyone else would.</span>
-      <span data-zh>1958年，第一代在芙蓉的家中煮客家菜。不是餐厅，不是给客人 — 是给家人。灶是柴火灶。食谱在她手里。一字未落于纸 — 她不觉得自己需要，也不觉得别人会需要。</span>
-    </p>
-
-    <div class="figure">
-      <div class="ph" data-label="First generation · a home kitchen in Seremban, c. 1958"></div>
-      <div class="caption"><span data-en>↑ Pl. 01 · A home kitchen in Seremban, c. 1958</span><span data-zh>↑ 图一·芙蓉的家中厨房，约1958</span></div>
-    </div>
-
-    <span class="small"><span data-en>II · THE RECIPES GO NORTH</span><span data-zh>二·食谱北上</span></span>
-    <p>
-      <span data-en>Fifty years later, the second generation moved to Kuala Lumpur and opened the family's first restaurant — a place that would have to feed people who weren't family. For the first time, the dishes were written down. The paper was kuih paper. The ink was pencil. The notes — which kampung the chicken should come from, how dark the wok should look before the pork belly went in, how long to wait — were written in the spaces where they wouldn't slow service down.</span>
-      <span data-zh>五十年后，第二代北上。她把食谱带到吉隆坡，开了家中第一家餐厅 — 一间要招待陌生人的餐厅。第一次，那些菜被写下来。纸是糕粿纸。字是铅笔字。批注 — 鸡要从哪个甘榜来、镬要黑到什么程度才下三层肉、要等多久 — 都写在不妨碍出餐的空白处。</span>
-    </p>
-    <p>
-      <span data-en>The recipes did not change. The kitchen, suddenly, had to feed strangers.</span>
-      <span data-zh>食谱没变。厨房，第一次要招待陌生人。</span>
-    </p>
-
-    <div class="figure">
-      <div class="ph" data-label="Second generation · pencil notes on kuih paper, c. 2008"></div>
-      <div class="caption"><span data-en>↑ Pl. 02 · The first written copy of the family recipes, c. 2008</span><span data-zh>↑ 图二·家中食谱首次落笔，约2008</span></div>
-    </div>
-
-    <h3><span data-en>The third generation opens a door</span><span data-zh>第 三 代 推 开 一 扇 门</span></h3>
-    <p>
-      <span data-en>In February 2024, the third generation opened Hakshan (客善) in USJ — guest, kindness. Same recipes, refined by every cook who has held the book since 1958. Same paper — the original is kept safe; pencilled copies hang in every outlet that opens. The chairs are new.</span>
-      <span data-zh>2024年2月，第三代在 USJ 开出客善 — 客者，善也。食谱还是那一本 — 自1958年起，每一位下厨的人都留了一笔。纸还是那叠纸 — 原稿仍是原稿，新开的每一家门店都挂着铅笔字的复印本。椅子换了。</span>
-    </p>
-    <p>
-      <span data-en>The price point is new too — an RM 15 set, more accessible than any restaurant the family has run before. And the discipline that comes with it: fifteen percent of every bill is written into the kitchen's costs and returned to community causes. Not from the profit. From every ringgit. The receipt doesn't say so. You just know.</span>
-      <span data-zh>价位也是新的 — RM 15套餐，比家中任何一个餐厅都平易。配套的还有一份纪律：每一张账单的15%，直接写进厨房的成本里，回馈社区。不是从利润出 — 是从营收出。收据上不写。但你心里清楚。</span>
-    </p>
-
-    <div class="figure">
-      <div class="ph" data-label="Third generation · the kitchen, USJ, Feb 2024"></div>
-      <div class="caption"><span data-en>↑ Pl. 03 · The kitchen, the same recipes, ready for service · USJ, Feb 2024</span>
-        <span data-zh>↑ 图三·厨房·同一本食谱，准备出餐· USJ，2024年2月</span></div>
     </div>
   </div>
 </section>
