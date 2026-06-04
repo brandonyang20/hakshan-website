@@ -347,10 +347,6 @@ get_header();
 
 <!-- ============== HERO ============== -->
 <section class="story-hero">
-  <span class="h-eyebrow"><span class="dot"></span>
-    <span data-en>OUR STORY · 三 代 故 事</span>
-    <span data-zh>三代故事</span>
-  </span>
   <h1>
     <span data-en>Three generations.<br/><em>One recipe book.</em></span>
     <span data-zh>三代人，<br/><em>一本食谱。</em></span>
