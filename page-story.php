@@ -427,8 +427,8 @@ get_header();
       <span data-zh>我们留下的</span>
     </div>
     <p class="line">
-      <span data-en>The book. <em>The fire.</em><br/>The share that always belongs<br/>to <em>someone else.</em></span>
-      <span data-zh>那本食谱。<em>那把火。</em><br/>那一份 — <em>永远属于别人的。</em></span>
+      <span data-en>The book. <em>The fire.</em><br/>The fifteen percent —<br/><em>written in, every meal.</em></span>
+      <span data-zh>那本食谱。<em>那把火。</em><br/>那 15% — <em>写进每一餐里。</em></span>
     </p>
   </div>
 </section>
@@ -497,8 +497,8 @@ get_header();
     </div>
     <div data-reveal>
       <p class="lead">
-        <span data-en>Fifteen percent of every bill at every outlet leaves the till at the end of service. We do not print the amount on the receipt. You just know.</span>
-        <span data-zh>每一家门店的每一张账单，15% 在营业结束时即离开钱箱。我们不把金额印在收据上。但你心里清楚。</span>
+        <span data-en>Fifteen percent of every bill at every outlet is set aside at the end of service and paid out at the end of every month. The amount isn't printed on the receipt; you can ask any outlet for the monthly figure.</span>
+        <span data-zh>每一家门店的每一张账单，15% 在营业结束时即留出，月底统一拨付。收据上不显示金额；可向任一门店询问当月数字。</span>
       </p>
       <p>
         <span data-en>A fixed share of every ringgit is allocated to three focus areas: education, elderly care, and animal welfare. It is not a donation made out of profit. It is written into the kitchen's cost structure — at the same line as rent, food, and staff. It cannot be skipped because there isn't a flag to skip it.</span>

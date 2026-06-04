@@ -730,7 +730,7 @@ get_header();
   <div class="gens">
     <div class="gens__copy" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>OUR STORY</span><span data-zh>三代故事</span>
+        <span data-en>OUR STORY</span><span data-zh>我们的故事</span>
       </span>
       <h2>
         <span data-en>Three<br/>generations.<br/><em>One recipe book.</em></span>
@@ -793,6 +793,10 @@ get_header();
         <span data-en>What we cook,<br/><em>and why.</em></span>
         <span data-zh>我们做的，<br/><em>就是这些。</em></span>
       </h2>
+      <p class="h-body" style="max-width: 50ch; margin-top: 20px;">
+        <span data-en>Hakka cooking is the food of a migrant Chinese community in Malaysia — salt-cured, slow-braised, made to last in a kitchen without a fridge. These are six we'll always have.</span>
+        <span data-zh>客家菜，是华人移民传下来的菜系 — 盐渍、慢炖，原是没有冰箱年代留下的味道。这六道，我们永远会做。</span>
+      </p>
     </div>
     <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>" data-reveal>
       <span data-en>Full menu</span><span data-zh>完整菜单</span>
@@ -892,8 +896,8 @@ get_header();
   </div>
   <div data-reveal>
     <p>
-      <span data-en>Fifteen percent of every bill at every outlet goes to community causes — written into the P&amp;L of each kitchen, not added on top. We don't print the amount on the receipt. You just know.</span>
-      <span data-zh>每一家门店的每一张账单，15% 直接投入社区用途 — 这一笔写在厨房的损益表里，不是额外附加的。我们不把金额印在收据上。但你心里清楚。</span>
+      <span data-en>Fifteen percent of every bill at every outlet goes to community causes — written into the P&amp;L of each kitchen, not added on top. The amount isn't printed on the receipt; ask any outlet for the monthly figure.</span>
+      <span data-zh>每一家门店的每一张账单，15% 直接投入社区用途 — 这一笔写在厨房的损益表里，不是额外附加的。金额不印在收据上；可向任一门店询问当月数字。</span>
     </p>
     <div class="charity__stats">
       <div>
