@@ -108,9 +108,22 @@
   }
 
   function initMenuToc() {
-    const track = document.querySelector(".menu-toc__inner");
-    if (!track) return;
+    const toc = document.querySelector(".menu-toc");
+    const track = toc ? toc.querySelector(".menu-toc__inner") : null;
+    if (!toc || !track) return;
 
+    const nav = document.querySelector(".nav");
+
+    // 1) Sticky top tracks the header height instead of a hardcoded 65px.
+    const updateStickyTop = () => {
+      if (!nav) return;
+      const h = Math.round(nav.getBoundingClientRect().height);
+      toc.style.top = h + "px";
+    };
+    updateStickyTop();
+    window.addEventListener("resize", updateStickyTop);
+
+    // 2) Drag-to-scroll (mouse + touch + pen via Pointer Events).
     let isDown = false;
     let startX = 0;
     let startScroll = 0;
@@ -118,7 +131,6 @@
     let activePointerId = null;
 
     track.addEventListener("pointerdown", (e) => {
-      // Ignore non-primary mouse buttons; allow touch and pen.
       if (e.pointerType === "mouse" && e.button !== 0) return;
       isDown = true;
       moved = false;
@@ -146,7 +158,6 @@
     track.addEventListener("pointerup", endGesture);
     track.addEventListener("pointercancel", endGesture);
 
-    // Suppress link navigation when the gesture was a drag, not a tap/click.
     track.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", (e) => {
         if (moved) {
@@ -155,6 +166,59 @@
         }
       });
     });
+
+    // 3) Scrollspy — highlight the link for the section under the TOC.
+    const links = Array.from(track.querySelectorAll("a[href^='#']"));
+    const targets = links
+      .map((a) => {
+        try {
+          return { a, section: document.querySelector(a.getAttribute("href")) };
+        } catch (_) {
+          return { a, section: null };
+        }
+      })
+      .filter((t) => t.section);
+
+    if (!targets.length) return;
+
+    let activeLink = null;
+    const setActive = (link) => {
+      if (link === activeLink) return;
+      activeLink = link;
+      links.forEach((l) => l.classList.toggle("is-active", l === link));
+      if (!link) return;
+      // Centre the active link inside the scrollable strip.
+      const linkRect = link.getBoundingClientRect();
+      const trackRect = track.getBoundingClientRect();
+      if (linkRect.left < trackRect.left || linkRect.right > trackRect.right) {
+        const offset = link.offsetLeft - track.clientWidth / 2 + link.clientWidth / 2;
+        track.scrollTo({ left: offset, behavior: "smooth" });
+      }
+    };
+
+    const onScroll = () => {
+      const tocBottom = toc.getBoundingClientRect().bottom;
+      let current = targets[0];
+      for (const t of targets) {
+        if (t.section.getBoundingClientRect().top <= tocBottom + 24) {
+          current = t;
+        }
+      }
+      setActive(current.a);
+    };
+
+    let rafId = null;
+    const queueScroll = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = null;
+        onScroll();
+      });
+    };
+
+    window.addEventListener("scroll", queueScroll, { passive: true });
+    window.addEventListener("resize", queueScroll);
+    onScroll();
   }
 
   function boot() {

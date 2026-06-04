@@ -29,12 +29,12 @@
 /* ===== Menu ===== */
 .menu-toc {
   background: var(--cream);
-  padding: 28px var(--rail);
+  padding: 18px var(--rail);
   margin: 0 0 40px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   position: sticky;
-  top: 65px;
+  top: 65px; /* JS overrides this with the live nav height on load + resize */
   z-index: 20;
 }
 .menu-toc__inner {
