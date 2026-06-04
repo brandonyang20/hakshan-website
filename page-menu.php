@@ -13,7 +13,7 @@ get_header();
   <div>
     <h1>
       <span data-en>What we <em>cook</em>.</span>
-      <span data-zh>我们<em>做</em>的菜。</span>
+      <span data-zh>我们做的<em>菜</em>。</span>
     </h1>
   </div>
   <p>
