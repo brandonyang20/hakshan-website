@@ -93,7 +93,8 @@
   font-size: 0.4em;
   color: var(--forest);
   letter-spacing: 0.25em;
-  margin-left: 16px;
+  display: block;
+  margin-top: 12px;
   opacity: 0.7;
 }
 .menu-section__head p {
