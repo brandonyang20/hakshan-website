@@ -267,7 +267,7 @@ h1, h2, h3, h4, h5, h6, .h-display {
 .nav__links a {
   position: relative;
   padding: 4px 0;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   opacity: 0.78;
   transition: opacity 0.2s ease;
