@@ -504,8 +504,8 @@ get_header();
     </p>
     <span class="small"><span data-en>WHAT MAKES THE MODEL DEFENSIBLE</span><span data-zh>模式的护城河</span></span>
     <p>
-      <span data-en>A central kitchen built and operated by the team. Standard Operating Procedures honed across eighteen years and thirteen prior outlets, applied to every Hakshan outlet from day one — not invented under deadline. Supplier relationships eighteen years deep. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book — three generations of Hakka cuisine — that is not for franchise sale.</span>
-      <span data-zh>团队自营中央厨房。标准作业流程经十八年、十三家门店沉淀，自第一间客善门店开业之日起即投入使用 — 不是临时拼凑出来的。十八年累积的供应商关系。「零浪费」是厨房纪律，不是营销口号。三代人的客家食谱 — 不对外出售。</span>
+      <span data-en>The full back-of-house — preparation, sourcing, training — built and operated by the team. Standard Operating Procedures honed across eighteen years and thirteen prior outlets, applied to every Hakshan outlet from day one — not invented under deadline. Supplier relationships eighteen years deep. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book — three generations of Hakka cuisine — that is not for franchise sale.</span>
+      <span data-zh>整条后厨 — 预备、采购、培训 — 由团队自建自营。标准作业流程经十八年、十三家门店沉淀，自第一间客善门店开业之日起即投入使用 — 不是临时拼凑出来的。十八年累积的供应商关系。「零浪费」是厨房纪律，不是营销口号。三代人的客家食谱 — 不对外出售。</span>
     </p>
     <span class="small"><span data-en>WHY NOW</span><span data-zh>为何此时</span></span>
     <p>
@@ -583,8 +583,8 @@ get_header();
         </h2>
       </div>
       <p>
-        <span data-en>Hakshan grows at the pace of its supply chain — not its capital. Every new location is chosen for its community profile and proximity to the central kitchen. No outlet has been closed since launch.</span>
-        <span data-zh>客善的扩张节奏，跟着供应链，而非资金。每一个新址，都看社区气质与中央厨房的距离。开业以来无一家门店关闭。</span>
+        <span data-en>Hakshan grows at the pace of its supply chain — not its capital. Every new location is chosen for its community profile and its fit with the existing supply network. No outlet has been closed since launch.</span>
+        <span data-zh>客善的扩张节奏，跟着供应链，而非资金。每一个新址，都看社区气质与现有供应网络的契合。开业以来无一家门店关闭。</span>
       </p>
     </div>
 

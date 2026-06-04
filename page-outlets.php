@@ -304,8 +304,8 @@ get_header();
       </h1>
     </div>
     <p>
-      <span data-en>Every outlet runs the same recipe and the same kitchen discipline — the central kitchen prepares, every outlet plates. Click any room to see the address, hours, and seating.</span>
-      <span data-zh>每家分店都用同一本食谱、同一套厨房纪律 — 中央厨房统一预备，各分店现场出菜。点击任意一家可查看地址、营业时间与座位。</span>
+      <span data-en>Every outlet runs the same recipe and the same kitchen discipline. Click any room to see the address, hours, and seating.</span>
+      <span data-zh>每家分店都用同一本食谱、同一套厨房纪律。点击任意一家可查看地址、营业时间与座位。</span>
     </p>
   </div>
 </section>

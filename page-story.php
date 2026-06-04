@@ -390,8 +390,8 @@ get_header();
                'p_en' => 'Eight more outlets open within twenty-two months — Menjalara, Cheras, Bandar Puteri Puchong, IOI Conezion, Budiman Park Kajang, Arcoris Mont Kiara, The Waterfront ParkCity, Plaza Arkadia. Same recipes, same standards, same pencilled paper in every kitchen.',
                'p_zh' => '二十二个月内，再开八家 — 满家拉、蕉赖、蒲种 Bandar Puteri、IOI Conezion、加影、满家乐、ParkCity、Plaza Arkadia。同样的食谱，同样的标准，同样那叠铅笔字的纸。' ),
         array( 'year' => '2026', 'h_en' => 'Ten kitchens, one book',      'h_zh' => '十 家 厨 房，一 本 食 谱',
-               'p_en' => 'Nine retail outlets and one cloud kitchen across the Klang Valley. The tenth retail outlet and the third cloud kitchen open next month. Penang follows in the second quarter. The book stays in the central kitchen.',
-               'p_zh' => '巴生谷九家门店与一家云厨房。第十家门店与第三家云厨房将于下月开业。槟城紧随其后，第二季度开业。那本书，留在中央厨房。' ),
+               'p_en' => 'Nine retail outlets and one cloud kitchen across the Klang Valley. The tenth retail outlet and the third cloud kitchen open next month. Penang follows in the second quarter. The book stays where it always has.',
+               'p_zh' => '巴生谷九家门店与一家云厨房。第十家门店与第三家云厨房将于下月开业。槟城紧随其后，第二季度开业。那本书，留在原处。' ),
       );
       foreach ( $timeline as $row ) :
         ?>
@@ -453,8 +453,8 @@ get_header();
 
     <h3><span data-en>The third generation opens a door</span><span data-zh>第 三 代 推 开 一 扇 门</span></h3>
     <p>
-      <span data-en>In February 2024, the third generation opened Hakshan (客善) in USJ — guest, kindness. Same recipes, refined by every cook who has held the book since 1958. Same paper — the original sits in the central kitchen; pencilled copies hang in every outlet that opens. The chairs are new.</span>
-      <span data-zh>2024年2月，第三代在 USJ 开出客善 — 客者，善也。食谱还是那一本 — 自1958年起，每一位下厨的人都留了一笔。纸还是那叠纸 — 原稿留在中央厨房，新开的每一家门店都挂着铅笔字的复印本。椅子换了。</span>
+      <span data-en>In February 2024, the third generation opened Hakshan (客善) in USJ — guest, kindness. Same recipes, refined by every cook who has held the book since 1958. Same paper — the original is kept safe; pencilled copies hang in every outlet that opens. The chairs are new.</span>
+      <span data-zh>2024年2月，第三代在 USJ 开出客善 — 客者，善也。食谱还是那一本 — 自1958年起，每一位下厨的人都留了一笔。纸还是那叠纸 — 原稿仍是原稿，新开的每一家门店都挂着铅笔字的复印本。椅子换了。</span>
     </p>
     <p>
       <span data-en>The price point is new too — an RM 15 set, more accessible than any restaurant the family has run before. And the discipline that comes with it: fifteen percent of every bill is written into the kitchen's costs and returned to community causes. Not from the profit. From every ringgit. The receipt doesn't say so. You just know.</span>
@@ -462,9 +462,9 @@ get_header();
     </p>
 
     <div class="figure">
-      <div class="ph" data-label="Third generation · the central kitchen, Feb 2024"></div>
-      <div class="caption"><span data-en>↑ Pl. 03 · The central kitchen, the same recipes, ready for service · USJ, Feb 2024</span>
-        <span data-zh>↑ 图三·中央厨房·同一本食谱，准备出餐· USJ，2024年2月</span></div>
+      <div class="ph" data-label="Third generation · the kitchen, USJ, Feb 2024"></div>
+      <div class="caption"><span data-en>↑ Pl. 03 · The kitchen, the same recipes, ready for service · USJ, Feb 2024</span>
+        <span data-zh>↑ 图三·厨房·同一本食谱，准备出餐· USJ，2024年2月</span></div>
     </div>
   </div>
 </section>
@@ -520,7 +520,7 @@ get_header();
       </p>
     </div>
     <div class="portrait">
-      <div class="portrait__visual"><div class="ph" data-label="Third generation · the central kitchen, Feb 2024"></div></div>
+      <div class="portrait__visual"><div class="ph" data-label="Third generation · the kitchen, USJ, Feb 2024"></div></div>
       <div class="portrait__num">THIRD GENERATION · 三 代</div>
       <h3>
         <span data-en>Same recipes, new room</span><span data-zh>同一本食谱，新的厅</span>

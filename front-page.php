@@ -774,8 +774,8 @@ get_header();
         <div class="gen__year">2026</div>
         <div>
           <h3><span data-en>Same paper, sharper hands</span><span data-zh>同 一 叠 纸</span></h3>
-          <p><span data-en>The paper has never been retyped. The original sits in the central kitchen; pencilled copies hang in nine more. Same dishes — sharpened by every generation that cooked them.</span>
-            <span data-zh>那叠纸至今没有重打过。原稿留在中央厨房，铅笔字的复印本挂在另外九家。同样的菜 — 每一代下厨的人，都把它做得更精到。</span></p>
+          <p><span data-en>The paper has never been retyped. The original is kept safe; pencilled copies hang in every kitchen. Same dishes — sharpened by every generation that cooked them.</span>
+            <span data-zh>那叠纸至今没有重打过。原稿仍是原稿，铅笔字的复印本挂在每一家厨房。同样的菜 — 每一代下厨的人，都把它做得更精到。</span></p>
         </div>
       </div>
     </div>

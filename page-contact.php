@@ -489,8 +489,8 @@ get_header();
     <div class="press-card">
       <h4><span data-en>KITCHEN VISITS</span><span data-zh>厨 房 探 访</span></h4>
       <h3><span data-en>By appointment</span><span data-zh>预 约 制</span></h3>
-      <p><span data-en>Behind-the-pass photography and central-kitchen tours, arranged in advance — outside service hours, so the line keeps moving.</span>
-        <span data-zh>厨房跟拍与中央厨房参观，须提前预约 — 安排在营业时段之外，避免影响出餐。</span></p>
+      <p><span data-en>Behind-the-pass photography and kitchen tours, arranged in advance — outside service hours, so the line keeps moving.</span>
+        <span data-zh>厨房跟拍与厨房参观，须提前预约 — 安排在营业时段之外，避免影响出餐。</span></p>
       <div class="link"><a href="mailto:press@hakshan.com?subject=Kitchen%20visit" style="color: inherit;">Arrange a visit <span class="arr">→</span></a></div>
     </div>
   </div>
@@ -511,14 +511,14 @@ get_header();
         </h2>
       </div>
       <p>
-        <span data-en>We hire slowly. Apprentices are trained at the central kitchen before they ever stand at an outlet wok — every kitchen lead at every outlet went through this pipeline.</span>
-        <span data-zh>招人不急。学徒先在中央厨房受训，然后才进入门店。每一家门店的厨房主管，皆由此路培养而来。</span>
+        <span data-en>We hire slowly. Apprentices are trained in-house before they ever stand at an outlet wok — every kitchen lead at every outlet went through this pipeline.</span>
+        <span data-zh>招人不急。学徒先在内部受训，然后才进入门店。每一家门店的厨房主管，皆由此路培养而来。</span>
       </p>
     </div>
     <div class="careers-list" data-reveal>
       <?php
       $careers = array(
-        array( 'ix' => 'N° 01', 'h_en' => 'Kitchen Apprentice',               'h_zh' => '厨 房 学 徒',               's_en' => 'Central-kitchen training · 12-month programme',  's_zh' => '中 央 厨 房 培 训 · 十 二 个 月', 'where' => 'USJ Taipan · HQ', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
+        array( 'ix' => 'N° 01', 'h_en' => 'Kitchen Apprentice',               'h_zh' => '厨 房 学 徒',               's_en' => 'In-house training · 12-month programme',         's_zh' => '内 部 培 训 · 十 二 个 月',         'where' => 'USJ Taipan · HQ', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
         array( 'ix' => 'N° 02', 'h_en' => 'Outlet Kitchen Lead',              'h_zh' => '门 店 厨 房 主 管',         's_en' => 'Lead a single outlet kitchen',                   's_zh' => '独 立 主 持 一 间 门 店 厨 房',   'where' => 'Mont Kiara',     'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
         array( 'ix' => 'N° 03', 'h_en' => 'Service Captain',                  'h_zh' => '领 班',                     's_en' => 'Daily 11:00 — 22:00, bilingual',                's_zh' => '每 日 11:00 — 22:00，双 语',     'where' => 'Cheras Traders', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
         array( 'ix' => 'N° 04', 'h_en' => 'Community Programmes Officer',     'h_zh' => '社 区 项 目 主 任',         's_en' => 'Coordinate the 15% community allocation',        's_zh' => '统 筹 营 收 15% 的 社 区 投 入',  'where' => 'USJ Taipan · HQ','w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
