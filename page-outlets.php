@@ -88,11 +88,18 @@ get_header();
     text-transform: uppercase;
     z-index: 2;
   }
+  .og-card__body { display: grid; gap: 6px; }
+  .og-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
   .og-card h3 {
     font-family: var(--serif);
     font-style: italic;
     font-size: 26px;
-    margin: 0 0 4px;
+    margin: 0;
     letter-spacing: -0.01em;
   }
   .og-card .city {
@@ -103,25 +110,13 @@ get_header();
     color: var(--forest);
     opacity: 0.75;
   }
-  .og-card .meta {
-    margin-top: auto;
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    color: var(--ink-soft);
-  }
-  .og-card .meta .arr {
+  .og-card .arr {
     font-family: var(--serif);
     font-size: 22px;
     color: var(--forest);
     transition: transform 0.25s ease;
   }
-  .og-card:hover .meta .arr { transform: translateX(6px); }
+  .og-card:hover .arr { transform: translateX(6px); }
 
   /* ====== MODAL ====== */
   .om-backdrop {
@@ -355,21 +350,18 @@ if ( ! empty( $outlet_posts ) ) {
 }
 ?>
 
-<nav class="menu-toc">
-  <div class="menu-toc__inner">
-    <?php foreach ( $outlets as $o ) : ?>
-      <a data-open="<?php echo esc_attr( $o['slug'] ); ?>"><?php echo esc_html( $o['name'] ); ?></a>
-    <?php endforeach; ?>
-  </div>
-</nav>
-
 <!-- 9-card grid overview -->
 <section class="outlets-grid">
   <?php foreach ( $outlets as $o ) : ?>
     <button class="og-card" data-open="<?php echo esc_attr( $o['slug'] ); ?>" data-reveal>
       <div class="og-card__visual"><?php if ( ! empty( $o['image_html'] ) ) : echo $o['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div><?php endif; ?></div>
-      <div><h3><?php echo esc_html( $o['name'] ); ?></h3><div class="city"><?php echo esc_html( ucwords( strtolower( $o['city'] ) ) ); ?></div></div>
-      <div class="meta"><span></span><span class="arr">→</span></div>
+      <div class="og-card__body">
+        <div class="og-card__head">
+          <h3><?php echo esc_html( $o['name'] ); ?></h3>
+          <span class="arr">→</span>
+        </div>
+        <div class="city"><?php echo esc_html( ucwords( strtolower( $o['city'] ) ) ); ?></div>
+      </div>
     </button>
   <?php endforeach; ?>
 </section>
@@ -478,17 +470,12 @@ if ( ! empty( $outlet_posts ) ) {
     backdrop.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
     history.replaceState(null, "", "#" + key);
-    document.querySelectorAll(".menu-toc a[data-open]").forEach(t => {
-      t.classList.toggle("is-active", t.getAttribute("data-open") === key);
-    });
   }
   function closeModal() {
     backdrop.classList.remove("is-open");
     backdrop.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
     if (location.hash) history.replaceState(null, "", location.pathname);
-    document.querySelectorAll(".menu-toc a[data-open].is-active")
-      .forEach(t => t.classList.remove("is-active"));
   }
 
   document.querySelectorAll("[data-open]").forEach(el => {
