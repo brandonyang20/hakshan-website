@@ -61,9 +61,6 @@
   padding: 4px 0;
   border-bottom: 1px solid transparent;
 }
-@media (min-width: 981px) {
-  .menu-toc a { font-size: 14px; }
-}
 .menu-toc a:hover, .menu-toc a.is-active { color: var(--forest); border-bottom-color: var(--forest); }
 .menu-toc a.is-active { font-weight: 700; }
 
