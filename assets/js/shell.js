@@ -113,21 +113,19 @@
     if (!toc || !track) return;
 
     const nav = document.querySelector(".nav");
-    const adminBar = document.getElementById("wpadminbar");
 
-    // 1) Sticky top tracks live nav height (+ WP admin bar when present).
-    //    Written to a CSS custom property so the CSS rule
-    //    `top: var(--menu-toc-top)` picks it up cleanly.
+    // 1) Sticky top tracks the live nav height. The WP admin bar is
+    //    position: fixed and overlaps the sticky nav (its z-index sits
+    //    above), so we don't add it — the nav's bottom edge is at
+    //    navHeight in viewport coords either way.
     const updateStickyTop = () => {
-      const navH = nav ? nav.getBoundingClientRect().height : 0;
-      const barH = adminBar ? adminBar.getBoundingClientRect().height : 0;
-      const total = Math.round(navH + barH);
-      document.documentElement.style.setProperty("--menu-toc-top", total + "px");
+      const navH = nav ? Math.round(nav.getBoundingClientRect().height) : 0;
+      document.documentElement.style.setProperty("--menu-toc-top", navH + "px");
     };
     updateStickyTop();
     window.addEventListener("resize", updateStickyTop);
-    // Re-measure after fonts/images have settled, since the logo image
-    // grows the nav once it loads.
+    // Re-measure after fonts/images settle (the logo grows the nav when
+    // it loads), and after a scroll tick in case sticky has kicked in.
     window.addEventListener("load", updateStickyTop);
 
     // 2) Drag-to-scroll (mouse + touch + pen via Pointer Events).
