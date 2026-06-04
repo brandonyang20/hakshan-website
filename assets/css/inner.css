@@ -34,7 +34,7 @@
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   position: sticky;
-  top: var(--menu-toc-top, 65px);
+  top: var(--nav-h, 65px);
   z-index: 20;
 }
 .menu-toc__inner {

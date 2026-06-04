@@ -24,6 +24,11 @@ get_header();
     gap: 80px;
     align-items: start;
   }
+  .timeline__inner > div:first-child {
+    position: sticky;
+    top: calc(var(--nav-h, 65px) + 24px);
+    align-self: start;
+  }
   .timeline__inner > div:first-child .h-eyebrow .dot { background: var(--forest); }
   .timeline__inner h2 {
     font-family: var(--serif);
@@ -327,6 +332,7 @@ get_header();
 
   @media (max-width: 980px) {
     .timeline__inner, .charity-block__inner { grid-template-columns: 1fr; gap: 32px; }
+    .timeline__inner > div:first-child { position: static; }
     .portraits__grid { grid-template-columns: 1fr; }
     .tl-row {
       grid-template-columns: 1fr;

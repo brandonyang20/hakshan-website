@@ -107,28 +107,28 @@
     });
   }
 
+  // Live nav height as a CSS custom property on :root — read by any
+  // sticky element that needs to dock under the nav (the menu TOC, the
+  // story timeline left column, etc.). Runs on every page, not just
+  // those that have a .menu-toc.
+  function initNavHeightVar() {
+    const nav = document.querySelector(".nav");
+    if (!nav) return;
+    const update = () => {
+      const navH = Math.round(nav.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--nav-h", navH + "px");
+    };
+    update();
+    window.addEventListener("resize", update);
+    window.addEventListener("load", update);
+  }
+
   function initMenuToc() {
     const toc = document.querySelector(".menu-toc");
     const track = toc ? toc.querySelector(".menu-toc__inner") : null;
     if (!toc || !track) return;
 
-    const nav = document.querySelector(".nav");
-
-    // 1) Sticky top tracks the live nav height. The WP admin bar is
-    //    position: fixed and overlaps the sticky nav (its z-index sits
-    //    above), so we don't add it — the nav's bottom edge is at
-    //    navHeight in viewport coords either way.
-    const updateStickyTop = () => {
-      const navH = nav ? Math.round(nav.getBoundingClientRect().height) : 0;
-      document.documentElement.style.setProperty("--menu-toc-top", navH + "px");
-    };
-    updateStickyTop();
-    window.addEventListener("resize", updateStickyTop);
-    // Re-measure after fonts/images settle (the logo grows the nav when
-    // it loads), and after a scroll tick in case sticky has kicked in.
-    window.addEventListener("load", updateStickyTop);
-
-    // 2) Drag-to-scroll (mouse + touch + pen via Pointer Events).
+    // 1) Drag-to-scroll (mouse + touch + pen via Pointer Events).
     let isDown = false;
     let startX = 0;
     let startScroll = 0;
@@ -172,7 +172,7 @@
       });
     });
 
-    // 3) Scrollspy — highlight the link for the section currently under
+    // 2) Scrollspy — highlight the link for the section currently under
     //    the sticky TOC. Walks all targets on every scroll tick (rAF
     //    throttled) instead of using IntersectionObserver, because
     //    sticky elements break naive root-based intersection logic.
@@ -238,6 +238,7 @@
     initReveal();
     initActiveNav();
     initDrawer();
+    initNavHeightVar();
     initMenuToc();
   }
   if (document.readyState === "loading") {
