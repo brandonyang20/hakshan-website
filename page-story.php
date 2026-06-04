@@ -38,7 +38,7 @@ get_header();
   .timeline__list { display: grid; gap: 0; }
   .tl-row {
     display: grid;
-    grid-template-columns: 120px 100px 1fr;
+    grid-template-columns: 120px 1fr;
     gap: 32px;
     padding: 32px 0;
     border-top: 1px solid var(--line);
@@ -52,13 +52,6 @@ get_header();
     line-height: 1;
     color: var(--forest);
     letter-spacing: -0.02em;
-  }
-  .tl-row .cn-big {
-    font-family: var(--cn);
-    font-size: 30px;
-    line-height: 1;
-    color: var(--ink);
-    letter-spacing: 0.05em;
   }
   .tl-row h3 {
     font-family: var(--serif);
@@ -341,17 +334,8 @@ get_header();
       padding: 24px 0;
     }
     .tl-row .year { font-size: 36px; }
-    .tl-row .cn-big { font-size: 22px; }
     .press__row { grid-template-columns: 1fr; gap: 8px; }
     .press__row .date { text-align: left; }
-  }
-
-  /* English readers don't have context for the decorative Chinese gen
-     label, so collapse the cn-big column when EN is active. */
-  [data-lang="en"] .tl-row .cn-big { display: none; }
-  [data-lang="en"] .tl-row { grid-template-columns: 120px 1fr; }
-  @media (max-width: 980px) {
-    [data-lang="en"] .tl-row { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -387,19 +371,19 @@ get_header();
     <div class="timeline__list" data-reveal>
       <?php
       $timeline = array(
-        array( 'year' => '1958', 'cn' => '第 一 代', 'h_en' => 'A home kitchen, Seremban',     'h_zh' => '芙 蓉 · 家 中 厨 房',
-               'p_en' => 'The first generation cooks Hakka food at home — salt-baked chicken, mui choy belly, rice-wine chicken soup. No restaurant. No staff. Just a stove, a wok, and a family that keeps showing up to eat.',
+        array( 'year' => '1958', 'h_en' => 'A home kitchen, Seremban',     'h_zh' => '芙 蓉 · 家 中 厨 房',
+               'p_en' => 'The 1st generation cooks Hakka food at home — salt-baked chicken, mui choy belly, rice-wine chicken soup. No restaurant. No staff. Just a stove, a wok, and a family that keeps showing up to eat.',
                'p_zh' => '第一代在家中煮客家菜 — 盐焗鸡、梅菜扣肉、糯米酒鸡汤。没有餐厅，没有员工。只有一个灶、一只镬，和一屋子总回来吃饭的家人。' ),
-        array( 'year' => '2008', 'cn' => '第 二 代', 'h_en' => 'The recipes head north',      'h_zh' => '食 谱 北 上',
-               'p_en' => 'The daughter moves to Kuala Lumpur and opens the family\'s first restaurant. For the first time, the dishes are written down — in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
-               'p_zh' => '女儿北上吉隆坡，开了家中第一家餐厅。第一次，那些菜被写下来 — 用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。' ),
-        array( 'year' => '2024', 'cn' => '第 三 代', 'h_en' => 'Hakshan opens, USJ',          'h_zh' => '客 善 开 业 · USJ',
-               'p_en' => 'February 2024. The third generation opens Hakshan in USJ. Same recipes — refined by every cook who has held the book since 1958. Same paper. New chairs. A new price point: an RM 15 set. A new rule: fifteen percent of every bill, written into the kitchen\'s costs, returned to community causes.',
+        array( 'year' => '2008', 'h_en' => 'The recipes head north',      'h_zh' => '食 谱 北 上',
+               'p_en' => 'The 2nd generation moves to Kuala Lumpur and opens the family\'s first restaurant. For the first time, the dishes are written down — in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
+               'p_zh' => '第二代北上吉隆坡，开了家中第一家餐厅。第一次，那些菜被写下来 — 用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。' ),
+        array( 'year' => '2024', 'h_en' => 'Hakshan opens, USJ',          'h_zh' => '客 善 开 业 · USJ',
+               'p_en' => 'February 2024. The 3rd generation opens Hakshan in USJ. Same recipes — refined by every cook who has held the book since 1958. Same paper. New chairs. A new price point: an RM 15 set. A new rule: fifteen percent of every bill, written into the kitchen\'s costs, returned to community causes.',
                'p_zh' => '2024年2月。第三代在 USJ 开出客善。食谱还是那一本 — 自1958年起，每一位下厨的人都留了一笔。纸还是那叠纸。椅子换了。价位换了 — RM 15套餐。规则也换了 — 每一张账单的15%，写进厨房的成本里，回馈社区。' ),
-        array( 'year' => '2025', 'cn' => '巴 生 谷', 'h_en' => 'Eight more kitchens',         'h_zh' => '再 添 八 家',
+        array( 'year' => '2025', 'h_en' => 'Eight more kitchens',         'h_zh' => '再 添 八 家',
                'p_en' => 'Eight more outlets open within twenty-two months — Menjalara, Cheras, Bandar Puteri Puchong, IOI Conezion, Budiman Park Kajang, Arcoris Mont Kiara, The Waterfront ParkCity, Plaza Arkadia. Same recipes, same standards, same pencilled paper in every kitchen.',
                'p_zh' => '二十二个月内，再开八家 — 满家拉、蕉赖、蒲种 Bandar Puteri、IOI Conezion、加影、满家乐、ParkCity、Plaza Arkadia。同样的食谱，同样的标准，同样那叠铅笔字的纸。' ),
-        array( 'year' => '2026', 'cn' => '今 天',    'h_en' => 'Ten kitchens, one book',      'h_zh' => '十 家 厨 房，一 本 食 谱',
+        array( 'year' => '2026', 'h_en' => 'Ten kitchens, one book',      'h_zh' => '十 家 厨 房，一 本 食 谱',
                'p_en' => 'Nine retail outlets and one cloud kitchen across the Klang Valley. The tenth retail outlet and the third cloud kitchen open next month. Penang follows in the second quarter. The book stays in the central kitchen.',
                'p_zh' => '巴生谷九家门店与一家云厨房。第十家门店与第三家云厨房将于下月开业。槟城紧随其后，第二季度开业。那本书，留在中央厨房。' ),
       );
@@ -407,7 +391,6 @@ get_header();
         ?>
         <div class="tl-row">
           <div class="year"><?php echo esc_html( $row['year'] ); ?></div>
-          <div class="cn-big"><?php echo esc_html( $row['cn'] ); ?></div>
           <div>
             <h3><span data-en><?php echo esc_html( $row['h_en'] ); ?></span><span data-zh><?php echo esc_html( $row['h_zh'] ); ?></span></h3>
             <p><span data-en><?php echo esc_html( $row['p_en'] ); ?></span>
