@@ -11,12 +11,9 @@ get_header();
 
 <section class="page-head">
   <div>
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>THE MENU · SPRING 2026</span><span data-zh>菜 单 · 2026 春</span>
-    </span>
     <h1>
-      <span data-en>What we cook,<br/><em>and why.</em></span>
-      <span data-zh>菜 单<br/><em>之 全。</em></span>
+      <span data-en>What we <em>cook</em>.</span>
+      <span data-zh>我们<em>做</em>的菜。</span>
     </h1>
   </div>
   <p>
