@@ -92,9 +92,11 @@ get_header();
   .og-card__head {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-end;
+    align-items: last baseline;
     gap: 16px;
   }
+  .og-card__head .arr { flex-shrink: 0; }
   .og-card h3 {
     font-family: var(--serif);
     font-style: italic;
