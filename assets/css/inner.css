@@ -44,7 +44,10 @@
   gap: 28px;
   overflow-x: auto;
   scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
 }
+.menu-toc__inner.is-dragging { cursor: grabbing; }
 .menu-toc__inner::-webkit-scrollbar { display: none; }
 .menu-toc a {
   white-space: nowrap;

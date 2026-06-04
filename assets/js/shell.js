@@ -107,11 +107,54 @@
     });
   }
 
+  function initMenuToc() {
+    const track = document.querySelector(".menu-toc__inner");
+    if (!track) return;
+
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+    let moved = false;
+
+    track.addEventListener("mousedown", (e) => {
+      isDown = true;
+      moved = false;
+      startX = e.pageX;
+      startScroll = track.scrollLeft;
+      track.classList.add("is-dragging");
+    });
+    track.addEventListener("mouseleave", () => {
+      isDown = false;
+      track.classList.remove("is-dragging");
+    });
+    track.addEventListener("mouseup", () => {
+      isDown = false;
+      track.classList.remove("is-dragging");
+    });
+    track.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      const delta = e.pageX - startX;
+      if (Math.abs(delta) > 4) moved = true;
+      track.scrollLeft = startScroll - delta;
+    });
+
+    // Suppress link navigation when the gesture was a drag, not a click.
+    track.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", (e) => {
+        if (moved) {
+          e.preventDefault();
+          moved = false;
+        }
+      });
+    });
+  }
+
   function boot() {
     initLang();
     initReveal();
     initActiveNav();
     initDrawer();
+    initMenuToc();
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
