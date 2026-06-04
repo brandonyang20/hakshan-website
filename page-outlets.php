@@ -30,26 +30,8 @@ get_header();
   .outlets-hero h1 em { color: var(--forest); }
   .outlets-hero p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); max-width: 50ch; margin: 0; }
 
-  .map-band {
-    background: var(--cream);
-    padding: 24px var(--rail);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--forest);
-    display: flex;
-    gap: 32px;
-    overflow-x: auto;
-    max-width: var(--maxw);
-    margin: 0 auto;
-    scrollbar-width: none;
-  }
-  .map-band::-webkit-scrollbar { display: none; }
-  .map-band a { white-space: nowrap; opacity: 0.7; cursor: pointer; }
-  .map-band a:hover { opacity: 1; }
+  /* Outlets nav uses the shared .menu-toc styles from inner.css —
+     sticky top, drag-to-scroll, 13px mono uppercase, bold active. */
 
   /* 9-card grid */
   .outlets-grid {
@@ -318,7 +300,7 @@ get_header();
       </span>
       <h1>
         <span data-en>Find your<br/><em>nearest.</em></span>
-        <span data-zh>就近<br/><em>而来。</em></span>
+        <span data-zh>离你<br/><em>最近。</em></span>
       </h1>
     </div>
     <p>
@@ -373,10 +355,12 @@ if ( ! empty( $outlet_posts ) ) {
 }
 ?>
 
-<nav class="map-band">
-  <?php foreach ( $outlets as $o ) : ?>
-    <a data-open="<?php echo esc_attr( $o['slug'] ); ?>"><?php echo esc_html( $o['name'] ); ?></a>
-  <?php endforeach; ?>
+<nav class="menu-toc">
+  <div class="menu-toc__inner">
+    <?php foreach ( $outlets as $o ) : ?>
+      <a data-open="<?php echo esc_attr( $o['slug'] ); ?>"><?php echo esc_html( $o['name'] ); ?></a>
+    <?php endforeach; ?>
+  </div>
 </nav>
 
 <!-- 9-card grid overview -->
@@ -494,12 +478,17 @@ if ( ! empty( $outlet_posts ) ) {
     backdrop.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
     history.replaceState(null, "", "#" + key);
+    document.querySelectorAll(".menu-toc a[data-open]").forEach(t => {
+      t.classList.toggle("is-active", t.getAttribute("data-open") === key);
+    });
   }
   function closeModal() {
     backdrop.classList.remove("is-open");
     backdrop.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
     if (location.hash) history.replaceState(null, "", location.pathname);
+    document.querySelectorAll(".menu-toc a[data-open].is-active")
+      .forEach(t => t.classList.remove("is-active"));
   }
 
   document.querySelectorAll("[data-open]").forEach(el => {
