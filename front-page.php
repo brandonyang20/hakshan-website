@@ -741,8 +741,8 @@ get_header();
         <span data-zh>三代人，<br/><em>一菜谱</em></span>
       </h2>
       <p class="h-body">
-        <span data-en>Traditional Hakka cooking, kept whole — made in Seremban since 1958, served in nine kitchens today.</span>
-        <span data-zh>传统客家菜，原味原样 — 1958年起在芙蓉烹制，今天在九家厨房上桌。</span>
+        <span data-en>Traditional Hakka cooking, kept whole — three generations of the same recipes since 1958, now in nine kitchens.</span>
+        <span data-zh>传统客家菜，原味原样 — 三代人，同一份食谱，1958年至今，已遍及九家厨房。</span>
       </p>
       <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>" style="margin-top: 24px;">
         <span data-en>Read the story</span><span data-zh>阅读故事</span>
@@ -798,8 +798,8 @@ get_header();
         <span data-zh>我们做的<em>菜</em>。</span>
       </h2>
       <p class="h-body" style="max-width: 50ch; margin-top: 20px;">
-        <span data-en>Hakka signature dishes — salt-cured, slow-braised, cooked the way they were in Seremban since 1958.</span>
-        <span data-zh>客家招牌菜 — 盐渍、慢炖，1958年起，沿用芙蓉的做法。</span>
+        <span data-en>Hakka signature dishes — salt-cured, slow-braised, cooked the same way since 1958.</span>
+        <span data-zh>客家招牌菜 — 盐渍、慢炖，1958年至今，做法未变。</span>
       </p>
     </div>
     <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>" data-reveal>

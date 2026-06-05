@@ -185,8 +185,8 @@ $maps_embed = $o['addr']
   </h1>
 
   <p class="lead">
-    <span data-en>A Hakshan kitchen in <?php echo esc_html( $city_pretty ); ?> — the same recipes from the family's 1958 home kitchen in Seremban, cooked under the same kitchen discipline as every other outlet. Hakka-Chinese cooking: salt-cured, slow-braised, made to last.</span>
-    <span data-zh>客善在<?php echo esc_html( $city_pretty ); ?>的一间厨房 — 同一本食谱，同一套厨房纪律，从1958年芙蓉的家中厨房传下来。客家菜：盐渍，慢炖，做出来是耐放的味道。</span>
+    <span data-en>A Hakshan kitchen in <?php echo esc_html( $city_pretty ); ?> — the same recipes since 1958, the same kitchen discipline as every other outlet. Traditional Hakka cooking: salt-cured, slow-braised, made to last.</span>
+    <span data-zh>客善在<?php echo esc_html( $city_pretty ); ?>的一间厨房 — 同一份食谱，1958年至今未变，与每一间门店同一套厨房纪律。传统客家菜：盐渍、慢炖，做出来是耐放的味道。</span>
   </p>
 </section>
 
