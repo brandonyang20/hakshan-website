@@ -894,22 +894,22 @@ get_header();
       <span data-en>DINING WITH PURPOSE</span><span data-zh>用餐慈善</span>
     </span>
     <h2>
-      <span data-en>Every plate<br/>buys <em class="underline">one more</em>.</span>
+      <span data-en>Pay it<br/><em class="underline">Forward</em>.</span>
       <span data-zh>一菜<br/>一<em class="underline">善</em>。</span>
     </h2>
   </div>
   <div data-reveal>
     <p>
-      <span data-en>Fifteen percent of every bill at every outlet goes to community causes — written into the P&amp;L of each kitchen, not added on top. The amount isn't printed on the receipt; ask any outlet for the monthly figure.</span>
-      <span data-zh>每一家门店的每一张账单，15% 直接投入社区用途 — 这一笔写在厨房的损益表里，不是额外附加的。金额不印在收据上；可向任一门店询问当月数字。</span>
+      <span data-en>RM 5 from every dish you order goes to community causes — written into the menu price, not added on top. The amount isn't printed on the receipt; ask any outlet for the monthly total.</span>
+      <span data-zh>每点一道菜，RM 5 拨入社区用途 — 已含在菜价里，不是额外附加的。金额不印在收据上；可向任一门店询问当月总额。</span>
     </p>
     <div class="charity__stats">
       <div>
-        <div class="num">15<span style="font-size: 0.55em; opacity: 0.7;">%</span></div>
-        <div class="lbl"><span data-en>Of every ringgit</span><span data-zh>每 一 元 营 收</span></div>
+        <div class="num"><span style="font-size: 0.55em; opacity: 0.7;">RM </span>5</div>
+        <div class="lbl"><span data-en>Per dish ordered</span><span data-zh>每 点 一 道 菜</span></div>
       </div>
       <div>
-        <div class="num">9 + 1</div>
+        <div class="num">9</div>
         <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
       </div>
       <div>

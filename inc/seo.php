@@ -88,7 +88,7 @@ function hakshan_seo_meta_for_context() {
 		case 'home':
 			return array(
 				'title'       => 'Hakshan — Hakka cooking, three generations, nine kitchens in Malaysia',
-				'description' => 'Hakshan (客善) — traditional Hakka Chinese cooking, three generations of the same recipes since 1958. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice — nine outlets across the Klang Valley. Fifteen percent of every bill goes to community causes.',
+				'description' => 'Hakshan (客善) — traditional Hakka Chinese cooking, three generations of the same recipes since 1958. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice — nine outlets across the Klang Valley. RM 5 from every dish ordered goes to community causes.',
 			);
 
 		case 'story':
@@ -153,7 +153,7 @@ function hakshan_seo_meta_for_context() {
 	$title = $post instanceof WP_Post ? get_the_title( $post ) . ' — Hakshan' : 'Hakshan';
 	return array(
 		'title'       => $title,
-		'description' => 'Hakshan — a Hakka Chinese restaurant in Malaysia. Three generations, nine kitchens, fifteen percent of every bill to community causes.',
+		'description' => 'Hakshan — a Hakka Chinese restaurant in Malaysia. Three generations, nine kitchens, RM 5 from every dish ordered to community causes.',
 	);
 }
 

@@ -581,7 +581,7 @@ get_header();
     <div class="info-cell">
       <h4><span data-en>Community partners</span><span data-zh>社 区 合 作</span></h4>
       <a href="mailto:hello@hakshan.com">hello@hakshan.com</a>
-      <div class="small"><span data-en>Fifteen percent of every ringgit goes to community causes. Partners welcome.</span><span data-zh>营收的15% 投入社区用途。欢迎合作。</span></div>
+      <div class="small"><span data-en>RM 5 from every dish ordered goes to community causes. Partners welcome.</span><span data-zh>每点一道菜，RM 5 投入社区用途。欢迎合作。</span></div>
     </div>
   </div>
 </section>

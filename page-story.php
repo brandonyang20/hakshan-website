@@ -375,8 +375,8 @@ get_header();
                'p_en' => 'The 2nd generation moves to Kuala Lumpur and opens the family\'s first restaurant. For the first time, the dishes are written down — in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
                'p_zh' => '第二代北上吉隆坡，开了家中第一家餐厅。第一次，那些菜被写下来 — 用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。' ),
         array( 'year' => '2024', 'h_en' => 'Hakshan opens, USJ',          'h_zh' => '客 善 开 业 · USJ',
-               'p_en' => 'February. The 3rd generation opens Hakshan in USJ — 客善, guest, kindness. Same recipes, same paper, new chairs. RM 15 a set. Fifteen percent of every ringgit, written into the kitchen\'s costs, returned to the community.',
-               'p_zh' => '二月，第三代在 USJ 开出客善 — 客者，善也。食谱不变，纸不变，椅子换了。RM 15一套。营收的15%，写进厨房的成本里，回馈社区。' ),
+               'p_en' => 'February. The 3rd generation opens Hakshan in USJ — 客善, guest, kindness. Same recipes, same paper, new chairs. RM 15 a set. RM 5 from every dish ordered, written into the menu price, returned to the community.',
+               'p_zh' => '二月，第三代在 USJ 开出客善 — 客者，善也。食谱不变，纸不变，椅子换了。RM 15一套。每点一道菜 RM 5，写进菜价里，回馈社区。' ),
         array( 'year' => '2025', 'h_en' => 'Eight more kitchens',         'h_zh' => '再 添 八 家',
                'p_en' => 'Eight more outlets open within twenty-two months — Menjalara, Cheras, Bandar Puteri Puchong, IOI Conezion, Budiman Park Kajang, Arcoris Mont Kiara, The Waterfront ParkCity, Plaza Arkadia. Same recipes, same standards, same pencilled paper in every kitchen.',
                'p_zh' => '二十二个月内，再开八家 — 满家拉、蕉赖、蒲种 Bandar Puteri、IOI Conezion、加影、满家乐、ParkCity、Plaza Arkadia。同样的食谱，同样的标准，同样那叠铅笔字的纸。' ),
@@ -422,8 +422,8 @@ get_header();
       <span data-zh>我们留下的</span>
     </div>
     <p class="line">
-      <span data-en>The book. <em>The fire.</em><br/>The fifteen percent —<br/><em>written in, every meal.</em></span>
-      <span data-zh>那本食谱。<em>那把火。</em><br/>那 15% — <em>写进每一餐里。</em></span>
+      <span data-en>The book. <em>The fire.</em><br/>RM 5 a dish —<br/><em>written in, every meal.</em></span>
+      <span data-zh>那本食谱。<em>那把火。</em><br/>每一道菜 RM 5 — <em>写进每一餐里。</em></span>
     </p>
   </div>
 </section>
@@ -467,8 +467,8 @@ get_header();
         <span data-en>Same recipes, new room</span><span data-zh>同一本食谱，新的厅</span>
       </h3>
       <p>
-        <span data-en>Opened Hakshan in USJ, February 2024. Same recipes. Same paper. New chairs, new price point, and a new rule: fifteen percent of every bill, written into the kitchen's costs, returned to community causes.</span>
-        <span data-zh>2024年2月，在 USJ 开出客善。食谱不变，纸不变。椅子换了，价位换了，规则也换了 — 每一张账单的15%，写进厨房的成本里，回馈社区。</span>
+        <span data-en>Opened Hakshan in USJ, February 2024. Same recipes. Same paper. New chairs, new price point, and a new rule: RM 5 from every dish ordered, written into the menu price, returned to community causes.</span>
+        <span data-zh>2024年2月，在 USJ 开出客善。食谱不变，纸不变。椅子换了，价位换了，规则也换了 — 每点一道菜 RM 5，写进菜价里，回馈社区。</span>
       </p>
     </div>
   </div>
@@ -489,17 +489,17 @@ get_header();
     </div>
     <div data-reveal>
       <p class="lead">
-        <span data-en>Fifteen percent of every bill at every outlet is set aside at the end of service and paid out at the end of every month. The amount isn't printed on the receipt; you can ask any outlet for the monthly figure.</span>
-        <span data-zh>每一家门店的每一张账单，15% 在营业结束时即留出，月底统一拨付。收据上不显示金额；可向任一门店询问当月数字。</span>
+        <span data-en>RM 5 from every dish ordered at every outlet is set aside at the end of service and paid out at the end of every month. The amount isn't printed on the receipt; you can ask any outlet for the monthly total.</span>
+        <span data-zh>每一家门店每点一道菜，RM 5 在营业结束时即留出，月底统一拨付。收据上不显示金额；可向任一门店询问当月总额。</span>
       </p>
       <p>
         <span data-en>A fixed share of every ringgit is allocated to three focus areas: education, elderly care, and animal welfare. It is not a donation made out of profit. It is written into the kitchen's cost structure — at the same line as rent, food, and staff. It cannot be skipped because there isn't a flag to skip it.</span>
         <span data-zh>每一元营收的固定比例，投入三个方向：教育、长者关怀、动物福利。这不是用利润做的捐赠，而是写进厨房成本结构里的一行 — 与租金、食材、人工同一行。无法被跳过，因为根本没有跳过它的选项。</span>
       </p>
       <div class="charity-block__stats">
-        <div><div class="num">15<span style="font-size: 0.55em; opacity: 0.7;">%</span></div>
-          <div class="lbl"><span data-en>Of every ringgit</span><span data-zh>每 一 元 营 收</span></div></div>
-        <div><div class="num">9 + 1</div>
+        <div><div class="num"><span style="font-size: 0.55em; opacity: 0.7;">RM </span>5</div>
+          <div class="lbl"><span data-en>Per dish ordered</span><span data-zh>每 点 一 道 菜</span></div></div>
+        <div><div class="num">9</div>
           <div class="lbl"><span data-en>Outlets participating · all of them</span><span data-zh>参 与 门 店 · 全 部</span></div></div>
         <div><div class="num">3</div>
           <div class="lbl"><span data-en>Focus areas · education, elders, animals</span><span data-zh>三 个 方 向 · 教 育、长 者、动 物</span></div></div>
