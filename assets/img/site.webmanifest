@@ -1,0 +1,21 @@
+{
+    "name": "Hakshan",
+    "short_name": "Hakshan",
+    "description": "Hakka cooking, three generations, nine kitchens in Malaysia.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#F9F7F2",
+    "theme_color": "#EBDFC4",
+    "icons": [
+        {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

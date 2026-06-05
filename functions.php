@@ -8,11 +8,12 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.0.24' );
+	define( 'HAKSHAN_THEME_VERSION', '1.1.0' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
 require_once get_theme_file_path( 'inc/outlet-cpt.php' );
+require_once get_theme_file_path( 'inc/seo.php' );
 
 /**
  * Theme setup — features and supports.

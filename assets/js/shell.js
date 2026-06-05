@@ -233,8 +233,17 @@
     recomputeActive();
   }
 
+  // ---------- Tag bilingual spans with their language ----------
+  // Helps search engines understand which span is which language without
+  // requiring a per-template `lang="..."` attribute on every node.
+  function initLangAttrs() {
+    document.querySelectorAll("[data-en]:not([lang])").forEach(el => el.setAttribute("lang", "en"));
+    document.querySelectorAll("[data-zh]:not([lang])").forEach(el => el.setAttribute("lang", "zh-Hans"));
+  }
+
   function boot() {
     initLang();
+    initLangAttrs();
     initReveal();
     initActiveNav();
     initDrawer();

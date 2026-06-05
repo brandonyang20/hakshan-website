@@ -716,6 +716,10 @@ get_header();
 
 <!-- ============== HERO ============== -->
 <section class="hero-a">
+  <h1 class="sr-only">
+    <span data-en>Hakshan — Hakka cooking, three generations, nine kitchens in Malaysia.</span>
+    <span data-zh>客善 — 三代人的客家菜，九家厨房，遍布马来西亚。</span>
+  </h1>
   <div class="hero-a__logo" data-reveal>
     <img src="<?php echo esc_url( get_theme_file_uri( 'assets/brand/hakshan-logo-ground.png' ) ); ?>" alt="Hakshan 客善 · 三代人的传承" />
   </div>
