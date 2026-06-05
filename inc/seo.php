@@ -610,7 +610,7 @@ function hakshan_seo_story_article_node() {
 	return array(
 		'@context'         => 'https://schema.org',
 		'@type'            => 'Article',
-		'headline'         => 'Three generations. One recipe book.',
+		'headline'         => 'Three Generations, One Recipe',
 		'description'      => $meta['description'],
 		'inLanguage'       => 'en',
 		'image'            => esc_url_raw( get_theme_file_uri( 'assets/img/og-default.png' ) ),

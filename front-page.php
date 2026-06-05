@@ -737,12 +737,12 @@ get_header();
         <span data-en>OUR STORY</span><span data-zh>我们的故事</span>
       </span>
       <h2>
-        <span data-en>Three<br/>generations.<br/><em>One recipe book.</em></span>
-        <span data-zh>三代人，<br/><em>一本食谱。</em></span>
+        <span data-en>Three Generations<br/><em>One Recipe</em></span>
+        <span data-zh>三代人<br/><em>一脉相承</em></span>
       </h2>
       <p class="h-body">
-        <span data-en>It's not really a book. It's a stack of yellowed paper, pencilled notes, and three generations of cooks who never quite agreed on how dark the wok should look. We're still cooking out of it.</span>
-        <span data-zh>那其实不是一本书。是一沓泛黄的纸、铅笔的字，与三代下厨的人 — 他们从没真正同意过镬要黑到什么程度。我们至今还在照着它做菜。</span>
+        <span data-en>Hakka cooking, kept whole — the same way our grandmother made it in Seremban in 1958, the same way we cook it in nine kitchens today.</span>
+        <span data-zh>客家菜，原味原样 — 1958年阿婆在芙蓉怎么做，今天我们在九家厨房里就怎么做。</span>
       </p>
       <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>" style="margin-top: 24px;">
         <span data-en>Read the story</span><span data-zh>阅读故事</span>
