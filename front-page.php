@@ -794,12 +794,12 @@ get_header();
         <span data-en>SIGNATURES</span><span data-zh>招牌菜单</span>
       </span>
       <h2>
-        <span data-en>What we cook,<br/><em>and why.</em></span>
-        <span data-zh>我们做的，<br/><em>就是这些。</em></span>
+        <span data-en>What we <em>cook</em>.</span>
+        <span data-zh>我们做的<em>菜</em>。</span>
       </h2>
       <p class="h-body" style="max-width: 50ch; margin-top: 20px;">
-        <span data-en>Hakka cooking is the food of a migrant Chinese community in Malaysia — salt-cured, slow-braised, made to last in a kitchen without a fridge. These are six we'll always have.</span>
-        <span data-zh>客家菜，是华人移民传下来的菜系 — 盐渍、慢炖，原是没有冰箱年代留下的味道。这六道，我们永远会做。</span>
+        <span data-en>Hakka signature dishes — salt-cured, slow-braised, cooked the way they were in Seremban since 1958.</span>
+        <span data-zh>客家招牌菜 — 盐渍、慢炖，1958年起，沿用芙蓉的做法。</span>
       </p>
     </div>
     <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>" data-reveal>
