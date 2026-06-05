@@ -483,22 +483,20 @@ get_header();
         <span data-zh>用餐慈善</span>
       </span>
       <h2>
-        <span data-en>Every plate<br/>buys <em>one more.</em></span>
+        <span data-en>Pay it<br/><em>Forward.</em></span>
         <span data-zh>一菜<br/><em>一善。</em></span>
       </h2>
     </div>
     <div data-reveal>
       <p class="lead">
-        <span data-en>RM 5 from every dish ordered at every outlet is set aside at the end of service and paid out at the end of every month. The amount isn't printed on the receipt; you can ask any outlet for the monthly total.</span>
-        <span data-zh>每一家门店每点一道菜，RM 5 在营业结束时即留出，月底统一拨付。收据上不显示金额；可向任一门店询问当月总额。</span>
+        <span data-en>Part of every sale at every outlet goes to community causes — written into the menu price, not added on top. Same rule, every kitchen, every day.</span>
+        <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途 — 已含在菜价里，不是额外附加的。同一条规则，每一天。</span>
       </p>
       <p>
-        <span data-en>A fixed share of every ringgit is allocated to three focus areas: education, elderly care, and animal welfare. It is not a donation made out of profit. It is written into the kitchen's cost structure — at the same line as rent, food, and staff. It cannot be skipped because there isn't a flag to skip it.</span>
-        <span data-zh>每一元营收的固定比例，投入三个方向：教育、长者关怀、动物福利。这不是用利润做的捐赠，而是写进厨房成本结构里的一行 — 与租金、食材、人工同一行。无法被跳过，因为根本没有跳过它的选项。</span>
+        <span data-en>Three causes: education, elderly care, and animal welfare. Not a donation made out of profit — written into the kitchen's costs, alongside rent, food, and staff. There's no flag to skip it.</span>
+        <span data-zh>三个方向：教育、长者关怀、动物福利。不是从利润里抽出来的捐赠 — 写进厨房成本里，与租金、食材、人工同行。没有可以跳过它的选项。</span>
       </p>
       <div class="charity-block__stats">
-        <div><div class="num"><span style="font-size: 0.55em; opacity: 0.7;">RM </span>5</div>
-          <div class="lbl"><span data-en>Per dish ordered</span><span data-zh>每 点 一 道 菜</span></div></div>
         <div><div class="num">9</div>
           <div class="lbl"><span data-en>Outlets participating · all of them</span><span data-zh>参 与 门 店 · 全 部</span></div></div>
         <div><div class="num">3</div>

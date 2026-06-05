@@ -900,14 +900,10 @@ get_header();
   </div>
   <div data-reveal>
     <p>
-      <span data-en>RM 5 from every dish you order goes to community causes — written into the menu price, not added on top. The amount isn't printed on the receipt; ask any outlet for the monthly total.</span>
-      <span data-zh>每点一道菜，RM 5 拨入社区用途 — 已含在菜价里，不是额外附加的。金额不印在收据上；可向任一门店询问当月总额。</span>
+      <span data-en>Part of every sale at every outlet goes to community causes — written into the menu price, not added on top. Same rule, every kitchen, every day.</span>
+      <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途 — 已含在菜价里，不是额外附加的。同一条规则，每一天。</span>
     </p>
     <div class="charity__stats">
-      <div>
-        <div class="num"><span style="font-size: 0.55em; opacity: 0.7;">RM </span>5</div>
-        <div class="lbl"><span data-en>Per dish ordered</span><span data-zh>每 点 一 道 菜</span></div>
-      </div>
       <div>
         <div class="num">9</div>
         <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
