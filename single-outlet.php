@@ -185,8 +185,8 @@ $maps_embed = $o['addr']
   </h1>
 
   <p class="lead">
-    <span data-en>A Hakshan kitchen in <?php echo esc_html( $city_pretty ); ?> — the same recipes since 1958, the same kitchen discipline as every other outlet. Traditional Hakka cooking: salt-cured, slow-braised, made to last.</span>
-    <span data-zh>客善在<?php echo esc_html( $city_pretty ); ?>的一间厨房 — 同一份食谱，1958年至今未变，与每一间门店同一套厨房纪律。传统客家菜：盐渍、慢炖，做出来是耐放的味道。</span>
+    <span data-en>A Hakshan kitchen in <?php echo esc_html( $city_pretty ); ?>. Same recipes since 1958, same kitchen discipline as every other outlet. Traditional Hakka cooking: salt-cured, slow-braised, made to last.</span>
+    <span data-zh>客善在<?php echo esc_html( $city_pretty ); ?>的一间厨房。同一份食谱，1958年至今未变，与每一间门店同一套厨房纪律。传统客家菜：盐渍、慢炖，做出来是耐放的味道。</span>
   </p>
 </section>
 
@@ -254,8 +254,8 @@ $maps_embed = $o['addr']
 
 <section class="so-foot">
   <p>
-    <span data-en>The book has never been retyped. The original is kept safe; pencilled copies hang in every kitchen — including this one.</span>
-    <span data-zh>那叠纸至今没有重打过。原稿仍是原稿，铅笔字的复印本挂在每一家厨房 — 包括这一家。</span>
+    <span data-en>The book has never been retyped. The original is kept safe; pencilled copies hang in every kitchen, including this one.</span>
+    <span data-zh>那叠纸至今没有重打过。原稿仍是原稿，铅笔字的复印本挂在每一家厨房，包括这一家。</span>
   </p>
   <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>">
     <span data-en>Read the story</span><span data-zh>阅读故事</span><span class="arr">→</span>

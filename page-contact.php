@@ -355,7 +355,7 @@ get_header();
     </div>
 
     <div class="reserve-form-block">
-      <form class="contact-form" data-reveal onsubmit="event.preventDefault(); alert('Reservation submitted — we will confirm by phone within an hour.');">
+      <form class="contact-form" data-reveal onsubmit="event.preventDefault(); alert('Reservation submitted. We will confirm by phone within an hour.');">
         <div>
           <label><span data-en>Outlet</span><span data-zh>分店</span></label>
           <div class="pick-row" id="outletPick">
@@ -416,14 +416,14 @@ get_header();
         </div>
 
         <div>
-          <label><span data-en>Notes — allergies, pre-orders, the second pot of tea</span><span data-zh>备注 — 过敏、预订菜、加一壶茶</span></label>
-          <textarea name="notes" rows="3" placeholder="—"></textarea>
+          <label><span data-en>Notes · allergies, pre-orders, the second pot of tea</span><span data-zh>备注 · 过敏、预订菜、加一壶茶</span></label>
+          <textarea name="notes" rows="3" placeholder="..."></textarea>
         </div>
 
         <div class="submit-row">
           <span class="terms">
-            <span data-en>WE'LL CONFIRM BY PHONE WITHIN ONE HOUR · 11:00 — 22:00</span>
-            <span data-zh>我们将在一小时内电话确认·11:00 — 22:00</span>
+            <span data-en>WE'LL CONFIRM BY PHONE WITHIN ONE HOUR · 11:00–22:00</span>
+            <span data-zh>我们将在一小时内电话确认 · 11:00–22:00</span>
           </span>
           <button class="btn" type="submit"><span data-en>Reserve</span><span data-zh>提交预订</span><span class="arr">→</span></button>
         </div>
@@ -433,8 +433,8 @@ get_header();
         <div class="card">
           <h4><span data-en>Call directly</span><span data-zh>电 话 预 订</span></h4>
           <p>+60 16-246 2970</p>
-          <div class="small"><span data-en>Daily 11:00 — 22:00 · all reservations route through the USJ flagship and are forwarded.</span>
-            <span data-zh>每日11:00 — 22:00·所有预订通过 USJ 旗舰店统一接待后转至各分店。</span></div>
+          <div class="small"><span data-en>Daily 11:00–22:00 · all reservations route through the USJ flagship and are forwarded.</span>
+            <span data-zh>每日 11:00–22:00 · 所有预订通过 USJ 旗舰店统一接待后转至各分店。</span></div>
         </div>
         <div class="card">
           <h4><span data-en>Whatsapp</span><span data-zh>WhatsApp</span></h4>
@@ -482,15 +482,15 @@ get_header();
     <div class="press-card">
       <h4><span data-en>BRAND ASSETS</span><span data-zh>品 牌 素 材</span></h4>
       <h3><span data-en>Press kit on request</span><span data-zh>媒 体 包 · 应 求 提 供</span></h3>
-      <p><span data-en>Logo, photography library, charity model fact sheet — sent by email on request.</span>
-        <span data-zh>标志、图库、慈善模式简报 — 应求以电邮寄送。</span></p>
+      <p><span data-en>Logo, photography library, charity model fact sheet. Sent by email on request.</span>
+        <span data-zh>标志、图库、慈善模式简报。应求以电邮寄送。</span></p>
       <div class="link"><a href="mailto:press@hakshan.com?subject=Press%20kit%20request" style="color: inherit;">Request kit <span class="arr">→</span></a></div>
     </div>
     <div class="press-card">
       <h4><span data-en>KITCHEN VISITS</span><span data-zh>厨 房 探 访</span></h4>
       <h3><span data-en>By appointment</span><span data-zh>预 约 制</span></h3>
-      <p><span data-en>Behind-the-pass photography and kitchen tours, arranged in advance — outside service hours, so the line keeps moving.</span>
-        <span data-zh>厨房跟拍与厨房参观，须提前预约 — 安排在营业时段之外，避免影响出餐。</span></p>
+      <p><span data-en>Behind-the-pass photography and kitchen tours, arranged in advance, outside service hours so the line keeps moving.</span>
+        <span data-zh>厨房跟拍与厨房参观，须提前预约，安排在营业时段之外，避免影响出餐。</span></p>
       <div class="link"><a href="mailto:press@hakshan.com?subject=Kitchen%20visit" style="color: inherit;">Arrange a visit <span class="arr">→</span></a></div>
     </div>
   </div>
@@ -511,7 +511,7 @@ get_header();
         </h2>
       </div>
       <p>
-        <span data-en>We hire slowly. Apprentices are trained in-house before they ever stand at an outlet wok — every kitchen lead at every outlet went through this pipeline.</span>
+        <span data-en>We hire slowly. Apprentices are trained in-house before they ever stand at an outlet wok. Every kitchen lead at every outlet went through this pipeline.</span>
         <span data-zh>招人不急。学徒先在内部受训，然后才进入门店。每一家门店的厨房主管，皆由此路培养而来。</span>
       </p>
     </div>
@@ -520,7 +520,7 @@ get_header();
       $careers = array(
         array( 'ix' => 'N° 01', 'h_en' => 'Kitchen Apprentice',               'h_zh' => '厨 房 学 徒',               's_en' => 'In-house training · 12-month programme',         's_zh' => '内 部 培 训 · 十 二 个 月',         'where' => 'USJ Taipan · HQ', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
         array( 'ix' => 'N° 02', 'h_en' => 'Outlet Kitchen Lead',              'h_zh' => '门 店 厨 房 主 管',         's_en' => 'Lead a single outlet kitchen',                   's_zh' => '独 立 主 持 一 间 门 店 厨 房',   'where' => 'Mont Kiara',     'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
-        array( 'ix' => 'N° 03', 'h_en' => 'Service Captain',                  'h_zh' => '领 班',                     's_en' => 'Daily 11:00 — 22:00, bilingual',                's_zh' => '每 日 11:00 — 22:00，双 语',     'where' => 'Cheras Traders', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
+        array( 'ix' => 'N° 03', 'h_en' => 'Service Captain',                  'h_zh' => '领 班',                     's_en' => 'Daily 11:00–22:00, bilingual',                  's_zh' => '每 日 11:00–22:00，双 语',       'where' => 'Cheras Traders', 'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
         array( 'ix' => 'N° 04', 'h_en' => 'Community Programmes Officer',     'h_zh' => '社 区 项 目 主 任',         's_en' => 'Coordinate the per-dish community allocation',   's_zh' => '统 筹 每 道 菜 的 社 区 投 入',  'where' => 'USJ Taipan · HQ','w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
         array( 'ix' => 'N° 05', 'h_en' => 'Front-of-House',                   'h_zh' => '门 店 前 厅',               's_en' => 'Daily service, all outlets',                     's_zh' => '日 常 服 务，各 门 店',           'where' => 'Klang Valley',   'w_en' => 'Applications · rolling',        'w_zh' => '滚 动 招 募' ),
       );

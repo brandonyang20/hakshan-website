@@ -450,8 +450,8 @@ get_header();
     </h1>
   </div>
   <p>
-    <span data-en>Hakshan Cuisines (客善) was established as an independent venture in February 2024, led by the team behind Ying Ker Lou (迎客楼) — an eighteen-year-old Hakka cuisine brand they grew to thirteen retail outlets across Malaysia's major shopping malls. Hakshan applies the same operating discipline to a more accessible price point: an RM 15 set, with RM 5 from every dish ordered structurally returned to community causes. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
-    <span data-zh>客善于2024年2月以独立实体成立，由迎客楼的创始团队主理 — 迎客楼是团队历时十八年打造、于各大商场开设过十三家门店的客家料理老字号。客善把同一套运营纪律带到更平易的价位 — RM 15套餐，每点一道菜，RM 5 以制度形式回馈社区。目前营运中共九家门店与一家云厨房，第十家门店与第三家云厨房将于下月开业。</span>
+    <span data-en>Hakshan Cuisines (客善) was established as an independent venture in February 2024, led by the team behind Ying Ker Lou (迎客楼), an eighteen-year-old Hakka cuisine brand they grew to thirteen retail outlets across Malaysia's major shopping malls. Hakshan applies the same operating discipline to a more accessible price point: an RM 15 set, with a portion of every sale structurally returned to community causes. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
+    <span data-zh>客善于2024年2月以独立实体成立，由迎客楼的创始团队主理。迎客楼是团队历时十八年打造、于各大商场开设过十三家门店的客家料理老字号。客善把同一套运营纪律带到更平易的价位：RM 15套餐，每一笔营业额的一部分，以制度形式回馈社区。目前营运中共九家门店与一家云厨房，第十家门店与第三家云厨房将于下月开业。</span>
   </p>
 </section>
 
@@ -495,22 +495,22 @@ get_header();
   </div>
   <div class="inv-narrative__body" data-reveal>
     <p class="lead">
-      <span data-en>RM 5 from every dish ordered — written into the menu price, not bolted onto the profit. Philanthropy and profit share the same line item.</span>
-      <span data-zh>每点一道菜，RM 5 — 写进菜价里，不是从利润里抽出来的。慈善与盈利，写在同一行。</span>
+      <span data-en>A portion of every sale, written into the cost structure, not bolted onto the profit. Philanthropy and profit share the same line item.</span>
+      <span data-zh>每一笔营业额的一部分，写进成本结构里，不是从利润里抽出来的。慈善与盈利，写在同一行。</span>
     </p>
     <p>
-      <span data-en>Hakshan's proposition begins with eighteen years of accumulated operating experience. The founding team built Ying Ker Lou into a thirteen-outlet Hakka cuisine brand across major Malaysian malls; with Hakshan, they apply the same operating discipline to a more accessible price point — an RM 15 set, with RM 5 from every dish ordered committed to community causes. The expertise is not new. The brand, the price point, and the discipline of giving are.</span>
-      <span data-zh>客善的提案，始于团队累积的十八年经验。这支曾一手打造迎客楼、于各大商场开出十三家客家门店的团队，如今以客善把同一套运营纪律带到更平易的价位 — RM 15套餐，每点一道菜，RM 5 制度化地回馈社区。经验不是新的，新的是品牌、价位，与这份给予的纪律。</span>
+      <span data-en>Hakshan's proposition begins with eighteen years of accumulated operating experience. The founding team built Ying Ker Lou into a thirteen-outlet Hakka cuisine brand across major Malaysian malls. With Hakshan, they apply the same operating discipline to a more accessible price point: an RM 15 set, with a portion of every sale committed to community causes. The expertise is not new. The brand, the price point, and the discipline of giving are.</span>
+      <span data-zh>客善的提案，始于团队累积的十八年经验。这支曾一手打造迎客楼、于各大商场开出十三家客家门店的团队，如今以客善把同一套运营纪律带到更平易的价位：RM 15套餐，每一笔营业额的一部分，制度化地回馈社区。经验不是新的，新的是品牌、价位，与这份给予的纪律。</span>
     </p>
     <span class="small"><span data-en>WHAT MAKES THE MODEL DEFENSIBLE</span><span data-zh>模式的护城河</span></span>
     <p>
-      <span data-en>The full back-of-house — preparation, sourcing, training — built and operated by the team. Standard Operating Procedures honed across eighteen years and thirteen prior outlets, applied to every Hakshan outlet from day one — not invented under deadline. Supplier relationships eighteen years deep. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book — three generations of Hakka cuisine — that is not for franchise sale.</span>
-      <span data-zh>整条后厨 — 预备、采购、培训 — 由团队自建自营。标准作业流程经十八年、十三家门店沉淀，自第一间客善门店开业之日起即投入使用 — 不是临时拼凑出来的。十八年累积的供应商关系。「零浪费」是厨房纪律，不是营销口号。三代人的客家食谱 — 不对外出售。</span>
+      <span data-en>The full back-of-house (preparation, sourcing, training) built and operated by the team. Standard Operating Procedures honed across eighteen years and thirteen prior outlets, applied to every Hakshan outlet from day one, not invented under deadline. Supplier relationships eighteen years deep. Zero wastage as a kitchen discipline, not a marketing line. And a recipe book, three generations of Hakka cuisine, that is not for franchise sale.</span>
+      <span data-zh>整条后厨（预备、采购、培训）由团队自建自营。标准作业流程经十八年、十三家门店沉淀，自第一间客善门店开业之日起即投入使用，不是临时拼凑出来的。十八年累积的供应商关系。「零浪费」是厨房纪律，不是营销口号。三代人的客家食谱，不对外出售。</span>
     </p>
     <span class="small"><span data-en>WHY NOW</span><span data-zh>为何此时</span></span>
     <p>
-      <span data-en>Expansion is already in motion. The 10th retail outlet and the 3rd cloud kitchen open next month. A Penang outlet (Tanjong Tokong) is targeted for Q2 2026. Pipeline locations include Damansara Uptown, SS15 Subang, the Sunway University area, SS2 Petaling Jaya and Section 14 Petaling Jaya — each chosen for its community profile, not its rent yield.</span>
-      <span data-zh>扩张已在进行。第十家门店与第三家云厨房将于下月开业。槟城丹绒道光店计划于2026年第二季度开业。待进入的地段包括：白沙罗上城、梳邦 SS15、双威大学一带、八打灵 SS2、八打灵14区 — 选址看的是社区气质，不是租金回报。</span>
+      <span data-en>Expansion is already in motion. The 10th retail outlet and the 3rd cloud kitchen open next month. A Penang outlet (Tanjong Tokong) is targeted for Q2 2026. Pipeline locations include Damansara Uptown, SS15 Subang, the Sunway University area, SS2 Petaling Jaya and Section 14 Petaling Jaya. Each chosen for its community profile, not its rent yield.</span>
+      <span data-zh>扩张已在进行。第十家门店与第三家云厨房将于下月开业。槟城丹绒道光店计划于2026年第二季度开业。待进入的地段包括：白沙罗上城、梳邦 SS15、双威大学一带、八打灵 SS2、八打灵14区。选址看的是社区气质，不是租金回报。</span>
     </p>
   </div>
 </section>
@@ -529,8 +529,8 @@ get_header();
       </h2>
     </div>
     <p>
-      <span data-en>Each franchise is engineered around a fixed cost structure. Food is held at 30% of revenue; operating expense (rent, utilities, ~10 staff) at 21%; the charity contribution — RM 5 from every dish ordered — is written into the menu price, non-negotiable. What's left is the net margin, which the model targets at approximately one-third of revenue.</span>
-      <span data-zh>每一家加盟店的成本结构固定：食材30%；运营费用（租金、水电、约10名员工）21%；慈善 — 每点一道菜 RM 5 — 已写进菜价里，不可调整。剩下的，便是净利率，模型大致定在营收的三分之一。</span>
+      <span data-en>Each franchise is engineered around a fixed cost structure. Food is held at 30% of revenue; operating expense (rent, utilities, ~10 staff) at 21%; the charity contribution sits in the cost structure, non-negotiable. What's left is the net margin, which the model targets at approximately one-third of revenue.</span>
+      <span data-zh>每一家加盟店的成本结构固定：食材30%；运营费用（租金、水电、约10名员工）21%；慈善的部分写在成本结构里，不可调整。剩下的，便是净利率，模型大致定在营收的三分之一。</span>
     </p>
   </div>
 
@@ -550,14 +550,14 @@ get_header();
     <div class="model-node">
       <div class="ix">03 · OPEX</div>
       <h4><span data-en>Operating expense</span><span data-zh>运 营 费 用</span><span class="cn">运 营 费 用</span></h4>
-      <p><span data-en>21% — rent, utilities, and a team of around ten per outlet.</span>
-        <span data-zh>占21% — 含租金、水电、约十人团队。</span></p>
+      <p><span data-en>21% covers rent, utilities, and a team of around ten per outlet.</span>
+        <span data-zh>占21%，含租金、水电、约十人团队。</span></p>
     </div>
     <div class="model-node accent">
       <div class="ix">04 · CHARITY</div>
       <h4><span data-en>Charity contribution</span><span data-zh>慈 善 投 入</span><span class="cn">慈 善 投 入</span></h4>
-      <p><span data-en>RM 5 from every dish ordered — structural, built into the menu price. Allocated to education, elderly care and animal welfare.</span>
-        <span data-zh>每点一道菜 RM 5 — 制度化，已含在菜价里。用于教育、敬老、关爱流浪动物。</span></p>
+      <p><span data-en>A portion of every sale, structural. Allocated to education, elderly care and animal welfare.</span>
+        <span data-zh>每一笔营业额的一部分，制度化。用于教育、敬老、关爱流浪动物。</span></p>
     </div>
     <div class="model-node">
       <div class="ix">05 · NET</div>
@@ -583,7 +583,7 @@ get_header();
         </h2>
       </div>
       <p>
-        <span data-en>Hakshan grows at the pace of its supply chain — not its capital. Every new location is chosen for its community profile and its fit with the existing supply network. No outlet has been closed since launch.</span>
+        <span data-en>Hakshan grows at the pace of its supply chain, not its capital. Every new location is chosen for its community profile and its fit with the existing supply network. No outlet has been closed since launch.</span>
         <span data-zh>客善的扩张节奏，跟着供应链，而非资金。每一个新址，都看社区气质与现有供应网络的契合。开业以来无一家门店关闭。</span>
       </p>
     </div>
@@ -608,7 +608,7 @@ get_header();
           <span data-zh>巴生谷以外的首店。软开邀请通过投资人名单发出。</span></p>
       </div>
       <div class="fp-row">
-        <h4><span data-en>PIPELINE · 2026—2027</span><span data-zh>规 划 中 · 2026—2027</span></h4>
+        <h4><span data-en>PIPELINE · 2026–2027</span><span data-zh>规 划 中 · 2026–2027</span></h4>
         <div class="name"><span data-en>Five Klang Valley sites</span><span data-zh>五 个 巴 生 谷 地 段</span></div>
         <p><span data-en>Damansara Uptown · SS15 Subang · Sunway University · SS2 Petaling Jaya · Section 14 Petaling Jaya. Each shortlisted for community fit, not footfall alone.</span>
           <span data-zh>白沙罗上城·梳邦 SS15·双威大学一带·八打灵 SS2·八打灵14区。看社区气质，不只看人流。</span></p>
@@ -637,8 +637,8 @@ get_header();
       <span data-zh>善人者，<em>人必善之。</em></span>
     </p>
     <div class="by">
-      <span data-en>— THE PHILOSOPHY BEHIND HAKSHAN'S BUSINESS MODEL</span>
-      <span data-zh>— 客善商业模式的信念</span>
+      <span data-en>THE PHILOSOPHY BEHIND HAKSHAN'S BUSINESS MODEL</span>
+      <span data-zh>客善商业模式的信念</span>
     </div>
   </div>
 </section>
@@ -678,8 +678,8 @@ get_header();
     <div class="terms-card accent">
       <span class="pill"><span data-en>PACKAGE B</span><span data-zh>方 案 B</span></span>
       <h3><span data-en>5 lots <em>and above</em></span><span data-zh>五 单 位 <em>及 以 上</em></span></h3>
-      <p><span data-en>Investment from RM 100,000. Shareholder owns one retail outlet plus access to up to three cloud kitchens — the company's structural safety net for outlet-level underperformance.</span>
-        <span data-zh>认购金额 RM 100,000以上。持有一间门店，并可配置至多三间云厨房 — 公司用以对冲单店表现的制度性安排。</span></p>
+      <p><span data-en>Investment from RM 100,000. Shareholder owns one retail outlet plus access to up to three cloud kitchens. This is the company's structural safety net for outlet-level underperformance.</span>
+        <span data-zh>认购金额 RM 100,000以上。持有一间门店，并可配置至多三间云厨房。这是公司用以对冲单店表现的制度性安排。</span></p>
     </div>
   </div>
 
@@ -712,8 +712,8 @@ get_header();
       <div class="ret-row">
         <h4><span data-en>TARGET PAYBACK</span><span data-zh>预 期 回 本</span></h4>
         <div class="name"><span data-en>Within the first year</span><span data-zh>首 年 内</span></div>
-        <p><span data-en>Internal modelling targets capital recovery within the first year of operation. Projection only — actual payback depends on outlet performance and is not guaranteed.</span>
-          <span data-zh>内部模型以开业首年内回本为目标。仅为预测 — 实际回本视门店表现，不构成担保。</span></p>
+        <p><span data-en>Internal modelling targets capital recovery within the first year of operation. Projection only. Actual payback depends on outlet performance and is not guaranteed.</span>
+          <span data-zh>内部模型以开业首年内回本为目标。仅为预测。实际回本视门店表现，不构成担保。</span></p>
       </div>
       <div class="ret-row">
         <h4><span data-en>POST-RECOVERY</span><span data-zh>回 本 之 后</span></h4>

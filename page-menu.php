@@ -44,17 +44,17 @@ $section_word_zh = isset( $zh_numerals[ $total_sections ] ) ? $zh_numerals[ $tot
     </h1>
   </div>
   <p class="page-head__hakka" style="font-size: 17px; line-height: 1.65; color: var(--ink-soft); max-width: 56ch; margin-bottom: 18px;">
-    <span data-en>Hakka food is salt-cured, slow-braised, made to last in a kitchen without a fridge — the cooking of a Chinese migrant community that settled across southern Malaysia. What follows is the menu we've been cooking from since 1958.</span>
-    <span data-zh>客家菜，是盐渍、慢炖，原本是没有冰箱年代留下的味道 — 落脚南马的华人移民社群留下来的家常。下面这一份，是我们家从1958年起就在做的菜。</span>
+    <span data-en>Hakka food is salt-cured, slow-braised, made to last in a kitchen without a fridge. It's the cooking of a Chinese migrant community that settled across southern Malaysia. What follows is the menu we've been cooking from since 1958.</span>
+    <span data-zh>客家菜，是盐渍、慢炖，原本是没有冰箱年代留下的味道。是落脚南马的华人移民社群留下来的家常。下面这一份，是我们家从1958年起就在做的菜。</span>
   </p>
   <?php if ( $total_dishes > 0 && $total_sections > 0 ) : ?>
   <p>
-    <span data-en><?php echo esc_html( $dish_word_en ); ?> dishes, <?php echo esc_html( $section_word_en ); ?> chapters. Some take an afternoon, some take three days. None of them have been re-engineered for speed. Walk-ins welcome; some dishes are limited daily — call ahead for groups.</span>
+    <span data-en><?php echo esc_html( $dish_word_en ); ?> dishes, <?php echo esc_html( $section_word_en ); ?> chapters. Some take an afternoon, some take three days. None of them have been re-engineered for speed. Walk-ins welcome; some dishes are limited daily, so call ahead for groups.</span>
     <span data-zh><?php echo esc_html( $dish_word_zh ); ?>道菜，<?php echo esc_html( $section_word_zh ); ?>个章节。有的需要一个下午，有的需要三天。我们没有为速度做任何「优化」。欢迎散客；部分菜每日限量，团客请先致电。</span>
   </p>
   <?php else : ?>
   <p>
-    <span data-en>Some take an afternoon, some take three days. None of them have been re-engineered for speed. Walk-ins welcome; some dishes are limited daily — call ahead for groups.</span>
+    <span data-en>Some take an afternoon, some take three days. None of them have been re-engineered for speed. Walk-ins welcome; some dishes are limited daily, so call ahead for groups.</span>
     <span data-zh>有的需要一个下午，有的需要三天。我们没有为速度做任何「优化」。欢迎散客；部分菜每日限量，团客请先致电。</span>
   </p>
   <?php endif; ?>

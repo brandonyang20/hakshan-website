@@ -28,7 +28,7 @@ if ( ! defined( 'HAKSHAN_BRAND_EMAIL' ) ) {
 	define( 'HAKSHAN_BRAND_EMAIL', 'hello@hakshan.com' );
 }
 if ( ! defined( 'HAKSHAN_BRAND_HOURS_TEXT' ) ) {
-	define( 'HAKSHAN_BRAND_HOURS_TEXT', 'Daily 11:00 — 22:00' );
+	define( 'HAKSHAN_BRAND_HOURS_TEXT', 'Daily 11:00–22:00' );
 }
 
 /* ---------------------------------------------------------------------------
@@ -87,26 +87,26 @@ function hakshan_seo_meta_for_context() {
 	switch ( $ctx ) {
 		case 'home':
 			return array(
-				'title'       => 'Hakshan — Hakka cooking, three generations, nine kitchens in Malaysia',
-				'description' => 'Hakshan (客善) — traditional Hakka Chinese cooking, three generations of the same recipes since 1958. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice — nine outlets across the Klang Valley. RM 5 from every dish ordered goes to community causes.',
+				'title'       => 'Hakshan · Hakka cooking, three generations, nine kitchens in Malaysia',
+				'description' => 'Hakshan (客善). Traditional Hakka Chinese cooking, three generations of the same recipes since 1958. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice. Nine outlets across the Klang Valley. Part of every sale goes to community causes.',
 			);
 
 		case 'story':
 			return array(
-				'title'       => 'Our story — three generations of Hakka cooking · Hakshan',
+				'title'       => 'Our story · three generations of Hakka cooking · Hakshan',
 				'description' => 'Three generations of Hakka cooking, the same recipes since 1958. Now nine Hakka restaurants across the Klang Valley.',
 			);
 
 		case 'menu':
 			return array(
-				'title'       => 'Menu — Hakka dishes at Hakshan · USJ, Mont Kiara, Cheras, Puchong & more',
-				'description' => 'The full Hakshan menu — salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice, yong tau foo, Hakka pan mee. Hakka Chinese cooking in Malaysia, six chapters, member pricing.',
+				'title'       => 'Menu · Hakka dishes at Hakshan · USJ, Mont Kiara, Cheras, Puchong & more',
+				'description' => 'The full Hakshan menu: salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice, yong tau foo, Hakka pan mee. Hakka Chinese cooking in Malaysia, six chapters, member pricing.',
 			);
 
 		case 'outlets':
 			return array(
-				'title'       => 'Outlets — find your nearest Hakshan · 9 Hakka restaurants in Klang Valley',
-				'description' => 'All nine Hakshan outlets: USJ Taipan, Menjalara, Cheras Traders Square, Bandar Puteri Puchong, IOI Conezion Putrajaya, Budiman Park Kajang, Arcoris Mont Kiara, and two at Desa ParkCity. Daily 11:00 — 22:00.',
+				'title'       => 'Outlets · find your nearest Hakshan · 9 Hakka restaurants in Klang Valley',
+				'description' => 'All nine Hakshan outlets: USJ Taipan, Menjalara, Cheras Traders Square, Bandar Puteri Puchong, IOI Conezion Putrajaya, Budiman Park Kajang, Arcoris Mont Kiara, and two at Desa ParkCity. Daily 11:00–22:00.',
 			);
 
 		case 'single_outlet':
@@ -117,12 +117,12 @@ function hakshan_seo_meta_for_context() {
 			$city_t = $city ? ucwords( strtolower( $city ) ) : '';
 
 			$title = $name && $city_t
-				? sprintf( '%s — Hakshan Hakka restaurant in %s', $name, $city_t )
-				: trim( $name . ' — Hakshan' );
+				? sprintf( '%s · Hakshan Hakka restaurant in %s', $name, $city_t )
+				: trim( $name . ' · Hakshan' );
 
 			$description = $addr
-				? sprintf( 'Hakshan %s — Hakka cooking, three generations, daily 11:00–22:00. %s. Reservations welcome.', $name, $addr )
-				: sprintf( 'Hakshan %s — a Hakka Chinese restaurant. Daily 11:00–22:00. Reservations welcome.', $name );
+				? sprintf( 'Hakshan %s. Hakka cooking, three generations, daily 11:00–22:00. %s. Reservations welcome.', $name, $addr )
+				: sprintf( 'Hakshan %s, a Hakka Chinese restaurant. Daily 11:00–22:00. Reservations welcome.', $name );
 
 			return array(
 				'title'       => $title,
@@ -131,29 +131,29 @@ function hakshan_seo_meta_for_context() {
 
 		case 'contact':
 			return array(
-				'title'       => 'Reservations & contact — Hakshan',
+				'title'       => 'Reservations & contact · Hakshan',
 				'description' => 'Book a table at any Hakshan outlet, get in touch with press, careers, or investor relations. Walk-ins welcome; book ahead for parties of six or more.',
 			);
 
 		case 'investors':
 			return array(
-				'title'       => 'Investor relations — an 18-year kitchen, a new door · Hakshan',
-				'description' => 'Hakshan grows out of an 18-year Hakka kitchen (Ying Ker Lou / 迎客楼). Unit economics, footprint, and the structural per-dish charity contribution built into every menu price.',
+				'title'       => 'Investor relations · an 18-year kitchen, a new door · Hakshan',
+				'description' => 'Hakshan grows out of an 18-year Hakka kitchen (Ying Ker Lou / 迎客楼). Unit economics, footprint, and the structural per-sale charity contribution built into every menu price.',
 			);
 
 		case 'press':
 			return array(
-				'title'       => 'Press & media — Hakshan',
-				'description' => 'Press kit, brand assets, and media contact for Hakshan — a Hakka Chinese restaurant in Malaysia.',
+				'title'       => 'Press & media · Hakshan',
+				'description' => 'Press kit, brand assets, and media contact for Hakshan, a Hakka Chinese restaurant in Malaysia.',
 			);
 	}
 
 	// Generic page / fallback.
 	$post  = get_queried_object();
-	$title = $post instanceof WP_Post ? get_the_title( $post ) . ' — Hakshan' : 'Hakshan';
+	$title = $post instanceof WP_Post ? get_the_title( $post ) . ' · Hakshan' : 'Hakshan';
 	return array(
 		'title'       => $title,
-		'description' => 'Hakshan — a Hakka Chinese restaurant in Malaysia. Three generations, nine kitchens, RM 5 from every dish ordered to community causes.',
+		'description' => 'Hakshan, a Hakka Chinese restaurant in Malaysia. Three generations, nine kitchens. Part of every sale goes to community causes.',
 	);
 }
 
@@ -312,7 +312,7 @@ function hakshan_seo_render_jsonld() {
 		case 'page':
 			$meta      = hakshan_seo_meta_for_context();
 			$title     = $meta['title'];
-			$short     = explode( ' — ', $title );
+			$short     = explode( ' · ', $title );
 			$payload[] = hakshan_seo_breadcrumb_node(
 				array( array( 'name' => $short[0], 'url' => hakshan_seo_canonical_url() ) )
 			);
@@ -415,7 +415,7 @@ function hakshan_seo_outlet_restaurant_node( $outlet ) {
 		'@context'        => 'https://schema.org',
 		'@type'           => 'Restaurant',
 		'@id'             => get_permalink( $outlet->ID ) . '#restaurant',
-		'name'            => sprintf( '%s — %s', HAKSHAN_BRAND_NAME, $d['name'] ),
+		'name'            => sprintf( '%s · %s', HAKSHAN_BRAND_NAME, $d['name'] ),
 		'alternateName'   => trim( HAKSHAN_BRAND_CN . ' ' . $d['cn'] ),
 		'url'             => get_permalink( $outlet->ID ),
 		'image'           => array(

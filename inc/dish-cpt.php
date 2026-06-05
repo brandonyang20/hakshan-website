@@ -101,7 +101,7 @@ function hakshan_dish_section_metabox( $post ) {
 	);
 
 	echo '<select name="hakshan_dish_section" style="width:100%;">';
-	echo '<option value="">' . esc_html__( '— Select section —', 'hakshan' ) . '</option>';
+	echo '<option value="">' . esc_html__( 'Select section…', 'hakshan' ) . '</option>';
 	foreach ( $terms as $term ) {
 		printf(
 			'<option value="%d"%s>%s</option>',
@@ -143,7 +143,7 @@ add_action( 'save_post_dish', 'hakshan_save_dish_section' );
 function hakshan_dish_field_schema() {
 	return array(
 		'dish_zh'           => array(
-			'label'       => __( 'Chinese name — display (e.g. 盐 焗 鸡)', 'hakshan' ),
+			'label'       => __( 'Chinese name, display (e.g. 盐 焗 鸡)', 'hakshan' ),
 			'type'        => 'text',
 			'placeholder' => '盐 焗 鸡',
 		),
@@ -153,22 +153,22 @@ function hakshan_dish_field_schema() {
 			'placeholder' => 'salt-baked chicken · paper-wrapped',
 		),
 		'dish_desc_en'      => array(
-			'label'       => __( 'Description — English', 'hakshan' ),
+			'label'       => __( 'Description (English)', 'hakshan' ),
 			'type'        => 'textarea',
 			'placeholder' => '',
 		),
 		'dish_desc_zh'      => array(
-			'label'       => __( 'Description — Chinese', 'hakshan' ),
+			'label'       => __( 'Description (Chinese)', 'hakshan' ),
 			'type'        => 'textarea',
 			'placeholder' => '',
 		),
 		'dish_price_normal' => array(
-			'label'       => __( 'Price — normal (e.g. RM 18). Shown struck-through if a member price is also set.', 'hakshan' ),
+			'label'       => __( 'Price, normal (e.g. RM 18). Shown struck-through if a member price is also set.', 'hakshan' ),
 			'type'        => 'text',
 			'placeholder' => 'RM 18',
 		),
 		'dish_price_member' => array(
-			'label'       => __( 'Price — member (e.g. RM 15). Highlighted as the active price. Leave empty if the dish has no member discount.', 'hakshan' ),
+			'label'       => __( 'Price, member (e.g. RM 15). Highlighted as the active price. Leave empty if the dish has no member discount.', 'hakshan' ),
 			'type'        => 'text',
 			'placeholder' => 'RM 15',
 		),
@@ -198,7 +198,7 @@ function hakshan_render_dish_meta_box( $post ) {
 	</style>';
 
 	echo '<div class="hakshan-dish-fields">';
-	echo '<p class="description">' . esc_html__( 'The post title above is used as the English name. Featured image becomes the dish photo. Use the "Order" field under Page Attributes (in the sidebar) to control position within a section — lower numbers appear first.', 'hakshan' ) . '</p>';
+	echo '<p class="description">' . esc_html__( 'The post title above is used as the English name. Featured image becomes the dish photo. Use the "Order" field under Page Attributes (in the sidebar) to control position within a section. Lower numbers appear first.', 'hakshan' ) . '</p>';
 
 	foreach ( hakshan_dish_field_schema() as $key => $field ) {
 		$value = get_post_meta( $post->ID, $key, true );
@@ -255,11 +255,11 @@ add_action( 'save_post_dish', 'hakshan_save_dish_meta' );
 
 function hakshan_section_term_field_schema() {
 	return array(
-		'title_zh'   => __( 'Title — Chinese (display, e.g. 招 牌)', 'hakshan' ),
-		'title_cn'   => __( 'Title — Chinese (compact)', 'hakshan' ),
+		'title_zh'   => __( 'Title, Chinese (display, e.g. 招 牌)', 'hakshan' ),
+		'title_cn'   => __( 'Title, Chinese (compact)', 'hakshan' ),
 		'ch'         => __( 'Eyebrow label (small Chinese above title, e.g. 招 牌)', 'hakshan' ),
-		'lead_en'    => __( 'Lead paragraph — English', 'hakshan' ),
-		'lead_zh'    => __( 'Lead paragraph — Chinese', 'hakshan' ),
+		'lead_en'    => __( 'Lead paragraph (English)', 'hakshan' ),
+		'lead_zh'    => __( 'Lead paragraph (Chinese)', 'hakshan' ),
 		'sort_order' => __( 'Sort order (lower = earlier; e.g. 1, 2, 3)', 'hakshan' ),
 	);
 }
@@ -564,7 +564,7 @@ function hakshan_menu_seed_data() {
 			'title_cn' => '招 牌',
 			'ch'       => '招 牌',
 			'lead_en'  => "Six dishes the kitchen will never take off the menu. Ah Por's six.",
-			'lead_zh'  => '六道我们永远不会下架的菜 — 阿婆留下的六道。',
+			'lead_zh'  => '六道我们永远不会下架的菜，阿婆留下的六道。',
 			'dishes'   => array(
 				array( 'label' => 'salt-baked chicken · whole, paper-wrapped', 'en' => 'Salt-Baked Chicken',           'zh' => '盐 焗 鸡',     'cn' => '客 家 盐 焗 鸡',   'desc_en' => 'Free-range hen, sea salt, kraft paper. Forty minutes in the embers.', 'desc_zh' => '走 地 鸡、海 盐、牛 皮 纸，炭 火 中 四 十 分 钟。' ),
 				array( 'label' => 'mui choy kau yuk · braised pork belly',     'en' => 'Mui Choy Pork Belly',          'zh' => '梅 菜 扣 肉', 'cn' => '梅 菜 扣 肉',       'desc_en' => 'Five-spice belly steamed with pickled mustard greens, the way Ah Por taught it.', 'desc_zh' => '五 香 三 层 肉，与 阿 婆 腌 的 梅 干 菜 同 蒸。' ),
@@ -610,7 +610,7 @@ function hakshan_menu_seed_data() {
 			'lead_en'  => 'Fish paste pounded by hand at 6am. Stuffed by 10am. Sold out by 9pm.',
 			'lead_zh'  => '清晨六点手工捶打鱼浆，十点酿好，晚上九点前卖完。',
 			'dishes'   => array(
-				array( 'label' => 'trio yong tau foo',         'en' => 'Trio Yong Tau Foo',         'zh' => '三 宝 酿 豆 腐', 'cn' => '三 宝',     'desc_en' => 'Bitter gourd, soft tofu, fried tofu — in fish-bone broth.', 'desc_zh' => '苦 瓜、嫩 豆 腐、豆 卜，配 鱼 骨 清 汤。' ),
+				array( 'label' => 'trio yong tau foo',         'en' => 'Trio Yong Tau Foo',         'zh' => '三 宝 酿 豆 腐', 'cn' => '三 宝',     'desc_en' => 'Bitter gourd, soft tofu, fried tofu in fish-bone broth.', 'desc_zh' => '苦 瓜、嫩 豆 腐、豆 卜，配 鱼 骨 清 汤。' ),
 				array( 'label' => 'seven-piece yong tau foo',  'en' => 'Seven-Piece Yong Tau Foo',  'zh' => '七 宝 酿 豆 腐', 'cn' => '七 宝',     'desc_en' => "Brinjal, chilli, lady's finger, mushroom & the trio.", 'desc_zh' => '茄 子、辣 椒、羊 角 豆、香 菇 与 三 宝 同 碗。' ),
 				array( 'label' => 'stuffed fried tofu skin',   'en' => 'Stuffed Fried Tofu Skin',   'zh' => '酿 腐 皮',       'cn' => '酿 腐 皮',  'desc_en' => 'Fish paste, water chestnut, scallion, in a crisp tofu-skin pouch.', 'desc_zh' => '鱼 浆、马 蹄、青 葱，包 入 酥 脆 腐 皮。' ),
 				array( 'label' => 'yong foo hot pot',          'en' => 'Yong Foo Hot Pot',          'zh' => '客 家 酿 煲',    'cn' => '酿 煲',    'desc_en' => 'Clay pot, ten pieces, dark soy, scallion oil.', 'desc_zh' => '砂 锅 装，十 件，老 抽 与 葱 油。' ),
@@ -635,8 +635,8 @@ function hakshan_menu_seed_data() {
 			'title_zh' => '汤 与 酒',
 			'title_cn' => '汤 酒',
 			'ch'       => '汤 与 酒',
-			'lead_en'  => 'Hakka women drank rice wine against the cold. Hakka men drank it too — just less honestly.',
-			'lead_zh'  => '客家妇女用米酒驱寒，客家男人也喝 — 只是没那么坦白。',
+			'lead_en'  => 'Hakka women drank rice wine against the cold. Hakka men drank it too, just less honestly.',
+			'lead_zh'  => '客家妇女用米酒驱寒，客家男人也喝，只是没那么坦白。',
 			'dishes'   => array(
 				array( 'label' => 'old cucumber & pork soup', 'en' => 'Old Cucumber, Pork & Honey Date Soup', 'zh' => '老 黄 瓜 煲',     'cn' => '老 黄 瓜',     'desc_en' => 'Four hours simmer.', 'desc_zh' => '慢 炖 四 小 时，两 人 份 砂 锅。' ),
 				array( 'label' => 'black chicken & dang gui', 'en' => 'Black Chicken & Dang Gui',             'zh' => '当 归 乌 鸡',     'cn' => '当 归 乌 鸡', 'desc_en' => 'Restorative double-boiled soup, ten ingredients.', 'desc_zh' => '十 味 当 归 乌 鸡 炖 汤。' ),

@@ -717,8 +717,8 @@ get_header();
 <!-- ============== HERO ============== -->
 <section class="hero-a">
   <h1 class="sr-only">
-    <span data-en>Hakshan — Hakka cooking, three generations, nine kitchens in Malaysia.</span>
-    <span data-zh>客善 — 三代人的客家菜，九家厨房，遍布马来西亚。</span>
+    <span data-en>Hakshan · Hakka cooking, three generations, nine kitchens in Malaysia.</span>
+    <span data-zh>客善 · 三代人的客家菜，九家厨房，遍布马来西亚。</span>
   </h1>
   <div class="hero-a__logo" data-reveal>
     <img src="<?php echo esc_url( get_theme_file_uri( 'assets/brand/hakshan-logo-ground.png' ) ); ?>" alt="Hakshan 客善 · 三代人的传承" />
@@ -741,8 +741,8 @@ get_header();
         <span data-zh>三代人，<br/><em>一菜谱</em></span>
       </h2>
       <p class="h-body">
-        <span data-en>Traditional Hakka cooking, kept whole — three generations of the same recipes since 1958, now in nine kitchens.</span>
-        <span data-zh>传统客家菜，原味原样 — 三代人，同一份食谱，1958年至今，已遍及九家厨房。</span>
+        <span data-en>Traditional Hakka cooking, kept whole. Three generations of the same recipes since 1958, now in nine kitchens.</span>
+        <span data-zh>传统客家菜，原味原样。三代人，同一份食谱，1958年至今，已遍及九家厨房。</span>
       </p>
       <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>" style="margin-top: 24px;">
         <span data-en>Read the story</span><span data-zh>阅读故事</span>
@@ -754,16 +754,16 @@ get_header();
         <div class="gen__year">1958</div>
         <div>
           <h3><span data-en>The first generation</span><span data-zh>第 一 代</span></h3>
-          <p><span data-en>A home kitchen in Seremban. Every meal is hers; every meal is for the family. The recipes live in her hands — nothing is written down.</span>
-            <span data-zh>芙蓉一间家中厨房。每一餐都是她下厨，每一餐都给家人。食谱在她手上 — 一字未落于纸。</span></p>
+          <p><span data-en>A home kitchen in Seremban. Every meal is hers; every meal is for the family. The recipes live in her hands. Nothing is written down.</span>
+            <span data-zh>芙蓉一间家中厨房。每一餐都是她下厨，每一餐都给家人。食谱在她手上，一字未落于纸。</span></p>
         </div>
       </div>
       <div class="gen">
         <div class="gen__year">2008</div>
         <div>
           <h3><span data-en>The second generation</span><span data-zh>第 二 代</span></h3>
-          <p><span data-en>The daughter moves to Kuala Lumpur and opens the family's first restaurant. For the first time, the recipes leave the home — pencilled onto loose yellow paper, with margin notes about which kampung the chicken should come from. Same dishes, sharpened by service.</span>
-            <span data-zh>女儿移居吉隆坡，开了家中第一家餐厅。食谱第一次走出家门 — 用铅笔写在泛黄的纸上，旁边批注着鸡要从哪个甘榜来。同样的菜，越做越精到。</span></p>
+          <p><span data-en>The daughter moves to Kuala Lumpur and opens the family's first restaurant. For the first time, the recipes leave the home, pencilled onto loose yellow paper, with margin notes about which kampung the chicken should come from. Same dishes, sharpened by service.</span>
+            <span data-zh>女儿移居吉隆坡，开了家中第一家餐厅。食谱第一次走出家门，用铅笔写在泛黄的纸上，旁边批注着鸡要从哪个甘榜来。同样的菜，越做越精到。</span></p>
         </div>
       </div>
       <div class="gen">
@@ -778,8 +778,8 @@ get_header();
         <div class="gen__year">2026</div>
         <div>
           <h3><span data-en>Same paper, sharper hands</span><span data-zh>同 一 叠 纸</span></h3>
-          <p><span data-en>The paper has never been retyped. The original is kept safe; pencilled copies hang in every kitchen. Same dishes — sharpened by every generation that cooked them.</span>
-            <span data-zh>那叠纸至今没有重打过。原稿仍是原稿，铅笔字的复印本挂在每一家厨房。同样的菜 — 每一代下厨的人，都把它做得更精到。</span></p>
+          <p><span data-en>The paper has never been retyped. The original is kept safe; pencilled copies hang in every kitchen. Same dishes, sharpened by every generation that cooked them.</span>
+            <span data-zh>那叠纸至今没有重打过。原稿仍是原稿，铅笔字的复印本挂在每一家厨房。同样的菜，每一代下厨的人都把它做得更精到。</span></p>
         </div>
       </div>
     </div>
@@ -798,8 +798,8 @@ get_header();
         <span data-zh>我们做的<em>菜</em>。</span>
       </h2>
       <p class="h-body" style="max-width: 50ch; margin-top: 20px;">
-        <span data-en>Hakka signature dishes — salt-cured, slow-braised, cooked the same way since 1958.</span>
-        <span data-zh>客家招牌菜 — 盐渍、慢炖，1958年至今，做法未变。</span>
+        <span data-en>Hakka signature dishes. Salt-cured, slow-braised, cooked the same way since 1958.</span>
+        <span data-zh>客家招牌菜。盐渍、慢炖，1958年至今做法未变。</span>
       </p>
     </div>
     <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>" data-reveal>
@@ -900,8 +900,8 @@ get_header();
   </div>
   <div data-reveal>
     <p>
-      <span data-en>Part of every sale at every outlet goes to community causes — written into the menu price, not added on top. Same rule, every kitchen, every day.</span>
-      <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途 — 已含在菜价里，不是额外附加的。同一条规则，每一天。</span>
+      <span data-en>Part of every sale at every outlet goes to community causes. Same rule, every kitchen, every day.</span>
+      <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途。同一条规则，每一天。</span>
     </p>
     <div class="charity__stats">
       <div>

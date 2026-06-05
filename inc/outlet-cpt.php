@@ -90,7 +90,7 @@ function hakshan_outlet_field_schema() {
 		'outlet_hours' => array(
 			'label'       => __( 'Hours', 'hakshan' ),
 			'type'        => 'text',
-			'placeholder' => 'Daily 11:00 — 22:00',
+			'placeholder' => 'Daily 11:00–22:00',
 		),
 		'outlet_seats' => array(
 			'label'       => __( 'Seats / capacity line', 'hakshan' ),
@@ -128,7 +128,7 @@ function hakshan_render_outlet_meta_box( $post ) {
 	</style>';
 
 	echo '<div class="hakshan-outlet-fields">';
-	echo '<p class="description">' . esc_html__( 'Post title = English name (e.g. "USJ Taipan"). Featured image = outlet photo. The URL slug is used for anchor links from the homepage carousel (e.g. /outlets#usj) — change it carefully via the Permalink field at the top of the page. Use Page Attributes → Order to control position (lower = earlier).', 'hakshan' ) . '</p>';
+	echo '<p class="description">' . esc_html__( 'Post title = English name (e.g. "USJ Taipan"). Featured image = outlet photo. The URL slug is used for anchor links from the homepage carousel (e.g. /outlets#usj); change it carefully via the Permalink field at the top of the page. Use Page Attributes → Order to control position (lower = earlier).', 'hakshan' ) . '</p>';
 
 	foreach ( hakshan_outlet_field_schema() as $key => $field ) {
 		$value = get_post_meta( $post->ID, $key, true );
@@ -285,30 +285,30 @@ function hakshan_outlet_seed_data() {
 	return array(
 		array( 'slug' => 'usj',       'name' => 'USJ Taipan',         'cn' => '梳 邦 再 也',         'city' => 'SUBANG JAYA',  'label' => 'USJ Taipan · main dining hall, evening',
 		       'addr' => 'Block A, USJ 10 Taipan Business Centre, 47620 Subang Jaya, Selangor',
-		       'hours' => 'Daily 11:00 — 22:00', 'seats' => '120 + private 24 · Charity table', 'phone' => '+60 16-246 2970' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '120 + private 24 · Charity table', 'phone' => '+60 16-246 2970' ),
 		array( 'slug' => 'menjalara', 'name' => 'Menjalara',          'cn' => '甲 洞 · 满 家 拉',      'city' => 'KEPONG',       'label' => 'Menjalara · entrance and brass signage',
 		       'addr' => 'Unit R1-G-3, R1 Gallery, No 10, Jalan Idaman 1/62A, Bandar Menjalara, 52200 KL',
-		       'hours' => 'Daily 11:00 — 22:00', 'seats' => '96 + private 18 · Charity table',  'phone' => '+60 3-6266 3211' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '96 + private 18 · Charity table',  'phone' => '+60 3-6266 3211' ),
 		array( 'slug' => 'cheras',    'name' => 'Cheras Traders Sq.', 'cn' => '蕉 赖',               'city' => 'CHERAS',       'label' => 'Cheras Traders Square · open kitchen',
 		       'addr' => 'Lot G-32, Cheras Traders Square, Jalan Cheras 56100, Kuala Lumpur',
-		       'hours' => 'Daily 11:00 — 22:00', 'seats' => '110 · Charity table',              'phone' => '+60 3-9101 6622' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '110 · Charity table',              'phone' => '+60 3-9101 6622' ),
 		array( 'slug' => 'puchong',   'name' => 'Bandar Puteri',      'cn' => '蒲 种',               'city' => 'PUCHONG',      'label' => 'Bandar Puteri Puchong · dining hall',
 		       'addr' => '53G, Jalan Puteri 1/4, Bandar Puteri Puchong, 47100 Selangor',
-		       'hours' => 'Daily 11:00 — 22:00', 'seats' => '88 · Charity table',               'phone' => '+60 3-8068 9933' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '88 · Charity table',               'phone' => '+60 3-8068 9933' ),
 		array( 'slug' => 'conezion',  'name' => 'IOI Conezion',       'cn' => '布 城',               'city' => 'PUTRAJAYA',    'label' => 'IOI Conezion · terrace, evening',
 		       'addr' => 'B-G-06, IOI Conezion, Persiaran IRC 3, IOI Resort City, 62502 Putrajaya',
-		       'hours' => 'Daily 11:00 — 22:00', 'seats' => '104 · Charity table',              'phone' => '+60 3-8911 2030' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '104 · Charity table',              'phone' => '+60 3-8911 2030' ),
 		array( 'slug' => 'kajang',    'name' => 'Budiman Park',       'cn' => '加 影 · 步 帝 文',     'city' => 'KAJANG',       'label' => 'Budiman Park · entrance',
 		       'addr' => '23A, Jalan Budiman, Off Jalan Sungai Long, Budiman Business Park, 43000 Kajang',
-		       'hours' => 'Daily 11:00 — 22:00', 'seats' => '72 · Charity table',               'phone' => '+60 3-8732 4567' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '72 · Charity table',               'phone' => '+60 3-8732 4567' ),
 		array( 'slug' => 'kiara',     'name' => 'Arcoris Plaza',      'cn' => '满 家 乐',             'city' => 'MONT KIARA',   'label' => 'Arcoris Mont Kiara · main hall',
 		       'addr' => 'Unit G-16 & G-17, Ground Level, Arcoris Plaza, 10 Jalan Kiara, 50480 Mont Kiara',
-		       'hours' => 'Daily 11:00 — 22:00', 'seats' => '132 + private 28 · Charity table', 'phone' => '+60 3-6203 9988' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '132 + private 28 · Charity table', 'phone' => '+60 3-6203 9988' ),
 		array( 'slug' => 'parkcity',  'name' => 'The Waterfront',     'cn' => '公 园 城',             'city' => 'DESA PARKCITY','label' => 'The Waterfront ParkCity · evening',
 		       'addr' => 'Lot GF-05, The Waterfront @ ParkCity, Persiaran Residen, 52200 Desa ParkCity',
-		       'hours' => 'Daily 11:00 — 22:00', 'seats' => '92 · Charity table',               'phone' => '+60 3-6280 1100' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '92 · Charity table',               'phone' => '+60 3-6280 1100' ),
 		array( 'slug' => 'arkadia',   'name' => 'Plaza Arkadia',      'cn' => '阿 卡 迪 亚',          'city' => 'DESA PARKCITY','label' => 'Plaza Arkadia · open kitchen',
 		       'addr' => 'Unit F-G-7, Plaza Arkadia, 3 Jalan Intisari Perdana, 52200 Desa ParkCity',
-		       'hours' => 'Daily 11:00 — 22:00', 'seats' => '78 · Charity table',               'phone' => '+60 3-6263 8800' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '78 · Charity table',               'phone' => '+60 3-6263 8800' ),
 	);
 }

@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.2.2' );
+	define( 'HAKSHAN_THEME_VERSION', '1.2.3' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -239,8 +239,8 @@ function hakshan_render_nav( $args = array() ) {
 			</a>
 			<div class="drawer__foot">
 				<span>+60 16-246 2970</span>
-				<span data-en>Daily 11:00 — 22:00</span>
-				<span data-zh>每日 11:00 — 22:00</span>
+				<span data-en>Daily 11:00–22:00</span>
+				<span data-zh>每日 11:00–22:00</span>
 			</div>
 		</div>
 		<div class="drawer__backdrop" aria-hidden="true"></div>
@@ -297,7 +297,7 @@ function hakshan_render_footer() {
 			</div>
 		</div>
 		<div class="foot__bottom">
-			<span>© <?php echo esc_html( date_i18n( 'Y' ) ); ?> Hakshan Sdn. Bhd. — <span data-en>All rights reserved.</span><span data-zh>版权所有。</span></span>
+			<span>© <?php echo esc_html( date_i18n( 'Y' ) ); ?> Hakshan Sdn. Bhd. · <span data-en>All rights reserved.</span><span data-zh>版权所有。</span></span>
 			<span data-en>Three generations of Hakka.</span><span data-zh>三代人的传承</span>
 		</div>
 	</footer>

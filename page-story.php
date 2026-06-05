@@ -347,8 +347,8 @@ get_header();
     <span data-zh>三代人，<br/><em>一菜谱</em></span>
   </h1>
   <p class="deck">
-    <span data-en>Traditional Hakka cooking, kept whole — three generations of the same recipes since 1958, now in nine kitchens.</span>
-    <span data-zh>传统客家菜，原味原样 — 三代人，同一份食谱，1958年至今，已遍及九家厨房。</span>
+    <span data-en>Traditional Hakka cooking, kept whole. Three generations of the same recipes since 1958, now in nine kitchens.</span>
+    <span data-zh>传统客家菜，原味原样。三代人，同一份食谱，1958年至今，已遍及九家厨房。</span>
   </p>
 </section>
 
@@ -369,17 +369,17 @@ get_header();
       <?php
       $timeline = array(
         array( 'year' => '1958', 'h_en' => 'A home kitchen, Seremban',     'h_zh' => '芙 蓉 · 家 中 厨 房',
-               'p_en' => 'The 1st generation cooks Hakka food at home — salt-baked chicken, mui choy belly, rice-wine chicken soup. No restaurant. No staff. Just a stove, a wok, and a family that keeps showing up to eat.',
-               'p_zh' => '第一代在家中煮客家菜 — 盐焗鸡、梅菜扣肉、糯米酒鸡汤。没有餐厅，没有员工。只有一个灶、一只镬，和一屋子总回来吃饭的家人。' ),
+               'p_en' => 'The 1st generation cooks Hakka food at home: salt-baked chicken, mui choy belly, rice-wine chicken soup. No restaurant. No staff. Just a stove, a wok, and a family that keeps showing up to eat.',
+               'p_zh' => '第一代在家中煮客家菜：盐焗鸡、梅菜扣肉、糯米酒鸡汤。没有餐厅，没有员工。只有一个灶、一只镬，和一屋子总回来吃饭的家人。' ),
         array( 'year' => '2008', 'h_en' => 'The recipes head north',      'h_zh' => '食 谱 北 上',
-               'p_en' => 'The 2nd generation moves to Kuala Lumpur and opens the family\'s first restaurant. For the first time, the dishes are written down — in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
-               'p_zh' => '第二代北上吉隆坡，开了家中第一家餐厅。第一次，那些菜被写下来 — 用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。' ),
+               'p_en' => 'The 2nd generation moves to Kuala Lumpur and opens the family\'s first restaurant. For the first time, the dishes are written down: in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
+               'p_zh' => '第二代北上吉隆坡，开了家中第一家餐厅。第一次，那些菜被写下来：用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。' ),
         array( 'year' => '2024', 'h_en' => 'Hakshan opens, USJ',          'h_zh' => '客 善 开 业 · USJ',
-               'p_en' => 'February. The 3rd generation opens Hakshan in USJ — 客善, guest, kindness. Same recipes, same paper, new chairs. RM 15 a set. RM 5 from every dish ordered, written into the menu price, returned to the community.',
-               'p_zh' => '二月，第三代在 USJ 开出客善 — 客者，善也。食谱不变，纸不变，椅子换了。RM 15一套。每点一道菜 RM 5，写进菜价里，回馈社区。' ),
+               'p_en' => 'February. The 3rd generation opens Hakshan in USJ: 客善, guest, kindness. Same recipes, same paper, new chairs. RM 15 a set. Part of every sale returned to the community.',
+               'p_zh' => '二月，第三代在 USJ 开出客善：客者，善也。食谱不变，纸不变，椅子换了。RM 15一套。每一笔营业额的一部分，回馈社区。' ),
         array( 'year' => '2025', 'h_en' => 'Eight more kitchens',         'h_zh' => '再 添 八 家',
-               'p_en' => 'Eight more outlets open within twenty-two months — Menjalara, Cheras, Bandar Puteri Puchong, IOI Conezion, Budiman Park Kajang, Arcoris Mont Kiara, The Waterfront ParkCity, Plaza Arkadia. Same recipes, same standards, same pencilled paper in every kitchen.',
-               'p_zh' => '二十二个月内，再开八家 — 满家拉、蕉赖、蒲种 Bandar Puteri、IOI Conezion、加影、满家乐、ParkCity、Plaza Arkadia。同样的食谱，同样的标准，同样那叠铅笔字的纸。' ),
+               'p_en' => 'Eight more outlets open within twenty-two months: Menjalara, Cheras, Bandar Puteri Puchong, IOI Conezion, Budiman Park Kajang, Arcoris Mont Kiara, The Waterfront ParkCity, Plaza Arkadia. Same recipes, same standards, same pencilled paper in every kitchen.',
+               'p_zh' => '二十二个月内，再开八家：满家拉、蕉赖、蒲种 Bandar Puteri、IOI Conezion、加影、满家乐、ParkCity、Plaza Arkadia。同样的食谱，同样的标准，同样那叠铅笔字的纸。' ),
         array( 'year' => '2026', 'h_en' => 'Ten kitchens, one book',      'h_zh' => '十 家 厨 房，一 本 食 谱',
                'p_en' => 'Nine retail outlets and one cloud kitchen across the Klang Valley. The tenth retail outlet and the third cloud kitchen open next month. Penang follows in the second quarter. The book stays where it always has.',
                'p_zh' => '巴生谷九家门店与一家云厨房。第十家门店与第三家云厨房将于下月开业。槟城紧随其后，第二季度开业。那本书，留在原处。' ),
@@ -407,8 +407,8 @@ get_header();
       <span data-zh>「这道菜不靠调味，<em>靠的是等。</em>」</span>
     </p>
     <div class="by">
-      <span data-en>— A SAYING IN OUR KITCHEN</span>
-      <span data-zh>— 厨房里的一句老话</span>
+      <span data-en>A SAYING IN OUR KITCHEN</span>
+      <span data-zh>厨房里的一句老话</span>
     </div>
   </div>
 </section>
@@ -422,8 +422,8 @@ get_header();
       <span data-zh>我们留下的</span>
     </div>
     <p class="line">
-      <span data-en>The book. <em>The fire.</em><br/>RM 5 a dish —<br/><em>written in, every meal.</em></span>
-      <span data-zh>那本食谱。<em>那把火。</em><br/>每一道菜 RM 5 — <em>写进每一餐里。</em></span>
+      <span data-en>The book. <em>The fire.</em><br/>Every dish carries it.<br/><em>Written in, every meal.</em></span>
+      <span data-zh>那本食谱。<em>那把火。</em><br/>每一道菜，承载着它。<br/><em>写进每一餐里。</em></span>
     </p>
   </div>
 </section>
@@ -447,8 +447,8 @@ get_header();
         <span data-en>She cooked at home</span><span data-zh>她在家中下厨</span>
       </h3>
       <p>
-        <span data-en>Seremban, from 1958. Hakka dishes cooked at home — salt-baked chicken, mui choy belly, rice-wine chicken soup. Never ran a restaurant. The recipes lived in her hands.</span>
-        <span data-zh>1958年起，于芙蓉。家中烹客家菜 — 盐焗鸡、梅菜扣肉、糯米酒鸡汤。一生未开餐厅。食谱，在她手上。</span>
+        <span data-en>Seremban, from 1958. Hakka dishes cooked at home: salt-baked chicken, mui choy belly, rice-wine chicken soup. Never ran a restaurant. The recipes lived in her hands.</span>
+        <span data-zh>1958年起，于芙蓉。家中烹客家菜：盐焗鸡、梅菜扣肉、糯米酒鸡汤。一生未开餐厅。食谱，在她手上。</span>
       </p>
     </div>
     <div class="portrait">
@@ -457,8 +457,8 @@ get_header();
         <span data-en>She wrote it down</span><span data-zh>她把食谱写下来</span>
       </h3>
       <p>
-        <span data-en>Brought the recipes north to Kuala Lumpur around 2008 and opened the family's first restaurant. Wrote the dishes down for the first time — in pencil, on the back of kuih paper. The recipes did not change. The kitchen, suddenly, had to feed strangers.</span>
-        <span data-zh>约2008年，把食谱带到吉隆坡，开了家中第一家餐厅。第一次把菜写下来 — 用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。</span>
+        <span data-en>Brought the recipes north to Kuala Lumpur around 2008 and opened the family's first restaurant. Wrote the dishes down for the first time: in pencil, on the back of kuih paper. The recipes did not change. The kitchen, suddenly, had to feed strangers.</span>
+        <span data-zh>约2008年，把食谱带到吉隆坡，开了家中第一家餐厅。第一次把菜写下来：用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。</span>
       </p>
     </div>
     <div class="portrait">
@@ -467,8 +467,8 @@ get_header();
         <span data-en>Same recipes, new room</span><span data-zh>同一本食谱，新的厅</span>
       </h3>
       <p>
-        <span data-en>Opened Hakshan in USJ, February 2024. Same recipes. Same paper. New chairs, new price point, and a new rule: RM 5 from every dish ordered, written into the menu price, returned to community causes.</span>
-        <span data-zh>2024年2月，在 USJ 开出客善。食谱不变，纸不变。椅子换了，价位换了，规则也换了 — 每点一道菜 RM 5，写进菜价里，回馈社区。</span>
+        <span data-en>Opened Hakshan in USJ, February 2024. Same recipes. Same paper. New chairs, new price point, and a new rule: part of every sale returned to community causes.</span>
+        <span data-zh>2024年2月，在 USJ 开出客善。食谱不变，纸不变。椅子换了，价位换了，规则也换了：每一笔营业额的一部分，回馈社区。</span>
       </p>
     </div>
   </div>
@@ -489,12 +489,12 @@ get_header();
     </div>
     <div data-reveal>
       <p class="lead">
-        <span data-en>Part of every sale at every outlet goes to community causes — written into the menu price, not added on top. Same rule, every kitchen, every day.</span>
-        <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途 — 已含在菜价里，不是额外附加的。同一条规则，每一天。</span>
+        <span data-en>Part of every sale at every outlet goes to community causes. Same rule, every kitchen, every day.</span>
+        <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途。同一条规则，每一天。</span>
       </p>
       <p>
-        <span data-en>Three causes: education, elderly care, and animal welfare. Not a donation made out of profit — written into the kitchen's costs, alongside rent, food, and staff. There's no flag to skip it.</span>
-        <span data-zh>三个方向：教育、长者关怀、动物福利。不是从利润里抽出来的捐赠 — 写进厨房成本里，与租金、食材、人工同行。没有可以跳过它的选项。</span>
+        <span data-en>Three causes: education, elderly care, and animal welfare. Not a donation made out of profit. It sits in the kitchen's costs alongside rent, food, and staff. There's no flag to skip it.</span>
+        <span data-zh>三个方向：教育、长者关怀、动物福利。不是从利润里抽出来的捐赠。它写在厨房成本里，与租金、食材、人工同行。没有可以跳过它的选项。</span>
       </p>
       <div class="charity-block__stats">
         <div><div class="num">9</div>
