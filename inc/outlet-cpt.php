@@ -29,18 +29,37 @@ function hakshan_register_outlet_cpt() {
 				'menu_name'          => __( 'Outlets', 'hakshan' ),
 				'all_items'          => __( 'All Outlets', 'hakshan' ),
 			),
-			'public'        => false,
-			'show_ui'       => true,
-			'show_in_menu'  => true,
-			'menu_icon'     => 'dashicons-store',
-			'menu_position' => 6,
-			'supports'      => array( 'title', 'thumbnail', 'page-attributes' ),
-			'has_archive'   => false,
-			'rewrite'       => false,
+			'public'              => true,
+			'publicly_queryable'  => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'menu_icon'           => 'dashicons-store',
+			'menu_position'       => 6,
+			'supports'            => array( 'title', 'thumbnail', 'page-attributes' ),
+			'has_archive'         => false,
+			'rewrite'             => array(
+				'slug'       => 'outlets',
+				'with_front' => false,
+			),
+			'exclude_from_search' => false,
 		)
 	);
 }
 add_action( 'init', 'hakshan_register_outlet_cpt' );
+
+/**
+ * Auto-flush rewrite rules when the theme version changes — the CPT slug
+ * went from "no rewrite" to /outlets/{slug}/ in version 1.1.0, and admin
+ * users won't think to visit Settings → Permalinks. One-shot per version.
+ */
+function hakshan_maybe_flush_rewrite() {
+	$stored = get_option( 'hakshan_rewrite_version' );
+	if ( $stored !== HAKSHAN_THEME_VERSION ) {
+		flush_rewrite_rules( false );
+		update_option( 'hakshan_rewrite_version', HAKSHAN_THEME_VERSION );
+	}
+}
+add_action( 'init', 'hakshan_maybe_flush_rewrite', 20 );
 
 /* ---------------------------------------------------------------------------
  * Outlet meta box
