@@ -738,7 +738,7 @@ get_header();
       </span>
       <h2>
         <span data-en>Three Generations<br/><em>One Recipe</em></span>
-        <span data-zh>三代人<br/><em>一脉相承</em></span>
+        <span data-zh>三代人，<br/><em>一菜谱</em></span>
       </h2>
       <p class="h-body">
         <span data-en>Hakka cooking, kept whole — the same way our grandmother made it in Seremban in 1958, the same way we cook it in nine kitchens today.</span>
