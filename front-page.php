@@ -741,8 +741,8 @@ get_header();
         <span data-zh>三代人，<br/><em>一菜谱</em></span>
       </h2>
       <p class="h-body">
-        <span data-en>Hakka cooking, kept whole — the same way our grandmother made it in Seremban in 1958, the same way we cook it in nine kitchens today.</span>
-        <span data-zh>客家菜，原味原样 — 1958年阿婆在芙蓉怎么做，今天我们在九家厨房里就怎么做。</span>
+        <span data-en>Traditional Hakka cooking, kept whole — made in Seremban since 1958, served in nine kitchens today.</span>
+        <span data-zh>传统客家菜，原味原样 — 1958年起在芙蓉烹制，今天在九家厨房上桌。</span>
       </p>
       <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>" style="margin-top: 24px;">
         <span data-en>Read the story</span><span data-zh>阅读故事</span>
