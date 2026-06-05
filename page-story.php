@@ -99,11 +99,6 @@ get_header();
     display: grid;
     gap: 18px;
   }
-  .portrait__visual {
-    aspect-ratio: 3/4;
-    position: relative;
-  }
-  .portrait__visual .ph { position: absolute; inset: 0; }
   .portrait__num {
     font-family: var(--mono);
     font-size: 11px;
@@ -447,7 +442,6 @@ get_header();
   </div>
   <div class="portraits__grid" data-reveal>
     <div class="portrait">
-      <div class="portrait__visual"><div class="ph" data-label="First generation · a home kitchen in Seremban, c. 1958"></div></div>
       <div class="portrait__num">FIRST GENERATION · 一 代</div>
       <h3>
         <span data-en>She cooked at home</span><span data-zh>她在家中下厨</span>
@@ -458,7 +452,6 @@ get_header();
       </p>
     </div>
     <div class="portrait">
-      <div class="portrait__visual"><div class="ph" data-label="Second generation · pencil notes on kuih paper, c. 2008"></div></div>
       <div class="portrait__num">SECOND GENERATION · 二 代</div>
       <h3>
         <span data-en>She wrote it down</span><span data-zh>她把食谱写下来</span>
@@ -469,7 +462,6 @@ get_header();
       </p>
     </div>
     <div class="portrait">
-      <div class="portrait__visual"><div class="ph" data-label="Third generation · the kitchen, USJ, Feb 2024"></div></div>
       <div class="portrait__num">THIRD GENERATION · 三 代</div>
       <h3>
         <span data-en>Same recipes, new room</span><span data-zh>同一本食谱，新的厅</span>
