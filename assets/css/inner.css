@@ -69,7 +69,8 @@
   scrollbar-width: none;
   cursor: grab;
   user-select: none;
-  touch-action: pan-y;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
 }
 .menu-toc__inner.is-dragging { cursor: grabbing; }

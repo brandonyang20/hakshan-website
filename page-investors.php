@@ -450,8 +450,8 @@ get_header();
     </h1>
   </div>
   <p>
-    <span data-en>Hakshan Cuisines (客善) was established as an independent venture in February 2024, led by the team behind Ying Ker Lou (迎客楼) — an eighteen-year-old Hakka cuisine brand they grew to thirteen retail outlets across Malaysia's major shopping malls. Hakshan applies the same operating discipline to a more accessible price point: an RM 15 set, with fifteen percent of every ringgit structurally returned to community causes. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
-    <span data-zh>客善于2024年2月以独立实体成立，由迎客楼的创始团队主理 — 迎客楼是团队历时十八年打造、于各大商场开设过十三家门店的客家料理老字号。客善把同一套运营纪律带到更平易的价位 — RM 15套餐，营收的15% 以制度形式回馈社区。目前营运中共九家门店与一家云厨房，第十家门店与第三家云厨房将于下月开业。</span>
+    <span data-en>Hakshan Cuisines (客善) was established as an independent venture in February 2024, led by the team behind Ying Ker Lou (迎客楼) — an eighteen-year-old Hakka cuisine brand they grew to thirteen retail outlets across Malaysia's major shopping malls. Hakshan applies the same operating discipline to a more accessible price point: an RM 15 set, with RM 5 from every dish ordered structurally returned to community causes. Nine retail outlets and one cloud kitchen are in operation today; the tenth retail outlet and third cloud kitchen open next month.</span>
+    <span data-zh>客善于2024年2月以独立实体成立，由迎客楼的创始团队主理 — 迎客楼是团队历时十八年打造、于各大商场开设过十三家门店的客家料理老字号。客善把同一套运营纪律带到更平易的价位 — RM 15套餐，每点一道菜，RM 5 以制度形式回馈社区。目前营运中共九家门店与一家云厨房，第十家门店与第三家云厨房将于下月开业。</span>
   </p>
 </section>
 
@@ -495,12 +495,12 @@ get_header();
   </div>
   <div class="inv-narrative__body" data-reveal>
     <p class="lead">
-      <span data-en>Fifteen percent of every ringgit — written into the structure, not bolted onto the profit. Philanthropy and profit share the same line item.</span>
-      <span data-zh>营收的15%，写进结构里，不是从利润里抽出来的。慈善与盈利，写在同一行。</span>
+      <span data-en>RM 5 from every dish ordered — written into the menu price, not bolted onto the profit. Philanthropy and profit share the same line item.</span>
+      <span data-zh>每点一道菜，RM 5 — 写进菜价里，不是从利润里抽出来的。慈善与盈利，写在同一行。</span>
     </p>
     <p>
-      <span data-en>Hakshan's proposition begins with eighteen years of accumulated operating experience. The founding team built Ying Ker Lou into a thirteen-outlet Hakka cuisine brand across major Malaysian malls; with Hakshan, they apply the same operating discipline to a more accessible price point — an RM 15 set, with fifteen percent of every ringgit committed to community causes. The expertise is not new. The brand, the price point, and the discipline of giving are.</span>
-      <span data-zh>客善的提案，始于团队累积的十八年经验。这支曾一手打造迎客楼、于各大商场开出十三家客家门店的团队，如今以客善把同一套运营纪律带到更平易的价位 — RM 15套餐，营收的15% 制度化地回馈社区。经验不是新的，新的是品牌、价位，与这份给予的纪律。</span>
+      <span data-en>Hakshan's proposition begins with eighteen years of accumulated operating experience. The founding team built Ying Ker Lou into a thirteen-outlet Hakka cuisine brand across major Malaysian malls; with Hakshan, they apply the same operating discipline to a more accessible price point — an RM 15 set, with RM 5 from every dish ordered committed to community causes. The expertise is not new. The brand, the price point, and the discipline of giving are.</span>
+      <span data-zh>客善的提案，始于团队累积的十八年经验。这支曾一手打造迎客楼、于各大商场开出十三家客家门店的团队，如今以客善把同一套运营纪律带到更平易的价位 — RM 15套餐，每点一道菜，RM 5 制度化地回馈社区。经验不是新的，新的是品牌、价位，与这份给予的纪律。</span>
     </p>
     <span class="small"><span data-en>WHAT MAKES THE MODEL DEFENSIBLE</span><span data-zh>模式的护城河</span></span>
     <p>
@@ -529,8 +529,8 @@ get_header();
       </h2>
     </div>
     <p>
-      <span data-en>Each franchise is engineered around a fixed cost structure. Food is held at 30% of revenue; operating expense (rent, utilities, ~10 staff) at 21%; charity at 15% — non-negotiable. What's left is the net margin, which the model targets at roughly one-third of revenue.</span>
-      <span data-zh>每一家加盟店的成本结构固定：食材30%；运营费用（租金、水电、约10名员工）21%；慈善15% — 不可调整。剩下的，便是净利率，模型大致定在营收的三分之一。</span>
+      <span data-en>Each franchise is engineered around a fixed cost structure. Food is held at 30% of revenue; operating expense (rent, utilities, ~10 staff) at 21%; the charity contribution — RM 5 from every dish ordered — is written into the menu price, non-negotiable. What's left is the net margin, which the model targets at approximately one-third of revenue.</span>
+      <span data-zh>每一家加盟店的成本结构固定：食材30%；运营费用（租金、水电、约10名员工）21%；慈善 — 每点一道菜 RM 5 — 已写进菜价里，不可调整。剩下的，便是净利率，模型大致定在营收的三分之一。</span>
     </p>
   </div>
 
@@ -556,8 +556,8 @@ get_header();
     <div class="model-node accent">
       <div class="ix">04 · CHARITY</div>
       <h4><span data-en>Charity contribution</span><span data-zh>慈 善 投 入</span><span class="cn">慈 善 投 入</span></h4>
-      <p><span data-en>15% of revenue — structural. Allocated to education, elderly care and animal welfare.</span>
-        <span data-zh>占营收15% — 制度化。用于教育、敬老、关爱流浪动物。</span></p>
+      <p><span data-en>RM 5 from every dish ordered — structural, built into the menu price. Allocated to education, elderly care and animal welfare.</span>
+        <span data-zh>每点一道菜 RM 5 — 制度化，已含在菜价里。用于教育、敬老、关爱流浪动物。</span></p>
     </div>
     <div class="model-node">
       <div class="ix">05 · NET</div>

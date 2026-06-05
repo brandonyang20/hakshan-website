@@ -49,11 +49,31 @@ get_header();
     display: grid;
     gap: 18px;
     transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
     text-align: left;
     font: inherit;
     color: inherit;
     text-decoration: none;
     width: 100%;
+  }
+  .og-card:focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; }
+  /* Arrow becomes its own clickable target — navigates to the per-outlet page
+     while the rest of the card opens the modal preview. */
+  .og-card__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    margin: -4px -10px;
+    border-radius: 999px;
+    color: inherit;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .og-card__link:hover { background: var(--cream); }
+  .og-card__link:focus-visible {
+    outline: 2px solid var(--forest);
+    outline-offset: 2px;
   }
   .og-card:hover { background: var(--cream); transform: translateY(-4px); }
   .og-card__visual {
@@ -123,8 +143,133 @@ get_header();
   }
   .og-card:hover .arr { transform: translateX(6px); }
 
+  /* ====== MODAL ====== */
+  .om-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(42, 46, 39, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    padding: 32px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .om-backdrop.is-open { opacity: 1; pointer-events: auto; }
+  .om-dialog {
+    background: var(--paper);
+    width: min(1080px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 40px 100px -40px rgba(42, 46, 39, 0.6);
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    transform: translateY(20px) scale(0.98);
+    transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
+  }
+  .om-backdrop.is-open .om-dialog { transform: translateY(0) scale(1); }
+  .om-dialog__visual { position: relative; min-height: 360px; }
+  .om-dialog__visual .ph { position: absolute; inset: 0; }
+  .om-dialog__body {
+    padding: 56px 48px 48px;
+    display: grid;
+    align-content: start;
+    gap: 16px;
+  }
+  .om-dialog__city {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .om-dialog h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  .om-dialog h2 .cn {
+    font-family: var(--cn);
+    font-style: normal;
+    font-size: 0.32em;
+    color: var(--forest);
+    letter-spacing: 0.28em;
+    display: block;
+    margin-top: 10px;
+  }
+  .om-dialog__meta {
+    margin-top: 8px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .om-dialog__meta dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 6px;
+    opacity: 0.85;
+  }
+  .om-dialog__meta dd {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .om-dialog__buttons {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .om-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--forest);
+    display: grid;
+    place-items: center;
+    z-index: 4;
+    transition: background 0.2s, color 0.2s;
+  }
+  .om-close:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+
   @media (max-width: 980px) { .outlets-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 700px) { .outlets-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) {
+    .outlets-grid { grid-template-columns: 1fr; }
+    .om-dialog {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: unset;
+      max-height: 92vh;
+    }
+    .om-dialog__visual {
+      flex: 0 0 auto;
+      aspect-ratio: 16/10;
+      min-height: 0;
+      width: 100%;
+    }
+    .om-dialog__body { flex: 1 1 auto; padding: 28px 22px 24px; }
+    .om-dialog__meta { grid-template-columns: 1fr; gap: 16px; }
+  }
   @media (max-width: 900px) {
     .outlets-hero__inner { grid-template-columns: 1fr; gap: 32px; }
   }
@@ -190,21 +335,32 @@ if ( ! empty( $outlet_posts ) ) {
 }
 ?>
 
-<!-- 9-card grid overview — cards link to the per-outlet pages -->
+<!-- 9-card grid overview — card body opens the preview modal,
+     arrow inside navigates to the dedicated per-outlet page -->
 <section class="outlets-grid">
   <?php foreach ( $outlets as $o ) :
     $outlet_permalink = isset( $o['id'] ) && $o['id'] ? get_permalink( $o['id'] ) : '';
+    $aria_name        = $o['name'];
     ?>
-    <a class="og-card" href="<?php echo esc_url( $outlet_permalink ? $outlet_permalink : '#' . $o['slug'] ); ?>" data-reveal>
+    <div class="og-card" data-open="<?php echo esc_attr( $o['slug'] ); ?>" data-reveal
+         role="button" tabindex="0"
+         aria-label="<?php echo esc_attr( sprintf( 'Preview %s outlet', $aria_name ) ); ?>">
       <div class="og-card__visual"><?php if ( ! empty( $o['image_html'] ) ) : echo $o['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div><?php endif; ?></div>
       <div class="og-card__body">
         <div class="og-card__head">
           <h3><?php echo esc_html( $o['name'] ); ?></h3>
-          <span class="arr">→</span>
+          <?php if ( $outlet_permalink ) : ?>
+            <a class="og-card__link" href="<?php echo esc_url( $outlet_permalink ); ?>"
+               aria-label="<?php echo esc_attr( sprintf( 'Open the %s outlet page', $aria_name ) ); ?>">
+              <span class="arr" aria-hidden="true">→</span>
+            </a>
+          <?php else : ?>
+            <span class="arr" aria-hidden="true">→</span>
+          <?php endif; ?>
         </div>
         <div class="city"><?php echo esc_html( ucwords( strtolower( $o['city'] ) ) ); ?></div>
       </div>
-    </a>
+    </div>
   <?php endforeach; ?>
 </section>
 
@@ -223,6 +379,123 @@ if ( ! empty( $outlet_posts ) ) {
   </p>
   <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) ); ?>"><span data-en>Join the list</span><span data-zh>加入名单</span><span class="arr">→</span></a>
 </section>
+
+<!-- ============== MODAL ============== -->
+<div class="om-backdrop" id="omBackdrop" aria-hidden="true">
+  <div class="om-dialog" role="dialog" aria-modal="true" aria-labelledby="omTitle">
+    <button class="om-close" id="omClose" aria-label="Close">×</button>
+    <div class="om-dialog__visual">
+      <div class="ph" id="omPh" data-label=""></div>
+    </div>
+    <div class="om-dialog__body">
+      <span class="om-dialog__city" id="omCity">SUBANG JAYA</span>
+      <h2 id="omTitle">USJ Taipan<span class="cn" id="omCn">梳 邦 再 也</span></h2>
+      <dl class="om-dialog__meta">
+        <div><dt><span data-en>Address</span><span data-zh>地址</span></dt><dd id="omAddr"></dd></div>
+        <div><dt><span data-en>Hours</span><span data-zh>营业</span></dt><dd id="omHours"></dd></div>
+        <div><dt><span data-en>Seats</span><span data-zh>座位</span></dt><dd id="omSeats"></dd></div>
+        <div><dt><span data-en>Phone</span><span data-zh>电话</span></dt><dd id="omPhone"></dd></div>
+      </dl>
+      <div class="om-dialog__buttons">
+        <a class="btn" id="omView" href="#"><span data-en>View outlet page</span><span data-zh>查看门店页</span><span class="arr">→</span></a>
+        <a class="btn btn--ghost" id="omReserve" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) . '#reserve' ); ?>"><span data-en>Reserve</span><span data-zh>预订</span><span class="arr">→</span></a>
+        <a class="btn btn--ghost" id="omDir" href="#" target="_blank" rel="noopener"><span data-en>Directions</span><span data-zh>路线</span><span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Outlet data dump (PHP → JSON) for the preview modal.
+  const OUTLETS = <?php
+    $js_outlets = array();
+    foreach ( $outlets as $o ) {
+      $js_outlets[ $o['slug'] ] = array(
+        'name'      => $o['name'],
+        'cn'        => $o['cn'],
+        'city'      => $o['city'],
+        'addr'      => $o['addr'],
+        'hours'     => $o['hours'],
+        'seats'     => $o['seats'],
+        'phone'     => $o['phone'],
+        'photo'     => $o['label'],
+        'imageUrl'  => ! empty( $o['image_url'] ) ? $o['image_url'] : '',
+        'permalink' => ( isset( $o['id'] ) && $o['id'] ) ? get_permalink( $o['id'] ) : '',
+      );
+    }
+    echo wp_json_encode( $js_outlets );
+  ?>;
+
+  const backdrop = document.getElementById("omBackdrop");
+
+  function openOutlet(key) {
+    const o = OUTLETS[key];
+    if (!o) return;
+    const omPh = document.getElementById("omPh");
+    if (o.imageUrl) {
+      omPh.style.backgroundImage = "url('" + o.imageUrl + "')";
+      omPh.style.backgroundSize = "cover";
+      omPh.style.backgroundPosition = "center";
+      omPh.setAttribute("data-label", "");
+    } else {
+      omPh.style.backgroundImage = "";
+      omPh.setAttribute("data-label", o.photo);
+    }
+    document.getElementById("omCity").textContent = o.city;
+    document.getElementById("omTitle").innerHTML = o.name + '<span class="cn">' + o.cn + '</span>';
+    document.getElementById("omAddr").textContent = o.addr;
+    document.getElementById("omHours").textContent = o.hours;
+    document.getElementById("omSeats").textContent = o.seats;
+    document.getElementById("omPhone").textContent = o.phone;
+    const viewBtn = document.getElementById("omView");
+    if (o.permalink) {
+      viewBtn.setAttribute("href", o.permalink);
+      viewBtn.style.display = "";
+    } else {
+      viewBtn.style.display = "none";
+    }
+    document.getElementById("omDir").setAttribute(
+      "href",
+      "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Hakshan " + o.name + " " + o.addr)
+    );
+    backdrop.classList.add("is-open");
+    backdrop.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    history.replaceState(null, "", "#" + key);
+  }
+  function closeModal() {
+    backdrop.classList.remove("is-open");
+    backdrop.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (location.hash) history.replaceState(null, "", location.pathname);
+  }
+
+  // Card body click → opens modal. The arrow inside is a real <a> with its
+  // own navigation; clicking it skips the modal trigger.
+  document.querySelectorAll(".og-card[data-open]").forEach(el => {
+    el.addEventListener("click", (e) => {
+      if (e.target.closest(".og-card__link")) return;
+      openOutlet(el.getAttribute("data-open"));
+    });
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openOutlet(el.getAttribute("data-open"));
+      }
+    });
+  });
+
+  document.getElementById("omClose").addEventListener("click", closeModal);
+  backdrop.addEventListener("click", (e) => { if (e.target === backdrop) closeModal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && backdrop.classList.contains("is-open")) closeModal(); });
+
+  // Hash deep-link: /outlets/#slug opens the modal directly (e.g. from the
+  // homepage outlets carousel cards).
+  if (location.hash) {
+    const key = location.hash.slice(1);
+    if (OUTLETS[key]) setTimeout(() => openOutlet(key), 100);
+  }
+</script>
 
 <?php
 get_footer();

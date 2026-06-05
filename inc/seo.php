@@ -138,7 +138,7 @@ function hakshan_seo_meta_for_context() {
 		case 'investors':
 			return array(
 				'title'       => 'Investor relations — an 18-year kitchen, a new door · Hakshan',
-				'description' => 'Hakshan grows out of an 18-year Hakka kitchen (Ying Ker Lou / 迎客楼). Unit economics, footprint, and the structural 15% charity built into every plate.',
+				'description' => 'Hakshan grows out of an 18-year Hakka kitchen (Ying Ker Lou / 迎客楼). Unit economics, footprint, and the structural per-dish charity contribution built into every menu price.',
 			);
 
 		case 'press':
