@@ -762,8 +762,8 @@ get_header();
         <div class="gen__year">2008</div>
         <div>
           <h3><span data-en>The second generation</span><span data-zh>第 二 代</span></h3>
-          <p><span data-en>The daughter moves to Kuala Lumpur and opens the family's first restaurant. For the first time, the recipes leave the home, pencilled onto loose yellow paper, with margin notes about which kampung the chicken should come from. Same dishes, sharpened by service.</span>
-            <span data-zh>女儿移居吉隆坡，开了家中第一家餐厅。食谱第一次走出家门，用铅笔写在泛黄的纸上，旁边批注着鸡要从哪个甘榜来。同样的菜，越做越精到。</span></p>
+          <p><span data-en>The second generation takes the kitchen to Kuala Lumpur and opens the family's first restaurant. The recipes leave home for the first time. Same dishes, sharpened by service.</span>
+            <span data-zh>第二代把厨房带到吉隆坡，开了家中第一家餐厅。食谱第一次走出家门。同样的菜，越做越精到。</span></p>
         </div>
       </div>
       <div class="gen">
@@ -777,9 +777,9 @@ get_header();
       <div class="gen">
         <div class="gen__year">2026</div>
         <div>
-          <h3><span data-en>Same paper, sharper hands</span><span data-zh>同 一 叠 纸</span></h3>
-          <p><span data-en>The paper has never been retyped. The original is kept safe; pencilled copies hang in every kitchen. Same dishes, sharpened by every generation that cooked them.</span>
-            <span data-zh>那叠纸至今没有重打过。原稿仍是原稿，铅笔字的复印本挂在每一家厨房。同样的菜，每一代下厨的人都把它做得更精到。</span></p>
+          <h3><span data-en>Three generations on</span><span data-zh>三 代 之 后</span></h3>
+          <p><span data-en>Nine kitchens across the Klang Valley. Same recipes, same standards, sharpened by every generation that cooked them.</span>
+            <span data-zh>巴生谷九家厨房。同样的食谱，同样的标准，每一代下厨的人都把它做得更精到。</span></p>
         </div>
       </div>
     </div>
@@ -872,12 +872,12 @@ get_header();
   <div class="cinema-break__inner" data-reveal>
     <div class="cinema-break__top">
       <span class="cn">慢 火</span>
-      <span data-en>NOTHING TO DO BUT WAIT</span>
-      <span data-zh>除了等，无事可做</span>
+      <span data-en>SLOW FIRE, LONG SIMMER</span>
+      <span data-zh>慢 火 细 炖</span>
     </div>
     <p>
-      <span data-en>Three hours, <em>one pot,</em><br/>and a kitchen that has nothing<br/>left to do but <em>wait.</em></span>
-      <span data-zh>三 小 时，<em>一 锅，</em><br/>厨 房 里 除 了 <em>等，</em><br/>无 事 可 做。</span>
+      <span data-en>Some dishes <em>take their time.</em><br/>That's how Hakka cooking<br/><em>has always been done.</em></span>
+      <span data-zh>有些菜，<em>急 不 得。</em><br/>客 家 菜，<br/><em>向 来 如 此。</em></span>
       <span class="cn-line">慢 火 细 炖 · 自 1958</span>
     </p>
     <div class="cinema-break__foot">
@@ -1018,13 +1018,13 @@ get_header();
       <span data-en>RESERVE A TABLE</span><span data-zh>预订座位</span>
     </span>
     <h2>
-      <span data-en>Stay for the<br/><em>second pot.</em></span>
-      <span data-zh>多留一会，<br/><em>再添一壶。</em></span>
+      <span data-en>Pull up<br/><em>a chair.</em></span>
+      <span data-zh>来 <br/><em>坐 坐。</em></span>
       <span class="cn" data-en>客来茶当酒</span>
     </h2>
     <p>
-      <span data-en>Walk-ins welcome at every outlet. Book ahead for parties of six or more, private rooms, or dishes that need a head start.</span>
-      <span data-zh>所有门店欢迎散客。六人以上、包房，或需提前准备的菜式，请提前预约。</span>
+      <span data-en>Walk-ins welcome at every outlet. For parties of six or more, private rooms, or signature dishes that need pre-ordering, please book ahead.</span>
+      <span data-zh>所有门店欢迎散客。六人以上、包房，或须提前预订的招牌菜，请来电预约。</span>
     </p>
     <div class="book__buttons">
       <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) . '#reserve' ); ?>"><span data-en>Reserve online</span><span data-zh>在线预订</span><span class="arr">→</span></a>
