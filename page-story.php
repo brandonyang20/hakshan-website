@@ -178,6 +178,60 @@ get_header();
   }
   .cinema-break .line em { color: #c4b18a; }
 
+  /* Calm break: paper-toned counterpart to the cinematic break */
+  .calm-break {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper);
+    padding: clamp(96px, 14vw, 160px) var(--rail);
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+  .calm-break::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(79, 93, 72, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .calm-break__mark {
+    position: relative;
+    z-index: 1;
+    margin-bottom: clamp(28px, 4vw, 48px);
+    color: var(--forest);
+  }
+  .calm-break__mark svg {
+    width: min(70vw, 520px);
+    height: auto;
+    opacity: 0.95;
+  }
+  .calm-break__inner {
+    position: relative; z-index: 2;
+    max-width: 720px;
+  }
+  .calm-break .small {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 28px;
+  }
+  .calm-break .small .cn { font-family: var(--cn); margin-right: 14px; letter-spacing: 0.5em; color: var(--forest); }
+  .calm-break .line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(32px, 4.6vw, 64px);
+    line-height: 1.18;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+  .calm-break .line em { color: var(--forest); }
+
   /* Charity block */
   .charity-block {
     background: var(--forest);
@@ -471,6 +525,37 @@ get_header();
         <span data-zh>2024年2月，在 USJ 开出客善。食谱不变，纸不变。椅子换了，价位换了，规则也换了：每一笔营业额的一部分，回馈社区。</span>
       </p>
     </div>
+  </div>
+</section>
+
+<!-- ============== CALM BREAK ============== -->
+<section class="calm-break">
+  <div class="calm-break__mark" aria-hidden="true">
+    <!-- A single calligraphic line: long, quiet, with a small tail dot -->
+    <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round">
+      <!-- Hand-drawn brushed line, slight wobble -->
+      <path d="M 24 70 C 100 40, 200 88, 300 60 S 460 50, 488 64" stroke-width="2.5"/>
+      <!-- Tick marks along the line, like measure points -->
+      <line x1="80"  y1="78" x2="80"  y2="86" stroke-width="1"/>
+      <line x1="160" y1="76" x2="160" y2="84" stroke-width="1"/>
+      <line x1="240" y1="76" x2="240" y2="84" stroke-width="1"/>
+      <line x1="320" y1="70" x2="320" y2="78" stroke-width="1"/>
+      <line x1="400" y1="62" x2="400" y2="70" stroke-width="1"/>
+      <!-- Small filled marker at left start, larger open one at right end -->
+      <circle cx="24"  cy="70" r="3" fill="currentColor" stroke="none"/>
+      <circle cx="488" cy="64" r="6" stroke-width="2"/>
+    </svg>
+  </div>
+  <div class="calm-break__inner" data-reveal>
+    <div class="small">
+      <span class="cn">一 线</span>
+      <span data-en>ONE LINE, KEPT HONEST</span>
+      <span data-zh>一 条 线 · 从 未 断</span>
+    </div>
+    <p class="line">
+      <span data-en>Three pairs of hands.<br/><em>Still the same dishes.</em></span>
+      <span data-zh>三 双 手。<br/><em>同 一 桌 菜。</em></span>
+    </p>
   </div>
 </section>
 

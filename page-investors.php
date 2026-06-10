@@ -403,6 +403,71 @@ get_header();
     padding-bottom: clamp(60px, 8vw, 100px);
   }
 
+  /* Cinematic break (shared editorial pattern with /story) */
+  .cinema-break {
+    position: relative;
+    min-height: 70vh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(ellipse at 50% 60%, rgba(196, 177, 138, 0.22) 0%, transparent 55%),
+      linear-gradient(180deg, #1a1410 0%, #2a1f15 45%, #14181a 100%);
+    color: #EBDFC4;
+    padding: 120px var(--rail);
+  }
+  .cinema-break::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%);
+    pointer-events: none;
+  }
+  .cinema-break::after {
+    content: ""; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.65 0 0 0 0.1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .cinema-break__inner {
+    position: relative; z-index: 2;
+    text-align: center;
+    max-width: 1000px;
+  }
+  .cinema-break .small {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(235, 223, 196, 0.6);
+    margin-bottom: 32px;
+  }
+  .cinema-break .small .cn { font-family: var(--cn); margin-right: 14px; letter-spacing: 0.5em; }
+  .cinema-break .line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(36px, 5.4vw, 80px);
+    line-height: 1.15;
+    margin: 0;
+    text-wrap: balance;
+    text-shadow: 0 2px 32px rgba(0, 0, 0, 0.55);
+  }
+  .cinema-break .line em { color: #c4b18a; }
+  /* SVG mark behind the inner content */
+  .cinema-break__mark {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .cinema-break__mark svg {
+    width: min(60vw, 560px);
+    height: auto;
+    opacity: 0.10;
+    color: #c4b18a;
+  }
+
   /* ------------------------------------------------------------------
      Holding-structure diagram (Ecosystem section)
      ------------------------------------------------------------------ */
@@ -739,6 +804,34 @@ get_header();
         </div>
       <?php endif; ?>
     </div>
+  </div>
+</section>
+
+<!-- ============== CINEMATIC BREAK ============== -->
+<section class="cinema-break">
+  <div class="cinema-break__mark" aria-hidden="true">
+    <!-- Stylised concentric arcs — a "scaling outward" mark -->
+    <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25">
+      <circle cx="300" cy="300" r="70"/>
+      <circle cx="300" cy="300" r="140" stroke-dasharray="2 6"/>
+      <circle cx="300" cy="300" r="210" stroke-dasharray="2 12"/>
+      <circle cx="300" cy="300" r="280" stroke-dasharray="2 18"/>
+      <line x1="300" y1="40" x2="300" y2="100"/>
+      <line x1="300" y1="500" x2="300" y2="560"/>
+      <line x1="40" y1="300" x2="100" y2="300"/>
+      <line x1="500" y1="300" x2="560" y2="300"/>
+    </svg>
+  </div>
+  <div class="cinema-break__inner" data-reveal>
+    <div class="small">
+      <span class="cn">长 远</span>
+      <span data-en>THE LONG VIEW</span>
+      <span data-zh>看 得 远</span>
+    </div>
+    <p class="line">
+      <span data-en>Disciplined growth.<br/><em>Unbroken recipes.</em><br/>The next chapter is funded<br/>by the work already done.</span>
+      <span data-zh>有节制的增长。<em>不变的食谱。</em><br/>下一章，<br/>靠已经做过的工作支撑。</span>
+    </p>
   </div>
 </section>
 
