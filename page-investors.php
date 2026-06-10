@@ -403,6 +403,138 @@ get_header();
     padding-bottom: clamp(60px, 8vw, 100px);
   }
 
+  /* ------------------------------------------------------------------
+     Holding-structure diagram (Ecosystem section)
+     ------------------------------------------------------------------ */
+  .org {
+    margin-top: clamp(56px, 8vw, 88px);
+    border-top: 1px solid var(--line);
+    padding-top: clamp(40px, 6vw, 64px);
+  }
+  .org__caption {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    text-align: center;
+    margin: 0 0 clamp(24px, 4vw, 40px);
+  }
+
+  .org-tier { display: grid; gap: 16px; justify-content: center; }
+  .org-tier--holding { grid-template-columns: minmax(220px, 280px); }
+  .org-tier--subs    { grid-template-columns: repeat(5, 1fr); }
+  .org-tier--outlets { grid-template-columns: repeat(5, 1fr); }
+
+  .org-node {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+    position: relative;
+  }
+  .org-node .ix {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .org-node h4,
+  .org-node .org-node__name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .org-node .org-node__name { font-size: 17px; }
+  .org-node .org-node__name em { color: var(--forest); font-style: normal; }
+  .org-node .org-node__zh,
+  .org-node .org-node__sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin: 2px 0 0;
+  }
+  .org-node--holding {
+    background: var(--ink);
+    border-color: var(--ink);
+    text-align: center;
+    align-items: center;
+    padding: 24px 28px;
+  }
+  .org-node--holding .ix { color: rgba(214, 196, 145, 0.85); }
+  .org-node--holding h4 { color: var(--cream); font-size: 26px; }
+  .org-node--holding h4 em { color: var(--forest); font-style: normal; }
+  .org-node--holding .org-node__zh { color: rgba(245, 240, 226, 0.7); }
+  .org-node--sub { background: var(--cream); }
+  .org-node--outlet { padding: 14px 16px; }
+  .org-node--outlet .org-node__name { font-size: 15px; }
+  .org-node--outlet .org-node__sub { font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* Rails: vertical stems + horizontal bar connecting tiers */
+  .org-rail {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    pointer-events: none;
+  }
+  .org-rail--branch { height: 56px; }
+  .org-rail--branch::before {
+    content: ''; position: absolute;
+    top: 0; left: 50%;
+    width: 1px; height: 28px;
+    background: var(--line);
+  }
+  .org-rail--branch::after {
+    content: ''; position: absolute;
+    top: 28px;
+    left: 10%; right: 10%;
+    height: 1px;
+    background: var(--line);
+  }
+  .org-rail--branch .drops {
+    position: absolute;
+    top: 28px; left: 0; right: 0;
+    height: 28px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .org-rail--branch .drops span {
+    width: 1px;
+    background: var(--line);
+    justify-self: center;
+    height: 100%;
+  }
+  .org-rail--single { height: 56px; }
+  .org-rail--single::before {
+    content: ''; position: absolute;
+    top: 0; left: 50%;
+    width: 1px; height: 100%;
+    background: var(--line);
+  }
+
+  @media (max-width: 900px) {
+    .org-tier--subs    { grid-template-columns: repeat(2, 1fr); }
+    .org-tier--outlets { grid-template-columns: repeat(2, 1fr); }
+    /* Collapse the branched rail to a single central stem on narrow viewports. */
+    .org-rail--branch::after,
+    .org-rail--branch .drops { display: none; }
+    .org-rail--branch::before { height: 100%; }
+  }
+  @media (max-width: 560px) {
+    .org-tier--subs    { grid-template-columns: 1fr; }
+    .org-tier--outlets { grid-template-columns: 1fr; }
+  }
+
   /* Investor contact form embed */
   .inv-contact .form-wrap {
     background: var(--cream);
@@ -513,8 +645,8 @@ get_header();
         </h2>
       </div>
       <p>
-        <span data-en>Hakshan is more than a restaurant brand. We run the outlets, the central kitchens that supply them, and the holding structure that lets us think regionally rather than store by store.</span>
-        <span data-zh>客善不只是一个餐饮品牌。我们经营门店、为门店供货的中央厨房，以及让我们能从区域视角出发思考的控股结构。</span>
+        <span data-en>Hakshan is more than a restaurant brand. Under one holding sit five integrated entities — central kitchen, food trading, food technology, construction, and marketing — supplying the outlets and powering regional expansion store by store.</span>
+        <span data-zh>客善不只是一个餐饮品牌。控股之下，五个整合实体：中央厨房、食品贸易、食品科技、装修工程与营销，为门店供给、为区域扩张提供动力。</span>
       </p>
     </div>
 
@@ -537,6 +669,75 @@ get_header();
         <p><span data-en>Our holding structure provides the capital allocation and strategic foresight needed for large-scale regional expansion.</span>
           <span data-zh>控股结构提供大规模区域扩张所需的资本配置与战略远见。</span></p>
       </div>
+    </div>
+
+    <?php
+    $org_subs = array(
+      array( 'name_en' => 'Central Kitchen',  'name_zh' => '中央厨房',     'sub_en' => 'Supply · standards · throughput',    'sub_zh' => 'SUPPLY · STANDARDS' ),
+      array( 'name_en' => 'Food Trading',     'name_zh' => '食品贸易',     'sub_en' => 'Procurement · distribution',         'sub_zh' => 'PROCUREMENT' ),
+      array( 'name_en' => 'Food Technology',  'name_zh' => '食品科技',     'sub_en' => 'R&D · process · shelf life',         'sub_zh' => 'R&D · PROCESS' ),
+      array( 'name_en' => 'Construction',     'name_zh' => '装修工程',     'sub_en' => 'Fit-out · build · roll-out',         'sub_zh' => 'FIT-OUT · BUILD' ),
+      array( 'name_en' => 'Marketing',        'name_zh' => '营销公司',     'sub_en' => 'Brand · channels · community',       'sub_zh' => 'BRAND · CHANNELS' ),
+    );
+    $org_outlets = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
+    ?>
+    <div class="org" data-reveal aria-label="Hakshan organisational structure">
+      <p class="org__caption">
+        <span data-en>HOW THE BUSINESS IS BUILT &nbsp;·&nbsp; HOLDING · FIVE ENTITIES · OUTLETS</span>
+        <span data-zh>商业结构 &nbsp;·&nbsp; 控股 · 五个实体 · 门店</span>
+      </p>
+
+      <!-- Tier 1: Holding -->
+      <div class="org-tier org-tier--holding">
+        <div class="org-node org-node--holding">
+          <span class="ix">N° 00 · HOLDING</span>
+          <h4><span data-en>Hakshan Group</span><span data-zh>客善控股</span></h4>
+          <div class="org-node__zh"><span data-en>Capital, strategy, regional vision.</span><span data-zh>资本 · 战略 · 区域视野</span></div>
+        </div>
+      </div>
+
+      <!-- Rail: holding → subs -->
+      <div class="org-rail org-rail--branch" aria-hidden="true">
+        <div class="drops">
+          <?php for ( $i = 0; $i < 5; $i++ ) : ?><span></span><?php endfor; ?>
+        </div>
+      </div>
+
+      <!-- Tier 2: 5 subsidiaries -->
+      <div class="org-tier org-tier--subs">
+        <?php foreach ( $org_subs as $i => $sub ) : ?>
+          <div class="org-node org-node--sub">
+            <span class="ix">N° <?php echo sprintf( '%02d', $i + 1 ); ?></span>
+            <div class="org-node__name"><span data-en><?php echo esc_html( $sub['name_en'] ); ?></span><span data-zh><?php echo esc_html( $sub['name_zh'] ); ?></span></div>
+            <div class="org-node__sub"><span data-en><?php echo esc_html( $sub['sub_en'] ); ?></span><span data-zh><?php echo esc_html( $sub['sub_zh'] ); ?></span></div>
+          </div>
+        <?php endforeach; ?>
+      </div>
+
+      <?php if ( ! empty( $org_outlets ) ) : ?>
+        <!-- Rail: subs → outlets -->
+        <div class="org-rail org-rail--single" aria-hidden="true"></div>
+
+        <!-- Tier 3: outlets, pulled from CPT -->
+        <div class="org-tier org-tier--outlets">
+          <?php
+          foreach ( $org_outlets as $i => $outlet ) :
+            $data = hakshan_get_outlet_data( $outlet->ID );
+            if ( empty( $data['name'] ) ) {
+              continue;
+            }
+            $city = ! empty( $data['city'] ) ? ucwords( strtolower( $data['city'] ) ) : '';
+            ?>
+            <div class="org-node org-node--outlet">
+              <span class="ix">N° <?php echo sprintf( '%02d', $i + 1 ); ?></span>
+              <div class="org-node__name"><?php echo esc_html( $data['name'] ); ?></div>
+              <?php if ( $city ) : ?>
+                <div class="org-node__sub"><?php echo esc_html( $city ); ?></div>
+              <?php endif; ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 </section>
