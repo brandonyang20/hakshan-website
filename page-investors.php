@@ -561,9 +561,9 @@ get_header();
   </div>
   <div class="inv-stats__grid" data-reveal>
     <div class="inv-stat">
-      <div class="num">7<span class="unit"> → 23</span></div>
-      <div class="lbl"><span data-en>Outlets, by 2026</span><span data-zh>门 店 · 至 2026</span></div>
-      <div class="sub"><span data-en>Seven kitchens today. Roadmap to twenty-three across Malaysia and Indonesia.</span><span data-zh>今天七家厨房。目标：马来西亚与印尼共二十三家。</span></div>
+      <div class="num">13<span class="unit"> → 23</span></div>
+      <div class="lbl"><span data-en>Kitchens, by 2026</span><span data-zh>厨 房 · 至 2026</span></div>
+      <div class="sub"><span data-en>Thirteen kitchens today: ten outlets and three cloud kitchens. Roadmap to twenty-three across Malaysia and Indonesia.</span><span data-zh>今天十三家厨房：十家门店，三间云端厨房。目标：马来西亚与印尼共二十三家。</span></div>
     </div>
     <div class="inv-stat">
       <div class="num">RM <span style="font-size: 0.7em;">74</span><span class="unit">M</span></div>

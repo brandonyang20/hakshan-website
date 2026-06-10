@@ -87,14 +87,14 @@ function hakshan_seo_meta_for_context() {
 	switch ( $ctx ) {
 		case 'home':
 			return array(
-				'title'       => 'Hakshan · Hakka cooking, three generations, seven kitchens in Malaysia',
-				'description' => 'Hakshan (客善). A modern Hakka restaurant group rooted in heritage cuisine, three generations of the same recipes since 1958. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice. Seven outlets across the Klang Valley. Part of every sale goes to community causes.',
+				'title'       => 'Hakshan · Hakka cooking, three generations, thirteen kitchens in Malaysia',
+				'description' => 'Hakshan (客善). A modern Hakka restaurant group rooted in heritage cuisine, three generations of the same recipes since 1958. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice. Ten outlets and three cloud kitchens across the Klang Valley. Part of every sale goes to community causes.',
 			);
 
 		case 'story':
 			return array(
 				'title'       => 'Our story · preserving heritage, growing with purpose · Hakshan',
-				'description' => 'Hakshan is a modern Hakka restaurant group rooted in heritage cuisine. Three generations of recipes, seven kitchens in the Klang Valley, a roadmap to twenty-three across Malaysia and Indonesia by 2026.',
+				'description' => 'Hakshan is a modern Hakka restaurant group rooted in heritage cuisine. Three generations of recipes, thirteen kitchens in the Klang Valley, a roadmap to twenty-three across Malaysia and Indonesia by end of 2026.',
 			);
 
 		case 'menu':
@@ -105,8 +105,8 @@ function hakshan_seo_meta_for_context() {
 
 		case 'outlets':
 			return array(
-				'title'       => 'Outlets · find your nearest Hakshan · 7 Hakka restaurants in Klang Valley',
-				'description' => 'All seven Hakshan outlets across the Klang Valley, from USJ to Mont Kiara. Same recipes, same kitchen discipline, daily 11:00–22:00.',
+				'title'       => 'Outlets · find your nearest Hakshan · 10 Hakka restaurants in Klang Valley',
+				'description' => 'All ten Hakshan outlets across the Klang Valley, from USJ to Mont Kiara, plus three cloud kitchens. Same recipes, same kitchen discipline, daily 11:00–22:00.',
 			);
 
 		case 'single_outlet':
@@ -138,7 +138,7 @@ function hakshan_seo_meta_for_context() {
 		case 'investors':
 			return array(
 				'title'       => 'Investor relations · shaping the future of heritage dining · Hakshan',
-				'description' => 'Hakshan is a scalable food and beverage ecosystem redefining Hakka cuisine for the modern era. Seven kitchens in 2025, a roadmap to twenty-three across Malaysia and Indonesia by 2026. RM 20M revenue in 2025, projected at RM 74M in 2026.',
+				'description' => 'Hakshan is a scalable food and beverage ecosystem redefining Hakka cuisine for the modern era. Thirteen kitchens today — ten outlets and three cloud kitchens — with a roadmap to twenty-three across Malaysia and Indonesia by end of 2026. RM 20M revenue in 2025, projected at RM 74M in 2026.',
 			);
 
 		case 'press':
@@ -153,7 +153,7 @@ function hakshan_seo_meta_for_context() {
 	$title = $post instanceof WP_Post ? get_the_title( $post ) . ' · Hakshan' : 'Hakshan';
 	return array(
 		'title'       => $title,
-		'description' => 'Hakshan, a Hakka Chinese restaurant group in Malaysia. Three generations, seven kitchens. Part of every sale goes to community causes.',
+		'description' => 'Hakshan, a Hakka Chinese restaurant group in Malaysia. Three generations, thirteen kitchens. Part of every sale goes to community causes.',
 	);
 }
 

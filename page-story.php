@@ -381,8 +381,8 @@ get_header();
                'p_en' => 'Six more outlets open across the Klang Valley. Seven Hakshan kitchens in total, each running the same recipes under the same kitchen discipline. One million meals served, a 4.7-star rating, and a place among Grab Signature Partners.',
                'p_zh' => '巴生谷再开六家。客善总计七家厨房，每一间用同一本食谱，同一套厨房纪律。累计服务超过一百万人次，平均 4.7 星好评，跻身 Grab Signature 合作伙伴。' ),
         array( 'year' => '2026', 'h_en' => 'Beyond Malaysia',              'h_zh' => '走 出 马 来 西 亚',
-               'p_en' => 'A roadmap to twenty-three outlets across Malaysia and Indonesia by year-end. The recipes do not change. The kitchen discipline does not change. What scales is the reach.',
-               'p_zh' => '目标到年底：马来西亚与印尼，二十三家门店。食谱不变，厨房纪律不变。扩张的是触达，不是做法。' ),
+               'p_en' => 'By mid-year, thirteen Hakshan kitchens: ten outlets and three cloud kitchens. A roadmap to twenty-three across Malaysia and Indonesia by year-end. The recipes do not change. The kitchen discipline does not change. What scales is the reach.',
+               'p_zh' => '到年中，客善已有十三家厨房：十家门店，三间云端厨房。目标到年底：马来西亚与印尼，共二十三家。食谱不变，厨房纪律不变。扩张的是触达，不是做法。' ),
       );
       foreach ( $timeline as $row ) :
         ?>
