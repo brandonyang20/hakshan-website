@@ -445,89 +445,135 @@ get_header();
       <span data-zh>投资者关系</span>
     </span>
     <h1>
-      <span data-en>A family brand,<br/><em>an open door.</em></span>
-      <span data-zh>家的味道，<br/><em>新开一扇门。</em></span>
+      <span data-en>Shaping the future<br/>of <em>heritage dining.</em></span>
+      <span data-zh>重新定义<br/><em>传统餐饮的未来。</em></span>
     </h1>
   </div>
   <p>
-    <span data-en>Hakshan (客善) is a Hakka cuisine family business. Three generations of recipes, eighteen years of running kitchens, opening new outlets at the pace we can do them right. If you'd like to join the family, we'd like to meet.</span>
-    <span data-zh>客善是一家客家料理家族企业。三代人的食谱，十八年的厨房经营，一间一间地开，按我们能做好的节奏。若你想加入这个家族，欢迎认识。</span>
+    <span data-en>Hakshan stands at the intersection of culinary tradition and strategic innovation. We're building a scalable food and beverage ecosystem that brings heritage Hakka cuisine into the modern era through disciplined growth and operational excellence.</span>
+    <span data-zh>客善将文化传承与商业创新结合。我们正通过严谨的增长与卓越的运营，构建一个可规模化的综合餐饮生态，把传统客家菜带入现代。</span>
   </p>
 </section>
 
-<!-- ============== NARRATIVE — WHO WE ARE ============== -->
-<section class="inv-narrative">
-  <div data-reveal>
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>OUR STORY</span>
-      <span data-zh>我们的故事</span>
-    </span>
-    <h2>
-      <span data-en>Affordable food,<br/><em>with intent.</em></span>
-      <span data-zh>平价的食物，<br/><em>有心的经营。</em></span>
-    </h2>
-  </div>
-  <div class="inv-narrative__body" data-reveal>
-    <p class="lead">
-      <span data-en>Three generations of cooking. One family. One way of doing things, kept whole.</span>
-      <span data-zh>三代人下厨。一个家族。一种做法，原味原样。</span>
-    </p>
-    <p>
-      <span data-en>We've spent eighteen years learning how to run a kitchen well. With Hakshan, we're not selling franchises. We're inviting people to join. Investors share in the work and the outcomes the way the family does: by being part of the kitchen, not separate from it.</span>
-      <span data-zh>我们花了十八年学习怎样做好一间厨房。客善不是加盟生意，而是邀请人一起做。投资人参与厨房的方式，和家族成员一样：在厨房里，而不是站在外面。</span>
-    </p>
-    <span class="small"><span data-en>WHAT STAYS THE SAME</span><span data-zh>保 持 不 变</span></span>
-    <p>
-      <span data-en>The recipe book has never been retyped. The supplier relationships go back nearly two decades. Every kitchen lead is trained by the wok master in person. The community contribution sits inside the cost structure, not bolted onto profit. These don't change.</span>
-      <span data-zh>食谱本从未重打。供应商关系将近二十年。每一位厨房主管由主厨亲自培训。社区回馈写在成本里，不是从利润里抽出来的。这些，不会变。</span>
-    </p>
-    <span class="small"><span data-en>HOW WE'RE GROWING</span><span data-zh>我 们 的 节 奏</span></span>
-    <p>
-      <span data-en>We open new outlets one at a time, when the supply chain and the team can carry them. We choose locations by the people who live there, not the rent. Slow on purpose. There's room for the right partners.</span>
-      <span data-zh>我们一间一间开，等供应链与团队都能撑得住的时候才开。选址看的是社区，不是租金。慢，是有意为之。我们留有空间，等合适的伙伴。</span>
-    </p>
-  </div>
-</section>
-
-<!-- ============== FOOTPRINT ============== -->
-<section class="footprint" id="footprint">
+<!-- ============== CORE STRATEGIC POTENTIAL ============== -->
+<section class="footprint" id="strategy">
   <div class="footprint__inner">
     <div class="footprint__head" data-reveal>
       <div>
         <span class="h-eyebrow"><span class="dot"></span>
-          <span data-en>WHERE WE ARE</span>
-          <span data-zh>我们在哪里</span>
+          <span data-en>CORE STRATEGIC POTENTIAL</span>
+          <span data-zh>核 心 战 略 潜 力</span>
         </span>
         <h2>
-          <span data-en>Where the kitchens<br/><em>are, and aren't yet.</em></span>
-          <span data-zh>厨房现在哪里，<br/><em>下一步在哪里。</em></span>
+          <span data-en>What we're<br/><em>built on.</em></span>
+          <span data-zh>我们的<br/><em>立足之本。</em></span>
         </h2>
       </div>
       <p>
-        <span data-en>We grow at the pace of our supply chain and our people, not our capital. Every new location is chosen for community fit. No outlet has been closed since launch.</span>
-        <span data-zh>我们按供应链与团队的节奏成长，不是资金的节奏。每一个新址都看社区气质。开业以来没有一家门店关闭。</span>
+        <span data-en>Three pillars hold the model together: the way we cook, the way we standardise, and the way we scale.</span>
+        <span data-zh>支撑模式的三根柱子：我们怎么做菜，怎么标准化，怎么扩张。</span>
       </p>
     </div>
 
     <div class="fp-grid" data-reveal>
       <div class="fp-row">
-        <h4><span data-en>TODAY</span><span data-zh>今 天</span></h4>
-        <div class="name"><span data-en>9 kitchens, Klang Valley</span><span data-zh>9 间 厨 房 · 巴 生 谷</span></div>
-        <p><span data-en>Nine Hakshan outlets across the Klang Valley, from USJ to Mont Kiara. Every kitchen runs the same recipes, the same way.</span>
-          <span data-zh>巴生谷九家门店，从 USJ 到满家乐。每一间厨房，用同一本食谱，同一套做法。</span></p>
+        <h4><span data-en>TRADITION + INNOVATION</span><span data-zh>传 承 与 创 新</span></h4>
+        <div class="name"><span data-en>Elevating tradition</span><span data-zh>升 华 传 统</span></div>
+        <p><span data-en>Authentic Hakka flavours in a contemporary dining environment. By bridging ancestral recipes with modern lifestyles, we've built a refined concept that resonates with a diverse, loyal audience.</span>
+          <span data-zh>正宗客家风味，现代餐饮空间。我们在祖传食谱与今日生活之间架起桥梁，建立了一个深受市场青睐的精致餐饮概念。</span></p>
       </div>
       <div class="fp-row">
-        <h4><span data-en>NEXT</span><span data-zh>下 一 步</span></h4>
-        <div class="name"><span data-en>More on the way</span><span data-zh>陆 续 开 业</span></div>
-        <p><span data-en>The brand is still young. New outlets are in the pipeline. We open them when we're ready, not when the market asks.</span>
-          <span data-zh>品牌还年轻。新店在准备中。我们准备好了才开，不被市场推着走。</span></p>
+        <h4><span data-en>PRECISION + CONSISTENCY</span><span data-zh>精 准 与 一 致</span></h4>
+        <div class="name"><span data-en>Standardised at every kitchen</span><span data-zh>每 间 厨 房 标 准 化</span></div>
+        <p><span data-en>Our culinary foundation is built on standardised artisan recipes. Traditional methods, modern food technology. Every outlet delivers the same high-quality flavours, every time.</span>
+          <span data-zh>我们的烹饪基石是标准化的工匠配方。传统工艺，现代食品科技。每家门店，每一次出餐，风味始终如一。</span></p>
       </div>
       <div class="fp-row">
-        <h4><span data-en>WHAT STAYS</span><span data-zh>不 变 的</span></h4>
-        <div class="name"><span data-en>The recipe book</span><span data-zh>食 谱 本</span></div>
-        <p><span data-en>The recipe book is not for franchise sale. The wok master trains every kitchen lead in person. Some things don't scale through paperwork.</span>
-          <span data-zh>食谱不对外出售。每一位厨房主管由主厨亲自培训。有些事情，不靠纸张扩张。</span></p>
+        <h4><span data-en>OPERATIONAL SCALABILITY</span><span data-zh>运 营 可 扩 展</span></h4>
+        <div class="name"><span data-en>Built to scale</span><span data-zh>为 扩 张 而 建</span></div>
+        <p><span data-en>From procurement to delivery, our systems run end to end. Controlled expansion, exceptional cost management, food costs held under 30%.</span>
+          <span data-zh>从采购到交付，系统贯通。受控扩张，卓越成本管理，食材成本稳定在 30% 以下。</span></p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MULTI-LAYERED ECOSYSTEM ============== -->
+<section class="footprint" id="ecosystem">
+  <div class="footprint__inner">
+    <div class="footprint__head" data-reveal>
+      <div>
+        <span class="h-eyebrow"><span class="dot"></span>
+          <span data-en>OUR ECOSYSTEM</span>
+          <span data-zh>多 层 次 生 态</span>
+        </span>
+        <h2>
+          <span data-en>Three layers,<br/><em>one business.</em></span>
+          <span data-zh>三层结构，<br/><em>一盘生意。</em></span>
+        </h2>
+      </div>
+      <p>
+        <span data-en>Hakshan is more than a restaurant brand. We run the outlets, the central kitchens that supply them, and the holding structure that lets us think regionally rather than store by store.</span>
+        <span data-zh>客善不只是一个餐饮品牌。我们经营门店、为门店供货的中央厨房，以及让我们能从区域视角出发思考的控股结构。</span>
+      </p>
+    </div>
+
+    <div class="fp-grid" data-reveal>
+      <div class="fp-row">
+        <h4><span data-en>I · MARKET LAYER</span><span data-zh>一 · 市 场 层</span></h4>
+        <div class="name"><span data-en>Outlets</span><span data-zh>门 店</span></div>
+        <p><span data-en>Our physical locations are high-performance revenue generators, operating on a validated single-store profit model with strong market acceptance.</span>
+          <span data-zh>实体门店是高效的收入中心，基于经验证的单店盈利模型运营，市场认可度强。</span></p>
+      </div>
+      <div class="fp-row">
+        <h4><span data-en>II · SOLUTIONS LAYER</span><span data-zh>二 · 解 决 方 案 层</span></h4>
+        <div class="name"><span data-en>Synergy</span><span data-zh>协 同</span></div>
+        <p><span data-en>Central kitchens, food trading, and technology. Integrated support that optimises profitability and serves as a growth engine for both internal and external opportunities.</span>
+          <span data-zh>中央厨房、食品贸易、科技研发。综合支持系统优化盈利能力，是内部扩张与外部机会的增长引擎。</span></p>
+      </div>
+      <div class="fp-row">
+        <h4><span data-en>III · STRATEGIC LAYER</span><span data-zh>三 · 战 略 层</span></h4>
+        <div class="name"><span data-en>Leadership</span><span data-zh>领 航</span></div>
+        <p><span data-en>Our holding structure provides the capital allocation and strategic foresight needed for large-scale regional expansion.</span>
+          <span data-zh>控股结构提供大规模区域扩张所需的资本配置与战略远见。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROVEN SUCCESS TRAJECTORY ============== -->
+<section class="inv-stats">
+  <div class="footprint__head" data-reveal style="max-width: var(--maxw); margin: 0 auto 60px; padding: 0 var(--rail);">
+    <div>
+      <span class="h-eyebrow"><span class="dot"></span>
+        <span data-en>PROVEN SUCCESS TRAJECTORY</span>
+        <span data-zh>经 验 证 的 轨 迹</span>
+      </span>
+      <h2>
+        <span data-en>Where we've been,<br/><em>where we're going.</em></span>
+        <span data-zh>已 走 过 的 路，<br/><em>还 要 走 的 路。</em></span>
+      </h2>
+    </div>
+    <p>
+      <span data-en>Real numbers, not projections wrapped as facts. The growth is happening; the trajectory is documented; the next chapter is funded by the work already done.</span>
+      <span data-zh>真实的数字，不是把预测当作事实。增长正在发生，轨迹有据可查，下一章靠已经做出来的工作支撑。</span>
+    </p>
+  </div>
+  <div class="inv-stats__grid" data-reveal>
+    <div class="inv-stat">
+      <div class="num">7<span class="unit"> → 23</span></div>
+      <div class="lbl"><span data-en>Outlets, by 2026</span><span data-zh>门 店 · 至 2026</span></div>
+      <div class="sub"><span data-en>Seven kitchens today. Roadmap to twenty-three across Malaysia and Indonesia.</span><span data-zh>今天七家厨房。目标：马来西亚与印尼共二十三家。</span></div>
+    </div>
+    <div class="inv-stat">
+      <div class="num">RM <span style="font-size: 0.7em;">74</span><span class="unit">M</span></div>
+      <div class="lbl"><span data-en>Projected revenue, 2026</span><span data-zh>预 计 营 收 · 2026</span></div>
+      <div class="sub"><span data-en>RM 20 million in 2025, projected at RM 74 million by 2026.</span><span data-zh>2025 年 2,000 万马币，2026 年预计 7,400 万马币。</span></div>
+    </div>
+    <div class="inv-stat">
+      <div class="num">1M<span class="unit">+</span></div>
+      <div class="lbl"><span data-en>Meals served · 4.7 ★</span><span data-zh>服 务 餐 次 · 4.7 星</span></div>
+      <div class="sub"><span data-en>Over a million meals served. A trusted Grab Signature Partner, leading in both dine-in and delivery.</span><span data-zh>累计服务超过一百万人次，平均 4.7 星好评，跻身 Grab Signature 合作伙伴。</span></div>
     </div>
   </div>
 </section>
