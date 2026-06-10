@@ -88,13 +88,13 @@ function hakshan_seo_meta_for_context() {
 		case 'home':
 			return array(
 				'title'       => 'Hakshan · Hakka cooking, three generations, thirteen kitchens in Malaysia',
-				'description' => 'Hakshan (客善). A modern Hakka restaurant group rooted in heritage cuisine, three generations of the same recipes since 1958. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice. Ten outlets and three cloud kitchens across the Klang Valley. Part of every sale goes to community causes.',
+				'description' => 'Hakshan (客善). A modern Hakka restaurant group rooted in heritage cuisine, three generations of the same recipes since 1958. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice. Ten outlets and three cloud kitchens across the Klang Valley and Ipoh, Perak. Part of every sale goes to community causes.',
 			);
 
 		case 'story':
 			return array(
 				'title'       => 'Our story · preserving heritage, growing with purpose · Hakshan',
-				'description' => 'Hakshan is a modern Hakka restaurant group rooted in heritage cuisine. Three generations of recipes, thirteen kitchens in the Klang Valley, a roadmap to twenty-three across Malaysia and Indonesia by end of 2026.',
+				'description' => 'Hakshan is a modern Hakka restaurant group rooted in heritage cuisine. Three generations of recipes, thirteen kitchens across the Klang Valley and Ipoh, Perak. A roadmap to twenty-three across Malaysia and Indonesia by end of 2026.',
 			);
 
 		case 'menu':
@@ -105,8 +105,8 @@ function hakshan_seo_meta_for_context() {
 
 		case 'outlets':
 			return array(
-				'title'       => 'Outlets · find your nearest Hakshan · 10 Hakka restaurants in Klang Valley',
-				'description' => 'All ten Hakshan outlets across the Klang Valley, from USJ to Mont Kiara, plus three cloud kitchens. Same recipes, same kitchen discipline, daily 11:00–22:00.',
+				'title'       => 'Outlets · find your nearest Hakshan · 10 Hakka restaurants across Klang Valley and Ipoh',
+				'description' => 'All ten Hakshan outlets across the Klang Valley and Ipoh, Perak, plus three cloud kitchens. Same recipes, same kitchen discipline, daily 11:00–22:00.',
 			);
 
 		case 'single_outlet':

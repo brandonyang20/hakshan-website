@@ -347,8 +347,8 @@ get_header();
     <span data-zh>三代人，<br/><em>一菜谱</em></span>
   </h1>
   <p class="deck">
-    <span data-en>Hakshan (客善) is a modern Hakka restaurant group rooted in heritage cuisine. We bridge tradition and innovation, bringing the rich flavours of Hakka cooking into today's dining rooms while keeping every recipe whole.</span>
-    <span data-zh>客善是一个深植于客家传统美食的现代餐饮集团。我们在传承与创新之间架起桥梁，将客家菜的醇厚风味带入今日的餐厅，每一道菜，仍是原本的样子。</span>
+    <span data-en>Hakshan (客善) is a modern Hakka restaurant group, deeply rooted in authentic heritage cuisine and thoughtfully crafted for today's discerning diners. Our journey began with a belief that the rich, time-honoured flavours of Hakka cooking deserve to be preserved, respected, and shared with future generations.</span>
+    <span data-zh>客善是一个深植于正宗客家传统美食的现代餐饮集团，专为今日的品味食客精心打造。我们的旅程始于一个坚定的信念：客家菜肴那份丰富、历久弥新的风味，值得被珍视、被尊重，并传承给下一代。</span>
   </p>
 </section>
 
@@ -381,8 +381,8 @@ get_header();
                'p_en' => 'Six more outlets open across the Klang Valley. Seven Hakshan kitchens in total, each running the same recipes under the same kitchen discipline. One million meals served, a 4.7-star rating, and a place among Grab Signature Partners.',
                'p_zh' => '巴生谷再开六家。客善总计七家厨房，每一间用同一本食谱，同一套厨房纪律。累计服务超过一百万人次，平均 4.7 星好评，跻身 Grab Signature 合作伙伴。' ),
         array( 'year' => '2026', 'h_en' => 'Beyond Malaysia',              'h_zh' => '走 出 马 来 西 亚',
-               'p_en' => 'By mid-year, thirteen Hakshan kitchens: ten outlets and three cloud kitchens. A roadmap to twenty-three across Malaysia and Indonesia by year-end. The recipes do not change. The kitchen discipline does not change. What scales is the reach.',
-               'p_zh' => '到年中，客善已有十三家厨房：十家门店，三间云端厨房。目标到年底：马来西亚与印尼，共二十三家。食谱不变，厨房纪律不变。扩张的是触达，不是做法。' ),
+               'p_en' => 'By mid-year, thirteen Hakshan kitchens across the Klang Valley and Ipoh: ten outlets and three cloud kitchens. A roadmap to twenty-three across Malaysia and Indonesia by year-end. The recipes do not change. The kitchen discipline does not change. What scales is the reach.',
+               'p_zh' => '到年中，客善在巴生谷与怡保已有十三家厨房：十家门店，三间云端厨房。目标到年底：马来西亚与印尼，共二十三家。食谱不变，厨房纪律不变。扩张的是触达，不是做法。' ),
       );
       foreach ( $timeline as $row ) :
         ?>
@@ -521,8 +521,8 @@ get_header();
     </h2>
     <span class="cn">客 来 茶 当 酒</span>
     <p style="margin-top: 32px; font-size: 17px; line-height: 1.7; color: var(--ink-soft); max-width: 50ch;">
-      <span data-en>We aspire to preserve and elevate authentic Hakka cuisine across the region: a trusted name in heritage dining where families return, communities trust, and markets respect.</span>
-      <span data-zh>我们致力于在整个地区保存并提升正宗客家菜的地位，建立一个值得信赖的传统餐饮品牌：一个家庭愿意回归、社区信任、市场尊重的名字。</span>
+      <span data-en>Our vision extends beyond serving exceptional food. We aspire to preserve and elevate authentic Hakka cuisine across the region, while building a trusted and scalable restaurant brand: a recognised name in heritage dining, a place where families return, communities trust, and markets respect.</span>
+      <span data-zh>我们的愿景不仅止于提供卓越的美食。我们渴望在整个地区，保存并提升正宗客家菜肴的地位，同时建立一个值得信赖且可规模化的餐饮品牌：客家传统餐饮领域中备受认可的名字，一个家庭愿意回归、社区信任、市场尊重的品牌。</span>
     </p>
     <div class="story-close__buttons">
       <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) . '#reserve' ); ?>"><span data-en>Reserve a table</span><span data-zh>预订座位</span><span class="arr">→</span></a>

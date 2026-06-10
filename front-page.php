@@ -778,8 +778,8 @@ get_header();
         <div class="gen__year">2026</div>
         <div>
           <h3><span data-en>Three generations on</span><span data-zh>三 代 之 后</span></h3>
-          <p><span data-en>Thirteen kitchens across the Klang Valley: ten outlets and three cloud kitchens. Same recipes, same standards, sharpened by every generation that cooked them.</span>
-            <span data-zh>巴生谷十三家厨房：十家门店，三间云端厨房。同样的食谱，同样的标准，每一代下厨的人都把它做得更精到。</span></p>
+          <p><span data-en>Thirteen kitchens across the Klang Valley and Ipoh: ten outlets and three cloud kitchens. Same recipes, same standards, sharpened by every generation that cooked them.</span>
+            <span data-zh>巴生谷与怡保共十三家厨房：十家门店，三间云端厨房。同样的食谱，同样的标准，每一代下厨的人都把它做得更精到。</span></p>
         </div>
       </div>
     </div>
