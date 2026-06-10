@@ -755,7 +755,7 @@ get_header();
         <div>
           <h3><span data-en>The first generation</span><span data-zh>第 一 代</span></h3>
           <p><span data-en>A home kitchen in the ancestral village. Every meal is hers; every meal is for the family. The recipes live in her hands. Nothing is written down.</span>
-            <span data-zh>唐山祖屋的厨房。每一餐都是她下厨，每一餐都给家人。食谱在她手上，一字未落于纸。</span></p>
+            <span data-zh>祖屋里的厨房。每一餐都是她下厨，每一餐都给家人。食谱在她手上，一字未落于纸。</span></p>
         </div>
       </div>
       <div class="gen">
