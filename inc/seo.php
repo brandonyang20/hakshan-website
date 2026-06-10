@@ -94,7 +94,7 @@ function hakshan_seo_meta_for_context() {
 		case 'story':
 			return array(
 				'title'       => 'Our story · preserving heritage, growing with purpose · Hakshan',
-				'description' => 'Hakshan is a modern Hakka restaurant group rooted in heritage cuisine. Three generations of recipes, thirteen kitchens across the Klang Valley and Ipoh, Perak. A roadmap to twenty-three across Malaysia and Indonesia by end of 2026.',
+				'description' => 'Hakshan is a modern Hakka restaurant group rooted in heritage cuisine. Three generations of recipes, thirteen kitchens across the Klang Valley and Ipoh, Perak. A roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026.',
 			);
 
 		case 'menu':
@@ -138,7 +138,7 @@ function hakshan_seo_meta_for_context() {
 		case 'investors':
 			return array(
 				'title'       => 'Investor relations · shaping the future of heritage dining · Hakshan',
-				'description' => 'Hakshan is a scalable food and beverage ecosystem redefining Hakka cuisine for the modern era. Thirteen kitchens today — ten outlets and three cloud kitchens — with a roadmap to twenty-three across Malaysia and Indonesia by end of 2026. RM 20M revenue in 2025, projected at RM 74M in 2026.',
+				'description' => 'Hakshan is a scalable food and beverage ecosystem redefining Hakka cuisine for the modern era. Thirteen kitchens today (ten outlets, three cloud kitchens), with a roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026. RM 20M revenue in 2025, projected at RM 74M in 2026.',
 			);
 
 		case 'press':

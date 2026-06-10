@@ -528,8 +528,8 @@ get_header();
       <div class="fp-row">
         <h4><span data-en>II · SOLUTIONS LAYER</span><span data-zh>二 · 解 决 方 案 层</span></h4>
         <div class="name"><span data-en>Synergy</span><span data-zh>协 同</span></div>
-        <p><span data-en>Central kitchens, food trading, and technology. Integrated support that optimises profitability and serves as a growth engine for both internal and external opportunities.</span>
-          <span data-zh>中央厨房、食品贸易、科技研发。综合支持系统优化盈利能力，是内部扩张与外部机会的增长引擎。</span></p>
+        <p><span data-en>Five integrated entities under the holding: central kitchen, food trading, food technology, construction, and marketing. Support systems that optimise profitability and act as the growth engine for both internal expansion and external opportunities.</span>
+          <span data-zh>控股之下，五个整合实体：中央厨房、食品贸易、食品科技、装修工程、营销。综合支持系统优化盈利能力，是内部扩张与外部机会的增长引擎。</span></p>
       </div>
       <div class="fp-row">
         <h4><span data-en>III · STRATEGIC LAYER</span><span data-zh>三 · 战 略 层</span></h4>
@@ -561,9 +561,9 @@ get_header();
   </div>
   <div class="inv-stats__grid" data-reveal>
     <div class="inv-stat">
-      <div class="num">13<span class="unit"> → 23</span></div>
+      <div class="num">13<span class="unit"> → 45</span></div>
       <div class="lbl"><span data-en>Kitchens, by 2026</span><span data-zh>厨 房 · 至 2026</span></div>
-      <div class="sub"><span data-en>Thirteen kitchens today: ten outlets and three cloud kitchens. Roadmap to twenty-three across Malaysia and Indonesia.</span><span data-zh>今天十三家厨房：十家门店，三间云端厨房。目标：马来西亚与印尼共二十三家。</span></div>
+      <div class="sub"><span data-en>Thirteen kitchens today (ten outlets, three cloud kitchens). Roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by year-end.</span><span data-zh>今天十三家厨房（十家门店、三间云端厨房）。目标：年底前在马来西亚与印尼达成二十家门店与二十五间云端厨房。</span></div>
     </div>
     <div class="inv-stat">
       <div class="num">RM <span style="font-size: 0.7em;">74</span><span class="unit">M</span></div>
