@@ -357,8 +357,8 @@ get_header();
   <div class="timeline__inner">
     <div data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>SIXTY-EIGHT YEARS, IN BRIEF</span>
-        <span data-zh>六十八年·简述</span>
+        <span data-en>NEARLY A CENTURY, IN BRIEF</span>
+        <span data-zh>近百年·简述</span>
       </span>
       <h2>
         <span data-en>A long, quiet<br/><em>line.</em></span>
@@ -368,12 +368,12 @@ get_header();
     <div class="timeline__list" data-reveal>
       <?php
       $timeline = array(
-        array( 'year' => '1958', 'h_en' => 'A home kitchen, Seremban',     'h_zh' => '芙 蓉 · 家 中 厨 房',
-               'p_en' => 'The 1st generation cooks Hakka food at home: salt-baked chicken, mui choy belly, rice-wine chicken soup. No restaurant. No staff. Just a stove, a wok, and a family that keeps showing up to eat.',
-               'p_zh' => '第一代在家中煮客家菜：盐焗鸡、梅菜扣肉、糯米酒鸡汤。没有餐厅，没有员工。只有一个灶、一只镬，和一屋子总回来吃饭的家人。' ),
-        array( 'year' => '2008', 'h_en' => 'The recipes head north',      'h_zh' => '食 谱 北 上',
-               'p_en' => 'The 2nd generation moves to Kuala Lumpur and opens the family\'s first restaurant. For the first time, the dishes are written down: in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
-               'p_zh' => '第二代北上吉隆坡，开了家中第一家餐厅。第一次，那些菜被写下来：用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。' ),
+        array( 'year' => '1928', 'h_en' => 'A home kitchen, ancestral village', 'h_zh' => '唐 山 · 家 中 厨 房',
+               'p_en' => 'The 1st generation cooks Hakka food at home in the ancestral village: salt-baked chicken, mui choy belly, rice-wine chicken soup. No restaurant. No staff. Just a stove, a wok, and a family that keeps showing up to eat.',
+               'p_zh' => '第一代在唐山祖屋的厨房里煮客家菜：盐焗鸡、梅菜扣肉、糯米酒鸡汤。没有餐厅，没有员工。只有一个灶、一只镬，和一屋子总回来吃饭的家人。' ),
+        array( 'year' => '1972', 'h_en' => 'The recipes cross the sea', 'h_zh' => '食 谱 南 下',
+               'p_en' => 'The 2nd generation brings the recipes south to the Klang Valley and opens the family\'s first restaurant. For the first time, the dishes are written down: in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
+               'p_zh' => '第二代把食谱南下带到巴生谷，开了家中第一家餐厅。第一次，那些菜被写下来：用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。' ),
         array( 'year' => '2024', 'h_en' => 'Hakshan opens, USJ',          'h_zh' => '客 善 开 业 · USJ',
                'p_en' => 'February. The 3rd generation opens Hakshan in USJ: 客善, guest, kindness. Same recipes, new chairs. Part of every sale returned to the community.',
                'p_zh' => '二月，第三代在 USJ 开出客善：客者，善也。食谱不变，椅子换了。每一笔营业额的一部分，回馈社区。' ),
@@ -447,8 +447,8 @@ get_header();
         <span data-en>She cooked at home</span><span data-zh>她在家中下厨</span>
       </h3>
       <p>
-        <span data-en>Seremban, from 1958. Hakka dishes cooked at home: salt-baked chicken, mui choy belly, rice-wine chicken soup. Never ran a restaurant. The recipes lived in her hands.</span>
-        <span data-zh>1958年起，于芙蓉。家中烹客家菜：盐焗鸡、梅菜扣肉、糯米酒鸡汤。一生未开餐厅。食谱，在她手上。</span>
+        <span data-en>The ancestral village, from 1928. Hakka dishes cooked at home: salt-baked chicken, mui choy belly, rice-wine chicken soup. Never ran a restaurant. The recipes lived in her hands.</span>
+        <span data-zh>1928年起，于唐山祖屋。家中烹客家菜：盐焗鸡、梅菜扣肉、糯米酒鸡汤。一生未开餐厅。食谱，在她手上。</span>
       </p>
     </div>
     <div class="portrait">
@@ -457,8 +457,8 @@ get_header();
         <span data-en>She wrote it down</span><span data-zh>她把食谱写下来</span>
       </h3>
       <p>
-        <span data-en>Brought the recipes north to Kuala Lumpur around 2008 and opened the family's first restaurant. Wrote the dishes down for the first time: in pencil, on the back of kuih paper. The recipes did not change. The kitchen, suddenly, had to feed strangers.</span>
-        <span data-zh>约2008年，把食谱带到吉隆坡，开了家中第一家餐厅。第一次把菜写下来：用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。</span>
+        <span data-en>Brought the recipes south to the Klang Valley in 1972 and opened the family's first restaurant. Wrote the dishes down for the first time: in pencil, on the back of kuih paper. The recipes did not change. The kitchen, suddenly, had to feed strangers.</span>
+        <span data-zh>1972年，把食谱南下带到巴生谷，开了家中第一家餐厅。第一次把菜写下来：用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。</span>
       </p>
     </div>
     <div class="portrait">

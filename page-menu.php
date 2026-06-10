@@ -44,8 +44,8 @@ $section_word_zh = isset( $zh_numerals[ $total_sections ] ) ? $zh_numerals[ $tot
     </h1>
   </div>
   <p class="page-head__hakka" style="font-size: 17px; line-height: 1.65; color: var(--ink-soft); max-width: 56ch; margin-bottom: 18px;">
-    <span data-en>Hakka food is salt-cured, slow-braised, made to last in a kitchen without a fridge. It's the cooking of a Chinese migrant community that settled across southern Malaysia. What follows is the menu we've been cooking from since 1958.</span>
-    <span data-zh>客家菜，是盐渍、慢炖，原本是没有冰箱年代留下的味道。是落脚南马的华人移民社群留下来的家常。下面这一份，是我们家从1958年起就在做的菜。</span>
+    <span data-en>Hakka food is salt-cured, slow-braised, made to last in a kitchen without a fridge. It's the cooking of a Chinese migrant community that settled across southern Malaysia. What follows is the menu we've been cooking from since 1928.</span>
+    <span data-zh>客家菜，是盐渍、慢炖，原本是没有冰箱年代留下的味道。是落脚南马的华人移民社群留下来的家常。下面这一份，是我们家从1928年起就在做的菜。</span>
   </p>
   <?php if ( $total_dishes > 0 && $total_sections > 0 ) : ?>
   <p>

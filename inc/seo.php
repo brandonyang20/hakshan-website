@@ -88,7 +88,7 @@ function hakshan_seo_meta_for_context() {
 		case 'home':
 			return array(
 				'title'       => 'Hakshan · Hakka cooking, three generations, thirteen kitchens in Malaysia',
-				'description' => 'Hakshan (客善). A modern Hakka restaurant group rooted in heritage cuisine, three generations of the same recipes since 1958. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice. Ten outlets and three cloud kitchens across the Klang Valley and Ipoh, Perak. Part of every sale goes to community causes.',
+				'description' => 'Hakshan (客善). A modern Hakka restaurant group rooted in heritage cuisine, three generations of the same recipes since 1928. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice. Ten outlets and three cloud kitchens across the Klang Valley and Ipoh, Perak. Part of every sale goes to community causes.',
 			);
 
 		case 'story':
