@@ -450,8 +450,8 @@ get_header();
     </h1>
   </div>
   <p>
-    <span data-en>Hakshan stands at the intersection of culinary tradition and strategic innovation. We're building a scalable food and beverage ecosystem that brings heritage Hakka cuisine into the modern era through disciplined growth and operational excellence.</span>
-    <span data-zh>客善将文化传承与商业创新结合。我们正通过严谨的增长与卓越的运营，构建一个可规模化的综合餐饮生态，把传统客家菜带入现代。</span>
+    <span data-en>Hakshan stands at the intersection of culinary tradition and strategic innovation. We're building a scalable, integrated food and beverage ecosystem that redefines heritage cuisine for the modern era through disciplined growth and operational excellence.</span>
+    <span data-zh>客善将文化传承与商业创新完美融合。我们正通过严谨的增长与卓越的运营，构建一个可规模化的综合餐饮生态，为现代社会重新定义传统美食。</span>
   </p>
 </section>
 
@@ -479,8 +479,8 @@ get_header();
       <div class="fp-row">
         <h4><span data-en>TRADITION + INNOVATION</span><span data-zh>传 承 与 创 新</span></h4>
         <div class="name"><span data-en>Elevating tradition</span><span data-zh>升 华 传 统</span></div>
-        <p><span data-en>Authentic Hakka flavours in a contemporary dining environment. By bridging ancestral recipes with modern lifestyles, we've built a refined concept that resonates with a diverse, loyal audience.</span>
-          <span data-zh>正宗客家风味，现代餐饮空间。我们在祖传食谱与今日生活之间架起桥梁，建立了一个深受市场青睐的精致餐饮概念。</span></p>
+        <p><span data-en>Authentic Hakka flavours in a sophisticated, contemporary dining environment. By bridging ancestral recipes with modern lifestyles, we've created a refined concept that resonates with a diverse, loyal audience.</span>
+          <span data-zh>正宗客家风味，精致而现代的餐饮空间。我们在祖传食谱与今日生活之间架起桥梁，创造了一个深受市场青睐的精致餐饮概念。</span></p>
       </div>
       <div class="fp-row">
         <h4><span data-en>PRECISION + CONSISTENCY</span><span data-zh>精 准 与 一 致</span></h4>
