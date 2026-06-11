@@ -782,30 +782,47 @@ get_header();
     aspect-ratio: 4 / 3;
     margin: 0 auto;
   }
-  .noodles__photo img {
+  /* Layer 1: the bowl, static base — gentle breathing on scroll */
+  .noodles__photo .layer-bowl {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
-    transform-origin: center 58%;
+    transform-origin: center 62%;
     transform:
-      scale(calc(1 + var(--p) * 0.06))
-      translateY(calc(var(--p) * -28px));
+      scale(calc(1 + var(--p) * 0.04))
+      translateY(calc(var(--p) * -14px));
     will-change: transform;
     filter: drop-shadow(0 30px 40px rgba(42, 46, 39, 0.18));
+    z-index: 1;
   }
+  /* Layer 2: steam wisps, drift up and fade as the lift progresses */
   .noodles__photo .layer-steam {
     position: absolute;
     left: 50%;
-    top: 4%;
-    transform: translateX(-50%) translateY(calc(var(--p) * -90px));
-    width: 26%;
+    top: 14%;
+    transform: translateX(-50%) translateY(calc(var(--p) * -120px));
+    width: 22%;
     color: var(--ink);
-    opacity: calc(0.42 - var(--p) * 0.4);
+    opacity: calc(0.32 - var(--p) * 0.3);
     pointer-events: none;
     z-index: 2;
   }
   .noodles__photo .layer-steam svg { display: block; width: 100%; height: auto; }
+  /* Layer 3: chopsticks gripping the noodle clump — the lift */
+  .noodles__photo .layer-chops {
+    position: absolute;
+    left: 50%;
+    top: -2%;
+    width: 52%;
+    transform: translate(-50%, 0) translateY(calc(var(--p) * -200px));
+    will-change: transform;
+    z-index: 3;
+    filter: drop-shadow(0 14px 22px rgba(42, 46, 39, 0.28));
+    pointer-events: none;
+  }
 
   @media (max-width: 900px) {
     .noodles { height: 200vh; }
@@ -822,13 +839,15 @@ get_header();
     .noodles__copy p { margin-left: auto; margin-right: auto; }
     .noodles__scene { width: 100%; height: 100%; }
     .noodles__photo { width: min(440px, 84%); }
+    .noodles__photo .layer-chops { transform: translate(-50%, 0) translateY(calc(var(--p) * -150px)); }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .noodles { --p: 0.3; height: auto; }
+    .noodles { --p: 0.35; height: auto; }
     .noodles__sticky { position: relative; height: 80vh; }
-    .noodles__photo img { transform: none; }
-    .noodles__photo .layer-steam { transform: translateX(-50%); opacity: 0.3; }
+    .noodles__photo .layer-bowl { transform: none; }
+    .noodles__photo .layer-chops { transform: translate(-50%, 0) translateY(-70px); }
+    .noodles__photo .layer-steam { transform: translateX(-50%); opacity: 0.22; }
     .noodles__copy { opacity: 1; transform: none; }
   }
 </style>
@@ -869,15 +888,17 @@ get_header();
 
     <div class="noodles__scene" aria-hidden="true">
       <div class="noodles__photo">
+        <!-- Layer 1: bowl (static base) -->
         <img
-          src="<?php echo esc_url( content_url( 'uploads/2026/06/Traditional-Hakka-Stir-Fried-Noodles.jpeg' ) ); ?>"
+          class="layer-bowl"
+          src="<?php echo esc_url( content_url( 'uploads/2026/06/hf_20260611_191316_8453baed-fbc3-4219-83d8-0a1a5ab1ed67.png' ) ); ?>"
           alt=""
           loading="eager"
           decoding="async"
-          width="752"
-          height="474"
+          width="1184"
+          height="864"
         />
-        <!-- Steam wisps drift up from the bowl, fade as you scroll -->
+        <!-- Layer 2: steam wisps, drift up + fade -->
         <div class="layer-steam">
           <svg viewBox="0 0 140 220" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
             <path d="M 40 210 C 28 160, 56 130, 38 70 C 30 45, 50 30, 44 8"/>
@@ -885,6 +906,16 @@ get_header();
             <path d="M 102 210 C 92 165, 116 130, 100 78 C 90 52, 108 32, 96 8"/>
           </svg>
         </div>
+        <!-- Layer 3: chopsticks gripping a noodle clump (the lift) -->
+        <img
+          class="layer-chops"
+          src="<?php echo esc_url( content_url( 'uploads/2026/06/hf_20260611_191052_572e2999-01b0-4d44-b750-eb103853d0b3.png' ) ); ?>"
+          alt=""
+          loading="eager"
+          decoding="async"
+          width="1696"
+          height="2528"
+        />
       </div>
     </div>
   </div>
