@@ -773,52 +773,39 @@ get_header();
     height: 100%;
     width: 100%;
     justify-self: end;
+    display: grid;
+    place-items: center;
   }
-  .noodles__scene .layer {
+  .noodles__photo {
+    position: relative;
+    width: min(560px, 92%);
+    aspect-ratio: 4 / 3;
+    margin: 0 auto;
+  }
+  .noodles__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transform-origin: center 58%;
+    transform:
+      scale(calc(1 + var(--p) * 0.06))
+      translateY(calc(var(--p) * -28px));
+    will-change: transform;
+    filter: drop-shadow(0 30px 40px rgba(42, 46, 39, 0.18));
+  }
+  .noodles__photo .layer-steam {
     position: absolute;
     left: 50%;
+    top: 4%;
+    transform: translateX(-50%) translateY(calc(var(--p) * -90px));
+    width: 26%;
+    color: var(--ink);
+    opacity: calc(0.42 - var(--p) * 0.4);
     pointer-events: none;
-    color: var(--forest);
-  }
-  .noodles__scene .layer svg { display: block; width: 100%; height: auto; }
-  .noodles__scene .layer-steam {
-    width: 140px;
-    margin-left: -70px;
-    bottom: 56vh;
-    opacity: calc(0.45 - var(--p) * 0.4);
-    transform: translateY(calc(var(--p) * -120px));
-  }
-  .noodles__scene .layer-chops {
-    width: 90px;
-    margin-left: -45px;
-    bottom: 32vh;
-    z-index: 3;
-    transform: translateY(calc(var(--p) * -260px));
-  }
-  .noodles__scene .layer-strands {
-    width: 180px;
-    margin-left: -90px;
-    bottom: 24vh;
-    transform-origin: 50% 100%;
-    transform: scaleY(calc(1 + var(--p) * 2.2));
     z-index: 2;
   }
-  .noodles__scene .layer-strands svg { vector-effect: non-scaling-stroke; }
-  .noodles__scene .layer-strands svg * { vector-effect: non-scaling-stroke; }
-  .noodles__scene .layer-bowl {
-    width: 320px;
-    margin-left: -160px;
-    bottom: 16vh;
-    z-index: 4;
-    color: var(--ink);
-  }
-  .noodles__scene .layer-shadow {
-    width: 280px;
-    margin-left: -140px;
-    bottom: calc(16vh - 6px);
-    z-index: 1;
-    color: rgba(42, 46, 39, 0.18);
-  }
+  .noodles__photo .layer-steam svg { display: block; width: 100%; height: auto; }
 
   @media (max-width: 900px) {
     .noodles { height: 200vh; }
@@ -834,14 +821,14 @@ get_header();
     }
     .noodles__copy p { margin-left: auto; margin-right: auto; }
     .noodles__scene { width: 100%; height: 100%; }
+    .noodles__photo { width: min(440px, 84%); }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .noodles { --p: 0.45; height: auto; }
+    .noodles { --p: 0.3; height: auto; }
     .noodles__sticky { position: relative; height: 80vh; }
-    .noodles__scene .layer-chops { transform: translateY(-120px); }
-    .noodles__scene .layer-strands { transform: scaleY(1.8); }
-    .noodles__scene .layer-steam { transform: none; opacity: 0.35; }
+    .noodles__photo img { transform: none; }
+    .noodles__photo .layer-steam { transform: translateX(-50%); opacity: 0.3; }
     .noodles__copy { opacity: 1; transform: none; }
   }
 </style>
@@ -862,81 +849,42 @@ get_header();
 </section>
 
 <!-- ============== SCROLL-PULLED NOODLE BOWL ============== -->
-<section class="noodles" id="noodles" aria-label="Hakka noodles, pulled long by hand">
+<section class="noodles" id="noodles" aria-label="Hakka stir-fried noodles">
   <div class="noodles__sticky">
     <div class="noodles__copy">
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>BY HAND · PULLED LONG</span>
-        <span data-zh>手 拉 · 不 断</span>
+        <span data-en>WOK FIRE · STIR-FRIED</span>
+        <span data-zh>镬 气 · 客 家 炒 面</span>
       </span>
       <h2>
-        <span data-en>Pulled long,<br/><em>by hand.</em></span>
-        <span data-zh>手 拉<br/><em>不 断。</em></span>
+        <span data-en>From the wok,<br/><em>with the fire.</em></span>
+        <span data-zh>镬 气，<br/><em>家 的 味 道。</em></span>
       </h2>
       <p>
-        <span data-en>Hakka noodles, drawn out by chopstick and patience. The way they've been served at our table since 1928.</span>
-        <span data-zh>客家面，用筷子与耐心一根一根拉长。从 1928 年起，我们家就这样吃。</span>
+        <span data-en>Hakka stir-fried noodles, charred at the edges and tossed fast over a hard flame. Egg noodles, shiitake, pork, scallion. Cooked the family's way since 1928.</span>
+        <span data-zh>客家炒面，焦香有镬气，大火快炒。鸡蛋面、香菇、瘦肉、青葱。我们家从 1928 年起就这么做。</span>
       </p>
-      <span class="accent-cn">慢 火 · 长 寿 面</span>
+      <span class="accent-cn">大 火 · 快 炒</span>
     </div>
 
     <div class="noodles__scene" aria-hidden="true">
-      <!-- Steam: drifts up, fades out -->
-      <div class="layer layer-steam">
-        <svg viewBox="0 0 140 220" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-          <path d="M 40 210 C 28 160, 56 130, 38 70 C 30 45, 50 30, 44 8"/>
-          <path d="M 72 215 C 86 170, 60 130, 80 80 C 92 56, 70 38, 84 12"/>
-          <path d="M 102 210 C 92 165, 116 130, 100 78 C 90 52, 108 32, 96 8"/>
-        </svg>
-      </div>
-
-      <!-- Chopsticks: tapered, tilted slightly -->
-      <div class="layer layer-chops">
-        <svg viewBox="0 0 90 320" xmlns="http://www.w3.org/2000/svg">
-          <!-- Left chopstick -->
-          <polygon points="22,8 30,8 44,310 40,310" fill="var(--forest)" />
-          <!-- Right chopstick -->
-          <polygon points="60,8 68,8 54,310 50,310" fill="#2A2E27" />
-          <!-- Subtle highlight on each -->
-          <line x1="24" y1="14" x2="42" y2="304" stroke="rgba(255,255,255,0.12)" stroke-width="1.2"/>
-          <line x1="62" y1="14" x2="52" y2="304" stroke="rgba(255,255,255,0.10)" stroke-width="1.2"/>
-        </svg>
-      </div>
-
-      <!-- Noodle strands: anchored at bowl rim, scaleY stretches them upward -->
-      <div class="layer layer-strands">
-        <svg viewBox="0 0 180 240" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6">
-          <path d="M 70 240 C 58 180, 86 130, 72 60 S 92 18, 86 4"/>
-          <path d="M 86 240 C 96 190, 74 140, 90 70 S 78 20, 88 4"/>
-          <path d="M 96 240 C 86 195, 110 145, 96 78 S 110 22, 100 6"/>
-          <path d="M 110 240 C 122 195, 98 140, 116 72 S 100 18, 112 4"/>
-          <path d="M 78 240 C 90 200, 70 150, 84 86 S 70 24, 80 6"/>
-          <path d="M 102 240 C 92 200, 116 150, 102 80 S 116 24, 106 8"/>
-          <path d="M 64 240 C 76 210, 56 160, 70 100 S 56 38, 68 10"/>
-        </svg>
-      </div>
-
-      <!-- Bowl: static, foreground -->
-      <div class="layer layer-bowl">
-        <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
-          <!-- Bowl interior tint -->
-          <ellipse cx="160" cy="38" rx="142" ry="20" fill="rgba(212, 195, 156, 0.45)"/>
-          <!-- Outer body curve -->
-          <path d="M 16 38 Q 36 168, 160 178 Q 284 168, 304 38" fill="var(--paper)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-          <!-- Rim ellipse -->
-          <ellipse cx="160" cy="38" rx="144" ry="20" fill="none" stroke="currentColor" stroke-width="2"/>
-          <!-- Inner rim highlight -->
-          <ellipse cx="160" cy="38" rx="132" ry="15" fill="none" stroke="rgba(42,46,39,0.25)" stroke-width="1"/>
-          <!-- Foot ring -->
-          <path d="M 116 178 L 116 175 Q 116 170, 124 170 L 196 170 Q 204 170, 204 175 L 204 178" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </div>
-
-      <!-- Bowl shadow ellipse beneath -->
-      <div class="layer layer-shadow">
-        <svg viewBox="0 0 280 40" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="140" cy="20" rx="130" ry="12" fill="currentColor"/>
-        </svg>
+      <div class="noodles__photo">
+        <img
+          src="<?php echo esc_url( content_url( 'uploads/2026/06/Traditional-Hakka-Stir-Fried-Noodles.jpeg' ) ); ?>"
+          alt=""
+          loading="eager"
+          decoding="async"
+          width="752"
+          height="474"
+        />
+        <!-- Steam wisps drift up from the bowl, fade as you scroll -->
+        <div class="layer-steam">
+          <svg viewBox="0 0 140 220" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <path d="M 40 210 C 28 160, 56 130, 38 70 C 30 45, 50 30, 44 8"/>
+            <path d="M 72 215 C 86 170, 60 130, 80 80 C 92 56, 70 38, 84 12"/>
+            <path d="M 102 210 C 92 165, 116 130, 100 78 C 90 52, 108 32, 96 8"/>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
