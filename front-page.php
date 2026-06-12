@@ -909,7 +909,7 @@ get_header();
         <!-- Layer 3: chopsticks gripping a noodle clump (the lift) -->
         <img
           class="layer-chops"
-          src="<?php echo esc_url( content_url( 'uploads/2026/06/hf_20260611_191052_572e2999-01b0-4d44-b750-eb103853d0b3.png' ) ); ?>"
+          src="<?php echo esc_url( content_url( 'uploads/2026/06/hf_20260611_193153_8aa274f8-890d-45b3-b755-b18a7aa4d93e-2.png' ) ); ?>"
           alt=""
           loading="eager"
           decoding="async"
