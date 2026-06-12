@@ -812,12 +812,17 @@ get_header();
   }
   .noodles__photo .layer-steam svg { display: block; width: 100%; height: auto; }
   /* Layer 3: chopsticks gripping the noodle clump — the lift */
+  /* Diagonal composition: handles off-frame upper-right, clump lower-left. */
+  /* Lift vector follows the chopstick axis: up AND right. */
   .noodles__photo .layer-chops {
     position: absolute;
-    left: 50%;
-    top: -2%;
-    width: 52%;
-    transform: translate(-50%, 0) translateY(calc(var(--p) * -200px));
+    right: -6%;
+    top: -12%;
+    width: 64%;
+    transform: translate(
+      calc(var(--p) * 56px),
+      calc(var(--p) * -180px)
+    );
     will-change: transform;
     z-index: 3;
     filter: drop-shadow(0 14px 22px rgba(42, 46, 39, 0.28));
@@ -839,14 +844,14 @@ get_header();
     .noodles__copy p { margin-left: auto; margin-right: auto; }
     .noodles__scene { width: 100%; height: 100%; }
     .noodles__photo { width: min(440px, 84%); }
-    .noodles__photo .layer-chops { transform: translate(-50%, 0) translateY(calc(var(--p) * -150px)); }
+    .noodles__photo .layer-chops { transform: translate(calc(var(--p) * 36px), calc(var(--p) * -130px)); }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .noodles { --p: 0.35; height: auto; }
     .noodles__sticky { position: relative; height: 80vh; }
     .noodles__photo .layer-bowl { transform: none; }
-    .noodles__photo .layer-chops { transform: translate(-50%, 0) translateY(-70px); }
+    .noodles__photo .layer-chops { transform: translate(18px, -60px); }
     .noodles__photo .layer-steam { transform: translateX(-50%); opacity: 0.22; }
     .noodles__copy { opacity: 1; transform: none; }
   }
@@ -909,7 +914,7 @@ get_header();
         <!-- Layer 3: chopsticks gripping a noodle clump (the lift) -->
         <img
           class="layer-chops"
-          src="<?php echo esc_url( content_url( 'uploads/2026/06/hf_20260611_193153_8aa274f8-890d-45b3-b755-b18a7aa4d93e-2.png' ) ); ?>"
+          src="<?php echo esc_url( content_url( 'uploads/2026/06/hf_20260612_185729_d15b258d-ba8e-4604-8eb3-17dc7b18a660.png' ) ); ?>"
           alt=""
           loading="eager"
           decoding="async"
