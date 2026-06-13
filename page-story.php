@@ -379,6 +379,56 @@ get_header();
     flex-wrap: wrap;
   }
 
+  /* ============== EDITORIAL IMAGE BAND ============== */
+  .img-band {
+    background: var(--paper);
+    padding: clamp(96px, 14vw, 160px) var(--rail);
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .img-band--cream { background: var(--cream); }
+  .img-band__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: clamp(28px, 3.4vw, 44px);
+  }
+  .img-band__media {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  }
+  .img-band__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .img-band__caption {
+    display: grid;
+    gap: 10px;
+    max-width: 56ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .img-band__caption .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .img-band__caption .line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 28px);
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+
   @media (max-width: 980px) {
     .timeline__inner, .charity-block__inner { grid-template-columns: 1fr; gap: 32px; }
     .timeline__inner > div:first-child { position: static; }
@@ -404,6 +454,28 @@ get_header();
     <span data-en>Hakshan (客善) is a modern Hakka restaurant group, deeply rooted in authentic heritage cuisine and thoughtfully crafted for today's discerning diners. Our journey began with a belief that the rich, time-honoured flavours of Hakka cooking deserve to be preserved, respected, and shared with future generations.</span>
     <span data-zh>客善是一个深植于正宗客家传统美食的现代餐饮集团，专为今日的品味食客精心打造。我们的旅程始于一个坚定的信念：客家菜肴那份丰富、历久弥新的风味，值得被珍视、被尊重，并传承给下一代。</span>
   </p>
+</section>
+
+<!-- ============== IMAGE BAND · THE POT ============== -->
+<section class="img-band img-band--cream">
+  <div class="img-band__inner" data-reveal>
+    <div class="img-band__media">
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044405_ca5cc18c-2577-469a-bae2-013bd4f7dfec.png"
+           alt="A Hakka clay cooking pot on a wooden table, lit by soft daylight"
+           loading="lazy"
+           width="2048" height="1365"/>
+    </div>
+    <div class="img-band__caption">
+      <span class="eyebrow">
+        <span data-en>THE POT &nbsp;·&nbsp; 同 一 只 锅</span>
+        <span data-zh>同 一 只 锅</span>
+      </span>
+      <p class="line">
+        <span data-en>The same pot, every generation since.</span>
+        <span data-zh>同一只锅，三代未换。</span>
+      </p>
+    </div>
+  </div>
 </section>
 
 <!-- ============== TIMELINE ============== -->
@@ -556,6 +628,28 @@ get_header();
       <span data-en>Three pairs of hands.<br/><em>Still the same dishes.</em></span>
       <span data-zh>三 双 手。<br/><em>同 一 桌 菜。</em></span>
     </p>
+  </div>
+</section>
+
+<!-- ============== IMAGE BAND · THE BOOK ============== -->
+<section class="img-band">
+  <div class="img-band__inner" data-reveal>
+    <div class="img-band__media">
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044415_e09c5d9c-6266-48cb-9781-25ed0379673f.png"
+           alt="An open Hakka recipe notebook on cream paper with handwritten Chinese characters, a fountain pen and a porcelain teacup"
+           loading="lazy"
+           width="2048" height="1365"/>
+    </div>
+    <div class="img-band__caption">
+      <span class="eyebrow">
+        <span data-en>THE BOOK &nbsp;·&nbsp; 一 本 食 谱</span>
+        <span data-zh>一 本 食 谱</span>
+      </span>
+      <p class="line">
+        <span data-en>Written in pencil. Copied by hand. Never reprinted.</span>
+        <span data-zh>用 铅 笔 写 下，手 抄 至 今，从 未 付 印。</span>
+      </p>
+    </div>
   </div>
 </section>
 

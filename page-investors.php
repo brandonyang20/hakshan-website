@@ -622,6 +622,56 @@ get_header();
     color: var(--ink);
   }
 
+  /* ============== EDITORIAL IMAGE BAND ============== */
+  .img-band {
+    background: var(--paper);
+    padding: clamp(96px, 14vw, 160px) var(--rail);
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .img-band--cream { background: var(--cream); }
+  .img-band__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: clamp(28px, 3.4vw, 44px);
+  }
+  .img-band__media {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  }
+  .img-band__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .img-band__caption {
+    display: grid;
+    gap: 10px;
+    max-width: 56ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .img-band__caption .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .img-band__caption .line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 28px);
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+
   @media (max-width: 980px) {
     .inv-narrative, .footprint__head, .model__head { grid-template-columns: 1fr; gap: 32px; }
     .model__flow { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -650,6 +700,28 @@ get_header();
     <span data-en>Hakshan stands at the intersection of culinary tradition and strategic innovation. We're building a scalable, integrated food and beverage ecosystem that redefines heritage cuisine for the modern era through disciplined growth and operational excellence.</span>
     <span data-zh>客善将文化传承与商业创新完美融合。我们正通过严谨的增长与卓越的运营，构建一个可规模化的综合餐饮生态，为现代社会重新定义传统美食。</span>
   </p>
+</section>
+
+<!-- ============== IMAGE BAND · THE ROOM ============== -->
+<section class="img-band">
+  <div class="img-band__inner" data-reveal>
+    <div class="img-band__media">
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044429_638d7c25-837f-4363-a160-a5f345373e39-scaled.png"
+           alt="A bright modern Hakshan restaurant dining room interior with wooden tables, teal ceramics and large daylit windows"
+           loading="lazy"
+           width="2560" height="1440"/>
+    </div>
+    <div class="img-band__caption">
+      <span class="eyebrow">
+        <span data-en>THE ROOM &nbsp;·&nbsp; 客 善 的 厅</span>
+        <span data-zh>客 善 的 厅</span>
+      </span>
+      <p class="line">
+        <span data-en>Heritage at the table. Modern in everything around it.</span>
+        <span data-zh>桌 上 是 传 统，桌 外 是 现 代。</span>
+      </p>
+    </div>
+  </div>
 </section>
 
 <!-- ============== CORE STRATEGIC POTENTIAL ============== -->
@@ -868,6 +940,28 @@ get_header();
       <div class="num">1M<span class="unit">+</span></div>
       <div class="lbl"><span data-en>Meals served · 4.7 ★</span><span data-zh>服 务 餐 次 · 4.7 星</span></div>
       <div class="sub"><span data-en>Over a million meals served. A trusted Grab Signature Partner, leading in both dine-in and delivery.</span><span data-zh>累计服务超过一百万人次，平均 4.7 星好评，跻身 Grab Signature 合作伙伴。</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== IMAGE BAND · THE WORK ============== -->
+<section class="img-band img-band--cream">
+  <div class="img-band__inner" data-reveal>
+    <div class="img-band__media">
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044442_4266f28a-ccda-4698-a2f5-c79af5fe8091-scaled.png"
+           alt="A wok caught mid-toss with stir-fried Hakka egg noodles in motion, lit by soft daylight"
+           loading="lazy"
+           width="2560" height="1440"/>
+    </div>
+    <div class="img-band__caption">
+      <span class="eyebrow">
+        <span data-en>THE WORK &nbsp;·&nbsp; 每 一 镬</span>
+        <span data-zh>每 一 镬</span>
+      </span>
+      <p class="line">
+        <span data-en>Every number on the page started in a wok.</span>
+        <span data-zh>页 面 上 的 每 一 个 数 字，都 从 一 只 镬 开 始。</span>
+      </p>
     </div>
   </div>
 </section>
