@@ -183,7 +183,7 @@ get_header();
     position: relative;
     overflow: hidden;
     background: var(--paper);
-    padding: clamp(96px, 14vw, 160px) var(--rail);
+    padding: clamp(72px, 10vw, 120px) 0;
     border-top: 1px solid var(--line-soft);
     border-bottom: 1px solid var(--line-soft);
     display: grid;
@@ -199,6 +199,7 @@ get_header();
   .calm-break__mark {
     position: relative;
     z-index: 1;
+    width: 100%;
     margin-bottom: clamp(28px, 4vw, 48px);
     color: var(--forest);
   }
@@ -208,13 +209,14 @@ get_header();
     opacity: 0.95;
   }
   .calm-break__mark img {
-    width: min(86vw, 720px);
+    width: 100%;
     height: auto;
     display: block;
   }
   .calm-break__inner {
     position: relative; z-index: 2;
     max-width: 720px;
+    padding: 0 var(--rail);
   }
   .calm-break .small {
     font-family: var(--mono);
