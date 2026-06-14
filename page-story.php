@@ -759,7 +759,7 @@ get_header();
       <span data-zh>传承文化，<br/><em>有目标地成长。</em></span>
     </h2>
     <span class="cn">客 来 茶 当 酒</span>
-    <p style="margin-top: 32px; font-size: 17px; line-height: 1.7; color: var(--ink-soft); max-width: 50ch;">
+    <p style="margin: 32px auto 0; font-size: 17px; line-height: 1.7; color: var(--ink-soft); max-width: 50ch; text-align: center;">
       <span data-en>Our vision extends beyond serving exceptional food. We aspire to preserve and elevate authentic Hakka cuisine across the region, while building a trusted and scalable restaurant brand: a recognised name in heritage dining, a place where families return, communities trust, and markets respect.</span>
       <span data-zh>我们的愿景不仅止于提供卓越的美食。我们渴望在整个地区，保存并提升正宗客家菜肴的地位，同时建立一个值得信赖且可规模化的餐饮品牌：客家传统餐饮领域中备受认可的名字，一个家庭愿意回归、社区信任、市场尊重的品牌。</span>
     </p>
