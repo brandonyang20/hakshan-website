@@ -1048,7 +1048,7 @@ get_header();
     </span>
     <h2>
       <span data-en>Pull up<br/><em>a chair.</em></span>
-      <span data-zh>来 <br/><em>坐 坐。</em></span>
+      <span data-zh>来 坐<br/><em>一 坐。</em></span>
       <span class="cn" data-en>客来茶当酒</span>
     </h2>
     <p>
