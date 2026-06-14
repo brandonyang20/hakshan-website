@@ -421,12 +421,16 @@ if ( ! empty( $outlet_posts ) ) {
         'photo'     => $o['label'],
         'imageUrl'  => ! empty( $o['image_url'] ) ? $o['image_url'] : '',
         'permalink' => ( isset( $o['id'] ) && $o['id'] ) ? get_permalink( $o['id'] ) : '',
+        'booking'   => ! empty( $o['booking_url'] ) ? $o['booking_url'] : '',
       );
     }
     echo wp_json_encode( $js_outlets );
   ?>;
 
   const backdrop = document.getElementById("omBackdrop");
+  // Server-rendered href on the Reserve button is the fallback (the on-site
+  // reservation list) used for any outlet without its own booking link.
+  const RESERVE_FALLBACK = document.getElementById("omReserve").getAttribute("href");
 
   function openOutlet(key) {
     const o = OUTLETS[key];
@@ -458,6 +462,16 @@ if ( ! empty( $outlet_posts ) ) {
       "href",
       "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Hakshan " + o.name + " " + o.addr)
     );
+    const reserveBtn = document.getElementById("omReserve");
+    if (o.booking) {
+      reserveBtn.setAttribute("href", o.booking);
+      reserveBtn.setAttribute("target", "_blank");
+      reserveBtn.setAttribute("rel", "noopener");
+    } else {
+      reserveBtn.setAttribute("href", RESERVE_FALLBACK);
+      reserveBtn.removeAttribute("target");
+      reserveBtn.removeAttribute("rel");
+    }
     backdrop.classList.add("is-open");
     backdrop.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";

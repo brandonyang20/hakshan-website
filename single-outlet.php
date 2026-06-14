@@ -221,7 +221,8 @@ $maps_embed = $o['addr']
     <?php endif; ?>
 
     <div class="so-cta">
-      <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) . '#reserve' ); ?>">
+      <?php $so_has_booking = ! empty( $o['booking_url'] ); ?>
+      <a class="btn" href="<?php echo esc_url( $so_has_booking ? $o['booking_url'] : hakshan_nav_url( 'contact' ) . '#reserve' ); ?>"<?php echo $so_has_booking ? ' target="_blank" rel="noopener"' : ''; ?>>
         <span data-en>Reserve a table</span><span data-zh>预订座位</span><span class="arr">→</span>
       </a>
       <?php if ( $maps_url ) : ?>
