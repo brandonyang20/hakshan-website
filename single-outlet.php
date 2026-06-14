@@ -36,7 +36,7 @@ $maps_embed = $o['addr']
   }
   .so-hero__crumb {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--forest);
@@ -100,7 +100,7 @@ $maps_embed = $o['addr']
   .so-meta__row:last-of-type { border-bottom: 0; }
   .so-meta dt {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--forest);

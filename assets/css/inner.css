@@ -108,7 +108,7 @@
 }
 .menu-section__head .ch {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--forest);
@@ -351,7 +351,7 @@
 }
 .story-pull .by {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--mute);
@@ -375,7 +375,7 @@
 }
 .story-body .small {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--forest);
@@ -391,7 +391,7 @@
 .story-body .figure .ph { position: absolute; inset: 0; }
 .story-body .figure .caption {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--mute);
@@ -414,7 +414,7 @@
 .contact-form label {
   display: block;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--forest);
@@ -458,7 +458,7 @@
 }
 .contact-side h3 {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--forest);
@@ -526,7 +526,7 @@
 .inv-stat .num .unit { font-size: 0.45em; color: var(--forest); margin-left: 6px; }
 .inv-stat .lbl {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--mute);
@@ -567,10 +567,10 @@
   transition: padding 0.2s ease, background 0.2s ease;
 }
 .doc:hover { padding-left: 16px; background: var(--cream); }
-.doc__num { font-family: var(--mono); font-size: 11px; color: var(--forest); letter-spacing: 0.12em; }
+.doc__num { font-family: var(--mono); font-size: 12px; color: var(--forest); letter-spacing: 0.12em; }
 .doc h3 { font-family: var(--serif); font-style: italic; font-size: 22px; margin: 0; letter-spacing: -0.01em; }
-.doc .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--mute); text-transform: uppercase; }
-.doc .size { font-family: var(--mono); font-size: 11px; color: var(--mute); }
+.doc .meta { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; color: var(--mute); text-transform: uppercase; }
+.doc .size { font-family: var(--mono); font-size: 12px; color: var(--mute); }
 .doc .pdf {
   font-family: var(--mono);
   font-size: 12px;
@@ -609,7 +609,7 @@
   padding: 32px;
   border: 1px solid rgba(235, 223, 196, 0.3);
 }
-.inv-contact .card h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 12px; opacity: 0.7; }
+.inv-contact .card h4 { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 12px; opacity: 0.7; }
 .inv-contact .card p { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.4; margin: 0; }
 
 @media (max-width: 900px) {

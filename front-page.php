@@ -284,7 +284,7 @@ get_header();
     justify-content: space-between;
     align-items: baseline;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     color: var(--forest);
   }
   .sc-card__foot .arr {
@@ -568,7 +568,7 @@ get_header();
   }
   .oc-nav__count {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     color: var(--forest);
     white-space: nowrap;
@@ -664,7 +664,7 @@ get_header();
   }
   .cinema-break__top {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: rgba(235, 223, 196, 0.6);

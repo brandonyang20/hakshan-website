@@ -74,7 +74,7 @@ get_header();
   }
   .reserve-info .card h4 {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--forest);
@@ -121,7 +121,7 @@ get_header();
   }
   .reserve-outlet__city {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--forest);
@@ -132,7 +132,7 @@ get_header();
   .reserve-note {
     margin-top: 20px;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.06em;
     color: var(--mute);
     line-height: 1.6;
@@ -155,7 +155,7 @@ get_header();
   .press-card:hover { background: var(--cream); }
   .press-card h4 {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--forest);
@@ -180,7 +180,7 @@ get_header();
     padding-top: 12px;
     border-top: 1px solid var(--line);
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     color: var(--forest);
   }
@@ -205,7 +205,7 @@ get_header();
   .career:hover { padding-left: 16px; background: var(--cream); }
   .career .ix {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     color: var(--forest);
   }
@@ -218,7 +218,7 @@ get_header();
   }
   .career .sub {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--mute);
@@ -249,7 +249,7 @@ get_header();
   }
   .info-cell h4 {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--forest);

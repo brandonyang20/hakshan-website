@@ -48,7 +48,7 @@ get_header();
     display: block;
     margin: 32px 0 8px;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--forest);
@@ -186,7 +186,7 @@ get_header();
   .fp-row:nth-child(3n+1) { padding-left: 0; border-left: none; }
   .fp-row h4 {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--forest);
@@ -338,7 +338,7 @@ get_header();
   .ret-row:nth-child(3n+1) { padding-left: 0; border-left: none; }
   .ret-row h4 {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--forest);
@@ -360,7 +360,7 @@ get_header();
   .returns__note {
     margin-top: 32px;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--mute);
@@ -391,7 +391,7 @@ get_header();
   .pull-quote .by {
     margin-top: 32px;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--mute);
@@ -435,7 +435,7 @@ get_header();
   }
   .cinema-break .small {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: rgba(235, 223, 196, 0.6);
@@ -608,7 +608,7 @@ get_header();
   }
   .inv-contact .form-wrap h4 {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     margin: 0 0 16px;

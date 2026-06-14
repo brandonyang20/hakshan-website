@@ -101,7 +101,7 @@ get_header();
   }
   .portrait__num {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     color: var(--forest);
   }
@@ -160,7 +160,7 @@ get_header();
   }
   .cinema-break .small {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: rgba(235, 223, 196, 0.6);
@@ -270,7 +270,7 @@ get_header();
   }
   .press__row .who {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--forest);
@@ -286,7 +286,7 @@ get_header();
   }
   .press__row .date {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     color: var(--mute);
     text-align: right;

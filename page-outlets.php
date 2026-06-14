@@ -182,7 +182,7 @@ get_header();
   }
   .om-dialog__city {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--forest);
