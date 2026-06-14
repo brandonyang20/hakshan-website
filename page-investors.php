@@ -801,7 +801,7 @@ get_header();
 <section class="img-band">
   <figure class="img-band__inner" data-reveal>
     <div class="img-band__media img-band__media--framed">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044429_638d7c25-837f-4363-a160-a5f345373e39-scaled.png"
+      <img src="/wp-content/uploads/2026/06/hf_20260613_044429_638d7c25-837f-4363-a160-a5f345373e39-scaled.png"
            alt="A bright modern Hakshan restaurant dining room interior with wooden tables, teal ceramics and large daylit windows"
            loading="lazy"
            width="2560" height="1440"/>
@@ -1041,7 +1041,7 @@ get_header();
 <section class="img-band img-band--cream img-band--bleed img-band--reverse">
   <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_081506_d23e3ec7-bffb-4503-bfd1-7f8239e52836-scaled.png"
+      <img src="/wp-content/uploads/2026/06/hf_20260614_081506_d23e3ec7-bffb-4503-bfd1-7f8239e52836-scaled.png"
            alt="A wok caught mid-toss with stir-fried Hakka egg noodles in motion, lit by soft daylight"
            loading="lazy"
            width="2560" height="1440"/>

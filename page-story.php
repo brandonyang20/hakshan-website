@@ -513,7 +513,7 @@ get_header();
 <section class="img-band">
   <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_101937_2149cb85-b97a-4206-8c7a-30ccfd23aee6.png"
+      <img src="/wp-content/uploads/2026/06/hf_20260614_101937_2149cb85-b97a-4206-8c7a-30ccfd23aee6.png"
            alt="A Hakka clay cooking pot, lit by soft daylight"
            loading="lazy"
            width="2048" height="2048"/>
@@ -610,7 +610,7 @@ get_header();
 <section class="img-band img-band--cream img-band--reverse">
   <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_102352_22b4a292-733f-4525-9612-31ad1423d039.png"
+      <img src="/wp-content/uploads/2026/06/hf_20260614_102352_22b4a292-733f-4525-9612-31ad1423d039.png"
            alt="An open Hakka recipe notebook with handwritten Chinese characters, a fountain pen and a porcelain teacup"
            loading="lazy"
            width="2048" height="1365"/>
