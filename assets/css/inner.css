@@ -131,6 +131,8 @@
   margin-top: 12px;
   opacity: 0.7;
 }
+/* In ZH mode the .cn subtitle duplicates the ZH title — suppress it. */
+[data-lang="zh"] .menu-section__head h2 .cn { display: none; }
 .menu-section__head p {
   font-size: 15px;
   line-height: 1.7;
