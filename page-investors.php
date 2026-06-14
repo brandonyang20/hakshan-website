@@ -625,15 +625,27 @@ get_header();
   /* ============== EDITORIAL IMAGE PLATE ============== */
   .img-band {
     background: var(--paper);
-    padding: clamp(64px, 9vw, 112px) var(--rail);
+    padding: clamp(72px, 10vw, 120px) var(--rail);
   }
   .img-band--cream { background: var(--cream); }
   .img-band__inner {
-    max-width: 760px;
+    max-width: 1100px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
   }
+  .img-band--reverse .img-band__inner {
+    grid-template-columns: 1fr 1.25fr;
+  }
+  .img-band--reverse .img-band__media { order: 2; }
+  .img-band--reverse .img-band__caption { order: 1; }
   .img-band__media {
     position: relative;
+    background: transparent;
+  }
+  .img-band__media--framed {
     overflow: hidden;
     border: 1px solid var(--line-soft);
     background: var(--paper);
@@ -643,12 +655,20 @@ get_header();
     width: 100%;
     height: auto;
   }
+  .img-band__media:not(.img-band__media--framed) img {
+    filter: drop-shadow(0 14px 28px rgba(42, 46, 39, 0.10));
+  }
   .img-band__caption {
-    margin: clamp(18px, 2.4vw, 28px) auto 0;
-    max-width: 52ch;
-    text-align: center;
+    margin: 0;
+    max-width: 36ch;
+    text-align: left;
     display: grid;
-    gap: 8px;
+    gap: 14px;
+    align-content: center;
+  }
+  .img-band--reverse .img-band__caption {
+    justify-self: end;
+    text-align: right;
   }
   .img-band__caption .eyebrow {
     font-family: var(--mono);
@@ -666,11 +686,24 @@ get_header();
   .img-band__caption .line {
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(14px, 1.2vw, 16px);
-    line-height: 1.55;
-    color: var(--ink-soft);
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.45;
+    color: var(--ink);
     margin: 0;
     text-wrap: balance;
+  }
+  @media (max-width: 760px) {
+    .img-band__inner,
+    .img-band--reverse .img-band__inner {
+      grid-template-columns: 1fr;
+      gap: clamp(20px, 4vw, 32px);
+    }
+    .img-band--reverse .img-band__media { order: 1; }
+    .img-band--reverse .img-band__caption {
+      order: 2;
+      justify-self: stretch;
+      text-align: left;
+    }
   }
 
   @media (max-width: 980px) {
@@ -706,7 +739,7 @@ get_header();
 <!-- ============== PLATE I · THE ROOM ============== -->
 <section class="img-band">
   <figure class="img-band__inner" data-reveal>
-    <div class="img-band__media">
+    <div class="img-band__media img-band__media--framed">
       <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044429_638d7c25-837f-4363-a160-a5f345373e39-scaled.png"
            alt="A bright modern Hakshan restaurant dining room interior with wooden tables, teal ceramics and large daylit windows"
            loading="lazy"
@@ -946,9 +979,9 @@ get_header();
 </section>
 
 <!-- ============== PLATE II · THE WORK ============== -->
-<section class="img-band img-band--cream">
+<section class="img-band img-band--cream img-band--reverse">
   <figure class="img-band__inner" data-reveal>
-    <div class="img-band__media">
+    <div class="img-band__media img-band__media--framed">
       <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044442_4266f28a-ccda-4698-a2f5-c79af5fe8091-scaled.png"
            alt="A wok caught mid-toss with stir-fried Hakka egg noodles in motion, lit by soft daylight"
            loading="lazy"
