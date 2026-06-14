@@ -494,8 +494,20 @@ get_header();
     font-family: var(--serif);
     font-style: italic;
     font-size: 26px;
-    margin: 0 0 4px;
+    margin: 0;
     letter-spacing: -0.01em;
+  }
+  .oc-card__body { display: grid; gap: 6px; }
+  .oc-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .oc-card__head .arr {
+    align-self: flex-end;
+    align-self: last baseline;
+    flex-shrink: 0;
   }
   .oc-card .city {
     font-family: var(--mono);
@@ -505,24 +517,13 @@ get_header();
     color: var(--forest);
     opacity: 0.75;
   }
-  .oc-card .meta {
-    margin-top: auto;
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-soft);
-  }
-  .oc-card .meta .arr {
+  .oc-card .arr {
     font-family: var(--serif);
     font-size: 22px;
     color: var(--forest);
     transition: transform 0.25s ease;
   }
-  .oc-card:hover .meta .arr { transform: translateX(6px); }
+  .oc-card:hover .arr { transform: translateX(6px); }
 
   /* Carousel controls */
   .oc-nav {
@@ -956,8 +957,13 @@ get_header();
             ?>
             <a class="oc-card" href="<?php echo esc_url( $outlets_url . '#' . $o['slug'] ); ?>">
               <div class="oc-card__visual"><?php if ( ! empty( $o['image_html'] ) ) : echo $o['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div><?php endif; ?></div>
-              <div><h3><?php echo esc_html( $o['name'] ); ?></h3><div class="city"><?php echo esc_html( $city_display ); ?></div></div>
-              <div class="meta"><span></span><span class="arr">→</span></div>
+              <div class="oc-card__body">
+                <div class="oc-card__head">
+                  <h3><?php echo esc_html( $o['name'] ); ?></h3>
+                  <span class="arr" aria-hidden="true">&rarr;</span>
+                </div>
+                <div class="city"><?php echo esc_html( $city_display ); ?></div>
+              </div>
             </a>
           <?php endforeach;
         else :
@@ -976,8 +982,13 @@ get_header();
             ?>
             <a class="oc-card" href="<?php echo esc_url( $outlets_url . '#' . $o['slug'] ); ?>">
               <div class="oc-card__visual"><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div></div>
-              <div><h3><?php echo esc_html( $o['name'] ); ?></h3><div class="city"><?php echo esc_html( $o['city'] ); ?></div></div>
-              <div class="meta"><span></span><span class="arr">→</span></div>
+              <div class="oc-card__body">
+                <div class="oc-card__head">
+                  <h3><?php echo esc_html( $o['name'] ); ?></h3>
+                  <span class="arr" aria-hidden="true">&rarr;</span>
+                </div>
+                <div class="city"><?php echo esc_html( $o['city'] ); ?></div>
+              </div>
             </a>
           <?php endforeach;
         endif;
