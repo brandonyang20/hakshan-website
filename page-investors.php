@@ -636,6 +636,16 @@ get_header();
     gap: clamp(24px, 4vw, 56px);
     align-items: center;
   }
+  /* Framed photos (architecture, full-scene shots) earn a wider image
+     column — the cutouts are subject-sized, the framed photos deserve
+     room to breathe. */
+  .img-band:has(.img-band__media--framed) .img-band__inner {
+    max-width: 1180px;
+    grid-template-columns: 1.8fr 1fr;
+  }
+  .img-band:has(.img-band__media--framed).img-band--reverse .img-band__inner {
+    grid-template-columns: 1fr 1.8fr;
+  }
   .img-band--reverse .img-band__media { order: 2; }
   .img-band--reverse .img-band__caption { order: 1; }
   .img-band__media {
