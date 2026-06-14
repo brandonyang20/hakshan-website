@@ -695,8 +695,8 @@ get_header();
 <section class="img-band img-band--cream img-band--reverse">
   <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_081505_4d8ea1a7-2524-4338-a85c-19a9528ec946.png"
-           alt="An open Hakka recipe notebook on cream paper with handwritten Chinese characters, a fountain pen and a porcelain teacup"
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_102352_22b4a292-733f-4525-9612-31ad1423d039.png"
+           alt="An open Hakka recipe notebook with handwritten Chinese characters, a fountain pen and a porcelain teacup"
            loading="lazy"
            width="2048" height="1365"/>
     </div>
