@@ -420,11 +420,11 @@ get_header();
   }
   .gallery .g-tile:hover img { transform: scale(1.04); }
   .g1 { grid-column: 1 / 7;  grid-row: span 4; }
-  .g2 { grid-column: 7 / 13; grid-row: span 3; }
+  .g2 { grid-column: 7 / 13; grid-row: span 4; }
   .g3 { grid-column: 7 / 10; grid-row: span 3; }
   .g4 { grid-column: 10 / 13; grid-row: span 3; }
-  .g5 { grid-column: 1 / 5;  grid-row: span 2; }
-  .g6 { grid-column: 5 / 13; grid-row: span 2; }
+  .g5 { grid-column: 1 / 5;  grid-row: span 3; }
+  .g6 { grid-column: 5 / 13; grid-row: span 3; }
 
   /* Outlets carousel band */
   .outlets {
