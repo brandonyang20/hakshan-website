@@ -220,7 +220,6 @@ get_header();
   /* Careers list */
   .careers-list {
     display: grid;
-    border-top: 1px solid var(--line);
   }
   .career {
     display: grid;
