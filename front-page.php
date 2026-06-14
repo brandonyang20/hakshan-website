@@ -405,6 +405,20 @@ get_header();
     gap: 16px;
   }
   .gallery .ph { position: relative; }
+  .gallery .g-tile {
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+  .gallery .g-tile img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .gallery .g-tile:hover img { transform: scale(1.04); }
   .g1 { grid-column: 1 / 7;  grid-row: span 4; }
   .g2 { grid-column: 7 / 13; grid-row: span 3; }
   .g3 { grid-column: 7 / 10; grid-row: span 3; }
@@ -1029,12 +1043,36 @@ get_header();
     </h2>
   </div>
   <div class="gallery" data-reveal>
-    <div class="ph g1" data-label="dining room · warm light"></div>
-    <div class="ph g2" data-label="bar counter · tea station"></div>
-    <div class="ph g3" data-label="private room · round table 10"></div>
-    <div class="ph g4" data-label="open kitchen · wok station"></div>
-    <div class="ph g5" data-label="entrance · brass signage"></div>
-    <div class="ph g6" data-label="terrace · evening service"></div>
+    <div class="g-tile g1">
+      <img src="/wp-content/uploads/2026/06/hf_20260614_163317_1f8b7b31-da36-4b26-baf9-ab98396f6d1b-scaled.png"
+           alt="Hakshan dining room with light oak tables, wishbone chairs, dried wheat sprays in vases, and large daylit windows"
+           loading="lazy"/>
+    </div>
+    <div class="g-tile g2">
+      <img src="/wp-content/uploads/2026/06/SaveClip.App_476275457_122213662208196129_979495312290091736_n.jpg"
+           alt="A guest at a Hakshan table reading the menu booklet over a small Hakka dish, chopsticks, and sauces"
+           loading="lazy"/>
+    </div>
+    <div class="g-tile g3">
+      <img src="/wp-content/uploads/2026/06/SaveClip.App_473719755_122209079966196129_8098557174058037329_n.jpg"
+           alt="An elderly diner eating a Hakshan Hakka set meal, taken in close portrait"
+           loading="lazy"/>
+    </div>
+    <div class="g-tile g4">
+      <img src="/wp-content/uploads/2026/06/659576500_17944366659157266_2923855057428786443_n.jpg"
+           alt="Yellow Hakka stir-fried egg noodles airborne above a carbon-steel wok over a bright orange flame"
+           loading="lazy"/>
+    </div>
+    <div class="g-tile g5">
+      <img src="/wp-content/uploads/2026/06/SaveClip.App_471764503_122205621596196129_8892444678232792210_n.jpg"
+           alt="A Hakshan chef in a cap and dark apron working at the open-kitchen wok station, flame visible"
+           loading="lazy"/>
+    </div>
+    <div class="g-tile g6">
+      <img src="/wp-content/uploads/2026/06/SaveClip.App_476383046_122213662124196129_8518853883524923681_n.jpg"
+           alt="A long oak Hakshan dining table set for shared dining, surrounded by wishbone chairs, with a dried wheat spray on the wall ledge"
+           loading="lazy"/>
+    </div>
   </div>
 </section>
 <?php endif; ?>
