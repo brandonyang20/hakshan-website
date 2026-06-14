@@ -1260,10 +1260,6 @@ get_header();
         <span data-en>If you'd like to know more about Hakshan, the family, or what joining us could look like, we'd rather talk than send a pack. Drop us a note. We'll come back to you.</span>
         <span data-zh>如果你想了解客善、了解这个家族，或者想知道加入我们的方式，我们更愿意聊聊，而不是寄一份资料。写信给我们，我们会回。</span>
       </p>
-      <div class="card" style="margin-top: 32px;">
-        <h4><span data-en>Direct contact</span><span data-zh>直 接 联 系</span></h4>
-        <p><a href="mailto:hello@hakshan.com" style="color: var(--cream);">hello@hakshan.com</a></p>
-      </div>
     </div>
     <div data-reveal>
       <div class="form-wrap">
