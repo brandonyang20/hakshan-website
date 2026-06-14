@@ -540,8 +540,8 @@ get_header();
 <!-- ============== PLATE I · THE POT ============== -->
 <section class="img-band">
   <figure class="img-band__inner" data-reveal>
-    <div class="img-band__media img-band__media--framed">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044405_ca5cc18c-2577-469a-bae2-013bd4f7dfec.png"
+    <div class="img-band__media">
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_081501_f508c5c3-bffb-4e27-9282-bdfb0a4f27d5.png"
            alt="A Hakka clay cooking pot on a wooden table, lit by soft daylight"
            loading="lazy"
            width="2048" height="1365"/>
@@ -668,8 +668,8 @@ get_header();
 <!-- ============== PLATE II · THE BOOK ============== -->
 <section class="img-band img-band--cream img-band--reverse">
   <figure class="img-band__inner" data-reveal>
-    <div class="img-band__media img-band__media--framed">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044415_e09c5d9c-6266-48cb-9781-25ed0379673f.png"
+    <div class="img-band__media">
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_081505_4d8ea1a7-2524-4338-a85c-19a9528ec946.png"
            alt="An open Hakka recipe notebook on cream paper with handwritten Chinese characters, a fountain pen and a porcelain teacup"
            loading="lazy"
            width="2048" height="1365"/>

@@ -981,8 +981,8 @@ get_header();
 <!-- ============== PLATE II · THE WORK ============== -->
 <section class="img-band img-band--cream img-band--reverse">
   <figure class="img-band__inner" data-reveal>
-    <div class="img-band__media img-band__media--framed">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044442_4266f28a-ccda-4698-a2f5-c79af5fe8091-scaled.png"
+    <div class="img-band__media">
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_081506_d23e3ec7-bffb-4503-bfd1-7f8239e52836-scaled.png"
            alt="A wok caught mid-toss with stir-fried Hakka egg noodles in motion, lit by soft daylight"
            loading="lazy"
            width="2560" height="1440"/>
