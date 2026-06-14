@@ -215,7 +215,7 @@
 .dish .tag {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   background: var(--forest);
   color: var(--cream);

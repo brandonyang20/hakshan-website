@@ -503,7 +503,7 @@ get_header();
   }
   .org-node .ix {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--forest);
@@ -542,7 +542,7 @@ get_header();
   .org-node--sub { background: var(--cream); }
   .org-node--outlet { padding: 14px 16px; }
   .org-node--outlet .org-node__name { font-size: 15px; }
-  .org-node--outlet .org-node__sub { font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .org-node--outlet .org-node__sub { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
 
   /* Rails: vertical stems + horizontal bar connecting tiers */
   .org-rail {

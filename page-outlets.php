@@ -103,7 +103,7 @@ get_header();
     padding: 4px 10px;
     border-radius: 999px;
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     z-index: 2;
