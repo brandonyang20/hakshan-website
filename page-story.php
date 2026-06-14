@@ -457,28 +457,6 @@ get_header();
   </p>
 </section>
 
-<!-- ============== PLATE I · THE POT ============== -->
-<section class="img-band">
-  <figure class="img-band__inner" data-reveal>
-    <div class="img-band__media">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044405_ca5cc18c-2577-469a-bae2-013bd4f7dfec.png"
-           alt="A Hakka clay cooking pot on a wooden table, lit by soft daylight"
-           loading="lazy"
-           width="2048" height="1365"/>
-    </div>
-    <figcaption class="img-band__caption">
-      <span class="eyebrow">
-        <span data-en>PLATE I <span class="cn">锅</span></span>
-        <span data-zh>第 一 帧 <span class="cn">锅</span></span>
-      </span>
-      <p class="line">
-        <span data-en>Earthenware. 1928 onward.</span>
-        <span data-zh>陶 锅 · 一 九 二 八 至 今。</span>
-      </p>
-    </figcaption>
-  </figure>
-</section>
-
 <!-- ============== TIMELINE ============== -->
 <section class="timeline">
   <div class="timeline__inner">
@@ -524,6 +502,28 @@ get_header();
       <?php endforeach; ?>
     </div>
   </div>
+</section>
+
+<!-- ============== PLATE I · THE POT ============== -->
+<section class="img-band">
+  <figure class="img-band__inner" data-reveal>
+    <div class="img-band__media">
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044405_ca5cc18c-2577-469a-bae2-013bd4f7dfec.png"
+           alt="A Hakka clay cooking pot on a wooden table, lit by soft daylight"
+           loading="lazy"
+           width="2048" height="1365"/>
+    </div>
+    <figcaption class="img-band__caption">
+      <span class="eyebrow">
+        <span data-en>PLATE I <span class="cn">锅</span></span>
+        <span data-zh>第 一 帧 <span class="cn">锅</span></span>
+      </span>
+      <p class="line">
+        <span data-en>Earthenware. 1928 onward.</span>
+        <span data-zh>陶 锅 · 一 九 二 八 至 今。</span>
+      </p>
+    </figcaption>
+  </figure>
 </section>
 
 <!-- ============== PULL QUOTE ============== -->
