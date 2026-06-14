@@ -215,7 +215,7 @@ get_header();
   }
   .sc-card:hover { background: #fefcf7; transform: translateY(-4px); }
   .sc-card__visual {
-    aspect-ratio: 4/5;
+    aspect-ratio: 1/1;
     position: relative;
   }
   .sc-card__visual .ph { position: absolute; inset: 0; }
