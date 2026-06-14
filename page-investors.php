@@ -646,6 +646,38 @@ get_header();
   .img-band:has(.img-band__media--framed).img-band--reverse .img-band__inner {
     grid-template-columns: 1fr 1.8fr;
   }
+  /* Full-bleed plate: image runs flush to the page edge, text gets
+     internal padding so it never touches either edge. */
+  .img-band--bleed {
+    padding: clamp(56px, 8vw, 96px) 0;
+  }
+  .img-band--bleed .img-band__inner {
+    max-width: 100%;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 0;
+  }
+  .img-band--bleed .img-band__media:not(.img-band__media--framed) img {
+    max-width: 100%;
+  }
+  .img-band--bleed .img-band__caption {
+    max-width: none;
+    justify-self: stretch;
+    text-align: left;
+    padding-left: clamp(40px, 6vw, 96px);
+    padding-right: clamp(40px, 6vw, 96px);
+  }
+  @media (max-width: 760px) {
+    .img-band--bleed .img-band__inner {
+      grid-template-columns: 1fr;
+    }
+    .img-band--bleed .img-band__caption {
+      padding: 0 var(--rail);
+    }
+    .img-band--bleed .img-band__media:not(.img-band__media--framed) {
+      padding: 0 var(--rail);
+      justify-content: center;
+    }
+  }
   .img-band--reverse .img-band__media { order: 2; }
   .img-band--reverse .img-band__caption { order: 1; }
   .img-band__media {
@@ -1005,7 +1037,7 @@ get_header();
 </section>
 
 <!-- ============== PLATE II · THE WORK ============== -->
-<section class="img-band img-band--cream img-band--reverse">
+<section class="img-band img-band--cream img-band--bleed">
   <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
       <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_081506_d23e3ec7-bffb-4503-bfd1-7f8239e52836-scaled.png"
