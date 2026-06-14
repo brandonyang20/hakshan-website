@@ -128,51 +128,92 @@
     const track = toc ? toc.querySelector(".menu-toc__inner") : null;
     if (!toc || !track) return;
 
-    // 1) Drag-to-scroll (mouse + touch + pen via Pointer Events).
+    // Smooth-scroll a section to just below the sticky nav + sticky TOC.
+    // Done manually (rather than relying on native #hash jumps) so the
+    // landing position is always correct regardless of the two stacked
+    // sticky bars, and so it works even though the drag handler below
+    // suppresses the default anchor behaviour.
+    const scrollToSection = (section) => {
+      const navH = parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue("--nav-h"),
+        10
+      ) || 65;
+      const tocH = toc.getBoundingClientRect().height;
+      const y = section.getBoundingClientRect().top + window.scrollY - navH - tocH - 8;
+      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+    };
+
+    // 1) Drag-to-scroll for MOUSE only. Touch + pen get native pan-x
+    //    horizontal scrolling for free (overflow-x:auto + touch-action),
+    //    so we don't double-handle them. Crucially we do NOT use
+    //    setPointerCapture here — capturing the pointer retargets the
+    //    subsequent click event to the track, which would swallow the
+    //    link navigation entirely.
     let isDown = false;
     let startX = 0;
     let startScroll = 0;
     let moved = false;
-    let activePointerId = null;
 
     track.addEventListener("pointerdown", (e) => {
-      if (e.pointerType === "mouse" && e.button !== 0) return;
+      if (e.pointerType !== "mouse") return;
+      if (e.button !== 0) return;
       isDown = true;
       moved = false;
       startX = e.clientX;
       startScroll = track.scrollLeft;
-      activePointerId = e.pointerId;
-      try { track.setPointerCapture(e.pointerId); } catch (_) {}
       track.classList.add("is-dragging");
     });
 
-    track.addEventListener("pointermove", (e) => {
-      if (!isDown || e.pointerId !== activePointerId) return;
+    window.addEventListener("pointermove", (e) => {
+      if (!isDown) return;
       const delta = e.clientX - startX;
-      // Anything under ~12px is treated as a tap, not a drag — trackpads
-      // and touch screens easily jitter a few pixels during a normal
-      // click, and we'd otherwise swallow the anchor navigation.
-      if (Math.abs(delta) > 12) moved = true;
-      track.scrollLeft = startScroll - delta;
+      if (Math.abs(delta) > 6) moved = true;
+      if (moved) track.scrollLeft = startScroll - delta;
     });
 
-    const endGesture = (e) => {
-      if (e.pointerId !== activePointerId) return;
+    const endGesture = () => {
+      if (!isDown) return;
       isDown = false;
-      activePointerId = null;
       track.classList.remove("is-dragging");
-      try { track.releasePointerCapture(e.pointerId); } catch (_) {}
     };
-    track.addEventListener("pointerup", endGesture);
-    track.addEventListener("pointercancel", endGesture);
+    window.addEventListener("pointerup", endGesture);
+    window.addEventListener("pointercancel", endGesture);
 
-    track.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", (e) => {
-        if (moved) {
-          e.preventDefault();
-          moved = false;
-        }
-      });
+    // 2) Wheel → horizontal scroll, so a desktop scroll wheel / trackpad
+    //    moves the filter sideways instead of being stuck. Hand vertical
+    //    intent back to the page once the track hits either end.
+    track.addEventListener(
+      "wheel",
+      (e) => {
+        if (track.scrollWidth <= track.clientWidth) return;
+        const dy = e.deltaY;
+        if (dy === 0) return;
+        const atStart = track.scrollLeft <= 0;
+        const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+        if ((dy < 0 && atStart) || (dy > 0 && atEnd)) return;
+        e.preventDefault();
+        track.scrollLeft += dy;
+      },
+      { passive: false }
+    );
+
+    // 3) Click → controlled scroll. Delegated so it works no matter what
+    //    the click target is; suppressed only after a genuine drag.
+    track.addEventListener("click", (e) => {
+      const a = e.target.closest("a[href^='#']");
+      if (!a) return;
+      e.preventDefault();
+      if (moved) {
+        moved = false;
+        return;
+      }
+      const href = a.getAttribute("href");
+      let section = null;
+      try { section = document.querySelector(href); } catch (_) {}
+      if (section) {
+        scrollToSection(section);
+        if (history.replaceState) history.replaceState(null, "", href);
+      }
     });
 
     // 2) Scrollspy — highlight the link for the section currently under
