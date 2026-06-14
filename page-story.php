@@ -567,10 +567,10 @@ get_header();
 <section class="img-band">
   <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
-      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_081501_f508c5c3-bffb-4e27-9282-bdfb0a4f27d5.png"
-           alt="A Hakka clay cooking pot on a wooden table, lit by soft daylight"
+      <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_101937_2149cb85-b97a-4206-8c7a-30ccfd23aee6.png"
+           alt="A Hakka clay cooking pot, lit by soft daylight"
            loading="lazy"
-           width="2048" height="1365"/>
+           width="2048" height="2048"/>
     </div>
     <figcaption class="img-band__caption">
       <span class="eyebrow">
