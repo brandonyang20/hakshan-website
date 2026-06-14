@@ -291,6 +291,64 @@ function hakshan_seed_outlet_data() {
 }
 add_action( 'admin_init', 'hakshan_seed_outlet_data' );
 
+/**
+ * One-time backfill of the per-outlet inline.app booking links. Matches
+ * each outlet by a distinctive keyword found in its title / slug / city,
+ * and only fills outlets whose booking link is still empty — so any link
+ * entered or edited by hand in WP admin is never overwritten. Outlets
+ * with no keyword match are left blank (they fall back to "Call to book").
+ */
+function hakshan_seed_outlet_booking_urls() {
+	if ( get_option( 'hakshan_booking_urls_seeded_v1' ) ) {
+		return;
+	}
+	if ( ! is_admin() || ! post_type_exists( 'outlet' ) ) {
+		return;
+	}
+
+	// Keyword (matched against title + slug + city, case-insensitive) → link.
+	// Order matters: more specific keywords sit first.
+	$map = array(
+		'taipan'       => 'https://inline.app/booking/hakshanmy/taipan',
+		'ss2'          => 'https://inline.app/booking/hakshanmy/ss2',
+		'cheras'       => 'https://inline.app/booking/hakshanmy/cheras',
+		'petaling'     => 'https://inline.app/booking/hakshanmy/petaling',
+		'menjalara'    => 'https://inline.app/booking/hakshanmy/kepong',
+		'kepong'       => 'https://inline.app/booking/hakshanmy/kepong',
+		'damansara'    => 'https://inline.app/booking/hakshanmy/kd',
+		'puchong'      => 'https://inline.app/booking/hakshanmy/puchong',
+		'ipoh'         => 'https://inline.app/booking/hakshanmy/ipoh',
+		'bukit tinggi' => 'https://inline.app/booking/hakshanmy/klang',
+		'klang'        => 'https://inline.app/booking/hakshanmy/klang',
+	);
+
+	$outlets = get_posts(
+		array(
+			'post_type'   => 'outlet',
+			'post_status' => 'any',
+			'numberposts' => -1,
+		)
+	);
+	foreach ( $outlets as $outlet ) {
+		if ( ! empty( get_post_meta( $outlet->ID, 'outlet_booking_url', true ) ) ) {
+			continue; // Respect any hand-entered link.
+		}
+		$haystack = strtolower(
+			$outlet->post_title . ' ' . $outlet->post_name . ' ' .
+			(string) get_post_meta( $outlet->ID, 'outlet_city', true )
+		);
+		foreach ( $map as $needle => $url ) {
+			if ( false !== strpos( $haystack, $needle ) ) {
+				update_post_meta( $outlet->ID, 'outlet_booking_url', esc_url_raw( $url ) );
+				break;
+			}
+		}
+	}
+
+	update_option( 'hakshan_booking_urls_seeded_v1', 1 );
+}
+add_action( 'admin_init', 'hakshan_seed_outlet_booking_urls' );
+
 function hakshan_outlet_seed_data() {
 	return array(
 		array( 'slug' => 'usj',       'name' => 'USJ Taipan',         'cn' => '梳 邦 再 也',         'city' => 'SUBANG JAYA',  'label' => 'USJ Taipan · main dining hall, evening',
