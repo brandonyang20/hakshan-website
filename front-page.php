@@ -426,6 +426,23 @@ get_header();
   .g5 { grid-column: 1 / 5;  grid-row: span 3; }
   .g6 { grid-column: 5 / 13; grid-row: span 3; }
 
+  /* The 12-col mosaic collapses to a two-column mobile layout where
+     the wide landscape tiles (g1, g6) span full-width and the four
+     portrait/square tiles sit beside each other 2 across. */
+  @media (max-width: 768px) {
+    .gallery {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: auto;
+      gap: 10px;
+    }
+    .gallery > * {
+      grid-column: auto;
+      grid-row: auto;
+    }
+    .g1, .g6 { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
+    .g2, .g3, .g4, .g5 { aspect-ratio: 1 / 1; }
+  }
+
   /* Outlets carousel band */
   .outlets {
     max-width: var(--maxw);
