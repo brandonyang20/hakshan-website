@@ -140,7 +140,7 @@ function hakshan_render_nav( $args = array() ) {
 		$args,
 		array(
 			'dark'      => false,
-			'book_href' => '#book',
+			'book_href' => hakshan_nav_url( 'contact' ) . '#reserve',
 		)
 	);
 	$dark      = ! empty( $args['dark'] ) ? ' nav--dark' : '';
