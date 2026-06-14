@@ -624,3 +624,181 @@
   .doc { grid-template-columns: 40px 1fr auto; }
   .doc .meta, .doc .size { display: none; }
 }
+
+/* ============== Contact Form 7 — shared editorial styling ==============
+   Used by both the investor inquiry form (page-investors.php) and any
+   general contact form on /contact. Wrap a CF7 [contact-form-7] embed
+   in <div class="cf7-form-block"> to opt in. */
+.cf7-form-block .form-wrap {
+  background: var(--cream);
+  padding: 28px;
+  color: var(--ink);
+}
+.cf7-form-block .form-wrap h4 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  color: var(--forest);
+}
+.cf7-form-block .wpcf7 form {
+  display: grid;
+  gap: 18px;
+}
+.cf7-form-block .wpcf7 form > label,
+.cf7-form-block .wpcf7 form > p > label {
+  display: block;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  line-height: 1.5;
+}
+.cf7-form-block .wpcf7 form .cf7-question {
+  margin: 4px 0 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+.cf7-form-block .wpcf7 form input[type="text"],
+.cf7-form-block .wpcf7 form input[type="email"],
+.cf7-form-block .wpcf7 form input[type="tel"],
+.cf7-form-block .wpcf7 form input[type="url"],
+.cf7-form-block .wpcf7 form input[type="number"],
+.cf7-form-block .wpcf7 form textarea,
+.cf7-form-block .wpcf7 form select {
+  display: block;
+  width: 100%;
+  margin: 8px 0 0;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.cf7-form-block .wpcf7 form input[type="text"]:focus,
+.cf7-form-block .wpcf7 form input[type="email"]:focus,
+.cf7-form-block .wpcf7 form input[type="tel"]:focus,
+.cf7-form-block .wpcf7 form input[type="url"]:focus,
+.cf7-form-block .wpcf7 form input[type="number"]:focus,
+.cf7-form-block .wpcf7 form textarea:focus,
+.cf7-form-block .wpcf7 form select:focus {
+  outline: none;
+  border-color: var(--forest);
+  background: #fff;
+}
+.cf7-form-block .wpcf7 form ::placeholder {
+  color: var(--mute);
+  opacity: 0.85;
+  font-family: var(--sans);
+  font-style: italic;
+}
+.cf7-form-block .wpcf7 form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.cf7-form-block .wpcf7 form .wpcf7-list-item {
+  display: inline-flex;
+  align-items: center;
+  margin: 6px 18px 0 0;
+}
+.cf7-form-block .wpcf7 form .wpcf7-list-item input[type="radio"],
+.cf7-form-block .wpcf7 form .wpcf7-list-item input[type="checkbox"] {
+  accent-color: var(--forest);
+  width: 16px;
+  height: 16px;
+  margin: 0 8px 0 0;
+  flex-shrink: 0;
+}
+.cf7-form-block .wpcf7 form .wpcf7-list-item-label {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 14px;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.45;
+}
+.cf7-form-block .wpcf7-acceptance .wpcf7-list-item {
+  margin: 0;
+}
+.cf7-form-block .wpcf7-acceptance .wpcf7-list-item-label {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.cf7-form-block .wpcf7 form input[type="submit"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 14px 28px;
+  background: var(--forest);
+  color: var(--cream);
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.cf7-form-block .wpcf7 form input[type="submit"]:hover {
+  background: transparent;
+  color: var(--forest);
+}
+.cf7-form-block .wpcf7 form input[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.cf7-form-block .wpcf7-not-valid-tip {
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #B0413E;
+}
+.cf7-form-block .wpcf7 form .wpcf7-response-output {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+.cf7-form-block .wpcf7 form.invalid .wpcf7-response-output,
+.cf7-form-block .wpcf7 form.unaccepted .wpcf7-response-output,
+.cf7-form-block .wpcf7 form.payment-required .wpcf7-response-output {
+  border-color: #B0413E;
+  color: #B0413E;
+}
+.cf7-form-block .wpcf7 form.sent .wpcf7-response-output {
+  border-color: var(--forest);
+  color: var(--forest);
+}
+@media (max-width: 560px) {
+  .cf7-form-block .wpcf7 form .wpcf7-list-item {
+    display: flex;
+    margin: 6px 0 0;
+  }
+}

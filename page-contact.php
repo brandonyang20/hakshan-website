@@ -15,7 +15,6 @@ get_header();
     max-width: var(--maxw);
     margin: 0 auto;
   }
-  .contact-section + .contact-section { padding-top: 0; }
   .contact-section.dark {
     background: var(--cream);
     max-width: none;
@@ -510,8 +509,8 @@ get_header();
   </div>
 </section>
 
-<!-- ============== GENERAL INFO ============== -->
-<section class="contact-section">
+<!-- ============== GENERAL CONTACT FORM ============== -->
+<section class="contact-section cf7-form-block">
   <div class="section-head" data-reveal>
     <div>
       <span class="h-eyebrow"><span class="dot"></span>
@@ -524,33 +523,25 @@ get_header();
       </h2>
     </div>
     <p>
-      <span data-en>For investor relations, supplier inquiries, community partnerships, and anything that doesn't fit a category above.</span>
-      <span data-zh>投资者关系、供应商联络、社区合作，以及不属于上述类别的任何事项。</span>
+      <span data-en>For investor relations, supplier inquiries, community partnerships, or anything that doesn't fit a category above. Drop us a note and we'll route it to the right person.</span>
+      <span data-zh>投资者关系、供应商联络、社区合作，以及不属于上述类别的任何事项。写信给我们，我们会转给对的人。</span>
     </p>
   </div>
-  <div class="info-row" data-reveal>
-    <div class="info-cell">
-      <h4><span data-en>General</span><span data-zh>一 般 联 络</span></h4>
-      <a href="mailto:hello@hakshan.com">hello@hakshan.com</a>
-      <div class="small"><span data-en>For anything that doesn't fit a category above.</span><span data-zh>不属上述类别的任何事项。</span></div>
-    </div>
-    <div class="info-cell">
-      <h4><span data-en>Investors</span><span data-zh>投 资 者</span></h4>
-      <a href="mailto:ir@hakshan.com">ir@hakshan.com</a>
-      <div class="small">
-        <span data-en><a href="<?php echo esc_url( hakshan_nav_url( 'investors' ) ); ?>">Investor relations page →</a></span>
-        <span data-zh><a href="<?php echo esc_url( hakshan_nav_url( 'investors' ) ); ?>">投资者关系页 →</a></span>
-      </div>
-    </div>
-    <div class="info-cell">
-      <h4><span data-en>Suppliers</span><span data-zh>供 应 商</span></h4>
-      <a href="mailto:procurement@hakshan.com">procurement@hakshan.com</a>
-      <div class="small"><span data-en>We source mostly within 80km of every outlet.</span><span data-zh>我们大多在各门店80公里内采购。</span></div>
-    </div>
-    <div class="info-cell">
-      <h4><span data-en>Community partners</span><span data-zh>社 区 合 作</span></h4>
-      <a href="mailto:hello@hakshan.com">hello@hakshan.com</a>
-      <div class="small"><span data-en>RM 5 from every dish ordered goes to community causes. Partners welcome.</span><span data-zh>每点一道菜，RM 5 投入社区用途。欢迎合作。</span></div>
+  <div data-reveal style="max-width: 760px; margin: 0 auto;">
+    <div class="form-wrap">
+      <h4><span data-en>Tell us about you</span><span data-zh>请 留 下 您 的 信 息</span></h4>
+      <?php
+      // Contact Form 7 embed — general inquiry form configured in
+      // WP admin (Contact → Contact Forms). Update the id below
+      // with the real CF7 form id once the form is saved.
+      $general_form_shortcode = '[contact-form-7 id="REPLACE_ME_GENERAL" title="General Contact"]';
+      $rendered = do_shortcode( $general_form_shortcode );
+      if ( trim( $rendered ) === trim( $general_form_shortcode ) || empty( $rendered ) ) {
+        echo '<p><em>' . esc_html__( 'Contact form not yet configured.', 'hakshan' ) . '</em></p>';
+      } else {
+        echo $rendered;
+      }
+      ?>
     </div>
   </div>
 </section>
