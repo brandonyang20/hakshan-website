@@ -1098,10 +1098,10 @@ get_header();
       <div class="form-wrap">
         <h4><span data-en>Tell us about you</span><span data-zh>请 留 下 您 的 信 息</span></h4>
         <?php
-        // Contact Form 7 embed.
-        // Replace REPLACE_ME with the actual form ID once the investor form is created in WP admin
-        // (Contact → Contact Forms). Until then, the placeholder below renders nothing on the front-end.
-        $investor_form_shortcode = '[contact-form-7 id="REPLACE_ME" title="Investor Inquiry"]';
+        // Contact Form 7 embed — investor inquiry form configured in
+        // WP admin (Contact → Contact Forms). Update the id below if
+        // the form is rebuilt under a new id in CF7.
+        $investor_form_shortcode = '[contact-form-7 id="e36b2ea" title="Investor Inquiry"]';
         $rendered = do_shortcode( $investor_form_shortcode );
         if ( trim( $rendered ) === trim( $investor_form_shortcode ) || empty( $rendered ) ) {
           echo '<p><em>' . esc_html__( 'Contact form not yet configured. Please email hello@hakshan.com in the meantime.', 'hakshan' ) . '</em></p>';
