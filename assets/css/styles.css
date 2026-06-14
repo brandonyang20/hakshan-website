@@ -554,7 +554,7 @@ body.drawer-open { overflow: hidden; }
   background: var(--forest);
   color: var(--cream);
   padding: 80px var(--rail) 36px;
-  margin-top: 120px;
+  margin-top: 0;
 }
 .foot__grid {
   display: grid;
