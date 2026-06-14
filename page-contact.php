@@ -412,10 +412,10 @@ get_header();
             <span data-zh>把想去的分店截图给我们，附人数与日期。我们回你一个时段。</span></div>
         </div>
         <div class="card">
-          <h4><span data-en>Large party · private room</span><span data-zh>包 房 · 大 桌</span></h4>
-          <p><span data-en>Twenty people and up.</span><span data-zh>二十人以上。</span></p>
-          <div class="small"><span data-en>Tell us the outlet, the date and the headcount, and we'll set the room. Same kitchen, longer table.</span>
-            <span data-zh>告诉我们分店、日期与人数，我们把房间留好。同一个厨房，桌子长一些。</span></div>
+          <h4><span data-en>Private room</span><span data-zh>包 房</span></h4>
+          <p><span data-en>Select outlets, up to 10.</span><span data-zh>部分门店设包房，最多十人。</span></p>
+          <div class="small"><span data-en>A few of our outlets have a private room seating up to ten. Tell us the outlet, the date and the headcount, and we'll hold it.</span>
+            <span data-zh>我们部分门店设有包房，最多可坐十人。告诉我们分店、日期与人数，我们为你留好。</span></div>
         </div>
       </div>
     </div>
