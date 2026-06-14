@@ -207,6 +207,11 @@ get_header();
     height: auto;
     opacity: 0.95;
   }
+  .calm-break__mark img {
+    width: min(86vw, 720px);
+    height: auto;
+    display: block;
+  }
   .calm-break__inner {
     position: relative; z-index: 2;
     max-width: 720px;
@@ -663,20 +668,10 @@ get_header();
 <!-- ============== CALM BREAK ============== -->
 <section class="calm-break">
   <div class="calm-break__mark" aria-hidden="true">
-    <!-- A single calligraphic line: long, quiet, with a small tail dot -->
-    <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round">
-      <!-- Hand-drawn brushed line, slight wobble -->
-      <path d="M 24 70 C 100 40, 200 88, 300 60 S 460 50, 488 64" stroke-width="2.5"/>
-      <!-- Tick marks along the line, like measure points -->
-      <line x1="80"  y1="78" x2="80"  y2="86" stroke-width="1"/>
-      <line x1="160" y1="76" x2="160" y2="84" stroke-width="1"/>
-      <line x1="240" y1="76" x2="240" y2="84" stroke-width="1"/>
-      <line x1="320" y1="70" x2="320" y2="78" stroke-width="1"/>
-      <line x1="400" y1="62" x2="400" y2="70" stroke-width="1"/>
-      <!-- Small filled marker at left start, larger open one at right end -->
-      <circle cx="24"  cy="70" r="3" fill="currentColor" stroke="none"/>
-      <circle cx="488" cy="64" r="6" stroke-width="2"/>
-    </svg>
+    <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_104006_d6ff5b1c-c580-40bb-81c4-07fe758768ef.png"
+         alt=""
+         loading="lazy"
+         width="2048" height="1152"/>
   </div>
   <div class="calm-break__inner" data-reveal>
     <div class="small">
