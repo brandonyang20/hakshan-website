@@ -131,7 +131,6 @@ get_header();
   /* Reservation outlet list (each opens its inline.app booking page) */
   .reserve-list {
     display: grid;
-    border-top: 1px solid var(--line);
   }
   .reserve-outlet {
     display: grid;
