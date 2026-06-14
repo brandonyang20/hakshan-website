@@ -90,7 +90,7 @@ get_header();
     padding: 4px 10px;
     border-radius: 999px;
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     color: var(--forest);
     z-index: 2;
@@ -129,7 +129,7 @@ get_header();
   }
   .og-card .city {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--forest);
@@ -214,7 +214,7 @@ get_header();
   }
   .om-dialog__meta dt {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--forest);

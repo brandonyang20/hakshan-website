@@ -234,7 +234,7 @@ get_header();
   .charity-block__stats .lbl {
     margin-top: 8px;
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     opacity: 0.7;
@@ -393,7 +393,7 @@ get_header();
   }
   .img-band__caption .eyebrow {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--mute);

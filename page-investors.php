@@ -112,7 +112,7 @@ get_header();
   .model-node:last-child::after { display: none; }
   .model-node .ix {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     color: var(--forest);
   }
@@ -239,7 +239,7 @@ get_header();
   .terms-card.accent { background: var(--cream); border-color: var(--forest); }
   .terms-card .ix {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     color: var(--forest);
     text-transform: uppercase;
@@ -263,7 +263,7 @@ get_header();
   .terms-card .vals .row:last-child { border-bottom: none; padding-bottom: 0; }
   .terms-card .vals dt {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--mute);
@@ -286,7 +286,7 @@ get_header();
   .terms-card .pill {
     align-self: flex-start;
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     background: var(--forest);
@@ -478,7 +478,7 @@ get_header();
   }
   .org__caption {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--mute);
@@ -523,7 +523,7 @@ get_header();
   .org-node .org-node__zh,
   .org-node .org-node__sub {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.06em;
     color: var(--ink-soft);
     margin: 2px 0 0;
@@ -725,7 +725,7 @@ get_header();
   }
   .img-band__caption .eyebrow {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--mute);

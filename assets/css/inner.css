@@ -203,7 +203,7 @@
   font-size: 14px;
 }
 .dish .price__tag {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--forest);
@@ -289,7 +289,7 @@
 }
 .outlet-card__meta dt {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--mute);
@@ -573,7 +573,7 @@
 .doc .size { font-family: var(--mono); font-size: 11px; color: var(--mute); }
 .doc .pdf {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   background: var(--forest);
   color: var(--cream);
