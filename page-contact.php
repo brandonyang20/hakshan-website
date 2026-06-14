@@ -98,48 +98,44 @@ get_header();
     margin-top: 8px;
   }
 
-  /* Outlet pick row inside form */
-  .pick-row {
+  /* Reservation outlet list (each opens its inline.app booking page) */
+  .reserve-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-top: 8px;
-  }
-  .pick-row .chip {
-    border: 1px solid var(--line);
-    padding: 12px 14px;
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 16px;
-    color: var(--ink);
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    letter-spacing: -0.005em;
-  }
-  .pick-row .chip:hover { background: var(--cream); border-color: var(--forest); }
-  .pick-row .chip.is-on {
-    background: var(--forest);
-    color: var(--cream);
-    border-color: var(--forest);
-  }
-
-  .submit-row {
-    margin-top: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    padding-top: 24px;
     border-top: 1px solid var(--line);
   }
-  .submit-row .terms {
+  .reserve-outlet {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .reserve-outlet__name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .reserve-outlet__city {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--forest);
+    opacity: 0.75;
+    margin-top: 6px;
+  }
+  .reserve-outlet .btn { white-space: nowrap; }
+  .reserve-note {
+    margin-top: 20px;
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.06em;
     color: var(--mute);
-    max-width: 40ch;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* Press grid */
@@ -312,7 +308,6 @@ get_header();
     .section-head, .info-row, .press-grid { grid-template-columns: 1fr; gap: 24px; }
     .career { grid-template-columns: 50px 1fr 60px; }
     .career .where, .career .when { display: none; }
-    .pick-row { grid-template-columns: 1fr 1fr; }
   }
 </style>
 
@@ -355,79 +350,53 @@ get_header();
     </div>
 
     <div class="reserve-form-block">
-      <form class="contact-form" data-reveal onsubmit="event.preventDefault(); alert('Reservation submitted. We will confirm by phone within an hour.');">
-        <div>
-          <label><span data-en>Outlet</span><span data-zh>分店</span></label>
-          <div class="pick-row" id="outletPick">
-            <button type="button" class="chip is-on" data-val="usj">USJ Taipan</button>
-            <button type="button" class="chip" data-val="menjalara">Menjalara</button>
-            <button type="button" class="chip" data-val="cheras">Cheras Traders</button>
-            <button type="button" class="chip" data-val="puchong">Bandar Puteri</button>
-            <button type="button" class="chip" data-val="conezion">IOI Conezion</button>
-            <button type="button" class="chip" data-val="kajang">Budiman Park</button>
-            <button type="button" class="chip" data-val="kiara">Mont Kiara</button>
-            <button type="button" class="chip" data-val="parkcity">The Waterfront</button>
-            <button type="button" class="chip" data-val="arkadia">Plaza Arkadia</button>
-          </div>
+      <div data-reveal>
+        <div class="reserve-list">
+          <?php
+          $reserve_outlets = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
+          if ( ! empty( $reserve_outlets ) ) :
+            foreach ( $reserve_outlets as $reserve_post ) :
+              $ro = hakshan_get_outlet_data( $reserve_post->ID );
+              if ( empty( $ro['name'] ) ) {
+                continue;
+              }
+              $ro_city    = ! empty( $ro['city'] ) ? ucwords( strtolower( $ro['city'] ) ) : '';
+              $ro_booking = ! empty( $ro['booking_url'] ) ? $ro['booking_url'] : '';
+              $ro_tel     = ! empty( $ro['phone'] ) ? preg_replace( '/[^0-9+]/', '', $ro['phone'] ) : '';
+              ?>
+              <div class="reserve-outlet">
+                <div>
+                  <h3 class="reserve-outlet__name"><?php echo esc_html( $ro['name'] ); ?></h3>
+                  <?php if ( $ro_city ) : ?>
+                    <div class="reserve-outlet__city"><?php echo esc_html( $ro_city ); ?></div>
+                  <?php endif; ?>
+                </div>
+                <?php if ( $ro_booking ) : ?>
+                  <a class="btn" href="<?php echo esc_url( $ro_booking ); ?>" target="_blank" rel="noopener">
+                    <span data-en>Reserve</span><span data-zh>预订</span><span class="arr">→</span>
+                  </a>
+                <?php elseif ( $ro_tel ) : ?>
+                  <a class="btn btn--ghost" href="tel:<?php echo esc_attr( $ro_tel ); ?>">
+                    <span data-en>Call to book</span><span data-zh>致电预订</span>
+                  </a>
+                <?php endif; ?>
+              </div>
+            <?php endforeach; ?>
+          <?php else : ?>
+            <div class="reserve-outlet">
+              <div>
+                <h3 class="reserve-outlet__name"><span data-en>Reservations by phone</span><span data-zh>电话预订</span></h3>
+                <div class="reserve-outlet__city">+60 16-246 2970</div>
+              </div>
+              <a class="btn btn--ghost" href="tel:+60162462970"><span data-en>Call to book</span><span data-zh>致电预订</span></a>
+            </div>
+          <?php endif; ?>
         </div>
-
-        <div class="contact-row">
-          <div>
-            <label><span data-en>Date</span><span data-zh>日期</span></label>
-            <input type="date" name="date" />
-          </div>
-          <div>
-            <label><span data-en>Time</span><span data-zh>时间</span></label>
-            <input type="time" name="time" />
-          </div>
-        </div>
-
-        <div class="contact-row">
-          <div>
-            <label><span data-en>Party size</span><span data-zh>人数</span></label>
-            <input type="number" name="party" min="1" max="20" placeholder="4" />
-          </div>
-          <div>
-            <label><span data-en>Occasion · optional</span><span data-zh>场合·可选</span></label>
-            <select name="occasion">
-              <option>None · 无</option>
-              <option>Birthday · 生 日</option>
-              <option>Family gathering · 家 宴</option>
-              <option>Business · 商 务</option>
-              <option>Anniversary · 周 年</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label><span data-en>Your name</span><span data-zh>姓名</span></label>
-          <input type="text" name="name" placeholder="Your full name" />
-        </div>
-
-        <div class="contact-row">
-          <div>
-            <label><span data-en>Phone</span><span data-zh>电话</span></label>
-            <input type="tel" name="phone" placeholder="+60 12-345 6789" />
-          </div>
-          <div>
-            <label><span data-en>Email</span><span data-zh>电邮</span></label>
-            <input type="email" name="email" placeholder="you@email.com" />
-          </div>
-        </div>
-
-        <div>
-          <label><span data-en>Notes · allergies, pre-orders, the second pot of tea</span><span data-zh>备注 · 过敏、预订菜、加一壶茶</span></label>
-          <textarea name="notes" rows="3" placeholder="..."></textarea>
-        </div>
-
-        <div class="submit-row">
-          <span class="terms">
-            <span data-en>WE'LL CONFIRM BY PHONE WITHIN ONE HOUR · 11:00–22:00</span>
-            <span data-zh>我们将在一小时内电话确认 · 11:00–22:00</span>
-          </span>
-          <button class="btn" type="submit"><span data-en>Reserve</span><span data-zh>提交预订</span><span class="arr">→</span></button>
-        </div>
-      </form>
+        <p class="reserve-note">
+          <span data-en>BOOKINGS OPEN IN OUR RESERVATION PARTNER (INLINE) · WALK-INS WELCOME · DAILY 11:00–22:00</span>
+          <span data-zh>预订将在我们的订位系统（Inline）中打开 · 欢迎散客 · 每日 11:00–22:00</span>
+        </p>
+      </div>
 
       <div class="reserve-info" data-reveal>
         <div class="card">
@@ -596,17 +565,6 @@ get_header();
     <span class="cn">客 来 茶 当 酒</span>
   </div>
 </section>
-
-<script>
-  // Outlet chip picker
-  (function() {
-    const chips = document.querySelectorAll("#outletPick .chip");
-    chips.forEach(c => c.addEventListener("click", () => {
-      chips.forEach(x => x.classList.remove("is-on"));
-      c.classList.add("is-on");
-    }));
-  })();
-</script>
 
 <?php
 get_footer();
