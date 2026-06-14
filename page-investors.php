@@ -622,25 +622,21 @@ get_header();
     color: var(--ink);
   }
 
-  /* ============== EDITORIAL IMAGE BAND ============== */
+  /* ============== EDITORIAL IMAGE PLATE ============== */
   .img-band {
     background: var(--paper);
-    padding: clamp(96px, 14vw, 160px) var(--rail);
-    border-top: 1px solid var(--line-soft);
-    border-bottom: 1px solid var(--line-soft);
+    padding: clamp(64px, 9vw, 112px) var(--rail);
   }
   .img-band--cream { background: var(--cream); }
   .img-band__inner {
-    max-width: 1200px;
+    max-width: 760px;
     margin: 0 auto;
-    display: grid;
-    gap: clamp(28px, 3.4vw, 44px);
   }
   .img-band__media {
     position: relative;
     overflow: hidden;
+    border: 1px solid var(--line-soft);
     background: var(--paper);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
   }
   .img-band__media img {
     display: block;
@@ -648,27 +644,32 @@ get_header();
     height: auto;
   }
   .img-band__caption {
-    display: grid;
-    gap: 10px;
-    max-width: 56ch;
-    margin: 0 auto;
+    margin: clamp(18px, 2.4vw, 28px) auto 0;
+    max-width: 52ch;
     text-align: center;
+    display: grid;
+    gap: 8px;
   }
   .img-band__caption .eyebrow {
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.22em;
+    font-size: 10px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
+    color: var(--mute);
+  }
+  .img-band__caption .eyebrow .cn {
+    font-family: var(--cn);
+    letter-spacing: 0.32em;
+    margin-left: 0.6em;
     color: var(--forest);
   }
   .img-band__caption .line {
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(20px, 2.4vw, 28px);
-    line-height: 1.4;
-    color: var(--ink);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.55;
+    color: var(--ink-soft);
     margin: 0;
-    letter-spacing: -0.005em;
     text-wrap: balance;
   }
 
@@ -702,26 +703,26 @@ get_header();
   </p>
 </section>
 
-<!-- ============== IMAGE BAND · THE ROOM ============== -->
+<!-- ============== PLATE I · THE ROOM ============== -->
 <section class="img-band">
-  <div class="img-band__inner" data-reveal>
+  <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
       <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044429_638d7c25-837f-4363-a160-a5f345373e39-scaled.png"
            alt="A bright modern Hakshan restaurant dining room interior with wooden tables, teal ceramics and large daylit windows"
            loading="lazy"
            width="2560" height="1440"/>
     </div>
-    <div class="img-band__caption">
+    <figcaption class="img-band__caption">
       <span class="eyebrow">
-        <span data-en>THE ROOM &nbsp;·&nbsp; 客 善 的 厅</span>
-        <span data-zh>客 善 的 厅</span>
+        <span data-en>PLATE I <span class="cn">厅</span></span>
+        <span data-zh>第 一 帧 <span class="cn">厅</span></span>
       </span>
       <p class="line">
-        <span data-en>Heritage at the table. Modern in everything around it.</span>
-        <span data-zh>桌 上 是 传 统，桌 外 是 现 代。</span>
+        <span data-en>Wood, tea-green ceramic, daylight.</span>
+        <span data-zh>木 · 青 瓷 · 日 光。</span>
       </p>
-    </div>
-  </div>
+    </figcaption>
+  </figure>
 </section>
 
 <!-- ============== CORE STRATEGIC POTENTIAL ============== -->
@@ -944,26 +945,26 @@ get_header();
   </div>
 </section>
 
-<!-- ============== IMAGE BAND · THE WORK ============== -->
+<!-- ============== PLATE II · THE WORK ============== -->
 <section class="img-band img-band--cream">
-  <div class="img-band__inner" data-reveal>
+  <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
       <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044442_4266f28a-ccda-4698-a2f5-c79af5fe8091-scaled.png"
            alt="A wok caught mid-toss with stir-fried Hakka egg noodles in motion, lit by soft daylight"
            loading="lazy"
            width="2560" height="1440"/>
     </div>
-    <div class="img-band__caption">
+    <figcaption class="img-band__caption">
       <span class="eyebrow">
-        <span data-en>THE WORK &nbsp;·&nbsp; 每 一 镬</span>
-        <span data-zh>每 一 镬</span>
+        <span data-en>PLATE II <span class="cn">镬</span></span>
+        <span data-zh>第 二 帧 <span class="cn">镬</span></span>
       </span>
       <p class="line">
-        <span data-en>Every number on the page started in a wok.</span>
-        <span data-zh>页 面 上 的 每 一 个 数 字，都 从 一 只 镬 开 始。</span>
+        <span data-en>Carbon steel, midday.</span>
+        <span data-zh>镬 · 日 中。</span>
       </p>
-    </div>
-  </div>
+    </figcaption>
+  </figure>
 </section>
 
 <!-- ============== PULL QUOTE ============== -->

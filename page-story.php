@@ -379,25 +379,21 @@ get_header();
     flex-wrap: wrap;
   }
 
-  /* ============== EDITORIAL IMAGE BAND ============== */
+  /* ============== EDITORIAL IMAGE PLATE ============== */
   .img-band {
     background: var(--paper);
-    padding: clamp(96px, 14vw, 160px) var(--rail);
-    border-top: 1px solid var(--line-soft);
-    border-bottom: 1px solid var(--line-soft);
+    padding: clamp(64px, 9vw, 112px) var(--rail);
   }
   .img-band--cream { background: var(--cream); }
   .img-band__inner {
-    max-width: 1200px;
+    max-width: 760px;
     margin: 0 auto;
-    display: grid;
-    gap: clamp(28px, 3.4vw, 44px);
   }
   .img-band__media {
     position: relative;
     overflow: hidden;
+    border: 1px solid var(--line-soft);
     background: var(--paper);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
   }
   .img-band__media img {
     display: block;
@@ -405,27 +401,32 @@ get_header();
     height: auto;
   }
   .img-band__caption {
-    display: grid;
-    gap: 10px;
-    max-width: 56ch;
-    margin: 0 auto;
+    margin: clamp(18px, 2.4vw, 28px) auto 0;
+    max-width: 52ch;
     text-align: center;
+    display: grid;
+    gap: 8px;
   }
   .img-band__caption .eyebrow {
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.22em;
+    font-size: 10px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
+    color: var(--mute);
+  }
+  .img-band__caption .eyebrow .cn {
+    font-family: var(--cn);
+    letter-spacing: 0.32em;
+    margin-left: 0.6em;
     color: var(--forest);
   }
   .img-band__caption .line {
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(20px, 2.4vw, 28px);
-    line-height: 1.4;
-    color: var(--ink);
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.55;
+    color: var(--ink-soft);
     margin: 0;
-    letter-spacing: -0.005em;
     text-wrap: balance;
   }
 
@@ -456,26 +457,26 @@ get_header();
   </p>
 </section>
 
-<!-- ============== IMAGE BAND · THE POT ============== -->
-<section class="img-band img-band--cream">
-  <div class="img-band__inner" data-reveal>
+<!-- ============== PLATE I · THE POT ============== -->
+<section class="img-band">
+  <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
       <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044405_ca5cc18c-2577-469a-bae2-013bd4f7dfec.png"
            alt="A Hakka clay cooking pot on a wooden table, lit by soft daylight"
            loading="lazy"
            width="2048" height="1365"/>
     </div>
-    <div class="img-band__caption">
+    <figcaption class="img-band__caption">
       <span class="eyebrow">
-        <span data-en>THE POT &nbsp;·&nbsp; 同 一 只 锅</span>
-        <span data-zh>同 一 只 锅</span>
+        <span data-en>PLATE I <span class="cn">锅</span></span>
+        <span data-zh>第 一 帧 <span class="cn">锅</span></span>
       </span>
       <p class="line">
-        <span data-en>The same pot, every generation since.</span>
-        <span data-zh>同一只锅，三代未换。</span>
+        <span data-en>Earthenware. 1928 onward.</span>
+        <span data-zh>陶 锅 · 一 九 二 八 至 今。</span>
       </p>
-    </div>
-  </div>
+    </figcaption>
+  </figure>
 </section>
 
 <!-- ============== TIMELINE ============== -->
@@ -631,26 +632,26 @@ get_header();
   </div>
 </section>
 
-<!-- ============== IMAGE BAND · THE BOOK ============== -->
-<section class="img-band">
-  <div class="img-band__inner" data-reveal>
+<!-- ============== PLATE II · THE BOOK ============== -->
+<section class="img-band img-band--cream">
+  <figure class="img-band__inner" data-reveal>
     <div class="img-band__media">
       <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260613_044415_e09c5d9c-6266-48cb-9781-25ed0379673f.png"
            alt="An open Hakka recipe notebook on cream paper with handwritten Chinese characters, a fountain pen and a porcelain teacup"
            loading="lazy"
            width="2048" height="1365"/>
     </div>
-    <div class="img-band__caption">
+    <figcaption class="img-band__caption">
       <span class="eyebrow">
-        <span data-en>THE BOOK &nbsp;·&nbsp; 一 本 食 谱</span>
-        <span data-zh>一 本 食 谱</span>
+        <span data-en>PLATE II <span class="cn">簿</span></span>
+        <span data-zh>第 二 帧 <span class="cn">簿</span></span>
       </span>
       <p class="line">
-        <span data-en>Written in pencil. Copied by hand. Never reprinted.</span>
-        <span data-zh>用 铅 笔 写 下，手 抄 至 今，从 未 付 印。</span>
+        <span data-en>Pencil. Kuih paper. Never reprinted.</span>
+        <span data-zh>铅 笔。糕 纸。未 曾 付 印。</span>
       </p>
-    </div>
-  </div>
+    </figcaption>
+  </figure>
 </section>
 
 <!-- ============== CHARITY ============== -->
