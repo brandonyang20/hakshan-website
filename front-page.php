@@ -423,7 +423,7 @@ get_header();
   .g2 { grid-column: 7 / 13; grid-row: span 4; }
   .g3 { grid-column: 7 / 10; grid-row: span 3; }
   .g4 { grid-column: 10 / 13; grid-row: span 3; }
-  .g5 { grid-column: 1 / 5;  grid-row: span 3; }
+  .g5 { grid-column: 1 / 5;  grid-row: span 5; }
   .g6 { grid-column: 5 / 13; grid-row: span 3; }
 
   /* The 12-col mosaic collapses to a two-column mobile layout where
