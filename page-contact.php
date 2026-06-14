@@ -534,7 +534,7 @@ get_header();
       // Contact Form 7 embed — general inquiry form configured in
       // WP admin (Contact → Contact Forms). Update the id below
       // with the real CF7 form id once the form is saved.
-      $general_form_shortcode = '[contact-form-7 id="REPLACE_ME_GENERAL" title="General Contact"]';
+      $general_form_shortcode = '[contact-form-7 id="eb9c8b3" title="Contact Page"]';
       $rendered = do_shortcode( $general_form_shortcode );
       if ( trim( $rendered ) === trim( $general_form_shortcode ) || empty( $rendered ) ) {
         echo '<p><em>' . esc_html__( 'Contact form not yet configured.', 'hakshan' ) . '</em></p>';
