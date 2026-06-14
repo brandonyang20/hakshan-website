@@ -350,12 +350,15 @@ get_header();
     background: var(--forest);
     color: var(--cream);
     padding: clamp(80px, 12vw, 140px) var(--rail);
+  }
+  .charity__inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1.4fr;
     gap: 80px;
-    align-items: center;
+    align-items: start;
   }
-  .charity__inner { max-width: var(--maxw); margin: 0 auto; display: contents; }
   .charity h2 {
     font-family: var(--serif);
     font-style: italic;
@@ -897,21 +900,22 @@ get_header();
 <?php if ( hakshan_show_section( 'hakshan_show_charity' ) ) : ?>
 <!-- ============== CHARITY ============== -->
 <section class="charity">
-  <div data-reveal>
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>DINING WITH PURPOSE</span><span data-zh>用餐慈善</span>
-    </span>
-    <h2>
-      <span data-en>Pay it<br/><em class="underline">Forward</em>.</span>
-      <span data-zh>一菜<br/>一<em class="underline">善</em>。</span>
-    </h2>
-  </div>
-  <div data-reveal>
-    <p>
-      <span data-en>Part of every sale at every outlet goes to community causes. Same rule, every kitchen, every day.</span>
-      <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途。同一条规则，每一天。</span>
-    </p>
-    <div class="charity__stats">
+  <div class="charity__inner">
+    <div data-reveal>
+      <span class="h-eyebrow"><span class="dot"></span>
+        <span data-en>DINING WITH PURPOSE</span><span data-zh>用餐慈善</span>
+      </span>
+      <h2>
+        <span data-en>Pay it<br/><em class="underline">Forward</em>.</span>
+        <span data-zh>一菜<br/>一<em class="underline">善</em>。</span>
+      </h2>
+    </div>
+    <div data-reveal>
+      <p>
+        <span data-en>Part of every sale at every outlet goes to community causes. Same rule, every kitchen, every day.</span>
+        <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途。同一条规则，每一天。</span>
+      </p>
+      <div class="charity__stats">
       <div>
         <div class="num">9</div>
         <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
@@ -919,6 +923,7 @@ get_header();
       <div>
         <div class="num">3</div>
         <div class="lbl"><span data-en>Focus areas · education, elders, animals</span><span data-zh>三 个 方 向 · 教 育、长 者、动 物</span></div>
+        </div>
       </div>
     </div>
   </div>
