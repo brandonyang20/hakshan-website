@@ -381,12 +381,29 @@ function hakshan_get_dishes_for_section( $term_id, $limit = -1 ) {
 }
 
 /**
- * Get the Signatures-section dishes (used by the homepage carousel).
+ * Get the dishes for the homepage carousel. The category is picked
+ * in Customizer (Homepage Sections → Signatures carousel category).
+ * "auto" preserves the original behaviour of finding a "Signatures"
+ * section by slug or name.
  *
  * @param int $limit Max items.
  * @return WP_Post[]
  */
 function hakshan_get_signature_dishes( $limit = 6 ) {
+	$chosen = function_exists( 'get_theme_mod' )
+		? get_theme_mod( 'hakshan_signatures_section', 'auto' )
+		: 'auto';
+
+	if ( $chosen && 'auto' !== $chosen ) {
+		$picked = get_term_by( 'slug', $chosen, 'dish_section' );
+		if ( $picked && ! is_wp_error( $picked ) ) {
+			$picked_posts = hakshan_get_dishes_for_section( $picked->term_id, $limit );
+			if ( ! empty( $picked_posts ) ) {
+				return $picked_posts;
+			}
+		}
+	}
+
 	$term = get_term_by( 'slug', 'signatures', 'dish_section' );
 
 	if ( ! $term || is_wp_error( $term ) ) {

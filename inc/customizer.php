@@ -38,6 +38,40 @@ function hakshan_show_section( $key ) {
 }
 
 /**
+ * Dropdown choices for the "Signatures carousel category" control.
+ * "auto" preserves the historic behaviour of finding the Signatures term.
+ *
+ * @return array<string, string>
+ */
+function hakshan_dish_section_choices() {
+	$choices = array( 'auto' => __( 'Auto — look for "Signatures"', 'hakshan' ) );
+	if ( ! taxonomy_exists( 'dish_section' ) ) {
+		return $choices;
+	}
+	$terms = get_terms(
+		array(
+			'taxonomy'   => 'dish_section',
+			'hide_empty' => false,
+		)
+	);
+	if ( is_wp_error( $terms ) || empty( $terms ) ) {
+		return $choices;
+	}
+	usort(
+		$terms,
+		static function ( $a, $b ) {
+			$oa = (int) get_term_meta( $a->term_id, 'sort_order', true );
+			$ob = (int) get_term_meta( $b->term_id, 'sort_order', true );
+			return $oa <=> $ob;
+		}
+	);
+	foreach ( $terms as $term ) {
+		$choices[ $term->slug ] = $term->name;
+	}
+	return $choices;
+}
+
+/**
  * Register the Customizer panel + checkbox controls for each section.
  */
 add_action(
@@ -70,5 +104,24 @@ add_action(
 				)
 			);
 		}
+
+		$wp_customize->add_setting(
+			'hakshan_signatures_section',
+			array(
+				'default'           => 'auto',
+				'transport'         => 'refresh',
+				'sanitize_callback' => 'sanitize_key',
+			)
+		);
+		$wp_customize->add_control(
+			'hakshan_signatures_section',
+			array(
+				'label'       => __( 'Signatures carousel category', 'hakshan' ),
+				'description' => __( 'Pick which menu category feeds the homepage carousel. "Auto" keeps the existing behaviour of looking for a "Signatures" section.', 'hakshan' ),
+				'section'     => 'hakshan_homepage_sections',
+				'type'        => 'select',
+				'choices'     => hakshan_dish_section_choices(),
+			)
+		);
 	}
 );
