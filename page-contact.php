@@ -28,6 +28,37 @@ get_header();
     max-width: var(--maxw);
     margin: 0 auto;
   }
+  /* Two-column split for the general contact section — copy on the
+     left, form on the right. */
+  .contact-section--split .contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-section--split .contact-split__copy h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 5.6vw, 76px);
+    line-height: 1;
+    margin: 12px 0 24px;
+    letter-spacing: -0.025em;
+  }
+  .contact-section--split .contact-split__copy h2 em { color: var(--forest); }
+  .contact-section--split .contact-split__copy p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 50ch;
+  }
+  @media (max-width: 900px) {
+    .contact-section--split .contact-split {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
   .section-head {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -510,9 +541,9 @@ get_header();
 </section>
 
 <!-- ============== GENERAL CONTACT FORM ============== -->
-<section class="contact-section cf7-form-block">
-  <div class="section-head" data-reveal>
-    <div>
+<section class="contact-section contact-section--split cf7-form-block">
+  <div class="contact-split">
+    <div class="contact-split__copy" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>IV · GENERAL · INVESTORS · PARTNERS</span>
         <span data-zh>四·一般·投资·合作</span>
@@ -521,27 +552,27 @@ get_header();
         <span data-en>Other<br/><em>ways in.</em></span>
         <span data-zh>其他 <em>入口。</em></span>
       </h2>
+      <p>
+        <span data-en>For investor relations, supplier inquiries, community partnerships, or anything that doesn't fit a category above. Drop us a note and we'll route it to the right person.</span>
+        <span data-zh>投资者关系、供应商联络、社区合作，以及不属于上述类别的任何事项。写信给我们，我们会转给对的人。</span>
+      </p>
     </div>
-    <p>
-      <span data-en>For investor relations, supplier inquiries, community partnerships, or anything that doesn't fit a category above. Drop us a note and we'll route it to the right person.</span>
-      <span data-zh>投资者关系、供应商联络、社区合作，以及不属于上述类别的任何事项。写信给我们，我们会转给对的人。</span>
-    </p>
-  </div>
-  <div data-reveal style="max-width: 760px; margin: 0 auto;">
-    <div class="form-wrap">
-      <h4><span data-en>Tell us about you</span><span data-zh>请 留 下 您 的 信 息</span></h4>
-      <?php
-      // Contact Form 7 embed — general inquiry form configured in
-      // WP admin (Contact → Contact Forms). Update the id below
-      // with the real CF7 form id once the form is saved.
-      $general_form_shortcode = '[contact-form-7 id="eb9c8b3" title="Contact Page"]';
-      $rendered = do_shortcode( $general_form_shortcode );
-      if ( trim( $rendered ) === trim( $general_form_shortcode ) || empty( $rendered ) ) {
-        echo '<p><em>' . esc_html__( 'Contact form not yet configured.', 'hakshan' ) . '</em></p>';
-      } else {
-        echo $rendered;
-      }
-      ?>
+    <div class="contact-split__form" data-reveal>
+      <div class="form-wrap">
+        <h4><span data-en>Tell us about you</span><span data-zh>请 留 下 您 的 信 息</span></h4>
+        <?php
+        // Contact Form 7 embed — general inquiry form configured in
+        // WP admin (Contact → Contact Forms). Update the id below
+        // with the real CF7 form id once the form is saved.
+        $general_form_shortcode = '[contact-form-7 id="eb9c8b3" title="Contact Page"]';
+        $rendered = do_shortcode( $general_form_shortcode );
+        if ( trim( $rendered ) === trim( $general_form_shortcode ) || empty( $rendered ) ) {
+          echo '<p><em>' . esc_html__( 'Contact form not yet configured.', 'hakshan' ) . '</em></p>';
+        } else {
+          echo $rendered;
+        }
+        ?>
+      </div>
     </div>
   </div>
 </section>
