@@ -922,7 +922,7 @@ get_header();
       <!-- Tier 1: Holding -->
       <div class="org-tier org-tier--holding">
         <div class="org-node org-node--holding">
-          <span class="ix">N° 00 · HOLDING</span>
+          <span class="ix">HOLDING</span>
           <h4><span data-en>Hakshan Group</span><span data-zh>客善控股</span></h4>
           <div class="org-node__zh"><span data-en>Capital, strategy, regional vision.</span><span data-zh>资本 · 战略 · 区域视野</span></div>
         </div>
@@ -939,7 +939,6 @@ get_header();
       <div class="org-tier org-tier--subs">
         <?php foreach ( $org_subs as $i => $sub ) : ?>
           <div class="org-node org-node--sub">
-            <span class="ix">N° <?php echo sprintf( '%02d', $i + 1 ); ?></span>
             <div class="org-node__name"><span data-en><?php echo esc_html( $sub['name_en'] ); ?></span><span data-zh><?php echo esc_html( $sub['name_zh'] ); ?></span></div>
             <div class="org-node__sub"><span data-en><?php echo esc_html( $sub['sub_en'] ); ?></span><span data-zh><?php echo esc_html( $sub['sub_zh'] ); ?></span></div>
           </div>
@@ -961,7 +960,6 @@ get_header();
             $city = ! empty( $data['city'] ) ? ucwords( strtolower( $data['city'] ) ) : '';
             ?>
             <div class="org-node org-node--outlet">
-              <span class="ix">N° <?php echo sprintf( '%02d', $i + 1 ); ?></span>
               <div class="org-node__name"><?php echo esc_html( $data['name'] ); ?></div>
               <?php if ( $city ) : ?>
                 <div class="org-node__sub"><?php echo esc_html( $city ); ?></div>
