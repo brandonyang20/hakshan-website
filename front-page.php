@@ -729,6 +729,7 @@ get_header();
   </div>
 </section>
 
+<?php if ( hakshan_show_section( 'hakshan_show_three_gens' ) ) : ?>
 <!-- ============== THREE GENERATIONS ============== -->
 <section class="section">
   <div class="gens">
@@ -785,7 +786,9 @@ get_header();
     </div>
   </div>
 </section>
+<?php endif; ?>
 
+<?php if ( hakshan_show_section( 'hakshan_show_signatures' ) ) : ?>
 <!-- ============== SIGNATURES CAROUSEL ============== -->
 <section class="section sigs">
   <div class="sigs__head">
@@ -865,7 +868,9 @@ get_header();
     </div>
   </div>
 </section>
+<?php endif; ?>
 
+<?php if ( hakshan_show_section( 'hakshan_show_cinema' ) ) : ?>
 <!-- ============== CINEMATIC BREAK ============== -->
 <section class="cinema-break">
   <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -886,7 +891,9 @@ get_header();
     </div>
   </div>
 </section>
+<?php endif; ?>
 
+<?php if ( hakshan_show_section( 'hakshan_show_charity' ) ) : ?>
 <!-- ============== CHARITY ============== -->
 <section class="charity">
   <div data-reveal>
@@ -915,7 +922,9 @@ get_header();
     </div>
   </div>
 </section>
+<?php endif; ?>
 
+<?php if ( hakshan_show_section( 'hakshan_show_outlets_home' ) ) : ?>
 <!-- ============== OUTLETS ============== -->
 <section class="section">
   <div class="outlets">
@@ -989,7 +998,9 @@ get_header();
     </div>
   </div>
 </section>
+<?php endif; ?>
 
+<?php if ( hakshan_show_section( 'hakshan_show_gallery' ) ) : ?>
 <!-- ============== GALLERY ============== -->
 <section class="section">
   <div style="max-width: var(--maxw); margin: 0 auto 56px;" data-reveal>
@@ -1010,7 +1021,9 @@ get_header();
     <div class="ph g6" data-label="terrace · evening service"></div>
   </div>
 </section>
+<?php endif; ?>
 
+<?php if ( hakshan_show_section( 'hakshan_show_reserve_cta' ) ) : ?>
 <!-- ============== BOOK ============== -->
 <section class="book" id="book">
   <div class="inner" data-reveal>
@@ -1032,6 +1045,7 @@ get_header();
     </div>
   </div>
 </section>
+<?php endif; ?>
 
 <script>
   // Generic carousel — wires up any [track, prev, next, fill, count] quartet
