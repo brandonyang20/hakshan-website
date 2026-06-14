@@ -92,6 +92,10 @@
   padding: 60px var(--rail);
   max-width: var(--maxw);
   margin: 0 auto;
+  /* Account for the sticky nav AND the sticky TOC bar above this
+     section so anchor links land the heading just below them, not
+     hidden behind them. */
+  scroll-margin-top: calc(var(--nav-h, 65px) + 76px);
 }
 .menu-section__head {
   display: flex;

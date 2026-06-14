@@ -149,7 +149,10 @@
     track.addEventListener("pointermove", (e) => {
       if (!isDown || e.pointerId !== activePointerId) return;
       const delta = e.clientX - startX;
-      if (Math.abs(delta) > 4) moved = true;
+      // Anything under ~12px is treated as a tap, not a drag — trackpads
+      // and touch screens easily jitter a few pixels during a normal
+      // click, and we'd otherwise swallow the anchor navigation.
+      if (Math.abs(delta) > 12) moved = true;
       track.scrollLeft = startScroll - delta;
     });
 
