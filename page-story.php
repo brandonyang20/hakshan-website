@@ -178,67 +178,6 @@ get_header();
   }
   .cinema-break .line em { color: #c4b18a; }
 
-  /* Calm break: paper-toned counterpart to the cinematic break */
-  .calm-break {
-    position: relative;
-    overflow: hidden;
-    background: var(--paper);
-    padding: clamp(72px, 10vw, 120px) 0;
-    border-top: 1px solid var(--line-soft);
-    border-bottom: 1px solid var(--line-soft);
-    display: grid;
-    place-items: center;
-    text-align: center;
-  }
-  .calm-break::before {
-    content: ""; position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 50% 50%, rgba(79, 93, 72, 0.05) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .calm-break__mark {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    margin-bottom: clamp(28px, 4vw, 48px);
-    color: var(--forest);
-  }
-  .calm-break__mark svg {
-    width: min(70vw, 520px);
-    height: auto;
-    opacity: 0.95;
-  }
-  .calm-break__mark img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .calm-break__inner {
-    position: relative; z-index: 2;
-    max-width: 720px;
-    padding: 0 var(--rail);
-  }
-  .calm-break .small {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--mute);
-    margin-bottom: 28px;
-  }
-  .calm-break .small .cn { font-family: var(--cn); margin-right: 14px; letter-spacing: 0.5em; color: var(--forest); }
-  .calm-break .line {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(32px, 4.6vw, 64px);
-    line-height: 1.18;
-    color: var(--ink);
-    margin: 0;
-    text-wrap: balance;
-    letter-spacing: -0.015em;
-  }
-  .calm-break .line em { color: var(--forest); }
-
   /* Charity block */
   .charity-block {
     background: var(--forest);
@@ -664,27 +603,6 @@ get_header();
         <span data-zh>2024年2月，在 USJ 开出客善。食谱不变，纸不变。椅子换了，价位换了，规则也换了：每一笔营业额的一部分，回馈社区。</span>
       </p>
     </div>
-  </div>
-</section>
-
-<!-- ============== CALM BREAK ============== -->
-<section class="calm-break">
-  <div class="calm-break__mark" aria-hidden="true">
-    <img src="https://ivory-salamander-267309.hostingersite.com/wp-content/uploads/2026/06/hf_20260614_104006_d6ff5b1c-c580-40bb-81c4-07fe758768ef.png"
-         alt=""
-         loading="lazy"
-         width="2048" height="1152"/>
-  </div>
-  <div class="calm-break__inner" data-reveal>
-    <div class="small">
-      <span class="cn">一 线</span>
-      <span data-en>ONE LINE, KEPT HONEST</span>
-      <span data-zh>一 条 线 · 从 未 断</span>
-    </div>
-    <p class="line">
-      <span data-en>Three pairs of hands.<br/><em>Still the same dishes.</em></span>
-      <span data-zh>三 双 手。<br/><em>同 一 桌 菜。</em></span>
-    </p>
   </div>
 </section>
 
