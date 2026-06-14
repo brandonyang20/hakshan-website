@@ -622,6 +622,177 @@ get_header();
     color: var(--ink);
   }
 
+  /* ============== CF7 INVESTOR FORM ============== */
+  .inv-contact .wpcf7 form {
+    display: grid;
+    gap: 18px;
+  }
+  /* Field labels (wrapping <label> contains both the prompt text and the
+     input). The text reads as a quiet mono eyebrow; the input below it
+     is the real focal element. */
+  .inv-contact .wpcf7 form > label,
+  .inv-contact .wpcf7 form > p > label {
+    display: block;
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--forest);
+    line-height: 1.5;
+  }
+  .inv-contact .wpcf7 form .cf7-question {
+    margin: 4px 0 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  /* Text-style inputs */
+  .inv-contact .wpcf7 form input[type="text"],
+  .inv-contact .wpcf7 form input[type="email"],
+  .inv-contact .wpcf7 form input[type="tel"],
+  .inv-contact .wpcf7 form input[type="url"],
+  .inv-contact .wpcf7 form input[type="number"],
+  .inv-contact .wpcf7 form textarea,
+  .inv-contact .wpcf7 form select {
+    display: block;
+    width: 100%;
+    margin: 8px 0 0;
+    padding: 12px 14px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+    letter-spacing: 0;
+    text-transform: none;
+    box-shadow: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .inv-contact .wpcf7 form input[type="text"]:focus,
+  .inv-contact .wpcf7 form input[type="email"]:focus,
+  .inv-contact .wpcf7 form input[type="tel"]:focus,
+  .inv-contact .wpcf7 form input[type="url"]:focus,
+  .inv-contact .wpcf7 form input[type="number"]:focus,
+  .inv-contact .wpcf7 form textarea:focus,
+  .inv-contact .wpcf7 form select:focus {
+    outline: none;
+    border-color: var(--forest);
+    background: #fff;
+  }
+  .inv-contact .wpcf7 form ::placeholder {
+    color: var(--mute);
+    opacity: 0.85;
+    font-family: var(--sans);
+    font-style: italic;
+  }
+  .inv-contact .wpcf7 form textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+  /* Radio / checkbox groups */
+  .inv-contact .wpcf7 form .wpcf7-list-item {
+    display: inline-flex;
+    align-items: center;
+    margin: 6px 18px 0 0;
+  }
+  .inv-contact .wpcf7 form .wpcf7-list-item input[type="radio"],
+  .inv-contact .wpcf7 form .wpcf7-list-item input[type="checkbox"] {
+    accent-color: var(--forest);
+    width: 16px;
+    height: 16px;
+    margin: 0 8px 0 0;
+    flex-shrink: 0;
+  }
+  .inv-contact .wpcf7 form .wpcf7-list-item-label {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.45;
+  }
+  /* Acceptance (consent line) is intentionally quieter than the rest. */
+  .inv-contact .wpcf7-acceptance .wpcf7-list-item {
+    margin: 0;
+  }
+  .inv-contact .wpcf7-acceptance .wpcf7-list-item-label {
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  /* Submit button — mirrors .btn elsewhere on the site. */
+  .inv-contact .wpcf7 form input[type="submit"] {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    padding: 14px 28px;
+    background: var(--forest);
+    color: var(--cream);
+    border: 1px solid var(--forest);
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .inv-contact .wpcf7 form input[type="submit"]:hover {
+    background: transparent;
+    color: var(--forest);
+  }
+  .inv-contact .wpcf7 form input[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  /* Validation + response output */
+  .inv-contact .wpcf7-not-valid-tip {
+    margin-top: 6px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #B0413E;
+  }
+  .inv-contact .wpcf7 form .wpcf7-response-output {
+    margin: 18px 0 0;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+  }
+  .inv-contact .wpcf7 form.invalid .wpcf7-response-output,
+  .inv-contact .wpcf7 form.unaccepted .wpcf7-response-output,
+  .inv-contact .wpcf7 form.payment-required .wpcf7-response-output {
+    border-color: #B0413E;
+    color: #B0413E;
+  }
+  .inv-contact .wpcf7 form.sent .wpcf7-response-output {
+    border-color: var(--forest);
+    color: var(--forest);
+  }
+  /* Mobile: stack the radio / checkbox groups so labels don't truncate. */
+  @media (max-width: 560px) {
+    .inv-contact .wpcf7 form .wpcf7-list-item {
+      display: flex;
+      margin: 6px 0 0;
+    }
+  }
+
   /* ============== EDITORIAL IMAGE PLATE ============== */
   .img-band {
     background: var(--paper);
