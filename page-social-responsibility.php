@@ -315,9 +315,124 @@ get_header();
     flex-wrap: wrap;
   }
 
+  /* Stories grid */
+  .sr-stories {
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .sr-stories__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  .sr-stories__head h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 5.6vw, 76px);
+    line-height: 1;
+    margin: 12px 0 0;
+    letter-spacing: -0.025em;
+    max-width: 14ch;
+  }
+  .sr-stories__head h2 em { color: var(--forest); }
+  .sr-stories__head p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 56ch;
+  }
+  .sr-stories__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .sr-story {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    display: grid;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .sr-story:hover { background: var(--cream); transform: translateY(-4px); }
+  .sr-story__visual {
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .sr-story__visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .sr-story:hover .sr-story__visual img { transform: scale(1.04); }
+  .sr-story__body {
+    padding: 24px 24px 28px;
+    display: grid;
+    gap: 12px;
+    align-content: start;
+  }
+  .sr-story__date {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .sr-story__title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .sr-story__excerpt {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .sr-story__more {
+    margin-top: 4px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--forest);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sr-story__more .arr {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    transition: transform 0.25s ease;
+  }
+  .sr-story:hover .sr-story__more .arr { transform: translateX(4px); }
+  .sr-stories__empty {
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--mute);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+  }
+
   @media (max-width: 980px) {
-    .sr-hero, .sr-origin__inner, .sr-model__inner, .sr-numbers__inner { grid-template-columns: 1fr; gap: 32px; }
-    .sr-pillars__grid { grid-template-columns: 1fr; }
+    .sr-hero, .sr-origin__inner, .sr-model__inner, .sr-numbers__inner,
+    .sr-stories__head { grid-template-columns: 1fr; gap: 32px; }
+    .sr-pillars__grid, .sr-stories__grid { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -510,6 +625,66 @@ get_header();
     </div>
   </div>
 </section>
+
+<!-- ============== STORIES (posts in the 'social-responsibility' category) ============== -->
+<?php
+$sr_category = get_category_by_slug( 'social-responsibility' );
+$sr_stories  = $sr_category
+	? new WP_Query(
+		array(
+			'post_type'      => 'post',
+			'posts_per_page' => 9,
+			'cat'            => $sr_category->term_id,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'no_found_rows'  => true,
+		)
+	)
+	: null;
+?>
+<?php if ( $sr_stories && $sr_stories->have_posts() ) : ?>
+<section class="sr-stories">
+  <div class="sr-stories__head" data-reveal>
+    <div>
+      <span class="h-eyebrow"><span class="dot"></span>
+        <span data-en>STORIES &amp; UPDATES</span>
+        <span data-zh>故事与近况</span>
+      </span>
+      <h2>
+        <span data-en>From the<br/><em>kitchens.</em></span>
+        <span data-zh>来自<br/><em>厨房的故事。</em></span>
+      </h2>
+    </div>
+    <p>
+      <span data-en>Recent stories from the rule in action — beneficiary visits, partner programmes, charity-table updates.</span>
+      <span data-zh>这条规则在日常里的故事——受惠探访、合作项目、慈善桌的近况。</span>
+    </p>
+  </div>
+  <div class="sr-stories__grid" data-reveal>
+    <?php while ( $sr_stories->have_posts() ) : $sr_stories->the_post(); ?>
+      <a class="sr-story" href="<?php the_permalink(); ?>">
+        <?php if ( has_post_thumbnail() ) : ?>
+          <div class="sr-story__visual">
+            <?php the_post_thumbnail( 'large' ); ?>
+          </div>
+        <?php endif; ?>
+        <div class="sr-story__body">
+          <div class="sr-story__date"><?php echo esc_html( get_the_date( 'M Y' ) ); ?></div>
+          <h3 class="sr-story__title"><?php the_title(); ?></h3>
+          <?php $sr_excerpt = wp_strip_all_tags( get_the_excerpt() ); ?>
+          <?php if ( $sr_excerpt ) : ?>
+            <p class="sr-story__excerpt"><?php echo esc_html( wp_trim_words( $sr_excerpt, 24, '…' ) ); ?></p>
+          <?php endif; ?>
+          <span class="sr-story__more">
+            <span data-en>Read more</span><span data-zh>继续阅读</span>
+            <span class="arr">→</span>
+          </span>
+        </div>
+      </a>
+    <?php endwhile; wp_reset_postdata(); ?>
+  </div>
+</section>
+<?php endif; ?>
 
 <!-- ============== CLOSE ============== -->
 <section class="sr-close">
