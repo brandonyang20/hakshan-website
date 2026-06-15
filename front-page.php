@@ -743,7 +743,8 @@ get_header();
   }
 
   @media (max-width: 980px) {
-    .hero-a, .anchor, .gens, .charity { grid-template-columns: 1fr; gap: 48px; }
+    .hero-a, .anchor, .gens, .charity__inner { grid-template-columns: 1fr; gap: 48px; }
+    .charity__stats { grid-template-columns: 1fr 1fr; gap: 24px; }
     .outlets__head, .sigs__head { flex-direction: column; align-items: start; }
     .oc-nav__progress { display: none; }
   }
