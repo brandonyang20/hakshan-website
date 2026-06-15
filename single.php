@@ -48,7 +48,7 @@ $back_href     = $is_social && $social_root
   /* Single-post article view */
   .sp-hero {
     padding: clamp(60px, 9vw, 120px) var(--rail) clamp(32px, 5vw, 56px);
-    max-width: 880px;
+    max-width: var(--maxw);
     margin: 0 auto;
   }
   .sp-hero__crumb {
