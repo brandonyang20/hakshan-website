@@ -120,7 +120,7 @@ $back_href     = $is_social && $social_root
   /* Article body — scoped editorial typography that overrides any
      legacy Elementor inline styles from the imported content. */
   .sp-body {
-    max-width: 720px;
+    max-width: var(--maxw);
     margin: 0 auto;
     padding: 0 var(--rail);
     font-size: 17px;
@@ -210,7 +210,7 @@ $back_href     = $is_social && $social_root
 
   /* Footer / sign-off + back link */
   .sp-foot {
-    max-width: 720px;
+    max-width: var(--maxw);
     margin: clamp(60px, 8vw, 100px) auto 0;
     padding: 32px var(--rail) 0;
     border-top: 1px solid var(--line);
