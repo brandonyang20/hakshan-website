@@ -49,6 +49,9 @@ function hakshan_seo_context() {
 	if ( is_singular( 'outlet' ) ) {
 		return 'single_outlet';
 	}
+	if ( is_singular( 'post' ) ) {
+		return 'single_post';
+	}
 	$post = get_queried_object();
 	if ( $post instanceof WP_Post ) {
 		switch ( $post->post_name ) {
@@ -153,6 +156,18 @@ function hakshan_seo_meta_for_context() {
 			return array(
 				'title'       => 'Pay it Forward · Social responsibility & community causes · Hakshan',
 				'description' => 'Part of every sale at every Hakshan outlet goes to community causes — education, elderly care, and animal welfare. Built into the kitchen\'s costs from day one (February 2024), not bolted on after success. Same rule, every kitchen, every day.',
+			);
+
+		case 'single_post':
+			$post_obj = get_queried_object();
+			$title    = $post_obj instanceof WP_Post ? get_the_title( $post_obj ) : '';
+			$excerpt  = $post_obj instanceof WP_Post ? wp_strip_all_tags( get_the_excerpt( $post_obj ) ) : '';
+			if ( ! $excerpt && $post_obj instanceof WP_Post ) {
+				$excerpt = wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post_obj->post_content ) ), 32, '…' );
+			}
+			return array(
+				'title'       => $title ? $title . ' · Hakshan' : 'Story · Hakshan',
+				'description' => $excerpt ? $excerpt : 'A story from Hakshan\'s Pay it Forward community programme.',
 			);
 	}
 
