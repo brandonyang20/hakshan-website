@@ -74,8 +74,9 @@ $back_href     = $is_social && $social_root
     margin-bottom: 16px;
   }
   .sp-hero h1 {
-    font-family: var(--serif);
+    font-family: var(--italic);
     font-style: italic;
+    font-weight: 400;
     font-size: clamp(40px, 6vw, 76px);
     line-height: 1.05;
     margin: 0 0 24px;
@@ -318,10 +319,6 @@ $back_href     = $is_social && $social_root
 
     <div class="sp-hero__meta">
       <span><?php echo esc_html( get_the_date() ); ?></span>
-      <?php if ( get_the_author() ) : ?>
-        <span class="sep">·</span>
-        <span><?php echo esc_html( get_the_author() ); ?></span>
-      <?php endif; ?>
     </div>
   </header>
 
