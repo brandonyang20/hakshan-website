@@ -148,6 +148,12 @@ function hakshan_seo_meta_for_context() {
 				'title'       => 'Press & media · Hakshan',
 				'description' => 'Press kit, brand assets, and media contact for Hakshan, a Hakka Chinese restaurant in Malaysia.',
 			);
+
+		case 'social':
+			return array(
+				'title'       => 'Pay it Forward · Social responsibility & community causes · Hakshan',
+				'description' => 'Part of every sale at every Hakshan outlet goes to community causes — education, elderly care, and animal welfare. Built into the kitchen\'s costs from day one (February 2024), not bolted on after success. Same rule, every kitchen, every day.',
+			);
 	}
 
 	// Generic page / fallback.
