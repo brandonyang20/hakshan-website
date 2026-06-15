@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.41' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.42' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -413,7 +413,7 @@ function hakshan_render_footer() {
 			</div>
 		</div>
 		<div class="foot__bottom">
-			<span>© <?php echo esc_html( date_i18n( 'Y' ) ); ?> Hakshan Sdn. Bhd. · <span data-en>All rights reserved.</span><span data-zh>版权所有。</span><span class="foot__ver"> · v<?php echo esc_html( HAKSHAN_THEME_VERSION ); ?></span></span>
+			<span>© <?php echo esc_html( date_i18n( 'Y' ) ); ?> Horvy Holding Sdn Bhd. · <span data-en>All rights reserved.</span><span data-zh>版权所有。</span></span>
 			<span data-en>Three generations of Hakka.</span><span data-zh>三代人的传承</span>
 		</div>
 	</footer>
