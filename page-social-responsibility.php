@@ -57,6 +57,47 @@ get_header();
     flex-wrap: wrap;
   }
 
+  /* Founder's vision — intimate cream slab */
+  .sr-origin {
+    background: var(--cream);
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+    border-top: 1px solid var(--line-soft);
+  }
+  .sr-origin__inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .sr-origin h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 5.6vw, 76px);
+    line-height: 1;
+    margin: 12px 0 0;
+    letter-spacing: -0.025em;
+    max-width: 14ch;
+  }
+  .sr-origin h2 em { color: var(--forest); }
+  .sr-origin p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin: 0 0 18px;
+    max-width: 60ch;
+  }
+  .sr-origin p:last-child { margin-bottom: 0; }
+  .sr-origin p.lead {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--forest);
+    margin-bottom: 24px;
+  }
+
   /* The model — paper background slab */
   .sr-model {
     background: var(--paper);
@@ -275,7 +316,7 @@ get_header();
   }
 
   @media (max-width: 980px) {
-    .sr-hero, .sr-model__inner, .sr-numbers__inner { grid-template-columns: 1fr; gap: 32px; }
+    .sr-hero, .sr-origin__inner, .sr-model__inner, .sr-numbers__inner { grid-template-columns: 1fr; gap: 32px; }
     .sr-pillars__grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -301,6 +342,40 @@ get_header();
     <div class="sr-hero__buttons">
       <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'outlets' ) ); ?>"><span data-en>Visit an outlet</span><span data-zh>到店</span><span class="arr">→</span></a>
       <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>"><span data-en>Read our story</span><span data-zh>阅读故事</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== WHERE IT BEGAN ============== -->
+<section class="sr-origin">
+  <div class="sr-origin__inner">
+    <div data-reveal>
+      <span class="h-eyebrow"><span class="dot"></span>
+        <span data-en>WHERE IT BEGAN</span>
+        <span data-zh>故事的起点</span>
+      </span>
+      <h2>
+        <span data-en>A founder<br/><em>on the road.</em></span>
+        <span data-zh>一个创办人，<br/><em>在路上。</em></span>
+      </h2>
+    </div>
+    <div data-reveal>
+      <p class="lead">
+        <span data-en>It didn't start in a Hakka kitchen.</span>
+        <span data-zh>故事不是从客家厨房开始的。</span>
+      </p>
+      <p>
+        <span data-en>On his travels, the founder saw children whose daily meal was uncertain — in places far from home, where a single bowl of rice is not a given. The image stayed with him.</span>
+        <span data-zh>创办人在旅途中，看见过吃不饱饭的孩子——在远离家乡的地方，一碗饭都不是理所当然。那一幕留了下来。</span>
+      </p>
+      <p>
+        <span data-en>He came home and built a restaurant. But he didn't separate the two: the success of a kitchen, and the responsibility to anyone — wherever they are — who hasn't eaten today.</span>
+        <span data-zh>他回到家，开了一家餐厅。但他没有把这两件事分开：厨房的成功，与对今天还没吃上饭的人的责任——不管那人在哪里。</span>
+      </p>
+      <p>
+        <span data-en>So when Hakshan opened in February 2024, the rule was already in place. Part of every sale, every kitchen, every day, goes to community causes. The contribution starts close to home — education, elderly care, animal welfare. The principle, though, was set on that road.</span>
+        <span data-zh>所以2024年2月客善开业的那一天，规则已经在那里了。每一笔营业额的一部分，每一家厨房，每一天，拨入社区用途。投入从离家最近的方向开始——教育、长者关怀、动物福利。但那条原则，是在路上就立下的。</span>
+      </p>
     </div>
   </div>
 </section>
