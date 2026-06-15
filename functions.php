@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.33' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.34' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -218,7 +218,7 @@ function hakshan_render_nav( $args = array() ) {
 		array(
 			'key' => 'social',
 			'en'  => 'Pay it Forward',
-			'zh'  => '行善',
+			'zh'  => '傳遞善意',
 		),
 		array(
 			'key' => 'investors',
@@ -397,7 +397,7 @@ function hakshan_render_footer() {
 				<ul>
 					<li><a href="<?php echo esc_url( $story_url ); ?>"><span data-en>Our Story</span><span data-zh>三代故事</span></a></li>
 					<li><a href="<?php echo esc_url( $menu_url ); ?>"><span data-en>Menu</span><span data-zh>菜单</span></a></li>
-					<li><a href="<?php echo esc_url( hakshan_nav_url( 'social' ) ); ?>"><span data-en>Pay it Forward</span><span data-zh>用餐慈善</span></a></li>
+					<li><a href="<?php echo esc_url( hakshan_nav_url( 'social' ) ); ?>"><span data-en>Pay it Forward</span><span data-zh>傳遞善意</span></a></li>
 					<li><a href="<?php echo esc_url( $investors_url ); ?>"><span data-en>Investor Relations</span><span data-zh>投资者关系</span></a></li>
 					<li><a href="<?php echo esc_url( $contact_url ); ?>"><span data-en>Press &amp; Media</span><span data-zh>媒体咨询</span></a></li>
 				</ul>
