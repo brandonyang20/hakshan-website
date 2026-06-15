@@ -439,14 +439,9 @@ get_header();
 <!-- ============== HERO ============== -->
 <section class="sr-hero">
   <div data-reveal>
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>PAY IT FORWARD · 傳 遞 善 意</span>
-      <span data-zh>傳遞善意</span>
-    </span>
     <h1>
       <span data-en>Pay it<br/><em>Forward.</em></span>
       <span data-zh>傳遞<br/><em>善意。</em></span>
-      <span class="cn">客 来 茶 当 酒</span>
     </h1>
   </div>
   <div data-reveal>
