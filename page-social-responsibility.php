@@ -440,12 +440,12 @@ get_header();
 <section class="sr-hero">
   <div data-reveal>
     <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>PAY IT FORWARD · 行 善</span>
-      <span data-zh>行善</span>
+      <span data-en>PAY IT FORWARD · 傳 遞 善 意</span>
+      <span data-zh>傳遞善意</span>
     </span>
     <h1>
-      <span data-en>One meal,<br/><em>one good deed.</em></span>
-      <span data-zh>一菜，<br/><em>一善。</em></span>
+      <span data-en>Pay it<br/><em>Forward.</em></span>
+      <span data-zh>傳遞<br/><em>善意。</em></span>
       <span class="cn">客 来 茶 当 酒</span>
     </h1>
   </div>
