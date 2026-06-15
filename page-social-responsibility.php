@@ -670,10 +670,10 @@ $sr_stories  = $sr_category
         <?php endif; ?>
         <div class="sr-story__body">
           <div class="sr-story__date"><?php echo esc_html( get_the_date( 'M Y' ) ); ?></div>
-          <h3 class="sr-story__title"><?php the_title(); ?></h3>
-          <?php $sr_excerpt = wp_strip_all_tags( get_the_excerpt() ); ?>
-          <?php if ( $sr_excerpt ) : ?>
-            <p class="sr-story__excerpt"><?php echo esc_html( wp_trim_words( $sr_excerpt, 24, '…' ) ); ?></p>
+          <h3 class="sr-story__title"><?php echo hakshan_post_title_bilingual(); ?></h3>
+          <?php $sr_excerpt_raw = wp_strip_all_tags( get_the_excerpt() ); ?>
+          <?php if ( $sr_excerpt_raw ) : ?>
+            <p class="sr-story__excerpt"><?php echo hakshan_post_excerpt_bilingual( null, 24 ); ?></p>
           <?php endif; ?>
           <span class="sr-story__more">
             <span data-en>Read more</span><span data-zh>继续阅读</span>

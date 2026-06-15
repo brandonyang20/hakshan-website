@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.32' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.33' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -140,6 +140,44 @@ function hakshan_nav_url( $key ) {
 }
 
 /**
+ * Render a post title with bilingual fallback. If the post has a `post_title_zh`
+ * meta field, output paired EN/ZH spans. Otherwise output plain text so the
+ * title displays in both language modes (graceful fallback for migrated posts).
+ *
+ * @param int|null $post_id
+ * @return string
+ */
+function hakshan_post_title_bilingual( $post_id = null ) {
+	$post_id = $post_id ? (int) $post_id : get_the_ID();
+	$en      = get_the_title( $post_id );
+	$zh      = (string) get_post_meta( $post_id, 'post_title_zh', true );
+	if ( '' === trim( $zh ) ) {
+		return esc_html( $en );
+	}
+	return '<span data-en>' . esc_html( $en ) . '</span><span data-zh>' . esc_html( $zh ) . '</span>';
+}
+
+/**
+ * Render a post excerpt with bilingual fallback. Mirrors the title helper:
+ * uses `post_excerpt_zh` meta when present, falls back to plain EN text otherwise.
+ *
+ * @param int|null $post_id
+ * @param int      $words
+ * @return string
+ */
+function hakshan_post_excerpt_bilingual( $post_id = null, $words = 24 ) {
+	$post_id = $post_id ? (int) $post_id : get_the_ID();
+	$en_raw  = wp_strip_all_tags( get_the_excerpt( $post_id ) );
+	$en      = wp_trim_words( $en_raw, $words, '…' );
+	$zh_raw  = wp_strip_all_tags( (string) get_post_meta( $post_id, 'post_excerpt_zh', true ) );
+	if ( '' === trim( $zh_raw ) ) {
+		return esc_html( $en );
+	}
+	$zh = wp_trim_words( $zh_raw, $words, '…' );
+	return '<span data-en>' . esc_html( $en ) . '</span><span data-zh>' . esc_html( $zh ) . '</span>';
+}
+
+/**
  * Render the shared top navigation. Mirrors `partials.js#navHTML`.
  *
  * @param array $args { dark: bool, book_href: string }
@@ -261,6 +299,70 @@ function hakshan_render_nav( $args = array() ) {
 		<div class="drawer__backdrop" aria-hidden="true"></div>
 	</aside>
 	<?php
+}
+
+/**
+ * Bilingual post fields metabox — lets editors enter a ZH title and excerpt
+ * for posts (used by the helpers above). Plain text inputs, no JS required.
+ */
+add_action( 'add_meta_boxes', 'hakshan_post_bilingual_metabox' );
+function hakshan_post_bilingual_metabox() {
+	add_meta_box(
+		'hakshan_post_bilingual',
+		'Chinese (中文) title & excerpt',
+		'hakshan_post_bilingual_metabox_render',
+		'post',
+		'normal',
+		'high'
+	);
+}
+
+function hakshan_post_bilingual_metabox_render( $post ) {
+	wp_nonce_field( 'hakshan_post_bilingual', 'hakshan_post_bilingual_nonce' );
+	$title_zh   = (string) get_post_meta( $post->ID, 'post_title_zh', true );
+	$excerpt_zh = (string) get_post_meta( $post->ID, 'post_excerpt_zh', true );
+	?>
+	<p>
+		<label for="hakshan_post_title_zh"><strong>Title (中文)</strong></label><br/>
+		<input type="text" id="hakshan_post_title_zh" name="hakshan_post_title_zh" value="<?php echo esc_attr( $title_zh ); ?>" style="width:100%;" />
+		<span style="color:#666;font-size:12px;">Leave blank to fall back to the English title in both language modes.</span>
+	</p>
+	<p>
+		<label for="hakshan_post_excerpt_zh"><strong>Excerpt (中文)</strong></label><br/>
+		<textarea id="hakshan_post_excerpt_zh" name="hakshan_post_excerpt_zh" rows="3" style="width:100%;"><?php echo esc_textarea( $excerpt_zh ); ?></textarea>
+		<span style="color:#666;font-size:12px;">Used on the Social Responsibility stories grid card. Leave blank to fall back to English.</span>
+	</p>
+	<?php
+}
+
+add_action( 'save_post_post', 'hakshan_post_bilingual_save', 10, 2 );
+function hakshan_post_bilingual_save( $post_id, $post ) {
+	if ( ! isset( $_POST['hakshan_post_bilingual_nonce'] ) ) {
+		return;
+	}
+	if ( ! wp_verify_nonce( wp_unslash( $_POST['hakshan_post_bilingual_nonce'] ), 'hakshan_post_bilingual' ) ) {
+		return;
+	}
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+
+	$title_zh = isset( $_POST['hakshan_post_title_zh'] ) ? sanitize_text_field( wp_unslash( $_POST['hakshan_post_title_zh'] ) ) : '';
+	if ( '' === $title_zh ) {
+		delete_post_meta( $post_id, 'post_title_zh' );
+	} else {
+		update_post_meta( $post_id, 'post_title_zh', $title_zh );
+	}
+
+	$excerpt_zh = isset( $_POST['hakshan_post_excerpt_zh'] ) ? sanitize_textarea_field( wp_unslash( $_POST['hakshan_post_excerpt_zh'] ) ) : '';
+	if ( '' === $excerpt_zh ) {
+		delete_post_meta( $post_id, 'post_excerpt_zh' );
+	} else {
+		update_post_meta( $post_id, 'post_excerpt_zh', $excerpt_zh );
+	}
 }
 
 /**

@@ -314,7 +314,7 @@ $back_href     = $is_social && $social_root
       <div class="sp-hero__cats"><?php echo esc_html( $primary_cat->name ); ?></div>
     <?php endif; ?>
 
-    <h1><?php the_title(); ?></h1>
+    <h1><?php echo hakshan_post_title_bilingual(); ?></h1>
 
     <div class="sp-hero__meta">
       <span><?php echo esc_html( get_the_date() ); ?></span>
@@ -394,7 +394,7 @@ if ( $related->have_posts() ) : ?>
         <?php endif; ?>
         <div class="sp-related__body">
           <div class="sp-related__date"><?php echo esc_html( get_the_date( 'M Y' ) ); ?></div>
-          <h3 class="sp-related__title"><?php the_title(); ?></h3>
+          <h3 class="sp-related__title"><?php echo hakshan_post_title_bilingual(); ?></h3>
         </div>
       </a>
     <?php endwhile; wp_reset_postdata(); ?>
