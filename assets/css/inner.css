@@ -624,6 +624,9 @@
   .doc { grid-template-columns: 40px 1fr auto; }
   .doc .meta, .doc .size { display: none; }
 }
+@media (max-width: 600px) {
+  .inv-stats__grid { grid-template-columns: 1fr; gap: 24px; }
+}
 
 /* ============== Contact Form 7 — shared editorial styling ==============
    Used by both the investor inquiry form (page-investors.php) and any

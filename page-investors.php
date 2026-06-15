@@ -747,23 +747,41 @@ get_header();
     text-wrap: balance;
   }
   @media (max-width: 760px) {
+    /* Collapse every plate variant — default, --reverse, --framed,
+       --bleed, and --bleed.--reverse — to one stacked column on
+       mobile. Higher-specificity selectors are listed explicitly so
+       they actually override their desktop counterparts. */
     .img-band__inner,
-    .img-band--reverse .img-band__inner {
+    .img-band--reverse .img-band__inner,
+    .img-band:has(.img-band__media--framed) .img-band__inner,
+    .img-band:has(.img-band__media--framed).img-band--reverse .img-band__inner,
+    .img-band--bleed .img-band__inner,
+    .img-band--bleed.img-band--reverse .img-band__inner {
       grid-template-columns: 1fr;
       gap: clamp(20px, 4vw, 32px);
     }
+    /* Title on top, image below — regardless of which modifier the
+       plate uses on desktop. */
+    .img-band__caption,
+    .img-band--reverse .img-band__caption {
+      order: 1;
+      justify-self: stretch;
+      text-align: left;
+      max-width: none;
+      padding: 0 var(--rail);
+    }
+    .img-band__media,
+    .img-band--reverse .img-band__media {
+      order: 2;
+    }
     .img-band__media:not(.img-band__media--framed),
-    .img-band--reverse .img-band__media:not(.img-band__media--framed) {
+    .img-band--reverse .img-band__media:not(.img-band__media--framed),
+    .img-band--bleed .img-band__media:not(.img-band__media--framed) {
+      padding: 0 var(--rail);
       justify-content: center;
     }
     .img-band__media:not(.img-band__media--framed) img {
       max-width: 360px;
-    }
-    .img-band--reverse .img-band__media { order: 1; }
-    .img-band--reverse .img-band__caption {
-      order: 2;
-      justify-self: stretch;
-      text-align: left;
     }
   }
 

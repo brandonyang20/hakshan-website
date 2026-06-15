@@ -407,12 +407,23 @@ h1, h2, h3, h4, h5, h6, .h-display {
   top: 0;
   right: 0;
   z-index: 2;
+  /* Use the dynamic viewport unit on browsers that support it so the
+     panel matches the *actual* visible viewport on iOS Safari (which
+     shrinks when the bottom URL bar is shown). Fall back to 100% on
+     older browsers. */
   height: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
   width: min(360px, 92vw);
   background: var(--paper);
   display: flex;
   flex-direction: column;
   padding: 28px 28px 32px;
+  /* Let the contents scroll when the menu plus the Reserve CTA plus
+     the foot info exceed the panel height (small phones, landscape). */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
   box-shadow: -40px 0 80px -40px rgba(42, 46, 39, 0.35);
