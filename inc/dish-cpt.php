@@ -150,7 +150,7 @@ function hakshan_dish_field_schema() {
 		'dish_label'        => array(
 			'label'       => __( 'Image caption / placeholder label (English, lowercase)', 'hakshan' ),
 			'type'        => 'text',
-			'placeholder' => 'salt-baked chicken · paper-wrapped',
+			'placeholder' => 'mui choy pork belly · clay pot',
 		),
 		'dish_desc_en'      => array(
 			'label'       => __( 'Description (English)', 'hakshan' ),
@@ -583,7 +583,7 @@ function hakshan_menu_seed_data() {
 			'lead_en'  => "Six dishes the kitchen will never take off the menu. Ah Por's six.",
 			'lead_zh'  => '六道我们永远不会下架的菜，阿婆留下的六道。',
 			'dishes'   => array(
-				array( 'label' => 'salt-baked chicken · whole, paper-wrapped', 'en' => 'Salt-Baked Chicken',           'zh' => '盐 焗 鸡',     'cn' => '客 家 盐 焗 鸡',   'desc_en' => 'Free-range hen, sea salt, kraft paper. Forty minutes in the embers.', 'desc_zh' => '走 地 鸡、海 盐、牛 皮 纸，炭 火 中 四 十 分 钟。' ),
+				array( 'label' => 'drunken chicken with rice wine', 'en' => 'Drunken Chicken with Rice Wine', 'zh' => '黄 酒 醉 鸡', 'cn' => '醉 鸡', 'desc_en' => 'Chicken thigh infused with rice wine, ginger, wood ear, served warm.', 'desc_zh' => '鸡 腿 用 黄 酒 浸 透，姜、木 耳 同 焖，温 暖 上 桌。' ),
 				array( 'label' => 'mui choy kau yuk · braised pork belly',     'en' => 'Mui Choy Pork Belly',          'zh' => '梅 菜 扣 肉', 'cn' => '梅 菜 扣 肉',       'desc_en' => 'Five-spice belly steamed with pickled mustard greens, the way Ah Por taught it.', 'desc_zh' => '五 香 三 层 肉，与 阿 婆 腌 的 梅 干 菜 同 蒸。' ),
 				array( 'label' => 'abacus seeds · suan pan zi',                'en' => 'Abacus Seeds',                 'zh' => '算 盘 子',     'cn' => '算 盘 子',         'desc_en' => 'Taro and tapioca, pinched by hand. Chewy at the centre, savoury at the edge.', 'desc_zh' => '芋 头 与 木 薯，一 颗 颗 手 捏，中 心 软 糯，边 缘 咸 香。' ),
 				array( 'label' => 'lei cha · thunder tea rice',                'en' => 'Thunder Tea Rice',             'zh' => '擂 茶 饭',     'cn' => '擂 茶 饭',         'desc_en' => 'Twelve herbs, ground in a wooden mortar. A bowl that drinks like a meal.', 'desc_zh' => '十 二 种 香 草，杵 臼 现 磨。一 碗 茶，也 是 一 顿 饭。' ),

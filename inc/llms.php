@@ -50,7 +50,7 @@ function hakshan_llms_txt_content() {
 
 > Hakshan (客善) is a modern Hakka Chinese restaurant group in Malaysia. Three generations of the same recipes since 1928, now nine outlets across the Klang Valley and Ipoh, Perak. Part of every sale at every outlet goes to community causes.
 
-Hakshan is rooted in heritage Hakka cuisine — salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice (lei cha), yong tau foo, Hakka pan mee — cooked the same way since 1928, when the first generation cooked at home in the ancestral village. The second generation brought the recipes south to the Klang Valley in 1972 and opened the family's first restaurant. The third generation opened Hakshan in USJ in February 2024 and has since grown to nine outlets across the Klang Valley and Ipoh, Perak, with a roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026.
+Hakshan is rooted in heritage Hakka cuisine — mui choy pork belly, Hakka three-cup chicken, drunken chicken with rice wine, abacus seeds, thunder tea rice (lei cha), yong tau foo, Hakka pan mee — cooked the same way since 1928, when the first generation cooked at home in the ancestral village. The second generation brought the recipes south to the Klang Valley in 1972 and opened the family's first restaurant. The third generation opened Hakshan in USJ in February 2024 and has since grown to nine outlets across the Klang Valley and Ipoh, Perak, with a roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026.
 
 ## Core pages
 
@@ -93,11 +93,12 @@ All nine outlets serve the same menu under the same kitchen discipline, daily 11
 
 ## Signature dishes
 
-- Salt-Baked Chicken (盐焗鸡) — free-range hen, sea salt, kraft paper, forty minutes in the embers
 - Mui Choy Pork Belly (梅菜扣肉) — five-spice pork belly steamed with pickled mustard greens
+- Hakka Three-Cup Chicken (客家三杯鸡) — rice wine, soy, sesame oil, equal parts, in a clay pot
+- Drunken Chicken with Rice Wine (黄酒醉鸡) — chicken thigh infused with rice wine, ginger, wood ear
 - Abacus Seeds (算盘子) — taro and tapioca, pinched by hand
 - Thunder Tea Rice / Lei Cha (擂茶饭) — twelve herbs, ground in a wooden mortar
-- Ginger-Sprout Braised Duck (姜芽焖鸭) — three hours on low flame, young ginger sprouts
+- Pork Trotter with Ginger & Vinegar (姜醋猪脚) — sweet black vinegar, old ginger, slow-stewed
 - Rice-Wine Chicken Soup (糯米酒鸡汤) — glutinous rice wine, kampung chicken, ginger, sesame oil
 - Hakka Pan Mee (客家板面) — hand-torn noodles, minced pork, anchovies, sweet potato leaves
 - Yong Tau Foo (酿豆腐) — bitter gourd, soft tofu, fried tofu, fish paste pounded by hand at dawn

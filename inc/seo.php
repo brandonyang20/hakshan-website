@@ -100,7 +100,7 @@ function hakshan_seo_meta_for_context() {
 		case 'menu':
 			return array(
 				'title'       => 'Menu · Hakka dishes at Hakshan · USJ, Mont Kiara, Cheras, Puchong & more',
-				'description' => 'The full Hakshan menu: salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice, yong tau foo, Hakka pan mee. Hakka Chinese cooking in Malaysia, six chapters, member pricing.',
+				'description' => 'The full Hakshan menu: mui choy pork belly, Hakka three-cup chicken, abacus seeds, thunder tea rice, yong tau foo, Hakka pan mee, pork trotter with ginger and vinegar. Hakka Chinese cooking in Malaysia, member pricing.',
 			);
 
 		case 'outlets':

@@ -869,7 +869,7 @@ get_header();
       else :
         // Fallback before the seeder has populated the CPT.
         $signatures_fallback = array(
-          array( 'label' => 'salt-baked chicken · whole, paper-wrapped', 'en' => 'Salt-Baked Chicken', 'zh' => '盐 焗 鸡', 'cn' => '客 家 盐 焗 鸡', 'desc_en' => 'Free-range hen, sea salt, kraft paper. Forty minutes in the embers.', 'desc_zh' => '走 地 鸡、海 盐、牛 皮 纸，炭 火 中 四 十 分 钟。' ),
+          array( 'label' => 'hakka three-cup chicken · clay pot', 'en' => 'Hakka Three-Cup Chicken', 'zh' => '客 家 三 杯 鸡', 'cn' => '三 杯 鸡', 'desc_en' => 'Rice wine, soy, sesame oil. Equal parts, in a clay pot.', 'desc_zh' => '米 酒、生 抽、麻 油 等 量，砂 锅 同 焗。' ),
           array( 'label' => 'mui choy kau yuk · braised pork belly', 'en' => 'Mui Choy Pork Belly', 'zh' => '梅 菜 扣 肉', 'cn' => '梅 菜 扣 肉', 'desc_en' => 'Five-spice belly steamed with pickled mustard greens, in the family tradition.', 'desc_zh' => '五 香 三 层 肉，与 家 中 自 腌 的 梅 干 菜 同 蒸。' ),
           array( 'label' => 'abacus seeds · suan pan zi', 'en' => 'Abacus Seeds', 'zh' => '算 盘 子', 'cn' => '算 盘 子', 'desc_en' => 'Taro and tapioca, pinched by hand. Chewy at the centre, savoury at the edge.', 'desc_zh' => '芋 头 与 木 薯，一 颗 颗 手 捏，中 心 软 糯，边 缘 咸 香。' ),
           array( 'label' => 'lei cha · thunder tea rice', 'en' => 'Thunder Tea Rice', 'zh' => '擂 茶 饭', 'cn' => '擂 茶 饭', 'desc_en' => 'Twelve herbs, ground in a wooden mortar. A bowl that drinks like a meal.', 'desc_zh' => '十 二 种 香 草，杵 臼 现 磨。一 碗 茶，也 是 一 顿 饭。' ),

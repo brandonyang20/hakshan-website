@@ -493,8 +493,8 @@ get_header();
       <?php
       $timeline = array(
         array( 'year' => '1928', 'h_en' => 'A home kitchen, ancestral village', 'h_zh' => '祖 屋 · 家 中 厨 房',
-               'p_en' => 'The 1st generation cooks Hakka food at home in the ancestral village: salt-baked chicken, mui choy belly, rice-wine chicken soup. No restaurant. No staff. Just a stove, a wok, and a family that keeps showing up to eat.',
-               'p_zh' => '第一代在祖屋的厨房里煮客家菜：盐焗鸡、梅菜扣肉、糯米酒鸡汤。没有餐厅，没有员工。只有一个灶、一只镬，和一屋子总回来吃饭的家人。' ),
+               'p_en' => 'The 1st generation cooks Hakka food at home in the ancestral village: three-cup chicken, mui choy belly, rice-wine chicken soup. No restaurant. No staff. Just a stove, a wok, and a family that keeps showing up to eat.',
+               'p_zh' => '第一代在祖屋的厨房里煮客家菜：三杯鸡、梅菜扣肉、糯米酒鸡汤。没有餐厅，没有员工。只有一个灶、一只镬，和一屋子总回来吃饭的家人。' ),
         array( 'year' => '1972', 'h_en' => 'The recipes cross the sea', 'h_zh' => '食 谱 南 下',
                'p_en' => 'The 2nd generation brings the recipes south to the Klang Valley and opens the family\'s first restaurant. For the first time, the dishes are written down: in pencil, on the backs of kuih paper. The recipes do not change. The kitchen, suddenly, has to feed strangers.',
                'p_zh' => '第二代把食谱南下带到巴生谷，开了家中第一家餐厅。第一次，那些菜被写下来：用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。' ),
@@ -593,8 +593,8 @@ get_header();
         <span data-en>She cooked at home</span><span data-zh>她在家中下厨</span>
       </h3>
       <p>
-        <span data-en>The ancestral village, from 1928. Hakka dishes cooked at home: salt-baked chicken, mui choy belly, rice-wine chicken soup. Never ran a restaurant. The recipes lived in her hands.</span>
-        <span data-zh>1928年起，于祖屋。家中烹客家菜：盐焗鸡、梅菜扣肉、糯米酒鸡汤。一生未开餐厅。食谱，在她手上。</span>
+        <span data-en>The ancestral village, from 1928. Hakka dishes cooked at home: three-cup chicken, mui choy belly, rice-wine chicken soup. Never ran a restaurant. The recipes lived in her hands.</span>
+        <span data-zh>1928年起，于祖屋。家中烹客家菜：三杯鸡、梅菜扣肉、糯米酒鸡汤。一生未开餐厅。食谱，在她手上。</span>
       </p>
     </div>
     <div class="portrait">
