@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.27' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.28' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -100,11 +100,12 @@ function hakshan_active_nav_key() {
 		return 'home';
 	}
 	$slug_to_key = array(
-		'menu'      => 'menu',
-		'outlets'   => 'outlets',
-		'story'     => 'story',
-		'investors' => 'investors',
-		'contact'   => 'contact',
+		'menu'                  => 'menu',
+		'outlets'               => 'outlets',
+		'story'                 => 'story',
+		'investors'             => 'investors',
+		'contact'               => 'contact',
+		'social-responsibility' => 'social',
 	);
 	$post = get_queried_object();
 	if ( $post instanceof WP_Post && isset( $slug_to_key[ $post->post_name ] ) ) {
@@ -123,6 +124,13 @@ function hakshan_active_nav_key() {
 function hakshan_nav_url( $key ) {
 	if ( 'home' === $key ) {
 		return home_url( '/' );
+	}
+	if ( 'social' === $key ) {
+		$page = get_page_by_path( 'social-responsibility' );
+		if ( $page instanceof WP_Post ) {
+			return get_permalink( $page );
+		}
+		return home_url( '/social-responsibility/' );
 	}
 	$page = get_page_by_path( $key );
 	if ( $page instanceof WP_Post ) {
@@ -168,6 +176,11 @@ function hakshan_render_nav( $args = array() ) {
 			'key' => 'story',
 			'en'  => 'Our Story',
 			'zh'  => '三代故事',
+		),
+		array(
+			'key' => 'social',
+			'en'  => 'Pay it Forward',
+			'zh'  => '行善',
 		),
 		array(
 			'key' => 'investors',
@@ -282,7 +295,7 @@ function hakshan_render_footer() {
 				<ul>
 					<li><a href="<?php echo esc_url( $story_url ); ?>"><span data-en>Our Story</span><span data-zh>三代故事</span></a></li>
 					<li><a href="<?php echo esc_url( $menu_url ); ?>"><span data-en>Menu</span><span data-zh>菜单</span></a></li>
-					<li><a href="<?php echo esc_url( $story_url ); ?>#charity"><span data-en>Dining with Purpose</span><span data-zh>用餐慈善</span></a></li>
+					<li><a href="<?php echo esc_url( hakshan_nav_url( 'social' ) ); ?>"><span data-en>Pay it Forward</span><span data-zh>用餐慈善</span></a></li>
 					<li><a href="<?php echo esc_url( $investors_url ); ?>"><span data-en>Investor Relations</span><span data-zh>投资者关系</span></a></li>
 					<li><a href="<?php echo esc_url( $contact_url ); ?>"><span data-en>Press &amp; Media</span><span data-zh>媒体咨询</span></a></li>
 				</ul>

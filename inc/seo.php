@@ -65,6 +65,8 @@ function hakshan_seo_context() {
 			case 'press':
 			case 'press-media':
 				return 'press';
+			case 'social-responsibility':
+				return 'social';
 		}
 		return 'page';
 	}

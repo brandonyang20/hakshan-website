@@ -58,6 +58,7 @@ Hakshan is rooted in heritage Hakka cuisine — mui choy pork belly, Hakka three
 - [Menu]({$home}/menu/): Full Hakka menu — home-style dishes, new dishes, Hakka classics, Lei Cha series, health-infuse sets, super value sets, noodles, vegetables & tofu, soups, set meals, desserts, tea, beverages
 - [Outlets]({$home}/outlets/): All nine outlets with address, hours, photos, and per-outlet reservation links
 - [Our Story]({$home}/story/): Three generations of Hakka cooking, from the 1928 ancestral village to a modern restaurant group; includes the charity model
+- [Pay it Forward / Social Responsibility]({$home}/social-responsibility/): Hakshan's community model — part of every sale at every outlet funds education, elderly care, and animal welfare. Built in from day one, not a post-success add-on.
 - [Investors]({$home}/investors/): Investor relations, holding structure, growth trajectory, contact form
 - [Contact & reservations]({$home}/contact-us/): Per-outlet booking links, press / careers / supplier / partnership inquiry form
 
