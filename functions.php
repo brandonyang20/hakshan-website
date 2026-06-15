@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.40' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.41' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -408,8 +408,7 @@ function hakshan_render_footer() {
 					<li>+60 16-246 2970</li>
 					<li>hello@hakshan.com</li>
 					<li><a href="https://instagram.com/hakshan_">Instagram</a></li>
-					<li><a href="#">Facebook</a></li>
-					<li><a href="#">WeChat</a></li>
+					<li><a href="https://www.facebook.com/HakShanRestaurant/">Facebook</a></li>
 				</ul>
 			</div>
 		</div>
