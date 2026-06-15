@@ -441,7 +441,7 @@ get_header();
   <div data-reveal>
     <h1>
       <span data-en>Pay it<br/><em>Forward.</em></span>
-      <span data-zh>傳遞<br/><em>善意。</em></span>
+      <span data-zh>一菜<br/><em>一善。</em></span>
     </h1>
   </div>
   <div data-reveal>
