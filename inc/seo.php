@@ -92,26 +92,26 @@ function hakshan_seo_meta_for_context() {
 	switch ( $ctx ) {
 		case 'home':
 			return array(
-				'title'       => 'Hakshan · Hakka cooking, three generations, thirteen kitchens in Malaysia',
-				'description' => 'Hakshan (客善). A modern Hakka restaurant group rooted in heritage cuisine, three generations of the same recipes since 1928. Salt-baked chicken, mui choy pork belly, abacus seeds, thunder tea rice. Ten outlets and three cloud kitchens across the Klang Valley and Ipoh, Perak. Part of every sale goes to community causes.',
+				'title'       => 'Hakshan · Hakka Chinese Restaurant in Malaysia · three generations, thirteen kitchens',
+				'description' => 'Hakshan (客善) — Hakka Chinese restaurant group in Malaysia. Three generations of recipes since 1928: mui choy pork belly, Hakka three-cup chicken, drunken chicken, abacus seeds, lei cha (thunder tea rice), Hakka mee, yong tau foo. Ten outlets and three cloud kitchens across the Klang Valley and Ipoh, Perak. Part of every sale goes to community causes.',
 			);
 
 		case 'story':
 			return array(
 				'title'       => 'Our story · preserving heritage, growing with purpose · Hakshan',
-				'description' => 'Hakshan is a modern Hakka restaurant group rooted in heritage cuisine. Three generations of recipes, thirteen kitchens across the Klang Valley and Ipoh, Perak. A roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026.',
+				'description' => 'Hakshan is a Hakka Chinese restaurant group rooted in heritage cuisine — three generations of recipes since 1928, thirteen kitchens across the Klang Valley and Ipoh, Perak. A roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026.',
 			);
 
 		case 'menu':
 			return array(
-				'title'       => 'Menu · Hakka dishes at Hakshan · USJ, Mont Kiara, Cheras, Puchong & more',
-				'description' => 'The full Hakshan menu: mui choy pork belly, Hakka three-cup chicken, abacus seeds, thunder tea rice, yong tau foo, Hakka pan mee, pork trotter with ginger and vinegar. Hakka Chinese cooking in Malaysia, member pricing.',
+				'title'       => 'Menu · Hakka Chinese Restaurant in Malaysia · Lei Cha, Hakka Mee, Mui Choy Pork · Hakshan',
+				'description' => 'Hakka Chinese cuisine in Malaysia: lei cha (thunder tea rice), Hakka mee, mui choy pork belly, Hakka three-cup chicken, drunken chicken with rice wine, abacus seeds, yong tau foo, pork trotter with ginger and vinegar. Heritage Hakka recipes since 1928, member pricing across all Hakshan outlets.',
 			);
 
 		case 'outlets':
 			return array(
-				'title'       => 'Outlets · find your nearest Hakshan · 10 Hakka restaurants across Klang Valley and Ipoh',
-				'description' => 'All ten Hakshan outlets across the Klang Valley and Ipoh, Perak, plus three cloud kitchens. Same recipes, same kitchen discipline, daily 11:00–22:00.',
+				'title'       => 'Outlets · Hakka Chinese Restaurants near you · Klang Valley & Ipoh · Hakshan',
+				'description' => 'Find your nearest Hakshan — Hakka Chinese restaurant in Subang Jaya (USJ), Cheras, Sri Petaling, Menjalara, Kota Damansara, Puchong, Klang, Ipoh, and more. Ten outlets across the Klang Valley and Ipoh, Perak. Daily 11:00–22:00, reservations and walk-ins welcome.',
 			);
 
 		case 'single_outlet':
@@ -122,12 +122,12 @@ function hakshan_seo_meta_for_context() {
 			$city_t = $city ? ucwords( strtolower( $city ) ) : '';
 
 			$title = $name && $city_t
-				? sprintf( '%s · Hakshan Hakka restaurant in %s', $name, $city_t )
+				? sprintf( 'Hakshan %s · Hakka Chinese Restaurant in %s', $name, $city_t )
 				: trim( $name . ' · Hakshan' );
 
-			$description = $addr
-				? sprintf( 'Hakshan %s. Hakka cooking, three generations, daily 11:00–22:00. %s. Reservations welcome.', $name, $addr )
-				: sprintf( 'Hakshan %s, a Hakka Chinese restaurant. Daily 11:00–22:00. Reservations welcome.', $name );
+			$description = $name && $city_t
+				? sprintf( 'Hakshan %s — Hakka Chinese restaurant in %s. Lei cha (thunder tea rice), Hakka mee, mui choy pork belly, three-cup chicken, drunken chicken with rice wine. Same recipes since 1928. Daily 11:00–22:00. %s Reservations and walk-ins welcome.', $name, $city_t, $addr ? $addr . '.' : '' )
+				: sprintf( 'Hakshan %s — a Hakka Chinese restaurant. Daily 11:00–22:00. Reservations welcome.', $name );
 
 			return array(
 				'title'       => $title,

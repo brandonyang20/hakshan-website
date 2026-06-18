@@ -71,6 +71,14 @@ $maps_embed = $o['addr']
     color: var(--forest);
     letter-spacing: 0.28em;
   }
+  .so-hero__sub {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin: 0 0 24px;
+  }
   .so-hero p.lead {
     font-size: 18px;
     line-height: 1.65;
@@ -184,9 +192,16 @@ $maps_embed = $o['addr']
     <?php endif; ?>
   </h1>
 
+  <?php if ( $city_pretty ) : ?>
+  <p class="so-hero__sub">
+    <span data-en>Hakka Chinese Restaurant · <?php echo esc_html( $city_pretty ); ?></span>
+    <span data-zh>客家中餐厅 · <?php echo esc_html( $city_pretty ); ?></span>
+  </p>
+  <?php endif; ?>
+
   <p class="lead">
-    <span data-en>A Hakshan kitchen in <?php echo esc_html( $city_pretty ); ?>. Same recipes since 1928, same kitchen discipline as every other outlet. Traditional Hakka cooking: salt-cured, slow-braised, made to last.</span>
-    <span data-zh>客善在<?php echo esc_html( $city_pretty ); ?>的一间厨房。同一份食谱，1928年至今未变，与每一间门店同一套厨房纪律。传统客家菜：盐渍、慢炖，做出来是耐放的味道。</span>
+    <span data-en>Hakshan <?php echo esc_html( $o['name'] ); ?> — a Hakka Chinese restaurant in <?php echo esc_html( $city_pretty ); ?>. Same recipes since 1928, same kitchen discipline as every other outlet. Lei cha (thunder tea rice), Hakka mee, mui choy pork belly, three-cup chicken, drunken chicken with rice wine — traditional Hakka cooking: salt-cured, slow-braised, made to last.</span>
+    <span data-zh>客善<?php echo esc_html( $o['name'] ); ?>——位于<?php echo esc_html( $city_pretty ); ?>的客家中餐厅。同一份食谱，1928年至今未变，与每一间门店同一套厨房纪律。擂茶饭、客家板面、梅菜扣肉、三杯鸡、黄酒醉鸡——传统客家菜：盐渍、慢炖，做出来是耐放的味道。</span>
   </p>
 </section>
 
