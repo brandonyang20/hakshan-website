@@ -425,11 +425,17 @@ get_header();
     line-height: 1.15;
     z-index: 1;
     color: #2A2018;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    max-width: 30%;
   }
-  .iv-donut__lab b { display: block; font-size: 30px; font-weight: 400; }
-  .iv-donut__lab span { font-size: 12px; letter-spacing: 0.04em; opacity: 0.78; }
-  .iv-donut__lab--inv { top: 20%; right: 12%; }
-  .iv-donut__lab--hold { top: 44%; left: 10%; }
+  .iv-donut__lab b { display: block; font-size: 26px; font-weight: 400; }
+  .iv-donut__lab span { display: block; font-size: 11px; letter-spacing: 0.04em; opacity: 0.78; margin-top: 2px; }
+  /* Geometric midpoints of each sector along the ring centreline (radius ≈ 39%
+     of the container, measured from centre). 40% sector midpoint at 72° from
+     12-o'clock; 60% sector midpoint at 252°. */
+  .iv-donut__lab--inv { top: 38%; left: 87%; }
+  .iv-donut__lab--hold { top: 62%; left: 13%; }
   .iv-eq__rows { display: flex; flex-direction: column; }
   .iv-eq__row {
     display: flex;
@@ -679,8 +685,8 @@ get_header();
         <span data-zh>可规模化的餐饮生态系统，<em>根植于传承。</em></span>
       </h1>
       <p class="iv-hero__lead">
-        <span data-en>Hakshan has grown from a single Hakka restaurant into a disciplined, multi-layer F&amp;B group — proven unit economics, a fast capital payback, and a clear runway across Malaysia, Indonesia and Taiwan.</span>
-        <span data-zh>客善从一家客家餐厅起步，发展成纪律严明的多层级餐饮集团——单店经济模型已被验证，资本回收周期短，并在马来西亚、印尼与台湾拥有清晰的扩张路径。</span>
+        <span data-en>Hakshan has grown from a single Hakka restaurant into a disciplined, multi-layer F&amp;B group — proven unit economics, a fast capital payback, and a clear runway across Malaysia, Indonesia and Bangkok.</span>
+        <span data-zh>客善从一家客家餐厅起步，发展成纪律严明的多层级餐饮集团——单店经济模型已被验证，资本回收周期短，并在马来西亚、印尼与曼谷拥有清晰的扩张路径。</span>
       </p>
     </div>
     <div class="iv-metrics" data-reveal>
@@ -722,7 +728,7 @@ get_header();
         <div class="iv-mile__tag"><span data-en>Achieved</span><span data-zh>已达成</span></div>
         <div class="iv-mile__yr">2025</div>
         <div class="iv-mile__list">
-          <div class="iv-mile__item"><b>7 Outlets</b><span><span data-en>Operating across the Klang Valley</span><span data-zh>巴生谷已开门店</span></span></div>
+          <div class="iv-mile__item"><b>7 Outlets</b><span><span data-en>Operating across Kuala Lumpur</span><span data-zh>吉隆坡已开门店</span></span></div>
           <div class="iv-mile__item"><b>RM 20M</b><span><span data-en>Annual revenue</span><span data-zh>年营业额</span></span></div>
           <div class="iv-mile__item"><b>1,000,000+</b><span><span data-en>Meals served</span><span data-zh>累计服务餐数</span></span></div>
           <div class="iv-mile__item"><b>Grab Partner</b><span><span data-en>Achieved within one year</span><span data-zh>开业一年内获得</span></span></div>
@@ -734,7 +740,7 @@ get_header();
         <div class="iv-mile__list">
           <div class="iv-mile__item"><b>20 Outlets</b><span><span data-en>+ 25 cloud kitchens</span><span data-zh>+ 25 间云端厨房</span></span></div>
           <div class="iv-mile__item"><b>RM 74M</b><span><span data-en>Annual revenue potential</span><span data-zh>年营业额潜力</span></span></div>
-          <div class="iv-mile__item"><b>4 Markets</b><span><span data-en>Malaysia · Indonesia · Taiwan</span><span data-zh>马来西亚 · 印尼 · 台湾</span></span></div>
+          <div class="iv-mile__item"><b>3 Markets</b><span><span data-en>Malaysia · Indonesia · Bangkok</span><span data-zh>马来西亚 · 印尼 · 曼谷</span></span></div>
           <div class="iv-mile__item"><b>30% food cost</b><span><span data-en>Disciplined margin control</span><span data-zh>毛利率纪律控制</span></span></div>
         </div>
       </div>
@@ -914,8 +920,8 @@ get_header();
         <span data-zh>门店扩张 &amp; 覆盖</span>
       </span>
       <h2>
-        <span data-en>From the Klang Valley<br/><em>to the region.</em></span>
-        <span data-zh>从巴生谷，<br/><em>走向区域市场。</em></span>
+        <span data-en>From Kuala Lumpur<br/><em>to the region.</em></span>
+        <span data-zh>从吉隆坡，<br/><em>走向区域市场。</em></span>
       </h2>
     </div>
     <div class="iv-miles" data-reveal>
@@ -933,7 +939,7 @@ get_header();
         <div class="iv-mile__list">
           <div class="iv-mile__item"><b>17 outlets</b><span><span data-en>Malaysia</span><span data-zh>马来西亚</span></span></div>
           <div class="iv-mile__item"><b>25 cloud kitchens</b><span><span data-en>Malaysia</span><span data-zh>马来西亚</span></span></div>
-          <div class="iv-mile__item"><b>2 + 2 outlets</b><span><span data-en>Indonesia &amp; Taiwan-Taipei</span><span data-zh>印尼 &amp; 台湾-台北</span></span></div>
+          <div class="iv-mile__item"><b>2 + 2 outlets</b><span><span data-en>Indonesia &amp; Bangkok</span><span data-zh>印尼 &amp; 曼谷</span></span></div>
           <div class="iv-mile__item"><b>RM 74M</b><span><span data-en>Annual revenue potential</span><span data-zh>年营业额潜力</span></span></div>
         </div>
       </div>
