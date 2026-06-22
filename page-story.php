@@ -114,7 +114,7 @@ get_header();
     text-align: center;
   }
   .sh-intro h2 {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     font-size: clamp(48px, 7vw, 96px);
@@ -208,7 +208,7 @@ get_header();
   }
   .sh-positioning__head .h-eyebrow { justify-content: center; }
   .sh-positioning__head h2 {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     font-size: clamp(40px, 5.5vw, 76px);
@@ -239,7 +239,7 @@ get_header();
     margin-bottom: 28px;
   }
   .sh-feature h3 {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     font-size: 26px;
@@ -272,7 +272,7 @@ get_header();
     margin-bottom: clamp(40px, 5vw, 72px);
   }
   .sh-series__head h2 {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     font-size: clamp(40px, 5.5vw, 76px);
@@ -311,7 +311,7 @@ get_header();
     margin-bottom: 14px;
   }
   .sh-series__copy h3 {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     font-size: clamp(28px, 3.6vw, 48px);
@@ -357,7 +357,7 @@ get_header();
   }
   .sh-proof__head .h-eyebrow .dot { background: #C49B66; }
   .sh-proof__head h2 {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     font-size: clamp(40px, 5.5vw, 72px);
@@ -374,7 +374,7 @@ get_header();
     border: 1px solid rgba(243, 234, 217, 0.18);
   }
   .sh-stat__n {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     font-size: clamp(40px, 5.2vw, 64px);
@@ -411,7 +411,7 @@ get_header();
     align-items: center;
   }
   .sh-outlets__head h2 {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     font-size: clamp(40px, 5.5vw, 76px);
@@ -447,7 +447,7 @@ get_header();
     padding: 20px 22px;
   }
   .sh-outlet__city {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-size: 22px;
     line-height: 1.1;
@@ -470,7 +470,7 @@ get_header();
     color: var(--ink-soft);
   }
   .sh-outlet__rate b {
-    font-family: var(--italic);
+    font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     font-size: 18px;
@@ -800,7 +800,7 @@ get_header();
     </div>
     <div class="sh-proof__grid">
       <div>
-        <div class="sh-stat__n">9</div>
+        <div class="sh-stat__n">10</div>
         <div class="sh-stat__l"><span data-en>Outlets across the Klang Valley &amp; Ipoh</span><span data-zh>巴生谷与怡保门店</span></div>
       </div>
       <div>
@@ -819,7 +819,7 @@ get_header();
   </div>
 </section>
 
-<!-- ============== OUTLETS · Seven homes, one standard ============== -->
+<!-- ============== OUTLETS · Ten homes, one standard ============== -->
 <section class="sh-outlets">
   <div class="sh-outlets__head">
     <div data-reveal>
@@ -828,8 +828,8 @@ get_header();
         <span data-zh>我们的门店</span>
       </span>
       <h2>
-        <span data-en>Seven homes,<br/><em>one standard.</em></span>
-        <span data-zh>九家厨房，<br/><em>同一套标准。</em></span>
+        <span data-en>Ten homes,<br/><em>one standard.</em></span>
+        <span data-zh>十家厨房，<br/><em>同一套标准。</em></span>
       </h2>
       <p>
         <span data-en>Full-service restaurants designed around a single, repeatable model — consistent quality, warm rooms, and a menu the neighbourhood keeps coming back to.</span>
@@ -878,9 +878,19 @@ get_header();
       <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
       <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>636</span></div>
     </div>
+    <div class="sh-outlet">
+      <div class="sh-outlet__city">Ipoh</div>
+      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
+      <div class="sh-outlet__rate"><b>—</b><span class="stars">★★★★★</span><span><span data-en>newly opened</span><span data-zh>新店</span></span></div>
+    </div>
+    <div class="sh-outlet">
+      <div class="sh-outlet__city">Klang · Bukit Tinggi</div>
+      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
+      <div class="sh-outlet__rate"><b>—</b><span class="stars">★★★★★</span><span><span data-en>newly opened</span><span data-zh>新店</span></span></div>
+    </div>
     <a class="sh-outlet sh-outlet--more" href="<?php echo esc_url( hakshan_nav_url( 'outlets' ) ); ?>">
       <div class="sh-outlet__city"><span data-en>+ more</span><span data-zh>更多门店</span></div>
-      <div class="sh-outlet__meta"><span data-en>Ipoh · Klang · opening through 2026</span><span data-zh>怡保 · 巴生 · 持续扩张至 2026</span></div>
+      <div class="sh-outlet__meta"><span data-en>and more, opening through 2026</span><span data-zh>更多门店 · 持续扩张至 2026</span></div>
     </a>
   </div>
 </section>
