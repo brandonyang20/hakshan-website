@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.62' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.63' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -233,7 +233,7 @@ function hakshan_render_nav( $args = array() ) {
 		),
 	);
 
-	$logo = esc_url( get_theme_file_uri( 'assets/brand/hakshan-horizontal.png' ) );
+	$logo = 'https://hakshan.com/wp-content/uploads/2026/06/HAKSHAN_Secondary_H_Solid_Black-scaled.png';
 	?>
 	<header class="nav<?php echo esc_attr( $dark ); ?>">
 		<a class="nav__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">

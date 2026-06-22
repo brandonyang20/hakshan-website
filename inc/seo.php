@@ -360,7 +360,7 @@ function hakshan_seo_organization_node() {
 		'name'          => HAKSHAN_BRAND_NAME,
 		'alternateName' => HAKSHAN_BRAND_CN,
 		'url'           => home_url( '/' ),
-		'logo'          => esc_url_raw( get_theme_file_uri( 'assets/brand/hakshan-logo-ground.png' ) ),
+		'logo'          => 'https://hakshan.com/wp-content/uploads/2026/06/HAKSHAN_Secondary_H_Solid_Black-scaled.png',
 		'sameAs'        => array(
 			'https://instagram.com/hakshan_',
 		),
@@ -444,7 +444,7 @@ function hakshan_seo_outlet_restaurant_node( $outlet ) {
 		'image'           => array(
 			$d['image_url'] ? $d['image_url'] : esc_url_raw( get_theme_file_uri( 'assets/img/og-default.png' ) ),
 		),
-		'logo'            => esc_url_raw( get_theme_file_uri( 'assets/brand/hakshan-logo-ground.png' ) ),
+		'logo'            => 'https://hakshan.com/wp-content/uploads/2026/06/HAKSHAN_Secondary_H_Solid_Black-scaled.png',
 		'servesCuisine'   => array( 'Hakka', 'Chinese', 'Malaysian Chinese' ),
 		'priceRange'      => 'RM 15–RM 80',
 		'acceptsReservations' => true,
@@ -652,7 +652,7 @@ function hakshan_seo_story_article_node() {
 			'url'   => home_url( '/' ),
 			'logo'  => array(
 				'@type' => 'ImageObject',
-				'url'   => esc_url_raw( get_theme_file_uri( 'assets/brand/hakshan-logo-ground.png' ) ),
+				'url'   => 'https://hakshan.com/wp-content/uploads/2026/06/HAKSHAN_Secondary_H_Solid_Black-scaled.png',
 			),
 		),
 	);

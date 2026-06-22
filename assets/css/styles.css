@@ -290,6 +290,9 @@ h1, h2, h3, h4, h5, h6, .h-display {
   width: auto;
   object-fit: contain;
 }
+/* Logo source is solid black. On dark navs (homepage, story page hero),
+   invert so the wordmark reads as white against the dark background. */
+.nav--dark .nav__brand img { filter: invert(1); }
 
 .nav__links {
   display: flex;

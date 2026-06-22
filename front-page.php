@@ -54,6 +54,7 @@ get_header();
     margin: 0 auto;
     user-select: none;
     -webkit-user-drag: none;
+    filter: invert(1);
   }
   .hero-a__scroll {
     position: absolute;
@@ -757,7 +758,7 @@ get_header();
     <span data-zh>客善 · 三代人的客家菜，十三家厨房，遍布马来西亚。</span>
   </h1>
   <div class="hero-a__logo" data-reveal>
-    <img src="<?php echo esc_url( get_theme_file_uri( 'assets/brand/hakshan-logo-ground.png' ) ); ?>" alt="Hakshan 客善 · 三代人的传承" />
+    <img src="https://hakshan.com/wp-content/uploads/2026/06/HAKSHAN_Secondary_H_Solid_Black-scaled.png" alt="Hakshan 客善 · 三代人的传承" />
   </div>
   <div class="hero-a__scroll" aria-hidden="true">
     <span data-en>SCROLL</span>
