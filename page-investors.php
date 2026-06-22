@@ -394,6 +394,19 @@ get_header();
   .iv-expansion .iv-mile__yr { font-size: clamp(28px, 4vw, 46px); }
   .iv-expansion .iv-mile p { margin: 14px 0 0; color: var(--ink-soft); line-height: 1.7; }
   .iv-expansion .iv-mile--accent p { color: rgba(243, 234, 217, 0.7); }
+  .iv-mile__map {
+    margin: calc(clamp(26px, 3vw, 40px) * -1) calc(clamp(26px, 3vw, 40px) * -1) clamp(22px, 2.4vw, 32px);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .iv-mile--accent .iv-mile__map { background: rgba(243, 234, 217, 0.06); }
+  .iv-mile__map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
   /* ============== 6b. ORG CHART — Multi-layer F&B model ============== */
   .iv-org {
@@ -1161,6 +1174,12 @@ get_header();
     </div>
     <div class="iv-miles" data-reveal>
       <div class="iv-mile">
+        <?php $exp_map_2025 = get_theme_file_path( 'assets/img/expansion-2025.jpg' ); ?>
+        <?php if ( file_exists( $exp_map_2025 ) ) : ?>
+        <div class="iv-mile__map">
+          <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/expansion-2025.jpg' ) ); ?>" alt="HAKSHAN 2025 footprint — seven branches across Kuala Lumpur" loading="lazy" />
+        </div>
+        <?php endif; ?>
         <div class="iv-mile__tag">2025 · Malaysia</div>
         <div class="iv-mile__yr"><span data-en>7 branches</span><span data-zh>7 间分店</span></div>
         <p>
@@ -1169,6 +1188,12 @@ get_header();
         </p>
       </div>
       <div class="iv-mile iv-mile--accent">
+        <?php $exp_map_2026 = get_theme_file_path( 'assets/img/expansion-2026.jpg' ); ?>
+        <?php if ( file_exists( $exp_map_2026 ) ) : ?>
+        <div class="iv-mile__map">
+          <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/expansion-2026.jpg' ) ); ?>" alt="HAKSHAN 2026 footprint — 17 outlets and 25 cloud kitchens in Malaysia plus regional expansion" loading="lazy" />
+        </div>
+        <?php endif; ?>
         <div class="iv-mile__tag">2026 · Regional</div>
         <div class="iv-mile__yr">17 + 25 + 4</div>
         <div class="iv-mile__list">
