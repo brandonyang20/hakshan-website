@@ -92,8 +92,8 @@ function hakshan_seo_meta_for_context() {
 	switch ( $ctx ) {
 		case 'home':
 			return array(
-				'title'       => 'Hakshan · Hakka Chinese Restaurant in Malaysia · three generations, thirteen kitchens',
-				'description' => 'Hakshan (客善) — Hakka Chinese restaurant group in Malaysia. Three generations of recipes since 1928: mui choy pork belly, Hakka three-cup chicken, drunken chicken, abacus seeds, lei cha (thunder tea rice), Hakka mee, yong tau foo. Ten outlets and three cloud kitchens across the Klang Valley and Ipoh, Perak. Part of every sale goes to community causes.',
+				'title'       => 'Hakshan · Hakka Restaurant in Malaysia · Kuala Lumpur, Klang Valley & Ipoh',
+				'description' => 'Hakshan (客善) — Hakka restaurant group in Malaysia, with outlets across Kuala Lumpur, the Klang Valley, and Ipoh, Perak. Lei cha (thunder tea rice), Hakka mee, mui choy pork belly, Hakka three-cup chicken, drunken chicken, abacus seeds, yong tau foo. Same recipes since 1928. Reservations and walk-ins welcome.',
 			);
 
 		case 'story':
