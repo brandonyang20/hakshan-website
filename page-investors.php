@@ -420,59 +420,40 @@ get_header();
     line-height: 1.15;
     text-wrap: balance;
   }
-  .iv-org__market {
-    position: absolute;
-    top: 48%;
-    transform: translateY(-50%);
-    font-family: var(--serif);
-    font-size: clamp(18px, 1.8vw, 24px);
-    color: #C49B66;
-    letter-spacing: 0.06em;
-  }
-  .iv-org__market--l { left: 0; }
-  .iv-org__market--r { right: 0; }
-  .iv-org__tiers {
+  /* Chart frame — stacked tiers with explicit rails between them. */
+  .iv-org__chart {
+    --node-w: 112px;
+    --gap: clamp(8px, 1.4vw, 22px);
+    --rail-color: rgba(196, 155, 102, 0.55);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
-    padding: 0 60px;
-    position: relative;
+    overflow-x: auto;
+    padding-bottom: 4px;
   }
-  /* Vertical spine connecting the three tiers */
-  .iv-org__tiers::before {
-    content: "";
-    position: absolute;
-    top: 86px;
-    bottom: 86px;
-    left: 50%;
-    width: 1px;
-    background: rgba(196, 155, 102, 0.4);
-  }
+  .iv-org__chart::-webkit-scrollbar { display: none; }
   .iv-org__tier {
     display: flex;
     justify-content: center;
-    gap: clamp(8px, 1.4vw, 22px);
-    position: relative;
-    z-index: 1;
-    padding: 36px 0;
-    width: 100%;
+    gap: var(--gap);
+    flex-wrap: nowrap;
   }
-  .iv-org__tier--solutions { flex-wrap: wrap; }
-  .iv-org__tier--outlets { flex-wrap: wrap; }
   .iv-org__node {
     background: linear-gradient(180deg, #3a2c1c, #251c11);
-    border: 1px solid rgba(196, 155, 102, 0.55);
+    border: 1px solid var(--rail-color);
     color: #F3EAD9;
     padding: 14px 18px;
     text-align: center;
     font-family: var(--serif);
     font-size: 14px;
     line-height: 1.25;
-    min-width: 112px;
+    width: var(--node-w);
+    flex: 0 0 var(--node-w);
     border-radius: 4px;
   }
   .iv-org__node--holding {
+    width: auto;
+    flex: 0 0 auto;
     padding: 22px 36px;
     font-size: 18px;
     background: linear-gradient(180deg, #C49B66, #8A6A40);
@@ -480,16 +461,8 @@ get_header();
     border-color: #C49B66;
     box-shadow: 0 12px 30px -16px rgba(196, 155, 102, 0.7);
   }
-  .iv-org__node--holding b {
-    display: block;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-  }
-  .iv-org__node--outlet {
-    min-width: 0;
-    padding: 12px 14px;
-    font-size: 12.5px;
-  }
+  .iv-org__node--holding b { display: block; font-weight: 400; letter-spacing: 0.04em; }
+  .iv-org__node--outlet { padding: 12px 14px; font-size: 12.5px; }
   .iv-org__node--outlet b {
     display: block;
     font-family: var(--mono);
@@ -499,13 +472,53 @@ get_header();
     color: #C49B66;
     margin-bottom: 6px;
   }
+
+  /* Vertical stem (single line between two tiers) */
+  .iv-org__stem {
+    width: 1px;
+    height: 28px;
+    background: var(--rail-color);
+  }
+  /* Branching rail: a horizontal bus with vertical drops to each child */
+  .iv-org__rail {
+    position: relative;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    gap: var(--gap);
+  }
+  .iv-org__rail i {
+    display: block;
+    width: var(--node-w);
+    height: 100%;
+    position: relative;
+  }
+  .iv-org__rail i::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--rail-color);
+  }
+  /* Horizontal bus spans from the centre of the first drop to the centre of
+     the last drop. Width derived from drop count and the same gap/node-w. */
+  .iv-org__rail::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 1px;
+    background: var(--rail-color);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .iv-org__rail--5::before { width: calc(4 * (var(--node-w) + var(--gap))); }
+  .iv-org__rail--7::before { width: calc(6 * (var(--node-w) + var(--gap))); }
+
   @media (max-width: 880px) {
-    .iv-org__tiers { padding: 0; }
-    .iv-org__market { display: none; }
-    .iv-org__tier { gap: 8px; padding: 24px 0; }
-    .iv-org__node { font-size: 12.5px; min-width: 0; padding: 10px 12px; flex: 1 1 calc(50% - 8px); }
-    .iv-org__node--holding { padding: 16px 24px; font-size: 16px; }
-    .iv-org__tier--solutions .iv-org__node { flex: 1 1 calc(33.33% - 8px); }
+    .iv-org__chart { align-items: flex-start; padding-left: 12px; padding-right: 12px; }
+    .iv-org__chart > * { flex-shrink: 0; }
   }
 
   /* ============== 6c. TEAM ============== */
@@ -1006,17 +1019,23 @@ get_header();
 <section class="iv-org" id="structure">
   <div class="iv-org__wrap">
     <h2 class="iv-org__title"><span data-en>Multi-Layer F&amp;B Business Model</span><span data-zh>多层级餐饮商业模式</span></h2>
-    <div class="iv-org__market iv-org__market--l"><span data-en>Market</span><span data-zh>市场</span></div>
-    <div class="iv-org__market iv-org__market--r"><span data-en>Market</span><span data-zh>市场</span></div>
 
-    <div class="iv-org__tiers" data-reveal>
-      <div class="iv-org__tier iv-org__tier--holding">
+    <div class="iv-org__chart" data-reveal>
+      <!-- Tier 1: Holding -->
+      <div class="iv-org__tier">
         <div class="iv-org__node iv-org__node--holding">
           <b><span data-en>Holding Company</span><span data-zh>控股公司</span></b>
         </div>
       </div>
 
-      <div class="iv-org__tier iv-org__tier--solutions">
+      <!-- Stem down from Holding into the 5-drop bus -->
+      <div class="iv-org__stem"></div>
+      <div class="iv-org__rail iv-org__rail--5" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <!-- Tier 2: Integrated solutions -->
+      <div class="iv-org__tier">
         <div class="iv-org__node"><span data-en>Food Trading</span><span data-zh>食材贸易</span></div>
         <div class="iv-org__node"><span data-en>Food Tech</span><span data-zh>餐饮科技</span></div>
         <div class="iv-org__node"><span data-en>Central Kitchen</span><span data-zh>中央厨房</span></div>
@@ -1024,7 +1043,14 @@ get_header();
         <div class="iv-org__node"><span data-en>Marketing Company</span><span data-zh>营销公司</span></div>
       </div>
 
-      <div class="iv-org__tier iv-org__tier--outlets">
+      <!-- Stem down into the 7-drop bus -->
+      <div class="iv-org__stem"></div>
+      <div class="iv-org__rail iv-org__rail--7" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <!-- Tier 3: Outlets -->
+      <div class="iv-org__tier">
         <div class="iv-org__node iv-org__node--outlet"><b>Outlet 01</b>USJ Taipan</div>
         <div class="iv-org__node iv-org__node--outlet"><b>Outlet 02</b>Menjalara</div>
         <div class="iv-org__node iv-org__node--outlet"><b>Outlet 03</b>Cheras C180</div>
