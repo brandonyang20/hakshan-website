@@ -1002,6 +1002,41 @@ get_header();
   </div>
 </section>
 
+<!-- ============== 4b. ORG CHART · Multi-layer F&B Business Model ============== -->
+<section class="iv-org" id="structure">
+  <div class="iv-org__wrap">
+    <h2 class="iv-org__title"><span data-en>Multi-Layer F&amp;B Business Model</span><span data-zh>多层级餐饮商业模式</span></h2>
+    <div class="iv-org__market iv-org__market--l"><span data-en>Market</span><span data-zh>市场</span></div>
+    <div class="iv-org__market iv-org__market--r"><span data-en>Market</span><span data-zh>市场</span></div>
+
+    <div class="iv-org__tiers" data-reveal>
+      <div class="iv-org__tier iv-org__tier--holding">
+        <div class="iv-org__node iv-org__node--holding">
+          <b><span data-en>Holding Company</span><span data-zh>控股公司</span></b>
+        </div>
+      </div>
+
+      <div class="iv-org__tier iv-org__tier--solutions">
+        <div class="iv-org__node"><span data-en>Food Trading</span><span data-zh>食材贸易</span></div>
+        <div class="iv-org__node"><span data-en>Food Tech</span><span data-zh>餐饮科技</span></div>
+        <div class="iv-org__node"><span data-en>Central Kitchen</span><span data-zh>中央厨房</span></div>
+        <div class="iv-org__node"><span data-en>Renovation Company</span><span data-zh>装修公司</span></div>
+        <div class="iv-org__node"><span data-en>Marketing Company</span><span data-zh>营销公司</span></div>
+      </div>
+
+      <div class="iv-org__tier iv-org__tier--outlets">
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 01</b>USJ Taipan</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 02</b>Menjalara</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 03</b>Cheras C180</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 04</b>Bandar Puteri Puchong</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 05</b>SS2</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 06</b>Sri Petaling</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 07</b>Kota Damansara</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============== 5. BUSINESS MODEL ============== -->
 <section class="iv-section iv-section--alt" id="model">
   <div class="iv-wrap">
@@ -1116,41 +1151,6 @@ get_header();
           <div class="iv-mile__item"><b>2 + 2 outlets</b><span><span data-en>Indonesia &amp; Bangkok</span><span data-zh>印尼 &amp; 曼谷</span></span></div>
           <div class="iv-mile__item"><b>RM 74M</b><span><span data-en>Annual revenue potential</span><span data-zh>年营业额潜力</span></span></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== 6b. ORG CHART · Multi-layer F&B Business Model ============== -->
-<section class="iv-org" id="structure">
-  <div class="iv-org__wrap">
-    <h2 class="iv-org__title"><span data-en>Multi-Layer F&amp;B Business Model</span><span data-zh>多层级餐饮商业模式</span></h2>
-    <div class="iv-org__market iv-org__market--l"><span data-en>Market</span><span data-zh>市场</span></div>
-    <div class="iv-org__market iv-org__market--r"><span data-en>Market</span><span data-zh>市场</span></div>
-
-    <div class="iv-org__tiers" data-reveal>
-      <div class="iv-org__tier iv-org__tier--holding">
-        <div class="iv-org__node iv-org__node--holding">
-          <b><span data-en>Holding Company</span><span data-zh>控股公司</span></b>
-        </div>
-      </div>
-
-      <div class="iv-org__tier iv-org__tier--solutions">
-        <div class="iv-org__node"><span data-en>Food Trading</span><span data-zh>食材贸易</span></div>
-        <div class="iv-org__node"><span data-en>Food Tech</span><span data-zh>餐饮科技</span></div>
-        <div class="iv-org__node"><span data-en>Central Kitchen</span><span data-zh>中央厨房</span></div>
-        <div class="iv-org__node"><span data-en>Renovation Company</span><span data-zh>装修公司</span></div>
-        <div class="iv-org__node"><span data-en>Marketing Company</span><span data-zh>营销公司</span></div>
-      </div>
-
-      <div class="iv-org__tier iv-org__tier--outlets">
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 01</b>USJ Taipan</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 02</b>Menjalara</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 03</b>Cheras C180</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 04</b>Bandar Puteri Puchong</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 05</b>SS2</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 06</b>Sri Petaling</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 07</b>Kota Damansara</div>
       </div>
     </div>
   </div>
