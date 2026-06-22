@@ -1174,12 +1174,9 @@ get_header();
     </div>
     <div class="iv-miles" data-reveal>
       <div class="iv-mile">
-        <?php $exp_map_2025 = get_theme_file_path( 'assets/img/expansion-2025.jpg' ); ?>
-        <?php if ( file_exists( $exp_map_2025 ) ) : ?>
         <div class="iv-mile__map">
-          <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/expansion-2025.jpg' ) ); ?>" alt="HAKSHAN 2025 footprint — seven branches across Kuala Lumpur" loading="lazy" />
+          <img src="https://hakshan.com/wp-content/uploads/2026/06/map-2025.png" alt="HAKSHAN 2025 footprint — seven branches across Kuala Lumpur" loading="lazy" />
         </div>
-        <?php endif; ?>
         <div class="iv-mile__tag">2025 · Malaysia</div>
         <div class="iv-mile__yr"><span data-en>7 branches</span><span data-zh>7 间分店</span></div>
         <p>
@@ -1188,12 +1185,9 @@ get_header();
         </p>
       </div>
       <div class="iv-mile iv-mile--accent">
-        <?php $exp_map_2026 = get_theme_file_path( 'assets/img/expansion-2026.jpg' ); ?>
-        <?php if ( file_exists( $exp_map_2026 ) ) : ?>
         <div class="iv-mile__map">
-          <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/expansion-2026.jpg' ) ); ?>" alt="HAKSHAN 2026 footprint — 17 outlets and 25 cloud kitchens in Malaysia plus regional expansion" loading="lazy" />
+          <img src="https://hakshan.com/wp-content/uploads/2026/06/map-2026.png" alt="HAKSHAN 2026 footprint — 17 outlets and 25 cloud kitchens in Malaysia plus regional expansion" loading="lazy" />
         </div>
-        <?php endif; ?>
         <div class="iv-mile__tag">2026 · Regional</div>
         <div class="iv-mile__yr">17 + 25 + 4</div>
         <div class="iv-mile__list">
