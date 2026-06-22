@@ -501,6 +501,70 @@ get_header();
     .sh-proof__grid { padding: 28px; gap: 22px; }
   }
 
+  /* ============== IMPACT (Food that gives back) ============== */
+  .sh-impact {
+    background: var(--cream);
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+  }
+  .sh-impact__inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
+  .sh-impact__media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .sh-impact__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sh-impact__copy h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 76px);
+    line-height: 1.05;
+    margin: 14px 0 24px;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .sh-impact__copy h2 em { color: var(--forest); }
+  .sh-impact__copy .lead {
+    font-family: var(--serif);
+    font-size: clamp(20px, 1.7vw, 24px);
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 22px;
+    max-width: 50ch;
+  }
+  .sh-impact__copy p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+    max-width: 56ch;
+  }
+  .sh-impact__copy .statement {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(22px, 2.2vw, 30px);
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 8px 0 0;
+    max-width: 22ch;
+  }
+  .sh-impact__copy .statement em { color: var(--forest); }
+  @media (max-width: 880px) {
+    .sh-impact__inner { grid-template-columns: 1fr; }
+  }
+
   /* ============== CHARITY / PAY IT FORWARD (unchanged) ============== */
   .charity-block {
     background: var(--forest);
@@ -925,6 +989,41 @@ get_header();
         <div><div class="num">Feb 2024</div>
           <div class="lbl"><span data-en>Built in from day one · not bolted on later</span><span data-zh>开 业 即 制 度 · 非 事 后 附 加</span></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== IMPACT · Food that gives back ============== -->
+<section class="sh-impact">
+  <div class="sh-impact__inner">
+    <div data-reveal>
+      <div class="sh-impact__media">
+        <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/story-impact.jpg' ) ); ?>"
+             alt="The HAKSHAN team delivering care packages to a community partner"
+             loading="lazy" />
+      </div>
+    </div>
+    <div class="sh-impact__copy" data-reveal>
+      <span class="h-eyebrow"><span class="dot"></span>
+        <span data-en>CHARITY &amp; COMMUNITY</span>
+        <span data-zh>慈善 · 社区</span>
+      </span>
+      <h2>
+        <span data-en>Food that <em>gives back.</em></span>
+        <span data-zh>一碗，<em>一份心意。</em></span>
+      </h2>
+      <p class="lead">
+        <span data-en>Giving back to the community is at the heart of what we do.</span>
+        <span data-zh>回馈社区，是我们做这件事的初衷。</span>
+      </p>
+      <p>
+        <span data-en>Through small actions — meals for elderly homes, care packages, and everyday kindness — we hope to bring warmth and care to those who need it most. Charity isn't a campaign at Hakshan; it's written into the model, with a share of every sale set aside to sustain the communities around us.</span>
+        <span data-zh>用小小的行动——送餐到老人院、打包关怀包、日常里随手的善意——把温度送到最需要的人身边。在客善，慈善不是一场活动，而是写进经营模式里：每一笔营业额的一部分，留给身边的社区。</span>
+      </p>
+      <p class="statement">
+        <span data-en>Preserving heritage by <em>sustaining the people</em> who keep it alive.</span>
+        <span data-zh>传承文化，<em>从扶持人</em>开始。</span>
+      </p>
     </div>
   </div>
 </section>
