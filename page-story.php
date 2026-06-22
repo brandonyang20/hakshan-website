@@ -434,62 +434,137 @@ get_header();
     background: var(--paper);
   }
   .sh-outlets__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .sh-outlets__grid {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+
+  /* CPT-driven outlet carousel, mirrors the homepage pattern. */
+  .sh-outlets__carousel-wrap { position: relative; }
+  .sh-outlets__carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 4px 0 8px;
+    margin: 0 calc(var(--rail) * -1);
+    padding-left: max(var(--rail), 6vw);
+    padding-right: max(var(--rail), 6vw);
+    scroll-padding-left: max(var(--rail), 6vw);
+    scroll-behavior: smooth;
   }
-  .sh-outlet {
+  .sh-outlets__carousel::-webkit-scrollbar { display: none; }
+  .sh-outlets .oc-card {
+    flex: 0 0 clamp(280px, 30vw, 380px);
+    scroll-snap-align: start;
     background: var(--paper);
     border: 1px solid var(--line);
-    padding: 20px 22px;
+    padding: 24px;
+    display: grid;
+    gap: 18px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    color: inherit;
+    text-decoration: none;
   }
-  .sh-outlet__city {
+  .sh-outlets .oc-card:hover { background: var(--paper); transform: translateY(-4px); }
+  .sh-outlets .oc-card__visual {
+    aspect-ratio: 4 / 3;
+    position: relative;
+    margin: -24px -24px 0;
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .sh-outlets .oc-card__visual .ph { position: absolute; inset: 0; }
+  .sh-outlets .oc-card__visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sh-outlets .oc-card h3 {
     font-family: var(--serif);
-    font-style: italic;
-    font-size: 22px;
-    line-height: 1.1;
-    margin: 0 0 6px;
+    font-size: 24px;
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
   }
-  .sh-outlet__meta {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin: 0 0 14px;
-  }
-  .sh-outlet__rate {
+  .sh-outlets .oc-card__body { display: grid; gap: 6px; }
+  .sh-outlets .oc-card__head {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .sh-outlets .oc-card__head .arr { flex-shrink: 0; }
+  .sh-outlets .oc-card .city {
     font-family: var(--mono);
     font-size: 12px;
-    color: var(--ink-soft);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--forest);
+    opacity: 0.75;
   }
-  .sh-outlet__rate b {
+  .sh-outlets .oc-card .arr {
     font-family: var(--serif);
-    font-style: italic;
-    font-weight: 400;
+    font-size: 22px;
+    color: var(--forest);
+    transition: transform 0.25s ease;
+  }
+  .sh-outlets .oc-card:hover .arr { transform: translateX(6px); }
+
+  .sh-outlets .oc-nav {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+  }
+  .sh-outlets .oc-nav__buttons { display: flex; gap: 12px; }
+  .sh-outlets .oc-nav__btn {
+    width: 56px; height: 56px;
+    border: 1px solid var(--forest);
+    background: transparent;
+    color: var(--forest);
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: var(--serif);
+    font-size: 22px;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s, color 0.2s;
+    padding: 0;
+  }
+  .sh-outlets .oc-nav__btn:hover { background: var(--forest); color: var(--cream); }
+  .sh-outlets .oc-nav__btn:disabled { opacity: 0.3; cursor: default; background: transparent; color: var(--forest); }
+  .sh-outlets .oc-nav__progress {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    position: relative;
+    max-width: 360px;
+  }
+  .sh-outlets .oc-nav__progress .fill {
+    position: absolute;
+    top: -1px; left: 0;
+    height: 3px;
+    background: var(--forest);
+    transition: width 0.3s ease;
+    width: 30%;
+  }
+  .sh-outlets .oc-nav__count {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--forest);
+    white-space: nowrap;
+  }
+  .sh-outlets .oc-nav__count strong {
+    font-family: var(--serif);
     font-size: 18px;
     color: var(--ink);
+    letter-spacing: -0.005em;
   }
-  .sh-outlet__rate .stars { color: #C49B66; letter-spacing: 0; }
-  .sh-outlet--more {
-    background: color-mix(in srgb, var(--forest) 10%, var(--paper));
-    border-color: color-mix(in srgb, var(--forest) 30%, transparent);
-    display: grid;
-    place-content: center;
-    text-align: center;
-  }
-  .sh-outlet--more .sh-outlet__city { color: var(--forest); margin: 0; }
-  .sh-outlet--more .sh-outlet__meta { margin: 8px 0 0; }
 
   @media (max-width: 1080px) {
     .sh-positioning__grid { grid-template-columns: 1fr 1fr; }
-    .sh-outlets__grid { grid-template-columns: repeat(3, 1fr); }
     .sh-proof__grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 760px) {
@@ -497,7 +572,6 @@ get_header();
     .sh-series__row { grid-template-columns: 1fr; gap: 28px; }
     .sh-series__row--reverse .sh-series__media { order: 0; }
     .sh-outlets__head { grid-template-columns: 1fr; }
-    .sh-outlets__grid { grid-template-columns: 1fr 1fr; }
     .sh-proof__grid { padding: 28px; gap: 22px; }
   }
 
@@ -906,56 +980,42 @@ get_header();
       </div>
     </div>
   </div>
-  <div class="sh-outlets__grid" data-reveal>
-    <div class="sh-outlet">
-      <div class="sh-outlet__city">USJ Taipan</div>
-      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
-      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>4,385</span></div>
+  <div class="sh-outlets__carousel-wrap" data-reveal>
+    <div class="sh-outlets__carousel" id="ocCarousel">
+      <?php
+      $outlets_url      = hakshan_nav_url( 'outlets' );
+      $outlet_post_list = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
+      $outlet_count     = count( $outlet_post_list );
+      foreach ( $outlet_post_list as $outlet_post ) :
+        $o = hakshan_get_outlet_data( $outlet_post->ID );
+        $city_display = $o['city'] ? ucwords( strtolower( $o['city'] ) ) : '';
+        ?>
+        <a class="oc-card" href="<?php echo esc_url( $outlets_url . '#' . $o['slug'] ); ?>">
+          <div class="oc-card__visual"><?php if ( ! empty( $o['image_html'] ) ) : echo $o['image_html']; else : ?><div class="ph" data-label="<?php echo esc_attr( $o['label'] ); ?>"></div><?php endif; ?></div>
+          <div class="oc-card__body">
+            <div class="oc-card__head">
+              <h3><?php echo esc_html( $o['name'] ); ?></h3>
+              <span class="arr" aria-hidden="true">&rarr;</span>
+            </div>
+            <div class="city"><?php echo esc_html( $city_display ); ?></div>
+          </div>
+        </a>
+      <?php endforeach; ?>
     </div>
-    <div class="sh-outlet">
-      <div class="sh-outlet__city">Menjalara</div>
-      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
-      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>4,593</span></div>
+
+    <?php if ( $outlet_count > 0 ) : ?>
+    <div class="oc-nav">
+      <div class="oc-nav__count">
+        <strong id="ocCount">01</strong>
+        <span> / <?php echo esc_html( str_pad( (string) $outlet_count, 2, '0', STR_PAD_LEFT ) ); ?></span>
+      </div>
+      <div class="oc-nav__progress"><div class="fill" id="ocFill"></div></div>
+      <div class="oc-nav__buttons">
+        <button class="oc-nav__btn" id="ocPrev" aria-label="Previous">←</button>
+        <button class="oc-nav__btn" id="ocNext" aria-label="Next">→</button>
+      </div>
     </div>
-    <div class="sh-outlet">
-      <div class="sh-outlet__city">Cheras · Trader Square</div>
-      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
-      <div class="sh-outlet__rate"><b>4.8</b><span class="stars">★★★★★</span><span>3,491</span></div>
-    </div>
-    <div class="sh-outlet">
-      <div class="sh-outlet__city">Bandar Puteri Puchong</div>
-      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
-      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>2,298</span></div>
-    </div>
-    <div class="sh-outlet">
-      <div class="sh-outlet__city">Sri Petaling</div>
-      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
-      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>2,281</span></div>
-    </div>
-    <div class="sh-outlet">
-      <div class="sh-outlet__city">SS2</div>
-      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
-      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>1,116</span></div>
-    </div>
-    <div class="sh-outlet">
-      <div class="sh-outlet__city">Kota Damansara</div>
-      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
-      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>636</span></div>
-    </div>
-    <div class="sh-outlet">
-      <div class="sh-outlet__city">Ipoh</div>
-      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
-      <div class="sh-outlet__rate"><b>—</b><span class="stars">★★★★★</span><span><span data-en>newly opened</span><span data-zh>新店</span></span></div>
-    </div>
-    <div class="sh-outlet">
-      <div class="sh-outlet__city">Klang · Bukit Tinggi</div>
-      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
-      <div class="sh-outlet__rate"><b>—</b><span class="stars">★★★★★</span><span><span data-en>newly opened</span><span data-zh>新店</span></span></div>
-    </div>
-    <a class="sh-outlet sh-outlet--more" href="<?php echo esc_url( hakshan_nav_url( 'outlets' ) ); ?>">
-      <div class="sh-outlet__city"><span data-en>+ more</span><span data-zh>更多门店</span></div>
-      <div class="sh-outlet__meta"><span data-en>and more, opening through 2026</span><span data-zh>更多门店 · 持续扩张至 2026</span></div>
-    </a>
+    <?php endif; ?>
   </div>
 </section>
 
@@ -1027,6 +1087,40 @@ get_header();
     </div>
   </div>
 </section>
+
+<script>
+  // Outlet carousel — mirrors the generic initCarousel pattern from front-page.
+  (function () {
+    var track = document.getElementById('ocCarousel');
+    if (!track) return;
+    var prev = document.getElementById('ocPrev');
+    var next = document.getElementById('ocNext');
+    var fill = document.getElementById('ocFill');
+    var count = document.getElementById('ocCount');
+    var cards = track.children;
+    function step() {
+      var card = cards[0];
+      if (!card) return 320;
+      var gap = parseFloat(getComputedStyle(track).gap) || 24;
+      return card.getBoundingClientRect().width + gap;
+    }
+    function update() {
+      var s = step();
+      var idx = Math.round(track.scrollLeft / s);
+      var max = Math.max(1, cards.length - 1);
+      var pct = Math.min(100, (idx / max) * 100);
+      if (fill) fill.style.width = Math.max(10, pct) + '%';
+      if (count) count.textContent = (idx + 1).toString().padStart(2, '0');
+      if (prev) prev.disabled = track.scrollLeft <= 4;
+      if (next) next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    }
+    if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    if (next) next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
 
 <?php
 get_footer();

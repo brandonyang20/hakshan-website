@@ -395,6 +395,180 @@ get_header();
   .iv-expansion .iv-mile p { margin: 14px 0 0; color: var(--ink-soft); line-height: 1.7; }
   .iv-expansion .iv-mile--accent p { color: rgba(243, 234, 217, 0.7); }
 
+  /* ============== 6b. ORG CHART — Multi-layer F&B model ============== */
+  .iv-org {
+    background: #231A12;
+    color: #F3EAD9;
+    padding: clamp(70px, 9vw, 120px) var(--rail);
+    position: relative;
+    overflow: hidden;
+  }
+  .iv-org__wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    position: relative;
+  }
+  .iv-org__title {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.6vw, 46px);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #F3EAD9;
+    margin: 0 0 clamp(40px, 5vw, 64px);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .iv-org__market {
+    position: absolute;
+    top: 48%;
+    transform: translateY(-50%);
+    font-family: var(--serif);
+    font-size: clamp(18px, 1.8vw, 24px);
+    color: #C49B66;
+    letter-spacing: 0.06em;
+  }
+  .iv-org__market--l { left: 0; }
+  .iv-org__market--r { right: 0; }
+  .iv-org__tiers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0 60px;
+    position: relative;
+  }
+  /* Vertical spine connecting the three tiers */
+  .iv-org__tiers::before {
+    content: "";
+    position: absolute;
+    top: 86px;
+    bottom: 86px;
+    left: 50%;
+    width: 1px;
+    background: rgba(196, 155, 102, 0.4);
+  }
+  .iv-org__tier {
+    display: flex;
+    justify-content: center;
+    gap: clamp(8px, 1.4vw, 22px);
+    position: relative;
+    z-index: 1;
+    padding: 36px 0;
+    width: 100%;
+  }
+  .iv-org__tier--solutions { flex-wrap: wrap; }
+  .iv-org__tier--outlets { flex-wrap: wrap; }
+  .iv-org__node {
+    background: linear-gradient(180deg, #3a2c1c, #251c11);
+    border: 1px solid rgba(196, 155, 102, 0.55);
+    color: #F3EAD9;
+    padding: 14px 18px;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 14px;
+    line-height: 1.25;
+    min-width: 112px;
+    border-radius: 4px;
+  }
+  .iv-org__node--holding {
+    padding: 22px 36px;
+    font-size: 18px;
+    background: linear-gradient(180deg, #C49B66, #8A6A40);
+    color: #1a1209;
+    border-color: #C49B66;
+    box-shadow: 0 12px 30px -16px rgba(196, 155, 102, 0.7);
+  }
+  .iv-org__node--holding b {
+    display: block;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+  .iv-org__node--outlet {
+    min-width: 0;
+    padding: 12px 14px;
+    font-size: 12.5px;
+  }
+  .iv-org__node--outlet b {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #C49B66;
+    margin-bottom: 6px;
+  }
+  @media (max-width: 880px) {
+    .iv-org__tiers { padding: 0; }
+    .iv-org__market { display: none; }
+    .iv-org__tier { gap: 8px; padding: 24px 0; }
+    .iv-org__node { font-size: 12.5px; min-width: 0; padding: 10px 12px; flex: 1 1 calc(50% - 8px); }
+    .iv-org__node--holding { padding: 16px 24px; font-size: 16px; }
+    .iv-org__tier--solutions .iv-org__node { flex: 1 1 calc(33.33% - 8px); }
+  }
+
+  /* ============== 6c. TEAM ============== */
+  .iv-team {
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .iv-team__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: clamp(36px, 4vw, 56px);
+  }
+  .iv-member {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: clamp(22px, 2.4vw, 32px);
+    display: flex;
+    flex-direction: column;
+  }
+  .iv-member__role {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin: 0 0 8px;
+  }
+  .iv-member__name {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 400;
+    margin: 0 0 16px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .iv-member__bio {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .iv-member__bio li {
+    list-style: none;
+    margin-bottom: 10px;
+    padding-left: 12px;
+    position: relative;
+  }
+  .iv-member__bio li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--forest);
+  }
+  .iv-member__bio li:last-child { margin-bottom: 0; }
+  @media (max-width: 980px) {
+    .iv-team__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .iv-team__grid { grid-template-columns: 1fr; }
+  }
+
   /* ============== 7. EQUITY STRUCTURE ============== */
   .iv-equity {
     display: grid;
@@ -944,6 +1118,106 @@ get_header();
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============== 6b. ORG CHART · Multi-layer F&B Business Model ============== -->
+<section class="iv-org" id="structure">
+  <div class="iv-org__wrap">
+    <h2 class="iv-org__title"><span data-en>Multi-Layer F&amp;B Business Model</span><span data-zh>多层级餐饮商业模式</span></h2>
+    <div class="iv-org__market iv-org__market--l"><span data-en>Market</span><span data-zh>市场</span></div>
+    <div class="iv-org__market iv-org__market--r"><span data-en>Market</span><span data-zh>市场</span></div>
+
+    <div class="iv-org__tiers" data-reveal>
+      <div class="iv-org__tier iv-org__tier--holding">
+        <div class="iv-org__node iv-org__node--holding">
+          <b><span data-en>Holding Company</span><span data-zh>控股公司</span></b>
+        </div>
+      </div>
+
+      <div class="iv-org__tier iv-org__tier--solutions">
+        <div class="iv-org__node"><span data-en>Food Trading</span><span data-zh>食材贸易</span></div>
+        <div class="iv-org__node"><span data-en>Food Tech</span><span data-zh>餐饮科技</span></div>
+        <div class="iv-org__node"><span data-en>Central Kitchen</span><span data-zh>中央厨房</span></div>
+        <div class="iv-org__node"><span data-en>Renovation Company</span><span data-zh>装修公司</span></div>
+        <div class="iv-org__node"><span data-en>Marketing Company</span><span data-zh>营销公司</span></div>
+      </div>
+
+      <div class="iv-org__tier iv-org__tier--outlets">
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 01</b>USJ Taipan</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 02</b>Menjalara</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 03</b>Cheras C180</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 04</b>Bandar Puteri Puchong</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 05</b>SS2</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 06</b>Sri Petaling</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 07</b>Kota Damansara</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 6c. TEAM ============== -->
+<section class="iv-team" id="team">
+  <div class="iv-shead" data-reveal>
+    <span class="h-eyebrow"><span class="dot"></span>
+      <span data-en>HAKSHAN TEAM</span>
+      <span data-zh>客善团队</span>
+    </span>
+    <h2><span data-en>Operators behind <em>the bowl.</em></span><span data-zh>碗背后的<em>经营者。</em></span></h2>
+  </div>
+  <div class="iv-team__grid" data-reveal>
+    <article class="iv-member">
+      <p class="iv-member__role">CEO</p>
+      <h3 class="iv-member__name">Chong Jin Wei</h3>
+      <ul class="iv-member__bio">
+        <li><span data-en>Founder of 營在今銷企業社 (Taiwan), Horvy Supercharge (HK), Horvy Holding Sdn Bhd</span><span data-zh>營在今銷企業社（台湾）、Horvy Supercharge（香港）、Horvy Holding Sdn Bhd 创办人</span></li>
+        <li><span data-en>Business Director EMEA of Vertis Media (UK); Managing Director of AJM Marketing Msia</span><span data-zh>Vertis Media（英国）EMEA 业务总监；AJM Marketing 马来西亚董事经理</span></li>
+        <li><span data-en>Board Member of M.CACA (NGO)</span><span data-zh>M.CACA（NGO）理事</span></li>
+        <li><span data-en>A decade in performance marketing &amp; e-commerce — data-driven strategy, conversion optimisation, revenue growth.</span><span data-zh>十年绩效营销与电商经验——数据驱动策略、转化率优化、营收增长。</span></li>
+      </ul>
+    </article>
+
+    <article class="iv-member">
+      <p class="iv-member__role">COO</p>
+      <h3 class="iv-member__name">Jordan Lim</h3>
+      <ul class="iv-member__bio">
+        <li><span data-en>Managing Director of AJM Marketing (Malaysia)</span><span data-zh>AJM Marketing（马来西亚）董事经理</span></li>
+        <li><span data-en>Specialises in market strategy and business operations</span><span data-zh>专长于市场策略与业务营运</span></li>
+        <li><span data-en>Focuses on brand growth and expansion</span><span data-zh>主导品牌增长与扩张</span></li>
+      </ul>
+    </article>
+
+    <article class="iv-member">
+      <p class="iv-member__role">CXO</p>
+      <h3 class="iv-member__name">Aaron Ee</h3>
+      <ul class="iv-member__bio">
+        <li><span data-en>Founder &amp; CEO of AJM Marketing (Malaysia)</span><span data-zh>AJM Marketing（马来西亚）创办人兼 CEO</span></li>
+        <li><span data-en>Founder &amp; CEO of The Niang's</span><span data-zh>The Niang's 创办人兼 CEO</span></li>
+        <li><span data-en>Founder &amp; CEO of Horvy Super Charge (Hong Kong)</span><span data-zh>Horvy Super Charge（香港）创办人兼 CEO</span></li>
+        <li><span data-en>Founder &amp; CXO of HAKSHAN</span><span data-zh>客善创办人兼 CXO</span></li>
+      </ul>
+    </article>
+
+    <article class="iv-member">
+      <p class="iv-member__role">CFO</p>
+      <h3 class="iv-member__name">Lay Ming</h3>
+      <ul class="iv-member__bio">
+        <li><span data-en>13+ years in accounting, tax &amp; audit — corporate finance and regulatory compliance.</span><span data-zh>13 年以上会计、税务与审计经验——擅长企业财务与合规。</span></li>
+        <li><span data-en>Former Accountant of a U.S.-listed company — international financial perspective.</span><span data-zh>曾任美国上市公司会计——具备国际财务视角。</span></li>
+        <li><span data-en>MIA Chartered Accountant &amp; LSS Green Belt — financial optimisation and efficiency.</span><span data-zh>马来西亚特许会计师 &amp; 精益六西格玛绿带——财务优化与流程效率。</span></li>
+        <li><span data-en>IPO &amp; corporate-structuring experience — preparation, compliance, structuring.</span><span data-zh>IPO 与企业架构经验——上市准备、合规与架构搭建。</span></li>
+      </ul>
+    </article>
+
+    <article class="iv-member">
+      <p class="iv-member__role">CPO</p>
+      <h3 class="iv-member__name">Madam Siow</h3>
+      <ul class="iv-member__bio">
+        <li><span data-en>Founder of Ying Ker Lou (迎客楼)</span><span data-zh>迎客楼创办人</span></li>
+        <li><span data-en>40+ years in the F&amp;B industry</span><span data-zh>四十多年餐饮业经验</span></li>
+        <li><span data-en>Mastery of traditional and modern culinary techniques</span><span data-zh>精通传统与现代烹饪技艺</span></li>
+      </ul>
+    </article>
   </div>
 </section>
 
