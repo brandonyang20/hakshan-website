@@ -9,7 +9,130 @@
 get_header();
 ?>
 <style>
-  /* Story-specific extras */
+  /* ============== HERO ============== */
+  .sh-hero {
+    position: relative;
+    background: #231A12;
+    color: #F3EAD9;
+    overflow: hidden;
+  }
+  .sh-hero__grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    min-height: min(86vh, 760px);
+  }
+  .sh-hero__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(60px, 7vw, 100px) var(--rail);
+  }
+  .sh-hero__cjk {
+    display: block;
+    font-family: var(--cn);
+    font-size: clamp(18px, 2vw, 26px);
+    letter-spacing: 0.3em;
+    color: #C49B66;
+    margin-bottom: 26px;
+  }
+  .sh-hero h1 {
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: clamp(56px, 9vw, 128px);
+    letter-spacing: 0.06em;
+    line-height: 1;
+    margin: 0;
+    color: inherit;
+  }
+  .sh-hero__sub {
+    font-size: clamp(17px, 1.6vw, 21px);
+    line-height: 1.6;
+    color: rgba(243, 234, 217, 0.78);
+    max-width: 36ch;
+    margin: 30px 0 36px;
+  }
+  .sh-hero__actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .sh-hero__actions .btn {
+    background: #F3EAD9;
+    color: #231A12;
+    border-color: transparent;
+  }
+  .sh-hero__actions .btn:hover {
+    background: #C49B66;
+    color: #F3EAD9;
+  }
+  .sh-hero__actions .btn--ghost {
+    background: transparent;
+    color: #F3EAD9;
+    border: 1px solid rgba(243, 234, 217, 0.4);
+  }
+  .sh-hero__actions .btn--ghost:hover {
+    border-color: #F3EAD9;
+    background: transparent;
+    color: #F3EAD9;
+  }
+  .sh-hero__media {
+    position: relative;
+    min-height: 360px;
+  }
+  .sh-hero__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sh-hero__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(270deg, transparent 60%, rgba(35, 26, 18, 0.55) 100%);
+    pointer-events: none;
+  }
+  @media (max-width: 860px) {
+    .sh-hero__grid { grid-template-columns: 1fr; }
+    .sh-hero__media {
+      min-height: 320px;
+      order: -1;
+    }
+    .sh-hero__media::after {
+      background: linear-gradient(0deg, #231A12 2%, transparent 50%);
+    }
+  }
+
+  /* ============== INTRO (the moved "Three Generations / One Recipe") ============== */
+  .sh-intro {
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .sh-intro h2 {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 1;
+    margin: 0 0 28px;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .sh-intro h2 em { color: var(--forest); }
+  .sh-intro .deck {
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+
+  /* ============== TIMELINE (unchanged) ============== */
   .timeline {
     background: var(--cream);
     padding: clamp(80px, 12vw, 140px) var(--rail);
@@ -66,119 +189,14 @@ get_header();
     letter-spacing: -0.01em;
   }
   .tl-row p {
-    font-size: 14px;
-    line-height: 1.65;
+    font-size: 16px;
+    line-height: 1.7;
     color: var(--ink-soft);
     margin: 0;
-    max-width: 50ch;
+    max-width: 56ch;
   }
 
-  /* Three portraits */
-  .portraits {
-    padding: clamp(80px, 12vw, 140px) var(--rail);
-    max-width: var(--maxw);
-    margin: 0 auto;
-  }
-  .portraits__head { text-align: center; margin-bottom: 56px; }
-  .portraits__head h2 {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(40px, 6vw, 80px);
-    line-height: 0.95;
-    margin: 12px auto 0;
-    max-width: 22ch;
-    letter-spacing: -0.02em;
-  }
-  .portraits__head h2 em { color: var(--forest); }
-  .portraits__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-  .portrait {
-    display: grid;
-    gap: 18px;
-  }
-  .portrait__num {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    color: var(--forest);
-  }
-  .portrait h3 {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 28px;
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-  .portrait h3 .cn {
-    font-family: var(--cn);
-    font-style: normal;
-    font-size: 14px;
-    color: var(--forest);
-    letter-spacing: 0.2em;
-    margin-left: 12px;
-    opacity: 0.7;
-  }
-  .portrait p {
-    font-size: 14px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    margin: 0;
-  }
-
-  /* Cinematic break (same vocabulary as v1) */
-  .cinema-break {
-    position: relative;
-    min-height: 70vh;
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-    background:
-      radial-gradient(ellipse at 50% 60%, rgba(196, 177, 138, 0.22) 0%, transparent 55%),
-      linear-gradient(180deg, #1a1410 0%, #2a1f15 45%, #14181a 100%);
-    color: #EBDFC4;
-    padding: 120px var(--rail);
-  }
-  .cinema-break::before {
-    content: ""; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%);
-    pointer-events: none;
-  }
-  .cinema-break::after {
-    content: ""; position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.85 0 0 0 0 0.65 0 0 0 0.1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    mix-blend-mode: overlay;
-    opacity: 0.35;
-    pointer-events: none;
-  }
-  .cinema-break__inner {
-    position: relative; z-index: 2;
-    text-align: center;
-    max-width: 1000px;
-  }
-  .cinema-break .small {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: rgba(235, 223, 196, 0.6);
-    margin-bottom: 32px;
-  }
-  .cinema-break .small .cn { font-family: var(--cn); margin-right: 14px; letter-spacing: 0.5em; }
-  .cinema-break .line {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(36px, 5.4vw, 80px);
-    line-height: 1.15;
-    margin: 0;
-    text-wrap: balance;
-    text-shadow: 0 2px 32px rgba(0, 0, 0, 0.55);
-  }
-  .cinema-break .line em { color: #c4b18a; }
-
-  /* Charity block */
+  /* ============== CHARITY / PAY IT FORWARD (unchanged) ============== */
   .charity-block {
     background: var(--forest);
     color: var(--cream);
@@ -241,239 +259,58 @@ get_header();
     line-height: 1.5;
   }
 
-  /* Press snippets */
-  .press {
-    padding: clamp(80px, 12vw, 140px) var(--rail);
-    max-width: var(--maxw);
-    margin: 0 auto;
-  }
-  .press__head { text-align: center; margin-bottom: 56px; }
-  .press__head h2 {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(40px, 5.6vw, 72px);
-    line-height: 1;
-    margin: 12px 0 0;
-    letter-spacing: -0.02em;
-  }
-  .press__list {
-    display: grid;
-    border-top: 1px solid var(--line);
-  }
-  .press__row {
-    display: grid;
-    grid-template-columns: 180px 1fr 180px;
-    gap: 32px;
-    padding: 32px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: baseline;
-  }
-  .press__row .who {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--forest);
-  }
-  .press__row blockquote {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 22px;
-    line-height: 1.4;
-    margin: 0;
-    color: var(--ink);
-    letter-spacing: -0.005em;
-  }
-  .press__row .date {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    color: var(--mute);
-    text-align: right;
-  }
-
-  /* Closing CTA */
-  .story-close {
-    padding: clamp(80px, 12vw, 140px) var(--rail);
-    text-align: center;
-    background: var(--cream);
-  }
-  .story-close__inner { max-width: 760px; margin: 0 auto; }
-  .story-close h2 {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(48px, 7vw, 88px);
-    line-height: 1;
-    margin: 12px 0 24px;
-    letter-spacing: -0.025em;
-  }
-  .story-close h2 em { color: var(--forest); }
-  .story-close .cn {
-    font-family: var(--cn);
-    font-size: 16px;
-    letter-spacing: 0.5em;
-    color: var(--forest);
-    padding-left: 0.5em;
-    margin-bottom: 32px;
-    display: block;
-    opacity: 0.7;
-  }
-  .story-close__buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* ============== EDITORIAL IMAGE PLATE ============== */
-  .img-band {
-    background: var(--paper);
-    padding: clamp(56px, 8vw, 96px) var(--rail);
-  }
-  .img-band--cream { background: var(--cream); }
-  .img-band__inner {
-    max-width: 1040px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(24px, 4vw, 56px);
-    align-items: center;
-  }
-  /* Framed photos (architecture, full-scene shots) earn a wider image
-     column — the cutouts are subject-sized, the framed photos deserve
-     room to breathe. */
-  .img-band:has(.img-band__media--framed) .img-band__inner {
-    max-width: 1180px;
-    grid-template-columns: 1.8fr 1fr;
-  }
-  .img-band:has(.img-band__media--framed).img-band--reverse .img-band__inner {
-    grid-template-columns: 1fr 1.8fr;
-  }
-  .img-band--reverse .img-band__media { order: 2; }
-  .img-band--reverse .img-band__caption { order: 1; }
-  .img-band__media {
-    position: relative;
-    background: transparent;
-  }
-  .img-band__media:not(.img-band__media--framed) {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .img-band--reverse .img-band__media:not(.img-band__media--framed) {
-    justify-content: flex-end;
-  }
-  .img-band__media--framed {
-    overflow: hidden;
-    border: 1px solid var(--line-soft);
-    background: var(--paper);
-  }
-  .img-band__media img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  .img-band__media:not(.img-band__media--framed) img {
-    width: 100%;
-    max-width: 620px;
-    filter: drop-shadow(0 14px 28px rgba(42, 46, 39, 0.10));
-  }
-  .img-band__caption {
-    margin: 0;
-    max-width: 32ch;
-    text-align: left;
-    display: grid;
-    gap: 18px;
-    align-content: center;
-    justify-self: end;
-  }
-  .img-band--reverse .img-band__caption {
-    justify-self: start;
-    text-align: left;
-  }
-  .img-band__caption .eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--mute);
-  }
-  .img-band__caption .eyebrow .cn {
-    font-family: var(--cn);
-    letter-spacing: 0.32em;
-    margin-left: 0.6em;
-    color: var(--forest);
-  }
-  .img-band__caption .line {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(28px, 3.4vw, 44px);
-    line-height: 1.25;
-    color: var(--ink);
-    margin: 0;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
-  @media (max-width: 760px) {
-    /* Collapse every plate variant to one stacked column on mobile.
-       Higher-specificity selectors listed explicitly so they actually
-       override their desktop counterparts. */
-    .img-band__inner,
-    .img-band--reverse .img-band__inner,
-    .img-band:has(.img-band__media--framed) .img-band__inner,
-    .img-band:has(.img-band__media--framed).img-band--reverse .img-band__inner {
-      grid-template-columns: 1fr;
-      gap: clamp(20px, 4vw, 32px);
-    }
-    /* Title on top, image below — regardless of which modifier the
-       plate uses on desktop. */
-    .img-band__caption,
-    .img-band--reverse .img-band__caption {
-      order: 1;
-      justify-self: stretch;
-      text-align: left;
-      max-width: none;
-      padding: 0 var(--rail);
-    }
-    .img-band__media,
-    .img-band--reverse .img-band__media {
-      order: 2;
-    }
-    .img-band__media:not(.img-band__media--framed),
-    .img-band--reverse .img-band__media:not(.img-band__media--framed) {
-      padding: 0 var(--rail);
-      justify-content: center;
-    }
-    .img-band__media:not(.img-band__media--framed) img {
-      max-width: 360px;
-    }
-  }
-
   @media (max-width: 980px) {
     .timeline__inner, .charity-block__inner { grid-template-columns: 1fr; gap: 32px; }
     .timeline__inner > div:first-child { position: static; }
-    .portraits__grid { grid-template-columns: 1fr; }
     .tl-row {
       grid-template-columns: 1fr;
       gap: 10px;
       padding: 24px 0;
     }
     .tl-row .year { font-size: 36px; }
-    .press__row { grid-template-columns: 1fr; gap: 8px; }
-    .press__row .date { text-align: left; }
   }
 </style>
 
 <!-- ============== HERO ============== -->
-<section class="story-hero">
-  <h1>
-    <span data-en>Three Generations<br/><em>One Recipe</em></span>
-    <span data-zh>三代人，<br/><em>一菜谱</em></span>
-  </h1>
-  <p class="deck">
-    <span data-en>Hakshan (客善) is a modern Hakka restaurant group, deeply rooted in authentic heritage cuisine and thoughtfully crafted for today's discerning diners. Our journey began with a belief that the rich, time-honoured flavours of Hakka cooking deserve to be preserved, respected, and shared with future generations.</span>
-    <span data-zh>客善是一个深植于正宗客家传统美食的现代餐饮集团，专为今日的品味食客精心打造。我们的旅程始于一个坚定的信念：客家菜肴那份丰富、历久弥新的风味，值得被珍视、被尊重，并传承给下一代。</span>
-  </p>
+<section class="sh-hero">
+  <div class="sh-hero__grid">
+    <div class="sh-hero__copy" data-reveal>
+      <span class="sh-hero__cjk">三代人的传承</span>
+      <h1>HAKSHAN</h1>
+      <p class="sh-hero__sub">
+        <span data-en>Three generations of authentic Hakka cuisine — slow-simmered, carefully sourced, and served the way it has always been.</span>
+        <span data-zh>三代人的客家菜——慢炖细煮，用料讲究，依旧是当年的味道。</span>
+      </p>
+      <div class="sh-hero__actions">
+        <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>">
+          <span data-en>Explore the cuisine</span><span data-zh>查看菜单</span>
+          <span class="arr">→</span>
+        </a>
+        <a class="btn btn--ghost" href="#intro">
+          <span data-en>Read our story</span><span data-zh>阅读故事</span>
+        </a>
+      </div>
+    </div>
+    <div class="sh-hero__media">
+      <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/story-hero.jpg' ) ); ?>"
+           alt="A steaming bowl of Hakka noodles held in two hands"
+           loading="eager" decoding="async" width="1090" height="1080" />
+    </div>
+  </div>
+</section>
+
+<!-- ============== INTRO · Three Generations, One Recipe ============== -->
+<section class="sh-intro" id="intro">
+  <div data-reveal>
+    <h2>
+      <span data-en>Three Generations<br/><em>One Recipe</em></span>
+      <span data-zh>三代人，<br/><em>一菜谱。</em></span>
+    </h2>
+    <p class="deck">
+      <span data-en>Hakshan (客善) is a modern Hakka restaurant group, deeply rooted in authentic heritage cuisine and thoughtfully crafted for today's discerning diners. Our journey began with a belief that the rich, time-honoured flavours of Hakka cooking deserve to be preserved, respected, and shared with future generations.</span>
+      <span data-zh>客善是一个深植于正宗客家传统美食的现代餐饮集团，专为今日的品味食客精心打造。我们的旅程始于一个坚定的信念：客家菜肴那份丰富、历久弥新的风味，值得被珍视、被尊重，并传承给下一代。</span>
+    </p>
+  </div>
 </section>
 
 <!-- ============== TIMELINE ============== -->
@@ -523,126 +360,7 @@ get_header();
   </div>
 </section>
 
-<!-- ============== PLATE I · THE POT ============== -->
-<section class="img-band">
-  <figure class="img-band__inner" data-reveal>
-    <div class="img-band__media">
-      <img src="/wp-content/uploads/2026/06/hf_20260614_101937_2149cb85-b97a-4206-8c7a-30ccfd23aee6.png"
-           alt="A Hakka clay cooking pot, lit by soft daylight"
-           loading="lazy"
-           width="2048" height="2048"/>
-    </div>
-    <figcaption class="img-band__caption">
-      <span class="eyebrow">
-        <span data-en>PLATE I <span class="cn">锅</span></span>
-        <span data-zh>第 一 帧 <span class="cn">锅</span></span>
-      </span>
-      <p class="line">
-        <span data-en>Earthenware. 1928 onward.</span>
-        <span data-zh>陶 锅 · 一 九 二 八 至 今。</span>
-      </p>
-    </figcaption>
-  </figure>
-</section>
-
-<!-- ============== PULL QUOTE ============== -->
-<section class="story-pull">
-  <div data-reveal>
-    <p class="quote">
-      <span data-en>"You don't season this dish. <em>You wait for it.</em>"</span>
-      <span data-zh>「这道菜不靠调味，<em>靠的是等。</em>」</span>
-    </p>
-    <div class="by">
-      <span data-en>A SAYING IN OUR KITCHEN</span>
-      <span data-zh>厨房里的一句老话</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============== CINEMATIC BREAK ============== -->
-<section class="cinema-break">
-  <div class="cinema-break__inner" data-reveal>
-    <div class="small">
-      <span class="cn">慢 火</span>
-      <span data-en>WHAT WE'VE KEPT</span>
-      <span data-zh>我们留下的</span>
-    </div>
-    <p class="line">
-      <span data-en>The book. <em>The fire.</em><br/>Every dish carries it.<br/><em>Written in, every meal.</em></span>
-      <span data-zh>那本食谱。<em>那把火。</em><br/>每一道菜，承载着它。<br/><em>写进每一餐里。</em></span>
-    </p>
-  </div>
-</section>
-
-<!-- ============== THREE PORTRAITS ============== -->
-<section class="portraits">
-  <div class="portraits__head" data-reveal>
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>THE FAMILY · 一 家 三 代</span>
-      <span data-zh>家·三代</span>
-    </span>
-    <h2>
-      <span data-en>The people who<br/>made the <em>book.</em></span>
-      <span data-zh>把食谱<br/>留下来的 <em>人。</em></span>
-    </h2>
-  </div>
-  <div class="portraits__grid" data-reveal>
-    <div class="portrait">
-      <div class="portrait__num">FIRST GENERATION · 一 代</div>
-      <h3>
-        <span data-en>She cooked at home</span><span data-zh>她在家中下厨</span>
-      </h3>
-      <p>
-        <span data-en>The ancestral village, from 1928. Hakka dishes cooked at home: three-cup chicken, mui choy belly, rice-wine chicken soup. Never ran a restaurant. The recipes lived in her hands.</span>
-        <span data-zh>1928年起，于祖屋。家中烹客家菜：三杯鸡、梅菜扣肉、糯米酒鸡汤。一生未开餐厅。食谱，在她手上。</span>
-      </p>
-    </div>
-    <div class="portrait">
-      <div class="portrait__num">SECOND GENERATION · 二 代</div>
-      <h3>
-        <span data-en>She wrote it down</span><span data-zh>她把食谱写下来</span>
-      </h3>
-      <p>
-        <span data-en>Brought the recipes south to the Klang Valley in 1972 and opened the family's first restaurant. Wrote the dishes down for the first time: in pencil, on the back of kuih paper. The recipes did not change. The kitchen, suddenly, had to feed strangers.</span>
-        <span data-zh>1972年，把食谱南下带到巴生谷，开了家中第一家餐厅。第一次把菜写下来：用铅笔，写在糕粿纸背面。食谱没变。厨房，第一次要招待陌生人。</span>
-      </p>
-    </div>
-    <div class="portrait">
-      <div class="portrait__num">THIRD GENERATION · 三 代</div>
-      <h3>
-        <span data-en>Same recipes, new room</span><span data-zh>同一本食谱，新的厅</span>
-      </h3>
-      <p>
-        <span data-en>Opened Hakshan in USJ, February 2024. Same recipes. Same paper. New chairs, new price point, and a new rule: part of every sale returned to community causes.</span>
-        <span data-zh>2024年2月，在 USJ 开出客善。食谱不变，纸不变。椅子换了，价位换了，规则也换了：每一笔营业额的一部分，回馈社区。</span>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============== PLATE II · THE BOOK ============== -->
-<section class="img-band img-band--cream img-band--reverse">
-  <figure class="img-band__inner" data-reveal>
-    <div class="img-band__media">
-      <img src="/wp-content/uploads/2026/06/hf_20260614_102352_22b4a292-733f-4525-9612-31ad1423d039.png"
-           alt="An open Hakka recipe notebook with handwritten Chinese characters, a fountain pen and a porcelain teacup"
-           loading="lazy"
-           width="2048" height="1365"/>
-    </div>
-    <figcaption class="img-band__caption">
-      <span class="eyebrow">
-        <span data-en>PLATE II <span class="cn">簿</span></span>
-        <span data-zh>第 二 帧 <span class="cn">簿</span></span>
-      </span>
-      <p class="line">
-        <span data-en>Pencil. Kuih paper. Never reprinted.</span>
-        <span data-zh>铅 笔。糕 纸。未 曾 付 印。</span>
-      </p>
-    </figcaption>
-  </figure>
-</section>
-
-<!-- ============== CHARITY ============== -->
+<!-- ============== CHARITY · Pay it Forward ============== -->
 <section class="charity-block" id="charity">
   <div class="charity-block__inner">
     <div data-reveal>
@@ -672,29 +390,6 @@ get_header();
         <div><div class="num">Feb 2024</div>
           <div class="lbl"><span data-en>Built in from day one · not bolted on later</span><span data-zh>开 业 即 制 度 · 非 事 后 附 加</span></div></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== CLOSE ============== -->
-<section class="story-close">
-  <div class="story-close__inner" data-reveal>
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>OUR VISION</span>
-      <span data-zh>我们的愿景</span>
-    </span>
-    <h2>
-      <span data-en>Preserving Heritage,<br/><em>Growing with Purpose.</em></span>
-      <span data-zh>传承文化，<br/><em>有目标地成长。</em></span>
-    </h2>
-    <span class="cn">客 来 茶 当 酒</span>
-    <p style="margin: 32px auto 0; font-size: 17px; line-height: 1.7; color: var(--ink-soft); max-width: 50ch; text-align: center;">
-      <span data-en>Our vision extends beyond serving exceptional food. We aspire to preserve and elevate authentic Hakka cuisine across the region, while building a trusted and scalable restaurant brand: a recognised name in heritage dining, a place where families return, communities trust, and markets respect.</span>
-      <span data-zh>我们的愿景不仅止于提供卓越的美食。我们渴望在整个地区，保存并提升正宗客家菜肴的地位，同时建立一个值得信赖且可规模化的餐饮品牌：客家传统餐饮领域中备受认可的名字，一个家庭愿意回归、社区信任、市场尊重的品牌。</span>
-    </p>
-    <div class="story-close__buttons">
-      <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) . '#reserve' ); ?>"><span data-en>Reserve a table</span><span data-zh>预订座位</span><span class="arr">→</span></a>
-      <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>"><span data-en>See the menu</span><span data-zh>查看菜单</span></a>
     </div>
   </div>
 </section>
