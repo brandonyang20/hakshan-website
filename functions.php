@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.52' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.53' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -45,7 +45,7 @@ add_action( 'after_setup_theme', 'hakshan_setup' );
 function hakshan_enqueue_assets() {
 	wp_enqueue_style(
 		'hakshan-google-fonts',
-		'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap',
+		'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&family=Jost:wght@300;400;500&family=Noto+Serif+SC:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap',
 		array(),
 		null
 	);

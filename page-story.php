@@ -38,10 +38,10 @@ get_header();
     margin-bottom: 26px;
   }
   .sh-hero h1 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(56px, 9vw, 128px);
-    letter-spacing: 0.06em;
+    font-family: "Jost", "Century Gothic", system-ui, sans-serif;
+    font-weight: 300;
+    font-size: clamp(50px, 7.2vw, 104px);
+    letter-spacing: 0.04em;
     line-height: 1;
     margin: 0;
     color: inherit;
