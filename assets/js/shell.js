@@ -9,9 +9,29 @@
       b.classList.toggle("is-on", b.getAttribute("data-lang-btn") === lang);
     });
   }
+  function detectBrowserLang() {
+    // Returns "zh" if the browser's preferred language is any Chinese variant
+    // (zh-CN, zh-TW, zh-HK, zh-Hans, zh-Hant…), otherwise "en". Falls through
+    // safely on browsers where navigator.languages is missing.
+    var candidates = [];
+    if (navigator && navigator.languages && navigator.languages.length) {
+      candidates = navigator.languages;
+    } else if (navigator && navigator.language) {
+      candidates = [navigator.language];
+    }
+    for (var i = 0; i < candidates.length; i++) {
+      if (typeof candidates[i] === "string" && candidates[i].toLowerCase().indexOf("zh") === 0) {
+        return "zh";
+      }
+    }
+    return "en";
+  }
   function initLang() {
-    let lang = "en";
-    try { lang = localStorage.getItem(STORAGE_KEY) || "en"; } catch (e) {}
+    var saved = null;
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    // If the user has already picked a language, that always wins. Otherwise
+    // fall back to the browser's preferred language on first visit.
+    var lang = saved || detectBrowserLang();
     setLang(lang);
     document.querySelectorAll("[data-lang-btn]").forEach(b => {
       b.addEventListener("click", () => setLang(b.getAttribute("data-lang-btn")));
