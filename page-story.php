@@ -196,6 +196,311 @@ get_header();
     max-width: 56ch;
   }
 
+  /* ============== BRAND POSITIONING ============== */
+  .sh-positioning {
+    background: var(--cream);
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+  }
+  .sh-positioning__head {
+    max-width: var(--maxw);
+    margin: 0 auto clamp(40px, 5vw, 68px);
+    text-align: center;
+  }
+  .sh-positioning__head .h-eyebrow { justify-content: center; }
+  .sh-positioning__head h2 {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 76px);
+    line-height: 1.1;
+    margin: 14px 0 0;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .sh-positioning__head h2 em { color: var(--forest); }
+  .sh-positioning__grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .sh-feature {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: clamp(32px, 4vw, 52px);
+  }
+  .sh-feature__no {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: var(--forest);
+    display: block;
+    margin-bottom: 28px;
+  }
+  .sh-feature h3 {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 26px;
+    margin: 0 0 14px;
+    line-height: 1.2;
+  }
+  .sh-feature h3 .cn {
+    display: block;
+    font-family: var(--cn);
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--forest);
+    margin-bottom: 6px;
+  }
+  .sh-feature p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ============== SIGNATURE SERIES ============== */
+  .sh-series {
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .sh-series__head {
+    margin-bottom: clamp(40px, 5vw, 72px);
+  }
+  .sh-series__head h2 {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 76px);
+    line-height: 1.05;
+    margin: 14px 0 0;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .sh-series__head h2 em { color: var(--forest); }
+  .sh-series__row {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: clamp(60px, 8vw, 100px);
+  }
+  .sh-series__row:last-child { margin-bottom: 0; }
+  .sh-series__row--reverse .sh-series__media { order: 2; }
+  .sh-series__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .sh-series__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .sh-series__copy .cn {
+    display: block;
+    font-family: var(--cn);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: var(--forest);
+    margin-bottom: 14px;
+  }
+  .sh-series__copy h3 {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(28px, 3.6vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+  }
+  .sh-series__copy p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    max-width: 52ch;
+  }
+  .sh-series__tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    margin-top: 4px;
+  }
+
+  /* ============== PROOF / NUMBERS ============== */
+  .sh-proof {
+    background: #231A12;
+    color: #F3EAD9;
+    padding: clamp(70px, 10vw, 120px) var(--rail);
+  }
+  .sh-proof__inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .sh-proof__head .h-eyebrow {
+    color: #C49B66;
+    opacity: 1;
+    justify-content: center;
+    display: inline-flex;
+  }
+  .sh-proof__head .h-eyebrow .dot { background: #C49B66; }
+  .sh-proof__head h2 {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1;
+    margin: 16px 0 48px;
+    color: inherit;
+    letter-spacing: -0.025em;
+  }
+  .sh-proof__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    padding: 36px;
+    border: 1px solid rgba(243, 234, 217, 0.18);
+  }
+  .sh-stat__n {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(40px, 5.2vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+  .sh-stat__n em {
+    color: #C49B66;
+    font-style: italic;
+    font-size: 0.6em;
+    margin-left: 2px;
+  }
+  .sh-stat__l {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(243, 234, 217, 0.65);
+    line-height: 1.6;
+  }
+
+  /* ============== OUTLETS ============== */
+  .sh-outlets {
+    background: var(--cream);
+    padding: clamp(80px, 12vw, 140px) var(--rail);
+  }
+  .sh-outlets__head {
+    max-width: var(--maxw);
+    margin: 0 auto clamp(40px, 5vw, 68px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .sh-outlets__head h2 {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 76px);
+    line-height: 1.05;
+    margin: 14px 0 20px;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  .sh-outlets__head h2 em { color: var(--forest); }
+  .sh-outlets__head p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 52ch;
+  }
+  .sh-outlets__media {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .sh-outlets__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sh-outlets__grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .sh-outlet {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 20px 22px;
+  }
+  .sh-outlet__city {
+    font-family: var(--italic);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.1;
+    margin: 0 0 6px;
+  }
+  .sh-outlet__meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+  .sh-outlet__rate {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .sh-outlet__rate b {
+    font-family: var(--italic);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .sh-outlet__rate .stars { color: #C49B66; letter-spacing: 0; }
+  .sh-outlet--more {
+    background: color-mix(in srgb, var(--forest) 10%, var(--paper));
+    border-color: color-mix(in srgb, var(--forest) 30%, transparent);
+    display: grid;
+    place-content: center;
+    text-align: center;
+  }
+  .sh-outlet--more .sh-outlet__city { color: var(--forest); margin: 0; }
+  .sh-outlet--more .sh-outlet__meta { margin: 8px 0 0; }
+
+  @media (max-width: 1080px) {
+    .sh-positioning__grid { grid-template-columns: 1fr 1fr; }
+    .sh-outlets__grid { grid-template-columns: repeat(3, 1fr); }
+    .sh-proof__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 760px) {
+    .sh-positioning__grid { grid-template-columns: 1fr; }
+    .sh-series__row { grid-template-columns: 1fr; gap: 28px; }
+    .sh-series__row--reverse .sh-series__media { order: 0; }
+    .sh-outlets__head { grid-template-columns: 1fr; }
+    .sh-outlets__grid { grid-template-columns: 1fr 1fr; }
+    .sh-proof__grid { padding: 28px; gap: 22px; }
+  }
+
   /* ============== CHARITY / PAY IT FORWARD (unchanged) ============== */
   .charity-block {
     background: var(--forest);
@@ -357,6 +662,226 @@ get_header();
         </div>
       <?php endforeach; ?>
     </div>
+  </div>
+</section>
+
+<!-- ============== BRAND POSITIONING ============== -->
+<section class="sh-positioning">
+  <div class="sh-positioning__head" data-reveal>
+    <span class="h-eyebrow"><span class="dot"></span>
+      <span data-en>BRAND POSITIONING</span>
+      <span data-zh>品牌定位</span>
+    </span>
+    <h2>
+      <span data-en>Authentic Hakka cuisine,<br/><em>a modern dining model.</em></span>
+      <span data-zh>正宗客家菜，<br/><em>现代餐饮模式。</em></span>
+    </h2>
+  </div>
+  <div class="sh-positioning__grid">
+    <article class="sh-feature" data-reveal>
+      <span class="sh-feature__no">01</span>
+      <h3>
+        <span class="cn">客家味</span>
+        <span data-en>Authentic Recipes</span>
+        <span data-zh>正宗食谱</span>
+      </h3>
+      <p>
+        <span data-en>Time-honoured Hakka dishes, standardised with precision and perfected through tradition — consistent in every bowl, across every outlet.</span>
+        <span data-zh>历久弥新的客家菜，以精准方式标准化，由传统打磨——每一碗，每一家店，味道一致。</span>
+      </p>
+    </article>
+    <article class="sh-feature" data-reveal>
+      <span class="sh-feature__no">02</span>
+      <h3>
+        <span class="cn">回馈社区</span>
+        <span data-en>Charity Integration</span>
+        <span data-zh>慈善融入</span>
+      </h3>
+      <p>
+        <span data-en>Giving back sits at the heart of the brand. A share of every sale sustains the communities we serve while preserving the culture behind the food.</span>
+        <span data-zh>回馈是品牌的核心。每一笔营业额的一部分回馈社区，让我们所服务的人群、以及食物背后的文化得以延续。</span>
+      </p>
+    </article>
+    <article class="sh-feature" data-reveal>
+      <span class="sh-feature__no">03</span>
+      <h3>
+        <span class="cn">系统管理</span>
+        <span data-en>Systemized Management</span>
+        <span data-zh>系统化管理</span>
+      </h3>
+      <p>
+        <span data-en>From sourcing to service, every process is standardised and optimised — disciplined operations that make heritage dining repeatable and scalable.</span>
+        <span data-zh>从采购到出餐，每一道流程都已标准化与优化——纪律严明的营运，让传统餐饮可复制、可扩张。</span>
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ============== SIGNATURE SERIES ============== -->
+<section class="sh-series">
+  <div class="sh-series__head" data-reveal>
+    <span class="h-eyebrow"><span class="dot"></span>
+      <span data-en>SIGNATURE SERIES</span>
+      <span data-zh>招牌系列</span>
+    </span>
+    <h2>
+      <span data-en>Three ways to <em>taste Hakka.</em></span>
+      <span data-zh>三种方式，<em>尝客家味。</em></span>
+    </h2>
+  </div>
+
+  <div class="sh-series__row" data-reveal>
+    <div class="sh-series__media">
+      <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/story-series-classics.jpg' ) ); ?>" alt="Braised Hakka pork dish" loading="lazy" />
+    </div>
+    <div class="sh-series__copy">
+      <span class="cn">客家系列</span>
+      <h3><span data-en>Hakka Classics</span><span data-zh>客家经典</span></h3>
+      <p>
+        <span data-en>Timeless recipes crafted with depth, balance and authenticity — rich, comforting flavours built on time-honoured techniques and carefully selected ingredients.</span>
+        <span data-zh>历久不衰的食谱，讲究层次、平衡与正宗——浓郁、温暖的滋味，建立在传统技艺与精挑细选的食材之上。</span>
+      </p>
+      <span class="sh-series__tag">
+        <span data-en>Braised pork · Abacus seeds · Pork knuckle vinegar</span>
+        <span data-zh>梅菜扣肉 · 算盘子 · 姜醋猪脚</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="sh-series__row sh-series__row--reverse" data-reveal>
+    <div class="sh-series__media">
+      <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/story-series-leicha.jpg' ) ); ?>" alt="Lei cha rice bowl with greens and grains" loading="lazy" />
+    </div>
+    <div class="sh-series__copy">
+      <span class="cn">擂茶系列</span>
+      <h3><span data-en>Lei Cha Series</span><span data-zh>擂茶系列</span></h3>
+      <p>
+        <span data-en>Ground by hand, balanced by nature. A wholesome harmony of grains, greens and herbs — one of the most iconic Hakka traditions, refined for today.</span>
+        <span data-zh>手工研磨，自然平衡。谷物、青菜、草本的和谐共融——客家最具代表性的传统之一，以今日的形式重新呈现。</span>
+      </p>
+      <span class="sh-series__tag">
+        <span data-en>Thunder tea rice · Hand-ground · Plant-forward</span>
+        <span data-zh>擂茶饭 · 手工研磨 · 蔬食为本</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="sh-series__row" data-reveal>
+    <div class="sh-series__media">
+      <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/story-series-nourishing.jpg' ) ); ?>" alt="Nourishing herbal chicken dish" loading="lazy" />
+    </div>
+    <div class="sh-series__copy">
+      <span class="cn">养生系列</span>
+      <h3><span data-en>Nourishing Series</span><span data-zh>养生系列</span></h3>
+      <p>
+        <span data-en>Slow-simmered, naturally balanced and crafted for everyday strength. Rooted in traditional Hakka herbal wisdom, refined for modern living.</span>
+        <span data-zh>慢炖细煮，自然平衡，为日常补气。源自传统客家药膳智慧，为现代生活重新调配。</span>
+      </p>
+      <span class="sh-series__tag">
+        <span data-en>Herbal soups · Black chicken · Restorative</span>
+        <span data-zh>药膳汤品 · 乌鸡 · 滋补养生</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROOF / NUMBERS ============== -->
+<section class="sh-proof">
+  <div class="sh-proof__inner" data-reveal>
+    <div class="sh-proof__head">
+      <span class="h-eyebrow"><span class="dot"></span>
+        <span data-en>BY THE BOWL</span>
+        <span data-zh>一碗见真章</span>
+      </span>
+      <h2>
+        <span data-en>A taste people <em>return for.</em></span>
+        <span data-zh>让人 <em>回头的味道。</em></span>
+      </h2>
+    </div>
+    <div class="sh-proof__grid">
+      <div>
+        <div class="sh-stat__n">9</div>
+        <div class="sh-stat__l"><span data-en>Outlets across the Klang Valley &amp; Ipoh</span><span data-zh>巴生谷与怡保门店</span></div>
+      </div>
+      <div>
+        <div class="sh-stat__n">4.7<em>★</em></div>
+        <div class="sh-stat__l"><span data-en>Average rating across branches</span><span data-zh>各分店平均评分</span></div>
+      </div>
+      <div>
+        <div class="sh-stat__n">1<em>M+</em></div>
+        <div class="sh-stat__l"><span data-en>Meals served</span><span data-zh>累计服务人次</span></div>
+      </div>
+      <div>
+        <div class="sh-stat__n">75<em>%</em></div>
+        <div class="sh-stat__l"><span data-en>Member retention rate</span><span data-zh>会员回头率</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== OUTLETS · Seven homes, one standard ============== -->
+<section class="sh-outlets">
+  <div class="sh-outlets__head">
+    <div data-reveal>
+      <span class="h-eyebrow"><span class="dot"></span>
+        <span data-en>OUR OUTLETS</span>
+        <span data-zh>我们的门店</span>
+      </span>
+      <h2>
+        <span data-en>Seven homes,<br/><em>one standard.</em></span>
+        <span data-zh>九家厨房，<br/><em>同一套标准。</em></span>
+      </h2>
+      <p>
+        <span data-en>Full-service restaurants designed around a single, repeatable model — consistent quality, warm rooms, and a menu the neighbourhood keeps coming back to.</span>
+        <span data-zh>全服务餐厅，围绕同一套可复制的模式打造——稳定的品质，温暖的空间，邻里愿意一回再回的菜单。</span>
+      </p>
+    </div>
+    <div data-reveal>
+      <div class="sh-outlets__media">
+        <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/story-outlet.jpg' ) ); ?>" alt="HAKSHAN outlet storefront" loading="lazy" />
+      </div>
+    </div>
+  </div>
+  <div class="sh-outlets__grid" data-reveal>
+    <div class="sh-outlet">
+      <div class="sh-outlet__city">USJ Taipan</div>
+      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
+      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>4,385</span></div>
+    </div>
+    <div class="sh-outlet">
+      <div class="sh-outlet__city">Menjalara</div>
+      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
+      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>4,593</span></div>
+    </div>
+    <div class="sh-outlet">
+      <div class="sh-outlet__city">Cheras · Trader Square</div>
+      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
+      <div class="sh-outlet__rate"><b>4.8</b><span class="stars">★★★★★</span><span>3,491</span></div>
+    </div>
+    <div class="sh-outlet">
+      <div class="sh-outlet__city">Bandar Puteri Puchong</div>
+      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
+      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>2,298</span></div>
+    </div>
+    <div class="sh-outlet">
+      <div class="sh-outlet__city">Sri Petaling</div>
+      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
+      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>2,281</span></div>
+    </div>
+    <div class="sh-outlet">
+      <div class="sh-outlet__city">SS2</div>
+      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
+      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>1,116</span></div>
+    </div>
+    <div class="sh-outlet">
+      <div class="sh-outlet__city">Kota Damansara</div>
+      <div class="sh-outlet__meta">RM 20–40 · 客家菜餐厅</div>
+      <div class="sh-outlet__rate"><b>4.7</b><span class="stars">★★★★★</span><span>636</span></div>
+    </div>
+    <a class="sh-outlet sh-outlet--more" href="<?php echo esc_url( hakshan_nav_url( 'outlets' ) ); ?>">
+      <div class="sh-outlet__city"><span data-en>+ more</span><span data-zh>更多门店</span></div>
+      <div class="sh-outlet__meta"><span data-en>Ipoh · Klang · opening through 2026</span><span data-zh>怡保 · 巴生 · 持续扩张至 2026</span></div>
+    </a>
   </div>
 </section>
 
