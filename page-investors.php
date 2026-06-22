@@ -945,8 +945,8 @@ get_header();
       </span>
       <h2><span data-en>Revenue, <em>climbing.</em></span><span data-zh>营业额，<em>持续攀升。</em></span></h2>
       <p class="lead">
-        <span data-en>Fourteen months of monthly revenue — eight actual, six projected — on a steady upward curve.</span>
-        <span data-zh>十四个月的月营业额——八个月实际、六个月预测——稳步向上。</span>
+        <span data-en>Fourteen months of monthly revenue — eleven actual, three projected — on a steady upward curve.</span>
+        <span data-zh>十四个月的月营业额——十一个月实际、三个月预测——稳步向上。</span>
       </p>
     </div>
     <div class="iv-chart" data-reveal>
@@ -959,16 +959,16 @@ get_header();
         <div class="iv-bar"><div class="iv-bar__cap">RM 1.19M</div><div class="iv-bar__fill" data-h="24.4"></div><div class="iv-bar__lbl">Dec 25</div></div>
         <div class="iv-bar"><div class="iv-bar__cap">RM 1.51M</div><div class="iv-bar__fill" data-h="30.9"></div><div class="iv-bar__lbl">Jan 26</div></div>
         <div class="iv-bar"><div class="iv-bar__cap">RM 1.72M</div><div class="iv-bar__fill" data-h="35.3"></div><div class="iv-bar__lbl">Feb 26</div></div>
-        <div class="iv-bar iv-bar--proj"><div class="iv-bar__cap">RM 1.95M</div><div class="iv-bar__fill" data-h="40.0"></div><div class="iv-bar__lbl">Mar 26</div></div>
-        <div class="iv-bar iv-bar--proj"><div class="iv-bar__cap">RM 2.20M</div><div class="iv-bar__fill" data-h="45.1"></div><div class="iv-bar__lbl">Apr 26</div></div>
-        <div class="iv-bar iv-bar--proj"><div class="iv-bar__cap">RM 2.81M</div><div class="iv-bar__fill" data-h="57.7"></div><div class="iv-bar__lbl">May 26</div></div>
+        <div class="iv-bar"><div class="iv-bar__cap">RM 1.95M</div><div class="iv-bar__fill" data-h="40.0"></div><div class="iv-bar__lbl">Mar 26</div></div>
+        <div class="iv-bar"><div class="iv-bar__cap">RM 2.20M</div><div class="iv-bar__fill" data-h="45.1"></div><div class="iv-bar__lbl">Apr 26</div></div>
+        <div class="iv-bar"><div class="iv-bar__cap">RM 2.81M</div><div class="iv-bar__fill" data-h="57.7"></div><div class="iv-bar__lbl">May 26</div></div>
         <div class="iv-bar iv-bar--proj"><div class="iv-bar__cap">RM 3.30M</div><div class="iv-bar__fill" data-h="67.6"></div><div class="iv-bar__lbl">Jun 26</div></div>
         <div class="iv-bar iv-bar--proj"><div class="iv-bar__cap">RM 4.45M</div><div class="iv-bar__fill" data-h="91.2"></div><div class="iv-bar__lbl">Jul 26</div></div>
         <div class="iv-bar iv-bar--proj"><div class="iv-bar__cap">RM 4.88M</div><div class="iv-bar__fill" data-h="100"></div><div class="iv-bar__lbl">Aug 26</div></div>
       </div>
       <div class="iv-chart__split">
-        <div class="iv-chart__tot"><b>RM 8.9M</b><span><span data-en>8 months actual</span><span data-zh>8 个月实际</span></span></div>
-        <div class="iv-chart__tot"><b>RM 19.6M</b><span><span data-en>6 months projected</span><span data-zh>6 个月预测</span></span></div>
+        <div class="iv-chart__tot"><b>RM 15.9M</b><span><span data-en>11 months actual</span><span data-zh>11 个月实际</span></span></div>
+        <div class="iv-chart__tot"><b>RM 12.6M</b><span><span data-en>3 months projected</span><span data-zh>3 个月预测</span></span></div>
       </div>
     </div>
   </div>
