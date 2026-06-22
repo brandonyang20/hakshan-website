@@ -38,8 +38,8 @@ get_header();
     margin-bottom: 26px;
   }
   .sh-hero h1 {
-    font-family: var(--sans);
-    font-weight: 300;
+    font-family: var(--serif);
+    font-weight: 400;
     font-size: clamp(56px, 9vw, 128px);
     letter-spacing: 0.06em;
     line-height: 1;
@@ -287,7 +287,7 @@ get_header();
           <span class="arr">→</span>
         </a>
         <a class="btn btn--ghost" href="#intro">
-          <span data-en>Read our story</span><span data-zh>阅读故事</span>
+          <span data-en>Our story</span><span data-zh>阅读故事</span>
         </a>
       </div>
     </div>
