@@ -162,23 +162,40 @@ get_header();
     gap: 40px;
   }
   .sr-pillar {
-    display: grid;
-    gap: 18px;
-    padding: 32px;
-    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
     background: var(--paper);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 2px rgba(42, 46, 39, 0.04),
+      0 18px 32px -18px rgba(42, 46, 39, 0.18),
+      0 30px 60px -28px rgba(42, 46, 39, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .sr-pillar:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 1px 2px rgba(42, 46, 39, 0.06),
+      0 22px 40px -18px rgba(42, 46, 39, 0.26),
+      0 40px 80px -32px rgba(42, 46, 39, 0.18);
   }
   .sr-pillar__media {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 11;
     overflow: hidden;
     background: var(--cream);
-    margin: 4px 0;
   }
   .sr-pillar__media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+  .sr-pillar__body {
+    padding: clamp(24px, 2.6vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
   }
   .sr-pillar .ix {
     font-family: var(--mono);
@@ -542,43 +559,49 @@ get_header();
   </div>
   <div class="sr-pillars__grid" data-reveal>
     <div class="sr-pillar">
-      <h3>
-        <span data-en>Education</span><span data-zh>教 育</span>
-        <span class="cn">教 育</span>
-      </h3>
       <div class="sr-pillar__media">
         <img src="https://hakshan.com/wp-content/uploads/2024/04/batch_ss汇聚力量.携手同心.jpg" alt="Education — Hakshan community support" loading="lazy" />
       </div>
-      <p>
-        <span data-en>Supporting school programmes, learning materials, and educational access for students in the communities around our outlets. Every child who learns is a small future kept open.</span>
-        <span data-zh>支持学校项目、学习物资，以及门店所在社区学生的受教机会。每一个能继续读书的孩子，都是一份未被关上的未来。</span>
-      </p>
+      <div class="sr-pillar__body">
+        <h3>
+          <span data-en>Education</span><span data-zh>教 育</span>
+          <span class="cn">教 育</span>
+        </h3>
+        <p>
+          <span data-en>Supporting school programmes, learning materials, and educational access for students in the communities around our outlets. Every child who learns is a small future kept open.</span>
+          <span data-zh>支持学校项目、学习物资，以及门店所在社区学生的受教机会。每一个能继续读书的孩子，都是一份未被关上的未来。</span>
+        </p>
+      </div>
     </div>
     <div class="sr-pillar">
-      <h3>
-        <span data-en>Elderly care</span><span data-zh>长 者 关 怀</span>
-        <span class="cn">长 者</span>
-      </h3>
       <div class="sr-pillar__media">
         <img src="https://hakshan.com/wp-content/uploads/2024/07/Compress_DSC5350.jpg" alt="Elderly care — Hakshan community support" loading="lazy" />
       </div>
-      <p>
-        <span data-en>Meals for elderly residents in care homes, support for community elder programmes, and small monthly visits — because the recipes we cook came from grandmothers, and we don't forget that.</span>
-        <span data-zh>为养老院的长者送餐，支持社区长者项目，每月定期探访——因为我们的食谱来自祖母，这件事我们没有忘。</span>
-      </p>
+      <div class="sr-pillar__body">
+        <h3>
+          <span data-en>Elderly care</span><span data-zh>长 者 关 怀</span>
+          <span class="cn">长 者</span>
+        </h3>
+        <p>
+          <span data-en>Meals for elderly residents in care homes, support for community elder programmes, and small monthly visits — because the recipes we cook came from grandmothers, and we don't forget that.</span>
+          <span data-zh>为养老院的长者送餐，支持社区长者项目，每月定期探访——因为我们的食谱来自祖母，这件事我们没有忘。</span>
+        </p>
+      </div>
     </div>
     <div class="sr-pillar">
-      <h3>
-        <span data-en>Animal welfare</span><span data-zh>动 物 福 利</span>
-        <span class="cn">动 物</span>
-      </h3>
       <div class="sr-pillar__media">
         <img src="https://hakshan.com/wp-content/uploads/2026/06/DSC_5201.jpg" alt="Animal welfare — Hakshan community support" loading="lazy" />
       </div>
-      <p>
-        <span data-en>Support for animal shelters, sterilisation programmes, and rescue work for strays in the Klang Valley and beyond. The smallest voices, the ones nobody else speaks for.</span>
-        <span data-zh>支持流浪动物收容所、绝育项目，以及巴生谷及更远地区的救援工作。最小的声音，没有人替他们说话的那一群。</span>
-      </p>
+      <div class="sr-pillar__body">
+        <h3>
+          <span data-en>Animal welfare</span><span data-zh>动 物 福 利</span>
+          <span class="cn">动 物</span>
+        </h3>
+        <p>
+          <span data-en>Support for animal shelters, sterilisation programmes, and rescue work for strays in the Klang Valley and beyond. The smallest voices, the ones nobody else speaks for.</span>
+          <span data-zh>支持流浪动物收容所、绝育项目，以及巴生谷及更远地区的救援工作。最小的声音，没有人替他们说话的那一群。</span>
+        </p>
+      </div>
     </div>
   </div>
 </section>
