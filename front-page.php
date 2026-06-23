@@ -343,14 +343,14 @@ get_header();
     position: sticky;
     top: calc(var(--nav-h, 65px) + 48px);
     background: var(--paper);
-    border: 1px solid var(--line);
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 0;
     min-height: clamp(420px, 60vh, 600px);
     overflow: hidden;
   }
   .kitchen__photo {
+    position: relative;
     aspect-ratio: 3 / 4;
     height: 100%;
     overflow: hidden;
@@ -362,8 +362,21 @@ get_header();
     object-fit: cover;
     display: block;
   }
+  /* Soft blend — the image's right edge fades into the paper background
+     so the photo and text sit on the same surface instead of being
+     divided by a hard column gutter. Same idea as the story-page hero. */
+  .kitchen__photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+      transparent 55%,
+      rgba(249, 247, 242, 0.45) 78%,
+      var(--paper) 100%);
+    pointer-events: none;
+  }
   .kitchen__text {
-    padding: clamp(28px, 3.5vw, 48px);
+    padding: clamp(32px, 4vw, 56px) clamp(28px, 3.5vw, 48px) clamp(32px, 4vw, 56px) clamp(40px, 5vw, 72px);
     display: flex;
     flex-direction: column;
     justify-content: center;
