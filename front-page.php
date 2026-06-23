@@ -294,71 +294,114 @@ get_header();
   }
   .sc-card:hover .sc-card__foot .arr { transform: translateX(6px); }
 
-  /* Three Generations */
-  .gens {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+  /* Three Generations — sticky-stack layout
+     Left rail (.kitchens__copy) sticks at the top while the three
+     .kitchen cards stack vertically. Each card is also sticky at the
+     same top offset, so as you scroll past the first card it stays
+     pinned, and the next card scrolls up and visually covers it. */
+  .kitchens {
+    background: var(--paper);
+    padding: clamp(80px, 10vw, 120px) var(--rail);
+  }
+  .kitchens__inner {
     max-width: var(--maxw);
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(40px, 6vw, 80px);
     align-items: start;
   }
-  .gens__copy h2 {
+  .kitchens__copy {
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(var(--nav-h, 65px) + 48px);
+    align-self: start;
+  }
+  .kitchens__copy h2 {
     font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(48px, 7vw, 96px);
-    line-height: 0.95;
-    margin: 16px 0 32px;
+    font-size: clamp(44px, 6vw, 84px);
+    line-height: 1;
+    margin: 18px 0 28px;
     letter-spacing: -0.025em;
   }
-  .gens__timeline {
+  .kitchens__copy h2 em { color: var(--forest); }
+  .kitchens__copy p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    max-width: 36ch;
+  }
+  .kitchens__copy .btn { margin-top: 16px; }
+  .kitchens__stack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .kitchen {
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(var(--nav-h, 65px) + 48px);
+    background: var(--paper);
+    border: 1px solid var(--line);
     display: grid;
+    grid-template-columns: 1.05fr 1fr;
     gap: 0;
+    min-height: clamp(420px, 60vh, 600px);
+    overflow: hidden;
   }
-  .gen {
-    padding: 32px 0;
-    border-bottom: 1px solid var(--line);
-    display: grid;
-    grid-template-columns: 70px 140px 1fr;
-    gap: 28px;
-    align-items: start;
-  }
-  .gen:last-child { border-bottom: none; }
-  .gen__year {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    color: var(--forest);
-    padding-top: 6px;
-  }
-  .gen__photo {
-    aspect-ratio: 1;
+  .kitchen__photo {
+    aspect-ratio: 3 / 4;
+    height: 100%;
     overflow: hidden;
     background: var(--cream);
-    border: 1px solid var(--line);
   }
-  .gen__photo img {
+  .kitchen__photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
-  @media (max-width: 760px) {
-    .gen { grid-template-columns: 1fr; gap: 14px; }
-    .gen__photo { max-width: 220px; }
+  .kitchen__text {
+    padding: clamp(28px, 3.5vw, 48px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
   }
-  .gen h3 {
+  .kitchen__year {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: var(--forest);
+    margin-bottom: 4px;
+  }
+  .kitchen h3 {
     font-family: var(--serif);
-    font-style: italic;
-    font-size: 30px;
-    margin: 0 0 8px;
-    letter-spacing: -0.01em;
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.1;
+    margin: 0 0 14px;
+    letter-spacing: -0.015em;
   }
-  .gen p {
+  .kitchen p {
     margin: 0;
-    font-size: 14px;
-    line-height: 1.65;
+    font-size: 15px;
+    line-height: 1.7;
     color: var(--ink-soft);
+    max-width: 32ch;
+  }
+  @media (max-width: 900px) {
+    .kitchens__inner { grid-template-columns: 1fr; }
+    .kitchens__copy {
+      position: static;
+      margin-bottom: 32px;
+    }
+    .kitchen {
+      position: static;
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+    .kitchen__photo { aspect-ratio: 4 / 3; }
   }
 
   /* Charity band */
@@ -782,60 +825,89 @@ get_header();
 </section>
 
 <?php if ( hakshan_show_section( 'hakshan_show_three_gens' ) ) : ?>
-<!-- ============== THREE GENERATIONS ============== -->
-<section class="section">
-  <div class="gens">
-    <div class="gens__copy" data-reveal>
+<!-- ============== THREE GENERATIONS (sticky stack) ============== -->
+<section class="kitchens">
+  <div class="kitchens__inner">
+    <aside class="kitchens__copy" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>OUR STORY</span><span data-zh>我们的故事</span>
       </span>
       <h2>
-        <span data-en>Three Generations<br/><em>One Recipe</em></span>
-        <span data-zh>三代人，<br/><em>一菜谱</em></span>
+        <span data-en>Three Generations,<br/><em>One Recipe.</em></span>
+        <span data-zh>三代人，<br/><em>一菜谱。</em></span>
       </h2>
-      <p class="h-body">
-        <span data-en>Traditional Hakka cooking, kept whole. Three generations of the same recipes since 1928, now in thirteen kitchens.</span>
-        <span data-zh>传统客家菜，原味原样。三代人，同一份食谱，1928年至今，已遍及十三家厨房。</span>
+      <p>
+        <span data-en>Since 1928, the recipes have moved through three generations and countless family tables.</span>
+        <span data-zh>自 1928 年起，同一份食谱穿过三代人，走过无数张家中的餐桌。</span>
       </p>
-      <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>" style="margin-top: 24px;">
-        <span data-en>Read the story</span><span data-zh>阅读故事</span>
+      <p>
+        <span data-en>Same recipes. Different generations. Still cooked the same way.</span>
+        <span data-zh>食谱不变，传承不息，做法如初。</span>
+      </p>
+      <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'story' ) ); ?>">
+        <span data-en>Explore our story</span><span data-zh>阅读完整故事</span>
         <span class="arr">→</span>
       </a>
-    </div>
-    <div class="gens__timeline" data-reveal>
-      <div class="gen">
-        <div class="gen__year">1928</div>
-        <div class="gen__photo">
+    </aside>
+
+    <div class="kitchens__stack">
+      <article class="kitchen" data-reveal>
+        <div class="kitchen__photo">
           <img src="https://hakshan.com/wp-content/uploads/2026/06/gen-1928.png" alt="The first generation — ancestral village kitchen, 1928" loading="lazy" />
         </div>
-        <div>
-          <h3><span data-en>The first generation</span><span data-zh>第 一 代</span></h3>
-          <p><span data-en>A home kitchen in the ancestral village. Every meal is hers; every meal is for the family. The recipes live in her hands. Nothing is written down.</span>
-            <span data-zh>祖屋里的厨房。每一餐都是她下厨，每一餐都给家人。食谱在她手上，一字未落于纸。</span></p>
+        <div class="kitchen__text">
+          <div class="kitchen__year">1928</div>
+          <h3><span data-en>The First Kitchen</span><span data-zh>第一间厨房</span></h3>
+          <p>
+            <span data-en>A grandmother cooking over firewood in the ancestral village.</span>
+            <span data-zh>祖屋里，祖母在柴火灶前下厨。</span>
+          </p>
+          <p>
+            <span data-en>Nothing was written down. The recipes lived in her hands.</span>
+            <span data-zh>食谱一字未落于纸——只在她手上。</span>
+          </p>
         </div>
-      </div>
-      <div class="gen">
-        <div class="gen__year">1972</div>
-        <div class="gen__photo">
-          <img src="https://hakshan.com/wp-content/uploads/2026/06/gen-1972.png" alt="The second generation — Klang Valley, 1972" loading="lazy" />
+      </article>
+
+      <article class="kitchen" data-reveal>
+        <div class="kitchen__photo">
+          <img src="https://hakshan.com/wp-content/uploads/2026/06/gen-1972.png" alt="The second generation — Klang Valley kitchen, 1972" loading="lazy" />
         </div>
-        <div>
-          <h3><span data-en>The second generation</span><span data-zh>第 二 代</span></h3>
-          <p><span data-en>The second generation brings the kitchen south to the Klang Valley and opens the family's first restaurant. The recipes leave home for the first time. Same dishes, sharpened by service.</span>
-            <span data-zh>第二代把厨房南下带到巴生谷，开了家中第一家餐厅。食谱第一次走出家门。同样的菜，越做越精到。</span></p>
+        <div class="kitchen__text">
+          <div class="kitchen__year">1972</div>
+          <h3><span data-en>The Second Kitchen</span><span data-zh>第二间厨房</span></h3>
+          <p>
+            <span data-en>The family arrives in Malaysia.</span>
+            <span data-zh>家人南下马来西亚。</span>
+          </p>
+          <p>
+            <span data-en>The dishes leave home for the first time, serving customers in the Klang Valley.</span>
+            <span data-zh>家中的菜第一次走出家门，在巴生谷招待客人。</span>
+          </p>
+          <p>
+            <span data-en>Same recipes, sharpened by service.</span>
+            <span data-zh>食谱不变，在餐桌上越做越精。</span>
+          </p>
         </div>
-      </div>
-      <div class="gen">
-        <div class="gen__year">2024</div>
-        <div class="gen__photo">
+      </article>
+
+      <article class="kitchen" data-reveal>
+        <div class="kitchen__photo">
           <img src="https://hakshan.com/wp-content/uploads/2026/06/gen-2024.png" alt="The third generation — Hakshan USJ, 2024" loading="lazy" />
         </div>
-        <div>
-          <h3><span data-en>The third generation</span><span data-zh>第 三 代</span></h3>
-          <p><span data-en>In February 2024, Hakshan opens its first dining room in USJ. Same dishes, same recipe, new chairs.</span>
-            <span data-zh>2024年2月，客善在 USJ 开出第一间餐厅。菜没变，食谱没变，椅子换了。</span></p>
+        <div class="kitchen__text">
+          <div class="kitchen__year">2024</div>
+          <h3><span data-en>The Third Kitchen</span><span data-zh>第三间厨房</span></h3>
+          <p>
+            <span data-en>Hakshan opens its dining rooms.</span>
+            <span data-zh>客善的门店一间间打开。</span>
+          </p>
+          <p>
+            <span data-en>Same recipes. More tables. More families.</span>
+            <span data-zh>食谱不变，桌子更多，家人更多。</span>
+          </p>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
