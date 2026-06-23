@@ -803,22 +803,10 @@ get_header();
       </a>
     </div>
     <div class="gens__timeline" data-reveal>
-      <?php
-      // Portrait paths — drop the actual photos at these paths, or send
-      // me WP media URLs and I'll repoint these to the uploads folder.
-      $gen_portraits = array(
-        '1928' => 'assets/img/gen-1928.jpg',
-        '1972' => 'assets/img/gen-1972.jpg',
-        '2024' => 'assets/img/gen-2024.jpg',
-      );
-      ?>
       <div class="gen">
         <div class="gen__year">1928</div>
         <div class="gen__photo">
-          <?php $p = get_theme_file_path( $gen_portraits['1928'] );
-                if ( file_exists( $p ) ) : ?>
-            <img src="<?php echo esc_url( get_theme_file_uri( $gen_portraits['1928'] ) ); ?>" alt="The first generation — ancestral village kitchen, 1928" loading="lazy" />
-          <?php endif; ?>
+          <img src="https://hakshan.com/wp-content/uploads/2026/06/gen-1928.png" alt="The first generation — ancestral village kitchen, 1928" loading="lazy" />
         </div>
         <div>
           <h3><span data-en>The first generation</span><span data-zh>第 一 代</span></h3>
@@ -829,10 +817,7 @@ get_header();
       <div class="gen">
         <div class="gen__year">1972</div>
         <div class="gen__photo">
-          <?php $p = get_theme_file_path( $gen_portraits['1972'] );
-                if ( file_exists( $p ) ) : ?>
-            <img src="<?php echo esc_url( get_theme_file_uri( $gen_portraits['1972'] ) ); ?>" alt="The second generation — Klang Valley, 1972" loading="lazy" />
-          <?php endif; ?>
+          <img src="https://hakshan.com/wp-content/uploads/2026/06/gen-1972.png" alt="The second generation — Klang Valley, 1972" loading="lazy" />
         </div>
         <div>
           <h3><span data-en>The second generation</span><span data-zh>第 二 代</span></h3>
@@ -843,10 +828,7 @@ get_header();
       <div class="gen">
         <div class="gen__year">2024</div>
         <div class="gen__photo">
-          <?php $p = get_theme_file_path( $gen_portraits['2024'] );
-                if ( file_exists( $p ) ) : ?>
-            <img src="<?php echo esc_url( get_theme_file_uri( $gen_portraits['2024'] ) ); ?>" alt="The third generation — Hakshan USJ, 2024" loading="lazy" />
-          <?php endif; ?>
+          <img src="https://hakshan.com/wp-content/uploads/2026/06/gen-2024.png" alt="The third generation — Hakshan USJ, 2024" loading="lazy" />
         </div>
         <div>
           <h3><span data-en>The third generation</span><span data-zh>第 三 代</span></h3>
