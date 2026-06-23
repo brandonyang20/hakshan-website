@@ -1660,9 +1660,9 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
         document.head.appendChild(s);
       });
     }
-    return loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js")
+    return loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js")
       .then(function () {
-        window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
         return loadScript("https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js");
       });
   }
@@ -1715,8 +1715,8 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
       __menuFlipbook.instance.loadFromHTML(bookEl.querySelectorAll(".menu-page"));
       __menuFlipbook.ready = true;
     } catch (e) {
-      console.error(e);
-      bookEl.innerHTML = '<div class="menu-book__status">Could not load the menu. <a href="/menu/">View the full menu page →</a></div>';
+      console.error("[menu flipbook] build failed:", e);
+      bookEl.innerHTML = '<div class="menu-book__status">Could not load the menu (' + (e && e.message ? e.message : "render error") + '). <a href="/menu/">View the full menu page →</a></div>';
     }
   }
 
@@ -1732,8 +1732,8 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
         .then(buildFlipbook)
         .catch(function (err) {
           var bookEl = document.getElementById("menuBook");
-          if (bookEl) bookEl.innerHTML = '<div class="menu-book__status">Could not load the menu. <a href="/menu/">View the full menu page →</a></div>';
-          console.error(err);
+          if (bookEl) bookEl.innerHTML = '<div class="menu-book__status">Could not load the menu (' + (err && err.message ? err.message : "load error") + '). <a href="/menu/">View the full menu page →</a></div>';
+          console.error("[menu flipbook] asset load failed:", err);
         })
         .finally(function () { __menuFlipbook.loading = false; });
     }
