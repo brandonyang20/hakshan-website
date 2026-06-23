@@ -68,7 +68,6 @@ get_header();
     margin: 0 auto;
   }
   .sr-origin__head {
-    max-width: 24ch;
     margin: 0 0 clamp(40px, 5vw, 64px);
   }
   .sr-origin__cols {
@@ -78,7 +77,7 @@ get_header();
     align-items: start;
   }
   .sr-origin__media {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 5 / 4;
     overflow: hidden;
     background: var(--paper);
     border-radius: 14px;
