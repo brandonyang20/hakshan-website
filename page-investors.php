@@ -530,8 +530,52 @@ get_header();
   .iv-org__rail--7::before { width: calc(6 * (var(--node-w) + var(--gap))); }
 
   @media (max-width: 880px) {
-    .iv-org__chart { align-items: flex-start; padding-left: 12px; padding-right: 12px; }
-    .iv-org__chart > * { flex-shrink: 0; }
+    /* No more horizontal scroll on phones. Chart becomes a vertical
+       stack: holding box centred at the top, single vertical stem
+       between tiers, solution + outlet nodes wrap to a 2-col grid. */
+    .iv-org__chart {
+      overflow-x: visible;
+      padding: 0 var(--rail);
+      align-items: stretch;
+    }
+    .iv-org__tier {
+      flex-wrap: wrap;
+      gap: 8px;
+      width: 100%;
+    }
+    /* Drop the busy bus + per-node drop rails — replace with a single
+       vertical line between tiers, just like .iv-org__stem. */
+    .iv-org__rail {
+      height: 28px;
+      width: 100%;
+      justify-content: center;
+    }
+    .iv-org__rail i { display: none; }
+    .iv-org__rail--5::before,
+    .iv-org__rail--7::before {
+      top: 0;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+      transform: translateX(-50%);
+    }
+    .iv-org__node {
+      width: auto;
+      flex: 0 0 calc((100% - 8px) / 2);
+      min-width: 0;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+    .iv-org__node--holding {
+      flex: 0 0 auto;
+      width: auto;
+      padding: 16px 32px;
+      font-size: 16px;
+    }
+    .iv-org__node--outlet {
+      padding: 10px 12px;
+      font-size: 12px;
+    }
   }
 
   /* ============== 6c. TEAM ============== */
