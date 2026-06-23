@@ -66,10 +66,32 @@ get_header();
   .sr-origin__inner {
     max-width: var(--maxw);
     margin: 0 auto;
+  }
+  .sr-origin__head {
+    max-width: 24ch;
+    margin: 0 0 clamp(40px, 5vw, 64px);
+  }
+  .sr-origin__cols {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(40px, 5vw, 72px);
     align-items: start;
+  }
+  .sr-origin__media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--paper);
+    border-radius: 14px;
+    box-shadow:
+      0 1px 2px rgba(42, 46, 39, 0.04),
+      0 18px 32px -18px rgba(42, 46, 39, 0.18),
+      0 30px 60px -28px rgba(42, 46, 39, 0.12);
+  }
+  .sr-origin__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   .sr-origin h2 {
     font-family: var(--serif);
@@ -78,7 +100,6 @@ get_header();
     line-height: 1;
     margin: 12px 0 0;
     letter-spacing: -0.025em;
-    max-width: 14ch;
   }
   .sr-origin h2 em { color: var(--forest); }
   .sr-origin p {
@@ -96,6 +117,10 @@ get_header();
     line-height: 1.45;
     color: var(--forest);
     margin-bottom: 24px;
+  }
+  @media (max-width: 880px) {
+    .sr-origin__cols { grid-template-columns: 1fr; gap: 32px; }
+    .sr-origin__media { aspect-ratio: 4 / 3; }
   }
 
   /* The model — paper background slab */
@@ -488,33 +513,48 @@ get_header();
 <!-- ============== WHERE IT BEGAN ============== -->
 <section class="sr-origin">
   <div class="sr-origin__inner">
-    <div data-reveal>
+    <div class="sr-origin__head" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>WHERE IT BEGAN</span>
         <span data-zh>故事的起点</span>
       </span>
       <h2>
-        <span data-en>A founder<br/><em>on the road.</em></span>
-        <span data-zh>一个创办人，<br/><em>在路上。</em></span>
+        <span data-en>A founder <em>on the road.</em></span>
+        <span data-zh>一个创办人，<em>在路上。</em></span>
       </h2>
     </div>
-    <div data-reveal>
-      <p class="lead">
-        <span data-en>It didn't start in a Hakka kitchen.</span>
-        <span data-zh>故事不是从客家厨房开始的。</span>
-      </p>
-      <p>
-        <span data-en>On his travels, the founder saw children whose daily meal was uncertain — in places far from home, where a single bowl of rice is not a given. The image stayed with him.</span>
-        <span data-zh>创办人在旅途中，看见过吃不饱饭的孩子——在远离家乡的地方，一碗饭都不是理所当然。那一幕留了下来。</span>
-      </p>
-      <p>
-        <span data-en>He came home and built a restaurant. But he didn't separate the two: the success of a kitchen, and the responsibility to anyone — wherever they are — who hasn't eaten today.</span>
-        <span data-zh>他回到家，开了一家餐厅。但他没有把这两件事分开：厨房的成功，与对今天还没吃上饭的人的责任——不管那人在哪里。</span>
-      </p>
-      <p>
-        <span data-en>So when Hakshan opened in February 2024, the rule was already in place. Part of every sale, every kitchen, every day, goes to community causes. The contribution starts close to home — education, elderly care, animal welfare. The principle, though, was set on that road.</span>
-        <span data-zh>所以2024年2月客善开业的那一天，规则已经在那里了。每一笔营业额的一部分，每一家厨房，每一天，拨入社区用途。投入从离家最近的方向开始——教育、长者关怀、动物福利。但那条原则，是在路上就立下的。</span>
-      </p>
+    <div class="sr-origin__cols">
+      <?php
+      // Founder portrait. Replace the URL below with your uploaded image
+      // (theme path under assets/img/ or any WP media URL).
+      $sr_origin_image = 'assets/img/sr-founder.jpg';
+      $sr_origin_path  = get_theme_file_path( $sr_origin_image );
+      ?>
+      <?php if ( file_exists( $sr_origin_path ) ) : ?>
+      <div class="sr-origin__media" data-reveal>
+        <img src="<?php echo esc_url( get_theme_file_uri( $sr_origin_image ) ); ?>" alt="The founder, on the road" loading="lazy" />
+      </div>
+      <?php else : ?>
+      <div class="sr-origin__media" data-reveal aria-hidden="true"></div>
+      <?php endif; ?>
+      <div data-reveal>
+        <p class="lead">
+          <span data-en>It didn't start in a Hakka kitchen.</span>
+          <span data-zh>故事不是从客家厨房开始的。</span>
+        </p>
+        <p>
+          <span data-en>On his travels, the founder saw children whose daily meal was uncertain — in places far from home, where a single bowl of rice is not a given. The image stayed with him.</span>
+          <span data-zh>创办人在旅途中，看见过吃不饱饭的孩子——在远离家乡的地方，一碗饭都不是理所当然。那一幕留了下来。</span>
+        </p>
+        <p>
+          <span data-en>He came home and built a restaurant. But he didn't separate the two: the success of a kitchen, and the responsibility to anyone — wherever they are — who hasn't eaten today.</span>
+          <span data-zh>他回到家，开了一家餐厅。但他没有把这两件事分开：厨房的成功，与对今天还没吃上饭的人的责任——不管那人在哪里。</span>
+        </p>
+        <p>
+          <span data-en>So when Hakshan opened in February 2024, the rule was already in place. Part of every sale, every kitchen, every day, goes to community causes. The contribution starts close to home — education, elderly care, animal welfare. The principle, though, was set on that road.</span>
+          <span data-zh>所以2024年2月客善开业的那一天，规则已经在那里了。每一笔营业额的一部分，每一家厨房，每一天，拨入社区用途。投入从离家最近的方向开始——教育、长者关怀、动物福利。但那条原则，是在路上就立下的。</span>
+        </p>
+      </div>
     </div>
   </div>
 </section>
