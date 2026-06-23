@@ -438,8 +438,8 @@ get_header();
   }
   /* Chart frame — stacked tiers with explicit rails between them. */
   .iv-org__chart {
-    --node-w: 112px;
-    --gap: clamp(8px, 1.4vw, 22px);
+    --node-w: 96px;
+    --gap: clamp(6px, 1vw, 16px);
     --rail-color: rgba(196, 155, 102, 0.55);
     display: flex;
     flex-direction: column;
@@ -532,6 +532,7 @@ get_header();
   .iv-org__rail--5::before { width: calc(4 * (var(--node-w) + var(--gap))); }
   .iv-org__rail--7::before { width: calc(6 * (var(--node-w) + var(--gap))); }
   .iv-org__rail--10::before { width: calc(9 * (var(--node-w) + var(--gap))); }
+  .iv-org__rail--13::before { width: calc(12 * (var(--node-w) + var(--gap))); }
 
   @media (max-width: 880px) {
     /* No more horizontal scroll on phones. Chart becomes a vertical
@@ -563,7 +564,8 @@ get_header();
     .iv-org__rail i { display: none; }
     .iv-org__rail--5::before,
     .iv-org__rail--7::before,
-    .iv-org__rail--10::before {
+    .iv-org__rail--10::before,
+    .iv-org__rail--13::before {
       top: 0;
       left: 50%;
       width: 1px;
@@ -1148,10 +1150,10 @@ get_header();
         <div class="iv-org__node"><span data-en>Marketing Company</span><span data-zh>营销公司</span></div>
       </div>
 
-      <!-- Stem down into the 10-drop bus -->
+      <!-- Stem down into the 13-drop bus -->
       <div class="iv-org__stem"></div>
-      <div class="iv-org__rail iv-org__rail--10" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <div class="iv-org__rail iv-org__rail--13" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
 
       <!-- Tier 3: Outlets -->
@@ -1162,10 +1164,13 @@ get_header();
         <div class="iv-org__node iv-org__node--outlet"><b>Outlet 04</b>Bandar Puteri Puchong</div>
         <div class="iv-org__node iv-org__node--outlet"><b>Outlet 05</b>SS2</div>
         <div class="iv-org__node iv-org__node--outlet"><b>Outlet 06</b>Sri Petaling</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 07</b>Kota Damansara</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 08</b>Ipoh</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 09</b>Bukit Tinggi</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 10</b>Taman Segar</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 07</b>Sunway Mentari</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 08</b>Kota Damansara</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 09</b>Plaza Damansara</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 10</b>Pudu Plaza</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 11</b>Ipoh</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 12</b>Bukit Tinggi</div>
+        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 13</b>Taman Segar</div>
       </div>
     </div>
   </div>
