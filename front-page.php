@@ -954,6 +954,11 @@ get_header();
     align-items: center;
     justify-content: center;
   }
+  /* Hide the raw rendered page strip until StPageFlip wraps them. The
+     loading status message inside the book stays visible (it has no
+     .menu-page class) so the user sees feedback during render. */
+  .menu-modal:not(.is-ready) .menu-modal__book .menu-page { opacity: 0; }
+  .menu-modal__book .menu-page { transition: opacity 0.3s ease; }
   .menu-page {
     background: var(--paper);
     overflow: hidden;
@@ -1714,6 +1719,10 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
       });
       __menuFlipbook.instance.loadFromHTML(bookEl.querySelectorAll(".menu-page"));
       __menuFlipbook.ready = true;
+      // StPageFlip has now wrapped the raw .menu-page elements with its
+      // own structure; safe to reveal them.
+      var modal = document.getElementById("menuModal");
+      if (modal) modal.classList.add("is-ready");
     } catch (e) {
       console.error("[menu flipbook] build failed:", e);
       bookEl.innerHTML = '<div class="menu-book__status">Could not load the menu (' + (e && e.message ? e.message : "render error") + '). <a href="/menu/">View the full menu page →</a></div>';
@@ -1746,14 +1755,17 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
     document.body.classList.remove("menu-modal-open");
   }
 
-  document.querySelectorAll("[data-menu-modal-trigger]").forEach(function (el) {
-    el.addEventListener("click", function (e) {
+  document.addEventListener("click", function (e) {
+    var trigger = e.target.closest("[data-menu-modal-trigger]");
+    if (trigger) {
       e.preventDefault();
       openMenuModal();
-    });
-  });
-  document.querySelectorAll("[data-menu-close]").forEach(function (el) {
-    el.addEventListener("click", closeMenuModal);
+      return;
+    }
+    var closer = e.target.closest("[data-menu-close]");
+    if (closer) {
+      closeMenuModal();
+    }
   });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
