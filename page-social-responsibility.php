@@ -58,55 +58,51 @@ get_header();
   }
 
   /* Founder's vision — intimate cream slab */
+  /* Dark, full-bleed origin band — same treatment as the story-page
+     hero. Copy on the left over the dark panel, photo on the right
+     bleeding edge-to-edge, soft gradient blend between them. */
   .sr-origin {
-    background: var(--cream);
-    padding: clamp(80px, 12vw, 140px) var(--rail);
-    border-top: 1px solid var(--line-soft);
+    background: #231A12;
+    color: #F3EAD9;
+    overflow: hidden;
   }
   .sr-origin__inner {
-    max-width: var(--maxw);
-    margin: 0 auto;
-  }
-  .sr-origin__head {
-    margin: 0 0 clamp(40px, 5vw, 64px);
-  }
-  .sr-origin__cols {
+    max-width: none;
+    margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: clamp(40px, 5vw, 72px);
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    min-height: min(86vh, 760px);
   }
-  .sr-origin__media {
-    aspect-ratio: 5 / 4;
-    overflow: hidden;
-    background: var(--paper);
-    border-radius: 14px;
-    box-shadow:
-      0 1px 2px rgba(42, 46, 39, 0.04),
-      0 18px 32px -18px rgba(42, 46, 39, 0.18),
-      0 30px 60px -28px rgba(42, 46, 39, 0.12);
+  .sr-origin__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(60px, 7vw, 100px) clamp(40px, 6vw, 80px) clamp(60px, 7vw, 100px) clamp(40px, 8vw, 120px);
+    grid-column: 1;
+    grid-row: 1;
   }
-  .sr-origin__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .sr-origin .h-eyebrow {
+    color: #C49B66;
+    opacity: 1;
   }
+  .sr-origin .h-eyebrow .dot { background: #C49B66; }
   .sr-origin h2 {
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(40px, 5.6vw, 76px);
-    line-height: 1;
-    margin: 12px 0 0;
+    font-size: clamp(44px, 6vw, 88px);
+    line-height: 1.02;
+    margin: 18px 0 0;
     letter-spacing: -0.025em;
+    color: #F3EAD9;
+    text-wrap: balance;
   }
-  .sr-origin h2 em { color: var(--forest); }
+  .sr-origin h2 em { color: #C49B66; }
   .sr-origin p {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.75;
-    color: var(--ink);
-    margin: 0 0 18px;
-    max-width: 60ch;
+    color: rgba(243, 234, 217, 0.78);
+    margin: 0 0 16px;
+    max-width: 52ch;
   }
   .sr-origin p:last-child { margin-bottom: 0; }
   .sr-origin p.lead {
@@ -114,12 +110,40 @@ get_header();
     font-style: italic;
     font-size: 22px;
     line-height: 1.45;
-    color: var(--forest);
-    margin-bottom: 24px;
+    color: #C49B66;
+    margin: 28px 0 18px;
   }
-  @media (max-width: 880px) {
-    .sr-origin__cols { grid-template-columns: 1fr; gap: 32px; }
-    .sr-origin__media { aspect-ratio: 4 / 3; }
+  .sr-origin__media {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    min-height: 360px;
+    background: #1a130c;
+  }
+  .sr-origin__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Left-edge fade on the photo so it blends into the dark copy area
+     instead of butting up against a hard column line. */
+  .sr-origin__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #231A12 0%, rgba(35, 26, 18, 0.65) 14%, transparent 45%);
+    pointer-events: none;
+  }
+  @media (max-width: 860px) {
+    .sr-origin__inner { grid-template-columns: 1fr; min-height: 0; }
+    .sr-origin__copy { padding: clamp(48px, 9vw, 80px) clamp(20px, 6vw, 40px); grid-row: 2; }
+    .sr-origin__media { min-height: 320px; grid-row: 1; }
+    .sr-origin__media::after {
+      background: linear-gradient(0deg, #231A12 1%, transparent 45%);
+    }
   }
 
   /* The model — paper background slab */
@@ -512,7 +536,7 @@ get_header();
 <!-- ============== WHERE IT BEGAN ============== -->
 <section class="sr-origin">
   <div class="sr-origin__inner">
-    <div class="sr-origin__head" data-reveal>
+    <div class="sr-origin__copy" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>WHERE IT BEGAN</span>
         <span data-zh>故事的起点</span>
@@ -521,29 +545,25 @@ get_header();
         <span data-en>A founder <em>on the road.</em></span>
         <span data-zh>一个创办人，<em>在路上。</em></span>
       </h2>
+      <p class="lead">
+        <span data-en>It didn't start in a Hakka kitchen.</span>
+        <span data-zh>故事不是从客家厨房开始的。</span>
+      </p>
+      <p>
+        <span data-en>On his travels, the founder saw children whose daily meal was uncertain — in places far from home, where a single bowl of rice is not a given. The image stayed with him.</span>
+        <span data-zh>创办人在旅途中，看见过吃不饱饭的孩子——在远离家乡的地方，一碗饭都不是理所当然。那一幕留了下来。</span>
+      </p>
+      <p>
+        <span data-en>He came home and built a restaurant. But he didn't separate the two: the success of a kitchen, and the responsibility to anyone — wherever they are — who hasn't eaten today.</span>
+        <span data-zh>他回到家，开了一家餐厅。但他没有把这两件事分开：厨房的成功，与对今天还没吃上饭的人的责任——不管那人在哪里。</span>
+      </p>
+      <p>
+        <span data-en>So when Hakshan opened in February 2024, the rule was already in place. Part of every sale, every kitchen, every day, goes to community causes. The contribution starts close to home — education, elderly care, animal welfare. The principle, though, was set on that road.</span>
+        <span data-zh>所以2024年2月客善开业的那一天，规则已经在那里了。每一笔营业额的一部分，每一家厨房，每一天，拨入社区用途。投入从离家最近的方向开始——教育、长者关怀、动物福利。但那条原则，是在路上就立下的。</span>
+      </p>
     </div>
-    <div class="sr-origin__cols">
-      <div class="sr-origin__media" data-reveal>
-        <img src="https://hakshan.com/wp-content/uploads/2026/06/horvard-charity.jpeg" alt="The founder, on the road" loading="lazy" />
-      </div>
-      <div data-reveal>
-        <p class="lead">
-          <span data-en>It didn't start in a Hakka kitchen.</span>
-          <span data-zh>故事不是从客家厨房开始的。</span>
-        </p>
-        <p>
-          <span data-en>On his travels, the founder saw children whose daily meal was uncertain — in places far from home, where a single bowl of rice is not a given. The image stayed with him.</span>
-          <span data-zh>创办人在旅途中，看见过吃不饱饭的孩子——在远离家乡的地方，一碗饭都不是理所当然。那一幕留了下来。</span>
-        </p>
-        <p>
-          <span data-en>He came home and built a restaurant. But he didn't separate the two: the success of a kitchen, and the responsibility to anyone — wherever they are — who hasn't eaten today.</span>
-          <span data-zh>他回到家，开了一家餐厅。但他没有把这两件事分开：厨房的成功，与对今天还没吃上饭的人的责任——不管那人在哪里。</span>
-        </p>
-        <p>
-          <span data-en>So when Hakshan opened in February 2024, the rule was already in place. Part of every sale, every kitchen, every day, goes to community causes. The contribution starts close to home — education, elderly care, animal welfare. The principle, though, was set on that road.</span>
-          <span data-zh>所以2024年2月客善开业的那一天，规则已经在那里了。每一笔营业额的一部分，每一家厨房，每一天，拨入社区用途。投入从离家最近的方向开始——教育、长者关怀、动物福利。但那条原则，是在路上就立下的。</span>
-        </p>
-      </div>
+    <div class="sr-origin__media" data-reveal>
+      <img src="https://hakshan.com/wp-content/uploads/2026/06/horvard-charity.jpeg" alt="The founder, on the road" loading="lazy" />
     </div>
   </div>
 </section>
