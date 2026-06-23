@@ -196,7 +196,7 @@ get_header();
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    padding: 4px 0 8px;
+    padding: 30px 0 50px;
     margin: 0 calc(var(--rail) * -1);
     padding-left: max(var(--rail), 6vw);
     padding-right: max(var(--rail), 6vw);
@@ -210,10 +210,14 @@ get_header();
     background: var(--paper);
     border: 1px solid var(--line);
     display: grid;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease;
     cursor: pointer;
+    /* Curve effect: JS sets transform per frame as you scroll; rotation
+       pivots from the bottom so cards fan outward like a deck spread. */
+    transform-origin: center bottom;
+    will-change: transform;
   }
-  .sc-card:hover { background: #fefcf7; transform: translateY(-4px); }
+  .sc-card:hover { background: #fefcf7; }
   .sc-card__visual {
     aspect-ratio: 1/1;
     position: relative;
@@ -1259,6 +1263,39 @@ get_header();
   }
   initCarousel("scCarousel", "scPrev", "scNext", "scFill", "scCount");
   initCarousel("ocCarousel", "ocPrev", "ocNext", "ocFill", "ocCount");
+
+  // Curve / fan effect on the signatures carousel — each card rotates a
+  // little away from the centre and sits slightly lower at the edges,
+  // so the row reads like a hand of cards instead of a flat strip.
+  function initCarouselCurve(trackId, opts) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const cards = Array.from(track.children);
+    if (!cards.length) return;
+    const MAX_ROT  = (opts && opts.rot)  != null ? opts.rot  : 6;   // degrees at the far edge
+    const MAX_DROP = (opts && opts.drop) != null ? opts.drop : 18;  // px drop at the far edge
+    let raf = null;
+    function update() {
+      const trackRect = track.getBoundingClientRect();
+      const trackCenter = trackRect.left + trackRect.width / 2;
+      const reach = Math.max(1, trackRect.width / 2);
+      cards.forEach(card => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const dist = (cardCenter - trackCenter) / reach;
+        const c = Math.max(-1, Math.min(1, dist));
+        const rot = c * MAX_ROT;
+        const drop = Math.abs(c) * MAX_DROP;
+        card.style.transform = "translateY(" + drop + "px) rotate(" + rot + "deg)";
+      });
+      raf = null;
+    }
+    function schedule() { if (raf == null) raf = requestAnimationFrame(update); }
+    track.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    update();
+  }
+  initCarouselCurve("scCarousel", { rot: 7, drop: 22 });
 </script>
 
 <?php
