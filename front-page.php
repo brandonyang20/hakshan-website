@@ -308,8 +308,7 @@ get_header();
   }
   .kitchens__copy {
     max-width: 880px;
-    margin: 0 auto clamp(48px, 7vw, 96px);
-    text-align: left;
+    margin: 0 0 clamp(48px, 7vw, 96px);
   }
   .kitchens__copy h2 {
     font-family: var(--serif);
