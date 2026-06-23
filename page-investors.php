@@ -542,11 +542,17 @@ get_header();
       flex-wrap: wrap;
       gap: 8px;
       width: 100%;
+      justify-content: center;
     }
-    /* Drop the busy bus + per-node drop rails — replace with a single
-       vertical line between tiers, just like .iv-org__stem. */
+    /* Drop the desktop's between-tier .iv-org__stem element — without
+       it being centred, the 1px stem rendered along the left edge of
+       the flex column and looked like a second, off-centre line. The
+       single centred line comes from the rail's ::before below. */
+    .iv-org__stem { display: none; }
+    /* Drop the per-node drop fingers and convert the rail's bus into
+       a single vertical stem between tiers. */
     .iv-org__rail {
-      height: 28px;
+      height: 36px;
       width: 100%;
       justify-content: center;
     }
