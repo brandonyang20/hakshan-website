@@ -480,9 +480,11 @@ get_header();
     }
     .kitchen__photo::after { display: none; }
     .kitchen__text {
-      padding: clamp(20px, 5vw, 32px) clamp(24px, 6vw, 36px) clamp(24px, 6vw, 40px);
+      padding: clamp(10px, 2.5vw, 18px) clamp(24px, 6vw, 36px) clamp(24px, 6vw, 40px);
       justify-content: flex-start;
+      gap: 8px;
     }
+    .kitchen h3 { margin: 0 0 8px; }
   }
 
   /* Charity band */
