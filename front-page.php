@@ -1214,16 +1214,9 @@ get_header();
 <!-- ============== CHARITY ============== -->
 <section class="charity">
   <div class="charity__inner">
-    <?php
-    // Pay it Forward banner photo. Replace with a WP media URL or drop
-    // the file into the theme path.
-    $charity_image_path = get_theme_file_path( 'assets/img/charity-banner.jpg' );
-    ?>
-    <?php if ( file_exists( $charity_image_path ) ) : ?>
     <div class="charity__media" data-reveal>
-      <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/charity-banner.jpg' ) ); ?>" alt="Hakshan team giving back to the community" loading="lazy" />
+      <img src="https://hakshan.com/wp-content/uploads/2024/04/batch_ss困境重重.jpg" alt="Hakshan team giving back to the community" loading="lazy" />
     </div>
-    <?php endif; ?>
     <div class="charity__cols">
       <div data-reveal>
         <span class="h-eyebrow"><span class="dot"></span>
