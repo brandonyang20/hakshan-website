@@ -502,7 +502,7 @@ get_header();
     align-items: center;
   }
   .charity__media {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 5 / 4;
     overflow: hidden;
     border-radius: 14px;
     background: rgba(0, 0, 0, 0.15);
