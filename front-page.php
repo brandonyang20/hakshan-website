@@ -888,6 +888,96 @@ get_header();
     .outlets__head, .sigs__head { flex-direction: column; align-items: start; }
     .oc-nav__progress { display: none; }
   }
+
+  /* ============== Menu flipbook modal ============== */
+  .menu-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-modal.is-open { display: flex; }
+  .menu-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 16, 10, 0.94);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    cursor: pointer;
+    animation: menuModalFade 0.3s ease;
+  }
+  @keyframes menuModalFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .menu-modal__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    max-height: 92vh;
+    padding: clamp(20px, 4vw, 56px) clamp(12px, 2vw, 24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-modal__close {
+    position: absolute;
+    top: clamp(12px, 2vw, 28px);
+    right: clamp(12px, 2vw, 28px);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(243, 234, 217, 0.32);
+    background: rgba(243, 234, 217, 0.06);
+    color: #F3EAD9;
+    font-size: 24px;
+    font-family: var(--mono);
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    z-index: 3;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .menu-modal__close:hover {
+    background: rgba(243, 234, 217, 0.18);
+    transform: scale(1.05);
+  }
+  .menu-modal__book {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-page {
+    background: var(--paper);
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+  .menu-page canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .menu-book__status {
+    color: #F3EAD9;
+    font-family: var(--serif);
+    font-size: 18px;
+    text-align: center;
+    padding: 80px 32px;
+    opacity: 0.85;
+  }
+  .menu-book__status a {
+    color: #C49B66;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+  body.menu-modal-open { overflow: hidden; }
 </style>
 
 <!-- ============== HERO ============== -->
@@ -1011,7 +1101,7 @@ get_header();
         <span data-zh>客家招牌菜。盐渍、慢炖，1928年至今做法未变。</span>
       </p>
     </div>
-    <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>" data-reveal>
+    <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'menu' ) ); ?>" data-reveal data-menu-modal-trigger>
       <span data-en>Full menu</span><span data-zh>完整菜单</span>
       <span class="arr">→</span>
     </a>
@@ -1547,7 +1637,140 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
     requestAnimationFrame(init);
   }
   initSlider("scViewport", "scCarousel", "scPrev", "scNext", { rot: 7, drop: 22 });
+
+  // ============== Menu flipbook modal ==============
+  // Opens a fullscreen modal containing a real page-flip menu, rendered
+  // from a PDF via PDF.js + StPageFlip. Both libraries are lazy-loaded
+  // the first time the modal is opened so the homepage's initial JS
+  // payload stays small. The /menu/ page still works as a normal
+  // fallback link (data-menu-modal-trigger preventDefault'd here, but
+  // if JS fails the anchor href routes there normally).
+  var HAKSHAN_MENU_PDF_URL = "https://hakshan.com/wp-content/uploads/2026/06/hakshan-menu.pdf"; // TODO: replace with the actual uploaded menu PDF URL
+  var __menuFlipbook = { loading: false, ready: false, instance: null };
+
+  function loadFlipbookAssets() {
+    if (window.pdfjsLib && window.St && window.St.PageFlip) return Promise.resolve();
+    function loadScript(src) {
+      return new Promise(function (resolve, reject) {
+        var s = document.createElement("script");
+        s.src = src;
+        s.async = true;
+        s.onload = resolve;
+        s.onerror = function () { reject(new Error("Failed to load " + src)); };
+        document.head.appendChild(s);
+      });
+    }
+    return loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js")
+      .then(function () {
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
+        return loadScript("https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js");
+      });
+  }
+
+  async function buildFlipbook() {
+    var bookEl = document.getElementById("menuBook");
+    if (!bookEl) return;
+    bookEl.innerHTML = '<div class="menu-book__status">Loading menu…</div>';
+    try {
+      var pdf = await window.pdfjsLib.getDocument(HAKSHAN_MENU_PDF_URL).promise;
+      bookEl.innerHTML = "";
+      // StPageFlip wants page elements pre-mounted in the container.
+      var pageEls = [];
+      // Render at 1.5x for sharp text without blowing up file size.
+      var scale = 1.5;
+      for (var i = 1; i <= pdf.numPages; i++) {
+        var page = await pdf.getPage(i);
+        var viewport = page.getViewport({ scale: scale });
+        var canvas = document.createElement("canvas");
+        var ctx = canvas.getContext("2d");
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+        var pageDiv = document.createElement("div");
+        pageDiv.className = "menu-page";
+        pageDiv.appendChild(canvas);
+        bookEl.appendChild(pageDiv);
+        pageEls.push(pageDiv);
+      }
+      // Aspect ratio derived from the rendered canvases.
+      var firstCanvas = pageEls[0].querySelector("canvas");
+      var ratio = firstCanvas.height / firstCanvas.width;
+      var displayW = Math.min(600, Math.floor((window.innerWidth - 80) / 2));
+      var displayH = Math.floor(displayW * ratio);
+      __menuFlipbook.instance = new window.St.PageFlip(bookEl, {
+        width: displayW,
+        height: displayH,
+        size: "stretch",
+        minWidth: 280,
+        maxWidth: 1000,
+        minHeight: Math.floor(280 * ratio),
+        maxHeight: Math.floor(1000 * ratio),
+        maxShadowOpacity: 0.5,
+        showCover: false,
+        usePortrait: true,
+        mobileScrollSupport: false,
+        drawShadow: true,
+        flippingTime: 800
+      });
+      __menuFlipbook.instance.loadFromHTML(bookEl.querySelectorAll(".menu-page"));
+      __menuFlipbook.ready = true;
+    } catch (e) {
+      console.error(e);
+      bookEl.innerHTML = '<div class="menu-book__status">Could not load the menu. <a href="/menu/">View the full menu page →</a></div>';
+    }
+  }
+
+  function openMenuModal() {
+    var modal = document.getElementById("menuModal");
+    if (!modal) return;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("menu-modal-open");
+    if (!__menuFlipbook.ready && !__menuFlipbook.loading) {
+      __menuFlipbook.loading = true;
+      loadFlipbookAssets()
+        .then(buildFlipbook)
+        .catch(function (err) {
+          var bookEl = document.getElementById("menuBook");
+          if (bookEl) bookEl.innerHTML = '<div class="menu-book__status">Could not load the menu. <a href="/menu/">View the full menu page →</a></div>';
+          console.error(err);
+        })
+        .finally(function () { __menuFlipbook.loading = false; });
+    }
+  }
+  function closeMenuModal() {
+    var modal = document.getElementById("menuModal");
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("menu-modal-open");
+  }
+
+  document.querySelectorAll("[data-menu-modal-trigger]").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      openMenuModal();
+    });
+  });
+  document.querySelectorAll("[data-menu-close]").forEach(function (el) {
+    el.addEventListener("click", closeMenuModal);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      var m = document.getElementById("menuModal");
+      if (m && m.classList.contains("is-open")) closeMenuModal();
+    }
+  });
 </script>
+
+<!-- Menu flipbook modal — opened from any [data-menu-modal-trigger] element -->
+<div class="menu-modal" id="menuModal" aria-hidden="true" role="dialog" aria-label="Hakshan menu">
+  <div class="menu-modal__backdrop" data-menu-close></div>
+  <div class="menu-modal__inner">
+    <button class="menu-modal__close" data-menu-close aria-label="Close menu">×</button>
+    <div class="menu-modal__book" id="menuBook"></div>
+  </div>
+</div>
 
 <?php
 get_footer();
