@@ -497,6 +497,26 @@ get_header();
     max-width: var(--maxw);
     margin: 0 auto;
     display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(48px, 7vw, 80px);
+  }
+  .charity__media {
+    aspect-ratio: 16 / 6;
+    overflow: hidden;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.15),
+      0 24px 48px -20px rgba(0, 0, 0, 0.45);
+  }
+  .charity__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .charity__cols {
+    display: grid;
     grid-template-columns: 1fr 1.4fr;
     gap: 80px;
     align-items: start;
@@ -885,7 +905,8 @@ get_header();
   }
 
   @media (max-width: 980px) {
-    .hero-a, .anchor, .gens, .charity__inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-a, .anchor, .gens, .charity__inner, .charity__cols { grid-template-columns: 1fr; gap: 48px; }
+    .charity__media { aspect-ratio: 4 / 3; }
     .charity__stats { grid-template-columns: 1fr 1fr; gap: 24px; }
     .outlets__head, .sigs__head { flex-direction: column; align-items: start; }
     .oc-nav__progress { display: none; }
@@ -1193,28 +1214,40 @@ get_header();
 <!-- ============== CHARITY ============== -->
 <section class="charity">
   <div class="charity__inner">
-    <div data-reveal>
-      <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>DINING WITH PURPOSE</span><span data-zh>用餐慈善</span>
-      </span>
-      <h2>
-        <span data-en>Pay it<br/><em class="underline">Forward</em>.</span>
-        <span data-zh>一菜<br/>一<em class="underline">善</em>。</span>
-      </h2>
+    <?php
+    // Pay it Forward banner photo. Replace with a WP media URL or drop
+    // the file into the theme path.
+    $charity_image_path = get_theme_file_path( 'assets/img/charity-banner.jpg' );
+    ?>
+    <?php if ( file_exists( $charity_image_path ) ) : ?>
+    <div class="charity__media" data-reveal>
+      <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/charity-banner.jpg' ) ); ?>" alt="Hakshan team giving back to the community" loading="lazy" />
     </div>
-    <div data-reveal>
-      <p>
-        <span data-en>Part of every sale at every outlet goes to community causes. Same rule, every kitchen, every day.</span>
-        <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途。同一条规则，每一天。</span>
-      </p>
-      <div class="charity__stats">
-      <div>
-        <div class="num">9</div>
-        <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
+    <?php endif; ?>
+    <div class="charity__cols">
+      <div data-reveal>
+        <span class="h-eyebrow"><span class="dot"></span>
+          <span data-en>DINING WITH PURPOSE</span><span data-zh>用餐慈善</span>
+        </span>
+        <h2>
+          <span data-en>Pay it<br/><em class="underline">Forward</em>.</span>
+          <span data-zh>一菜<br/>一<em class="underline">善</em>。</span>
+        </h2>
       </div>
-      <div>
-        <div class="num">3</div>
-        <div class="lbl"><span data-en>Focus areas · education, elders, animals</span><span data-zh>三 个 方 向 · 教 育、长 者、动 物</span></div>
+      <div data-reveal>
+        <p>
+          <span data-en>Part of every sale at every outlet goes to community causes. Same rule, every kitchen, every day.</span>
+          <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途。同一条规则，每一天。</span>
+        </p>
+        <div class="charity__stats">
+          <div>
+            <div class="num">9</div>
+            <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
+          </div>
+          <div>
+            <div class="num">3</div>
+            <div class="lbl"><span data-en>Focus areas · education, elders, animals</span><span data-zh>三 个 方 向 · 教 育、长 者、动 物</span></div>
+          </div>
         </div>
       </div>
     </div>
