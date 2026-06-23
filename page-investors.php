@@ -438,8 +438,8 @@ get_header();
   }
   /* Chart frame — stacked tiers with explicit rails between them. */
   .iv-org__chart {
-    --node-w: 96px;
-    --gap: clamp(6px, 1vw, 16px);
+    --node-w: 112px;
+    --gap: clamp(8px, 1.4vw, 22px);
     --rail-color: rgba(196, 155, 102, 0.55);
     display: flex;
     flex-direction: column;
@@ -532,7 +532,18 @@ get_header();
   .iv-org__rail--5::before { width: calc(4 * (var(--node-w) + var(--gap))); }
   .iv-org__rail--7::before { width: calc(6 * (var(--node-w) + var(--gap))); }
   .iv-org__rail--10::before { width: calc(9 * (var(--node-w) + var(--gap))); }
-  .iv-org__rail--13::before { width: calc(12 * (var(--node-w) + var(--gap))); }
+  /* 13 outlets wrap to a 7+6 grid on desktop. Drops are hidden (they'd
+     point at non-existent columns once we wrap) and the bus spans just
+     the first row's width so it still reads as a tree above the grid. */
+  .iv-org__rail--13 i { display: none; }
+  .iv-org__rail--13::before { width: calc(6 * (var(--node-w) + var(--gap))); }
+  .iv-org__rail--13 + .iv-org__tier {
+    display: grid;
+    grid-template-columns: repeat(7, var(--node-w));
+    gap: var(--gap);
+    width: max-content;
+    margin: 0 auto;
+  }
 
   @media (max-width: 880px) {
     /* No more horizontal scroll on phones. Chart becomes a vertical
