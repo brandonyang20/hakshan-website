@@ -295,10 +295,9 @@ get_header();
   .sc-card:hover .sc-card__foot .arr { transform: translateX(6px); }
 
   /* Three Generations — sticky-stack layout
-     Left rail (.kitchens__copy) sticks at the top while the three
-     .kitchen cards stack vertically. Each card is also sticky at the
-     same top offset, so as you scroll past the first card it stays
-     pinned, and the next card scrolls up and visually covers it. */
+     Intro header sits at the top of the section, full width. Below it,
+     each kitchen card is sticky at the same top offset, so scrolling
+     past one pins it; the next card scrolls up and visually covers it. */
   .kitchens {
     background: var(--paper);
     padding: clamp(80px, 10vw, 120px) var(--rail);
@@ -306,33 +305,28 @@ get_header();
   .kitchens__inner {
     max-width: var(--maxw);
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: clamp(40px, 6vw, 80px);
-    align-items: start;
   }
   .kitchens__copy {
-    position: -webkit-sticky;
-    position: sticky;
-    top: calc(var(--nav-h, 65px) + 48px);
-    align-self: start;
+    max-width: 880px;
+    margin: 0 auto clamp(48px, 7vw, 96px);
+    text-align: left;
   }
   .kitchens__copy h2 {
     font-family: var(--serif);
-    font-size: clamp(44px, 6vw, 84px);
+    font-size: clamp(48px, 7vw, 92px);
     line-height: 1;
     margin: 18px 0 28px;
     letter-spacing: -0.025em;
   }
   .kitchens__copy h2 em { color: var(--forest); }
   .kitchens__copy p {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.7;
     color: var(--ink-soft);
     margin: 0 0 16px;
-    max-width: 36ch;
+    max-width: 52ch;
   }
-  .kitchens__copy .btn { margin-top: 16px; }
+  .kitchens__copy .btn { margin-top: 18px; }
   .kitchens__stack {
     display: flex;
     flex-direction: column;
@@ -344,9 +338,9 @@ get_header();
     top: calc(var(--nav-h, 65px) + 48px);
     background: var(--paper);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
     gap: 0;
-    min-height: clamp(420px, 60vh, 600px);
+    min-height: clamp(460px, 65vh, 680px);
     overflow: hidden;
   }
   .kitchen__photo {
@@ -392,29 +386,21 @@ get_header();
   }
   .kitchen h3 {
     font-family: var(--serif);
-    font-size: clamp(24px, 2.6vw, 38px);
-    line-height: 1.15;
-    margin: 0 0 14px;
-    letter-spacing: -0.015em;
+    font-size: clamp(30px, 3.4vw, 52px);
+    line-height: 1.1;
+    margin: 0 0 18px;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
   .kitchen p {
     margin: 0;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.7;
     color: var(--ink-soft);
-    max-width: 32ch;
-  }
-  @media (max-width: 1200px) and (min-width: 901px) {
-    /* Laptop range — give the kitchen cards more horizontal room so the
-       headline doesn't squeeze against the photo edge. */
-    .kitchens__inner { grid-template-columns: 0.85fr 1.6fr; gap: 40px; }
-    .kitchens__copy h2 { font-size: clamp(36px, 5vw, 60px); }
+    max-width: 38ch;
   }
   @media (max-width: 900px) {
-    .kitchens__inner { grid-template-columns: 1fr; }
     .kitchens__copy {
-      position: static;
       margin-bottom: 40px;
     }
     /* Sticky-stack still applies on mobile so each card scrolls up and
