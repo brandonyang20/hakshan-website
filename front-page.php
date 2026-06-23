@@ -221,23 +221,26 @@ get_header();
   @media (max-width: 600px) {
     .sigs__side-btn { width: 42px; height: 42px; font-size: 18px; }
   }
+  /* Viewport — clips the track horizontally, captures pointer events
+     for drag. No native scroll: the JS slider drives the track's
+     translateX directly so we control wrap, momentum, and animation. */
+  .sigs__viewport {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+    padding: 30px 0 50px;
+    touch-action: pan-y; /* allow vertical page scroll, let JS handle horizontal */
+  }
+  .sigs__viewport.is-dragging { cursor: grabbing; }
   .sigs__carousel {
     display: flex;
     gap: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    padding: 30px 0 50px;
-    margin: 0 calc(var(--rail) * -1);
-    padding-left: max(var(--rail), 6vw);
-    padding-right: max(var(--rail), 6vw);
-    scroll-padding-left: max(var(--rail), 6vw);
-    scroll-behavior: smooth;
+    will-change: transform;
   }
-  .sigs__carousel::-webkit-scrollbar { display: none; }
   .sc-card {
     flex: 0 0 clamp(280px, 28vw, 360px);
-    scroll-snap-align: start;
     background: var(--paper);
     border: 1px solid rgba(201, 190, 159, 0.4);
     border-radius: 14px;
@@ -249,8 +252,8 @@ get_header();
     transition: background 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     overflow: hidden;
-    /* Curve effect: JS sets transform per frame as you scroll; rotation
-       pivots from the bottom so cards fan outward like a deck spread. */
+    /* Curve: JS owns transform per frame; rotation pivots from the
+       bottom so cards fan outward like a deck spread. */
     transform-origin: center bottom;
     will-change: transform;
   }
@@ -1001,9 +1004,10 @@ get_header();
   </div>
 
   <div class="sigs__carousel-wrap" data-reveal>
-    <div class="sigs__carousel" id="scCarousel">
-      <?php
-      $menu_url   = hakshan_nav_url( 'menu' ) . '#signatures';
+    <div class="sigs__viewport" id="scViewport">
+      <div class="sigs__carousel" id="scCarousel">
+        <?php
+        $menu_url   = hakshan_nav_url( 'menu' ) . '#signatures';
       $signatures = function_exists( 'hakshan_get_signature_dishes' ) ? hakshan_get_signature_dishes( 6 ) : array();
 
       if ( ! empty( $signatures ) ) :
@@ -1042,6 +1046,7 @@ get_header();
         <?php endforeach;
       endif;
       ?>
+      </div>
     </div>
 
     <button class="sigs__side-btn sigs__side-btn--prev" id="scPrev" aria-label="Previous dish">←</button>
@@ -1302,112 +1307,222 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
   }
   initCarousel("ocCarousel", "ocPrev", "ocNext", "ocFill", "ocCount");
 
-  // Infinite-loop signatures carousel.
-  //   - Clones the full set of cards once at the start and once at the end
-  //     (track now has 3N children: prepended + originals + appended).
-  //   - Centres the initial scroll on the originals.
-  //   - When the user scrolls into a clone region, silently teleports the
-  //     scroll position by one full set width so they see a seamless loop.
-  //   - The curve/fan effect runs on every scroll/resize tick (rAF-throttled).
-  function initLoopingCarousel(trackId, prevId, nextId, opts) {
-    const track = document.getElementById(trackId);
-    if (!track) return;
+  // Transform-based infinite slider for the signatures carousel.
+  //   - No native overflow scrolling. The track's translateX is the
+  //     single source of truth; we animate it ourselves.
+  //   - Clones the full set of cards once at the start and once at the
+  //     end, then wraps `offset` so it lives in [setW, 2*setW). When
+  //     the user crosses a boundary, we silently shift offset by setW.
+  //     Because clones look identical, the loop is seamless.
+  //   - Pointer-event drag (mouse + touch + pen) updates offset
+  //     directly during the gesture; velocity is captured for a small
+  //     momentum throw on release.
+  //   - Prev/Next animate target by one card-step. Each click queues a
+  //     new target, so spamming the button advances repeatedly.
+  //   - Curve effect: each card's translateY + rotate is computed from
+  //     its distance to the viewport centre, applied on every tick.
+  function initSlider(viewportId, trackId, prevId, nextId, opts) {
+    const viewport = document.getElementById(viewportId);
+    const track    = document.getElementById(trackId);
+    if (!viewport || !track) return;
+
     const originals = Array.from(track.children);
     const N = originals.length;
     if (N < 2) return;
 
     const MAX_ROT  = (opts && opts.rot)  != null ? opts.rot  : 7;
     const MAX_DROP = (opts && opts.drop) != null ? opts.drop : 22;
+    const EASE     = 0.18;        // approach rate per frame for the smooth animation
+    const DRAG_THRESH = 6;        // px before a pointerdown counts as a drag
 
-    // Clone full set at end, then a full set at the start (in reverse so DOM
-    // order matches original order).
+    // Clone the full set once at the end and once at the start.
     for (let i = 0; i < N; i++) {
       const c = originals[i].cloneNode(true);
       c.setAttribute("aria-hidden", "true");
-      c.dataset.clone = "after";
       track.appendChild(c);
     }
     for (let i = N - 1; i >= 0; i--) {
       const c = originals[i].cloneNode(true);
       c.setAttribute("aria-hidden", "true");
-      c.dataset.clone = "before";
       track.insertBefore(c, track.firstChild);
     }
+    const cards = Array.from(track.children); // 3N cards
 
-    function step() {
-      const f = track.children[0];
-      if (!f) return 320;
-      const gap = parseFloat(getComputedStyle(track).gap) || 24;
-      return f.getBoundingClientRect().width + gap;
+    let cardW = 0, gap = 0, stepW = 0, setW = 0;
+    let offset = 0;
+    let target = 0;
+    let rafId = null;
+
+    function measure() {
+      // Reset per-card transforms so getBoundingClientRect reads natural size.
+      cards.forEach(c => { c.style.transform = "none"; });
+      const f = cards[0];
+      if (!f) return;
+      const r = f.getBoundingClientRect();
+      cardW = r.width;
+      gap   = parseFloat(getComputedStyle(track).gap) || 24;
+      stepW = cardW + gap;
+      setW  = stepW * N;
     }
-    function setWidth() { return step() * N; }
 
-    // Land on the start of the originals (after the prepended clones).
-    function center() {
-      const prev = track.style.scrollBehavior;
-      track.style.scrollBehavior = "auto";
-      track.scrollLeft = setWidth();
-      // Force layout flush before restoring smooth scrolling.
-      void track.offsetWidth;
-      track.style.scrollBehavior = prev || "smooth";
+    function wrap(v) {
+      if (setW <= 0) return v;
+      while (v < setW)        v += setW;
+      while (v >= setW * 2)   v -= setW;
+      return v;
     }
 
-    let wrapping = false;
-    function wrap() {
-      if (wrapping) return;
-      const sw = setWidth();
-      if (sw <= 0) return;
-      if (track.scrollLeft >= sw * 2) {
-        wrapping = true;
-        const prev = track.style.scrollBehavior;
-        track.style.scrollBehavior = "auto";
-        track.scrollLeft -= sw;
-        void track.offsetWidth;
-        track.style.scrollBehavior = prev || "smooth";
-        wrapping = false;
-      } else if (track.scrollLeft < sw) {
-        wrapping = true;
-        const prev = track.style.scrollBehavior;
-        track.style.scrollBehavior = "auto";
-        track.scrollLeft += sw;
-        void track.offsetWidth;
-        track.style.scrollBehavior = prev || "smooth";
-        wrapping = false;
+    function applyCurve() {
+      const vp = viewport.getBoundingClientRect();
+      const vpCenter = vp.left + vp.width / 2;
+      const reach = Math.max(1, vp.width / 2);
+      for (let i = 0; i < cards.length; i++) {
+        const r = cards[i].getBoundingClientRect();
+        const cc = r.left + r.width / 2;
+        const d  = Math.max(-1, Math.min(1, (cc - vpCenter) / reach));
+        const rot = d * MAX_ROT;
+        const drop = Math.abs(d) * MAX_DROP;
+        cards[i].style.transform = "translateY(" + drop + "px) rotate(" + rot + "deg)";
       }
     }
 
-    let raf = null;
-    function curve() {
-      const trackRect = track.getBoundingClientRect();
-      const trackCenter = trackRect.left + trackRect.width / 2;
-      const reach = Math.max(1, trackRect.width / 2);
-      const all = track.children;
-      for (let i = 0; i < all.length; i++) {
-        const card = all[i];
-        const r = card.getBoundingClientRect();
-        const cardCenter = r.left + r.width / 2;
-        const dist = (cardCenter - trackCenter) / reach;
-        const c = Math.max(-1, Math.min(1, dist));
-        const rot = c * MAX_ROT;
-        const drop = Math.abs(c) * MAX_DROP;
-        card.style.transform = "translateY(" + drop + "px) rotate(" + rot + "deg)";
-      }
-      raf = null;
+    function render() {
+      offset = wrap(offset);
+      // Keep target wrapped relative to offset so it stays close (prevents
+      // huge animation overshoots after long drags).
+      while (target - offset > setW)  target -= setW;
+      while (target - offset < -setW) target += setW;
+      track.style.transform = "translate3d(" + (-offset) + "px, 0, 0)";
+      applyCurve();
     }
-    function schedule() { if (raf == null) raf = requestAnimationFrame(curve); }
 
-    track.addEventListener("scroll", () => { wrap(); schedule(); }, { passive: true });
-    window.addEventListener("resize", () => { center(); schedule(); });
+    function tick() {
+      const delta = target - offset;
+      if (Math.abs(delta) < 0.5) {
+        offset = target;
+        render();
+        rafId = null;
+        return;
+      }
+      offset += delta * EASE;
+      render();
+      rafId = requestAnimationFrame(tick);
+    }
 
-    const prev = document.getElementById(prevId);
-    const next = document.getElementById(nextId);
-    if (prev) prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
-    if (next) next.addEventListener("click", () => track.scrollBy({ left:  step(), behavior: "smooth" }));
+    function animateTo(t) {
+      target = t;
+      if (rafId == null) rafId = requestAnimationFrame(tick);
+    }
 
-    // Wait one frame so cloned cards have laid out before we measure.
-    requestAnimationFrame(() => { center(); schedule(); });
+    // ---- Drag ----
+    let dragging = false;
+    let dragStartX = 0;
+    let dragStartOffset = 0;
+    let dragMoved = false;
+    let lastMoveX = 0;
+    let lastMoveT = 0;
+    let velocity = 0;
+
+    function onPointerDown(e) {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      dragging = true;
+      dragMoved = false;
+      dragStartX = e.clientX;
+      dragStartOffset = offset;
+      lastMoveX = e.clientX;
+      lastMoveT = performance.now();
+      velocity = 0;
+      if (rafId != null) { cancelAnimationFrame(rafId); rafId = null; }
+      try { viewport.setPointerCapture(e.pointerId); } catch (_) {}
+    }
+    function onPointerMove(e) {
+      if (!dragging) return;
+      const dx = e.clientX - dragStartX;
+      if (!dragMoved && Math.abs(dx) > DRAG_THRESH) {
+        dragMoved = true;
+        viewport.classList.add("is-dragging");
+      }
+      if (!dragMoved) return;
+      const now = performance.now();
+      offset = dragStartOffset - dx;
+      render();
+      const dt = Math.max(1, now - lastMoveT);
+      velocity = (e.clientX - lastMoveX) / dt;
+      lastMoveX = e.clientX;
+      lastMoveT = now;
+    }
+    function onPointerEnd(e) {
+      if (!dragging) return;
+      const wasMoved = dragMoved;
+      dragging = false;
+      dragMoved = false;
+      viewport.classList.remove("is-dragging");
+      try { viewport.releasePointerCapture(e.pointerId); } catch (_) {}
+      if (!wasMoved) return;
+      // Momentum: throw a bit further based on velocity, then snap to nearest card.
+      const throwDist = velocity * 220;
+      let t = offset - throwDist;
+      t = Math.round(t / stepW) * stepW;
+      animateTo(t);
+    }
+    viewport.addEventListener("pointerdown",   onPointerDown);
+    viewport.addEventListener("pointermove",   onPointerMove);
+    viewport.addEventListener("pointerup",     onPointerEnd);
+    viewport.addEventListener("pointercancel", onPointerEnd);
+    viewport.addEventListener("pointerleave",  onPointerEnd);
+
+    // Cancel the click that follows a drag so card links don't fire on release.
+    viewport.addEventListener("click", e => {
+      if (Math.abs(offset - dragStartOffset) > DRAG_THRESH) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+
+    // ---- Buttons ----
+    const prevBtn = document.getElementById(prevId);
+    const nextBtn = document.getElementById(nextId);
+    if (prevBtn) prevBtn.addEventListener("click", () => animateTo(target - stepW));
+    if (nextBtn) nextBtn.addEventListener("click", () => animateTo(target + stepW));
+
+    // ---- Wheel (trackpad horizontal swipe) ----
+    let wheelAccum = 0;
+    let wheelTimer = null;
+    viewport.addEventListener("wheel", e => {
+      if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      wheelAccum += e.deltaX;
+      if (wheelTimer) clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(() => {
+        const steps = Math.sign(wheelAccum) * Math.max(1, Math.round(Math.abs(wheelAccum) / stepW));
+        animateTo(Math.round((target + steps * stepW) / stepW) * stepW);
+        wheelAccum = 0;
+      }, 80);
+    }, { passive: false });
+
+    // ---- Init + resize ----
+    function init() {
+      measure();
+      if (setW <= 0) return;
+      offset = setW;
+      target = setW;
+      render();
+    }
+    window.addEventListener("resize", () => {
+      const prevSet = setW;
+      measure();
+      if (setW <= 0) return;
+      // Preserve approximate card index across resize.
+      const cardIdx = prevSet ? Math.round((offset - prevSet) / (prevSet / N)) : 0;
+      offset = setW + cardIdx * stepW;
+      target = offset;
+      render();
+    });
+
+    // Wait one frame for layout (cloned cards + custom fonts).
+    requestAnimationFrame(init);
   }
-  initLoopingCarousel("scCarousel", "scPrev", "scNext", { rot: 7, drop: 22 });
+  initSlider("scViewport", "scCarousel", "scPrev", "scNext", { rot: 7, drop: 22 });
 </script>
 
 <?php

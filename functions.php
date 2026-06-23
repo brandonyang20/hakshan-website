@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.79' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.80' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
