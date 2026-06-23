@@ -319,8 +319,8 @@ get_header();
     padding: 32px 0;
     border-bottom: 1px solid var(--line);
     display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 32px;
+    grid-template-columns: 70px 140px 1fr;
+    gap: 28px;
     align-items: start;
   }
   .gen:last-child { border-bottom: none; }
@@ -330,6 +330,22 @@ get_header();
     letter-spacing: 0.12em;
     color: var(--forest);
     padding-top: 6px;
+  }
+  .gen__photo {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--cream);
+    border: 1px solid var(--line);
+  }
+  .gen__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 760px) {
+    .gen { grid-template-columns: 1fr; gap: 14px; }
+    .gen__photo { max-width: 220px; }
   }
   .gen h3 {
     font-family: var(--serif);
@@ -787,8 +803,23 @@ get_header();
       </a>
     </div>
     <div class="gens__timeline" data-reveal>
+      <?php
+      // Portrait paths — drop the actual photos at these paths, or send
+      // me WP media URLs and I'll repoint these to the uploads folder.
+      $gen_portraits = array(
+        '1928' => 'assets/img/gen-1928.jpg',
+        '1972' => 'assets/img/gen-1972.jpg',
+        '2024' => 'assets/img/gen-2024.jpg',
+      );
+      ?>
       <div class="gen">
         <div class="gen__year">1928</div>
+        <div class="gen__photo">
+          <?php $p = get_theme_file_path( $gen_portraits['1928'] );
+                if ( file_exists( $p ) ) : ?>
+            <img src="<?php echo esc_url( get_theme_file_uri( $gen_portraits['1928'] ) ); ?>" alt="The first generation — ancestral village kitchen, 1928" loading="lazy" />
+          <?php endif; ?>
+        </div>
         <div>
           <h3><span data-en>The first generation</span><span data-zh>第 一 代</span></h3>
           <p><span data-en>A home kitchen in the ancestral village. Every meal is hers; every meal is for the family. The recipes live in her hands. Nothing is written down.</span>
@@ -797,6 +828,12 @@ get_header();
       </div>
       <div class="gen">
         <div class="gen__year">1972</div>
+        <div class="gen__photo">
+          <?php $p = get_theme_file_path( $gen_portraits['1972'] );
+                if ( file_exists( $p ) ) : ?>
+            <img src="<?php echo esc_url( get_theme_file_uri( $gen_portraits['1972'] ) ); ?>" alt="The second generation — Klang Valley, 1972" loading="lazy" />
+          <?php endif; ?>
+        </div>
         <div>
           <h3><span data-en>The second generation</span><span data-zh>第 二 代</span></h3>
           <p><span data-en>The second generation brings the kitchen south to the Klang Valley and opens the family's first restaurant. The recipes leave home for the first time. Same dishes, sharpened by service.</span>
@@ -805,18 +842,16 @@ get_header();
       </div>
       <div class="gen">
         <div class="gen__year">2024</div>
+        <div class="gen__photo">
+          <?php $p = get_theme_file_path( $gen_portraits['2024'] );
+                if ( file_exists( $p ) ) : ?>
+            <img src="<?php echo esc_url( get_theme_file_uri( $gen_portraits['2024'] ) ); ?>" alt="The third generation — Hakshan USJ, 2024" loading="lazy" />
+          <?php endif; ?>
+        </div>
         <div>
           <h3><span data-en>The third generation</span><span data-zh>第 三 代</span></h3>
           <p><span data-en>In February 2024, Hakshan opens its first dining room in USJ. Same dishes, same recipe, new chairs.</span>
             <span data-zh>2024年2月，客善在 USJ 开出第一间餐厅。菜没变，食谱没变，椅子换了。</span></p>
-        </div>
-      </div>
-      <div class="gen">
-        <div class="gen__year">2026</div>
-        <div>
-          <h3><span data-en>Three generations on</span><span data-zh>三 代 之 后</span></h3>
-          <p><span data-en>Thirteen kitchens across the Klang Valley and Ipoh: ten outlets and three cloud kitchens. Same recipes, same standards, sharpened by every generation that cooked them.</span>
-            <span data-zh>巴生谷与怡保共十三家厨房：十家门店，三间云端厨房。同样的食谱，同样的标准，每一代下厨的人都把它做得更精到。</span></p>
         </div>
       </div>
     </div>
