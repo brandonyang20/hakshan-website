@@ -667,14 +667,16 @@ get_header();
   .iv-member__bio li {
     list-style: none;
     margin-bottom: 10px;
-    padding-left: 12px;
-    position: relative;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
   }
   .iv-member__bio li::before {
     content: "·";
-    position: absolute;
-    left: 0;
     color: var(--forest);
+    flex-shrink: 0;
+    line-height: 1;
   }
   .iv-member__bio li:last-child { margin-bottom: 0; }
   @media (max-width: 980px) {
