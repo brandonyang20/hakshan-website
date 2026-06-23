@@ -977,7 +977,13 @@ get_header();
 </section>
 <?php endif; ?>
 
-<?php if ( hakshan_show_section( 'hakshan_show_signatures' ) ) : ?>
+<?php
+// TEMPORARY: hide the signatures carousel while the looping/curve scroll
+// behaviour gets reworked. Set $hakshan_show_signatures_force back to
+// hakshan_show_section('hakshan_show_signatures') once the carousel is
+// stable to bring it back via the Customizer toggle.
+$hakshan_show_signatures_force = false;
+if ( $hakshan_show_signatures_force && hakshan_show_section( 'hakshan_show_signatures' ) ) : ?>
 <!-- ============== SIGNATURES CAROUSEL ============== -->
 <section class="section sigs">
   <div class="sigs__head">
