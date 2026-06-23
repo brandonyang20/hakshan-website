@@ -407,14 +407,24 @@ get_header();
     .kitchens__inner { grid-template-columns: 1fr; }
     .kitchens__copy {
       position: static;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
+    /* Sticky-stack still applies on mobile so each card scrolls up and
+       covers the one before it. Layout collapses to photo-on-top /
+       text-below within each card, and the blend gradient is dropped
+       because it only makes sense in a side-by-side composition. */
     .kitchen {
-      position: static;
       grid-template-columns: 1fr;
-      min-height: 0;
+      min-height: 92vh;
     }
-    .kitchen__photo { aspect-ratio: 4 / 3; }
+    .kitchen__photo {
+      aspect-ratio: 4 / 3;
+      height: auto;
+    }
+    .kitchen__photo::after { display: none; }
+    .kitchen__text {
+      padding: clamp(24px, 6vw, 36px);
+    }
   }
 
   /* Charity band */
