@@ -977,13 +977,7 @@ get_header();
 </section>
 <?php endif; ?>
 
-<?php
-// TEMPORARY: hide the signatures carousel while the looping/curve scroll
-// behaviour gets reworked. Set $hakshan_show_signatures_force back to
-// hakshan_show_section('hakshan_show_signatures') once the carousel is
-// stable to bring it back via the Customizer toggle.
-$hakshan_show_signatures_force = false;
-if ( $hakshan_show_signatures_force && hakshan_show_section( 'hakshan_show_signatures' ) ) : ?>
+<?php if ( hakshan_show_section( 'hakshan_show_signatures' ) ) : ?>
 <!-- ============== SIGNATURES CAROUSEL ============== -->
 <section class="section sigs">
   <div class="sigs__head">
@@ -1245,7 +1239,12 @@ if ( $hakshan_show_signatures_force && hakshan_show_section( 'hakshan_show_signa
 </section>
 <?php endif; ?>
 
-<?php if ( hakshan_show_section( 'hakshan_show_reserve_cta' ) ) : ?>
+<?php
+// TEMPORARY: hide the 'Pull up a chair' Reserve a Table section on
+// the homepage. Flip $hakshan_show_reserve_cta_force back to true to
+// hand control back to the Customizer toggle.
+$hakshan_show_reserve_cta_force = false;
+if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_reserve_cta' ) ) : ?>
 <!-- ============== BOOK ============== -->
 <section class="book" id="book">
   <div class="inner" data-reveal>
