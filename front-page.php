@@ -497,11 +497,12 @@ get_header();
     max-width: var(--maxw);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(48px, 7vw, 80px);
+    grid-template-columns: 1fr 1.15fr;
+    gap: clamp(40px, 5vw, 72px);
+    align-items: center;
   }
   .charity__media {
-    aspect-ratio: 16 / 6;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
     border-radius: 14px;
     background: rgba(0, 0, 0, 0.15);
@@ -515,19 +516,22 @@ get_header();
     object-fit: cover;
     display: block;
   }
-  .charity__cols {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 80px;
-    align-items: start;
+  .charity__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-width: 56ch;
   }
+  .charity__copy h2 { margin-top: 14px; }
+  .charity__copy p { margin: 0; }
   .charity h2 {
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(48px, 6.5vw, 88px);
-    line-height: 0.95;
-    margin: 16px 0 0;
+    font-size: clamp(40px, 5vw, 68px);
+    line-height: 1;
+    margin: 0;
     letter-spacing: -0.02em;
+    text-wrap: balance;
   }
   .charity h2 em { font-style: italic; }
   .charity h2 .underline { border-bottom: 2px solid var(--cream); padding-bottom: 4px; }
@@ -536,16 +540,16 @@ get_header();
   .charity p { font-size: 17px; line-height: 1.7; opacity: 0.85; max-width: 60ch; }
   .charity__stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 40px;
-    padding-top: 32px;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 3vw, 40px);
+    margin-top: 16px;
+    padding-top: 28px;
     border-top: 1px solid rgba(235, 223, 196, 0.2);
   }
   .charity__stats .num {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 56px;
+    font-size: clamp(40px, 4.4vw, 56px);
     line-height: 1;
     letter-spacing: -0.02em;
   }
@@ -905,7 +909,7 @@ get_header();
   }
 
   @media (max-width: 980px) {
-    .hero-a, .anchor, .gens, .charity__inner, .charity__cols { grid-template-columns: 1fr; gap: 48px; }
+    .hero-a, .anchor, .gens, .charity__inner { grid-template-columns: 1fr; gap: 40px; }
     .charity__media { aspect-ratio: 4 / 3; }
     .charity__stats { grid-template-columns: 1fr 1fr; gap: 24px; }
     .outlets__head, .sigs__head { flex-direction: column; align-items: start; }
@@ -1217,30 +1221,26 @@ get_header();
     <div class="charity__media" data-reveal>
       <img src="https://hakshan.com/wp-content/uploads/2024/04/batch_ss困境重重.jpg" alt="Hakshan team giving back to the community" loading="lazy" />
     </div>
-    <div class="charity__cols">
-      <div data-reveal>
-        <span class="h-eyebrow"><span class="dot"></span>
-          <span data-en>DINING WITH PURPOSE</span><span data-zh>用餐慈善</span>
-        </span>
-        <h2>
-          <span data-en>Pay it<br/><em class="underline">Forward</em>.</span>
-          <span data-zh>一菜<br/>一<em class="underline">善</em>。</span>
-        </h2>
-      </div>
-      <div data-reveal>
-        <p>
-          <span data-en>Part of every sale at every outlet goes to community causes. Same rule, every kitchen, every day.</span>
-          <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途。同一条规则，每一天。</span>
-        </p>
-        <div class="charity__stats">
-          <div>
-            <div class="num">9</div>
-            <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
-          </div>
-          <div>
-            <div class="num">3</div>
-            <div class="lbl"><span data-en>Focus areas · education, elders, animals</span><span data-zh>三 个 方 向 · 教 育、长 者、动 物</span></div>
-          </div>
+    <div class="charity__copy" data-reveal>
+      <span class="h-eyebrow"><span class="dot"></span>
+        <span data-en>DINING WITH PURPOSE</span><span data-zh>用餐慈善</span>
+      </span>
+      <h2>
+        <span data-en>Pay it <em class="underline">Forward</em>.</span>
+        <span data-zh>一菜 一<em class="underline">善</em>。</span>
+      </h2>
+      <p>
+        <span data-en>Part of every sale at every outlet goes to community causes. Same rule, every kitchen, every day.</span>
+        <span data-zh>每一家门店，每一笔营业额的一部分，拨入社区用途。同一条规则，每一天。</span>
+      </p>
+      <div class="charity__stats">
+        <div>
+          <div class="num">9</div>
+          <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
+        </div>
+        <div>
+          <div class="num">3</div>
+          <div class="lbl"><span data-en>Focus areas · education, elders, animals</span><span data-zh>三 个 方 向 · 教 育、长 者、动 物</span></div>
         </div>
       </div>
     </div>
