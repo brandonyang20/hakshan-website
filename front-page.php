@@ -256,6 +256,20 @@ get_header();
        bottom so cards fan outward like a deck spread. */
     transform-origin: center bottom;
     will-change: transform;
+    /* Stop the browser's native link-drag and text-selection gestures
+       from stealing pointer events from the slider's drag handler. */
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Images inside cards: disable image-drag and let pointer events fall
+     through to the card so the slider's pointerdown handler always wins. */
+  .sc-card img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
   }
   .sc-card:hover {
     background: #fefcf7;
@@ -1347,6 +1361,16 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
       track.insertBefore(c, track.firstChild);
     }
     const cards = Array.from(track.children); // 3N cards
+
+    // Native link-drag and image-drag steal pointer events from us.
+    // Belt + braces: kill the draggable attribute on every image, set
+    // the card's own draggable to false. CSS handles the rest.
+    cards.forEach(card => {
+      card.setAttribute("draggable", "false");
+      card.querySelectorAll("img").forEach(img => {
+        img.setAttribute("draggable", "false");
+      });
+    });
 
     let cardW = 0, gap = 0, stepW = 0, setW = 0;
     let offset = 0;
