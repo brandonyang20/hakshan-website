@@ -1235,7 +1235,7 @@ get_header();
       </p>
       <div class="charity__stats">
         <div>
-          <div class="num">9</div>
+          <div class="num">13</div>
           <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
         </div>
         <div>

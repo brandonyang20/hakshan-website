@@ -1332,10 +1332,10 @@ get_header();
   ?>
   <div class="iv-team__grid" data-reveal>
     <article class="iv-member">
-      <?php hakshan_iv_member_photo( 'ceo', 'Chong Jin Wei' ); ?>
+      <?php hakshan_iv_member_photo( 'ceo', 'Horvard Chong' ); ?>
       <div class="iv-member__body">
         <p class="iv-member__role">CEO</p>
-        <h3 class="iv-member__name">Chong Jin Wei</h3>
+        <h3 class="iv-member__name">Horvard Chong</h3>
         <ul class="iv-member__bio">
           <li><span data-en>Founder of 營在今銷企業社 (Taiwan), Horvy Supercharge (HK), Horvy Holding Sdn Bhd</span><span data-zh>營在今銷企業社（台湾）、Horvy Supercharge（香港）、Horvy Holding Sdn Bhd 创办人</span></li>
           <li><span data-en>Business Director EMEA of Vertis Media (UK); Managing Director of AJM Marketing Msia</span><span data-zh>Vertis Media（英国）EMEA 业务总监；AJM Marketing 马来西亚董事经理</span></li>
