@@ -1645,7 +1645,7 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
   // payload stays small. The /menu/ page still works as a normal
   // fallback link (data-menu-modal-trigger preventDefault'd here, but
   // if JS fails the anchor href routes there normally).
-  var HAKSHAN_MENU_PDF_URL = "https://hakshan.com/wp-content/uploads/2026/06/hakshan-menu.pdf"; // TODO: replace with the actual uploaded menu PDF URL
+  var HAKSHAN_MENU_PDF_URL = "https://hakshan.com/wp-content/uploads/2026/06/hakshan-menu.pdf";
   var __menuFlipbook = { loading: false, ready: false, instance: null };
 
   function loadFlipbookAssets() {
