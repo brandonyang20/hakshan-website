@@ -663,6 +663,7 @@ get_header();
     line-height: 1.65;
     color: var(--ink-soft);
     margin: 0;
+    padding: 0;
   }
   .iv-member__bio li {
     list-style: none;
