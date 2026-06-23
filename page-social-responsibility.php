@@ -524,19 +524,9 @@ get_header();
       </h2>
     </div>
     <div class="sr-origin__cols">
-      <?php
-      // Founder portrait. Replace the URL below with your uploaded image
-      // (theme path under assets/img/ or any WP media URL).
-      $sr_origin_image = 'assets/img/sr-founder.jpg';
-      $sr_origin_path  = get_theme_file_path( $sr_origin_image );
-      ?>
-      <?php if ( file_exists( $sr_origin_path ) ) : ?>
       <div class="sr-origin__media" data-reveal>
-        <img src="<?php echo esc_url( get_theme_file_uri( $sr_origin_image ) ); ?>" alt="The founder, on the road" loading="lazy" />
+        <img src="https://hakshan.com/wp-content/uploads/2026/06/horvard-charity.jpeg" alt="The founder, on the road" loading="lazy" />
       </div>
-      <?php else : ?>
-      <div class="sr-origin__media" data-reveal aria-hidden="true"></div>
-      <?php endif; ?>
       <div data-reveal>
         <p class="lead">
           <span data-en>It didn't start in a Hakka kitchen.</span>
