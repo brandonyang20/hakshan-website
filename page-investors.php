@@ -1319,10 +1319,14 @@ get_header();
     global $iv_team_photos;
     $rel  = $iv_team_photos[ $slot ];
     $path = get_theme_file_path( $rel );
-    echo '<div class="iv-member__photo">';
-    if ( file_exists( $path ) ) {
-      echo '<img src="' . esc_url( get_theme_file_uri( $rel ) ) . '" alt="' . esc_attr( $name ) . '" loading="lazy" />';
+    // Only render the photo slot when the file actually exists, so cards
+    // don't show an empty cream placeholder while photos are still being
+    // gathered.
+    if ( ! file_exists( $path ) ) {
+      return;
     }
+    echo '<div class="iv-member__photo">';
+    echo '<img src="' . esc_url( get_theme_file_uri( $rel ) ) . '" alt="' . esc_attr( $name ) . '" loading="lazy" />';
     echo '</div>';
   }
   ?>
