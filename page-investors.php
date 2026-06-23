@@ -585,18 +585,24 @@ get_header();
       padding: 10px 12px;
       font-size: 12px;
     }
-    /* Bar-chart labels — rotate 45° on mobile so 'Jul 25' style labels
-       fit under their narrow columns without overlapping each other. */
+    /* Bar-chart labels — rotate -45° on mobile so 'Jul 25' style
+       labels fit under their narrow columns. Position them absolutely
+       below the .iv-bar so they're outside the bars container's layout
+       box; otherwise the rotated layout-box still pushes the border-
+       bottom down past the bars, where the line ends up slashing
+       through the rotated text. */
+    .iv-bar { position: relative; }
     .iv-bar__lbl {
-      transform: rotate(-45deg);
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 50%;
+      transform: translateX(50%) rotate(-45deg);
       transform-origin: top right;
       font-size: 9px;
-      margin-top: 6px;
-      text-align: right;
       width: max-content;
-      justify-self: end;
+      text-align: right;
     }
-    .iv-chart__bars { margin-bottom: 28px; }
+    .iv-chart__bars { margin-bottom: 56px; }
   }
 
   /* ============== 6c. TEAM ============== */
