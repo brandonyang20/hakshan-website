@@ -622,6 +622,22 @@ get_header();
   .iv-member {
     background: var(--paper);
     border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .iv-member__photo {
+    aspect-ratio: 4 / 5;
+    background: var(--cream);
+    overflow: hidden;
+  }
+  .iv-member__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .iv-member__body {
     padding: clamp(22px, 2.4vw, 32px);
     display: flex;
     flex-direction: column;
@@ -1286,58 +1302,94 @@ get_header();
     </span>
     <h2><span data-en>Operators behind <em>the bowl.</em></span><span data-zh>碗背后的<em>经营者。</em></span></h2>
   </div>
+  <?php
+  // Team portraits. Drop the actual JPGs into the theme at these paths,
+  // or send me WP media URLs and I'll repoint these to /wp-content/uploads/.
+  $iv_team_photos = array(
+    'ceo' => 'assets/img/team-chong-jin-wei.jpg',
+    'coo' => 'assets/img/team-jordan-lim.jpg',
+    'cxo' => 'assets/img/team-aaron-ee.jpg',
+    'cfo' => 'assets/img/team-lay-ming.jpg',
+    'cpo' => 'assets/img/team-madam-siow.jpg',
+  );
+  function hakshan_iv_member_photo( $slot, $name ) {
+    global $iv_team_photos;
+    $rel  = $iv_team_photos[ $slot ];
+    $path = get_theme_file_path( $rel );
+    echo '<div class="iv-member__photo">';
+    if ( file_exists( $path ) ) {
+      echo '<img src="' . esc_url( get_theme_file_uri( $rel ) ) . '" alt="' . esc_attr( $name ) . '" loading="lazy" />';
+    }
+    echo '</div>';
+  }
+  ?>
   <div class="iv-team__grid" data-reveal>
     <article class="iv-member">
-      <p class="iv-member__role">CEO</p>
-      <h3 class="iv-member__name">Chong Jin Wei</h3>
-      <ul class="iv-member__bio">
-        <li><span data-en>Founder of 營在今銷企業社 (Taiwan), Horvy Supercharge (HK), Horvy Holding Sdn Bhd</span><span data-zh>營在今銷企業社（台湾）、Horvy Supercharge（香港）、Horvy Holding Sdn Bhd 创办人</span></li>
-        <li><span data-en>Business Director EMEA of Vertis Media (UK); Managing Director of AJM Marketing Msia</span><span data-zh>Vertis Media（英国）EMEA 业务总监；AJM Marketing 马来西亚董事经理</span></li>
-        <li><span data-en>Board Member of M.CACA (NGO)</span><span data-zh>M.CACA（NGO）理事</span></li>
-        <li><span data-en>A decade in performance marketing &amp; e-commerce — data-driven strategy, conversion optimisation, revenue growth.</span><span data-zh>十年绩效营销与电商经验——数据驱动策略、转化率优化、营收增长。</span></li>
-      </ul>
+      <?php hakshan_iv_member_photo( 'ceo', 'Chong Jin Wei' ); ?>
+      <div class="iv-member__body">
+        <p class="iv-member__role">CEO</p>
+        <h3 class="iv-member__name">Chong Jin Wei</h3>
+        <ul class="iv-member__bio">
+          <li><span data-en>Founder of 營在今銷企業社 (Taiwan), Horvy Supercharge (HK), Horvy Holding Sdn Bhd</span><span data-zh>營在今銷企業社（台湾）、Horvy Supercharge（香港）、Horvy Holding Sdn Bhd 创办人</span></li>
+          <li><span data-en>Business Director EMEA of Vertis Media (UK); Managing Director of AJM Marketing Msia</span><span data-zh>Vertis Media（英国）EMEA 业务总监；AJM Marketing 马来西亚董事经理</span></li>
+          <li><span data-en>Board Member of M.CACA (NGO)</span><span data-zh>M.CACA（NGO）理事</span></li>
+          <li><span data-en>A decade in performance marketing &amp; e-commerce — data-driven strategy, conversion optimisation, revenue growth.</span><span data-zh>十年绩效营销与电商经验——数据驱动策略、转化率优化、营收增长。</span></li>
+        </ul>
+      </div>
     </article>
 
     <article class="iv-member">
-      <p class="iv-member__role">COO</p>
-      <h3 class="iv-member__name">Jordan Lim</h3>
-      <ul class="iv-member__bio">
-        <li><span data-en>Managing Director of AJM Marketing (Malaysia)</span><span data-zh>AJM Marketing（马来西亚）董事经理</span></li>
-        <li><span data-en>Specialises in market strategy and business operations</span><span data-zh>专长于市场策略与业务营运</span></li>
-        <li><span data-en>Focuses on brand growth and expansion</span><span data-zh>主导品牌增长与扩张</span></li>
-      </ul>
+      <?php hakshan_iv_member_photo( 'coo', 'Jordan Lim' ); ?>
+      <div class="iv-member__body">
+        <p class="iv-member__role">COO</p>
+        <h3 class="iv-member__name">Jordan Lim</h3>
+        <ul class="iv-member__bio">
+          <li><span data-en>Managing Director of AJM Marketing (Malaysia)</span><span data-zh>AJM Marketing（马来西亚）董事经理</span></li>
+          <li><span data-en>Specialises in market strategy and business operations</span><span data-zh>专长于市场策略与业务营运</span></li>
+          <li><span data-en>Focuses on brand growth and expansion</span><span data-zh>主导品牌增长与扩张</span></li>
+        </ul>
+      </div>
     </article>
 
     <article class="iv-member">
-      <p class="iv-member__role">CXO</p>
-      <h3 class="iv-member__name">Aaron Ee</h3>
-      <ul class="iv-member__bio">
-        <li><span data-en>Founder &amp; CEO of AJM Marketing (Malaysia)</span><span data-zh>AJM Marketing（马来西亚）创办人兼 CEO</span></li>
-        <li><span data-en>Founder &amp; CEO of The Niang's</span><span data-zh>The Niang's 创办人兼 CEO</span></li>
-        <li><span data-en>Founder &amp; CEO of Horvy Super Charge (Hong Kong)</span><span data-zh>Horvy Super Charge（香港）创办人兼 CEO</span></li>
-        <li><span data-en>Founder &amp; CXO of HAKSHAN</span><span data-zh>客善创办人兼 CXO</span></li>
-      </ul>
+      <?php hakshan_iv_member_photo( 'cxo', 'Aaron Ee' ); ?>
+      <div class="iv-member__body">
+        <p class="iv-member__role">CXO</p>
+        <h3 class="iv-member__name">Aaron Ee</h3>
+        <ul class="iv-member__bio">
+          <li><span data-en>Founder &amp; CEO of AJM Marketing (Malaysia)</span><span data-zh>AJM Marketing（马来西亚）创办人兼 CEO</span></li>
+          <li><span data-en>Founder &amp; CEO of The Niang's</span><span data-zh>The Niang's 创办人兼 CEO</span></li>
+          <li><span data-en>Founder &amp; CEO of Horvy Super Charge (Hong Kong)</span><span data-zh>Horvy Super Charge（香港）创办人兼 CEO</span></li>
+          <li><span data-en>Founder &amp; CXO of HAKSHAN</span><span data-zh>客善创办人兼 CXO</span></li>
+        </ul>
+      </div>
     </article>
 
     <article class="iv-member">
-      <p class="iv-member__role">CFO</p>
-      <h3 class="iv-member__name">Lay Ming</h3>
-      <ul class="iv-member__bio">
-        <li><span data-en>13+ years in accounting, tax &amp; audit — corporate finance and regulatory compliance.</span><span data-zh>13 年以上会计、税务与审计经验——擅长企业财务与合规。</span></li>
-        <li><span data-en>Former Accountant of a U.S.-listed company — international financial perspective.</span><span data-zh>曾任美国上市公司会计——具备国际财务视角。</span></li>
-        <li><span data-en>MIA Chartered Accountant &amp; LSS Green Belt — financial optimisation and efficiency.</span><span data-zh>马来西亚特许会计师 &amp; 精益六西格玛绿带——财务优化与流程效率。</span></li>
-        <li><span data-en>IPO &amp; corporate-structuring experience — preparation, compliance, structuring.</span><span data-zh>IPO 与企业架构经验——上市准备、合规与架构搭建。</span></li>
-      </ul>
+      <?php hakshan_iv_member_photo( 'cfo', 'Lay Ming' ); ?>
+      <div class="iv-member__body">
+        <p class="iv-member__role">CFO</p>
+        <h3 class="iv-member__name">Lay Ming</h3>
+        <ul class="iv-member__bio">
+          <li><span data-en>13+ years in accounting, tax &amp; audit — corporate finance and regulatory compliance.</span><span data-zh>13 年以上会计、税务与审计经验——擅长企业财务与合规。</span></li>
+          <li><span data-en>Former Accountant of a U.S.-listed company — international financial perspective.</span><span data-zh>曾任美国上市公司会计——具备国际财务视角。</span></li>
+          <li><span data-en>MIA Chartered Accountant &amp; LSS Green Belt — financial optimisation and efficiency.</span><span data-zh>马来西亚特许会计师 &amp; 精益六西格玛绿带——财务优化与流程效率。</span></li>
+          <li><span data-en>IPO &amp; corporate-structuring experience — preparation, compliance, structuring.</span><span data-zh>IPO 与企业架构经验——上市准备、合规与架构搭建。</span></li>
+        </ul>
+      </div>
     </article>
 
     <article class="iv-member">
-      <p class="iv-member__role">CPO</p>
-      <h3 class="iv-member__name">Madam Siow</h3>
-      <ul class="iv-member__bio">
-        <li><span data-en>Founder of Ying Ker Lou (迎客楼)</span><span data-zh>迎客楼创办人</span></li>
-        <li><span data-en>40+ years in the F&amp;B industry</span><span data-zh>四十多年餐饮业经验</span></li>
-        <li><span data-en>Mastery of traditional and modern culinary techniques</span><span data-zh>精通传统与现代烹饪技艺</span></li>
-      </ul>
+      <?php hakshan_iv_member_photo( 'cpo', 'Madam Siow' ); ?>
+      <div class="iv-member__body">
+        <p class="iv-member__role">CPO</p>
+        <h3 class="iv-member__name">Madam Siow</h3>
+        <ul class="iv-member__bio">
+          <li><span data-en>Founder of Ying Ker Lou (迎客楼)</span><span data-zh>迎客楼创办人</span></li>
+          <li><span data-en>40+ years in the F&amp;B industry</span><span data-zh>四十多年餐饮业经验</span></li>
+          <li><span data-en>Mastery of traditional and modern culinary techniques</span><span data-zh>精通传统与现代烹饪技艺</span></li>
+        </ul>
+      </div>
     </article>
   </div>
 </section>
