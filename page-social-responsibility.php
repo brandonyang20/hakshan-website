@@ -523,10 +523,6 @@ get_header();
 <!-- ============== THREE PILLARS ============== -->
 <section class="sr-pillars">
   <div class="sr-pillars__head" data-reveal>
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>THREE CAUSES · 三 个 方 向</span>
-      <span data-zh>三个方向</span>
-    </span>
     <h2>
       <span data-en>Where the<br/>contribution <em>goes.</em></span>
       <span data-zh>钱<br/><em>去 了 哪 里。</em></span>
@@ -534,7 +530,6 @@ get_header();
   </div>
   <div class="sr-pillars__grid" data-reveal>
     <div class="sr-pillar">
-      <span class="ix">CAUSE I · 教 育</span>
       <h3>
         <span data-en>Education</span><span data-zh>教 育</span>
         <span class="cn">教 育</span>
@@ -545,7 +540,6 @@ get_header();
       </p>
     </div>
     <div class="sr-pillar">
-      <span class="ix">CAUSE II · 长 者 关 怀</span>
       <h3>
         <span data-en>Elderly care</span><span data-zh>长 者 关 怀</span>
         <span class="cn">长 者</span>
@@ -556,7 +550,6 @@ get_header();
       </p>
     </div>
     <div class="sr-pillar">
-      <span class="ix">CAUSE III · 动 物 福 利</span>
       <h3>
         <span data-en>Animal welfare</span><span data-zh>动 物 福 利</span>
         <span class="cn">动 物</span>
