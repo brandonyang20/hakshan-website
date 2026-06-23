@@ -541,28 +541,14 @@ get_header();
     </h2>
   </div>
   <div class="sr-pillars__grid" data-reveal>
-    <?php
-    // Photo slots for the three causes. Drop files into the paths
-    // below — the slot only renders when the file exists, so the cards
-    // stay clean until images are uploaded. Or send me WP media URLs
-    // and I'll repoint these to /wp-content/uploads/.
-    $sr_pillar_images = array(
-      'education' => 'assets/img/sr-education.jpg',
-      'elderly'   => 'assets/img/sr-elderly.jpg',
-      'animals'   => 'assets/img/sr-animals.jpg',
-    );
-    ?>
     <div class="sr-pillar">
       <h3>
         <span data-en>Education</span><span data-zh>教 育</span>
         <span class="cn">教 育</span>
       </h3>
-      <?php $p = get_theme_file_path( $sr_pillar_images['education'] );
-            if ( file_exists( $p ) ) : ?>
       <div class="sr-pillar__media">
-        <img src="<?php echo esc_url( get_theme_file_uri( $sr_pillar_images['education'] ) ); ?>" alt="Education — Hakshan community support" loading="lazy" />
+        <img src="https://hakshan.com/wp-content/uploads/2024/04/batch_ss汇聚力量.携手同心.jpg" alt="Education — Hakshan community support" loading="lazy" />
       </div>
-      <?php endif; ?>
       <p>
         <span data-en>Supporting school programmes, learning materials, and educational access for students in the communities around our outlets. Every child who learns is a small future kept open.</span>
         <span data-zh>支持学校项目、学习物资，以及门店所在社区学生的受教机会。每一个能继续读书的孩子，都是一份未被关上的未来。</span>
@@ -573,12 +559,9 @@ get_header();
         <span data-en>Elderly care</span><span data-zh>长 者 关 怀</span>
         <span class="cn">长 者</span>
       </h3>
-      <?php $p = get_theme_file_path( $sr_pillar_images['elderly'] );
-            if ( file_exists( $p ) ) : ?>
       <div class="sr-pillar__media">
-        <img src="<?php echo esc_url( get_theme_file_uri( $sr_pillar_images['elderly'] ) ); ?>" alt="Elderly care — Hakshan community support" loading="lazy" />
+        <img src="https://hakshan.com/wp-content/uploads/2024/07/Compress_DSC5350.jpg" alt="Elderly care — Hakshan community support" loading="lazy" />
       </div>
-      <?php endif; ?>
       <p>
         <span data-en>Meals for elderly residents in care homes, support for community elder programmes, and small monthly visits — because the recipes we cook came from grandmothers, and we don't forget that.</span>
         <span data-zh>为养老院的长者送餐，支持社区长者项目，每月定期探访——因为我们的食谱来自祖母，这件事我们没有忘。</span>
@@ -589,12 +572,9 @@ get_header();
         <span data-en>Animal welfare</span><span data-zh>动 物 福 利</span>
         <span class="cn">动 物</span>
       </h3>
-      <?php $p = get_theme_file_path( $sr_pillar_images['animals'] );
-            if ( file_exists( $p ) ) : ?>
       <div class="sr-pillar__media">
-        <img src="<?php echo esc_url( get_theme_file_uri( $sr_pillar_images['animals'] ) ); ?>" alt="Animal welfare — Hakshan community support" loading="lazy" />
+        <img src="https://hakshan.com/wp-content/uploads/2026/06/DSC_5201.jpg" alt="Animal welfare — Hakshan community support" loading="lazy" />
       </div>
-      <?php endif; ?>
       <p>
         <span data-en>Support for animal shelters, sterilisation programmes, and rescue work for strays in the Klang Valley and beyond. The smallest voices, the ones nobody else speaks for.</span>
         <span data-zh>支持流浪动物收容所、绝育项目，以及巴生谷及更远地区的救援工作。最小的声音，没有人替他们说话的那一群。</span>
