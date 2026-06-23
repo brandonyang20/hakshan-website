@@ -565,7 +565,6 @@ get_header();
       <div class="sr-pillar__body">
         <h3>
           <span data-en>Education</span><span data-zh>教 育</span>
-          <span class="cn">教 育</span>
         </h3>
         <p>
           <span data-en>Supporting school programmes, learning materials, and educational access for students in the communities around our outlets. Every child who learns is a small future kept open.</span>
@@ -580,7 +579,6 @@ get_header();
       <div class="sr-pillar__body">
         <h3>
           <span data-en>Elderly care</span><span data-zh>长 者 关 怀</span>
-          <span class="cn">长 者</span>
         </h3>
         <p>
           <span data-en>Meals for elderly residents in care homes, support for community elder programmes, and small monthly visits — because the recipes we cook came from grandmothers, and we don't forget that.</span>
@@ -595,7 +593,6 @@ get_header();
       <div class="sr-pillar__body">
         <h3>
           <span data-en>Animal welfare</span><span data-zh>动 物 福 利</span>
-          <span class="cn">动 物</span>
         </h3>
         <p>
           <span data-en>Support for animal shelters, sterilisation programmes, and rescue work for strays in the Klang Valley and beyond. The smallest voices, the ones nobody else speaks for.</span>
