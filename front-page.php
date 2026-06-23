@@ -344,14 +344,14 @@ get_header();
     top: calc(var(--nav-h, 65px) + 48px);
     background: var(--paper);
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 0;
     min-height: clamp(420px, 60vh, 600px);
     overflow: hidden;
   }
   .kitchen__photo {
     position: relative;
-    aspect-ratio: 3 / 4;
+    min-width: 0;
     height: 100%;
     overflow: hidden;
     background: var(--cream);
@@ -376,7 +376,8 @@ get_header();
     pointer-events: none;
   }
   .kitchen__text {
-    padding: clamp(32px, 4vw, 56px) clamp(28px, 3.5vw, 48px) clamp(32px, 4vw, 56px) clamp(40px, 5vw, 72px);
+    min-width: 0;
+    padding: clamp(32px, 4vw, 56px) clamp(28px, 3.5vw, 48px) clamp(32px, 4vw, 56px) clamp(36px, 4.5vw, 64px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -391,10 +392,11 @@ get_header();
   }
   .kitchen h3 {
     font-family: var(--serif);
-    font-size: clamp(28px, 3.4vw, 44px);
-    line-height: 1.1;
+    font-size: clamp(24px, 2.6vw, 38px);
+    line-height: 1.15;
     margin: 0 0 14px;
     letter-spacing: -0.015em;
+    text-wrap: balance;
   }
   .kitchen p {
     margin: 0;
@@ -402,6 +404,12 @@ get_header();
     line-height: 1.7;
     color: var(--ink-soft);
     max-width: 32ch;
+  }
+  @media (max-width: 1200px) and (min-width: 901px) {
+    /* Laptop range — give the kitchen cards more horizontal room so the
+       headline doesn't squeeze against the photo edge. */
+    .kitchens__inner { grid-template-columns: 0.85fr 1.6fr; gap: 40px; }
+    .kitchens__copy h2 { font-size: clamp(36px, 5vw, 60px); }
   }
   @media (max-width: 900px) {
     .kitchens__inner { grid-template-columns: 1fr; }
