@@ -139,8 +139,16 @@ get_header();
   }
   @media (max-width: 860px) {
     .sr-origin__inner { grid-template-columns: 1fr; min-height: 0; }
-    .sr-origin__copy { padding: clamp(48px, 9vw, 80px) clamp(20px, 6vw, 40px); grid-row: 2; }
-    .sr-origin__media { min-height: 320px; grid-row: 1; }
+    .sr-origin__copy {
+      padding: clamp(48px, 9vw, 80px) clamp(20px, 6vw, 40px);
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .sr-origin__media {
+      min-height: 320px;
+      grid-column: 1;
+      grid-row: 1;
+    }
     .sr-origin__media::after {
       background: linear-gradient(0deg, #231A12 1%, transparent 45%);
     }
