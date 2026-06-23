@@ -178,7 +178,10 @@ get_header();
   .iv-chart__bars {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    /* minmax(0, 1fr) — keep all 14 columns at exactly 1/14th of the
+       chart width even when labels are wider than that share. Without
+       this, no-wrap labels push columns wider and the chart overflows. */
+    grid-auto-columns: minmax(0, 1fr);
     gap: clamp(3px, 0.7vw, 9px);
     align-items: end;
     height: clamp(240px, 32vw, 360px);
@@ -582,6 +585,18 @@ get_header();
       padding: 10px 12px;
       font-size: 12px;
     }
+    /* Bar-chart labels — rotate 45° on mobile so 'Jul 25' style labels
+       fit under their narrow columns without overlapping each other. */
+    .iv-bar__lbl {
+      transform: rotate(-45deg);
+      transform-origin: top right;
+      font-size: 9px;
+      margin-top: 6px;
+      text-align: right;
+      width: max-content;
+      justify-self: end;
+    }
+    .iv-chart__bars { margin-bottom: 28px; }
   }
 
   /* ============== 6c. TEAM ============== */
