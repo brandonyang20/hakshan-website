@@ -648,6 +648,7 @@ get_header();
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     display: block;
   }
   .iv-member__body {
@@ -1322,27 +1323,21 @@ get_header();
     <h2><span data-en>Operators behind <em>the bowl.</em></span><span data-zh>碗背后的<em>经营者。</em></span></h2>
   </div>
   <?php
-  // Team portraits. Drop the actual JPGs into the theme at these paths,
-  // or send me WP media URLs and I'll repoint these to /wp-content/uploads/.
+  // Team portraits — full WP-media URLs.
   $iv_team_photos = array(
-    'ceo' => 'assets/img/team-chong-jin-wei.jpg',
-    'coo' => 'assets/img/team-jordan-lim.jpg',
-    'cxo' => 'assets/img/team-aaron-ee.jpg',
-    'cfo' => 'assets/img/team-lay-ming.jpg',
-    'cpo' => 'assets/img/team-madam-siow.jpg',
+    'ceo' => 'https://hakshan.com/wp-content/uploads/2026/06/Horvard.png',
+    'coo' => 'https://hakshan.com/wp-content/uploads/2026/06/Jordan.png',
+    'cxo' => 'https://hakshan.com/wp-content/uploads/2026/06/Aaron.png',
+    'cfo' => 'https://hakshan.com/wp-content/uploads/2026/06/Layming.png',
+    'cpo' => 'https://hakshan.com/wp-content/uploads/2026/06/Madam.png',
   );
   function hakshan_iv_member_photo( $slot, $name ) {
     global $iv_team_photos;
-    $rel  = $iv_team_photos[ $slot ];
-    $path = get_theme_file_path( $rel );
-    // Only render the photo slot when the file actually exists, so cards
-    // don't show an empty cream placeholder while photos are still being
-    // gathered.
-    if ( ! file_exists( $path ) ) {
+    if ( empty( $iv_team_photos[ $slot ] ) ) {
       return;
     }
     echo '<div class="iv-member__photo">';
-    echo '<img src="' . esc_url( get_theme_file_uri( $rel ) ) . '" alt="' . esc_attr( $name ) . '" loading="lazy" />';
+    echo '<img src="' . esc_url( $iv_team_photos[ $slot ] ) . '" alt="' . esc_attr( $name ) . '" loading="lazy" />';
     echo '</div>';
   }
   ?>
