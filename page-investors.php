@@ -704,9 +704,18 @@ get_header();
   .iv-team__grid > .iv-member:nth-child(5) { order: 5; } /* CPO  -> far right */
   @media (max-width: 980px) {
     .iv-team__grid { grid-template-columns: repeat(2, 1fr); }
-    /* Below the 5-col desktop layout, fall back to natural HTML order so
-       CEO is first in the stack instead of buried in the middle. */
-    .iv-team__grid > .iv-member { order: 0; }
+    /* Below the 5-col desktop layout, reset to natural HTML order so CEO
+       is first in the stack instead of buried in the middle. Each
+       :nth-child rule is re-targeted here so specificity matches the
+       desktop overrides above — otherwise those win and the mobile
+       stack keeps CBDO at the top. */
+    .iv-team__grid > .iv-member:nth-child(1),
+    .iv-team__grid > .iv-member:nth-child(2),
+    .iv-team__grid > .iv-member:nth-child(3),
+    .iv-team__grid > .iv-member:nth-child(4),
+    .iv-team__grid > .iv-member:nth-child(5) {
+      order: 0;
+    }
   }
   @media (max-width: 560px) {
     .iv-team__grid { grid-template-columns: 1fr; }
