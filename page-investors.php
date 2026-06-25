@@ -641,7 +641,7 @@ get_header();
   }
   .iv-member__photo {
     aspect-ratio: 4 / 5;
-    background: var(--cream);
+    background: #231A12;
     overflow: hidden;
   }
   .iv-member__photo img {
@@ -694,8 +694,19 @@ get_header();
     line-height: 1;
   }
   .iv-member__bio li:last-child { margin-bottom: 0; }
+  /* Desktop layout: 5 columns. Reorder visually so CEO sits dead-centre
+     (position 3), with COO/CFO flanking and CBDO/CPO on the outside.
+     HTML order is kept CEO-first for screen readers and tab-flow. */
+  .iv-team__grid > .iv-member:nth-child(1) { order: 3; } /* CEO  -> centre */
+  .iv-team__grid > .iv-member:nth-child(2) { order: 2; } /* COO  -> left of centre */
+  .iv-team__grid > .iv-member:nth-child(3) { order: 1; } /* CBDO -> far left */
+  .iv-team__grid > .iv-member:nth-child(4) { order: 4; } /* CFO  -> right of centre */
+  .iv-team__grid > .iv-member:nth-child(5) { order: 5; } /* CPO  -> far right */
   @media (max-width: 980px) {
     .iv-team__grid { grid-template-columns: repeat(2, 1fr); }
+    /* Below the 5-col desktop layout, fall back to natural HTML order so
+       CEO is first in the stack instead of buried in the middle. */
+    .iv-team__grid > .iv-member { order: 0; }
   }
   @media (max-width: 560px) {
     .iv-team__grid { grid-template-columns: 1fr; }
@@ -1372,13 +1383,13 @@ get_header();
     <article class="iv-member">
       <?php hakshan_iv_member_photo( 'cxo', 'Aaron Ee' ); ?>
       <div class="iv-member__body">
-        <p class="iv-member__role">CXO</p>
+        <p class="iv-member__role">CBDO</p>
         <h3 class="iv-member__name">Aaron Ee</h3>
         <ul class="iv-member__bio">
           <li><span data-en>Founder &amp; CEO of AJM Marketing (Malaysia)</span><span data-zh>AJM Marketing（马来西亚）创办人兼 CEO</span></li>
           <li><span data-en>Founder &amp; CEO of The Niang's</span><span data-zh>The Niang's 创办人兼 CEO</span></li>
           <li><span data-en>Founder &amp; CEO of Horvy Super Charge (Hong Kong)</span><span data-zh>Horvy Super Charge（香港）创办人兼 CEO</span></li>
-          <li><span data-en>Founder &amp; CXO of HAKSHAN</span><span data-zh>客善创办人兼 CXO</span></li>
+          <li><span data-en>Founder &amp; CBDO of HAKSHAN</span><span data-zh>客善创办人兼 CBDO</span></li>
         </ul>
       </div>
     </article>
