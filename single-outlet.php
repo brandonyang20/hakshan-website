@@ -110,26 +110,12 @@ $maps_embed = $o['addr']
   }
   .so-hero__media.is-in img {
     transform: translate3d(0, 0, 0);
-    transition-delay: 0.14s;
-  }
-  .so-hero__media::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: var(--forest, #1f3a2e);
-    transform: translate3d(0, 100%, 0);
-    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .so-hero__media.is-in::before {
-    transform: translate3d(0, 0, 0);
   }
   @media (max-width: 720px) {
     .so-hero__media { aspect-ratio: 4 / 3; margin-bottom: 28px; }
   }
   @media (prefers-reduced-motion: reduce) {
     .so-hero__media img { transform: none; transition: none; }
-    .so-hero__media::before { display: none; }
   }
 
   .so-grid {
@@ -270,21 +256,6 @@ $maps_embed = $o['addr']
   }
   .so-gallery__item.is-in img {
     transform: translate3d(0, 0, 0);
-    transition-delay: 0.12s; /* lets the curtain lead by ~120ms */
-  }
-  /* Curtain — sits behind the image and slides up just ahead of it,
-     so the frame fills with colour first, then the photo locks in. */
-  .so-gallery__item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: var(--forest, #1f3a2e);
-    transform: translate3d(0, 100%, 0);
-    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .so-gallery__item.is-in::before {
-    transform: translate3d(0, 0, 0);
   }
   /* Hover: gentle zoom only after the reveal has settled. */
   .so-gallery__item img { transition-property: transform; }
@@ -294,7 +265,6 @@ $maps_embed = $o['addr']
   }
   @media (prefers-reduced-motion: reduce) {
     .so-gallery__item img { transform: none; transition: none; }
-    .so-gallery__item::before { display: none; }
   }
 
   @media (max-width: 900px) {
