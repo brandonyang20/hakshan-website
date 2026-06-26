@@ -87,6 +87,51 @@ $maps_embed = $o['addr']
     margin: 0;
   }
 
+  /* Hero photo — sits between the city sub-line and the lead paragraph.
+     Uses the outlet's WP Featured Image. Same masked slide-up reveal
+     pattern as the gallery so the two read as one motion language. */
+  .so-hero__media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--cream);
+    border-radius: 4px;
+    margin: 0 0 36px;
+    isolation: isolate;
+  }
+  .so-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: translate3d(0, 102%, 0);
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+  .so-hero__media.is-in img {
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0.14s;
+  }
+  .so-hero__media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--forest, #1f3a2e);
+    transform: translate3d(0, 100%, 0);
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .so-hero__media.is-in::before {
+    transform: translate3d(0, 0, 0);
+  }
+  @media (max-width: 720px) {
+    .so-hero__media { aspect-ratio: 4 / 3; margin-bottom: 28px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .so-hero__media img { transform: none; transition: none; }
+    .so-hero__media::before { display: none; }
+  }
+
   .so-grid {
     max-width: var(--maxw);
     margin: 40px auto 80px;
@@ -281,6 +326,17 @@ $maps_embed = $o['addr']
     <span data-en>Hakka Chinese Restaurant · <?php echo esc_html( $city_pretty ); ?></span>
     <span data-zh>客家中餐厅 · <?php echo esc_html( $city_pretty ); ?></span>
   </p>
+  <?php endif; ?>
+
+  <?php if ( ! empty( $o['image_url'] ) ) : ?>
+    <figure class="so-hero__media" data-reveal>
+      <img
+        src="<?php echo esc_url( $o['image_url'] ); ?>"
+        alt="<?php echo esc_attr( $o['name'] . ( $city_pretty ? ', ' . $city_pretty : '' ) ); ?>"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </figure>
   <?php endif; ?>
 
   <p class="lead">
