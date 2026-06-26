@@ -201,6 +201,10 @@ $maps_embed = $o['addr']
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(8px, 1vw, 14px);
   }
+  /* Masked slide-up reveal.
+     The figure is the mask (overflow:hidden, fixed aspect).
+     The image inside translates up from below the frame into place,
+     while a thin curtain layer slides up behind it for depth. */
   .so-gallery__item {
     margin: 0;
     aspect-ratio: 4 / 3;
@@ -208,54 +212,44 @@ $maps_embed = $o['addr']
     background: var(--cream);
     border-radius: 4px;
     position: relative;
-    opacity: 0;
-    transform: translateY(28px) scale(0.98);
-    transition:
-      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-  }
-  .so-gallery__item.is-in {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    isolation: isolate;
   }
   .so-gallery__item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    transform: scale(1.08);
+    transform: translate3d(0, 102%, 0);
+    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
   }
-  .so-gallery__item.is-in img { transform: scale(1); }
-  .so-gallery__item:hover img { transform: scale(1.05); }
-  /* Soft sheen sweep on first reveal. */
-  .so-gallery__item::after {
+  .so-gallery__item.is-in img {
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0.12s; /* lets the curtain lead by ~120ms */
+  }
+  /* Curtain — sits behind the image and slides up just ahead of it,
+     so the frame fills with colour first, then the photo locks in. */
+  .so-gallery__item::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0) 35%,
-      rgba(255, 255, 255, 0.35) 50%,
-      rgba(255, 255, 255, 0) 65%
-    );
-    transform: translateX(-110%);
-    pointer-events: none;
-    opacity: 0;
+    z-index: -1;
+    background: var(--forest, #1f3a2e);
+    transform: translate3d(0, 100%, 0);
+    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .so-gallery__item.is-in::after {
-    animation: soGallerySheen 1.1s ease-out 0.25s 1 forwards;
+  .so-gallery__item.is-in::before {
+    transform: translate3d(0, 0, 0);
   }
-  @keyframes soGallerySheen {
-    0%   { transform: translateX(-110%); opacity: 0; }
-    20%  { opacity: 1; }
-    100% { transform: translateX(110%); opacity: 0; }
+  /* Hover: gentle zoom only after the reveal has settled. */
+  .so-gallery__item img { transition-property: transform; }
+  .so-gallery__item.is-in:hover img {
+    transform: translate3d(0, 0, 0) scale(1.04);
+    transition-duration: 0.6s;
   }
   @media (prefers-reduced-motion: reduce) {
-    .so-gallery__item,
-    .so-gallery__item img { transition: none; transform: none; opacity: 1; }
-    .so-gallery__item::after { display: none; }
+    .so-gallery__item img { transform: none; transition: none; }
+    .so-gallery__item::before { display: none; }
   }
 
   @media (max-width: 900px) {
