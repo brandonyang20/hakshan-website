@@ -207,15 +207,56 @@ $maps_embed = $o['addr']
     overflow: hidden;
     background: var(--cream);
     border-radius: 4px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .so-gallery__item.is-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
   .so-gallery__item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1.08);
   }
-  .so-gallery__item:hover img { transform: scale(1.04); }
+  .so-gallery__item.is-in img { transform: scale(1); }
+  .so-gallery__item:hover img { transform: scale(1.05); }
+  /* Soft sheen sweep on first reveal. */
+  .so-gallery__item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 35%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0) 65%
+    );
+    transform: translateX(-110%);
+    pointer-events: none;
+    opacity: 0;
+  }
+  .so-gallery__item.is-in::after {
+    animation: soGallerySheen 1.1s ease-out 0.25s 1 forwards;
+  }
+  @keyframes soGallerySheen {
+    0%   { transform: translateX(-110%); opacity: 0; }
+    20%  { opacity: 1; }
+    100% { transform: translateX(110%); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .so-gallery__item,
+    .so-gallery__item img { transition: none; transform: none; opacity: 1; }
+    .so-gallery__item::after { display: none; }
+  }
 
   @media (max-width: 900px) {
     .so-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -332,8 +373,16 @@ if ( ! empty( $so_gallery ) ) :
     </h2>
   </div>
   <div class="so-gallery__grid">
-    <?php foreach ( $so_gallery as $img ) : ?>
-      <figure class="so-gallery__item">
+    <?php foreach ( $so_gallery as $i => $img ) :
+      // Stagger reveal: every 3rd item resets the delay so each row
+      // animates in as a wave rather than the last image waiting forever.
+      $delay = ( $i % 3 ) * 120; // ms
+    ?>
+      <figure
+        class="so-gallery__item"
+        data-reveal
+        style="transition-delay: <?php echo (int) $delay; ?>ms;"
+      >
         <img
           src="<?php echo esc_url( $img['url'] ); ?>"
           <?php if ( $img['srcset'] ) : ?>srcset="<?php echo esc_attr( $img['srcset'] ); ?>" sizes="<?php echo esc_attr( $img['sizes'] ); ?>"<?php endif; ?>
