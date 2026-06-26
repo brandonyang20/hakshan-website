@@ -173,8 +173,57 @@ $maps_embed = $o['addr']
     margin: 0 auto 24px;
   }
 
+  /* ===== Gallery — populated from the outlet's admin Gallery field. ===== */
+  .so-gallery {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(60px, 9vw, 100px) var(--rail);
+  }
+  .so-gallery__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: clamp(28px, 4vw, 48px);
+    flex-wrap: wrap;
+  }
+  .so-gallery__head h2 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(32px, 4.4vw, 56px);
+    line-height: 1;
+    margin: 12px 0 0;
+    letter-spacing: -0.02em;
+  }
+  .so-gallery__head h2 em { color: var(--forest); }
+  .so-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(8px, 1vw, 14px);
+  }
+  .so-gallery__item {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--cream);
+    border-radius: 4px;
+  }
+  .so-gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .so-gallery__item:hover img { transform: scale(1.04); }
+
   @media (max-width: 900px) {
     .so-grid { grid-template-columns: 1fr; gap: 40px; }
+    .so-gallery__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 540px) {
+    .so-gallery__grid { grid-template-columns: 1fr; }
+    .so-gallery__item { aspect-ratio: 5 / 4; }
   }
 </style>
 
@@ -267,6 +316,35 @@ $maps_embed = $o['addr']
     <?php endif; ?>
   </div>
 </section>
+
+<?php
+// Gallery — only render the section when the outlet has at least one
+// image added under its admin "Gallery" field. Otherwise it stays
+// invisible and there's nothing for the editor to manage publicly.
+$so_gallery = function_exists( 'hakshan_get_outlet_gallery' ) ? hakshan_get_outlet_gallery( $outlet_id ) : array();
+if ( ! empty( $so_gallery ) ) :
+?>
+<section class="so-gallery">
+  <div class="so-gallery__head">
+    <h2>
+      <span data-en>Inside <em><?php echo esc_html( $o['name'] ); ?>.</em></span>
+      <span data-zh>店内<em>一瞥。</em></span>
+    </h2>
+  </div>
+  <div class="so-gallery__grid">
+    <?php foreach ( $so_gallery as $img ) : ?>
+      <figure class="so-gallery__item">
+        <img
+          src="<?php echo esc_url( $img['url'] ); ?>"
+          <?php if ( $img['srcset'] ) : ?>srcset="<?php echo esc_attr( $img['srcset'] ); ?>" sizes="<?php echo esc_attr( $img['sizes'] ); ?>"<?php endif; ?>
+          alt="<?php echo esc_attr( $img['alt'] ? $img['alt'] : $o['name'] ); ?>"
+          loading="lazy"
+        />
+      </figure>
+    <?php endforeach; ?>
+  </div>
+</section>
+<?php endif; ?>
 
 <section class="so-foot">
   <p>

@@ -155,6 +155,96 @@ function hakshan_render_outlet_meta_box( $post ) {
 		}
 	}
 	echo '</div>';
+
+	// Gallery meta-box section — multiple attachments via the WP media library.
+	$gallery_ids = (array) get_post_meta( $post->ID, 'outlet_gallery', true );
+	$gallery_ids = array_filter( array_map( 'intval', $gallery_ids ) );
+	?>
+	<hr style="margin: 28px 0 20px;" />
+	<div class="hakshan-outlet-gallery">
+		<h4 style="margin: 0 0 6px;">Gallery</h4>
+		<p class="description" style="margin: 0 0 10px;">Photos of this outlet — interior, food, exterior. Appears on the outlet page only when at least one image is added. Drag the tiles to reorder.</p>
+		<input type="hidden" name="outlet_gallery" id="outlet_gallery_input" value="<?php echo esc_attr( implode( ',', $gallery_ids ) ); ?>" />
+		<div id="outlet_gallery_preview" class="outlet-gallery-preview">
+			<?php
+			foreach ( $gallery_ids as $att_id ) {
+				$thumb = wp_get_attachment_image_url( $att_id, 'thumbnail' );
+				if ( ! $thumb ) {
+					continue;
+				}
+				echo '<div class="og-tile" data-id="' . esc_attr( $att_id ) . '">';
+				echo '<img src="' . esc_url( $thumb ) . '" alt="" />';
+				echo '<button type="button" class="og-remove" aria-label="Remove">&times;</button>';
+				echo '</div>';
+			}
+			?>
+		</div>
+		<p><button type="button" class="button" id="outlet_gallery_add">+ Add images</button></p>
+	</div>
+	<style>
+		.outlet-gallery-preview { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; margin: 8px 0 14px; }
+		.outlet-gallery-preview .og-tile { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: #f0f0f1; border-radius: 4px; cursor: move; border: 1px solid #ddd; }
+		.outlet-gallery-preview .og-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+		.outlet-gallery-preview .og-remove { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; border-radius: 50%; border: none; background: rgba(0,0,0,0.7); color: #fff; cursor: pointer; padding: 0; line-height: 22px; font-size: 14px; }
+		.outlet-gallery-preview .og-remove:hover { background: #d63638; }
+	</style>
+	<script>
+	(function ($) {
+		$(function () {
+			if ( typeof wp === 'undefined' || ! wp.media ) { return; }
+			var $input   = $( '#outlet_gallery_input' );
+			var $preview = $( '#outlet_gallery_preview' );
+
+			function syncInput() {
+				var ids = $preview.find( '.og-tile' ).map( function () {
+					return $( this ).data( 'id' );
+				}).get();
+				$input.val( ids.join( ',' ) );
+			}
+
+			$( '#outlet_gallery_add' ).on( 'click', function ( e ) {
+				e.preventDefault();
+				var frame = wp.media({
+					title: 'Select gallery images',
+					button: { text: 'Add to gallery' },
+					library: { type: 'image' },
+					multiple: true
+				});
+				frame.on( 'select', function () {
+					var existing = $preview.find( '.og-tile' ).map( function () {
+						return parseInt( $( this ).data( 'id' ), 10 );
+					}).get();
+					frame.state().get( 'selection' ).each( function ( attachment ) {
+						var id = parseInt( attachment.id, 10 );
+						if ( existing.indexOf( id ) > -1 ) { return; }
+						var url = attachment.attributes.url;
+						var sizes = attachment.attributes.sizes;
+						if ( sizes && sizes.thumbnail ) { url = sizes.thumbnail.url; }
+						$preview.append(
+							'<div class="og-tile" data-id="' + id + '">' +
+							'<img src="' + url + '" alt="" />' +
+							'<button type="button" class="og-remove" aria-label="Remove">&times;</button>' +
+							'</div>'
+						);
+					});
+					syncInput();
+				});
+				frame.open();
+			});
+
+			$preview.on( 'click', '.og-remove', function ( e ) {
+				e.preventDefault();
+				$( this ).closest( '.og-tile' ).remove();
+				syncInput();
+			});
+
+			if ( $.fn.sortable ) {
+				$preview.sortable({ update: syncInput });
+			}
+		});
+	}( jQuery ));
+	</script>
+	<?php
 }
 
 function hakshan_save_outlet_meta( $post_id ) {
@@ -181,8 +271,63 @@ function hakshan_save_outlet_meta( $post_id ) {
 			}
 		}
 	}
+
+	// Gallery — comma-separated attachment IDs from the hidden input.
+	if ( isset( $_POST['outlet_gallery'] ) ) {
+		$raw_ids = sanitize_text_field( wp_unslash( $_POST['outlet_gallery'] ) );
+		$ids     = array_values( array_filter( array_map( 'intval', explode( ',', $raw_ids ) ) ) );
+		if ( $ids ) {
+			update_post_meta( $post_id, 'outlet_gallery', $ids );
+		} else {
+			delete_post_meta( $post_id, 'outlet_gallery' );
+		}
+	}
 }
 add_action( 'save_post_outlet', 'hakshan_save_outlet_meta' );
+
+/**
+ * Enqueue the WP media uploader + jQuery UI sortable on the outlet edit
+ * screen so the gallery meta-box's add/reorder UI works.
+ */
+add_action( 'admin_enqueue_scripts', function ( $hook ) {
+	if ( ! in_array( $hook, array( 'post.php', 'post-new.php' ), true ) ) {
+		return;
+	}
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	if ( $screen && 'outlet' !== $screen->post_type ) {
+		return;
+	}
+	wp_enqueue_media();
+	wp_enqueue_script( 'jquery-ui-sortable' );
+} );
+
+/**
+ * Return the saved gallery for an outlet as an array of attachment data.
+ * Empty array if no gallery is set. Used by templates that want to render
+ * a thumbnail / lightbox grid.
+ *
+ * @param int $outlet_id
+ * @return array<array{id:int,url:string,srcset:string,sizes:string,alt:string}>
+ */
+function hakshan_get_outlet_gallery( $outlet_id ) {
+	$ids = (array) get_post_meta( (int) $outlet_id, 'outlet_gallery', true );
+	$ids = array_filter( array_map( 'intval', $ids ) );
+	$out = array();
+	foreach ( $ids as $id ) {
+		$url = wp_get_attachment_image_url( $id, 'large' );
+		if ( ! $url ) {
+			continue;
+		}
+		$out[] = array(
+			'id'     => $id,
+			'url'    => $url,
+			'srcset' => (string) wp_get_attachment_image_srcset( $id, 'large' ),
+			'sizes'  => '(min-width: 1024px) 33vw, (min-width: 600px) 50vw, 100vw',
+			'alt'    => (string) get_post_meta( $id, '_wp_attachment_image_alt', true ),
+		);
+	}
+	return $out;
+}
 
 /* ---------------------------------------------------------------------------
  * Helpers for templates
