@@ -88,34 +88,37 @@ $maps_embed = $o['addr']
   }
 
   /* Hero photo — sits between the city sub-line and the lead paragraph.
-     Uses the outlet's WP Featured Image. Same masked slide-up reveal
-     pattern as the gallery so the two read as one motion language. */
+     Uses the outlet's WP Featured Image. Slides the whole tile up; no
+     placeholder frame ever shows. */
   .so-hero__media {
     position: relative;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    background: var(--cream);
+    background: transparent;
     border-radius: 4px;
     margin: 0 0 36px;
-    isolation: isolate;
+    opacity: 0;
+    transform: translate3d(0, 60px, 0);
+    transition:
+      opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .so-hero__media.is-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
   .so-hero__media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transform: translate3d(0, 102%, 0);
-    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: transform;
-  }
-  .so-hero__media.is-in img {
-    transform: translate3d(0, 0, 0);
   }
   @media (max-width: 720px) {
     .so-hero__media { aspect-ratio: 4 / 3; margin-bottom: 28px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .so-hero__media img { transform: none; transition: none; }
+    .so-hero__media { opacity: 1; transform: none; transition: none; }
   }
 
   .so-grid {
@@ -232,39 +235,37 @@ $maps_embed = $o['addr']
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(8px, 1vw, 14px);
   }
-  /* Masked slide-up reveal.
-     The figure is the mask (overflow:hidden, fixed aspect).
-     The image inside translates up from below the frame into place,
-     while a thin curtain layer slides up behind it for depth. */
+  /* Slide-up reveal — the whole tile (image included) rises into place
+     so no empty placeholder frame is ever visible. */
   .so-gallery__item {
     margin: 0;
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    background: var(--cream);
+    background: transparent;
     border-radius: 4px;
     position: relative;
-    isolation: isolate;
+    opacity: 0;
+    transform: translate3d(0, 60px, 0);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .so-gallery__item.is-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
   .so-gallery__item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transform: translate3d(0, 102%, 0);
-    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: transform;
+    transition: transform 0.6s ease;
   }
-  .so-gallery__item.is-in img {
-    transform: translate3d(0, 0, 0);
-  }
-  /* Hover: gentle zoom only after the reveal has settled. */
-  .so-gallery__item img { transition-property: transform; }
-  .so-gallery__item.is-in:hover img {
-    transform: translate3d(0, 0, 0) scale(1.04);
-    transition-duration: 0.6s;
-  }
+  .so-gallery__item:hover img { transform: scale(1.04); }
   @media (prefers-reduced-motion: reduce) {
-    .so-gallery__item img { transform: none; transition: none; }
+    .so-gallery__item { opacity: 1; transform: none; transition: none; }
+    .so-gallery__item img { transition: none; }
   }
 
   @media (max-width: 900px) {
