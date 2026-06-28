@@ -230,22 +230,29 @@ $maps_embed = $o['addr']
     letter-spacing: -0.02em;
   }
   .so-gallery__head h2 em { color: var(--forest); }
+  /* Editorial mosaic — a dense grid with a fixed row unit. Tiles take
+     varied spans (feature / tall / wide / standard) so the layout has a
+     focal point and rhythm instead of a uniform contact-sheet. Row height
+     is fixed, so images simply object-fit:cover into whatever shape the
+     tile resolves to — perfectly tiled regardless of how many photos. */
   .so-gallery__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(8px, 1vw, 14px);
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: clamp(130px, 15vw, 215px);
+    grid-auto-flow: dense;
+    gap: clamp(8px, 0.9vw, 14px);
   }
-  /* Slide-up reveal — the whole tile (image included) rises into place
-     so no empty placeholder frame is ever visible. */
   .so-gallery__item {
     margin: 0;
-    aspect-ratio: 4 / 3;
+    grid-column: span 1;
+    grid-row: span 1;
     overflow: hidden;
     background: transparent;
-    border-radius: 4px;
+    border-radius: 6px;
     position: relative;
+    /* Slide-up reveal — the whole tile rises into place. */
     opacity: 0;
-    transform: translate3d(0, 60px, 0);
+    transform: translate3d(0, 56px, 0);
     transition:
       opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
@@ -255,14 +262,20 @@ $maps_embed = $o['addr']
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+  /* Mosaic spans. */
+  .so-gallery__item--big  { grid-column: span 2; grid-row: span 2; }
+  .so-gallery__item--tall { grid-column: span 1; grid-row: span 2; }
+  .so-gallery__item--wide { grid-column: span 2; grid-row: span 1; }
   .so-gallery__item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.6s ease;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .so-gallery__item:hover img { transform: scale(1.04); }
+  .so-gallery__item:hover img { transform: scale(1.05); }
+  /* Subtle depth — the feature tile sits a touch prouder. */
+  .so-gallery__item--big { box-shadow: 0 18px 40px -22px rgba(31, 58, 46, 0.45); }
   @media (prefers-reduced-motion: reduce) {
     .so-gallery__item { opacity: 1; transform: none; transition: none; }
     .so-gallery__item img { transition: none; }
@@ -270,11 +283,25 @@ $maps_embed = $o['addr']
 
   @media (max-width: 900px) {
     .so-grid { grid-template-columns: 1fr; gap: 40px; }
-    .so-gallery__grid { grid-template-columns: repeat(2, 1fr); }
+    .so-gallery__grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: clamp(120px, 28vw, 200px);
+    }
+    /* Keep the feature tile, drop the thin tall/wide accents to 1×1
+       so a 2-col layout never leaves awkward holes. */
+    .so-gallery__item--wide { grid-column: span 2; grid-row: span 1; }
+    .so-gallery__item--tall { grid-column: span 1; grid-row: span 2; }
+    .so-gallery__item--big  { grid-column: span 2; grid-row: span 2; }
   }
   @media (max-width: 540px) {
-    .so-gallery__grid { grid-template-columns: 1fr; }
-    .so-gallery__item { aspect-ratio: 5 / 4; }
+    .so-gallery__grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 44vw;
+      gap: 8px;
+    }
+    .so-gallery__item--big  { grid-column: span 2; grid-row: span 2; }
+    .so-gallery__item--wide { grid-column: span 2; grid-row: span 1; }
+    .so-gallery__item--tall { grid-column: span 1; grid-row: span 2; }
   }
 </style>
 
@@ -394,13 +421,20 @@ if ( ! empty( $so_gallery ) ) :
     </h2>
   </div>
   <div class="so-gallery__grid">
-    <?php foreach ( $so_gallery as $i => $img ) :
-      // Stagger reveal: every 3rd item resets the delay so each row
-      // animates in as a wave rather than the last image waiting forever.
-      $delay = ( $i % 3 ) * 120; // ms
+    <?php
+    // Mosaic rhythm: a repeating span pattern keyed off the index so the
+    // grid gets a feature tile, the occasional tall portrait and wide
+    // panorama, then standard cells — deterministic, so it's stable on
+    // every reload. Pattern length 6 packs cleanly on the 4-col dense grid.
+    $so_pattern = array( 'big', '', '', 'tall', 'wide', '' );
+    foreach ( $so_gallery as $i => $img ) :
+      $so_mod = $so_pattern[ $i % count( $so_pattern ) ];
+      $so_cls = 'so-gallery__item' . ( $so_mod ? ' so-gallery__item--' . $so_mod : '' );
+      // Stagger reveal so tiles wave in rather than landing all at once.
+      $delay = ( $i % 4 ) * 110; // ms
     ?>
       <figure
-        class="so-gallery__item"
+        class="<?php echo esc_attr( $so_cls ); ?>"
         data-reveal
         style="transition-delay: <?php echo (int) $delay; ?>ms;"
       >
