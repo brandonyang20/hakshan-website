@@ -669,13 +669,13 @@ get_header();
         <span data-zh>数 字 上</span>
       </span>
       <h2>
-        <span data-en>The rule,<br/><em>across nine kitchens.</em></span>
-        <span data-zh>九 间 厨 房，<br/><em>同 一 条 规 则。</em></span>
+        <span data-en>The rule,<br/><em>across thirteen kitchens.</em></span>
+        <span data-zh>十 三 间 厨 房，<br/><em>同 一 条 规 则。</em></span>
       </h2>
     </div>
     <div class="sr-numbers__grid" data-reveal>
       <div class="sr-stat">
-        <div class="num">9</div>
+        <div class="num">13</div>
         <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
         <div class="sub"><span data-en>Every outlet, no exceptions.</span><span data-zh>每 一 家 门 店，无 例 外。</span></div>
       </div>
