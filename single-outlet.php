@@ -238,7 +238,7 @@ $maps_embed = $o['addr']
   .so-gallery__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: clamp(130px, 15vw, 215px);
+    grid-auto-rows: clamp(150px, 17vw, 250px);
     grid-auto-flow: dense;
     gap: clamp(8px, 0.9vw, 14px);
   }
@@ -262,10 +262,10 @@ $maps_embed = $o['addr']
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
-  /* Mosaic spans. */
+  /* Mosaic spans — feature tile + tall portraits only. No ultra-wide
+     panorama tiles, which crop landscape photos too aggressively. */
   .so-gallery__item--big  { grid-column: span 2; grid-row: span 2; }
   .so-gallery__item--tall { grid-column: span 1; grid-row: span 2; }
-  .so-gallery__item--wide { grid-column: span 2; grid-row: span 1; }
   .so-gallery__item img {
     width: 100%;
     height: 100%;
@@ -287,20 +287,16 @@ $maps_embed = $o['addr']
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: clamp(120px, 28vw, 200px);
     }
-    /* Keep the feature tile, drop the thin tall/wide accents to 1×1
-       so a 2-col layout never leaves awkward holes. */
-    .so-gallery__item--wide { grid-column: span 2; grid-row: span 1; }
     .so-gallery__item--tall { grid-column: span 1; grid-row: span 2; }
     .so-gallery__item--big  { grid-column: span 2; grid-row: span 2; }
   }
   @media (max-width: 540px) {
     .so-gallery__grid {
       grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 44vw;
+      grid-auto-rows: 46vw;
       gap: 8px;
     }
     .so-gallery__item--big  { grid-column: span 2; grid-row: span 2; }
-    .so-gallery__item--wide { grid-column: span 2; grid-row: span 1; }
     .so-gallery__item--tall { grid-column: span 1; grid-row: span 2; }
   }
 </style>
@@ -426,7 +422,7 @@ if ( ! empty( $so_gallery ) ) :
     // grid gets a feature tile, the occasional tall portrait and wide
     // panorama, then standard cells — deterministic, so it's stable on
     // every reload. Pattern length 6 packs cleanly on the 4-col dense grid.
-    $so_pattern = array( 'big', '', '', 'tall', 'wide', '' );
+    $so_pattern = array( 'big', '', '', 'tall', '', '' );
     foreach ( $so_gallery as $i => $img ) :
       $so_mod = $so_pattern[ $i % count( $so_pattern ) ];
       $so_cls = 'so-gallery__item' . ( $so_mod ? ' so-gallery__item--' . $so_mod : '' );
