@@ -316,10 +316,6 @@ $back_href     = $is_social && $social_root
     <?php endif; ?>
 
     <h1><?php echo hakshan_post_title_bilingual(); ?></h1>
-
-    <div class="sp-hero__meta">
-      <span><?php echo esc_html( get_the_date() ); ?></span>
-    </div>
   </header>
 
   <?php if ( has_post_thumbnail() ) : ?>
@@ -390,7 +386,6 @@ if ( $related->have_posts() ) : ?>
           </div>
         <?php endif; ?>
         <div class="sp-related__body">
-          <div class="sp-related__date"><?php echo esc_html( get_the_date( 'M Y' ) ); ?></div>
           <h3 class="sp-related__title"><?php echo hakshan_post_title_bilingual(); ?></h3>
         </div>
       </a>
