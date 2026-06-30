@@ -755,7 +755,6 @@ $sr_stories  = $sr_category
           </div>
         <?php endif; ?>
         <div class="sr-story__body">
-          <div class="sr-story__date"><?php echo esc_html( get_the_date( 'M Y' ) ); ?></div>
           <h3 class="sr-story__title"><?php echo hakshan_post_title_bilingual(); ?></h3>
           <?php $sr_excerpt_raw = wp_strip_all_tags( get_the_excerpt() ); ?>
           <?php if ( $sr_excerpt_raw ) : ?>
