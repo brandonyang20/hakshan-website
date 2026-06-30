@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.122' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.123' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -389,8 +389,7 @@ function hakshan_render_footer() {
 					<li><a href="<?php echo esc_url( $outlets_url ); ?>"><span data-en>Menjalara Kepong</span><span data-zh>甲洞</span></a></li>
 					<li><a href="<?php echo esc_url( $outlets_url ); ?>"><span data-en>Cheras Traders Sq.</span><span data-zh>蕉赖</span></a></li>
 					<li><a href="<?php echo esc_url( $outlets_url ); ?>"><span data-en>Bandar Puteri Puchong</span><span data-zh>蒲种</span></a></li>
-					<li><a href="<?php echo esc_url( $outlets_url ); ?>"><span data-en>IOI Conezion, Putrajaya</span><span data-zh>布城</span></a></li>
-					<li><a href="<?php echo esc_url( $outlets_url ); ?>"><span data-en>See all 9 outlets →</span><span data-zh>查看全部 9 家分店 →</span></a></li>
+					<li><a href="<?php echo esc_url( $outlets_url ); ?>"><span data-en>See all outlets →</span><span data-zh>查看全部分店 →</span></a></li>
 				</ul>
 			</div>
 			<div>
