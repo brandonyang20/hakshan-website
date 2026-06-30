@@ -532,10 +532,9 @@ get_header();
   .iv-org__rail--5::before { width: calc(4 * (var(--node-w) + var(--gap))); }
   .iv-org__rail--7::before { width: calc(6 * (var(--node-w) + var(--gap))); }
   .iv-org__rail--10::before { width: calc(9 * (var(--node-w) + var(--gap))); }
-  /* 13 outlets wrap to a 7+6 grid on desktop. Drops are hidden (they'd
-     point at non-existent columns once we wrap) and the bus spans just
-     the first row's width so it still reads as a tree above the grid. */
-  .iv-org__rail--13 i { display: none; }
+  /* 13 outlets wrap to a 7+6 grid on desktop. The rail carries seven
+     drops aligned to the top row, with the bus spanning that row, so it
+     reads as a tree above the grid (the 2nd row hangs below the bus). */
   .iv-org__rail--13::before { width: calc(6 * (var(--node-w) + var(--gap))); }
   .iv-org__rail--13 + .iv-org__tier {
     display: grid;
@@ -583,12 +582,13 @@ get_header();
       height: 100%;
       transform: translateX(-50%);
     }
+    /* Solution tier — three across so it lines up with the outlet grid. */
     .iv-org__node {
       width: auto;
-      flex: 0 0 calc((100% - 8px) / 2);
+      flex: 0 0 calc((100% - 16px) / 3);
       min-width: 0;
-      padding: 12px 14px;
-      font-size: 13px;
+      padding: 12px 10px;
+      font-size: 12.5px;
     }
     .iv-org__node--holding {
       flex: 0 0 auto;
@@ -597,8 +597,18 @@ get_header();
       font-size: 16px;
     }
     .iv-org__node--outlet {
-      padding: 10px 12px;
-      font-size: 12px;
+      padding: 10px 8px;
+      font-size: 11.5px;
+    }
+    /* Outlet tier — override the desktop 7-col max-content grid (which
+       overflowed the phone) with a fitted 3-col grid. minmax(0,1fr)
+       keeps long names from pushing columns past the viewport. */
+    .iv-org__rail--13 + .iv-org__tier {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: 100%;
+      gap: 8px;
+      margin: 0;
     }
     /* Bar-chart labels — rotate -45° on mobile so 'Jul 25' style
        labels fit under their narrow columns. Position them absolutely
@@ -1182,10 +1192,11 @@ get_header();
         <div class="iv-org__node"><span data-en>Marketing Company</span><span data-zh>营销公司</span></div>
       </div>
 
-      <!-- Stem down into the 13-drop bus -->
+      <!-- Stem down into the outlet bus. Seven drops align with the top
+           row of the 7+6 outlet grid; the second row hangs below it. -->
       <div class="iv-org__stem"></div>
       <div class="iv-org__rail iv-org__rail--13" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
 
       <!-- Tier 3: Outlets -->
