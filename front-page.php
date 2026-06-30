@@ -1295,7 +1295,6 @@ get_header();
             array( 'slug' => 'menjalara', 'label' => 'Menjalara · entrance',          'name' => 'Menjalara',      'city' => 'Kepong' ),
             array( 'slug' => 'cheras',    'label' => 'Cheras Traders · open kitchen', 'name' => 'Cheras Traders', 'city' => 'Cheras' ),
             array( 'slug' => 'puchong',   'label' => 'Bandar Puteri · dining hall',   'name' => 'Bandar Puteri',  'city' => 'Puchong' ),
-            array( 'slug' => 'conezion',  'label' => 'IOI Conezion · terrace',        'name' => 'IOI Conezion',   'city' => 'Putrajaya' ),
             array( 'slug' => 'kajang',    'label' => 'Budiman Park · entrance',       'name' => 'Budiman Park',   'city' => 'Kajang' ),
             array( 'slug' => 'kiara',     'label' => 'Arcoris Mont Kiara · main hall','name' => 'Arcoris Plaza',  'city' => 'Mont Kiara' ),
             array( 'slug' => 'parkcity',  'label' => 'The Waterfront · evening service','name' => 'The Waterfront','city' => 'Desa ParkCity' ),
