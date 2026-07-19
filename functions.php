@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.131' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.132' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -426,6 +426,7 @@ function hakshan_render_footer() {
 			<div>
 				<h5><span data-en>Explore</span><span data-zh>了解</span></h5>
 				<ul>
+					<li><a href="https://order.hakshan.com/" target="_blank" rel="noopener"><span data-en>Order Online</span><span data-zh>网上订餐</span></a></li>
 					<li><a href="<?php echo esc_url( $story_url ); ?>"><span data-en>Our Story</span><span data-zh>三代故事</span></a></li>
 					<li><a href="<?php echo esc_url( $menu_url ); ?>"><span data-en>Menu</span><span data-zh>菜单</span></a></li>
 					<li><a href="<?php echo esc_url( hakshan_nav_url( 'social' ) ); ?>"><span data-en>Pay it Forward</span><span data-zh>傳遞善意</span></a></li>
