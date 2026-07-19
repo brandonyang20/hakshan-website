@@ -316,6 +316,23 @@ h1, h2, h3, h4, h5, h6, .h-display {
   height: 1px;
   background: currentColor;
 }
+/* Order Online — a filled pill so it stands out as a primary action. */
+.nav__links a.nav__link--order {
+  opacity: 1;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: var(--forest);
+  color: var(--cream);
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.nav__links a.nav__link--order:hover { background: #16241c; }
+.nav__links a.nav__link--order::after { display: none; }
+.nav--dark .nav__links a.nav__link--order {
+  background: var(--cream);
+  color: var(--forest);
+}
+.nav--dark .nav__links a.nav__link--order:hover { background: #fff; }
 
 .nav__right { display: flex; align-items: center; gap: 18px; }
 
@@ -503,6 +520,7 @@ h1, h2, h3, h4, h5, h6, .h-display {
 }
 .drawer__links a:hover { padding-left: 8px; color: var(--forest); }
 .drawer__links a.is-active { color: var(--forest); }
+.drawer__links a.nav__link--order { color: var(--forest); font-style: italic; }
 .drawer__links a [data-zh] {
   font-family: var(--cn);
   font-size: 14px;

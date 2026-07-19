@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.129' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.130' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -197,6 +197,13 @@ function hakshan_render_nav( $args = array() ) {
 
 	$links = array(
 		array(
+			'key'      => 'order',
+			'en'       => 'Order Online',
+			'zh'       => '网上订餐',
+			'url'      => 'https://order.hakshan.com/',
+			'external' => true,
+		),
+		array(
 			'key' => 'home',
 			'en'  => 'Home',
 			'zh'  => '首页',
@@ -271,9 +278,21 @@ function hakshan_render_nav( $args = array() ) {
 				<button class="drawer__close" aria-label="Close menu">&times;</button>
 			</div>
 			<nav class="drawer__links" aria-label="Primary, mobile">
-				<?php foreach ( $links as $link ) : ?>
-					<a href="<?php echo esc_url( hakshan_nav_url( $link['key'] ) ); ?>"
-					   class="<?php echo $active === $link['key'] ? 'is-active' : ''; ?>">
+				<?php
+				foreach ( $links as $link ) :
+					$is_external = ! empty( $link['external'] );
+					$href        = $is_external && ! empty( $link['url'] ) ? $link['url'] : hakshan_nav_url( $link['key'] );
+					$classes     = array();
+					if ( $active === $link['key'] ) {
+						$classes[] = 'is-active';
+					}
+					if ( $is_external ) {
+						$classes[] = 'nav__link--order';
+					}
+					?>
+					<a href="<?php echo esc_url( $href ); ?>"
+					   class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>"
+					   <?php echo $is_external ? 'target="_blank" rel="noopener"' : ''; ?>>
 						<span data-en><?php echo esc_html( $link['en'] ); ?></span>
 						<span data-zh><?php echo esc_html( $link['zh'] ); ?></span>
 					</a>
