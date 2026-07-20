@@ -48,6 +48,7 @@ $lh_links = array(
 		'sub_en'   => 'Book your seat at any outlet',
 		'sub_zh'   => '任选门店，即刻预订',
 		'icon'     => 'calendar',
+		'id'       => 'reserve',
 		'action'   => 'reserve', // opens the outlet picker slider when links exist
 	),
 	array(
@@ -58,6 +59,7 @@ $lh_links = array(
 		'sub_en'   => 'Everything we cook, since 1928',
 		'sub_zh'   => '我们的菜，1928 年至今',
 		'icon'     => 'menu',
+		'id'       => 'menu',
 	),
 	array(
 		'url'      => $lh_whatsapp,
@@ -67,6 +69,7 @@ $lh_links = array(
 		'sub_en'   => 'Questions, catering, group bookings',
 		'sub_zh'   => '询问、宴席、团体预订',
 		'icon'     => 'whatsapp',
+		'id'       => 'whatsapp',
 	),
 	array(
 		'url'      => $lh_home,
@@ -76,6 +79,7 @@ $lh_links = array(
 		'sub_en'   => 'Menu, story and all outlets',
 		'sub_zh'   => '菜单、故事与所有门店',
 		'icon'     => 'globe',
+		'id'       => 'website',
 	),
 );
 
@@ -357,7 +361,8 @@ $lh_icons = array(
 					if ( $lh_is_reserve ) :
 						// Opens the outlet picker pane instead of navigating.
 						?>
-						<button type="button" class="lh__btn" data-open-outlets aria-expanded="false">
+						<button type="button" class="lh__btn" data-open-outlets aria-expanded="false"
+							data-track="reserve_open" data-track-label="Reserve a Table">
 							<span class="lh__ic"><?php echo $lh_icons[ $lh['icon'] ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted inline SVG ?></span>
 							<span class="lh__txt">
 								<span class="lh__label"><span data-en><?php echo esc_html( $lh['en'] ); ?></span><span data-zh><?php echo esc_html( $lh['zh'] ); ?></span></span>
@@ -369,6 +374,8 @@ $lh_icons = array(
 						<a
 							class="lh__btn"
 							href="<?php echo esc_url( $lh['url'] ); ?>"
+							data-track="<?php echo esc_attr( isset( $lh['id'] ) ? $lh['id'] : 'link' ); ?>"
+							data-track-label="<?php echo esc_attr( $lh['en'] ); ?>"
 							<?php echo $lh['external'] ? 'target="_blank" rel="noopener"' : ''; ?>
 						>
 							<span class="lh__ic"><?php echo $lh_icons[ $lh['icon'] ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted inline SVG ?></span>
@@ -394,7 +401,8 @@ $lh_icons = array(
 				</p>
 				<div class="lh__outlets-list">
 					<?php foreach ( $lh_reserve_outlets as $lh_o ) : ?>
-						<a class="lh__outlet" href="<?php echo esc_url( $lh_o['url'] ); ?>" target="_blank" rel="noopener">
+						<a class="lh__outlet" href="<?php echo esc_url( $lh_o['url'] ); ?>" target="_blank" rel="noopener"
+							data-track="reserve_outlet" data-track-label="<?php echo esc_attr( $lh_o['name'] ); ?>">
 							<span class="lh__outlet-name"><?php echo esc_html( $lh_o['name'] ); ?></span>
 							<?php if ( $lh_o['city'] ) : ?>
 								<span class="lh__outlet-city"><?php echo esc_html( $lh_o['city'] ); ?></span>
@@ -409,6 +417,46 @@ $lh_icons = array(
 
 		<p class="lh__foot">© <?php echo esc_html( date_i18n( 'Y' ) ); ?> Hakshan · 客善</p>
 	</main>
+
+	<script>
+	/* Link Hub click tracking. Fires the same event into every analytics
+	   tool that happens to be present — GTM/GA4 (dataLayer), Google gtag,
+	   and Meta Pixel — so clicks are trackable regardless of setup. */
+	(function () {
+		window.dataLayer = window.dataLayer || [];
+		document.querySelectorAll('[data-track]').forEach(function (el) {
+			el.addEventListener('click', function () {
+				var id    = el.getAttribute('data-track') || 'link';
+				var label = el.getAttribute('data-track-label') || '';
+				var url   = el.getAttribute('href') || '';
+
+				// GTM / GA4 via dataLayer
+				window.dataLayer.push({
+					event: 'link_hub_click',
+					link_id: id,
+					link_label: label,
+					link_url: url
+				});
+				// Google gtag (if GA loaded directly)
+				if (typeof window.gtag === 'function') {
+					window.gtag('event', 'link_hub_click', {
+						link_id: id,
+						link_label: label,
+						link_url: url
+					});
+				}
+				// Meta Pixel custom event
+				if (typeof window.fbq === 'function') {
+					window.fbq('trackCustom', 'LinkHubClick', {
+						link_id: id,
+						link_label: label,
+						link_url: url
+					});
+				}
+			});
+		});
+	})();
+	</script>
 
 	<?php if ( $lh_has_reserve_outlets ) : ?>
 	<script>
