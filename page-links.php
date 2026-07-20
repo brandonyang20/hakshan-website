@@ -15,6 +15,7 @@ defined( 'ABSPATH' ) || exit;
 
 $lh_logo     = 'https://hakshan.com/wp-content/uploads/2026/06/HAKSHAN_Secondary_H_Solid_Black-scaled.png';
 $lh_home     = home_url( '/' );
+$lh_menu     = hakshan_nav_url( 'menu' );
 $lh_reserve  = hakshan_nav_url( 'contact' ) . '#reserve';
 $lh_whatsapp = 'https://wa.me/60162462970?text=' . rawurlencode( 'Hi Hakshan, I would like to enquire.' );
 
@@ -28,6 +29,15 @@ $lh_links = array(
 		'sub_en'   => 'Book your seat at any outlet',
 		'sub_zh'   => '任选门店，即刻预订',
 		'icon'     => 'calendar',
+	),
+	array(
+		'url'      => $lh_menu,
+		'external' => false,
+		'en'       => 'View Menu',
+		'zh'       => '查看菜单',
+		'sub_en'   => 'Everything we cook, since 1928',
+		'sub_zh'   => '我们的菜，1928 年至今',
+		'icon'     => 'menu',
 	),
 	array(
 		'url'      => $lh_whatsapp,
@@ -54,6 +64,7 @@ $lh_icons = array(
 	'calendar' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>',
 	'whatsapp' => '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.02 2C6.6 2 2.2 6.4 2.2 11.82c0 1.9.5 3.68 1.38 5.22L2 22l5.1-1.53a9.8 9.8 0 0 0 4.92 1.32h.01c5.42 0 9.82-4.4 9.82-9.82C21.85 6.4 17.45 2 12.02 2Zm0 17.98h-.01a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.03.91.92-2.95-.2-.31a8.13 8.13 0 0 1-1.25-4.34c0-4.5 3.66-8.16 8.17-8.16 2.18 0 4.23.85 5.77 2.4a8.1 8.1 0 0 1 2.39 5.77c0 4.5-3.66 8.16-8.16 8.16Zm4.48-6.11c-.25-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42l-.47-.01c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.45-.59 1.66-1.16.2-.57.2-1.06.14-1.16-.06-.11-.22-.17-.47-.29Z"/></svg>',
 	'globe'    => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M3 12h18M12 2.8a15 15 0 0 1 0 18.4M12 2.8a15 15 0 0 0 0 18.4"/></svg>',
+	'menu'     => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h11a3 3 0 0 1 3 3v14l-4-2.2-4 2.2V6.5a3 3 0 0 0-3-3H5Z"/><path d="M5 3.5a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3"/><path d="M8.5 8.5h6M8.5 12h6"/></svg>',
 );
 ?>
 <!DOCTYPE html>
@@ -153,9 +164,10 @@ $lh_icons = array(
 			transform: translateY(16px);
 			animation: lhIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 		}
-		.lh__links a:nth-child(1) { animation-delay: 0.08s; }
-		.lh__links a:nth-child(2) { animation-delay: 0.18s; }
-		.lh__links a:nth-child(3) { animation-delay: 0.28s; }
+		.lh__links a:nth-child(1) { animation-delay: 0.06s; }
+		.lh__links a:nth-child(2) { animation-delay: 0.14s; }
+		.lh__links a:nth-child(3) { animation-delay: 0.22s; }
+		.lh__links a:nth-child(4) { animation-delay: 0.30s; }
 		.lh__btn:hover {
 			transform: translateY(-3px);
 			box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.8);
