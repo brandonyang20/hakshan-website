@@ -17,7 +17,7 @@ $lh_logo     = 'https://hakshan.com/wp-content/uploads/2026/06/HAKSHAN_Secondary
 $lh_home     = home_url( '/' );
 $lh_menu     = hakshan_nav_url( 'menu' );
 $lh_reserve  = hakshan_nav_url( 'contact' ) . '#reserve';
-$lh_whatsapp = 'https://wa.me/60162462970?text=' . rawurlencode( 'Hi Hakshan, I would like to enquire.' );
+$lh_whatsapp = 'https://wa.me/60104336645?text=' . rawurlencode( 'Hi Hakshan, I would like to enquire.' );
 
 // Build the reservation list from the Outlet CPT — only outlets that have a
 // booking link set. Add a new outlet with a booking URL in the admin and it
@@ -145,7 +145,7 @@ $lh_icons = array(
 			height: clamp(44px, 12vw, 58px);
 			width: auto;
 			filter: invert(1) brightness(1.9);
-			margin-bottom: 22px;
+			margin-bottom: clamp(30px, 8vw, 44px);
 		}
 		.lh__tag {
 			font-family: var(--serif);
@@ -344,15 +344,6 @@ $lh_icons = array(
 		<a href="<?php echo esc_url( $lh_home ); ?>" aria-label="Hakshan home">
 			<img class="lh__logo" src="<?php echo esc_url( $lh_logo ); ?>" alt="Hakshan 客善" />
 		</a>
-
-		<p class="lh__tag">
-			<span data-en>Hakka cuisine, three generations on.</span>
-			<span data-zh>客家味道，三代传承。</span>
-		</p>
-		<p class="lh__sub">
-			<span data-en>Since 1928</span>
-			<span data-zh>始于 1928</span>
-		</p>
 
 		<div class="lh__slider" data-slider>
 			<!-- Pane 1: the main link stack -->
