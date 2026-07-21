@@ -71,7 +71,7 @@ Hakshan is rooted in heritage Hakka cuisine — mui choy pork belly, Hakka three
 - Modern brand launched: February 2024 (third generation, USJ Taipan)
 - Outlets: 9 across Klang Valley + Ipoh, Perak
 - Daily hours: 11:00 to 22:00
-- Phone: +60 16-246 2970
+- Phone: +60 10-433 6645
 - Languages: English, Mandarin Chinese (the public site is bilingual EN / 中)
 - Reservations: per-outlet booking via inline.app, listed at {$home}/contact-us/
 - Walk-ins: welcome at every outlet
@@ -110,7 +110,7 @@ Part of every sale at every outlet goes to community causes. Three focus areas: 
 
 ## Reservations
 
-Each outlet has its own inline.app booking page. From {$home}/contact-us/ guests can pick any outlet and book online. Walk-ins are welcome at all outlets. Phone reservations: +60 16-246 2970.
+Each outlet has its own inline.app booking page. From {$home}/contact-us/ guests can pick any outlet and book online. Walk-ins are welcome at all outlets. Phone reservations: +60 10-433 6645.
 
 ## Press, careers, suppliers, partnerships
 

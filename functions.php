@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.138' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.139' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -323,7 +323,7 @@ function hakshan_render_nav( $args = array() ) {
 				<span class="arr">→</span>
 			</a>
 			<div class="drawer__foot">
-				<span>+60 16-246 2970</span>
+				<span>+60 10-433 6645</span>
 				<span data-en>Daily 11:00–22:00</span>
 				<span data-zh>每日 11:00–22:00</span>
 			</div>
@@ -437,7 +437,7 @@ function hakshan_render_footer() {
 			<div>
 				<h5><span data-en>Contact</span><span data-zh>联系</span></h5>
 				<ul>
-					<li>+60 16-246 2970</li>
+					<li>+60 10-433 6645</li>
 					<li>hello@hakshan.com</li>
 					<li><a href="https://instagram.com/hakshan_">Instagram</a></li>
 					<li><a href="https://www.facebook.com/HakShanRestaurant/">Facebook</a></li>

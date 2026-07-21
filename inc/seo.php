@@ -22,7 +22,7 @@ if ( ! defined( 'HAKSHAN_BRAND_CN' ) ) {
 	define( 'HAKSHAN_BRAND_CN', '客善' );
 }
 if ( ! defined( 'HAKSHAN_BRAND_PHONE' ) ) {
-	define( 'HAKSHAN_BRAND_PHONE', '+60 16-246 2970' );
+	define( 'HAKSHAN_BRAND_PHONE', '+60 10-433 6645' );
 }
 if ( ! defined( 'HAKSHAN_BRAND_EMAIL' ) ) {
 	define( 'HAKSHAN_BRAND_EMAIL', 'hello@hakshan.com' );

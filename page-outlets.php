@@ -306,7 +306,7 @@ if ( ! empty( $outlet_posts ) ) {
 	$outlets = array(
 		array( 'slug' => 'usj',       'name' => 'USJ Taipan',         'cn' => '梳 邦 再 也',         'city' => 'SUBANG JAYA',  'label' => 'USJ Taipan · main dining hall, evening',
 		       'addr' => 'Block A, USJ 10 Taipan Business Centre, 47620 Subang Jaya, Selangor',
-		       'hours'=> 'Daily 11:00–22:00', 'seats' => '120 + private 24', 'phone' => '+60 16-246 2970', 'image_html' => '', 'image_url' => '' ),
+		       'hours'=> 'Daily 11:00–22:00', 'seats' => '120 + private 24', 'phone' => '+60 10-433 6645', 'image_html' => '', 'image_url' => '' ),
 		array( 'slug' => 'menjalara', 'name' => 'Menjalara',          'cn' => '甲 洞 · 满 家 拉',      'city' => 'KEPONG',       'label' => 'Menjalara · entrance and brass signage',
 		       'addr' => 'Unit R1-G-3, R1 Gallery, No 10, Jalan Idaman 1/62A, Bandar Menjalara, 52200 KL',
 		       'hours'=> 'Daily 11:00–22:00', 'seats' => '96 + private 18',  'phone' => '+60 3-6266 3211', 'image_html' => '', 'image_url' => '' ),

@@ -1403,7 +1403,7 @@ if ( $hakshan_show_reserve_cta_force && hakshan_show_section( 'hakshan_show_rese
     </p>
     <div class="book__buttons">
       <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) . '#reserve' ); ?>"><span data-en>Reserve online</span><span data-zh>在线预订</span><span class="arr">→</span></a>
-      <a class="btn btn--ghost" href="tel:+60162462970"><span data-en>Call +60 16-246 2970</span><span data-zh>致电 +60 16-246 2970</span></a>
+      <a class="btn btn--ghost" href="tel:+60104336645"><span data-en>Call +60 10-433 6645</span><span data-zh>致电 +60 10-433 6645</span></a>
     </div>
   </div>
 </section>

@@ -414,9 +414,9 @@ get_header();
             <div class="reserve-outlet">
               <div>
                 <h3 class="reserve-outlet__name"><span data-en>Reservations by phone</span><span data-zh>电话预订</span></h3>
-                <div class="reserve-outlet__city">+60 16-246 2970</div>
+                <div class="reserve-outlet__city">+60 10-433 6645</div>
               </div>
-              <a class="btn btn--ghost" href="tel:+60162462970"><span data-en>Call to book</span><span data-zh>致电预订</span></a>
+              <a class="btn btn--ghost" href="tel:+60104336645"><span data-en>Call to book</span><span data-zh>致电预订</span></a>
             </div>
           <?php endif; ?>
         </div>
@@ -429,13 +429,13 @@ get_header();
       <div class="reserve-info" data-reveal>
         <div class="card">
           <h4><span data-en>Call directly</span><span data-zh>电 话 预 订</span></h4>
-          <p>+60 16-246 2970</p>
+          <p>+60 10-433 6645</p>
           <div class="small"><span data-en>Daily 11:00–22:00 · all reservations route through the USJ flagship and are forwarded.</span>
             <span data-zh>每日 11:00–22:00 · 所有预订通过 USJ 旗舰店统一接待后转至各分店。</span></div>
         </div>
         <div class="card">
           <h4><span data-en>Whatsapp</span><span data-zh>WhatsApp</span></h4>
-          <p>+60 16-246 2970</p>
+          <p>+60 10-433 6645</p>
           <div class="small"><span data-en>Send a screenshot of the outlet you want, your party size, and a date. We'll reply with a slot.</span>
             <span data-zh>把想去的分店截图给我们，附人数与日期。我们回你一个时段。</span></div>
         </div>

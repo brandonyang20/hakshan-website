@@ -100,7 +100,7 @@ function hakshan_outlet_field_schema() {
 		'outlet_phone' => array(
 			'label'       => __( 'Phone', 'hakshan' ),
 			'type'        => 'text',
-			'placeholder' => '+60 16-246 2970',
+			'placeholder' => '+60 10-433 6645',
 		),
 		'outlet_booking_url' => array(
 			'label'       => __( 'Booking link (inline.app) — this outlet\'s online reservation URL. Leave blank to fall back to phone booking.', 'hakshan' ),
@@ -498,7 +498,7 @@ function hakshan_outlet_seed_data() {
 	return array(
 		array( 'slug' => 'usj',       'name' => 'USJ Taipan',         'cn' => '梳 邦 再 也',         'city' => 'SUBANG JAYA',  'label' => 'USJ Taipan · main dining hall, evening',
 		       'addr' => 'Block A, USJ 10 Taipan Business Centre, 47620 Subang Jaya, Selangor',
-		       'hours' => 'Daily 11:00–22:00', 'seats' => '120 + private 24 · Charity table', 'phone' => '+60 16-246 2970' ),
+		       'hours' => 'Daily 11:00–22:00', 'seats' => '120 + private 24 · Charity table', 'phone' => '+60 10-433 6645' ),
 		array( 'slug' => 'menjalara', 'name' => 'Menjalara',          'cn' => '甲 洞 · 满 家 拉',      'city' => 'KEPONG',       'label' => 'Menjalara · entrance and brass signage',
 		       'addr' => 'Unit R1-G-3, R1 Gallery, No 10, Jalan Idaman 1/62A, Bandar Menjalara, 52200 KL',
 		       'hours' => 'Daily 11:00–22:00', 'seats' => '96 + private 18 · Charity table',  'phone' => '+60 3-6266 3211' ),
