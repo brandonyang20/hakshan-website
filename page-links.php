@@ -297,9 +297,11 @@ $lh_icons = array(
 			color: var(--forest);
 			border-radius: 14px;
 			text-decoration: none;
+			text-align: left;
 			box-shadow: 0 8px 24px -18px rgba(0, 0, 0, 0.7);
 			transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease;
 		}
+		.lh__outlet-name, .lh__outlet-city { text-align: left; }
 		.lh__outlet:hover { transform: translateY(-2px); background: #fff; }
 		.lh__outlet-name {
 			font-family: var(--sans);
