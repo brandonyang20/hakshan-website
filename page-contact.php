@@ -428,12 +428,6 @@ get_header();
 
       <div class="reserve-info" data-reveal>
         <div class="card">
-          <h4><span data-en>Call directly</span><span data-zh>电 话 预 订</span></h4>
-          <p>+60 10-433 6645</p>
-          <div class="small"><span data-en>Daily 11:00–22:00 · all reservations route through the USJ flagship and are forwarded.</span>
-            <span data-zh>每日 11:00–22:00 · 所有预订通过 USJ 旗舰店统一接待后转至各分店。</span></div>
-        </div>
-        <div class="card">
           <h4><span data-en>Whatsapp</span><span data-zh>WhatsApp</span></h4>
           <p>+60 10-433 6645</p>
           <div class="small"><span data-en>Send a screenshot of the outlet you want, your party size, and a date. We'll reply with a slot.</span>
