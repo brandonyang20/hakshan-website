@@ -135,6 +135,110 @@ add_action(
  * ------------------------------------------------------------------------- */
 
 /**
+ * Terms of Use.
+ *
+ * Follows the structure and wording of the standard Malaysian ECF platform
+ * terms, adapted for Horvy Holding Sdn Bhd as the ISSUER rather than the
+ * platform operator. Horvy is not a Recognised Market Operator and must not
+ * be described as one — the clauses asserting SC registration under s.34
+ * CMSA have been rewritten accordingly. Review by legal before relying on
+ * this; the notice address is a placeholder.
+ *
+ * @return string
+ */
+function hakshan_gate_terms_default() {
+	return <<<'HTML'
+<h3>Terms of Use</h3>
+
+<p>Kindly read these TERMS OF USE (the "Terms of Use") carefully before accessing and using the Investor Relations section of this website, operated by Horvy Holding Sdn Bhd (along with its subsidiaries and affiliated companies) ("HORVY").</p>
+
+<p>This page sets forth the legally binding Terms of Use for your use of the website at hakshan.com (along with its subdomains and all other sites owned and operated by HORVY which redirect to hakshan.com) (the "Website"), and all services owned and provided by HORVY arising from and / or in connection with the Website (the "Service").</p>
+
+<p>By accessing, using and / or relying on the Website or the Service in any manner, including but not limited to visiting, or browsing the Website, contributing content, information, or other materials thereto, you are deemed to be a user of the Website ("User") and to have read, understood and agreed to be bound by the Terms of Use, Risk Warning, Guidelines and Eligibility and Privacy Policy as stated on the Website, along with any ancillary statements, policies and / or documents arising therefrom.</p>
+
+<p>The Terms of Use may be updated from time to time without notice. If at any time you do not agree to these Terms of Use, please refrain from using the Website. If you continue to use the Website after any changes are made to these Terms of Use, you will be deemed to have agreed to those changes.</p>
+
+<p>HORVY reserves the exclusive right to grant, limit, refuse, suspend and / or prohibit access to all or any part of the Service and / or Website and to seek the appropriate legal remedies for any breach of the Terms of Use herein.</p>
+
+<h4>Summary of Service</h4>
+
+<p>Horvy Holding Sdn Bhd is the holding company of the Hakshan group of restaurants. The Investor Relations section of this Website provides information about the group to prospective and existing investors.</p>
+
+<p>HORVY is not a Recognized Market Operator and is not registered by the Securities Commission of Malaysia to operate an equity crowdfunding platform. Where shares in HORVY are offered by way of equity crowdfunding, that offering is hosted and conducted on a platform operated by a Recognized Market Operator registered with the Securities Commission of Malaysia pursuant to section 34 of the Capital Markets and Services Act 2007 (the "ECF Platform"), and HORVY participates as the Issuer. Any application, subscription or investment is made on, and subject to, the terms of that ECF Platform.</p>
+
+<p>The statements under the Risk Warning and Guidelines &amp; Eligibility (as stated on this Website) are made in accordance with the Guidelines on Recognized Markets issued by the Securities Commission of Malaysia pursuant to section 377 of the Capital Markets and Services Act 2007 ("CMSA"). In that regard, the following classifications / terminologies apply where appropriate:</p>
+
+<h4>Sophisticated Investor</h4>
+<p>Refers to High Net-Worth individuals, i.e. individuals with a total wealth or net personal assets exceeding RM3 million or its equivalent in foreign currencies; OR High Net-Worth Entities (Companies / Corporations) i.e. a corporation with total net assets exceeding RM10 million or its equivalent in foreign currencies based on its last audited accounts.</p>
+
+<h4>Angel Investor</h4>
+<p>Refers to a tax resident in Malaysia whose total net personal assets exceed RM3 million or gross total annual income is not less than RM180,000 or jointly with his or her spouse, has a gross total annual income exceeding RM250,000.</p>
+
+<h4>Retail Investor</h4>
+<p>Refers to investors that do not fall under the categories of either Sophisticated Investor or Angel Investor.</p>
+
+<h4>Issuer</h4>
+<p>A company hosted on an equity crowdfunding platform to offer its shares on that platform.</p>
+
+<h4>Disclaimer</h4>
+
+<p>By accessing, using and / or relying on the Website or the Service, the User understands and agrees that:</p>
+
+<ul>
+<li>The Website is operated on an "as is" and "as available" basis. HORVY makes no warranty or representation that the Website or Service will meet the User's requirements, that it will be of satisfactory quality, that it will be fit for a particular purpose, that it will not infringe the rights of third parties, that it will be compatible with all systems, that it will be secure or that all information provided will be accurate.</li>
+<li>HORVY makes no guarantee of any particular outcome from the User's access, use and / or reliance on the Website or Service.</li>
+<li>No part of the Website or Service shall constitute or be construed as advice on any legal, investment or financial matters and HORVY is under no circumstances a party or responsible for any agreements, settlements and / or arrangements entered into between the Users as between themselves or any third parties.</li>
+<li>HORVY does not negotiate terms for and on behalf of the Users or third parties.</li>
+<li>HORVY does not compensate its employees, agents or other persons affiliated with HORVY for any solicitation, referral or sale of shares.</li>
+<li>The User's access, use and / or reliance on the Website or the Service is voluntary and made at the User's own risk. The User shall bear full responsibility to seek the appropriate independent legal and / or financial advice and conduct their own independent due diligence on any matters arising from or in connection with the Website or Service as the User may require.</li>
+<li>HORVY provides no warranty or guarantee that the Website is free of viruses, malicious computer code or other forms of interference that may damage the User's computer or any other devices, or that access to the Website will be uninterrupted, timely or secure.</li>
+</ul>
+
+<h4>Eligibility To Use The Services</h4>
+
+<p>Users under 18 years of age are not eligible to use the Service without the consent and supervision from a parent or legal guardian who is at least 18 years old and who shall be similarly bound by these Terms of Use and responsible for the Users' access, use and / or reliance on the Website or Service. Users who have been suspended by HORVY from accessing and using the Website shall no longer be eligible to use or receive the Service.</p>
+
+<p>For the avoidance of doubt, HORVY as the operator of the Website and provider of the Service retains the exclusive right to limit, restrict and / or prohibit the User's access and / or use of the Website or Service (whether wholly or partly) at any time as it deems necessary or appropriate, and with or without prior notice to the User.</p>
+
+<h4>User Accounts</h4>
+
+<p>All information provided by the User to HORVY in connection with a User's account / profile in respect of the Website and the Service is required to be accurate, complete and truthful. The User shall be fully responsible for monitoring all activity in respect of its User account / profile and notifying HORVY immediately if their User account / profile has been used without their authorisation, if there is any breach of security and / or if there is any false, misleading, incomplete and / or inaccurate information in respect of the same. The User also agrees to provide any additional information and / or documentation as required by HORVY to verify the User's identity and to otherwise perform HORVY's role and responsibilities in respect of the Website and the Service.</p>
+
+<h4>Objectionable Material</h4>
+
+<p>The User understands that by accessing, using and / or relying on the Website or Service, the User may encounter material or content that the User may find offensive, indecent, objectionable or explicit. Nevertheless, the User agrees that any access, use and / or reliance on the Website or Service is at the User's own risk and discretion and that the User shall not hold HORVY liable in respect of the same.</p>
+
+<h4>Ownership</h4>
+
+<p>All content and material published on the Website shall be deemed to be owned by HORVY and subject to protection by Malaysian intellectual property laws and rights applicable to HORVY in respect of the same.</p>
+
+<h4>Indemnity</h4>
+
+<p>The User shall indemnify and hold harmless HORVY and its directors, employees, affiliates, representatives and agents from all claims, losses, damages, liabilities, costs, expenses and / or harm incurred by the User or any third party arising from or in connection with the User's access, use and / or reliance on the Website or Service. HORVY reserves the right to adopt the exclusive defence and control over any matter in that regard and the User shall assist and cooperate with HORVY in any defence and / or settlement in respect of the same.</p>
+
+<h4>Governing Law</h4>
+
+<p>The User agrees that the Service shall be deemed to be based in Malaysia and shall be governed by the laws of Malaysia.</p>
+
+<h4>Miscellaneous</h4>
+
+<p>The Users acknowledge and agree that the Terms of Use, Risk Warning, Guidelines and Eligibility and Privacy Policy herein contained on the Website governs the User's access, use and / or reliance on the Website or the Service. If at any time any provision herein is held to be illegal, void, voidable and / or unenforceable, that provision shall be read down to the extent necessary to ensure that the same is not so illegal, invalid, void, voidable and / or unenforceable and / or is to be severable without affecting the validity or enforceability of the remaining provisions. HORVY reserves the right to take any steps which HORVY deems necessary or appropriate to enforce and / or verify compliance with the provisions herein. HORVY's failure to enforce any rights or provisions in the Terms of Use and Privacy Policy herein shall not constitute or be construed as a waiver of the same.</p>
+
+<h4>Notice</h4>
+
+<p>Any communication / notification from HORVY to the Users arising from or in connection with the Website or Service shall be effective upon delivery by hand, email and / or registered post or by any other means which the User has by its conduct accepted or acknowledged to be appropriate.</p>
+
+<p>Any communication / notification from the User to HORVY arising or in connection with the Website or the Service shall be effective upon receipt by HORVY by hand, email and / or registered post at the following addresses:</p>
+
+<p><strong>Reference:</strong> Horvy Holding Sdn Bhd</p>
+
+<p><strong>Address:</strong> [registered address to be inserted]</p>
+
+<p><strong>Email:</strong> [email to be inserted]</p>
+HTML;
+}
+
+/**
  * Built-in draft copy, used when no page has been assigned to a tab.
  *
  * Placeholder wording written for Hakshan — review by legal/compliance
@@ -145,17 +249,7 @@ add_action(
  */
 function hakshan_gate_default_content( $key ) {
 	$defaults = array(
-		'terms'      => '
-<h3>Terms of Use</h3>
-<p>The Investor Relations section of this website is provided by Horvy Holding Sdn Bhd ("Hakshan") for general information only. By continuing you confirm that you have read, understood and accept these terms.</p>
-<h4>No offer or invitation</h4>
-<p>Nothing on these pages is an offer to sell, or a solicitation of an offer to buy, any security or interest in Hakshan. No part of this material forms the basis of, and should not be relied upon in connection with, any contract or commitment.</p>
-<h4>Not financial advice</h4>
-<p>The information does not take account of your objectives, financial situation or needs, and is not a recommendation. You should obtain independent financial, legal and tax advice before making any investment decision.</p>
-<h4>Accuracy and forward-looking statements</h4>
-<p>Figures, projections and targets are based on assumptions current at the time of publication and may change without notice. Forward-looking statements are not guarantees of future performance. Hakshan gives no warranty as to the accuracy or completeness of the information and accepts no liability for any loss arising from its use.</p>
-<h4>Jurisdiction</h4>
-<p>These pages are directed at persons in Malaysia. They are governed by the laws of Malaysia.</p>',
+		'terms'      => hakshan_gate_terms_default(),
 
 		'risk'       => '
 <h3>Risk Warning</h3>
