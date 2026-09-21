@@ -248,56 +248,260 @@ HTML;
  * @return string
  */
 function hakshan_gate_default_content( $key ) {
-	$defaults = array(
-		'terms'      => hakshan_gate_terms_default(),
+	$map = array(
+		'terms'      => 'hakshan_gate_terms_default',
+		'risk'       => 'hakshan_gate_risk_default',
+		'guidelines' => 'hakshan_gate_guidelines_default',
+		'privacy'    => 'hakshan_gate_privacy_default',
+	);
+	return isset( $map[ $key ] ) && function_exists( $map[ $key ] )
+		? call_user_func( $map[ $key ] )
+		: '';
+}
 
-		'risk'       => '
+/**
+ * Risk Warning. Generic ECF risk disclosure; the only change from the
+ * standard platform wording is the opening, which speaks in the Issuer's
+ * voice rather than the platform operator's.
+ *
+ * @return string
+ */
+function hakshan_gate_risk_default() {
+	return <<<'HTML'
 <h3>Risk Warning</h3>
-<p>Investing in an early-stage or unlisted company is high risk. You should read the following carefully.</p>
-<h4>You may lose your entire investment</h4>
-<p>Private companies can and do fail. If that happens you are likely to lose all of the money you invested. Never invest more than you can afford to lose.</p>
-<h4>Illiquidity</h4>
-<p>Shares in an unlisted company cannot easily be sold. There is no public market for them, and there may be no opportunity to exit your investment for many years — or at all.</p>
-<h4>Dilution</h4>
-<p>If the company raises further capital, your shareholding is likely to be diluted, reducing your percentage ownership and any associated rights.</p>
-<h4>No dividends</h4>
-<p>Early-stage companies typically reinvest earnings rather than pay dividends. You should not expect income from this type of investment.</p>
-<h4>Past performance</h4>
-<p>Historical results, including outlet or revenue growth, are not a reliable indicator of future performance.</p>
-<h4>Diversify</h4>
-<p>Investments of this kind should form only a small part of a diversified portfolio.</p>',
 
-		'guidelines' => '
+<p>Horvy Holding Sdn Bhd ("HORVY") is glad to make information about its business available to potential investors. We are passionate about financial inclusion as well as matching lucrative businesses with investors to bring about positive social and economic outcomes. However, it is important for users to understand the characteristics and the workings of an equity crowdfunding marketplace.</p>
+
+<h4>The following are key characteristics that define ECF:</h4>
+
+<ul>
+<li>Shares offered are in unlisted private companies</li>
+<li>There is no guaranteed return on investment</li>
+<li>There is no secondary market for the shares</li>
+<li>There is a lock-in period before exit options become available</li>
+<li>Liquidity is low</li>
+<li>The businesses are typically in their growth stage</li>
+</ul>
+
+<h4>Risks of Equity Crowdfunding Investments:</h4>
+
+<p>Potential investors should be aware of the following risks:</p>
+
+<ul>
+<li><strong>Business Risk:</strong> The business may fail and investors may lose their entire investment.</li>
+<li><strong>Market Risk:</strong> Economic conditions may affect the performance of the business.</li>
+<li><strong>Liquidity Risk:</strong> Investors may not be able to sell their shares easily or at a desired price.</li>
+<li><strong>Dilution Risk:</strong> Future funding rounds may dilute the investor's shareholding.</li>
+<li><strong>Regulatory Risk:</strong> Changes in regulations may affect the business or the ECF Platform.</li>
+<li><strong>Information Risk:</strong> Investors may not have access to all material information about the business.</li>
+<li><strong>Management Risk:</strong> Changes in the management team may affect the business performance.</li>
+<li><strong>Exit Risk:</strong> There may be limited exit opportunities or unfavorable exit valuations.</li>
+</ul>
+
+<h4>Due Diligence</h4>
+
+<p>Before making an investment, investors are advised to:</p>
+
+<ul>
+<li>Carefully review all information provided by the issuer</li>
+<li>Ask questions and seek clarifications from the issuer</li>
+<li>Consider seeking professional financial and legal advice</li>
+<li>Assess their own financial situation and investment objectives</li>
+<li>Consider their risk tolerance and investment time horizon</li>
+<li>Diversify their investment portfolio</li>
+</ul>
+
+<h4>Investment Limits</h4>
+
+<p>The Securities Commission Malaysia has set investment limits for different types of investors to manage risks. These limits apply to each offering and are as follows:</p>
+
+<h4>Retail Investor:</h4>
+<p>Maximum investment limit of RM10,000 per offering</p>
+
+<h4>Angel Investor:</h4>
+<p>Maximum investment limit of RM50,000 per offering</p>
+
+<h4>Sophisticated Investor:</h4>
+<p>No specific investment limit per offering, but subject to suitability assessment</p>
+
+<p>As a rule of thumb for all potential investors, investments made through equity crowdfunding should be in the effort to diversify one's portfolio and to spread risks. Investors are highly advised to acquire as much information on the business they want to invest in order to make an informed investment decision and to carry out an independent due diligence if necessary.</p>
+HTML;
+}
+
+/**
+ * Guidelines & Eligibility. Investor classifications, limits and issuer
+ * criteria are the Securities Commission's own and are reproduced as-is;
+ * the lead-in is reworded so it does not present HORVY as the platform.
+ *
+ * @return string
+ */
+function hakshan_gate_guidelines_default() {
+	return <<<'HTML'
 <h3>Guidelines &amp; Eligibility</h3>
-<h4>For investors</h4>
-<p>Where an investment is made through a registered equity crowdfunding (ECF) platform, the Securities Commission Malaysia applies investment limits according to investor type:</p>
+
+<h4>For Investors</h4>
+
+<p>Where shares in Horvy Holding Sdn Bhd are offered by way of equity crowdfunding, the offering is open to all types of investors subject to compliance with the Securities Commission's investment limits which are applicable to the following investor types:</p>
+
 <h4>Retail Investors</h4>
 <p>Investors that do not fall under the categories of either Sophisticated Investor or Angel Investor. Maximum investment limit: RM10,000 per offering.</p>
+
 <h4>Angel Investors</h4>
-<p>Tax residents in Malaysia whose total net personal assets exceed RM3 million, or gross total annual income is not less than RM180,000, or jointly with spouse has a gross total annual income exceeding RM250,000. Maximum investment limit: RM50,000 per offering.</p>
+<p>Tax residents in Malaysia whose total net personal assets exceed RM3 million or gross total annual income is not less than RM180,000 or jointly with spouse, has a gross total annual income exceeding RM250,000. Maximum investment limit: RM50,000 per offering.</p>
+
 <h4>Sophisticated Investors</h4>
-<p>Investors who fall within the categories of accredited investor, high-net-worth entity or high-net-worth individual as set out in the Capital Markets and Services Act 2007. No investment limit applies.</p>
-<h4>Please note</h4>
-<p>Additional annual limits may apply under the Securities Commission\'s guidelines. Eligibility and limits are determined by the relevant platform or issuer at the point of investment, and you may be asked to provide evidence of your investor status. Hakshan is not a registered ECF operator; any offering is conducted through the relevant licensed party.</p>',
+<p>High Net-Worth individuals with total wealth or net personal assets exceeding RM3 million or its equivalent in foreign currencies; OR High Net-Worth Entities (Companies/Corporations) with total net assets exceeding RM10 million or its equivalent in foreign currencies based on last audited accounts. No specific per-offering limit.</p>
 
-		'privacy'    => '
+<h4>Investor Eligibility Requirements</h4>
+
+<ul>
+<li>Must be at least 18 years old</li>
+<li>Must be a tax resident of Malaysia</li>
+<li>Must have a valid identification document</li>
+<li>Must not be citizens of sanctioned countries by the Central Bank of Malaysia</li>
+<li>Must have completed the investor questionnaire</li>
+<li>Must comply with all applicable laws and regulations</li>
+<li>Must not be suspended or banned from the ECF Platform</li>
+</ul>
+
+<h4>For Issuers</h4>
+
+<ul>
+<li>Must be a private company or limited liability partnership incorporated in Malaysia</li>
+<li>Must be a going concern with at least 2 years of business operations or audited financial statements</li>
+<li>Must not be involved in prohibited activities</li>
+<li>Must comply with all applicable laws and regulations</li>
+<li>Must have obtained approval from its shareholders or board to raise funds</li>
+<li>Must provide all required documentation and disclosures</li>
+<li>Must not have defaulted on previous offerings or breached any Securities Commission guidelines</li>
+</ul>
+
+<h4>Offering Requirements</h4>
+
+<ul>
+<li>Minimum offering amount: RM250,000</li>
+<li>Maximum offering amount: RM3,000,000 per financial year</li>
+<li>Minimum subscription per investor based on investor type and investment limits</li>
+<li>Comprehensive disclosure documents must be provided</li>
+<li>Financial statements (minimum 2 years audited or reviewed) required</li>
+<li>For offerings above RM500,000.00: Audited financial statements of the issuer</li>
+</ul>
+HTML;
+}
+
+/**
+ * Privacy Policy. Structure and wording follow the standard platform
+ * policy with HORVY substituted throughout. Trim any clause describing
+ * data handling HORVY does not actually carry out before publishing.
+ *
+ * @return string
+ */
+function hakshan_gate_privacy_default() {
+	return <<<'HTML'
 <h3>Privacy Policy</h3>
-<p>This notice explains how Horvy Holding Sdn Bhd ("Hakshan") handles personal data collected through the Investor Relations section of this website.</p>
-<h4>What we collect</h4>
-<p>Contact details you submit to us (such as name, email address, telephone number and company), together with technical data such as IP address, browser type and pages viewed.</p>
-<h4>Why we use it</h4>
-<p>To respond to your enquiry, to provide investor materials you have requested, to maintain our records, and to improve the website. We do not sell your personal data.</p>
-<h4>Sharing</h4>
-<p>We may share data with our professional advisers and service providers where necessary, and with authorities where required by law.</p>
-<h4>Retention</h4>
-<p>We keep personal data only for as long as necessary for the purposes above, or as required by law.</p>
-<h4>Your rights</h4>
-<p>Under the Personal Data Protection Act 2010 you may request access to, or correction of, your personal data, and may withdraw consent to its processing.</p>
-<h4>Contact</h4>
-<p>For any privacy request, contact us through the details on our Contact page.</p>',
-	);
 
-	return isset( $defaults[ $key ] ) ? $defaults[ $key ] : '';
+<p>Horvy Holding Sdn Bhd ("HORVY") is committed to protecting your personal information when using the Service provided by the Website. We have crafted this Privacy Policy for you to understand how and why we gather information, how we store it, and how you can access and edit that information as well as when we might disclose information to other parties.</p>
+
+<h4>Consent to gather User's personal information</h4>
+
+<p>By using the Website, you consent to HORVY collecting, using and disclosing your personal information in accordance with this Privacy Policy. If you do not agree with this Privacy Policy, please refrain from using the Website and the Service.</p>
+
+<h4>Collection of Information</h4>
+
+<p>HORVY may collect your personal information when you:</p>
+
+<ul>
+<li>Register an account on the Website</li>
+<li>Complete your profile information</li>
+<li>Make an investment or create an offering</li>
+<li>Contact HORVY for customer support</li>
+<li>Participate in surveys or feedback</li>
+<li>Use the Website and its services</li>
+</ul>
+
+<p>The types of personal information collected may include but are not limited to:</p>
+
+<ul>
+<li>Name, email address, phone number</li>
+<li>Identification number and document</li>
+<li>Address and contact information</li>
+<li>Financial information (bank account details, transaction history)</li>
+<li>Investment preferences and history</li>
+<li>Communication records</li>
+<li>Information about your access and use of the Website</li>
+</ul>
+
+<h4>Use of Information</h4>
+
+<p>HORVY may use your personal information for the following purposes:</p>
+
+<ul>
+<li>To provide you with the Service</li>
+<li>To process your investment or offering</li>
+<li>To verify your identity and conduct background checks</li>
+<li>To comply with applicable laws and regulations</li>
+<li>To communicate with you about the Service</li>
+<li>To improve and optimize the Service</li>
+<li>To send you marketing and promotional materials (with your consent)</li>
+<li>To conduct research and analytics</li>
+<li>To detect and prevent fraud</li>
+</ul>
+
+<h4>Disclosure of Information</h4>
+
+<p>HORVY may disclose your personal information to:</p>
+
+<ul>
+<li>Service providers and contractors who assist HORVY in operating the Website</li>
+<li>Financial institutions, payment processors, and banks</li>
+<li>Regulatory authorities and law enforcement agencies</li>
+<li>Other parties as required by law or court order</li>
+<li>The operator of any equity crowdfunding platform through which shares in HORVY are offered</li>
+<li>Investors, as disclosed in the relevant offering documents</li>
+</ul>
+
+<p>HORVY will not disclose your personal information to third parties for marketing purposes without your prior consent.</p>
+
+<h4>Data Security</h4>
+
+<p>HORVY takes reasonable measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction. However, no method of transmission over the internet is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee absolute security.</p>
+
+<h4>Retention of Information</h4>
+
+<p>HORVY will retain your personal information for as long as necessary to provide the Service and to comply with applicable laws and regulations. If you request the deletion of your account, HORVY will delete your personal information within a reasonable timeframe, except where retention is required by law.</p>
+
+<h4>Your Rights</h4>
+
+<p>Subject to applicable laws, you have the right to:</p>
+
+<ul>
+<li>Access your personal information</li>
+<li>Correct inaccurate or incomplete personal information</li>
+<li>Request deletion of your personal information</li>
+<li>Opt out of marketing communications</li>
+<li>Lodge a complaint with the relevant data protection authority</li>
+</ul>
+
+<p>To exercise any of these rights, please contact HORVY at the email address below.</p>
+
+<h4>Third-Party Links</h4>
+
+<p>The Website may contain links to third-party websites and services. HORVY is not responsible for the privacy practices or content of these third-party websites. Please review the privacy policies of any third-party websites before providing your personal information.</p>
+
+<h4>Changes to Privacy Policy</h4>
+
+<p>HORVY may update this Privacy Policy from time to time. Any changes will be posted on the Website with a revised effective date. Your continued use of the Service after such changes constitutes your acceptance of the updated Privacy Policy.</p>
+
+<h4>Contact Us</h4>
+
+<p>If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us at:</p>
+
+<p><strong>Horvy Holding Sdn Bhd</strong></p>
+<p><strong>Address:</strong> [registered address to be inserted]</p>
+<p><strong>Email:</strong> [email to be inserted]</p>
+
+<p>You understand that if HORVY discloses your personal information to a credit reporting agency, they may hold your information on their credit reporting database and use it for providing credit reporting services and for any other lawful purpose and they may disclose your information to their subscribers for the purpose of credit checking or debt collection or for any other lawful purpose.</p>
+HTML;
 }
 
 /**
