@@ -288,6 +288,10 @@ function hakshan_popup_should_render() {
 	if ( is_page_template( 'page-links.php' ) ) {
 		return false;
 	}
+	// Never stack on top of the investor disclaimer gate.
+	if ( function_exists( 'hakshan_gate_active' ) && hakshan_gate_active() ) {
+		return false;
+	}
 	if ( 'home' === hakshan_popup_get( 'hakshan_popup_display' ) && ! is_front_page() ) {
 		return false;
 	}

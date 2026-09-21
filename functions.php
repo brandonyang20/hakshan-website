@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.142' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.143' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -19,6 +19,7 @@ require_once get_theme_file_path( 'inc/llms.php' );
 require_once get_theme_file_path( 'inc/meta-pixel.php' );
 require_once get_theme_file_path( 'inc/analytics.php' );
 require_once get_theme_file_path( 'inc/popup-banner.php' );
+require_once get_theme_file_path( 'inc/investor-gate.php' );
 
 /**
  * Theme setup — features and supports.
