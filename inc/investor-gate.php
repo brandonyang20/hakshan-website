@@ -142,7 +142,7 @@ add_action(
  * platform operator. Horvy is not a Recognised Market Operator and must not
  * be described as one — the clauses asserting SC registration under s.34
  * CMSA have been rewritten accordingly. Review by legal before relying on
- * this; the notice address is a placeholder.
+ * this.
  *
  * @return string
  */
@@ -232,9 +232,9 @@ function hakshan_gate_terms_default() {
 
 <p><strong>Reference:</strong> Horvy Holding Sdn Bhd</p>
 
-<p><strong>Address:</strong> [registered address to be inserted]</p>
+<p><strong>Address:</strong> 11A &amp; 12A, Ground Floor, No 39, Ipoh Garden Square, Jalan Sultan Azlan Shah Utara, Taman Ipoh Selatan, 31400 Ipoh, Perak.</p>
 
-<p><strong>Email:</strong> [email to be inserted]</p>
+<p><strong>Email:</strong> <a href="mailto:support@hakshan.com">support@hakshan.com</a></p>
 HTML;
 }
 
@@ -497,8 +497,8 @@ function hakshan_gate_privacy_default() {
 <p>If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us at:</p>
 
 <p><strong>Horvy Holding Sdn Bhd</strong></p>
-<p><strong>Address:</strong> [registered address to be inserted]</p>
-<p><strong>Email:</strong> [email to be inserted]</p>
+<p><strong>Address:</strong> 11A &amp; 12A, Ground Floor, No 39, Ipoh Garden Square, Jalan Sultan Azlan Shah Utara, Taman Ipoh Selatan, 31400 Ipoh, Perak.</p>
+<p><strong>Email:</strong> <a href="mailto:support@hakshan.com">support@hakshan.com</a></p>
 
 <p>You understand that if HORVY discloses your personal information to a credit reporting agency, they may hold your information on their credit reporting database and use it for providing credit reporting services and for any other lawful purpose and they may disclose your information to their subscribers for the purpose of credit checking or debt collection or for any other lawful purpose.</p>
 HTML;
