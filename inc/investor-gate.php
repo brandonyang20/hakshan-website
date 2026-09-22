@@ -657,7 +657,7 @@ function hakshan_gate_render() {
 <style>
 .hk-gate{position:fixed;inset:0;z-index:9500;display:none;align-items:center;justify-content:center;padding:16px;background:#1b140d;background:radial-gradient(120% 90% at 50% 0%,#2D2219 0%,#1b140d 70%)}
 html.hk-gate-pending .hk-gate{display:flex;visibility:visible !important}
-.hk-gate__box{width:100%;max-width:760px;max-height:calc(100vh - 32px);display:flex;flex-direction:column;background:#231A12;border:1px solid rgba(243,234,217,.18);border-radius:14px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
+.hk-gate__box{width:100%;max-width:760px;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);display:flex;flex-direction:column;background:#231A12;border:1px solid rgba(243,234,217,.18);border-radius:14px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
 .hk-gate__head{padding:26px 26px 16px;border-bottom:1px solid rgba(243,234,217,.12)}
 .hk-gate__heading{margin:0 0 6px;font-family:var(--serif,serif);font-size:clamp(22px,4vw,28px);line-height:1.2;color:#F3EAD9}
 .hk-gate__intro{margin:0;font-size:14px;line-height:1.55;color:rgba(243,234,217,.66)}
@@ -667,7 +667,7 @@ html.hk-gate-pending .hk-gate{display:flex;visibility:visible !important}
 .hk-gate__tab:hover{color:#F3EAD9;border-color:rgba(196,155,102,.5)}
 .hk-gate__tab.is-on{background:#C49B66;border-color:#C49B66;color:#231A12;font-weight:600}
 .hk-gate__scroll{flex:1 1 auto;overflow-y:auto;padding:20px 26px;margin:4px 0;-webkit-overflow-scrolling:touch}
-.hk-gate__panel{display:none;color:rgba(243,234,217,.78);font-size:14.5px;line-height:1.7}
+.hk-gate__panel{display:none;color:rgba(243,234,217,.78);font-size:14.5px;line-height:1.65;font-family:"Brother 1816","Inter",-apple-system,BlinkMacSystemFont,"Helvetica Neue","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;-webkit-text-size-adjust:100%}
 .hk-gate__panel.is-on{display:block}
 .hk-gate__panel h3{margin:0 0 14px;font-family:var(--serif,serif);font-size:20px;color:#F3EAD9}
 .hk-gate__panel h4{margin:20px 0 6px;font-size:14px;letter-spacing:.02em;color:#C49B66;font-weight:600}
@@ -685,7 +685,7 @@ html.hk-gate-pending .hk-gate{display:flex;visibility:visible !important}
 .hk-gate__go:not([disabled]):hover{background:#d4ab76;transform:translateY(-1px)}
 .hk-gate__arrow{transition:transform .2s ease}
 .hk-gate__go:not([disabled]):hover .hk-gate__arrow{transform:translateX(3px)}
-@media(max-width:520px){.hk-gate__head,.hk-gate__tabs,.hk-gate__scroll,.hk-gate__foot{padding-left:18px;padding-right:18px}.hk-gate__actions{justify-content:space-between}}
+@media(max-width:640px){.hk-gate{padding:10px}.hk-gate__box{max-height:calc(100vh - 20px);max-height:calc(100dvh - 20px)}.hk-gate__head{padding:18px 18px 12px}.hk-gate__heading{font-size:19px}.hk-gate__intro{font-size:12.5px;line-height:1.5}.hk-gate__tabs{padding:12px 18px 0;gap:6px}.hk-gate__tab{font-size:11.5px;padding:9px 6px;border-radius:8px}.hk-gate__scroll{padding:14px 18px}.hk-gate__panel{font-size:13.5px;line-height:1.6}.hk-gate__panel h3{font-size:17px;margin-bottom:10px}.hk-gate__panel h4{font-size:12.5px;margin:14px 0 4px}.hk-gate__panel p{margin:0 0 10px}.hk-gate__foot{padding:12px 18px 16px}.hk-gate__agree{font-size:12.5px;gap:9px}.hk-gate__agree input{width:17px;height:17px}.hk-gate__actions{margin-top:12px;justify-content:space-between}.hk-gate__go{font-size:14px;padding:11px 20px}}
 </style>
 
 <script>
