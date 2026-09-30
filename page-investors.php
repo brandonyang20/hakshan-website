@@ -1396,6 +1396,14 @@ get_header();
     .iv-chartsec .iv-bar__cap::after{display:none}
     .iv-chartsec .iv-bar:hover .iv-bar__fill{filter:none}
   }
+  /* 2025 outlet cards: reachable and clickable. The card floats 12px above
+     the tile; a transparent bridge spans that gap so moving the pointer up
+     keeps the tile hovered, and a short close delay forgives small slips. */
+  .iv-ost__card{transition:opacity .22s ease,transform .22s cubic-bezier(.22,1,.36,1),visibility 0s linear .28s;transition-delay:.12s,.12s,.28s}
+  .iv-ost:hover .iv-ost__card,.iv-ost:focus-visible .iv-ost__card,.iv-ost:focus-within .iv-ost__card{pointer-events:auto;transition-delay:0s,0s,0s}
+  .iv-ost__card::before{content:"";position:absolute;left:-10px;right:-10px;top:100%;height:18px}
+  .iv-ost__go{cursor:pointer;transition:color .2s ease}
+  .iv-ost__card:hover .iv-ost__go{color:#2A1A0F;text-decoration:underline;text-underline-offset:3px}
 </style>
 
 <div class="iv">
@@ -1694,30 +1702,42 @@ $iv_brands = array(
         <div class="iv-mile__head"><span data-en>Achieved</span><span data-zh>已达成</span> 2025</div>
 
         <?php
-        // Outlets that opened in 2025, drawn from the Outlet CPT. Set each
-        // outlet's "Opened" field (e.g. "Mar 2025") and a Featured Image and
-        // it appears here automatically. No 2025 outlets = no gallery.
+        // Outlets operating by the end of 2025, detected from each outlet's
+        // Opening date in the admin (opened on or before 31 Dec 2025), in
+        // opening order. "(Coming Soon)" outlets are never shown. With no
+        // dates entered yet, fall back to the first seven operating outlets
+        // (matching "7 Outlets") and show no opening date.
+        $iv_cutoff     = gmmktime( 23, 59, 59, 12, 31, 2025 );
         $iv_tr_outlets = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
-        $iv_2025 = array();
-        $iv_all_rows = array();
+        $iv_2025       = array();
+        $iv_all_rows   = array();
+        $iv_any_dated  = false;
         foreach ( $iv_tr_outlets as $iv_tr_o ) {
-          $iv_d = function_exists( 'hakshan_get_outlet_data' ) ? hakshan_get_outlet_data( $iv_tr_o->ID ) : array();
-          $iv_is_2025 = ! empty( $iv_d['opened'] ) && false !== strpos( (string) $iv_d['opened'], '2025' );
+          $iv_title = trim( wp_strip_all_tags( get_the_title( $iv_tr_o->ID ) ) );
+          if ( '' === $iv_title || false !== stripos( $iv_title, 'coming soon' ) ) {
+            continue;
+          }
+          $iv_d  = function_exists( 'hakshan_get_outlet_data' ) ? hakshan_get_outlet_data( $iv_tr_o->ID ) : array();
+          $iv_op = ! empty( $iv_d['opened_parts'] ) ? $iv_d['opened_parts'] : null;
           $iv_row = array(
-            'name'   => get_the_title( $iv_tr_o->ID ),
+            'name'   => $iv_title,
             'city'   => ! empty( $iv_d['city'] ) ? ucwords( strtolower( $iv_d['city'] ) ) : '',
-            'opened' => $iv_d['opened'],
+            'opened' => $iv_op ? $iv_op['label'] : '',
+            'ts'     => $iv_op ? $iv_op['ts'] : PHP_INT_MAX,
             'img'    => hakshan_iv_img( 'render-hakshan.webp' ),
             'url'    => get_permalink( $iv_tr_o->ID ),
           );
-          if ( $iv_is_2025 ) {
-            $iv_2025[] = $iv_row;
+          if ( $iv_op ) {
+            $iv_any_dated = true;
+            if ( $iv_op['ts'] <= $iv_cutoff ) {
+              $iv_2025[] = $iv_row;
+            }
           }
           $iv_all_rows[] = $iv_row;
         }
-        // Nothing tagged "Opened … 2025" yet: show the first seven outlets,
-        // matching the "7 Outlets" figure, without inventing opening dates.
-        if ( ! $iv_2025 && ! empty( $iv_all_rows ) ) {
+        if ( $iv_any_dated ) {
+          usort( $iv_2025, static function ( $a, $b ) { return $a['ts'] <=> $b['ts']; } );
+        } elseif ( $iv_all_rows ) {
           $iv_2025 = array_slice( $iv_all_rows, 0, 7 );
         }
         ?>

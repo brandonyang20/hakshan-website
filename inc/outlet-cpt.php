@@ -103,9 +103,9 @@ function hakshan_outlet_field_schema() {
 			'placeholder' => '+60 10-433 6645',
 		),
 		'outlet_opened' => array(
-			'label'       => __( 'Opened (month and year, e.g. "Mar 2025") — used by the investor page timeline.', 'hakshan' ),
-			'type'        => 'text',
-			'placeholder' => 'Mar 2025',
+			'label'       => __( 'Opening date — the investor page groups outlets by this year automatically (e.g. anything opened on or before 31 Dec 2025 appears under "Achieved 2025"). Leave blank if unknown.', 'hakshan' ),
+			'type'        => 'date',
+			'placeholder' => '',
 		),
 		'outlet_booking_url' => array(
 			'label'       => __( 'Booking link (inline.app) — this outlet\'s online reservation URL. Leave blank to fall back to phone booking.', 'hakshan' ),
@@ -149,6 +149,13 @@ function hakshan_render_outlet_meta_box( $post ) {
 				esc_attr( $key ),
 				esc_attr( $field['placeholder'] ),
 				esc_textarea( $value )
+			);
+		} elseif ( 'date' === $field['type'] ) {
+			$parts = hakshan_outlet_opened_parts( $value );
+			printf(
+				'<input type="date" name="%1$s" id="%1$s" value="%2$s" style="max-width:220px" />',
+				esc_attr( $key ),
+				esc_attr( $parts ? gmdate( 'Y-m-d', $parts['ts'] ) : '' )
 			);
 		} else {
 			printf(
@@ -271,6 +278,13 @@ function hakshan_save_outlet_meta( $post_id ) {
 			$raw = wp_unslash( $_POST[ $key ] );
 			if ( 'outlet_booking_url' === $key ) {
 				update_post_meta( $post_id, $key, esc_url_raw( trim( $raw ) ) );
+			} elseif ( 'outlet_opened' === $key ) {
+				$parts = hakshan_outlet_opened_parts( sanitize_text_field( $raw ) );
+				if ( $parts ) {
+					update_post_meta( $post_id, $key, gmdate( 'Y-m-d', $parts['ts'] ) );
+				} else {
+					delete_post_meta( $post_id, $key );
+				}
 			} else {
 				update_post_meta( $post_id, $key, wp_kses_post( $raw ) );
 			}
@@ -382,6 +396,7 @@ function hakshan_get_outlet_data( $post_id ) {
 		'phone'      => get_post_meta( $post_id, 'outlet_phone', true ),
 		'booking_url' => get_post_meta( $post_id, 'outlet_booking_url', true ),
 		'opened'      => get_post_meta( $post_id, 'outlet_opened', true ),
+		'opened_parts'=> hakshan_outlet_opened_parts( get_post_meta( $post_id, 'outlet_opened', true ) ),
 		'image_id'   => (int) get_post_thumbnail_id( $post_id ),
 		'image_html' => get_the_post_thumbnail( $post_id, 'large' ),
 		'image_url'  => get_the_post_thumbnail_url( $post_id, 'large' ),
@@ -528,3 +543,60 @@ function hakshan_outlet_seed_data() {
 		       'hours' => 'Daily 11:00–22:00', 'seats' => '78 · Charity table',               'phone' => '+60 3-6263 8800' ),
 	);
 }
+
+/**
+ * Parse an outlet's opening date. Accepts the stored Y-m-d value and, for
+ * older entries, free text such as "Mar 2025".
+ *
+ * @param string $raw Stored value.
+ * @return array|null { ts: int, year: int, label: string ("Mar 2025") } or null.
+ */
+function hakshan_outlet_opened_parts( $raw ) {
+	$raw = trim( (string) $raw );
+	if ( '' === $raw ) {
+		return null;
+	}
+	if ( preg_match( '/^(\d{4})-(\d{2})-(\d{2})$/', $raw, $m ) ) {
+		$ts = gmmktime( 0, 0, 0, (int) $m[2], (int) $m[3], (int) $m[1] );
+	} else {
+		$ts = strtotime( '1 ' . $raw . ' UTC' );
+		if ( false === $ts ) {
+			$ts = strtotime( $raw . ' UTC' );
+		}
+	}
+	if ( ! $ts ) {
+		return null;
+	}
+	return array(
+		'ts'    => (int) $ts,
+		'year'  => (int) gmdate( 'Y', $ts ),
+		'label' => gmdate( 'M Y', $ts ),
+	);
+}
+
+/* "Opened" column in the Outlets list, so dates are easy to check. */
+add_filter(
+	'manage_outlet_posts_columns',
+	function ( $cols ) {
+		$out = array();
+		foreach ( $cols as $k => $v ) {
+			$out[ $k ] = $v;
+			if ( 'title' === $k ) {
+				$out['hakshan_opened'] = __( 'Opened', 'hakshan' );
+			}
+		}
+		return $out;
+	}
+);
+add_action(
+	'manage_outlet_posts_custom_column',
+	function ( $col, $post_id ) {
+		if ( 'hakshan_opened' !== $col ) {
+			return;
+		}
+		$parts = hakshan_outlet_opened_parts( get_post_meta( $post_id, 'outlet_opened', true ) );
+		echo $parts ? esc_html( gmdate( 'j M Y', $parts['ts'] ) ) : '<span style="color:#999">&mdash;</span>';
+	},
+	10,
+	2
+);
