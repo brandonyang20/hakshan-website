@@ -1074,6 +1074,57 @@ get_header();
   .iv-news__cta .arr{transition:transform .2s ease}
   .iv-news__cta:hover .arr{transform:translateX(3px)}
   @media(max-width:900px){.iv-news__grid{grid-template-columns:1fr}}
+  /* ============ NEWS CAROUSEL ============ */
+  .iv-news__head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .iv-news__nav{display:flex;gap:8px}
+  .iv-news__arrow{width:42px;height:42px;border:1px solid var(--line,#C9BE9F);background:transparent;border-radius:50%;color:var(--ink);font-size:16px;cursor:pointer;transition:background .2s ease,color .2s ease}
+  .iv-news__arrow:hover{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+  .iv-news__track{display:flex;gap:clamp(14px,2vw,24px);margin-top:clamp(28px,4vw,44px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  .iv-news__track::-webkit-scrollbar{display:none}
+  .iv-news__card{flex:0 0 clamp(268px,31%,380px);scroll-snap-align:start;display:flex;flex-direction:column;background:var(--paper,#F9F7F2);border:1px solid var(--line,#C9BE9F);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease}
+  .iv-news__card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(42,46,39,.6)}
+  .iv-news__media{aspect-ratio:16/9;overflow:hidden;background:var(--cream);position:relative}
+  .iv-news__media img{width:100%;height:100%;object-fit:cover;display:block}
+  .iv-news__ph{position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(79,93,72,.06) 0 8px,rgba(79,93,72,.02) 8px 16px),linear-gradient(180deg,#d8cfb3,#c4ba98)}
+  .iv-news__body{padding:clamp(16px,2vw,24px);display:flex;flex-direction:column;flex:1}
+  .iv-news__date{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:10px}
+  .iv-news__card h3{font-family:var(--serif);font-size:clamp(17px,2vw,21px);line-height:1.25;margin:0 0 10px}
+  .iv-news__card p{font-size:14px;line-height:1.6;color:var(--ink-soft);margin:0 0 16px}
+  .iv-news__cta{display:inline-flex;align-items:center;gap:8px;margin-top:auto;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest)}
+  .iv-news__cta .arr{transition:transform .2s ease}
+  .iv-news__card:hover .iv-news__cta .arr{transform:translateX(3px)}
+  @media(max-width:700px){.iv-news__card{flex-basis:82%}.iv-news__nav{display:none}}
+
+  /* ============ BRAND MODAL ============ */
+  .iv-port__card{cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease}
+  .iv-port__card:hover{transform:translateY(-3px);box-shadow:0 20px 44px -28px rgba(42,46,39,.6)}
+  .iv-port__card:focus-visible{outline:2px solid var(--forest);outline-offset:3px}
+  .iv-modal{position:fixed;inset:0;z-index:9200;display:flex;align-items:center;justify-content:center;padding:18px}
+  .iv-modal[hidden]{display:none}
+  .iv-modal__backdrop{position:absolute;inset:0;background:rgba(28,22,16,.7);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+  .iv-modal__box{position:relative;width:100%;max-width:640px;max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);overflow-y:auto;background:var(--paper,#F9F7F2);border-radius:14px;box-shadow:0 44px 90px -34px rgba(0,0,0,.7);animation:ivModalIn .4s cubic-bezier(.22,1,.36,1)}
+  @keyframes ivModalIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+  .iv-modal__x{position:absolute;top:10px;right:10px;z-index:2;width:34px;height:34px;border:0;border-radius:50%;background:rgba(249,247,242,.92);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+  .iv-modal__media{aspect-ratio:16/9;overflow:hidden;background:var(--cream)}
+  .iv-modal__media img{width:100%;height:100%;object-fit:cover;display:block}
+  .iv-modal__body{padding:clamp(22px,3vw,34px)}
+  .iv-modal__name{font-family:var(--serif);font-size:clamp(22px,3vw,30px);margin:0 0 4px}
+  .iv-modal__kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:16px}
+  .iv-modal__copy{font-size:15px;line-height:1.7;color:var(--ink-soft)}
+  .iv-modal__copy p{margin:0 0 12px}
+  .iv-modal__copy ul{margin:14px 0 0;padding-inline-start:18px}
+  .iv-modal__copy li{margin-bottom:6px}
+
+  /* ============ ORG CHART POPOVER ============ */
+  .iv-org__wrap{position:relative}
+  .iv-org__node--pop{cursor:pointer}
+  .iv-org__node--pop:hover,.iv-org__node--pop:focus-visible{border-color:var(--iv-accent,#C49B66);outline:none}
+  .iv-org__node--pop.is-active{border-color:var(--iv-accent,#C49B66);box-shadow:0 0 0 1px var(--iv-accent,#C49B66)}
+  .iv-pop{position:absolute;z-index:40;width:min(320px,calc(100vw - 40px));padding:16px 18px;background:#2D2219;border:1px solid var(--iv-accent,#C49B66);border-radius:10px;box-shadow:0 26px 54px -26px rgba(0,0,0,.85);pointer-events:none}
+  .iv-pop[hidden]{display:none}
+  .iv-pop__kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--iv-accent,#C49B66);margin-bottom:6px}
+  .iv-pop__title{font-family:var(--serif);font-size:17px;color:#F3EAD9;margin-bottom:8px}
+  .iv-pop__body{font-size:13px;line-height:1.6;color:rgba(243,234,217,.78);margin:0}
 </style>
 
 <div class="iv">
@@ -1198,6 +1249,8 @@ $iv_brands = array(
     'cta_en'   => 'EXPLORE HAKSHAN',
     'cta_zh'   => '了解客善',
     'url'      => '',
+    'detail_en'=> '<p>Hakshan is the group&rsquo;s founding brand and its proof of concept. Three generations of Hakka recipes, cooked to one standard across every outlet, with a menu built for repeat family dining rather than one-off visits.</p><p>The model is deliberately unglamorous: standardised prep through the central kitchen, disciplined food cost, and an outlet footprint sized to its catchment. That is what makes it repeatable.</p><ul><li>Average 30% food cost, held through 2025</li><li>Capital payback of roughly 1&ndash;1.5 years per outlet</li><li>17 outlets trading across Malaysia</li></ul>',
+    'detail_zh'=> '<p>客善是集团的创始品牌，也是模式的验证。三代客家食谱，在每一家门店以同一套标准烹调；菜单为家庭回头客而设，而非一次性到访。</p><p>这套模式刻意不追求花俏：中央厨房统一备料、严格控制食材成本、门店面积与商圈相匹配。这正是它可复制的原因。</p><ul><li>食材成本平均 30%，2025 年全年维持</li><li>单店资本回收期约 1&ndash;1.5 年</li><li>全马 17 家门店营运中</li></ul>',
   ),
   array(
     'img'      => '',
@@ -1214,6 +1267,8 @@ $iv_brands = array(
     'cta_en'   => 'EXPLORE THE NIANG&rsquo;S',
     'cta_zh'   => '了解娘家',
     'url'      => '',
+    'detail_en'=> '<p>The Niang&rsquo;s takes Nyonya cooking &mdash; normally reserved for occasions &mdash; and makes it an everyday proposition. Same heritage, lighter format, accessible price point.</p><p>It runs on the same group infrastructure as Hakshan: shared sourcing, shared central kitchen capacity, shared build-out team. A second brand costs the group far less to open than the first one did.</p><ul><li>2 outlets opened, both trading</li><li>RM 2M+ capital deployed to date</li><li>Built on existing group infrastructure</li></ul>',
+    'detail_zh'=> '<p>娘家把原本只在节庆出现的娘惹菜，变成日常可及的选择。同样的传承，更轻盈的形式，更亲民的价格。</p><p>它与客善共用同一套集团基础设施：共同采购、共享中央厨房产能、同一支工程团队。开第二个品牌的成本，远低于第一个。</p><ul><li>已开 2 家门店，均在营运</li><li>累计投入资本 RM 2M+</li><li>建立在既有集团基础设施之上</li></ul>',
   ),
   array(
     'img'      => '',
@@ -1230,6 +1285,8 @@ $iv_brands = array(
     'cta_en'   => 'EXPLORE TAISHAN',
     'cta_zh'   => '了解台善',
     'url'      => '',
+    'detail_en'=> '<p>Taishan is the group&rsquo;s next chapter: Taiwanese family dining, from set meals to shared plates, aimed at the same repeat-visit customer Hakshan already serves well.</p><p>First launch is planned for 2026. The brand enters with the group&rsquo;s supply chain, kitchen standards and opening playbook already in place &mdash; the parts that usually take a new concept years to build.</p><ul><li>First outlet planned for 2026</li><li>Enters on proven group infrastructure</li><li>Targeting the established family-dining segment</li></ul>',
+    'detail_zh'=> '<p>台善是集团的下一章：台式家庭餐饮，从定食到合菜，面向客善已经服务得很好的同一批回头客。</p><p>首店计划于 2026 年开出。这个品牌一进场就已具备集团的供应链、厨房标准与开店流程——这些通常要花新品牌好几年才建得起来。</p><ul><li>首店计划 2026 年开业</li><li>建立在已验证的集团基础设施上</li><li>目标为成熟的家庭餐饮客群</li></ul>',
   ),
 );
 ?>
@@ -1252,7 +1309,14 @@ $iv_brands = array(
 
     <div class="iv-port__grid" data-reveal>
       <?php foreach ( $iv_brands as $b ) : ?>
-        <article class="iv-port__card">
+        <article class="iv-port__card" tabindex="0" role="button"
+          data-iv-brand
+          data-name="<?php echo esc_attr( wp_strip_all_tags( $b['name'] ) ); ?>"
+          data-kind-en="<?php echo esc_attr( $b['kind_en'] ); ?>"
+          data-kind-zh="<?php echo esc_attr( $b['kind_zh'] ); ?>"
+          data-detail-en="<?php echo esc_attr( $b['detail_en'] ); ?>"
+          data-detail-zh="<?php echo esc_attr( $b['detail_zh'] ); ?>"
+          data-img="<?php echo esc_attr( $b['img'] ); ?>">
           <?php if ( ! empty( $b['img'] ) ) : ?>
             <div class="iv-port__media"><img src="<?php echo esc_url( $b['img'] ); ?>" alt="" loading="lazy" /></div>
           <?php endif; ?>
@@ -1268,14 +1332,25 @@ $iv_brands = array(
                 </div>
               <?php endforeach; ?>
             </div>
-            <?php if ( ! empty( $b['url'] ) ) : ?>
-              <a class="iv-port__cta" href="<?php echo esc_url( $b['url'] ); ?>">
-                <span data-en><?php echo wp_kses_post( $b['cta_en'] ); ?></span><span data-zh><?php echo esc_html( $b['cta_zh'] ); ?></span><span class="arr">&rarr;</span>
-              </a>
-            <?php endif; ?>
+            <span class="iv-port__cta">
+              <span data-en><?php echo wp_kses_post( $b['cta_en'] ); ?></span><span data-zh><?php echo esc_html( $b['cta_zh'] ); ?></span><span class="arr">&rarr;</span>
+            </span>
           </div>
         </article>
       <?php endforeach; ?>
+    </div>
+  </div>
+
+  <div class="iv-modal" id="ivBrandModal" hidden>
+    <div class="iv-modal__backdrop" data-iv-brand-close></div>
+    <div class="iv-modal__box" role="dialog" aria-modal="true" aria-labelledby="ivBrandName">
+      <button type="button" class="iv-modal__x" data-iv-brand-close aria-label="Close">&times;</button>
+      <div class="iv-modal__media" id="ivBrandMedia" hidden><img src="" alt="" id="ivBrandImg" /></div>
+      <div class="iv-modal__body">
+        <h3 class="iv-modal__name" id="ivBrandName"></h3>
+        <div class="iv-modal__kind" id="ivBrandKind"></div>
+        <div class="iv-modal__copy" id="ivBrandCopy"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1377,12 +1452,49 @@ $iv_brands = array(
       </div>
 
       <!-- Tier 2: Integrated solutions -->
+      <?php
+      // Layer 2 — the five in-house companies. Each opens a detail popover
+      // on hover (desktop) or tap (touch).
+      $iv_layer2 = array(
+        array(
+          'en' => 'Food Trading', 'zh' => '食材贸易',
+          'd_en' => 'Bulk sourcing and distribution for every brand in the group. Buying at group scale lowers input cost per outlet and keeps supply consistent, so margin is captured at the ingredient level rather than at the till.',
+          'd_zh' => '为集团旗下所有品牌统一采购与配送。以集团规模议价，降低单店进货成本并稳定供应，让毛利在食材端就已经形成，而非仅靠售价。',
+        ),
+        array(
+          'en' => 'Food Tech', 'zh' => '餐饮科技',
+          'd_en' => 'POS, the in-house ordering platform and the data layer behind them. Moving orders off third-party apps protects margin and, just as importantly, keeps customer data inside the group.',
+          'd_zh' => 'POS 系统、自有订餐平台，以及背后的数据层。把订单从第三方平台移回自有渠道，既保住毛利，也同样重要地——把顾客数据留在集团内部。',
+        ),
+        array(
+          'en' => 'Central Kitchen', 'zh' => '中央厨房',
+          'd_en' => 'Standardised prep for the dishes that take time. It is what lets a new outlet taste like an old one on day one, while cutting in-store labour and waste.',
+          'd_zh' => '把耗时的菜色集中标准化备制。这让新店从第一天起就能做出与老店一致的味道，同时降低门店人力与损耗。',
+        ),
+        array(
+          'en' => 'Renovation Company', 'zh' => '装修公司',
+          'd_en' => 'In-house design and build-out. Doing it internally cuts capital expenditure per outlet and shortens the time between signing a lease and opening the doors.',
+          'd_zh' => '自有设计与施工团队。由内部执行可降低单店资本开支，并缩短从签约到开业之间的时间。',
+        ),
+        array(
+          'en' => 'Marketing Company', 'zh' => '营销公司',
+          'd_en' => 'Brand, campaigns and customer acquisition across all three brands. Shared creative and media buying means a second or third brand launches at a fraction of the cost of the first.',
+          'd_zh' => '负责三个品牌的品牌建设、活动与获客。共用创意与媒体采购，意味着第二、第三个品牌的启动成本远低于第一个。',
+        ),
+      );
+      ?>
       <div class="iv-org__tier">
-        <div class="iv-org__node"><span data-en>Food Trading</span><span data-zh>食材贸易</span></div>
-        <div class="iv-org__node"><span data-en>Food Tech</span><span data-zh>餐饮科技</span></div>
-        <div class="iv-org__node"><span data-en>Central Kitchen</span><span data-zh>中央厨房</span></div>
-        <div class="iv-org__node"><span data-en>Renovation Company</span><span data-zh>装修公司</span></div>
-        <div class="iv-org__node"><span data-en>Marketing Company</span><span data-zh>营销公司</span></div>
+        <?php foreach ( $iv_layer2 as $iv_l2 ) : ?>
+          <div class="iv-org__node iv-org__node--pop" tabindex="0"
+               data-iv-pop
+               data-pop-title="<?php echo esc_attr( $iv_l2['en'] ); ?>"
+               data-pop-title-zh="<?php echo esc_attr( $iv_l2['zh'] ); ?>"
+               data-pop-kicker="LAYER 02"
+               data-pop-body="<?php echo esc_attr( $iv_l2['d_en'] ); ?>"
+               data-pop-body-zh="<?php echo esc_attr( $iv_l2['d_zh'] ); ?>">
+            <span data-en><?php echo esc_html( $iv_l2['en'] ); ?></span><span data-zh><?php echo esc_html( $iv_l2['zh'] ); ?></span>
+          </div>
+        <?php endforeach; ?>
       </div>
 
       <!-- Stem down into the outlet bus. Seven drops align with the top
@@ -1414,9 +1526,32 @@ $iv_brands = array(
         }
         foreach ( $iv_names as $iv_i => $iv_name ) :
           ?>
-          <div class="iv-org__node iv-org__node--outlet"><b><?php echo esc_html( sprintf( 'Outlet %02d', $iv_i + 1 ) ); ?></b><?php echo esc_html( $iv_name ); ?></div>
+          <?php
+          $iv_city = '';
+          if ( $iv_outlets && isset( $iv_outlets[ $iv_i ] ) && function_exists( 'hakshan_get_outlet_data' ) ) {
+            $iv_od   = hakshan_get_outlet_data( $iv_outlets[ $iv_i ]->ID );
+            $iv_city = ! empty( $iv_od['city'] ) ? ucwords( strtolower( $iv_od['city'] ) ) : '';
+          }
+          $iv_o_body_en = 'A full-service Hakshan outlet operating on the group standard: central-kitchen prep, a fixed menu architecture and the same cost discipline applied across the estate. Direct revenue, brand presence, proven unit economics.';
+          $iv_o_body_zh = '一家按集团标准营运的客善全服务门店：中央厨房备料、固定的菜单结构，以及全集团一致的成本纪律。带来直接营收、品牌能见度与已验证的单店经济模型。';
+          ?>
+          <div class="iv-org__node iv-org__node--outlet iv-org__node--pop" tabindex="0"
+               data-iv-pop
+               data-pop-title="<?php echo esc_attr( $iv_name ); ?>"
+               data-pop-title-zh="<?php echo esc_attr( $iv_name ); ?>"
+               data-pop-kicker="<?php echo esc_attr( $iv_city ? 'LAYER 03 · ' . $iv_city : 'LAYER 03' ); ?>"
+               data-pop-body="<?php echo esc_attr( $iv_o_body_en ); ?>"
+               data-pop-body-zh="<?php echo esc_attr( $iv_o_body_zh ); ?>">
+            <b><?php echo esc_html( sprintf( 'Outlet %02d', $iv_i + 1 ) ); ?></b><?php echo esc_html( $iv_name ); ?>
+          </div>
         <?php endforeach; ?>
       </div>
+    </div>
+
+    <div class="iv-pop" id="ivPop" hidden>
+      <div class="iv-pop__kicker" id="ivPopKicker"></div>
+      <div class="iv-pop__title" id="ivPopTitle"></div>
+      <p class="iv-pop__body" id="ivPopBody"></p>
     </div>
   </div>
 </section>
@@ -1504,72 +1639,112 @@ $iv_brands = array(
   </div>
 </section>
 
-<!-- ============== 7. INVESTOR UPDATES · Latest News & Milestones ============== -->
+<!-- ============== 7. INVESTOR UPDATES · press carousel ============== -->
 <?php
-// News cards. Add an `img` (WP media URL) to any card and it renders a
-// photo; leave it blank and the card is text-only. Fully swappable.
+// Pull press releases / investor updates from WordPress. Tries the
+// "investor-updates" category first, then "press". Editors publish a normal
+// post in that category and it appears here automatically, linking through
+// to the full article. Falls back to the platform announcements when the
+// category is empty, so the section is never blank.
+$iv_up_cat = get_category_by_slug( 'investor-updates' );
+if ( ! $iv_up_cat ) {
+  $iv_up_cat = get_category_by_slug( 'press' );
+}
+$iv_up_q = $iv_up_cat
+  ? new WP_Query(
+      array(
+        'post_type'           => 'post',
+        'posts_per_page'      => 9,
+        'cat'                 => $iv_up_cat->term_id,
+        'ignore_sticky_posts' => true,
+      )
+    )
+  : null;
+$iv_has_posts = ( $iv_up_q && $iv_up_q->have_posts() );
+
+// Fallback cards — used only when no posts exist in the category yet.
 $iv_news = array(
   array(
-    'date'    => '1 SEP 2026',
-    'img'     => '',
-    'title_en'=> 'From Grab Delivery to Hakshan&rsquo;s Official Ordering Platform',
-    'title_zh'=> '从 Grab 外送到客善自有订餐平台',
-    'body_en' => 'Hakshan launched its own ordering platform to build a more direct relationship with customers, reduce reliance on third-party platforms and improve long-term margin control.',
-    'body_zh' => '客善推出自有订餐平台，与顾客建立更直接的关系，降低对第三方平台的依赖，并改善长期毛利控制。',
-    'tags_en' => 'Direct Orders · Better Margin Control · Customer Data Ownership',
-    'tags_zh' => '直接下单 · 毛利可控 · 自有客户数据',
-    'site'    => 'order.hakshan.com',
-    'url'     => 'https://order.hakshan.com/',
+    'date'     => '1 Sep 2026',
+    'title_en' => 'From Grab Delivery to Hakshan&rsquo;s Official Ordering Platform',
+    'title_zh' => '从 Grab 外送到客善自有订餐平台',
+    'body_en'  => 'Hakshan launched its own ordering platform to build a more direct relationship with customers, reduce reliance on third-party platforms and improve long-term margin control.',
+    'body_zh'  => '客善推出自有订餐平台，与顾客建立更直接的关系，降低对第三方平台的依赖，并改善长期毛利控制。',
+    'url'      => 'https://order.hakshan.com/',
+    'ext'      => true,
   ),
   array(
-    'date'    => '1 SEP 2026',
-    'img'     => '',
-    'title_en'=> 'Launching Hakshan&rsquo;s Investor Portal',
-    'title_zh'=> '客善投资者平台上线',
-    'body_en' => 'A dedicated platform that gives investors clearer visibility into outlet progress, business performance, financial updates and key milestones &mdash; all in one place.',
-    'body_zh' => '专属平台，让投资者更清楚地掌握门店进度、经营表现、财务更新与重要里程碑——全部集中于一处。',
-    'tags_en' => 'Live Progress · Performance Updates · Financial Reporting · Milestones',
-    'tags_zh' => '实时进度 · 业绩更新 · 财务报告 · 里程碑',
-    'site'    => 'shareholder.hakshan.com',
-    'url'     => 'https://shareholder.hakshan.com/',
+    'date'     => '1 Sep 2026',
+    'title_en' => 'Launching Hakshan&rsquo;s Investor Portal',
+    'title_zh' => '客善投资者平台上线',
+    'body_en'  => 'A dedicated platform giving investors clearer visibility into outlet progress, business performance, financial updates and key milestones.',
+    'body_zh'  => '专属平台，让投资者更清楚地掌握门店进度、经营表现、财务更新与重要里程碑。',
+    'url'      => 'https://shareholder.hakshan.com/',
+    'ext'      => true,
   ),
 );
 ?>
 <section class="iv-section iv-news" id="updates">
   <div class="iv-wrap">
-    <div class="iv-shead" data-reveal>
-      <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>INVESTOR UPDATES</span><span data-zh>投资者动态</span>
-      </span>
-      <h2>
-        <span data-en>Latest News &amp; Milestones</span>
-        <span data-zh>最新消息与里程碑</span>
-      </h2>
-      <p class="iv-lead">
-        <span data-en>Stay updated with our latest developments, from new openings to product innovation.</span>
-        <span data-zh>了解我们的最新进展，从新店开业到产品创新。</span>
-      </p>
+    <div class="iv-news__head" data-reveal>
+      <div class="iv-shead" style="margin:0;">
+        <span class="h-eyebrow"><span class="dot"></span>
+          <span data-en>INVESTOR UPDATES</span><span data-zh>投资者动态</span>
+        </span>
+        <h2>
+          <span data-en>Latest News &amp; Milestones</span>
+          <span data-zh>最新消息与里程碑</span>
+        </h2>
+        <p class="iv-lead">
+          <span data-en>Stay updated with our latest developments, from new openings to product innovation.</span>
+          <span data-zh>了解我们的最新进展，从新店开业到产品创新。</span>
+        </p>
+      </div>
+      <div class="iv-news__nav">
+        <button type="button" class="iv-news__arrow" data-iv-news="prev" aria-label="Previous">&larr;</button>
+        <button type="button" class="iv-news__arrow" data-iv-news="next" aria-label="Next">&rarr;</button>
+      </div>
     </div>
-    <div class="iv-news__grid" data-reveal>
-      <?php foreach ( $iv_news as $n ) : ?>
-        <article class="iv-news__card">
-          <?php if ( ! empty( $n['img'] ) ) : ?>
-            <div class="iv-news__media"><img src="<?php echo esc_url( $n['img'] ); ?>" alt="" loading="lazy" /></div>
-          <?php endif; ?>
-          <div class="iv-news__body">
-            <div class="iv-news__date"><?php echo esc_html( $n['date'] ); ?></div>
-            <h3><span data-en><?php echo wp_kses_post( $n['title_en'] ); ?></span><span data-zh><?php echo wp_kses_post( $n['title_zh'] ); ?></span></h3>
-            <p><span data-en><?php echo wp_kses_post( $n['body_en'] ); ?></span><span data-zh><?php echo wp_kses_post( $n['body_zh'] ); ?></span></p>
-            <div class="iv-news__tags"><span data-en><?php echo esc_html( $n['tags_en'] ); ?></span><span data-zh><?php echo esc_html( $n['tags_zh'] ); ?></span></div>
-            <div class="iv-news__foot">
-              <span class="iv-news__site"><?php echo esc_html( $n['site'] ); ?></span>
-              <a class="iv-news__cta" href="<?php echo esc_url( $n['url'] ); ?>" target="_blank" rel="noopener">
-                <span data-en>Explore Platform</span><span data-zh>前往平台</span><span class="arr">&rarr;</span>
-              </a>
+
+    <div class="iv-news__track" id="ivNewsTrack" data-reveal>
+      <?php if ( $iv_has_posts ) : ?>
+        <?php
+        while ( $iv_up_q->have_posts() ) :
+          $iv_up_q->the_post();
+          ?>
+          <a class="iv-news__card" href="<?php the_permalink(); ?>">
+            <div class="iv-news__media">
+              <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail( 'medium_large' ); ?>
+              <?php else : ?>
+                <div class="iv-news__ph" aria-hidden="true"></div>
+              <?php endif; ?>
             </div>
-          </div>
-        </article>
-      <?php endforeach; ?>
+            <div class="iv-news__body">
+              <div class="iv-news__date"><?php echo esc_html( get_the_date( 'j M Y' ) ); ?></div>
+              <h3><?php echo hakshan_post_title_bilingual(); ?></h3>
+              <p><?php echo hakshan_post_excerpt_bilingual( null, 22 ); ?></p>
+              <span class="iv-news__cta">
+                <span data-en>Read more</span><span data-zh>阅读全文</span><span class="arr">&rarr;</span>
+              </span>
+            </div>
+          </a>
+        <?php endwhile; wp_reset_postdata(); ?>
+      <?php else : ?>
+        <?php foreach ( $iv_news as $n ) : ?>
+          <a class="iv-news__card" href="<?php echo esc_url( $n['url'] ); ?>"<?php echo ! empty( $n['ext'] ) ? ' target="_blank" rel="noopener"' : ''; ?>>
+            <div class="iv-news__media"><div class="iv-news__ph" aria-hidden="true"></div></div>
+            <div class="iv-news__body">
+              <div class="iv-news__date"><?php echo esc_html( $n['date'] ); ?></div>
+              <h3><span data-en><?php echo wp_kses_post( $n['title_en'] ); ?></span><span data-zh><?php echo wp_kses_post( $n['title_zh'] ); ?></span></h3>
+              <p><span data-en><?php echo esc_html( $n['body_en'] ); ?></span><span data-zh><?php echo esc_html( $n['body_zh'] ); ?></span></p>
+              <span class="iv-news__cta">
+                <span data-en>Read more</span><span data-zh>阅读全文</span><span class="arr">&rarr;</span>
+              </span>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </div>
   </div>
 </section>
@@ -1671,6 +1846,124 @@ $iv_news = array(
       if (document.hidden) { stop(); } else { play(); }
     });
     play();
+  })();
+</script>
+
+<script>
+  // News carousel arrows — scroll by one card width.
+  (function () {
+    var track = document.getElementById('ivNewsTrack');
+    if (!track) return;
+    function step() {
+      var card = track.querySelector('.iv-news__card');
+      return card ? card.getBoundingClientRect().width + 20 : 320;
+    }
+    document.querySelectorAll('[data-iv-news]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var dir = b.getAttribute('data-iv-news') === 'prev' ? -1 : 1;
+        track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+      });
+    });
+  })();
+
+  // Brand detail modal.
+  (function () {
+    var modal = document.getElementById('ivBrandModal');
+    if (!modal) return;
+    var nameEl = document.getElementById('ivBrandName');
+    var kindEl = document.getElementById('ivBrandKind');
+    var copyEl = document.getElementById('ivBrandCopy');
+    var mediaEl = document.getElementById('ivBrandMedia');
+    var imgEl = document.getElementById('ivBrandImg');
+    var last = null;
+
+    function zh() { return document.body.getAttribute('data-lang') === 'zh'; }
+
+    function open(card) {
+      last = card;
+      nameEl.textContent = card.getAttribute('data-name') || '';
+      kindEl.textContent = (zh() ? card.getAttribute('data-kind-zh') : card.getAttribute('data-kind-en')) || '';
+      copyEl.innerHTML   = (zh() ? card.getAttribute('data-detail-zh') : card.getAttribute('data-detail-en')) || '';
+      var img = card.getAttribute('data-img');
+      if (img) { imgEl.src = img; mediaEl.hidden = false; } else { mediaEl.hidden = true; }
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var x = modal.querySelector('.iv-modal__x');
+      if (x) x.focus();
+    }
+    function close() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      if (last) last.focus();
+    }
+
+    document.querySelectorAll('[data-iv-brand]').forEach(function (card) {
+      card.addEventListener('click', function () { open(card); });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card); }
+      });
+    });
+    modal.querySelectorAll('[data-iv-brand-close]').forEach(function (b) {
+      b.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) close();
+    });
+  })();
+
+  // Org-chart popover — hover on pointer devices, tap/click everywhere.
+  (function () {
+    var wrap = document.querySelector('.iv-org__wrap');
+    var pop  = document.getElementById('ivPop');
+    if (!wrap || !pop) return;
+    var kicker = document.getElementById('ivPopKicker');
+    var title  = document.getElementById('ivPopTitle');
+    var body   = document.getElementById('ivPopBody');
+    var active = null;
+    var canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+    function zh() { return document.body.getAttribute('data-lang') === 'zh'; }
+
+    function show(node) {
+      kicker.textContent = node.getAttribute('data-pop-kicker') || '';
+      title.textContent  = (zh() ? node.getAttribute('data-pop-title-zh') : node.getAttribute('data-pop-title')) || '';
+      body.textContent   = (zh() ? node.getAttribute('data-pop-body-zh') : node.getAttribute('data-pop-body')) || '';
+      pop.hidden = false;
+
+      var wr = wrap.getBoundingClientRect();
+      var nr = node.getBoundingClientRect();
+      var pw = pop.offsetWidth;
+      var left = (nr.left - wr.left) + (nr.width / 2) - (pw / 2);
+      left = Math.max(8, Math.min(left, wr.width - pw - 8));
+      pop.style.left = left + 'px';
+      pop.style.top  = ((nr.bottom - wr.top) + 10) + 'px';
+
+      if (active) active.classList.remove('is-active');
+      active = node;
+      node.classList.add('is-active');
+    }
+    function hide() {
+      pop.hidden = true;
+      if (active) { active.classList.remove('is-active'); active = null; }
+    }
+
+    document.querySelectorAll('[data-iv-pop]').forEach(function (node) {
+      if (canHover) {
+        node.addEventListener('mouseenter', function () { show(node); });
+        node.addEventListener('mouseleave', hide);
+      }
+      node.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (active === node) { hide(); } else { show(node); }
+      });
+      node.addEventListener('focus', function () { show(node); });
+      node.addEventListener('blur', hide);
+    });
+    document.addEventListener('click', function (e) {
+      if (!pop.hidden && !e.target.closest('[data-iv-pop]')) hide();
+    });
+    window.addEventListener('resize', hide);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
   })();
 </script>
 
