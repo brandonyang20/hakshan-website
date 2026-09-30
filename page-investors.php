@@ -1423,6 +1423,21 @@ get_header();
   @media (prefers-reduced-motion:reduce){
     .iv-ostwrap,.iv-ostwrap .iv-ost,.iv-yr-toggle svg{transition:none}
   }
+  /* Layer 03 outlets as storefront tiles: render, then number and name.
+     Fixed tile width keeps rows aligned; the row is capped at seven tiles
+     so the 13 outlets sit as 7 + 6, both centred. */
+  .iv-bm__row--outlets{--tw:clamp(92px,9.6vw,138px);--tg:clamp(10px,1.4vw,20px);gap:clamp(14px,1.8vw,22px) var(--tg);max-width:calc(var(--tw) * 7 + var(--tg) * 6 + 2px);margin:0 auto}
+  .iv-bm__outlet{flex:0 0 var(--tw);width:var(--tw);padding:0;border-radius:0;background:none;color:#2A1A0F;white-space:normal;gap:2px;box-shadow:none}
+  .iv-bm__outlet:hover{transform:none;box-shadow:none}
+  .iv-bm__oimg{display:block;width:100%;aspect-ratio:480/293;margin-bottom:6px;transition:transform .3s cubic-bezier(.22,1,.36,1),filter .3s ease}
+  .iv-bm__oimg img{width:100%;height:100%;object-fit:contain;display:block}
+  .iv-bm__outlet:hover .iv-bm__oimg{transform:translateY(-4px) scale(1.04);filter:drop-shadow(0 12px 12px rgba(42,26,15,.22))}
+  .iv-bm__outlet b{font-family:var(--mono);font-weight:600;font-size:clamp(10px,.85vw,12px);letter-spacing:.1em;color:#9C6E36}
+  .iv-bm__oname{font-family:var(--serif);font-weight:600;font-size:clamp(11.5px,1vw,14px);line-height:1.2;color:#2A1A0F;text-align:center}
+  @media (max-width:760px){
+    .iv-bm__row--outlets{--tg:12px;max-width:none}
+    .iv-bm__outlet{flex-basis:calc((100% - 2 * var(--tg)) / 3);width:calc((100% - 2 * var(--tg)) / 3)}
+  }
 </style>
 
 <div class="iv">
@@ -2008,8 +2023,13 @@ if ( ! function_exists( 'hakshan_iv_bm_card' ) ) {
       <div class="iv-bm__layer" data-layer="3">
         <div class="iv-bm__row iv-bm__row--outlets" tabindex="0" role="button" aria-expanded="false" aria-controls="ivBmCard3">
           <span class="iv-bm__bus" aria-hidden="true"></span>
+          <?php $iv_bm_render = hakshan_iv_img( 'render-hakshan.webp' ); ?>
           <?php foreach ( $iv_bm_outlets as $iv_bm_i => $iv_bm_name ) : ?>
-            <div class="iv-bm__outlet"><b><?php echo esc_html( sprintf( 'OUTLET %02d', $iv_bm_i + 1 ) ); ?></b><?php echo esc_html( $iv_bm_name ); ?></div>
+            <div class="iv-bm__outlet">
+              <span class="iv-bm__oimg"><img src="<?php echo esc_url( $iv_bm_render ); ?>" alt="" loading="lazy" /></span>
+              <b><?php echo esc_html( sprintf( 'OUTLET %02d', $iv_bm_i + 1 ) ); ?></b>
+              <span class="iv-bm__oname"><?php echo esc_html( $iv_bm_name ); ?></span>
+            </div>
           <?php endforeach; ?>
         </div>
         <?php hakshan_iv_bm_card( 3, $iv_bm_layers[3] ); ?>
