@@ -1026,24 +1026,35 @@ get_header();
   @media (max-width: 980px) {
     .inv-contact__inner { grid-template-columns: 1fr; gap: 36px; }
   }
-  /* ============ HERO SLIDESHOW ============ */
-  .iv-hero2{position:relative;min-height:clamp(460px,72vh,700px);display:flex;align-items:flex-end;overflow:hidden;background:var(--iv-dark,#231A12);color:var(--iv-on-dark,#F3EAD9)}
-  .iv-hero2__media{position:absolute;inset:0}
-  .iv-hero2__slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease}
-  .iv-hero2__slide.is-on{opacity:1}
-  .iv-hero2__scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,26,18,.92) 0%,rgba(35,26,18,.72) 42%,rgba(35,26,18,.35) 100%)}
-  .iv-hero2__inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(60px,10vw,110px) var(--rail)}
-  .iv-hero2__title{font-family:var(--serif);font-size:clamp(40px,7vw,86px);line-height:.98;letter-spacing:-.02em;margin:16px 0 18px;max-width:16ch}
-  .iv-hero2__title em{color:var(--iv-accent,#C49B66);font-style:normal}
-  .iv-hero2__lead{font-size:clamp(15px,1.6vw,18px);line-height:1.6;max-width:58ch;color:var(--iv-on-dark-soft,rgba(243,234,217,.66));margin:0 0 26px}
-  .iv-hero2__cta{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;background:var(--iv-accent,#C49B66);color:#231A12;font-weight:600;font-size:15px;text-decoration:none;transition:background .2s ease,transform .2s ease}
-  .iv-hero2__cta:hover{background:#d4ab76;transform:translateY(-1px)}
+  /* ============ HERO SLIDESHOW (light, per-slide copy) ============ */
+  .iv-hero2{position:relative;display:grid;background:#FBF8F1;color:#2A1A0F;overflow:hidden}
+  .iv-hero2__slide{grid-area:1/1;position:relative;display:flex;align-items:center;min-height:clamp(440px,46vw,660px);opacity:0;visibility:hidden;transition:opacity .9s ease,visibility 0s linear .9s}
+  .iv-hero2__slide.is-on{opacity:1;visibility:visible;transition-delay:0s}
+  .iv-hero2__bg{position:absolute;inset:0;background-size:cover;background-position:right center}
+  .iv-hero2__inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(56px,8vw,100px) var(--rail)}
+  .iv-hero2__inner>*{max-width:600px}
+  .iv-hero2__eyebrow{display:block;font-family:var(--mono);font-weight:500;font-size:clamp(11px,1vw,13px);letter-spacing:.2em;text-transform:uppercase;color:#6E4A2A}
+  .iv .iv-hero2__title{font-family:var(--serif);font-weight:700;text-transform:uppercase;font-size:clamp(36px,5.4vw,78px);line-height:1.02;letter-spacing:-.005em;margin:16px 0 18px;color:#2A1A0F}
+  .iv-hero2__title em{font-style:normal;color:#6E4323}
+  .iv-hero2__lead{font-size:clamp(15px,1.35vw,17px);line-height:1.6;color:#5A4636;max-width:52ch;margin:0}
+  .iv-hero2__lead--strong{font-weight:600;color:#6E4323;font-size:clamp(16px,1.6vw,21px);line-height:1.4}
+  .iv-hero2__btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .iv-hero2__cta,.iv-hero2__ghost{display:inline-flex;align-items:center;gap:9px;padding:12px 24px;border-radius:999px;font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s ease,color .2s ease,transform .2s ease}
+  .iv-hero2__cta{background:#4F5D48;color:#F9F7F2;border:1px solid #4F5D48}
+  .iv-hero2__cta:hover{background:#3c4737;transform:translateY(-1px)}
   .iv-hero2__cta .arr{transition:transform .2s ease}
   .iv-hero2__cta:hover .arr{transform:translateX(3px)}
-  .iv-hero2__dots{position:absolute;z-index:3;bottom:22px;right:var(--rail);display:flex;gap:9px}
-  .iv-hero2__dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(243,234,217,.35);cursor:pointer;transition:background .25s ease,width .25s ease}
-  .iv-hero2__dot.is-on{background:var(--iv-accent,#C49B66);width:26px;border-radius:999px}
-
+  .iv-hero2__ghost{background:transparent;color:#2A1A0F;border:1px solid #2A1A0F}
+  .iv-hero2__ghost:hover{background:#2A1A0F;color:#F9F7F2}
+  .iv-hero2__dots{position:absolute;z-index:3;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:9px}
+  .iv-hero2__dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(42,26,15,.25);cursor:pointer;transition:background .25s ease,width .25s ease}
+  .iv-hero2__dot.is-on{background:#4F5D48;width:26px;border-radius:999px}
+  @media(max-width:760px){
+    .iv-hero2__slide{align-items:flex-end}
+    .iv-hero2__bg{background-position:72% center}
+    .iv-hero2__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,248,241,.55) 0%,rgba(251,248,241,.9) 55%,#FBF8F1 100%)}
+    .iv-hero2__inner{padding-bottom:64px}
+  }
   /* ============ LIVE PERFORMANCE ============ */
   .iv-live{background:var(--paper,#F9F7F2)}
   .iv-live__eyebrow{text-align:center;margin-bottom:clamp(28px,4vw,44px)}
@@ -1168,7 +1179,7 @@ get_header();
   .iv-pop__chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px;padding-top:11px;border-top:1px solid rgba(243,234,217,.18)}
   .iv-pop__chips span{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--iv-accent,#C49B66);border:1px solid rgba(196,155,102,.45);border-radius:999px;padding:3px 8px}
   /* ============ TRACK RECORD · 2025 OUTLET GALLERY ============ */
-  .iv-ostack{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 4px}
+  .iv-ostack{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:22px 0 4px}
   .iv-ost{position:relative;flex:0 0 calc((100% - 30px)/4);text-decoration:none;color:inherit}
   .iv-ost__img{display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--cream);border:1px solid var(--line-soft,#DDD2B5);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease}
   .iv-ost__img img{width:100%;height:100%;object-fit:cover;display:block}
@@ -1216,7 +1227,7 @@ get_header();
   body[data-lang="zh"] .iv { font-family: var(--sans); }
 
   /* Heading weights: Jost at 400 is too light for section titles. */
-  .iv h1, .iv .iv-hero2__title { font-weight: 500; letter-spacing: -0.015em; }
+  .iv h1 { font-weight: 500; letter-spacing: -0.015em; }
   .iv h2, .iv .iv-port__h2     { font-weight: 600; letter-spacing: -0.01em; }
   .iv h3, .iv .iv-port__name,
   .iv .iv-modal__name          { font-weight: 600; }
@@ -1236,56 +1247,85 @@ get_header();
   /* Body copy: Inter, slightly tighter leading than the brand serif. */
   .iv p, .iv .iv-lead, .iv .iv-port__copy, .iv .iv-news__card p,
   .iv .iv-modal__copy { font-family: var(--sans); font-weight: 400; }
+  /* Cut-out storefront renders float free: no crop, frame or fill. */
+  .iv-ost__img{background:transparent;border:0;border-radius:0}
+  .iv-ost__img img{object-fit:contain}
+  .iv-ost:hover .iv-ost__img,.iv-ost:focus-visible .iv-ost__img{box-shadow:none;filter:drop-shadow(0 14px 16px rgba(42,46,39,.28))}
+  .iv-live__brandimg{overflow:visible;border-radius:0}
+  .iv-port__media img,.iv-news__media img{transition:transform .5s cubic-bezier(.22,1,.36,1)}
+  .iv-port__card:hover .iv-port__media img,.iv-news__card:hover .iv-news__media img{transform:scale(1.04)}
 </style>
 
 <div class="iv">
 
 <!-- ============== 1. HERO · slideshow ============== -->
 <?php
-// Hero slideshow. Drop WP media URLs into `url` to add slides. With one
-// slide it renders as a static hero (no dots, no auto-advance); with none
-// it falls back to a plain dark panel, so the page never looks broken.
+// Investor imagery ships with the theme (assets/img/investor/). Returns ''
+// when a file is missing so every slot degrades to its placeholder.
+if ( ! function_exists( 'hakshan_iv_img' ) ) {
+  function hakshan_iv_img( $name ) {
+    $rel = 'assets/img/investor/' . $name;
+    return file_exists( get_theme_file_path( $rel ) ) ? get_theme_file_uri( $rel ) : '';
+  }
+}
+
+// Each slide carries its own headline, as in the proposal deck. The photo
+// sits right; its left side fades to cream so the copy reads over it.
 $iv_hero_slides = array(
-  array( 'url' => '', 'alt' => 'Hakshan dining hall' ),
-  array( 'url' => '', 'alt' => 'Hakka dishes on the pass' ),
-  array( 'url' => '', 'alt' => 'Hakshan outlet exterior' ),
+  array(
+    'img'        => hakshan_iv_img( 'hero-1.webp' ),
+    'eyebrow_en' => 'Invest · Build · Grow · Together',
+    'eyebrow_zh' => '投资 · 共建 · 成长 · 同行',
+    'title_en'   => 'Real food.<br/>Lasting value.',
+    'title_zh'   => '真材实料，<br/>长久价值。',
+    'lead_en'    => 'Invest in homegrown F&amp;B brands, built for people, profit and the long term.',
+    'lead_zh'    => '投资本土餐饮品牌——为人而建，为利而营，为长远而立。',
+    'strong'     => true,
+    'buttons'    => true,
+  ),
+  array(
+    'img'        => hakshan_iv_img( 'hero-2.webp' ),
+    'eyebrow_en' => 'Investment Proposal · 2026',
+    'eyebrow_zh' => '投资计划书 · 2026',
+    'title_en'   => 'A scalable<br/>F&amp;B ecosystem<br/><em>rooted in heritage.</em>',
+    'title_zh'   => '可规模化的<br/>餐饮生态系统，<br/><em>根植于传承。</em>',
+    'lead_en'    => 'Hakshan has grown from a single Hakka restaurant into a disciplined, multi-layer F&amp;B group — proven unit economics, a fast capital payback, and a clear runway across Malaysia, Indonesia and Bangkok.',
+    'lead_zh'    => '客善从一家客家餐厅起步，发展成纪律严明的多层级餐饮集团——单店经济模型已被验证，资本回收周期短，并在马来西亚、印尼与曼谷拥有清晰的扩张路径。',
+    'strong'     => false,
+    'buttons'    => false,
+  ),
 );
-$iv_hero_slides = array_values( array_filter( $iv_hero_slides, static function ( $sl ) {
-  return ! empty( $sl['url'] );
-} ) );
 $iv_hero_count = count( $iv_hero_slides );
 ?>
-<section class="iv-hero2" id="top">
-  <div class="iv-hero2__media">
-    <?php if ( $iv_hero_count ) : ?>
-      <?php foreach ( $iv_hero_slides as $i => $sl ) : ?>
-        <div class="iv-hero2__slide<?php echo 0 === $i ? ' is-on' : ''; ?>"
-             style="background-image:url('<?php echo esc_url( $sl['url'] ); ?>');"
-             role="img" aria-label="<?php echo esc_attr( $sl['alt'] ); ?>"></div>
-      <?php endforeach; ?>
-    <?php else : ?>
-      <div class="iv-hero2__slide is-on"></div>
-    <?php endif; ?>
-    <div class="iv-hero2__scrim"></div>
-  </div>
-
-  <div class="iv-hero2__inner">
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>INVESTMENT PROPOSAL · 2026</span>
-      <span data-zh>投资计划书 · 2026</span>
-    </span>
-    <h1 class="iv-hero2__title">
-      <span data-en>Real food.<br/><em>Lasting value.</em></span>
-      <span data-zh>真材实料，<br/><em>长久价值。</em></span>
-    </h1>
-    <p class="iv-hero2__lead">
-      <span data-en>Hakshan has grown from a single Hakka restaurant into a disciplined, multi-brand F&amp;B group — proven unit economics, a fast capital payback, and a clear runway across Malaysia, Indonesia and Bangkok.</span>
-      <span data-zh>客善从一家客家餐厅起步，发展成纪律严明的多品牌餐饮集团——单店经济模型已被验证，资本回收周期短，并在马来西亚、印尼与曼谷拥有清晰的扩张路径。</span>
-    </p>
-    <a class="iv-hero2__cta" href="#portfolio">
-      <span data-en>Explore the portfolio</span><span data-zh>查看品牌组合</span><span class="arr">&rarr;</span>
-    </a>
-  </div>
+<section class="iv-hero2" id="top" aria-roledescription="carousel">
+  <?php foreach ( $iv_hero_slides as $i => $sl ) : $iv_tag = 0 === $i ? 'h1' : 'h2'; ?>
+    <div class="iv-hero2__slide<?php echo 0 === $i ? ' is-on' : ''; ?>" aria-hidden="<?php echo 0 === $i ? 'false' : 'true'; ?>">
+      <?php if ( $sl['img'] ) : ?>
+        <div class="iv-hero2__bg" style="background-image:url('<?php echo esc_url( $sl['img'] ); ?>');"></div>
+      <?php endif; ?>
+      <div class="iv-hero2__inner">
+        <span class="iv-hero2__eyebrow"><span data-en><?php echo esc_html( $sl['eyebrow_en'] ); ?></span><span data-zh><?php echo esc_html( $sl['eyebrow_zh'] ); ?></span></span>
+        <<?php echo $iv_tag; ?> class="iv-hero2__title">
+          <span data-en><?php echo wp_kses_post( $sl['title_en'] ); ?></span>
+          <span data-zh><?php echo wp_kses_post( $sl['title_zh'] ); ?></span>
+        </<?php echo $iv_tag; ?>>
+        <p class="iv-hero2__lead<?php echo $sl['strong'] ? ' iv-hero2__lead--strong' : ''; ?>">
+          <span data-en><?php echo wp_kses_post( $sl['lead_en'] ); ?></span>
+          <span data-zh><?php echo esc_html( $sl['lead_zh'] ); ?></span>
+        </p>
+        <?php if ( $sl['buttons'] ) : ?>
+          <div class="iv-hero2__btns">
+            <a class="iv-hero2__cta" href="#portfolio">
+              <span data-en>Explore Opportunities</span><span data-zh>探索投资机会</span> <span class="arr">&rarr;</span>
+            </a>
+            <a class="iv-hero2__ghost" href="https://shareholder.hakshan.com/" target="_blank" rel="noopener">
+              <span data-en>Investor Login</span><span data-zh>投资者登录</span>
+            </a>
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  <?php endforeach; ?>
 
   <?php if ( $iv_hero_count > 1 ) : ?>
     <div class="iv-hero2__dots" role="tablist" aria-label="Hero slides">
@@ -1303,9 +1343,9 @@ $iv_hero_count = count( $iv_hero_slides );
 // Brand tallies. Add an `img` (WP media URL) to show the storefront render
 // beside each count; without one the row is just the number and brand.
 $iv_tally = array(
-  array( 'n' => '17', 'unit_en' => 'Outlets', 'unit_zh' => '家', 'name' => 'HAKSHAN',      'img' => '' ),
-  array( 'n' => '2',  'unit_en' => 'Outlets', 'unit_zh' => '家', 'name' => 'THE NIANG&rsquo;S', 'img' => '' ),
-  array( 'n' => '1',  'unit_en' => 'Outlet',  'unit_zh' => '家', 'name' => 'TAISHAN',      'img' => '' ),
+  array( 'n' => '17', 'unit_en' => 'Outlets', 'unit_zh' => '家', 'name' => 'HAKSHAN',      'img' => hakshan_iv_img( 'render-hakshan.webp' ) ),
+  array( 'n' => '2',  'unit_en' => 'Outlets', 'unit_zh' => '家', 'name' => 'THE NIANG&rsquo;S', 'img' => hakshan_iv_img( 'render-niangs.webp' ) ),
+  array( 'n' => '1',  'unit_en' => 'Outlet',  'unit_zh' => '家', 'name' => 'TAISHAN',      'img' => hakshan_iv_img( 'render-taishan.webp' ) ),
 );
 ?>
 <section class="iv-section iv-live" id="live">
@@ -1366,7 +1406,7 @@ $iv_tally = array(
 // Brand portfolio. Add an `img` (WP media URL) to show a photo on a card.
 $iv_brands = array(
   array(
-    'img'      => '',
+    'img'      => hakshan_iv_img( 'brand-hakshan.webp' ),
     'name'     => 'HAKSHAN 客善',
     'kind_en'  => 'Hakka Family Dining',
     'kind_zh'  => '客家家庭餐饮',
@@ -1384,7 +1424,7 @@ $iv_brands = array(
     'detail_zh'=> '<p>客善是集团的创始品牌，也是模式的验证。三代客家食谱，在每一家门店以同一套标准烹调；菜单为家庭回头客而设，而非一次性到访。</p><p>这套模式刻意不追求花俏：中央厨房统一备料、严格控制食材成本、门店面积与商圈相匹配。这正是它可复制的原因。</p><ul><li>食材成本平均 30%，2025 年全年维持</li><li>单店资本回收期约 1&ndash;1.5 年</li><li>全马 17 家门店营运中</li></ul>',
   ),
   array(
-    'img'      => '',
+    'img'      => hakshan_iv_img( 'brand-niangs.webp' ),
     'name'     => 'THE NIANG&rsquo;S 娘家',
     'kind_en'  => 'Modern Peranakan Dining',
     'kind_zh'  => '现代娘惹餐饮',
@@ -1402,7 +1442,7 @@ $iv_brands = array(
     'detail_zh'=> '<p>娘家把原本只在节庆出现的娘惹菜，变成日常可及的选择。同样的传承，更轻盈的形式，更亲民的价格。</p><p>它与客善共用同一套集团基础设施：共同采购、共享中央厨房产能、同一支工程团队。开第二个品牌的成本，远低于第一个。</p><ul><li>已开 2 家门店，均在营运</li><li>累计投入资本 RM 2M+</li><li>建立在既有集团基础设施之上</li></ul>',
   ),
   array(
-    'img'      => '',
+    'img'      => hakshan_iv_img( 'brand-taishan.webp' ),
     'name'     => 'TAISHAN 台善',
     'kind_en'  => 'Taiwanese Family Dining',
     'kind_zh'  => '台式家庭餐饮',
@@ -1515,18 +1555,26 @@ $iv_brands = array(
         // it appears here automatically. No 2025 outlets = no gallery.
         $iv_tr_outlets = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
         $iv_2025 = array();
+        $iv_all_rows = array();
         foreach ( $iv_tr_outlets as $iv_tr_o ) {
           $iv_d = function_exists( 'hakshan_get_outlet_data' ) ? hakshan_get_outlet_data( $iv_tr_o->ID ) : array();
-          if ( empty( $iv_d['opened'] ) || false === strpos( (string) $iv_d['opened'], '2025' ) ) {
-            continue;
-          }
-          $iv_2025[] = array(
+          $iv_is_2025 = ! empty( $iv_d['opened'] ) && false !== strpos( (string) $iv_d['opened'], '2025' );
+          $iv_row = array(
             'name'   => get_the_title( $iv_tr_o->ID ),
             'city'   => ! empty( $iv_d['city'] ) ? ucwords( strtolower( $iv_d['city'] ) ) : '',
             'opened' => $iv_d['opened'],
-            'img'    => get_the_post_thumbnail_url( $iv_tr_o->ID, 'medium' ),
+            'img'    => hakshan_iv_img( 'render-hakshan.webp' ),
             'url'    => get_permalink( $iv_tr_o->ID ),
           );
+          if ( $iv_is_2025 ) {
+            $iv_2025[] = $iv_row;
+          }
+          $iv_all_rows[] = $iv_row;
+        }
+        // Nothing tagged "Opened … 2025" yet: show the first seven outlets,
+        // matching the "7 Outlets" figure, without inventing opening dates.
+        if ( ! $iv_2025 && ! empty( $iv_all_rows ) ) {
+          $iv_2025 = array_slice( $iv_all_rows, 0, 7 );
         }
         ?>
         <?php if ( $iv_2025 ) : ?>
@@ -1545,7 +1593,9 @@ $iv_brands = array(
                   <?php if ( $iv_s['city'] ) : ?>
                     <span class="iv-ost__meta">&#9679; <?php echo esc_html( $iv_s['city'] ); ?></span>
                   <?php endif; ?>
-                  <span class="iv-ost__meta">&#9642; <span data-en>Opened</span><span data-zh>开业</span> <?php echo esc_html( $iv_s['opened'] ); ?></span>
+                  <?php if ( ! empty( $iv_s['opened'] ) ) : ?>
+                    <span class="iv-ost__meta">&#9642; <span data-en>Opened</span><span data-zh>开业</span> <?php echo esc_html( $iv_s['opened'] ); ?></span>
+                  <?php endif; ?>
                   <span class="iv-ost__go"><span data-en>View Outlet</span><span data-zh>查看门店</span> &rarr;</span>
                 </span>
               </a>
@@ -1854,6 +1904,7 @@ $iv_news = array(
     'body_zh'  => '客善推出自有订餐平台，与顾客建立更直接的关系，降低对第三方平台的依赖，并改善长期毛利控制。',
     'url'      => 'https://order.hakshan.com/',
     'ext'      => true,
+    'img'      => hakshan_iv_img( 'news-ordering.webp' ),
   ),
   array(
     'date'     => '1 Sep 2026',
@@ -1863,6 +1914,7 @@ $iv_news = array(
     'body_zh'  => '专属平台，让投资者更清楚地掌握门店进度、经营表现、财务更新与重要里程碑。',
     'url'      => 'https://shareholder.hakshan.com/',
     'ext'      => true,
+    'img'      => hakshan_iv_img( 'news-portal.webp' ),
   ),
 );
 ?>
@@ -1915,7 +1967,13 @@ $iv_news = array(
       <?php else : ?>
         <?php foreach ( $iv_news as $n ) : ?>
           <a class="iv-news__card" href="<?php echo esc_url( $n['url'] ); ?>"<?php echo ! empty( $n['ext'] ) ? ' target="_blank" rel="noopener"' : ''; ?>>
-            <div class="iv-news__media"><div class="iv-news__ph" aria-hidden="true"></div></div>
+            <div class="iv-news__media">
+              <?php if ( ! empty( $n['img'] ) ) : ?>
+                <img src="<?php echo esc_url( $n['img'] ); ?>" alt="" loading="lazy" />
+              <?php else : ?>
+                <div class="iv-news__ph" aria-hidden="true"></div>
+              <?php endif; ?>
+            </div>
             <div class="iv-news__body">
               <div class="iv-news__date"><?php echo esc_html( $n['date'] ); ?></div>
               <h3><span data-en><?php echo wp_kses_post( $n['title_en'] ); ?></span><span data-zh><?php echo wp_kses_post( $n['title_zh'] ); ?></span></h3>
