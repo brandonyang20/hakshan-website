@@ -1213,7 +1213,12 @@ get_header();
   @media(max-width:620px){.iv-ost{flex-basis:calc((100% - 20px)/3)}.iv-ost__card{max-width:170px}}
   /* ---- track record, aligned to the 2026 deck ---- */
   .iv-miles{grid-template-columns:1fr 1px 1fr;gap:clamp(20px,3vw,48px)}
-  .iv-miles::before{content:"";grid-column:2;background:var(--line,#C9BE9F);align-self:stretch}
+  .iv-miles::before{content:"";grid-column:2;grid-row:1;background:var(--line,#C9BE9F);align-self:stretch}
+  /* Pin each column: the divider is the grid's first item, so without
+     explicit placement 2025 auto-flowed into column 3 (right) and 2026
+     wrapped onto a second row. */
+  .iv-miles>.iv-mile:not(.iv-mile--accent){grid-column:1;grid-row:1}
+  .iv-miles>.iv-mile--accent{grid-column:3;grid-row:1}
   .iv-mile,.iv-mile--accent{border:0;background:transparent;color:inherit;padding:0}
   .iv-mile__head{font-family:var(--serif);font-size:clamp(22px,2.8vw,32px);color:var(--iv-accent-deep,#9C7843);margin-bottom:6px}
   .iv-mile--accent .iv-mile__head{color:var(--iv-accent-deep,#9C7843)}
@@ -1226,6 +1231,7 @@ get_header();
   @media(max-width:860px){
     .iv-miles{grid-template-columns:1fr}
     .iv-miles::before{display:none}
+    .iv-miles>.iv-mile:not(.iv-mile--accent),.iv-miles>.iv-mile--accent{grid-column:auto;grid-row:auto}
     .iv-mile--accent{padding-top:26px;border-top:1px solid var(--line,#C9BE9F)}
   }
   /* ============ INVESTOR TYPOGRAPHY ============
