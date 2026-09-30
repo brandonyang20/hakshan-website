@@ -1261,6 +1261,86 @@ get_header();
   .iv-live__brandimg{overflow:visible;border-radius:0}
   .iv-port__media img,.iv-news__media img{transition:transform .5s cubic-bezier(.22,1,.36,1)}
   .iv-port__card:hover .iv-port__media img,.iv-news__card:hover .iv-news__media img{transform:scale(1.04)}
+  /* ============ MULTI-LAYER BUSINESS MODEL (interactive) ============ */
+  .iv-bm{background:#FDFBF6;padding:clamp(60px,8vw,110px) var(--rail) clamp(80px,10vw,130px)}
+  .iv-bm__head{text-align:center;max-width:860px;margin:0 auto clamp(34px,5vw,56px)}
+  .iv .iv-bm__title{font-family:var(--serif);font-weight:700;text-transform:uppercase;font-size:clamp(24px,3.2vw,40px);letter-spacing:.005em;line-height:1.1;color:#2A1A0F;margin:0}
+  .iv-bm__sub{display:inline-block;margin-top:12px;padding:6px clamp(14px,1.6vw,20px);border-radius:999px;background:#4F5D48;color:#F3EAD9;font-family:var(--serif);font-weight:500;text-transform:uppercase;font-size:clamp(15px,1.8vw,24px);letter-spacing:.01em;line-height:1.25}
+  .iv-bm__lead{margin:16px auto 0;font-size:clamp(14px,1.2vw,16px);line-height:1.6;color:#5A4636;max-width:70ch}
+  .iv-bm__hint{margin:10px 0 0;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9C7843}
+  .iv-bm__hint--tap{display:none}
+  @media (hover:none){.iv-bm__hint--hover{display:none}.iv-bm__hint--tap{display:inline}}
+
+  .iv-bm__chart{--line:#CDB896;max-width:1160px;margin:0 auto;position:relative}
+  .iv-bm__layer{position:relative}
+  .iv-bm__row{position:relative;outline:none;transition:opacity .3s ease}
+  .iv-bm__row:focus-visible{outline:2px dashed #9C7843;outline-offset:8px;border-radius:14px}
+  .iv-bm__stem{width:2px;height:clamp(22px,3vw,34px);background:var(--line);margin:0 auto}
+  /* Emphasise the hovered layer, recede the rest. */
+  .iv-bm__chart:has(.iv-bm__row:hover) .iv-bm__row:not(:hover),
+  .iv-bm__chart:has(.iv-bm__layer.is-open) .iv-bm__layer:not(.is-open) .iv-bm__row{opacity:.45}
+
+  /* Layer 01 */
+  .iv-bm__row--hold{width:fit-content;margin:0 auto;cursor:default}
+  .iv-bm__hold{padding:clamp(10px,1.2vw,14px) clamp(22px,2.6vw,34px);border-radius:26px;background:#9D8B75;color:#fff;font-family:var(--serif);font-weight:600;text-transform:uppercase;font-size:clamp(17px,2vw,26px);letter-spacing:.02em;transition:transform .25s ease,box-shadow .25s ease}
+  .iv-bm__row--hold:hover .iv-bm__hold{transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(42,26,15,.6)}
+
+  /* Layer 02: five logo marks on a bus with drops */
+  .iv-bm__row--cos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(6px,1vw,14px);padding-top:clamp(22px,2.8vw,34px)}
+  .iv-bm__row--cos::before{content:"";position:absolute;top:0;left:10%;right:10%;height:2px;background:var(--line)}
+  .iv-bm__co{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(6px,.7vw,10px);min-width:0;transition:transform .25s ease}
+  .iv-bm__co::before{content:"";position:absolute;bottom:100%;left:50%;width:2px;height:clamp(22px,2.8vw,34px);background:var(--line)}
+  .iv-bm__row--cos:hover .iv-bm__co{transform:translateY(-2px)}
+  .iv-bm__mark{display:inline-flex;gap:3px;flex:0 0 auto}
+  .iv-bm__mark i{display:block;width:clamp(6px,.65vw,9px);height:clamp(26px,2.9vw,38px);transform:skewY(-20deg)}
+  .iv-bm__mark i:first-child{background:var(--c)}
+  .iv-bm__mark i:last-child{background:#777;margin-top:clamp(5px,.6vw,8px)}
+  .iv-bm__word{display:flex;flex-direction:column;align-items:flex-end;padding-left:clamp(6px,.7vw,10px);border-left:1px solid #D9D3C7;min-width:0}
+  .iv-bm__name{font-family:var(--serif);font-weight:400;color:#6E6E6E;font-size:clamp(10px,1.05vw,15px);line-height:1;letter-spacing:.02em;white-space:nowrap}
+  .iv-bm__name b{font-weight:600;font-size:1.45em;letter-spacing:.01em}
+  .iv-bm__tag{margin-top:4px;font-family:var(--sans);font-size:clamp(5.5px,.5vw,7px);letter-spacing:.08em;text-transform:uppercase;color:#8A8A8A;white-space:nowrap}
+
+  /* Layer 03: outlet pills; bus + drops positioned by JS for the first row */
+  .iv-bm__row--outlets{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(10px,1.3vw,18px) clamp(10px,1.4vw,20px);padding-top:clamp(22px,2.8vw,34px)}
+  .iv-bm__bus{position:absolute;top:0;height:2px;background:var(--line);left:0;width:0}
+  .iv-bm__outlet{position:relative;display:flex;flex-direction:column;align-items:center;padding:clamp(7px,.8vw,10px) clamp(12px,1.4vw,18px);border-radius:10px;background:#9C6E36;color:#fff;text-align:center;font-family:var(--serif);font-weight:500;font-size:clamp(12px,1.2vw,16px);line-height:1.25;white-space:nowrap;transition:transform .25s ease,box-shadow .25s ease}
+  .iv-bm__outlet b{font-weight:600;letter-spacing:.02em}
+  .iv-bm__outlet.is-top::before{content:"";position:absolute;bottom:100%;left:50%;width:2px;height:clamp(22px,2.8vw,34px);background:var(--line)}
+  .iv-bm__outlet:hover{transform:translateY(-2px);box-shadow:0 12px 22px -14px rgba(42,26,15,.7)}
+
+  /* Detail card: drops in beneath its own row. It takes no pointer events,
+     so moving the mouse down closes it instead of covering the next layer. */
+  .iv-bm__card{position:absolute;z-index:30;left:50%;top:calc(100% + 16px);width:min(820px,100%);display:grid;grid-template-columns:1fr auto;gap:clamp(14px,2.4vw,34px);align-items:center;padding:clamp(16px,1.8vw,22px) clamp(18px,2.4vw,30px);background:#fff;border-radius:14px;box-shadow:0 22px 46px -18px rgba(42,26,15,.35),0 2px 6px rgba(42,26,15,.06);pointer-events:none;opacity:0;visibility:hidden;transform:translate(-50%,-8px) scale(.98);transform-origin:50% 0;transition:opacity .28s ease,transform .32s cubic-bezier(.22,1,.36,1),visibility 0s linear .32s}
+  .iv-bm__row:hover+.iv-bm__card,.iv-bm__row:focus-visible+.iv-bm__card,.iv-bm__layer.is-open .iv-bm__card{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);transition-delay:0s}
+  .iv-bm__ctag{font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.06em;color:#8A5A2B}
+  .iv .iv-bm__ctitle{margin-top:3px;font-family:var(--serif);font-weight:600;text-transform:uppercase;font-size:clamp(14px,1.5vw,19px);letter-spacing:.01em;line-height:1.25;color:#3A2412}
+  .iv .iv-bm__cbody{margin:6px 0 0;font-size:clamp(12.5px,1vw,14px);line-height:1.5;color:#4A4038}
+  .iv-bm__cpts{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  .iv-bm__cpts li{position:relative;padding-left:14px;font-family:var(--mono);font-weight:600;font-size:clamp(11px,1vw,13.5px);letter-spacing:.04em;text-transform:uppercase;color:#9C6E36;white-space:nowrap}
+  .iv-bm__cpts li::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;border-radius:50%;background:#9C6E36}
+
+  @media (max-width:760px){
+    .iv-bm__row--cos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px;padding-top:0}
+    .iv-bm__co:last-child{grid-column:1/-1}
+    .iv-bm__name{white-space:normal;text-align:right;line-height:1.1}
+    .iv-bm__row--cos::before,.iv-bm__co::before,.iv-bm__bus,.iv-bm__outlet.is-top::before{display:none}
+    .iv-bm__row--outlets{padding-top:0}
+    .iv-bm__name{font-size:12px}
+    .iv-bm__tag{display:none}
+    .iv-bm__card{grid-template-columns:1fr;top:calc(100% + 12px)}
+    .iv-bm__cpts{grid-template-columns:1fr 1fr}
+    .iv-bm__cpts li{white-space:normal}
+  }
+  /* Keep hidden tooltips from widening the page on phones. The 2025 row's
+     cards can extend past the edge tiles, so clip horizontally at the
+     section; and pin the first/last revenue labels inside the chart. */
+  #track{overflow-x:clip}
+  .iv-bar:first-child .iv-bar__cap{left:0;transform:translate(0,4px)}
+  .iv-bar:last-child .iv-bar__cap{left:auto;right:0;transform:translate(0,4px)}
+  .iv-bar:first-child:hover .iv-bar__cap,.iv-bar:first-child.is-on .iv-bar__cap,
+  .iv-bar:last-child:hover .iv-bar__cap,.iv-bar:last-child.is-on .iv-bar__cap{transform:translate(0,0)}
+  .iv-bar:first-child .iv-bar__cap::after{left:14px}
+  .iv-bar:last-child .iv-bar__cap::after{left:auto;right:14px;transform:none}
 </style>
 
 <div class="iv">
@@ -1669,210 +1749,133 @@ $iv_brands = array(
   </div>
 </section>
 
-<!-- ============== 4b. ORG CHART · Multi-layer F&B Business Model ============== -->
-<section class="iv-org" id="structure">
-  <div class="iv-org__wrap">
-    <h2 class="iv-org__title"><span data-en>Multi-Layer F&amp;B Business Model</span><span data-zh>多层级餐饮商业模式</span></h2>
+<!-- ============== 4. MULTI-LAYER F&B BUSINESS MODEL (interactive) ============== -->
+<?php
+// The three value layers, numbered top-down as in the proposal deck.
+$iv_bm_layers = array(
+  1 => array(
+    'title_en' => 'Capital &amp; Strategic Integration',
+    'title_zh' => '资本与战略整合',
+    'body_en'  => 'The holding company consolidates profit, allocates capital and enables scalable expansion — unified governance built for enduring, aligned growth.',
+    'body_zh'  => '控股公司整合利润、配置资本，并推动可规模化的扩张——统一的治理结构，为长期且一致的成长而设。',
+    'pts'      => array( array( 'Consolidated profit', '合并利润' ), array( 'Capital allocation', '资本配置' ), array( 'Scalable expansion', '可规模化扩张' ) ),
+  ),
+  2 => array(
+    'title_en' => 'Integrated F&amp;B Solutions',
+    'title_zh' => '整合餐饮解决方案',
+    'body_en'  => 'A shared support ecosystem — central kitchen, food trading, renovation, food technology and marketing — that serves both internal brands and external partners, enhancing margin and efficiency.',
+    'body_zh'  => '共享的支援生态——中央厨房、食材贸易、装修、餐饮科技与市场营销——同时服务内部品牌与外部伙伴，提升毛利与效率。',
+    'pts'      => array( array( 'Food cost &minus;25%', '食材成本 &minus;25%' ), array( 'Renovation &minus;30%', '装修成本 &minus;30%' ), array( 'Central kitchen', '中央厨房' ), array( 'POS &amp; data', 'POS 与数据' ) ),
+  ),
+  3 => array(
+    'title_en' => 'Market Layer — Outlets &amp; Cloud Kitchens',
+    'title_zh' => '市场层 — 门店与云端厨房',
+    'body_en'  => 'The group&rsquo;s core revenue driver. Scalable full-service outlets and delivery-focused cloud kitchens, run on standardised operations and disciplined cost structures for sustainable profitability.',
+    'body_zh'  => '集团的核心营收来源。可规模化的全服务门店与外卖导向的云端厨房，以标准化运营与纪律成本结构，实现可持续盈利。',
+    'pts'      => array( array( 'Direct revenue', '直营营收' ), array( 'Brand presence', '品牌触达' ), array( 'Proven unit economics', '已验证的单店模型' ) ),
+  ),
+);
 
-    <div class="iv-org__chart" data-reveal>
-      <!-- Tier 1: Holding -->
-      <div class="iv-org__tier">
-        <div class="iv-org__node iv-org__node--holding">
-          <b><span data-en>Holding Company</span><span data-zh>控股公司</span></b>
-        </div>
+// Layer 02 companies, drawn as CSS logo marks (brand bar + grey bar,
+// divider, wordmark, tagline) so they stay crisp at any size.
+$iv_bm_cos = array(
+  array( 'FOOD',       'TRADE',   '#8ACF7A', 'Quality · Consistency · Reliability', '食材贸易' ),
+  array( 'FOOD',       'TECH',    '#8FD3E6', 'Innovation · Efficiency · Progress',  '餐饮科技' ),
+  array( 'DESIGN',     '',        '#F2DC52', 'Vision · Creativity · Function',      '设计工程' ),
+  array( 'CULINARY',   'ACADEMY', '#E88A6E', 'Passion · Learning · Mastery',        '厨艺学院' ),
+  array( 'ACCOUNTING', '',        '#9CC3EC', 'Accuracy · Compliance · Insight',     '财务会计' ),
+);
+
+// Layer 03: operating outlets from the Outlet CPT. "(Coming Soon)" entries
+// are left out and the "HAKSHAN" prefix is dropped, as in the deck.
+$iv_bm_outlets = array();
+if ( function_exists( 'hakshan_get_outlets' ) ) {
+  foreach ( hakshan_get_outlets() as $iv_bm_o ) {
+    $iv_bm_t = trim( wp_strip_all_tags( get_the_title( $iv_bm_o->ID ) ) );
+    if ( '' === $iv_bm_t || false !== stripos( $iv_bm_t, 'coming soon' ) ) {
+      continue;
+    }
+    $iv_bm_outlets[] = trim( preg_replace( '/^hakshan\s+/i', '', $iv_bm_t ) );
+  }
+}
+if ( ! $iv_bm_outlets ) {
+  $iv_bm_outlets = array( 'USJ Taipan', 'Menjalara', 'Cheras C180', 'Bandar Puteri Puchong', 'SS2', 'Sri Petaling',
+    'Sunway Mentari', 'Kota Damansara', 'Plaza Damansara', 'Pudu Plaza', 'Ipoh', 'Bukit Tinggi', 'Taman Segar' );
+}
+
+// One detail card, rendered under whichever layer row it belongs to.
+if ( ! function_exists( 'hakshan_iv_bm_card' ) ) {
+  function hakshan_iv_bm_card( $n, $l ) {
+    ?>
+    <div class="iv-bm__card" id="ivBmCard<?php echo (int) $n; ?>" role="note">
+      <div class="iv-bm__cmain">
+        <div class="iv-bm__ctag">&#9679; LAYER <?php echo esc_html( sprintf( '%02d', $n ) ); ?></div>
+        <div class="iv-bm__ctitle"><span data-en><?php echo wp_kses_post( $l['title_en'] ); ?></span><span data-zh><?php echo esc_html( $l['title_zh'] ); ?></span></div>
+        <p class="iv-bm__cbody"><span data-en><?php echo wp_kses_post( $l['body_en'] ); ?></span><span data-zh><?php echo esc_html( $l['body_zh'] ); ?></span></p>
       </div>
-
-      <!-- Stem down from Holding into the 5-drop bus -->
-      <div class="iv-org__stem"></div>
-      <div class="iv-org__rail iv-org__rail--5" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i>
-      </div>
-
-      <!-- Tier 2: Integrated solutions -->
-      <?php
-      // Layer 2 — the five in-house companies. Each opens a detail popover
-      // on hover (desktop) or tap (touch).
-      $iv_layer2 = array(
-        array(
-          'en' => 'Food Trade', 'zh' => '食材贸易',
-          'd_en' => 'Bulk sourcing and distribution for every brand in the group. Buying at group scale lowers input cost per outlet and keeps supply consistent, so margin is captured at the ingredient level.',
-          'd_zh' => '为集团旗下所有品牌统一采购与配送。以集团规模议价，降低单店进货成本并稳定供应，让毛利在食材端就已形成。',
-        ),
-        array(
-          'en' => 'Food Tech', 'zh' => '餐饮科技',
-          'd_en' => 'POS, the in-house ordering platform and the data layer behind them. Moving orders off third-party apps protects margin and keeps customer data inside the group.',
-          'd_zh' => 'POS 系统、自有订餐平台，以及背后的数据层。把订单移回自有渠道，既保住毛利，也把顾客数据留在集团内部。',
-        ),
-        array(
-          'en' => 'Design', 'zh' => '设计工程',
-          'd_en' => 'In-house design and build-out. Doing it internally cuts capital expenditure per outlet and shortens the time between signing a lease and opening the doors.',
-          'd_zh' => '自有设计与施工团队。由内部执行可降低单店资本开支，并缩短从签约到开业的时间。',
-        ),
-        array(
-          'en' => 'Culinary Academy', 'zh' => '厨艺学院',
-          'd_en' => 'Recipe standards, kitchen training and the chef pipeline. It is what lets a new outlet cook to the same standard as an old one from day one, and removes key-person risk.',
-          'd_zh' => '食谱标准、厨房培训与厨师梯队。这让新店从第一天起就能达到与老店相同的水准，并降低对个别人员的依赖。',
-        ),
-        array(
-          'en' => 'Accounting', 'zh' => '财务会计',
-          'd_en' => 'Group finance, compliance and reporting. One set of books across every brand and outlet, which is what makes outlet-level performance comparable and investor reporting possible.',
-          'd_zh' => '集团财务、合规与报表。所有品牌与门店共用一套账务体系，让单店表现可比较，也让投资者报告成为可能。',
-        ),
-      );
-      ?>
-      <div class="iv-org__tier">
-        <?php foreach ( $iv_layer2 as $iv_l2 ) : ?>
-          <div class="iv-org__node iv-org__node--pop" tabindex="0"
-               data-iv-pop
-               data-pop-title="<?php echo esc_attr( $iv_l2['en'] ); ?>"
-               data-pop-title-zh="<?php echo esc_attr( $iv_l2['zh'] ); ?>"
-               data-pop-kicker="LAYER 02 · INTEGRATED F&amp;B SOLUTIONS"
-               data-pop-chips="Food cost &minus;25%|Renovation &minus;30%|Central kitchen|POS &amp; data"
-               data-pop-body="<?php echo esc_attr( $iv_l2['d_en'] ); ?>"
-               data-pop-body-zh="<?php echo esc_attr( $iv_l2['d_zh'] ); ?>">
-            <span data-en><?php echo esc_html( $iv_l2['en'] ); ?></span><span data-zh><?php echo esc_html( $iv_l2['zh'] ); ?></span>
-          </div>
+      <ul class="iv-bm__cpts">
+        <?php foreach ( $l['pts'] as $pt ) : ?>
+          <li><span data-en><?php echo wp_kses_post( $pt[0] ); ?></span><span data-zh><?php echo wp_kses_post( $pt[1] ); ?></span></li>
         <?php endforeach; ?>
-      </div>
-
-      <!-- Stem down into the outlet bus. Seven drops align with the top
-           row of the 7+6 outlet grid; the second row hangs below it. -->
-      <div class="iv-org__stem"></div>
-      <div class="iv-org__rail iv-org__rail--13" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-
-      <!-- Tier 3: Outlets -->
-      <div class="iv-org__tier">
-        <?php
-        // Outlets come from the Outlet CPT so the chart always matches the
-        // live estate; the static list is only a fallback for a fresh install.
-        $iv_outlets = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
-        $iv_names   = array();
-        if ( $iv_outlets ) {
-          foreach ( $iv_outlets as $iv_o ) {
-            $iv_names[] = get_the_title( $iv_o->ID );
-          }
-        } else {
-          $iv_names = array(
-            'USJ Taipan', 'Menjalara', 'Cheras C180', 'Bandar Puteri Puchong',
-            'SS2', 'Sri Petaling', 'Sunway Mentari', 'Kota Damansara',
-            'Plaza Damansara', 'Pudu Plaza', 'Ipoh', 'Bukit Tinggi',
-            'Taman Segar', 'Setia Alam', 'Seri Kembangan', 'Kepong Metro',
-            'Bandar Sunway',
-          );
-        }
-        foreach ( $iv_names as $iv_i => $iv_name ) :
-          ?>
-          <?php
-          $iv_city = '';
-          if ( $iv_outlets && isset( $iv_outlets[ $iv_i ] ) && function_exists( 'hakshan_get_outlet_data' ) ) {
-            $iv_od   = hakshan_get_outlet_data( $iv_outlets[ $iv_i ]->ID );
-            $iv_city = ! empty( $iv_od['city'] ) ? ucwords( strtolower( $iv_od['city'] ) ) : '';
-          }
-          $iv_o_body_en = 'A full-service Hakshan outlet operating on the group standard: central-kitchen prep, a fixed menu architecture and the same cost discipline applied across the estate. Direct revenue, brand presence, proven unit economics.';
-          $iv_o_body_zh = '一家按集团标准营运的客善全服务门店：中央厨房备料、固定的菜单结构，以及全集团一致的成本纪律。带来直接营收、品牌能见度与已验证的单店经济模型。';
-          ?>
-          <div class="iv-org__node iv-org__node--outlet iv-org__node--pop" tabindex="0"
-               data-iv-pop
-               data-pop-title="<?php echo esc_attr( $iv_name ); ?>"
-               data-pop-title-zh="<?php echo esc_attr( $iv_name ); ?>"
-               data-pop-kicker="<?php echo esc_attr( $iv_city ? 'LAYER 03 · ' . $iv_city : 'LAYER 03' ); ?>"
-               data-pop-body="<?php echo esc_attr( $iv_o_body_en ); ?>"
-               data-pop-body-zh="<?php echo esc_attr( $iv_o_body_zh ); ?>">
-            <b><?php echo esc_html( sprintf( 'Outlet %02d', $iv_i + 1 ) ); ?></b><?php echo esc_html( $iv_name ); ?>
-          </div>
-        <?php endforeach; ?>
-      </div>
+      </ul>
     </div>
-
-    <div class="iv-pop" id="ivPop" hidden>
-      <div class="iv-pop__kicker" id="ivPopKicker"></div>
-      <div class="iv-pop__title" id="ivPopTitle"></div>
-      <p class="iv-pop__body" id="ivPopBody"></p>
-      <div class="iv-pop__chips" id="ivPopChips" hidden></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== 5. BUSINESS MODEL ============== -->
-<section class="iv-section iv-section--alt" id="model">
+    <?php
+  }
+}
+?>
+<section class="iv-bm" id="structure">
   <div class="iv-wrap">
-    <div class="iv-shead" data-reveal>
-      <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>BUSINESS MODEL</span>
-        <span data-zh>商业模式</span>
-      </span>
-      <h2>
-        <span data-en>One group,<br/><em>three value layers.</em></span>
-        <span data-zh>一个集团，<br/><em>三层价值结构。</em></span>
-      </h2>
-      <p class="lead">
+    <header class="iv-bm__head" data-reveal>
+      <h2 class="iv-bm__title"><span data-en>Multi-Layer F&amp;B Business Model</span><span data-zh>多层级餐饮商业模式</span></h2>
+      <div class="iv-bm__sub"><span data-en>One group, three value layers.</span><span data-zh>一个集团，三层价值结构。</span></div>
+      <p class="iv-bm__lead">
         <span data-en>From single-layer restaurant operations to an integrated, scalable F&amp;B group — each layer compounds margin and reach.</span>
         <span data-zh>从单层餐厅运营，发展为整合且可规模化的餐饮集团——每一层都为利润与触达加乘。</span>
       </p>
-    </div>
-    <div class="iv-layers" data-reveal>
-      <div class="iv-layer">
-        <div class="iv-layer__tag">Layer 01</div>
-        <div>
-          <h3><span data-en>Market Layer — Outlets &amp; Cloud Kitchens</span><span data-zh>市场层 — 门店与云端厨房</span></h3>
-          <p>
-            <span data-en>The group's core revenue driver. Scalable full-service outlets and delivery-focused cloud kitchens, run on standardised operations and disciplined cost structures for sustainable profitability.</span>
-            <span data-zh>集团的核心营收来源。可规模化的全服务门店与外卖导向的云端厨房，以标准化运营与纪律成本结构，实现可持续盈利。</span>
-          </p>
-          <div class="iv-layer__chips">
-            <span class="iv-chip"><span data-en>Direct revenue</span><span data-zh>直营营收</span></span>
-            <span class="iv-chip"><span data-en>Brand presence</span><span data-zh>品牌触达</span></span>
-            <span class="iv-chip"><span data-en>Proven unit economics</span><span data-zh>已验证的单店模型</span></span>
-          </div>
+      <p class="iv-bm__hint">
+        <span class="iv-bm__hint--hover"><span data-en>Hover over a layer to explore it</span><span data-zh>将鼠标移至各层查看详情</span></span>
+        <span class="iv-bm__hint--tap"><span data-en>Tap a layer to explore it</span><span data-zh>点按各层查看详情</span></span>
+      </p>
+    </header>
+
+    <div class="iv-bm__chart" data-reveal>
+      <!-- Layer 01 · Holding -->
+      <div class="iv-bm__layer" data-layer="1">
+        <div class="iv-bm__row iv-bm__row--hold" tabindex="0" aria-describedby="ivBmCard1">
+          <div class="iv-bm__hold"><span data-en>Holding Company</span><span data-zh>控股公司</span></div>
         </div>
-        <div class="iv-layer__no">01</div>
+        <?php hakshan_iv_bm_card( 1, $iv_bm_layers[1] ); ?>
       </div>
-      <div class="iv-layer">
-        <div class="iv-layer__tag">Layer 02</div>
-        <div>
-          <h3><span data-en>Integrated F&amp;B Solutions</span><span data-zh>整合餐饮解决方案</span></h3>
-          <p>
-            <span data-en>A shared support ecosystem — central kitchen, food trading, renovation, food technology and marketing — that serves both internal brands and external partners, enhancing margin and efficiency.</span>
-            <span data-zh>共享的支援生态——中央厨房、食材贸易、装修、餐饮科技与市场营销——同时服务内部品牌与外部伙伴，提升毛利与效率。</span>
-          </p>
-          <div class="iv-layer__chips">
-            <span class="iv-chip"><span data-en>Food cost −25%</span><span data-zh>食材成本 −25%</span></span>
-            <span class="iv-chip"><span data-en>Renovation −30%</span><span data-zh>装修成本 −30%</span></span>
-            <span class="iv-chip"><span data-en>Central kitchen</span><span data-zh>中央厨房</span></span>
-            <span class="iv-chip"><span data-en>POS &amp; data</span><span data-zh>POS &amp; 数据</span></span>
-          </div>
+
+      <div class="iv-bm__stem" aria-hidden="true"></div>
+
+      <!-- Layer 02 · Integrated F&B solutions -->
+      <div class="iv-bm__layer" data-layer="2">
+        <div class="iv-bm__row iv-bm__row--cos" tabindex="0" aria-describedby="ivBmCard2">
+          <?php foreach ( $iv_bm_cos as $co ) : $iv_bm_label = trim( $co[0] . ' ' . $co[1] ); ?>
+            <div class="iv-bm__co" style="--c:<?php echo esc_attr( $co[2] ); ?>" aria-label="<?php echo esc_attr( ucwords( strtolower( $iv_bm_label ) ) . ' / ' . $co[4] ); ?>">
+              <span class="iv-bm__mark" aria-hidden="true"><i></i><i></i></span>
+              <span class="iv-bm__word" aria-hidden="true">
+                <span class="iv-bm__name"><b><?php echo esc_html( $co[0] ); ?></b><?php if ( $co[1] ) : ?> <?php echo esc_html( $co[1] ); ?><?php endif; ?></span>
+                <span class="iv-bm__tag"><?php echo esc_html( $co[3] ); ?></span>
+              </span>
+            </div>
+          <?php endforeach; ?>
         </div>
-        <div class="iv-layer__no">02</div>
+        <?php hakshan_iv_bm_card( 2, $iv_bm_layers[2] ); ?>
       </div>
-      <div class="iv-layer">
-        <div class="iv-layer__tag">Layer 03</div>
-        <div>
-          <h3><span data-en>Capital &amp; Strategic Integration</span><span data-zh>资本与战略整合</span></h3>
-          <p>
-            <span data-en>The holding company consolidates profit, allocates capital and enables scalable expansion — unified governance built for enduring, aligned growth.</span>
-            <span data-zh>控股公司整合利润、配置资本，并推动可规模化的扩张——统一的治理结构，为长期且一致的成长而设。</span>
-          </p>
-          <div class="iv-layer__chips">
-            <span class="iv-chip"><span data-en>Consolidated profit</span><span data-zh>合并利润</span></span>
-            <span class="iv-chip"><span data-en>Capital allocation</span><span data-zh>资本配置</span></span>
-            <span class="iv-chip"><span data-en>Scalable expansion</span><span data-zh>可规模化扩张</span></span>
-          </div>
+
+      <div class="iv-bm__stem" aria-hidden="true"></div>
+
+      <!-- Layer 03 · Outlets -->
+      <div class="iv-bm__layer" data-layer="3">
+        <div class="iv-bm__row iv-bm__row--outlets" tabindex="0" aria-describedby="ivBmCard3">
+          <span class="iv-bm__bus" aria-hidden="true"></span>
+          <?php foreach ( $iv_bm_outlets as $iv_bm_i => $iv_bm_name ) : ?>
+            <div class="iv-bm__outlet"><b><?php echo esc_html( sprintf( 'OUTLET %02d', $iv_bm_i + 1 ) ); ?></b><?php echo esc_html( $iv_bm_name ); ?></div>
+          <?php endforeach; ?>
         </div>
-        <div class="iv-layer__no">03</div>
-      </div>
-    </div>
-    <div class="iv-engine" data-reveal>
-      <div class="iv-engine__media">
-        <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/investor-kitchen.jpg' ) ); ?>" alt="HAKSHAN central kitchen" loading="lazy" />
-      </div>
-      <div>
-        <h3><span data-en>The engine behind the margin.</span><span data-zh>毛利背后的引擎。</span></h3>
-        <p>
-          <span data-en>Centralised production, bulk procurement and standardised setup compress cost volatility and shorten every outlet's launch cycle — turning capability into repeatable growth.</span>
-          <span data-zh>中央化生产、集中采购与标准化建店，压低成本波动，缩短每一家门店的开业周期——把能力转化为可复制的成长。</span>
-        </p>
+        <?php hakshan_iv_bm_card( 3, $iv_bm_layers[3] ); ?>
       </div>
     </div>
   </div>
@@ -2238,6 +2241,57 @@ $iv_news = array(
         if (!on) b.classList.add('is-on');
       });
     });
+  })();
+</script>
+
+<script>
+  // Business-model chart: draw the outlet bus + drops over whichever pills
+  // land on the first row, and handle tap-to-open on touch screens.
+  (function () {
+    var chart = document.querySelector('.iv-bm__chart');
+    if (!chart) return;
+    var row = chart.querySelector('.iv-bm__row--outlets');
+    var bus = row ? row.querySelector('.iv-bm__bus') : null;
+
+    function layoutBus() {
+      if (!row || !bus) return;
+      var pills = Array.prototype.slice.call(row.querySelectorAll('.iv-bm__outlet'));
+      if (!pills.length) return;
+      var top = pills[0].offsetTop;
+      var first = null, last = null;
+      pills.forEach(function (p) {
+        var onTop = Math.abs(p.offsetTop - top) < 4;
+        p.classList.toggle('is-top', onTop);
+        if (onTop) { if (!first) first = p; last = p; }
+      });
+      var a = first.offsetLeft + first.offsetWidth / 2;
+      var b = last.offsetLeft + last.offsetWidth / 2;
+      bus.style.left = a + 'px';
+      bus.style.width = Math.max(0, b - a) + 'px';
+    }
+    layoutBus();
+    window.addEventListener('resize', layoutBus);
+    window.addEventListener('load', layoutBus);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutBus);
+
+    // Touch: no hover, so a tap opens that layer's card (tap again or
+    // elsewhere to close).
+    if (window.matchMedia('(hover:none)').matches) {
+      var layers = chart.querySelectorAll('.iv-bm__layer');
+      layers.forEach(function (layer) {
+        var r = layer.querySelector('.iv-bm__row');
+        if (!r) return;
+        r.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var open = layer.classList.contains('is-open');
+          layers.forEach(function (l) { l.classList.remove('is-open'); });
+          if (!open) layer.classList.add('is-open');
+        });
+      });
+      document.addEventListener('click', function () {
+        layers.forEach(function (l) { l.classList.remove('is-open'); });
+      });
+    }
   })();
 </script>
 
