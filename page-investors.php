@@ -1027,33 +1027,45 @@ get_header();
     .inv-contact__inner { grid-template-columns: 1fr; gap: 36px; }
   }
   /* ============ HERO SLIDESHOW (light, per-slide copy) ============ */
+  /* Sized to the banners' own 1920x645 proportions so the whole image
+     shows, with its faded left side sitting behind the copy. */
   .iv-hero2{position:relative;display:grid;background:#FBF8F1;color:#2A1A0F;overflow:hidden}
-  .iv-hero2__slide{grid-area:1/1;position:relative;display:flex;align-items:center;min-height:clamp(440px,46vw,660px);opacity:0;visibility:hidden;transition:opacity .9s ease,visibility 0s linear .9s}
+  .iv-hero2__slide{grid-area:1/1;position:relative;display:flex;align-items:center;aspect-ratio:1920/645;min-height:340px;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility 0s linear .9s}
   .iv-hero2__slide.is-on{opacity:1;visibility:visible;transition-delay:0s}
   .iv-hero2__bg{position:absolute;inset:0;background-size:cover;background-position:right center}
-  .iv-hero2__inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(56px,8vw,100px) var(--rail)}
-  .iv-hero2__inner>*{max-width:600px}
-  .iv-hero2__eyebrow{display:block;font-family:var(--mono);font-weight:500;font-size:clamp(11px,1vw,13px);letter-spacing:.2em;text-transform:uppercase;color:#6E4A2A}
-  .iv .iv-hero2__title{font-family:var(--serif);font-weight:700;text-transform:uppercase;font-size:clamp(36px,5.4vw,78px);line-height:1.02;letter-spacing:-.005em;margin:16px 0 18px;color:#2A1A0F}
+  .iv-hero2__inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(20px,3vw,48px) var(--rail)}
+  .iv-hero2__eyebrow{display:block;font-family:var(--mono);font-weight:500;font-size:clamp(10px,1vw,14px);letter-spacing:.14em;text-transform:uppercase;color:#4A3524}
+  .iv .iv-hero2__title{font-family:var(--serif);font-weight:700;text-transform:uppercase;line-height:1.04;letter-spacing:0;color:#2A1A0F;margin:.45em 0 .4em}
+  .iv .iv-hero2__title--lg{font-size:clamp(30px,3.95vw,64px)}
+  .iv .iv-hero2__title--sm{font-size:clamp(24px,2.85vw,46px)}
   .iv-hero2__title em{font-style:normal;color:#6E4323}
-  .iv-hero2__lead{font-size:clamp(15px,1.35vw,17px);line-height:1.6;color:#5A4636;max-width:52ch;margin:0}
-  .iv-hero2__lead--strong{font-weight:600;color:#6E4323;font-size:clamp(16px,1.6vw,21px);line-height:1.4}
-  .iv-hero2__btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-  .iv-hero2__cta,.iv-hero2__ghost{display:inline-flex;align-items:center;gap:9px;padding:12px 24px;border-radius:999px;font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .2s ease,color .2s ease,transform .2s ease}
+  .iv .iv-hero2__lead{font-size:clamp(12px,1.06vw,16px);line-height:1.5;color:#4A3B2E;max-width:26em;margin:0}
+  .iv .iv-hero2__lead--strong{max-width:none;font-weight:600;color:#6E4323;font-size:clamp(13px,1.38vw,21px);line-height:1.35}
+  .iv-hero2__btns{display:flex;gap:clamp(8px,1.1vw,14px);flex-wrap:wrap;margin-top:clamp(16px,2.4vw,30px)}
+  .iv-hero2__cta,.iv-hero2__ghost{display:inline-flex;align-items:center;gap:.5em;padding:.62em 1.3em;border-radius:999px;font-family:var(--mono);font-weight:500;font-size:clamp(10px,.95vw,13px);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s ease,color .2s ease,transform .2s ease}
   .iv-hero2__cta{background:#4F5D48;color:#F9F7F2;border:1px solid #4F5D48}
   .iv-hero2__cta:hover{background:#3c4737;transform:translateY(-1px)}
   .iv-hero2__cta .arr{transition:transform .2s ease}
   .iv-hero2__cta:hover .arr{transform:translateX(3px)}
   .iv-hero2__ghost{background:transparent;color:#2A1A0F;border:1px solid #2A1A0F}
   .iv-hero2__ghost:hover{background:#2A1A0F;color:#F9F7F2}
-  .iv-hero2__dots{position:absolute;z-index:3;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:9px}
-  .iv-hero2__dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(42,26,15,.25);cursor:pointer;transition:background .25s ease,width .25s ease}
-  .iv-hero2__dot.is-on{background:#4F5D48;width:26px;border-radius:999px}
+  .iv-hero2__dots{position:absolute;z-index:3;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+  .iv-hero2__dot{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:rgba(42,26,15,.22);cursor:pointer;transition:background .25s ease,width .25s ease}
+  .iv-hero2__dot.is-on{background:#4F5D48;width:22px;border-radius:999px}
+  /* Narrower screens: the image starts to crop, so wash the text side. */
+  @media(max-width:1100px){
+    .iv-hero2__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#FBF8F1 0%,rgba(251,248,241,.88) 34%,rgba(251,248,241,0) 62%)}
+  }
   @media(max-width:760px){
-    .iv-hero2__slide{align-items:flex-end}
+    .iv-hero2__slide{aspect-ratio:auto;min-height:480px;align-items:flex-end}
     .iv-hero2__bg{background-position:72% center}
-    .iv-hero2__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,248,241,.55) 0%,rgba(251,248,241,.9) 55%,#FBF8F1 100%)}
-    .iv-hero2__inner{padding-bottom:64px}
+    .iv-hero2__bg::after{background:linear-gradient(180deg,rgba(251,248,241,.5) 0%,rgba(251,248,241,.9) 52%,#FBF8F1 100%)}
+    .iv-hero2__inner{padding-bottom:52px}
+    .iv .iv-hero2__title--lg{font-size:34px}
+    .iv .iv-hero2__title--sm{font-size:27px}
+    .iv .iv-hero2__lead{font-size:14px}
+    .iv .iv-hero2__lead--strong{font-size:16px}
+    .iv-hero2__cta,.iv-hero2__ghost{font-size:11px}
   }
   /* ============ LIVE PERFORMANCE ============ */
   .iv-live{background:#FDFBF6;padding-top:clamp(44px,5.5vw,72px)}
@@ -1381,10 +1393,11 @@ $iv_hero_slides = array(
     'eyebrow_zh' => '投资 · 共建 · 成长 · 同行',
     'title_en'   => 'Real food.<br/>Lasting value.',
     'title_zh'   => '真材实料，<br/>长久价值。',
-    'lead_en'    => 'Invest in homegrown F&amp;B brands, built for people, profit and the long term.',
+    'lead_en'    => 'Invest in homegrown F&amp;B brands,<br/>built for people, profit and the long term.',
     'lead_zh'    => '投资本土餐饮品牌——为人而建，为利而营，为长远而立。',
     'strong'     => true,
     'buttons'    => true,
+    'size'       => 'lg',
   ),
   array(
     'img'        => hakshan_iv_img( 'hero-2.webp' ),
@@ -1396,6 +1409,7 @@ $iv_hero_slides = array(
     'lead_zh'    => '客善从一家客家餐厅起步，发展成纪律严明的多层级餐饮集团——单店经济模型已被验证，资本回收周期短，并在马来西亚、印尼与曼谷拥有清晰的扩张路径。',
     'strong'     => false,
     'buttons'    => false,
+    'size'       => 'sm',
   ),
 );
 $iv_hero_count = count( $iv_hero_slides );
@@ -1408,7 +1422,7 @@ $iv_hero_count = count( $iv_hero_slides );
       <?php endif; ?>
       <div class="iv-hero2__inner">
         <span class="iv-hero2__eyebrow"><span data-en><?php echo esc_html( $sl['eyebrow_en'] ); ?></span><span data-zh><?php echo esc_html( $sl['eyebrow_zh'] ); ?></span></span>
-        <<?php echo $iv_tag; ?> class="iv-hero2__title">
+        <<?php echo $iv_tag; ?> class="iv-hero2__title iv-hero2__title--<?php echo esc_attr( $sl['size'] ); ?>">
           <span data-en><?php echo wp_kses_post( $sl['title_en'] ); ?></span>
           <span data-zh><?php echo wp_kses_post( $sl['title_zh'] ); ?></span>
         </<?php echo $iv_tag; ?>>
