@@ -2232,7 +2232,7 @@ $iv_news = array(
     var slides = document.querySelectorAll('.iv-hero2__slide');
     var dots   = document.querySelectorAll('.iv-hero2__dot');
     if (slides.length < 2) return;
-    var i = 0, timer = null, DELAY = 5500;
+    var i = 0, timer = null, DELAY = 3000;
     function go(n) {
       i = (n + slides.length) % slides.length;
       slides.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
