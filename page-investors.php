@@ -216,20 +216,41 @@ get_header();
     letter-spacing: 0.02em;
     white-space: nowrap;
   }
+  .iv-bar__fill { position: relative; }
+  /* Label sits on top of its own bar (anchored to the fill, not the
+     full-height column), and only appears on hover / tap. */
   .iv-bar__cap {
     position: absolute;
-    top: -22px;
+    bottom: calc(100% + 7px);
+    left: 50%;
+    transform: translate(-50%, 4px);
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #231A12;
+    color: #F3EAD9;
+    font-family: var(--serif);
+    font-size: 11.5px;
+    line-height: 1.2;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 2;
+  }
+  .iv-bar__cap::after {
+    content: "";
+    position: absolute;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    font-family: var(--serif);
-    font-size: 11px;
-    color: var(--ink-soft);
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.2s;
+    border: 4px solid transparent;
+    border-top-color: #231A12;
   }
-  .iv-bar:hover .iv-bar__cap { opacity: 1; }
-  .iv-bar__cap { opacity: 1; }
+  .iv-bar:hover .iv-bar__cap,
+  .iv-bar.is-on .iv-bar__cap { opacity: 1; transform: translate(-50%, 0); }
+  .iv-bar:hover .iv-bar__fill,
+  .iv-bar.is-on .iv-bar__fill { filter: brightness(1.08); }
+  .iv-bar { cursor: default; }
   .iv-chart__split {
     display: flex;
     justify-content: space-between;
@@ -1177,6 +1198,44 @@ get_header();
     .iv-miles::before{display:none}
     .iv-mile--accent{padding-top:26px;border-top:1px solid var(--line,#C9BE9F)}
   }
+  /* ============ INVESTOR TYPOGRAPHY ============
+     Scoped to .iv so the page body reads as a financial document while
+     the site nav and footer keep the house style. Jost (the wordmark
+     face) for headings, figures and labels; Inter for running text.
+     CJK falls through to system sans rather than inheriting the site's
+     Noto Serif SC, which reads too ornamental for an investor page. */
+  .iv {
+    --iv-cjk: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --serif:   "Jost", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", var(--iv-cjk);
+    --display: "Jost", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", var(--iv-cjk);
+    --sans:    "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", var(--iv-cjk);
+    --mono:    "Jost", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", var(--iv-cjk);
+    font-family: var(--sans);
+    font-feature-settings: "lnum" 1, "kern" 1;
+  }
+  body[data-lang="zh"] .iv { font-family: var(--sans); }
+
+  /* Heading weights: Jost at 400 is too light for section titles. */
+  .iv h1, .iv .iv-hero2__title { font-weight: 500; letter-spacing: -0.015em; }
+  .iv h2, .iv .iv-port__h2     { font-weight: 600; letter-spacing: -0.01em; }
+  .iv h3, .iv .iv-port__name,
+  .iv .iv-modal__name          { font-weight: 600; }
+
+  /* Figures: medium weight, tabular so columns of numbers align. */
+  .iv .iv-live__n, .iv .iv-live__capn, .iv .iv-live__brandn,
+  .iv .iv-mile__item b, .iv .iv-port__stat b, .iv .iv-bar__cap,
+  .iv .iv-metric__n { font-weight: 500; font-variant-numeric: tabular-nums lining-nums; }
+
+  /* Eyebrows and small caps labels: Jost medium reads cleaner than a
+     monospace at these sizes. */
+  .iv .h-eyebrow { font-family: var(--mono); font-weight: 500; }
+  .iv .iv-live__l, .iv .iv-port__kind, .iv .iv-news__date,
+  .iv .iv-news__cta, .iv .iv-bar__lbl, .iv .iv-pop__kicker,
+  .iv .iv-ost__go, .iv .iv-live__capl { font-weight: 500; }
+
+  /* Body copy: Inter, slightly tighter leading than the brand serif. */
+  .iv p, .iv .iv-lead, .iv .iv-port__copy, .iv .iv-news__card p,
+  .iv .iv-modal__copy { font-family: var(--sans); font-weight: 400; }
 </style>
 
 <div class="iv">
@@ -1530,20 +1589,20 @@ $iv_brands = array(
     </div>
     <div class="iv-chart" data-reveal>
       <div class="iv-chart__bars" id="iv-bars">
-        <div class="iv-bar"><div class="iv-bar__cap">RM 673K</div><div class="iv-bar__fill" data-h="13.8"></div><div class="iv-bar__lbl">Jul 25</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 784K</div><div class="iv-bar__fill" data-h="16.1"></div><div class="iv-bar__lbl">Aug 25</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 955K</div><div class="iv-bar__fill" data-h="19.6"></div><div class="iv-bar__lbl">Sep 25</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 1.06M</div><div class="iv-bar__fill" data-h="21.7"></div><div class="iv-bar__lbl">Oct 25</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 1.04M</div><div class="iv-bar__fill" data-h="21.2"></div><div class="iv-bar__lbl">Nov 25</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 1.19M</div><div class="iv-bar__fill" data-h="24.4"></div><div class="iv-bar__lbl">Dec 25</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 1.51M</div><div class="iv-bar__fill" data-h="30.9"></div><div class="iv-bar__lbl">Jan 26</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 1.72M</div><div class="iv-bar__fill" data-h="35.3"></div><div class="iv-bar__lbl">Feb 26</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 1.95M</div><div class="iv-bar__fill" data-h="40.0"></div><div class="iv-bar__lbl">Mar 26</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 2.20M</div><div class="iv-bar__fill" data-h="45.1"></div><div class="iv-bar__lbl">Apr 26</div></div>
-        <div class="iv-bar"><div class="iv-bar__cap">RM 2.81M</div><div class="iv-bar__fill" data-h="57.7"></div><div class="iv-bar__lbl">May 26</div></div>
-        <div class="iv-bar iv-bar--proj"><div class="iv-bar__cap">RM 3.30M</div><div class="iv-bar__fill" data-h="67.6"></div><div class="iv-bar__lbl">Jun 26</div></div>
-        <div class="iv-bar iv-bar--proj"><div class="iv-bar__cap">RM 4.45M</div><div class="iv-bar__fill" data-h="91.2"></div><div class="iv-bar__lbl">Jul 26</div></div>
-        <div class="iv-bar iv-bar--proj"><div class="iv-bar__cap">RM 4.88M</div><div class="iv-bar__fill" data-h="100"></div><div class="iv-bar__lbl">Aug 26</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="13.8"><div class="iv-bar__cap">RM 673K</div></div><div class="iv-bar__lbl">Jul 25</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="16.1"><div class="iv-bar__cap">RM 784K</div></div><div class="iv-bar__lbl">Aug 25</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="19.6"><div class="iv-bar__cap">RM 955K</div></div><div class="iv-bar__lbl">Sep 25</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="21.7"><div class="iv-bar__cap">RM 1.06M</div></div><div class="iv-bar__lbl">Oct 25</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="21.2"><div class="iv-bar__cap">RM 1.04M</div></div><div class="iv-bar__lbl">Nov 25</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="24.4"><div class="iv-bar__cap">RM 1.19M</div></div><div class="iv-bar__lbl">Dec 25</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="30.9"><div class="iv-bar__cap">RM 1.51M</div></div><div class="iv-bar__lbl">Jan 26</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="35.3"><div class="iv-bar__cap">RM 1.72M</div></div><div class="iv-bar__lbl">Feb 26</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="40.0"><div class="iv-bar__cap">RM 1.95M</div></div><div class="iv-bar__lbl">Mar 26</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="45.1"><div class="iv-bar__cap">RM 2.20M</div></div><div class="iv-bar__lbl">Apr 26</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="57.7"><div class="iv-bar__cap">RM 2.81M</div></div><div class="iv-bar__lbl">May 26</div></div>
+        <div class="iv-bar iv-bar--proj"><div class="iv-bar__fill" data-h="67.6"><div class="iv-bar__cap">RM 3.30M</div></div><div class="iv-bar__lbl">Jun 26</div></div>
+        <div class="iv-bar iv-bar--proj"><div class="iv-bar__fill" data-h="91.2"><div class="iv-bar__cap">RM 4.45M</div></div><div class="iv-bar__lbl">Jul 26</div></div>
+        <div class="iv-bar iv-bar--proj"><div class="iv-bar__fill" data-h="100"><div class="iv-bar__cap">RM 4.88M</div></div><div class="iv-bar__lbl">Aug 26</div></div>
       </div>
       <div class="iv-chart__split">
         <div class="iv-chart__tot"><b>RM 15.9M</b><span><span data-en>11 months actual</span><span data-zh>11 个月实际</span></span></div>
@@ -1872,6 +1931,8 @@ $iv_news = array(
   </div>
 </section>
 
+</div><!-- /.iv -->
+
 <!-- ============== CONTACT (CF7 form, preserved) ============== -->
 <section class="inv-contact cf7-form-block" id="contact">
   <div class="inv-contact__inner">
@@ -2097,6 +2158,21 @@ $iv_news = array(
     });
     window.addEventListener('resize', hide);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  })();
+</script>
+
+<script>
+  // Revenue chart: tap a bar to show its value on touch devices.
+  (function () {
+    var bars = document.querySelectorAll('.iv-bar');
+    if (!bars.length || window.matchMedia('(hover:hover)').matches) return;
+    bars.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var on = b.classList.contains('is-on');
+        bars.forEach(function (x) { x.classList.remove('is-on'); });
+        if (!on) b.classList.add('is-on');
+      });
+    });
   })();
 </script>
 
