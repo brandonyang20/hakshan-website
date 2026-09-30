@@ -1404,6 +1404,25 @@ get_header();
   .iv-ost__card::before{content:"";position:absolute;left:-10px;right:-10px;top:100%;height:18px}
   .iv-ost__go{cursor:pointer;transition:color .2s ease}
   .iv-ost__card:hover .iv-ost__go{color:#2A1A0F;text-decoration:underline;text-underline-offset:3px}
+  /* ---- Year toggles: outlet rows start hidden; the arrow opens space and
+     the storefronts rise in one by one. ---- */
+  .iv-mile__head{display:flex;align-items:center;gap:14px}
+  .iv-yr-toggle{flex:0 0 auto;display:grid;place-items:center;width:clamp(30px,2.6vw,38px);height:clamp(30px,2.6vw,38px);padding:0;border-radius:50%;border:1px solid rgba(156,120,67,.5);background:transparent;color:#9C7843;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+  .iv-yr-toggle svg{width:46%;height:46%;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+  .iv-yr-toggle:hover{background:#9C7843;border-color:#9C7843;color:#fff;transform:translateY(1px)}
+  .iv-yr-toggle:focus-visible{outline:2px solid #9C7843;outline-offset:3px}
+  .iv-yr-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .iv-ostwrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.22,1,.36,1)}
+  .iv-ostwrap.is-open{grid-template-rows:1fr}
+  .iv-ostwrap__in{min-height:0;overflow:hidden}
+  /* Once open, let hover cards spill over the row's edges. */
+  .iv-ostwrap.is-settled .iv-ostwrap__in{overflow:visible}
+  .iv-ostwrap .iv-ost{opacity:0;transform:translateY(18px) scale(.94);transition:opacity .42s ease,transform .55s cubic-bezier(.22,1,.36,1);transition-delay:0s}
+  .iv-ostwrap.is-open .iv-ost{opacity:1;transform:none;transition-delay:calc(var(--i) * 110ms + 140ms)}
+  .iv-ost.is-soon .iv-ost__img img{opacity:.55;filter:grayscale(.35)}
+  @media (prefers-reduced-motion:reduce){
+    .iv-ostwrap,.iv-ostwrap .iv-ost,.iv-yr-toggle svg{transition:none}
+  }
 </style>
 
 <div class="iv">
@@ -1697,75 +1716,113 @@ $iv_brands = array(
         <span data-zh>2025 年已验证。<br/><em>2026 年持续扩张。</em></span>
       </h2>
     </div>
+    <?php
+    // Outlet rows for both years, detected from each outlet's Opening date:
+    //  - 2025: outlets open on or before 31 Dec 2025 (cumulative), by date.
+    //  - 2026: outlets dated 2026, plus every "(Coming Soon)" outlet (the
+    //    2026 pipeline), dated ones first.
+    // With no dates entered yet, 2025 falls back to the first seven
+    // operating outlets and 2026 to the coming-soon outlets.
+    $iv_cutoff     = gmmktime( 23, 59, 59, 12, 31, 2025 );
+    $iv_2025       = array();
+    $iv_2026       = array();
+    $iv_ops        = array();
+    $iv_any_dated  = false;
+    foreach ( ( function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array() ) as $iv_tr_o ) {
+      $iv_title = trim( wp_strip_all_tags( get_the_title( $iv_tr_o->ID ) ) );
+      if ( '' === $iv_title ) {
+        continue;
+      }
+      $iv_soon = false !== stripos( $iv_title, 'coming soon' );
+      $iv_d    = function_exists( 'hakshan_get_outlet_data' ) ? hakshan_get_outlet_data( $iv_tr_o->ID ) : array();
+      $iv_op   = ! empty( $iv_d['opened_parts'] ) ? $iv_d['opened_parts'] : null;
+      if ( $iv_op ) {
+        $iv_any_dated = true;
+      }
+      $iv_row = array(
+        'name'   => $iv_soon ? trim( preg_replace( '/^\(\s*coming soon\s*\)\s*/i', '', $iv_title ) ) : $iv_title,
+        'city'   => ! empty( $iv_d['city'] ) ? ucwords( strtolower( $iv_d['city'] ) ) : '',
+        'opened' => $iv_op ? $iv_op['label'] : '',
+        'ts'     => $iv_op ? $iv_op['ts'] : PHP_INT_MAX,
+        'soon'   => $iv_soon,
+        'img'    => hakshan_iv_img( 'render-hakshan.webp' ),
+        'url'    => get_permalink( $iv_tr_o->ID ),
+      );
+      if ( $iv_soon ) {
+        $iv_2026[] = $iv_row;
+        continue;
+      }
+      if ( $iv_op && $iv_op['ts'] <= $iv_cutoff ) {
+        $iv_2025[] = $iv_row;
+      } elseif ( $iv_op && 2026 === $iv_op['year'] ) {
+        $iv_2026[] = $iv_row;
+      }
+      $iv_ops[] = $iv_row;
+    }
+    $iv_by_date = static function ( $a, $b ) { return $a['ts'] <=> $b['ts']; };
+    if ( $iv_any_dated ) {
+      usort( $iv_2025, $iv_by_date );
+    } else {
+      $iv_2025 = array_slice( $iv_ops, 0, 7 );
+    }
+    usort( $iv_2026, $iv_by_date );
+
+    if ( ! function_exists( 'hakshan_iv_yr_toggle' ) ) {
+      // Round arrow beside a year heading; opens that year's outlet row.
+      function hakshan_iv_yr_toggle( $id, $year ) {
+        ?>
+        <button type="button" class="iv-yr-toggle" aria-expanded="false" aria-controls="<?php echo esc_attr( $id ); ?>"
+                aria-label="<?php echo esc_attr( sprintf( 'Show %s outlets', $year ) ); ?>" title="<?php echo esc_attr( sprintf( 'Show %s outlets', $year ) ); ?>">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <?php
+      }
+    }
+    if ( ! function_exists( 'hakshan_iv_ost_row' ) ) {
+      // Hidden row of storefront tiles; each tile carries its index (--i)
+      // so they rise in one by one when the row opens.
+      function hakshan_iv_ost_row( $rows, $id ) {
+        ?>
+        <div class="iv-ostwrap" id="<?php echo esc_attr( $id ); ?>" inert>
+          <div class="iv-ostwrap__in">
+            <div class="iv-ostack">
+              <?php foreach ( $rows as $i => $r ) : ?>
+                <a class="iv-ost<?php echo $r['soon'] ? ' is-soon' : ''; ?>" href="<?php echo esc_url( $r['url'] ); ?>" style="--i:<?php echo (int) $i; ?>">
+                  <span class="iv-ost__img">
+                    <?php if ( $r['img'] ) : ?>
+                      <img src="<?php echo esc_url( $r['img'] ); ?>" alt="<?php echo esc_attr( $r['name'] ); ?>" loading="lazy" />
+                    <?php else : ?>
+                      <span class="iv-ost__ph" aria-hidden="true"></span>
+                    <?php endif; ?>
+                  </span>
+                  <span class="iv-ost__card">
+                    <span class="iv-ost__name"><?php echo esc_html( $r['name'] ); ?></span>
+                    <?php if ( $r['city'] ) : ?>
+                      <span class="iv-ost__meta">&#9679; <?php echo esc_html( $r['city'] ); ?></span>
+                    <?php endif; ?>
+                    <?php if ( $r['soon'] ) : ?>
+                      <span class="iv-ost__meta">&#9642; <span data-en>Coming soon</span><span data-zh>即将开业</span></span>
+                    <?php elseif ( $r['opened'] ) : ?>
+                      <span class="iv-ost__meta">&#9642; <span data-en>Opened</span><span data-zh>开业</span> <?php echo esc_html( $r['opened'] ); ?></span>
+                    <?php endif; ?>
+                    <span class="iv-ost__go"><span data-en>View Outlet</span><span data-zh>查看门店</span> &rarr;</span>
+                  </span>
+                </a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+        </div>
+        <?php
+      }
+    }
+    ?>
     <div class="iv-miles" data-reveal>
       <div class="iv-mile">
-        <div class="iv-mile__head"><span data-en>Achieved</span><span data-zh>已达成</span> 2025</div>
-
-        <?php
-        // Outlets operating by the end of 2025, detected from each outlet's
-        // Opening date in the admin (opened on or before 31 Dec 2025), in
-        // opening order. "(Coming Soon)" outlets are never shown. With no
-        // dates entered yet, fall back to the first seven operating outlets
-        // (matching "7 Outlets") and show no opening date.
-        $iv_cutoff     = gmmktime( 23, 59, 59, 12, 31, 2025 );
-        $iv_tr_outlets = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
-        $iv_2025       = array();
-        $iv_all_rows   = array();
-        $iv_any_dated  = false;
-        foreach ( $iv_tr_outlets as $iv_tr_o ) {
-          $iv_title = trim( wp_strip_all_tags( get_the_title( $iv_tr_o->ID ) ) );
-          if ( '' === $iv_title || false !== stripos( $iv_title, 'coming soon' ) ) {
-            continue;
-          }
-          $iv_d  = function_exists( 'hakshan_get_outlet_data' ) ? hakshan_get_outlet_data( $iv_tr_o->ID ) : array();
-          $iv_op = ! empty( $iv_d['opened_parts'] ) ? $iv_d['opened_parts'] : null;
-          $iv_row = array(
-            'name'   => $iv_title,
-            'city'   => ! empty( $iv_d['city'] ) ? ucwords( strtolower( $iv_d['city'] ) ) : '',
-            'opened' => $iv_op ? $iv_op['label'] : '',
-            'ts'     => $iv_op ? $iv_op['ts'] : PHP_INT_MAX,
-            'img'    => hakshan_iv_img( 'render-hakshan.webp' ),
-            'url'    => get_permalink( $iv_tr_o->ID ),
-          );
-          if ( $iv_op ) {
-            $iv_any_dated = true;
-            if ( $iv_op['ts'] <= $iv_cutoff ) {
-              $iv_2025[] = $iv_row;
-            }
-          }
-          $iv_all_rows[] = $iv_row;
-        }
-        if ( $iv_any_dated ) {
-          usort( $iv_2025, static function ( $a, $b ) { return $a['ts'] <=> $b['ts']; } );
-        } elseif ( $iv_all_rows ) {
-          $iv_2025 = array_slice( $iv_all_rows, 0, 7 );
-        }
-        ?>
-        <?php if ( $iv_2025 ) : ?>
-          <div class="iv-ostack">
-            <?php foreach ( $iv_2025 as $iv_s ) : ?>
-              <a class="iv-ost" href="<?php echo esc_url( $iv_s['url'] ); ?>">
-                <span class="iv-ost__img">
-                  <?php if ( $iv_s['img'] ) : ?>
-                    <img src="<?php echo esc_url( $iv_s['img'] ); ?>" alt="<?php echo esc_attr( $iv_s['name'] ); ?>" loading="lazy" />
-                  <?php else : ?>
-                    <span class="iv-ost__ph" aria-hidden="true"></span>
-                  <?php endif; ?>
-                </span>
-                <span class="iv-ost__card">
-                  <span class="iv-ost__name"><?php echo esc_html( $iv_s['name'] ); ?></span>
-                  <?php if ( $iv_s['city'] ) : ?>
-                    <span class="iv-ost__meta">&#9679; <?php echo esc_html( $iv_s['city'] ); ?></span>
-                  <?php endif; ?>
-                  <?php if ( ! empty( $iv_s['opened'] ) ) : ?>
-                    <span class="iv-ost__meta">&#9642; <span data-en>Opened</span><span data-zh>开业</span> <?php echo esc_html( $iv_s['opened'] ); ?></span>
-                  <?php endif; ?>
-                  <span class="iv-ost__go"><span data-en>View Outlet</span><span data-zh>查看门店</span> &rarr;</span>
-                </span>
-              </a>
-            <?php endforeach; ?>
-          </div>
-        <?php endif; ?>
+        <div class="iv-mile__head">
+          <span class="iv-mile__htext"><span data-en>Achieved</span><span data-zh>已达成</span> 2025</span>
+          <?php if ( $iv_2025 ) { hakshan_iv_yr_toggle( 'ivOst2025', '2025' ); } ?>
+        </div>
+        <?php if ( $iv_2025 ) { hakshan_iv_ost_row( $iv_2025, 'ivOst2025' ); } ?>
 
         <div class="iv-mile__list">
           <div class="iv-mile__item"><b>7 Outlets</b><span><span data-en>Operating across Kuala Lumpur</span><span data-zh>吉隆坡已开门店</span></span></div>
@@ -1775,7 +1832,11 @@ $iv_brands = array(
         </div>
       </div>
       <div class="iv-mile iv-mile--accent">
-        <div class="iv-mile__head"><span data-en>Projected</span><span data-zh>规划目标</span> 2026</div>
+        <div class="iv-mile__head">
+          <span class="iv-mile__htext"><span data-en>Projected</span><span data-zh>规划目标</span> 2026</span>
+          <?php if ( $iv_2026 ) { hakshan_iv_yr_toggle( 'ivOst2026', '2026' ); } ?>
+        </div>
+        <?php if ( $iv_2026 ) { hakshan_iv_ost_row( $iv_2026, 'ivOst2026' ); } ?>
         <div class="iv-mile__list">
           <div class="iv-mile__item"><b>20 Outlets</b><span><span data-en>+ 25 cloud kitchens</span><span data-zh>+ 25 间云端厨房</span></span></div>
           <div class="iv-mile__item"><b>RM 74M</b><span><span data-en>Annual revenue potential</span><span data-zh>年营业额潜力</span></span></div>
@@ -2404,6 +2465,32 @@ $iv_news = array(
     }
     document.addEventListener('click', function (e) {
       if (!chart.contains(e.target)) setOpen(null);
+    });
+  })();
+</script>
+
+<script>
+  // Year toggles: open/close a year's outlet row. Tiles stagger in via
+  // their --i delay; the row is inert while closed so hidden links cannot
+  // be tabbed to.
+  (function () {
+    document.querySelectorAll('.iv-yr-toggle').forEach(function (btn) {
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!panel) return;
+      var timer = null;
+      btn.addEventListener('click', function () {
+        var open = btn.getAttribute('aria-expanded') !== 'true';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        clearTimeout(timer);
+        panel.classList.remove('is-settled');
+        panel.classList.toggle('is-open', open);
+        if (open) {
+          panel.removeAttribute('inert');
+          timer = setTimeout(function () { panel.classList.add('is-settled'); }, 520);
+        } else {
+          panel.setAttribute('inert', '');
+        }
+      });
     });
   })();
 </script>
