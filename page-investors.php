@@ -1125,6 +1125,20 @@ get_header();
   .iv-pop__kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--iv-accent,#C49B66);margin-bottom:6px}
   .iv-pop__title{font-family:var(--serif);font-size:17px;color:#F3EAD9;margin-bottom:8px}
   .iv-pop__body{font-size:13px;line-height:1.6;color:rgba(243,234,217,.78);margin:0}
+  /* ============ TRACK RECORD · 2025 OUTLET GALLERY ============ */
+  .iv-ostack{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 4px}
+  .iv-ost{position:relative;flex:0 0 calc((100% - 30px)/4);text-decoration:none;color:inherit}
+  .iv-ost__img{display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--cream);border:1px solid var(--line-soft,#DDD2B5);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease}
+  .iv-ost__img img{width:100%;height:100%;object-fit:cover;display:block}
+  .iv-ost__ph{display:block;width:100%;height:100%;background:repeating-linear-gradient(135deg,rgba(79,93,72,.07) 0 7px,rgba(79,93,72,.02) 7px 14px),linear-gradient(180deg,#d8cfb3,#c4ba98)}
+  .iv-ost:hover .iv-ost__img,.iv-ost:focus-visible .iv-ost__img{transform:scale(1.14);box-shadow:0 18px 34px -18px rgba(42,46,39,.7);position:relative;z-index:3}
+  .iv-ost__card{position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(5px);z-index:6;width:max-content;max-width:210px;display:flex;flex-direction:column;gap:3px;padding:11px 13px;background:var(--paper,#F9F7F2);border:1px solid var(--line,#C9BE9F);border-radius:9px;box-shadow:0 20px 40px -20px rgba(42,46,39,.6);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s cubic-bezier(.22,1,.36,1),visibility 0s linear .22s}
+  .iv-ost:hover .iv-ost__card,.iv-ost:focus-visible .iv-ost__card{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);transition-delay:0s}
+  .iv-ost__card::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--line,#C9BE9F)}
+  .iv-ost__name{font-family:var(--serif);font-size:14px;line-height:1.2;color:var(--ink)}
+  .iv-ost__meta{font-size:11.5px;line-height:1.35;color:var(--ink-soft)}
+  .iv-ost__go{margin-top:5px;padding-top:6px;border-top:1px solid var(--line-soft,#DDD2B5);font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest)}
+  @media(max-width:620px){.iv-ost{flex-basis:calc((100% - 20px)/3)}.iv-ost__card{max-width:170px}}
 </style>
 
 <div class="iv">
@@ -1372,6 +1386,51 @@ $iv_brands = array(
       <div class="iv-mile">
         <div class="iv-mile__tag"><span data-en>Achieved</span><span data-zh>已达成</span></div>
         <div class="iv-mile__yr">2025</div>
+
+        <?php
+        // Outlets that opened in 2025, drawn from the Outlet CPT. Set each
+        // outlet's "Opened" field (e.g. "Mar 2025") and a Featured Image and
+        // it appears here automatically. No 2025 outlets = no gallery.
+        $iv_tr_outlets = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
+        $iv_2025 = array();
+        foreach ( $iv_tr_outlets as $iv_tr_o ) {
+          $iv_d = function_exists( 'hakshan_get_outlet_data' ) ? hakshan_get_outlet_data( $iv_tr_o->ID ) : array();
+          if ( empty( $iv_d['opened'] ) || false === strpos( (string) $iv_d['opened'], '2025' ) ) {
+            continue;
+          }
+          $iv_2025[] = array(
+            'name'   => get_the_title( $iv_tr_o->ID ),
+            'city'   => ! empty( $iv_d['city'] ) ? ucwords( strtolower( $iv_d['city'] ) ) : '',
+            'opened' => $iv_d['opened'],
+            'img'    => get_the_post_thumbnail_url( $iv_tr_o->ID, 'medium' ),
+            'url'    => get_permalink( $iv_tr_o->ID ),
+          );
+        }
+        ?>
+        <?php if ( $iv_2025 ) : ?>
+          <div class="iv-ostack">
+            <?php foreach ( $iv_2025 as $iv_s ) : ?>
+              <a class="iv-ost" href="<?php echo esc_url( $iv_s['url'] ); ?>">
+                <span class="iv-ost__img">
+                  <?php if ( $iv_s['img'] ) : ?>
+                    <img src="<?php echo esc_url( $iv_s['img'] ); ?>" alt="<?php echo esc_attr( $iv_s['name'] ); ?>" loading="lazy" />
+                  <?php else : ?>
+                    <span class="iv-ost__ph" aria-hidden="true"></span>
+                  <?php endif; ?>
+                </span>
+                <span class="iv-ost__card">
+                  <span class="iv-ost__name"><?php echo esc_html( $iv_s['name'] ); ?></span>
+                  <?php if ( $iv_s['city'] ) : ?>
+                    <span class="iv-ost__meta">&#9679; <?php echo esc_html( $iv_s['city'] ); ?></span>
+                  <?php endif; ?>
+                  <span class="iv-ost__meta">&#9642; <span data-en>Opened</span><span data-zh>开业</span> <?php echo esc_html( $iv_s['opened'] ); ?></span>
+                  <span class="iv-ost__go"><span data-en>View Outlet</span><span data-zh>查看门店</span> &rarr;</span>
+                </span>
+              </a>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+
         <div class="iv-mile__list">
           <div class="iv-mile__item"><b>7 Outlets</b><span><span data-en>Operating across Kuala Lumpur</span><span data-zh>吉隆坡已开门店</span></span></div>
           <div class="iv-mile__item"><b>RM 20M</b><span><span data-en>Annual revenue</span><span data-zh>年营业额</span></span></div>

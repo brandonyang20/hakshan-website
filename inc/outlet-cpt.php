@@ -102,6 +102,11 @@ function hakshan_outlet_field_schema() {
 			'type'        => 'text',
 			'placeholder' => '+60 10-433 6645',
 		),
+		'outlet_opened' => array(
+			'label'       => __( 'Opened (month and year, e.g. "Mar 2025") — used by the investor page timeline.', 'hakshan' ),
+			'type'        => 'text',
+			'placeholder' => 'Mar 2025',
+		),
 		'outlet_booking_url' => array(
 			'label'       => __( 'Booking link (inline.app) — this outlet\'s online reservation URL. Leave blank to fall back to phone booking.', 'hakshan' ),
 			'type'        => 'text',
@@ -376,6 +381,7 @@ function hakshan_get_outlet_data( $post_id ) {
 		'seats'      => get_post_meta( $post_id, 'outlet_seats', true ),
 		'phone'      => get_post_meta( $post_id, 'outlet_phone', true ),
 		'booking_url' => get_post_meta( $post_id, 'outlet_booking_url', true ),
+		'opened'      => get_post_meta( $post_id, 'outlet_opened', true ),
 		'image_id'   => (int) get_post_thumbnail_id( $post_id ),
 		'image_html' => get_the_post_thumbnail( $post_id, 'large' ),
 		'image_url'  => get_the_post_thumbnail_url( $post_id, 'large' ),
