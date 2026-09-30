@@ -1277,8 +1277,8 @@ get_header();
   .iv-bm__row:focus-visible{outline:2px dashed #9C7843;outline-offset:8px;border-radius:14px}
   .iv-bm__stem{width:2px;height:clamp(22px,3vw,34px);background:var(--line);margin:0 auto}
   /* Emphasise the hovered layer, recede the rest. */
-  .iv-bm__chart:has(.iv-bm__row:hover) .iv-bm__row:not(:hover),
-  .iv-bm__chart:has(.iv-bm__layer.is-open) .iv-bm__layer:not(.is-open) .iv-bm__row{opacity:.45}
+  .iv-bm__chart.has-open .iv-bm__layer:not(.is-open) .iv-bm__row{opacity:.45}
+  .iv-bm__row{cursor:pointer}
 
   /* Layer 01 */
   .iv-bm__row--hold{width:fit-content;margin:0 auto;cursor:default}
@@ -1288,17 +1288,19 @@ get_header();
   /* Layer 02: five logo marks on a bus with drops */
   .iv-bm__row--cos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(6px,1vw,14px);padding-top:clamp(22px,2.8vw,34px)}
   .iv-bm__row--cos::before{content:"";position:absolute;top:0;left:10%;right:10%;height:2px;background:var(--line)}
-  .iv-bm__co{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(6px,.7vw,10px);min-width:0;transition:transform .25s ease}
+  .iv-bm__co{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(6px,.7vw,10px);min-width:0;font-size:clamp(9px,.95vw,14px);transition:transform .25s ease}
   .iv-bm__co::before{content:"";position:absolute;bottom:100%;left:50%;width:2px;height:clamp(22px,2.8vw,34px);background:var(--line)}
   .iv-bm__row--cos:hover .iv-bm__co{transform:translateY(-2px)}
   .iv-bm__mark{display:inline-flex;gap:3px;flex:0 0 auto}
   .iv-bm__mark i{display:block;width:clamp(6px,.65vw,9px);height:clamp(26px,2.9vw,38px);transform:skewY(-20deg)}
   .iv-bm__mark i:first-child{background:var(--c)}
   .iv-bm__mark i:last-child{background:#777;margin-top:clamp(5px,.6vw,8px)}
-  .iv-bm__word{display:flex;flex-direction:column;align-items:flex-end;padding-left:clamp(6px,.7vw,10px);border-left:1px solid #D9D3C7;min-width:0}
-  .iv-bm__name{font-family:var(--serif);font-weight:400;color:#6E6E6E;font-size:clamp(10px,1.05vw,15px);line-height:1;letter-spacing:.02em;white-space:nowrap}
+  /* Name sits hard against the divider; the tiny tagline right-aligns
+     beneath it, so the mark and wordmark read as one compact logo. */
+  .iv-bm__word{display:grid;justify-items:start;padding-left:clamp(6px,.7vw,10px);border-left:1px solid #D9D3C7;min-width:0}
+  .iv-bm__name{font-family:var(--serif);font-weight:400;color:#6E6E6E;font-size:1em;line-height:1;letter-spacing:.02em;white-space:nowrap}
   .iv-bm__name b{font-weight:600;font-size:1.45em;letter-spacing:.01em}
-  .iv-bm__tag{margin-top:4px;font-family:var(--sans);font-size:clamp(5.5px,.5vw,7px);letter-spacing:.08em;text-transform:uppercase;color:#8A8A8A;white-space:nowrap}
+  .iv-bm__tag{justify-self:end;margin-top:.35em;font-family:var(--sans);font-size:max(5px,.3em);letter-spacing:.06em;text-transform:uppercase;color:#8A8A8A;white-space:nowrap}
 
   /* Layer 03: outlet pills; bus + drops positioned by JS for the first row */
   .iv-bm__row--outlets{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(10px,1.3vw,18px) clamp(10px,1.4vw,20px);padding-top:clamp(22px,2.8vw,34px)}
@@ -1308,10 +1310,18 @@ get_header();
   .iv-bm__outlet.is-top::before{content:"";position:absolute;bottom:100%;left:50%;width:2px;height:clamp(22px,2.8vw,34px);background:var(--line)}
   .iv-bm__outlet:hover{transform:translateY(-2px);box-shadow:0 12px 22px -14px rgba(42,26,15,.7)}
 
-  /* Detail card: drops in beneath its own row. It takes no pointer events,
-     so moving the mouse down closes it instead of covering the next layer. */
-  .iv-bm__card{position:absolute;z-index:30;left:50%;top:calc(100% + 16px);width:min(820px,100%);display:grid;grid-template-columns:1fr auto;gap:clamp(14px,2.4vw,34px);align-items:center;padding:clamp(16px,1.8vw,22px) clamp(18px,2.4vw,30px);background:#fff;border-radius:14px;box-shadow:0 22px 46px -18px rgba(42,26,15,.35),0 2px 6px rgba(42,26,15,.06);pointer-events:none;opacity:0;visibility:hidden;transform:translate(-50%,-8px) scale(.98);transform-origin:50% 0;transition:opacity .28s ease,transform .32s cubic-bezier(.22,1,.36,1),visibility 0s linear .32s}
-  .iv-bm__row:hover+.iv-bm__card,.iv-bm__row:focus-visible+.iv-bm__card,.iv-bm__layer.is-open .iv-bm__card{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);transition-delay:0s}
+  /* Detail drawer: opens a real gap under its row (pushing the layers
+     below down) and carries a stem so the connector runs through it. */
+  .iv-bm__drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.22,1,.36,1)}
+  .iv-bm__dinner{min-height:0;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+  .iv-bm__dstem{flex:0 0 auto;width:2px;height:clamp(16px,2vw,22px);background:var(--line)}
+  .iv-bm__card{width:min(820px,100%);display:grid;grid-template-columns:1fr auto;gap:clamp(14px,2.4vw,34px);align-items:center;margin-bottom:2px;padding:clamp(16px,1.8vw,22px) clamp(18px,2.4vw,30px);background:#fff;border:1px solid #EFE6D6;border-radius:14px;box-shadow:0 18px 40px -22px rgba(42,26,15,.35);text-align:left;opacity:0;transform:translateY(-8px);transition:opacity .3s ease,transform .42s cubic-bezier(.22,1,.36,1)}
+  .iv-bm__layer.is-open .iv-bm__drawer{grid-template-rows:1fr}
+  .iv-bm__layer.is-open .iv-bm__card{opacity:1;transform:none;transition-delay:.06s}
+  /* Without JS, fall back to plain CSS hover. */
+  .iv-bm__chart:not(.js) .iv-bm__layer:hover .iv-bm__drawer{grid-template-rows:1fr}
+  .iv-bm__chart:not(.js) .iv-bm__layer:hover .iv-bm__card{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.iv-bm__drawer,.iv-bm__card{transition:none}}
   .iv-bm__ctag{font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.06em;color:#8A5A2B}
   .iv .iv-bm__ctitle{margin-top:3px;font-family:var(--serif);font-weight:600;text-transform:uppercase;font-size:clamp(14px,1.5vw,19px);letter-spacing:.01em;line-height:1.25;color:#3A2412}
   .iv .iv-bm__cbody{margin:6px 0 0;font-size:clamp(12.5px,1vw,14px);line-height:1.5;color:#4A4038}
@@ -1327,7 +1337,7 @@ get_header();
     .iv-bm__row--outlets{padding-top:0}
     .iv-bm__name{font-size:12px}
     .iv-bm__tag{display:none}
-    .iv-bm__card{grid-template-columns:1fr;top:calc(100% + 12px)}
+    .iv-bm__card{grid-template-columns:1fr}
     .iv-bm__cpts{grid-template-columns:1fr 1fr}
     .iv-bm__cpts li{white-space:normal}
   }
@@ -1807,7 +1817,10 @@ if ( ! $iv_bm_outlets ) {
 if ( ! function_exists( 'hakshan_iv_bm_card' ) ) {
   function hakshan_iv_bm_card( $n, $l ) {
     ?>
-    <div class="iv-bm__card" id="ivBmCard<?php echo (int) $n; ?>" role="note">
+    <div class="iv-bm__drawer" id="ivBmCard<?php echo (int) $n; ?>">
+    <div class="iv-bm__dinner">
+    <span class="iv-bm__dstem" aria-hidden="true"></span>
+    <div class="iv-bm__card">
       <div class="iv-bm__cmain">
         <div class="iv-bm__ctag">&#9679; LAYER <?php echo esc_html( sprintf( '%02d', $n ) ); ?></div>
         <div class="iv-bm__ctitle"><span data-en><?php echo wp_kses_post( $l['title_en'] ); ?></span><span data-zh><?php echo esc_html( $l['title_zh'] ); ?></span></div>
@@ -1818,6 +1831,8 @@ if ( ! function_exists( 'hakshan_iv_bm_card' ) ) {
           <li><span data-en><?php echo wp_kses_post( $pt[0] ); ?></span><span data-zh><?php echo wp_kses_post( $pt[1] ); ?></span></li>
         <?php endforeach; ?>
       </ul>
+    </div>
+    </div>
     </div>
     <?php
   }
@@ -1841,7 +1856,7 @@ if ( ! function_exists( 'hakshan_iv_bm_card' ) ) {
     <div class="iv-bm__chart" data-reveal>
       <!-- Layer 01 · Holding -->
       <div class="iv-bm__layer" data-layer="1">
-        <div class="iv-bm__row iv-bm__row--hold" tabindex="0" aria-describedby="ivBmCard1">
+        <div class="iv-bm__row iv-bm__row--hold" tabindex="0" role="button" aria-expanded="false" aria-controls="ivBmCard1">
           <div class="iv-bm__hold"><span data-en>Holding Company</span><span data-zh>控股公司</span></div>
         </div>
         <?php hakshan_iv_bm_card( 1, $iv_bm_layers[1] ); ?>
@@ -1851,7 +1866,7 @@ if ( ! function_exists( 'hakshan_iv_bm_card' ) ) {
 
       <!-- Layer 02 · Integrated F&B solutions -->
       <div class="iv-bm__layer" data-layer="2">
-        <div class="iv-bm__row iv-bm__row--cos" tabindex="0" aria-describedby="ivBmCard2">
+        <div class="iv-bm__row iv-bm__row--cos" tabindex="0" role="button" aria-expanded="false" aria-controls="ivBmCard2">
           <?php foreach ( $iv_bm_cos as $co ) : $iv_bm_label = trim( $co[0] . ' ' . $co[1] ); ?>
             <div class="iv-bm__co" style="--c:<?php echo esc_attr( $co[2] ); ?>" aria-label="<?php echo esc_attr( ucwords( strtolower( $iv_bm_label ) ) . ' / ' . $co[4] ); ?>">
               <span class="iv-bm__mark" aria-hidden="true"><i></i><i></i></span>
@@ -1869,7 +1884,7 @@ if ( ! function_exists( 'hakshan_iv_bm_card' ) ) {
 
       <!-- Layer 03 · Outlets -->
       <div class="iv-bm__layer" data-layer="3">
-        <div class="iv-bm__row iv-bm__row--outlets" tabindex="0" aria-describedby="ivBmCard3">
+        <div class="iv-bm__row iv-bm__row--outlets" tabindex="0" role="button" aria-expanded="false" aria-controls="ivBmCard3">
           <span class="iv-bm__bus" aria-hidden="true"></span>
           <?php foreach ( $iv_bm_outlets as $iv_bm_i => $iv_bm_name ) : ?>
             <div class="iv-bm__outlet"><b><?php echo esc_html( sprintf( 'OUTLET %02d', $iv_bm_i + 1 ) ); ?></b><?php echo esc_html( $iv_bm_name ); ?></div>
@@ -2274,24 +2289,57 @@ $iv_news = array(
     window.addEventListener('load', layoutBus);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutBus);
 
-    // Touch: no hover, so a tap opens that layer's card (tap again or
-    // elsewhere to close).
-    if (window.matchMedia('(hover:none)').matches) {
-      var layers = chart.querySelectorAll('.iv-bm__layer');
-      layers.forEach(function (layer) {
-        var r = layer.querySelector('.iv-bm__row');
-        if (!r) return;
-        r.addEventListener('click', function (e) {
-          e.stopPropagation();
-          var open = layer.classList.contains('is-open');
-          layers.forEach(function (l) { l.classList.remove('is-open'); });
-          if (!open) layer.classList.add('is-open');
-        });
+    // Open/close controller. A layer stays open until another is hovered
+    // or the pointer leaves the chart, so the reflow never pulls the next
+    // row under the cursor and flickers. Hover is ignored mid-scroll.
+    chart.classList.add('js');
+    var layers = Array.prototype.slice.call(chart.querySelectorAll('.iv-bm__layer'));
+    var current = null, openT = null, closeT = null, lastScroll = 0;
+    var canHover = window.matchMedia('(hover:hover)').matches;
+    window.addEventListener('scroll', function () { lastScroll = Date.now(); }, { passive: true });
+
+    function setOpen(layer) {
+      current = layer;
+      layers.forEach(function (l) {
+        var on = l === layer;
+        l.classList.toggle('is-open', on);
+        var r = l.querySelector('.iv-bm__row');
+        if (r) r.setAttribute('aria-expanded', on ? 'true' : 'false');
       });
-      document.addEventListener('click', function () {
-        layers.forEach(function (l) { l.classList.remove('is-open'); });
-      });
+      chart.classList.toggle('has-open', !!layer);
     }
+
+    layers.forEach(function (layer) {
+      var r = layer.querySelector('.iv-bm__row');
+      if (!r) return;
+      if (canHover) {
+        r.addEventListener('mousemove', function () {
+          clearTimeout(closeT);
+          if (current === layer || Date.now() - lastScroll < 200) return;
+          clearTimeout(openT);
+          openT = setTimeout(function () { setOpen(layer); }, 90);
+        });
+        r.addEventListener('mouseleave', function () { clearTimeout(openT); });
+      }
+      r.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setOpen(current === layer ? null : layer);
+      });
+      r.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(current === layer ? null : layer); }
+        if (e.key === 'Escape') setOpen(null);
+      });
+    });
+    if (canHover) {
+      chart.addEventListener('mouseleave', function () {
+        clearTimeout(openT);
+        closeT = setTimeout(function () { setOpen(null); }, 350);
+      });
+      chart.addEventListener('mouseenter', function () { clearTimeout(closeT); });
+    }
+    document.addEventListener('click', function (e) {
+      if (!chart.contains(e.target)) setOpen(null);
+    });
   })();
 </script>
 
