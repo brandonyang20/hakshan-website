@@ -229,6 +229,7 @@ get_header();
     transition: opacity 0.2s;
   }
   .iv-bar:hover .iv-bar__cap { opacity: 1; }
+  .iv-bar__cap { opacity: 1; }
   .iv-chart__split {
     display: flex;
     justify-content: space-between;
@@ -1023,41 +1024,59 @@ get_header();
   .iv-hero2__dot.is-on{background:var(--iv-accent,#C49B66);width:26px;border-radius:999px}
 
   /* ============ LIVE PERFORMANCE ============ */
-  .iv-live__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,44px);margin-top:10px}
-  .iv-live__n{font-family:var(--serif);font-size:clamp(34px,5.4vw,68px);line-height:1;letter-spacing:-.02em;color:var(--iv-accent,#C49B66)}
-  .iv-live__n em{font-style:normal;font-size:.5em;letter-spacing:0}
-  .iv-live__l{margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--iv-on-dark-soft,rgba(243,234,217,.66))}
-  .iv-live__band{display:grid;grid-template-columns:auto auto 1fr;gap:clamp(18px,3vw,44px);align-items:center;margin-top:clamp(34px,5vw,56px);padding-top:clamp(24px,4vw,36px);border-top:1px solid var(--iv-line-dark,rgba(243,234,217,.18))}
-  .iv-live__capl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--iv-on-dark-faint,rgba(243,234,217,.42))}
-  .iv-live__capn{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);margin-top:6px;color:var(--iv-on-dark,#F3EAD9)}
-  .iv-live__brands{display:flex;flex-wrap:wrap;gap:clamp(14px,2.4vw,30px);justify-content:flex-end}
-  .iv-live__brand{display:flex;align-items:baseline;gap:8px;padding:9px 16px;border:1px solid var(--iv-line-dark,rgba(243,234,217,.18));border-radius:999px}
-  .iv-live__brand b{font-family:var(--serif);font-size:20px;color:var(--iv-accent,#C49B66)}
-  .iv-live__brand span{font-size:12.5px;color:var(--iv-on-dark-soft,rgba(243,234,217,.66))}
+  .iv-live{background:var(--paper,#F9F7F2)}
+  .iv-live__eyebrow{text-align:center;margin-bottom:clamp(28px,4vw,44px)}
+  .iv-live__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center}
+  .iv-live__stat{text-align:center;padding:0 clamp(10px,2vw,28px)}
+  .iv-live__stat+.iv-live__stat{border-left:1px solid var(--line,#C9BE9F)}
+  .iv-live__n{font-family:var(--serif);font-size:clamp(34px,5.6vw,64px);line-height:1;letter-spacing:-.02em;color:var(--forest,#4F5D48)}
+  .iv-live__n em{font-style:normal;font-size:.62em;letter-spacing:0}
+  .iv-live__l{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .iv-live__band{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,56px);align-items:center;margin-top:clamp(36px,5vw,60px)}
+  .iv-live__cap{background:var(--forest,#4F5D48);color:var(--cream,#EBDFC4);border-radius:14px;padding:clamp(18px,2.4vw,26px) clamp(20px,2.6vw,30px);min-width:clamp(200px,22vw,250px)}
+  .iv-live__capl{font-size:13px;opacity:.82}
+  .iv-live__capn{font-family:var(--serif);font-size:clamp(19px,2.3vw,26px);line-height:1.15;margin-top:2px}
+  .iv-live__tally{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,40px);align-items:center}
+  .iv-live__brand{display:flex;align-items:center;gap:12px}
+  .iv-live__brandimg{flex:0 0 auto;width:clamp(86px,9vw,120px);aspect-ratio:4/3;border-radius:8px;overflow:hidden}
+  .iv-live__brandimg img{width:100%;height:100%;object-fit:contain;display:block}
+  .iv-live__brandph{display:block;width:100%;height:100%;background:repeating-linear-gradient(135deg,rgba(79,93,72,.07) 0 7px,rgba(79,93,72,.02) 7px 14px),linear-gradient(180deg,#e4dcc6,#d3c9ad);border-radius:8px}
+  .iv-live__brandn{font-family:var(--serif);font-size:clamp(20px,2.4vw,28px);line-height:1;color:var(--ink)}
+  .iv-live__brandn small{font-family:var(--sans);font-size:11px;margin-left:5px;color:var(--mute,#8A8775)}
+  .iv-live__brandname{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-top:5px}
   @media(max-width:860px){
     .iv-live__row{grid-template-columns:1fr;gap:26px}
-    .iv-live__band{grid-template-columns:1fr 1fr;gap:20px}
-    .iv-live__brands{grid-column:1/-1;justify-content:flex-start}
+    .iv-live__stat+.iv-live__stat{border-left:0;border-top:1px solid var(--line,#C9BE9F);padding-top:22px}
+    .iv-live__band{grid-template-columns:1fr;gap:24px}
+    .iv-live__tally{justify-content:flex-start}
   }
-
   /* ============ PORTFOLIO ============ */
+  .iv-port__head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .iv-port__h2{font-family:var(--serif);font-size:clamp(30px,4.6vw,52px);line-height:1.02;letter-spacing:-.02em;margin:14px 0 8px;text-transform:uppercase}
+  .iv-port__all{font-size:14px;color:var(--ink);text-decoration:none;white-space:nowrap;padding-top:6px}
+  .iv-port__all:hover{color:var(--forest)}
+  .iv-port__all .arr{transition:transform .2s ease;display:inline-block}
+  .iv-port__all:hover .arr{transform:translateX(3px)}
   .iv-port__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px);margin-top:clamp(28px,4vw,44px)}
-  .iv-port__card{display:flex;flex-direction:column;background:var(--paper,#F9F7F2);border:1px solid var(--line,#C9BE9F);border-radius:12px;overflow:hidden}
+  .iv-port__card{display:flex;flex-direction:column;background:var(--paper,#F9F7F2);border:1px solid var(--line-soft,#DDD2B5);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease}
+  .iv-port__card:hover{transform:translateY(-3px);box-shadow:0 20px 44px -28px rgba(42,46,39,.6)}
+  .iv-port__card:focus-visible{outline:2px solid var(--forest);outline-offset:3px}
   .iv-port__media{aspect-ratio:16/10;overflow:hidden;background:var(--cream)}
   .iv-port__media img{width:100%;height:100%;object-fit:cover;display:block}
   .iv-port__body{padding:clamp(18px,2.2vw,26px);display:flex;flex-direction:column;flex:1}
-  .iv-port__name{font-family:var(--serif);font-size:clamp(19px,2.2vw,24px);margin:0 0 4px;letter-spacing:-.01em}
-  .iv-port__kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);margin-bottom:12px}
-  .iv-port__copy{font-size:14.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 18px}
-  .iv-port__stats{display:grid;gap:10px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line-soft,#DDD2B5)}
-  .iv-port__stat{display:flex;align-items:baseline;gap:10px}
-  .iv-port__stat b{font-family:var(--serif);font-size:16px;color:var(--ink);min-width:6.5em}
-  .iv-port__stat span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute,#8A8775)}
-  .iv-port__cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);text-decoration:none}
-  .iv-port__cta:hover .arr{transform:translateX(3px)}
+  .iv-port__name{font-family:var(--serif);font-size:clamp(19px,2.2vw,24px);margin:0 0 3px;letter-spacing:-.01em;text-transform:uppercase}
+  .iv-port__kind{font-size:13px;color:var(--iv-accent-deep,#9C7843);font-weight:500}
+  .iv-port__rule{display:block;width:30px;height:2px;background:var(--iv-accent,#C49B66);margin:12px 0 14px}
+  .iv-port__copy{font-size:14px;line-height:1.6;color:var(--ink-soft);margin:0 0 20px}
+  .iv-port__stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:auto}
+  .iv-port__stat{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .iv-port__stat b{font-family:var(--serif);font-size:clamp(13px,1.4vw,16px);color:var(--iv-accent-deep,#9C7843);line-height:1.15}
+  .iv-port__stat span{font-size:10.5px;line-height:1.3;color:var(--mute,#8A8775)}
+  .iv-port__cta{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:20px;padding:11px 18px;border-radius:999px;background:var(--forest,#4F5D48);color:var(--cream,#EBDFC4);font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:background .2s ease}
+  .iv-port__card:hover .iv-port__cta{background:#3c4737}
   .iv-port__cta .arr{transition:transform .2s ease}
+  .iv-port__card:hover .iv-port__cta .arr{transform:translateX(3px)}
   @media(max-width:900px){.iv-port__grid{grid-template-columns:1fr}}
-
   /* ============ INVESTOR NEWS ============ */
   .iv-news__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,26px);margin-top:clamp(28px,4vw,44px)}
   .iv-news__card{display:flex;flex-direction:column;background:var(--paper,#F9F7F2);border:1px solid var(--line,#C9BE9F);border-radius:12px;overflow:hidden}
@@ -1125,6 +1144,8 @@ get_header();
   .iv-pop__kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--iv-accent,#C49B66);margin-bottom:6px}
   .iv-pop__title{font-family:var(--serif);font-size:17px;color:#F3EAD9;margin-bottom:8px}
   .iv-pop__body{font-size:13px;line-height:1.6;color:rgba(243,234,217,.78);margin:0}
+  .iv-pop__chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px;padding-top:11px;border-top:1px solid rgba(243,234,217,.18)}
+  .iv-pop__chips span{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--iv-accent,#C49B66);border:1px solid rgba(196,155,102,.45);border-radius:999px;padding:3px 8px}
   /* ============ TRACK RECORD · 2025 OUTLET GALLERY ============ */
   .iv-ostack{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 4px}
   .iv-ost{position:relative;flex:0 0 calc((100% - 30px)/4);text-decoration:none;color:inherit}
@@ -1139,6 +1160,23 @@ get_header();
   .iv-ost__meta{font-size:11.5px;line-height:1.35;color:var(--ink-soft)}
   .iv-ost__go{margin-top:5px;padding-top:6px;border-top:1px solid var(--line-soft,#DDD2B5);font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest)}
   @media(max-width:620px){.iv-ost{flex-basis:calc((100% - 20px)/3)}.iv-ost__card{max-width:170px}}
+  /* ---- track record, aligned to the 2026 deck ---- */
+  .iv-miles{grid-template-columns:1fr 1px 1fr;gap:clamp(20px,3vw,48px)}
+  .iv-miles::before{content:"";grid-column:2;background:var(--line,#C9BE9F);align-self:stretch}
+  .iv-mile,.iv-mile--accent{border:0;background:transparent;color:inherit;padding:0}
+  .iv-mile__head{font-family:var(--serif);font-size:clamp(22px,2.8vw,32px);color:var(--iv-accent-deep,#9C7843);margin-bottom:6px}
+  .iv-mile--accent .iv-mile__head{color:var(--iv-accent-deep,#9C7843)}
+  .iv-mile__list{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,26px);margin-top:20px}
+  .iv-mile__item{display:block;border-top:0;padding-top:0}
+  .iv-mile--accent .iv-mile__item{border-color:transparent}
+  .iv-mile__item b{display:block;font-family:var(--serif);font-size:clamp(19px,2.3vw,26px);white-space:normal;line-height:1.15;color:var(--ink)}
+  .iv-mile__item span{display:block;text-align:left;font-size:13px;margin-top:3px;color:var(--ink-soft)}
+  .iv-mile--accent .iv-mile__item b,.iv-mile--accent .iv-mile__item span{color:var(--mute,#8A8775)}
+  @media(max-width:860px){
+    .iv-miles{grid-template-columns:1fr}
+    .iv-miles::before{display:none}
+    .iv-mile--accent{padding-top:26px;border-top:1px solid var(--line,#C9BE9F)}
+  }
 </style>
 
 <div class="iv">
@@ -1202,9 +1240,18 @@ $iv_hero_count = count( $iv_hero_slides );
 </section>
 
 <!-- ============== 1b. LIVE PERFORMANCE IN 2026 ============== -->
-<section class="iv-section iv-section--dark iv-live" id="live">
+<?php
+// Brand tallies. Add an `img` (WP media URL) to show the storefront render
+// beside each count; without one the row is just the number and brand.
+$iv_tally = array(
+  array( 'n' => '17', 'unit_en' => 'Outlets', 'unit_zh' => '家', 'name' => 'HAKSHAN',      'img' => '' ),
+  array( 'n' => '2',  'unit_en' => 'Outlets', 'unit_zh' => '家', 'name' => 'THE NIANG&rsquo;S', 'img' => '' ),
+  array( 'n' => '1',  'unit_en' => 'Outlet',  'unit_zh' => '家', 'name' => 'TAISHAN',      'img' => '' ),
+);
+?>
+<section class="iv-section iv-live" id="live">
   <div class="iv-wrap">
-    <div class="iv-shead" data-reveal style="max-width:none;">
+    <div class="iv-live__eyebrow" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>LIVE PERFORMANCE IN 2026</span>
         <span data-zh>2026 实时业绩</span>
@@ -1217,11 +1264,11 @@ $iv_hero_count = count( $iv_hero_slides );
         <div class="iv-live__l"><span data-en>ROI Generated (YTD)</span><span data-zh>年初至今投资回报</span></div>
       </div>
       <div class="iv-live__stat">
-        <div class="iv-live__n">1 – 1.5 <em>Yrs</em></div>
+        <div class="iv-live__n">1 - 1.5 <em>Yrs</em></div>
         <div class="iv-live__l"><span data-en>Projected Capital Payback</span><span data-zh>预计资本回收期</span></div>
       </div>
       <div class="iv-live__stat">
-        <div class="iv-live__n">RM 36.9 <em>Mil</em></div>
+        <div class="iv-live__n">RM36.9 <em>Mil</em></div>
         <div class="iv-live__l"><span data-en>Revenue Generated</span><span data-zh>已实现营收</span></div>
       </div>
     </div>
@@ -1230,15 +1277,26 @@ $iv_hero_count = count( $iv_hero_slides );
       <div class="iv-live__cap">
         <div class="iv-live__capl"><span data-en>Capital received</span><span data-zh>已募集资本</span></div>
         <div class="iv-live__capn">RM 10,100,000</div>
-      </div>
-      <div class="iv-live__cap">
-        <div class="iv-live__capl"><span data-en>Total stores</span><span data-zh>门店总数</span></div>
+        <div class="iv-live__capl" style="margin-top:14px;"><span data-en>Total stores</span><span data-zh>门店总数</span></div>
         <div class="iv-live__capn">20 <span data-en>Outlets</span><span data-zh>家</span></div>
       </div>
-      <div class="iv-live__brands">
-        <div class="iv-live__brand"><b>17</b><span>Hakshan 客善</span></div>
-        <div class="iv-live__brand"><b>2</b><span>The Niang&rsquo;s 娘家</span></div>
-        <div class="iv-live__brand"><b>1</b><span>Taishan 台善</span></div>
+
+      <div class="iv-live__tally">
+        <?php foreach ( $iv_tally as $t ) : ?>
+          <div class="iv-live__brand">
+            <div class="iv-live__brandimg">
+              <?php if ( ! empty( $t['img'] ) ) : ?>
+                <img src="<?php echo esc_url( $t['img'] ); ?>" alt="" loading="lazy" />
+              <?php else : ?>
+                <span class="iv-live__brandph" aria-hidden="true"></span>
+              <?php endif; ?>
+            </div>
+            <div class="iv-live__brandtxt">
+              <div class="iv-live__brandn"><?php echo esc_html( $t['n'] ); ?><small>(<span data-en><?php echo esc_html( $t['unit_en'] ); ?></span><span data-zh><?php echo esc_html( $t['unit_zh'] ); ?></span>)</small></div>
+              <div class="iv-live__brandname"><?php echo wp_kses_post( $t['name'] ); ?></div>
+            </div>
+          </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>
@@ -1257,7 +1315,7 @@ $iv_brands = array(
     'body_zh'  => '经验证的客家餐饮模式，围绕家庭回头客与可复制的单店经济模型而建。',
     'stats'    => array(
       array( 'RM 40M+', 'Capital Deployed', '已投入资本' ),
-      array( '17',      'Outlets Trading',  '营运中门店' ),
+      array( '23',      'Outlets Opened',   '累计开业门店' ),
       array( 'Since 2019', 'In Malaysia',   '于马来西亚' ),
     ),
     'cta_en'   => 'EXPLORE HAKSHAN',
@@ -1306,19 +1364,24 @@ $iv_brands = array(
 ?>
 <section class="iv-section iv-section--alt iv-port" id="portfolio">
   <div class="iv-wrap">
-    <div class="iv-shead" data-reveal>
-      <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>INVESTMENT OPPORTUNITIES</span>
-        <span data-zh>投资机会</span>
-      </span>
-      <h2>
-        <span data-en>Our Growing <em>Portfolio</em></span>
-        <span data-zh>不断成长的<em>品牌组合</em></span>
-      </h2>
-      <p class="iv-lead">
-        <span data-en>Distinct brands. A shared purpose. Greater possibilities.</span>
-        <span data-zh>品牌各异，初心如一，可能更广。</span>
-      </p>
+    <div class="iv-port__head" data-reveal>
+      <div>
+        <span class="h-eyebrow"><span class="dot"></span>
+          <span data-en>INVESTMENT OPPORTUNITIES</span>
+          <span data-zh>投资机会</span>
+        </span>
+        <h2 class="iv-port__h2">
+          <span data-en>Our Growing Portfolio</span>
+          <span data-zh>不断成长的品牌组合</span>
+        </h2>
+        <p class="iv-lead">
+          <span data-en>Distinct brands. A shared purpose. Greater possibilities.</span>
+          <span data-zh>品牌各异，初心如一，可能更广。</span>
+        </p>
+      </div>
+      <a class="iv-port__all" href="#updates">
+        <span data-en>View All Opportunities</span><span data-zh>查看全部机会</span> <span class="arr">&rarr;</span>
+      </a>
     </div>
 
     <div class="iv-port__grid" data-reveal>
@@ -1337,6 +1400,7 @@ $iv_brands = array(
           <div class="iv-port__body">
             <h3 class="iv-port__name"><?php echo wp_kses_post( $b['name'] ); ?></h3>
             <div class="iv-port__kind"><span data-en><?php echo esc_html( $b['kind_en'] ); ?></span><span data-zh><?php echo esc_html( $b['kind_zh'] ); ?></span></div>
+            <span class="iv-port__rule" aria-hidden="true"></span>
             <p class="iv-port__copy"><span data-en><?php echo esc_html( $b['body_en'] ); ?></span><span data-zh><?php echo esc_html( $b['body_zh'] ); ?></span></p>
             <div class="iv-port__stats">
               <?php foreach ( $b['stats'] as $st ) : ?>
@@ -1384,8 +1448,7 @@ $iv_brands = array(
     </div>
     <div class="iv-miles" data-reveal>
       <div class="iv-mile">
-        <div class="iv-mile__tag"><span data-en>Achieved</span><span data-zh>已达成</span></div>
-        <div class="iv-mile__yr">2025</div>
+        <div class="iv-mile__head"><span data-en>Achieved</span><span data-zh>已达成</span> 2025</div>
 
         <?php
         // Outlets that opened in 2025, drawn from the Outlet CPT. Set each
@@ -1439,8 +1502,7 @@ $iv_brands = array(
         </div>
       </div>
       <div class="iv-mile iv-mile--accent">
-        <div class="iv-mile__tag"><span data-en>Projected</span><span data-zh>规划目标</span></div>
-        <div class="iv-mile__yr">2026</div>
+        <div class="iv-mile__head"><span data-en>Projected</span><span data-zh>规划目标</span> 2026</div>
         <div class="iv-mile__list">
           <div class="iv-mile__item"><b>20 Outlets</b><span><span data-en>+ 25 cloud kitchens</span><span data-zh>+ 25 间云端厨房</span></span></div>
           <div class="iv-mile__item"><b>RM 74M</b><span><span data-en>Annual revenue potential</span><span data-zh>年营业额潜力</span></span></div>
@@ -1516,29 +1578,29 @@ $iv_brands = array(
       // on hover (desktop) or tap (touch).
       $iv_layer2 = array(
         array(
-          'en' => 'Food Trading', 'zh' => '食材贸易',
-          'd_en' => 'Bulk sourcing and distribution for every brand in the group. Buying at group scale lowers input cost per outlet and keeps supply consistent, so margin is captured at the ingredient level rather than at the till.',
-          'd_zh' => '为集团旗下所有品牌统一采购与配送。以集团规模议价，降低单店进货成本并稳定供应，让毛利在食材端就已经形成，而非仅靠售价。',
+          'en' => 'Food Trade', 'zh' => '食材贸易',
+          'd_en' => 'Bulk sourcing and distribution for every brand in the group. Buying at group scale lowers input cost per outlet and keeps supply consistent, so margin is captured at the ingredient level.',
+          'd_zh' => '为集团旗下所有品牌统一采购与配送。以集团规模议价，降低单店进货成本并稳定供应，让毛利在食材端就已形成。',
         ),
         array(
           'en' => 'Food Tech', 'zh' => '餐饮科技',
-          'd_en' => 'POS, the in-house ordering platform and the data layer behind them. Moving orders off third-party apps protects margin and, just as importantly, keeps customer data inside the group.',
-          'd_zh' => 'POS 系统、自有订餐平台，以及背后的数据层。把订单从第三方平台移回自有渠道，既保住毛利，也同样重要地——把顾客数据留在集团内部。',
+          'd_en' => 'POS, the in-house ordering platform and the data layer behind them. Moving orders off third-party apps protects margin and keeps customer data inside the group.',
+          'd_zh' => 'POS 系统、自有订餐平台，以及背后的数据层。把订单移回自有渠道，既保住毛利，也把顾客数据留在集团内部。',
         ),
         array(
-          'en' => 'Central Kitchen', 'zh' => '中央厨房',
-          'd_en' => 'Standardised prep for the dishes that take time. It is what lets a new outlet taste like an old one on day one, while cutting in-store labour and waste.',
-          'd_zh' => '把耗时的菜色集中标准化备制。这让新店从第一天起就能做出与老店一致的味道，同时降低门店人力与损耗。',
-        ),
-        array(
-          'en' => 'Renovation Company', 'zh' => '装修公司',
+          'en' => 'Design', 'zh' => '设计工程',
           'd_en' => 'In-house design and build-out. Doing it internally cuts capital expenditure per outlet and shortens the time between signing a lease and opening the doors.',
-          'd_zh' => '自有设计与施工团队。由内部执行可降低单店资本开支，并缩短从签约到开业之间的时间。',
+          'd_zh' => '自有设计与施工团队。由内部执行可降低单店资本开支，并缩短从签约到开业的时间。',
         ),
         array(
-          'en' => 'Marketing Company', 'zh' => '营销公司',
-          'd_en' => 'Brand, campaigns and customer acquisition across all three brands. Shared creative and media buying means a second or third brand launches at a fraction of the cost of the first.',
-          'd_zh' => '负责三个品牌的品牌建设、活动与获客。共用创意与媒体采购，意味着第二、第三个品牌的启动成本远低于第一个。',
+          'en' => 'Culinary Academy', 'zh' => '厨艺学院',
+          'd_en' => 'Recipe standards, kitchen training and the chef pipeline. It is what lets a new outlet cook to the same standard as an old one from day one, and removes key-person risk.',
+          'd_zh' => '食谱标准、厨房培训与厨师梯队。这让新店从第一天起就能达到与老店相同的水准，并降低对个别人员的依赖。',
+        ),
+        array(
+          'en' => 'Accounting', 'zh' => '财务会计',
+          'd_en' => 'Group finance, compliance and reporting. One set of books across every brand and outlet, which is what makes outlet-level performance comparable and investor reporting possible.',
+          'd_zh' => '集团财务、合规与报表。所有品牌与门店共用一套账务体系，让单店表现可比较，也让投资者报告成为可能。',
         ),
       );
       ?>
@@ -1548,7 +1610,8 @@ $iv_brands = array(
                data-iv-pop
                data-pop-title="<?php echo esc_attr( $iv_l2['en'] ); ?>"
                data-pop-title-zh="<?php echo esc_attr( $iv_l2['zh'] ); ?>"
-               data-pop-kicker="LAYER 02"
+               data-pop-kicker="LAYER 02 · INTEGRATED F&amp;B SOLUTIONS"
+               data-pop-chips="Food cost &minus;25%|Renovation &minus;30%|Central kitchen|POS &amp; data"
                data-pop-body="<?php echo esc_attr( $iv_l2['d_en'] ); ?>"
                data-pop-body-zh="<?php echo esc_attr( $iv_l2['d_zh'] ); ?>">
             <span data-en><?php echo esc_html( $iv_l2['en'] ); ?></span><span data-zh><?php echo esc_html( $iv_l2['zh'] ); ?></span>
@@ -1611,6 +1674,7 @@ $iv_brands = array(
       <div class="iv-pop__kicker" id="ivPopKicker"></div>
       <div class="iv-pop__title" id="ivPopTitle"></div>
       <p class="iv-pop__body" id="ivPopBody"></p>
+      <div class="iv-pop__chips" id="ivPopChips" hidden></div>
     </div>
   </div>
 </section>
@@ -1978,6 +2042,7 @@ $iv_news = array(
     var kicker = document.getElementById('ivPopKicker');
     var title  = document.getElementById('ivPopTitle');
     var body   = document.getElementById('ivPopBody');
+    var chips  = document.getElementById('ivPopChips');
     var active = null;
     var canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
@@ -1987,6 +2052,15 @@ $iv_news = array(
       kicker.textContent = node.getAttribute('data-pop-kicker') || '';
       title.textContent  = (zh() ? node.getAttribute('data-pop-title-zh') : node.getAttribute('data-pop-title')) || '';
       body.textContent   = (zh() ? node.getAttribute('data-pop-body-zh') : node.getAttribute('data-pop-body')) || '';
+      var raw = node.getAttribute('data-pop-chips');
+      if (raw) {
+        chips.innerHTML = raw.split('|').map(function (c) {
+          return '<span>' + c + '</span>';
+        }).join('');
+        chips.hidden = false;
+      } else {
+        chips.hidden = true;
+      }
       pop.hidden = false;
 
       var wr = wrap.getBoundingClientRect();
