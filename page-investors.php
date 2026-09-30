@@ -1369,6 +1369,25 @@ get_header();
   .iv-bar--proj .iv-bar__fill{background:rgba(79,93,72,.28);outline:1px dashed rgba(79,93,72,.6);outline-offset:-1px}
   .iv .iv-bar__lbl{font-family:var(--mono);font-weight:600;font-size:clamp(10px,1vw,13px);letter-spacing:.04em;color:#2A2E27}
   .iv-chart__split .iv-chart__tot:last-child b{color:#7B8674}
+  /* Revenue chart, exactly as the deck: white panel, tight uppercase head,
+     solid olive bars, the figure printed above every bar. */
+  .iv-chartsec{background:#fff;padding-top:clamp(40px,5vw,64px)}
+  .iv-chartsec .iv-shead{max-width:none}
+  .iv-chartsec .h-eyebrow{font-size:clamp(14px,1.35vw,17px);letter-spacing:.02em;color:#6E4323}
+  .iv-chartsec .h-eyebrow .dot{background:#6E4323}
+  .iv .iv-chartsec h2{font-family:var(--serif);font-weight:700;text-transform:uppercase;font-size:clamp(24px,2.6vw,34px);line-height:1.1;letter-spacing:0;color:#2A1A0F;margin:6px 0 4px}
+  .iv .iv-chartsec .lead{font-size:clamp(13px,1.1vw,15px);color:#555;margin:0;max-width:none}
+  .iv-chartsec .iv-chart{margin-top:clamp(28px,4vw,48px)}
+  .iv-chartsec .iv-chart__bars{background-image:repeating-linear-gradient(to top,transparent 0,transparent calc(100% / 7 - 1px),rgba(0,0,0,.07) calc(100% / 7 - 1px),rgba(0,0,0,.07) calc(100% / 7));border-bottom-color:#E4E4E4}
+  .iv-chartsec .iv-bar__fill{background:#4B5233;border-radius:0}
+  .iv .iv-chartsec .iv-bar__lbl{color:#1E1E1E}
+  @media (min-width:761px){
+    .iv-chartsec .iv-bar__cap,
+    .iv-chartsec .iv-bar:first-child .iv-bar__cap,
+    .iv-chartsec .iv-bar:last-child .iv-bar__cap{left:50%;right:auto;bottom:calc(100% + 5px);transform:translateX(-50%)!important;opacity:1;padding:0;border-radius:0;background:none;color:#1E1E1E;font-family:var(--mono);font-weight:500;font-size:clamp(9px,.82vw,12px)}
+    .iv-chartsec .iv-bar__cap::after{display:none}
+    .iv-chartsec .iv-bar:hover .iv-bar__fill{filter:none}
+  }
 </style>
 
 <div class="iv">
@@ -1741,37 +1760,33 @@ $iv_brands = array(
 </section>
 
 <!-- ============== 3. PERFORMANCE CHART ============== -->
-<section class="iv-section iv-section--alt">
+<section class="iv-section iv-chartsec">
   <div class="iv-wrap">
     <div class="iv-shead" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
         <span data-en>PERFORMANCE DATA</span>
         <span data-zh>业绩表现</span>
       </span>
-      <h2><span data-en>Revenue, <em>climbing.</em></span><span data-zh>营业额，<em>持续攀升。</em></span></h2>
+      <h2><span data-en>Revenue, climbing.</span><span data-zh>营业额，持续攀升。</span></h2>
       <p class="lead">
-        <span data-en>Twelve months of 2026 revenue — nine actual, three projected — on a steady upward curve.</span>
-        <span data-zh>2026 年十二个月营业额——九个月实际、三个月预测——稳步向上。</span>
+        <span data-en>Fourteen months of monthly revenue — eleven actual, three projected — on a steady upward curve.</span>
+        <span data-zh>十四个月的月营业额——十一个月实际、三个月预测——稳步向上。</span>
       </p>
     </div>
     <div class="iv-chart" data-reveal>
       <div class="iv-chart__bars" id="iv-bars">
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="24.8"><div class="iv-bar__cap">RM 1,508,042.75</div></div><div class="iv-bar__lbl">JAN</div></div>
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="28.4"><div class="iv-bar__cap">RM 1,723,142.60</div></div><div class="iv-bar__lbl">FEB</div></div>
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="29.7"><div class="iv-bar__cap">RM 1,802,425.30</div></div><div class="iv-bar__lbl">MAR</div></div>
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="32.3"><div class="iv-bar__cap">RM 1,959,399.32</div></div><div class="iv-bar__lbl">APR</div></div>
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="35.8"><div class="iv-bar__cap">RM 2,176,344.25</div></div><div class="iv-bar__lbl">MAY</div></div>
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="42"><div class="iv-bar__cap">RM 2,551,340.75</div></div><div class="iv-bar__lbl">JUN</div></div>
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="45.7"><div class="iv-bar__cap">RM 2,777,731.22</div></div><div class="iv-bar__lbl">JUL</div></div>
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="54.3"><div class="iv-bar__cap">RM 3,297,316.43</div></div><div class="iv-bar__lbl">AUG</div></div>
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="64.2"><div class="iv-bar__cap">RM 3,896,685.72</div></div><div class="iv-bar__lbl">SEP</div></div>
-        <div class="iv-bar iv-bar--proj"><div class="iv-bar__fill" data-h="70.4"><div class="iv-bar__cap">RM 4,273,912.38</div></div><div class="iv-bar__lbl">OCT</div></div>
-        <div class="iv-bar iv-bar--proj"><div class="iv-bar__fill" data-h="80.6"><div class="iv-bar__cap">RM 4,897,760.51</div></div><div class="iv-bar__lbl">NOV</div></div>
-        <div class="iv-bar iv-bar--proj"><div class="iv-bar__fill" data-h="100"><div class="iv-bar__cap">RM 6,072,987.76</div></div><div class="iv-bar__lbl">DEC</div></div>
-      </div>
-      <div class="iv-chart__split">
-        <div class="iv-chart__tot"><b>RM 21.7M</b><span><span data-en>9 months actual</span><span data-zh>9 个月实际</span></span></div>
-        <div class="iv-chart__tot"><b>RM 15.2M</b><span><span data-en>3 months projected</span><span data-zh>3 个月预测</span></span></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="24.8"><div class="iv-bar__cap">1,508,042.75</div></div><div class="iv-bar__lbl">JAN</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="28.4"><div class="iv-bar__cap">1,723,142.6</div></div><div class="iv-bar__lbl">FEB</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="29.7"><div class="iv-bar__cap">1,802,425.3</div></div><div class="iv-bar__lbl">MAR</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="32.3"><div class="iv-bar__cap">1,959,399.32</div></div><div class="iv-bar__lbl">APR</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="35.8"><div class="iv-bar__cap">2,176,344.25</div></div><div class="iv-bar__lbl">MAY</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="42"><div class="iv-bar__cap">2,551,340.75</div></div><div class="iv-bar__lbl">JUN</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="45.7"><div class="iv-bar__cap">2,777,731.22</div></div><div class="iv-bar__lbl">JUL</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="54.3"><div class="iv-bar__cap">3,297,316.43</div></div><div class="iv-bar__lbl">AUG</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="64.2"><div class="iv-bar__cap">3,896,685.72</div></div><div class="iv-bar__lbl">SEP</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="70.4"><div class="iv-bar__cap">4,273,912.38</div></div><div class="iv-bar__lbl">OCT</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="80.6"><div class="iv-bar__cap">4,897,760.51</div></div><div class="iv-bar__lbl">NOV</div></div>
+        <div class="iv-bar"><div class="iv-bar__fill" data-h="100"><div class="iv-bar__cap">6,072,987.76</div></div><div class="iv-bar__lbl">DEC</div></div>
       </div>
     </div>
   </div>
