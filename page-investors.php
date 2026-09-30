@@ -1004,44 +1004,278 @@ get_header();
   @media (max-width: 980px) {
     .inv-contact__inner { grid-template-columns: 1fr; gap: 36px; }
   }
+  /* ============ HERO SLIDESHOW ============ */
+  .iv-hero2{position:relative;min-height:clamp(460px,72vh,700px);display:flex;align-items:flex-end;overflow:hidden;background:var(--iv-dark,#231A12);color:var(--iv-on-dark,#F3EAD9)}
+  .iv-hero2__media{position:absolute;inset:0}
+  .iv-hero2__slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease}
+  .iv-hero2__slide.is-on{opacity:1}
+  .iv-hero2__scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,26,18,.92) 0%,rgba(35,26,18,.72) 42%,rgba(35,26,18,.35) 100%)}
+  .iv-hero2__inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(60px,10vw,110px) var(--rail)}
+  .iv-hero2__title{font-family:var(--serif);font-size:clamp(40px,7vw,86px);line-height:.98;letter-spacing:-.02em;margin:16px 0 18px;max-width:16ch}
+  .iv-hero2__title em{color:var(--iv-accent,#C49B66);font-style:normal}
+  .iv-hero2__lead{font-size:clamp(15px,1.6vw,18px);line-height:1.6;max-width:58ch;color:var(--iv-on-dark-soft,rgba(243,234,217,.66));margin:0 0 26px}
+  .iv-hero2__cta{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;background:var(--iv-accent,#C49B66);color:#231A12;font-weight:600;font-size:15px;text-decoration:none;transition:background .2s ease,transform .2s ease}
+  .iv-hero2__cta:hover{background:#d4ab76;transform:translateY(-1px)}
+  .iv-hero2__cta .arr{transition:transform .2s ease}
+  .iv-hero2__cta:hover .arr{transform:translateX(3px)}
+  .iv-hero2__dots{position:absolute;z-index:3;bottom:22px;right:var(--rail);display:flex;gap:9px}
+  .iv-hero2__dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:rgba(243,234,217,.35);cursor:pointer;transition:background .25s ease,width .25s ease}
+  .iv-hero2__dot.is-on{background:var(--iv-accent,#C49B66);width:26px;border-radius:999px}
+
+  /* ============ LIVE PERFORMANCE ============ */
+  .iv-live__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,44px);margin-top:10px}
+  .iv-live__n{font-family:var(--serif);font-size:clamp(34px,5.4vw,68px);line-height:1;letter-spacing:-.02em;color:var(--iv-accent,#C49B66)}
+  .iv-live__n em{font-style:normal;font-size:.5em;letter-spacing:0}
+  .iv-live__l{margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--iv-on-dark-soft,rgba(243,234,217,.66))}
+  .iv-live__band{display:grid;grid-template-columns:auto auto 1fr;gap:clamp(18px,3vw,44px);align-items:center;margin-top:clamp(34px,5vw,56px);padding-top:clamp(24px,4vw,36px);border-top:1px solid var(--iv-line-dark,rgba(243,234,217,.18))}
+  .iv-live__capl{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--iv-on-dark-faint,rgba(243,234,217,.42))}
+  .iv-live__capn{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);margin-top:6px;color:var(--iv-on-dark,#F3EAD9)}
+  .iv-live__brands{display:flex;flex-wrap:wrap;gap:clamp(14px,2.4vw,30px);justify-content:flex-end}
+  .iv-live__brand{display:flex;align-items:baseline;gap:8px;padding:9px 16px;border:1px solid var(--iv-line-dark,rgba(243,234,217,.18));border-radius:999px}
+  .iv-live__brand b{font-family:var(--serif);font-size:20px;color:var(--iv-accent,#C49B66)}
+  .iv-live__brand span{font-size:12.5px;color:var(--iv-on-dark-soft,rgba(243,234,217,.66))}
+  @media(max-width:860px){
+    .iv-live__row{grid-template-columns:1fr;gap:26px}
+    .iv-live__band{grid-template-columns:1fr 1fr;gap:20px}
+    .iv-live__brands{grid-column:1/-1;justify-content:flex-start}
+  }
+
+  /* ============ PORTFOLIO ============ */
+  .iv-port__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,26px);margin-top:clamp(28px,4vw,44px)}
+  .iv-port__card{display:flex;flex-direction:column;background:var(--paper,#F9F7F2);border:1px solid var(--line,#C9BE9F);border-radius:12px;overflow:hidden}
+  .iv-port__media{aspect-ratio:16/10;overflow:hidden;background:var(--cream)}
+  .iv-port__media img{width:100%;height:100%;object-fit:cover;display:block}
+  .iv-port__body{padding:clamp(18px,2.2vw,26px);display:flex;flex-direction:column;flex:1}
+  .iv-port__name{font-family:var(--serif);font-size:clamp(19px,2.2vw,24px);margin:0 0 4px;letter-spacing:-.01em}
+  .iv-port__kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);margin-bottom:12px}
+  .iv-port__copy{font-size:14.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 18px}
+  .iv-port__stats{display:grid;gap:10px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line-soft,#DDD2B5)}
+  .iv-port__stat{display:flex;align-items:baseline;gap:10px}
+  .iv-port__stat b{font-family:var(--serif);font-size:16px;color:var(--ink);min-width:6.5em}
+  .iv-port__stat span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute,#8A8775)}
+  .iv-port__cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);text-decoration:none}
+  .iv-port__cta:hover .arr{transform:translateX(3px)}
+  .iv-port__cta .arr{transition:transform .2s ease}
+  @media(max-width:900px){.iv-port__grid{grid-template-columns:1fr}}
+
+  /* ============ INVESTOR NEWS ============ */
+  .iv-news__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,26px);margin-top:clamp(28px,4vw,44px)}
+  .iv-news__card{display:flex;flex-direction:column;background:var(--paper,#F9F7F2);border:1px solid var(--line,#C9BE9F);border-radius:12px;overflow:hidden}
+  .iv-news__media{aspect-ratio:16/9;overflow:hidden;background:var(--cream)}
+  .iv-news__media img{width:100%;height:100%;object-fit:cover;display:block}
+  .iv-news__body{padding:clamp(18px,2.2vw,26px);display:flex;flex-direction:column;flex:1}
+  .iv-news__date{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:10px}
+  .iv-news__card h3{font-family:var(--serif);font-size:clamp(18px,2.1vw,22px);line-height:1.25;margin:0 0 10px}
+  .iv-news__card p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 14px}
+  .iv-news__tags{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute,#8A8775);line-height:1.6;margin-bottom:16px}
+  .iv-news__foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line-soft,#DDD2B5);flex-wrap:wrap}
+  .iv-news__site{font-family:var(--mono);font-size:11px;color:var(--ink)}
+  .iv-news__cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);text-decoration:none}
+  .iv-news__cta .arr{transition:transform .2s ease}
+  .iv-news__cta:hover .arr{transform:translateX(3px)}
+  @media(max-width:900px){.iv-news__grid{grid-template-columns:1fr}}
 </style>
 
 <div class="iv">
 
-<!-- ============== 1. HERO ============== -->
-<section class="iv-section iv-section--dark iv-hero">
+<!-- ============== 1. HERO · slideshow ============== -->
+<?php
+// Hero slideshow. Drop WP media URLs into `url` to add slides. With one
+// slide it renders as a static hero (no dots, no auto-advance); with none
+// it falls back to a plain dark panel, so the page never looks broken.
+$iv_hero_slides = array(
+  array( 'url' => '', 'alt' => 'Hakshan dining hall' ),
+  array( 'url' => '', 'alt' => 'Hakka dishes on the pass' ),
+  array( 'url' => '', 'alt' => 'Hakshan outlet exterior' ),
+);
+$iv_hero_slides = array_values( array_filter( $iv_hero_slides, static function ( $sl ) {
+  return ! empty( $sl['url'] );
+} ) );
+$iv_hero_count = count( $iv_hero_slides );
+?>
+<section class="iv-hero2" id="top">
+  <div class="iv-hero2__media">
+    <?php if ( $iv_hero_count ) : ?>
+      <?php foreach ( $iv_hero_slides as $i => $sl ) : ?>
+        <div class="iv-hero2__slide<?php echo 0 === $i ? ' is-on' : ''; ?>"
+             style="background-image:url('<?php echo esc_url( $sl['url'] ); ?>');"
+             role="img" aria-label="<?php echo esc_attr( $sl['alt'] ); ?>"></div>
+      <?php endforeach; ?>
+    <?php else : ?>
+      <div class="iv-hero2__slide is-on"></div>
+    <?php endif; ?>
+    <div class="iv-hero2__scrim"></div>
+  </div>
+
+  <div class="iv-hero2__inner">
+    <span class="h-eyebrow"><span class="dot"></span>
+      <span data-en>INVESTMENT PROPOSAL · 2026</span>
+      <span data-zh>投资计划书 · 2026</span>
+    </span>
+    <h1 class="iv-hero2__title">
+      <span data-en>Real food.<br/><em>Lasting value.</em></span>
+      <span data-zh>真材实料，<br/><em>长久价值。</em></span>
+    </h1>
+    <p class="iv-hero2__lead">
+      <span data-en>Hakshan has grown from a single Hakka restaurant into a disciplined, multi-brand F&amp;B group — proven unit economics, a fast capital payback, and a clear runway across Malaysia, Indonesia and Bangkok.</span>
+      <span data-zh>客善从一家客家餐厅起步，发展成纪律严明的多品牌餐饮集团——单店经济模型已被验证，资本回收周期短，并在马来西亚、印尼与曼谷拥有清晰的扩张路径。</span>
+    </p>
+    <a class="iv-hero2__cta" href="#portfolio">
+      <span data-en>Explore the portfolio</span><span data-zh>查看品牌组合</span><span class="arr">&rarr;</span>
+    </a>
+  </div>
+
+  <?php if ( $iv_hero_count > 1 ) : ?>
+    <div class="iv-hero2__dots" role="tablist" aria-label="Hero slides">
+      <?php for ( $i = 0; $i < $iv_hero_count; $i++ ) : ?>
+        <button type="button" class="iv-hero2__dot<?php echo 0 === $i ? ' is-on' : ''; ?>"
+                data-iv-slide="<?php echo (int) $i; ?>"
+                aria-label="<?php echo esc_attr( sprintf( 'Slide %d', $i + 1 ) ); ?>"></button>
+      <?php endfor; ?>
+    </div>
+  <?php endif; ?>
+</section>
+
+<!-- ============== 1b. LIVE PERFORMANCE IN 2026 ============== -->
+<section class="iv-section iv-section--dark iv-live" id="live">
   <div class="iv-wrap">
     <div class="iv-shead" data-reveal style="max-width:none;">
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>INVESTMENT PROPOSAL · 2026</span>
-        <span data-zh>投资计划书 · 2026</span>
+        <span data-en>LIVE PERFORMANCE IN 2026</span>
+        <span data-zh>2026 实时业绩</span>
       </span>
-      <h1>
-        <span data-en>A scalable F&amp;B ecosystem, <em>rooted in heritage.</em></span>
-        <span data-zh>可规模化的餐饮生态系统，<em>根植于传承。</em></span>
-      </h1>
-      <p class="iv-hero__lead">
-        <span data-en>Hakshan has grown from a single Hakka restaurant into a disciplined, multi-layer F&amp;B group — proven unit economics, a fast capital payback, and a clear runway across Malaysia, Indonesia and Bangkok.</span>
-        <span data-zh>客善从一家客家餐厅起步，发展成纪律严明的多层级餐饮集团——单店经济模型已被验证，资本回收周期短，并在马来西亚、印尼与曼谷拥有清晰的扩张路径。</span>
+    </div>
+
+    <div class="iv-live__row" data-reveal>
+      <div class="iv-live__stat">
+        <div class="iv-live__n">30<em>%</em></div>
+        <div class="iv-live__l"><span data-en>ROI Generated (YTD)</span><span data-zh>年初至今投资回报</span></div>
+      </div>
+      <div class="iv-live__stat">
+        <div class="iv-live__n">1 – 1.5 <em>Yrs</em></div>
+        <div class="iv-live__l"><span data-en>Projected Capital Payback</span><span data-zh>预计资本回收期</span></div>
+      </div>
+      <div class="iv-live__stat">
+        <div class="iv-live__n">RM 36.9 <em>Mil</em></div>
+        <div class="iv-live__l"><span data-en>Revenue Generated</span><span data-zh>已实现营收</span></div>
+      </div>
+    </div>
+
+    <div class="iv-live__band" data-reveal>
+      <div class="iv-live__cap">
+        <div class="iv-live__capl"><span data-en>Capital received</span><span data-zh>已募集资本</span></div>
+        <div class="iv-live__capn">RM 10,100,000</div>
+      </div>
+      <div class="iv-live__cap">
+        <div class="iv-live__capl"><span data-en>Total stores</span><span data-zh>门店总数</span></div>
+        <div class="iv-live__capn">20 <span data-en>Outlets</span><span data-zh>家</span></div>
+      </div>
+      <div class="iv-live__brands">
+        <div class="iv-live__brand"><b>17</b><span>Hakshan 客善</span></div>
+        <div class="iv-live__brand"><b>2</b><span>The Niang&rsquo;s 娘家</span></div>
+        <div class="iv-live__brand"><b>1</b><span>Taishan 台善</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 1c. OUR GROWING PORTFOLIO ============== -->
+<?php
+// Brand portfolio. Add an `img` (WP media URL) to show a photo on a card.
+$iv_brands = array(
+  array(
+    'img'      => '',
+    'name'     => 'HAKSHAN 客善',
+    'kind_en'  => 'Hakka Family Dining',
+    'kind_zh'  => '客家家庭餐饮',
+    'body_en'  => 'A proven Hakka dining concept built around repeat family dining and scalable unit economics.',
+    'body_zh'  => '经验证的客家餐饮模式，围绕家庭回头客与可复制的单店经济模型而建。',
+    'stats'    => array(
+      array( 'RM 40M+', 'Capital Deployed', '已投入资本' ),
+      array( '17',      'Outlets Trading',  '营运中门店' ),
+      array( 'Since 2019', 'In Malaysia',   '于马来西亚' ),
+    ),
+    'cta_en'   => 'EXPLORE HAKSHAN',
+    'cta_zh'   => '了解客善',
+    'url'      => '',
+  ),
+  array(
+    'img'      => '',
+    'name'     => 'THE NIANG&rsquo;S 娘家',
+    'kind_en'  => 'Modern Peranakan Dining',
+    'kind_zh'  => '现代娘惹餐饮',
+    'body_en'  => 'A contemporary take on Nyonya heritage, making traditional flavours more accessible everyday.',
+    'body_zh'  => '以当代手法演绎娘惹传统，让经典风味更贴近日常。',
+    'stats'    => array(
+      array( 'RM 2M+', 'Capital Deployed',  '已投入资本' ),
+      array( '2',      'Outlets Opened',    '已开门店' ),
+      array( 'Growing', 'Across Malaysia',  '遍及马来西亚' ),
+    ),
+    'cta_en'   => 'EXPLORE THE NIANG&rsquo;S',
+    'cta_zh'   => '了解娘家',
+    'url'      => '',
+  ),
+  array(
+    'img'      => '',
+    'name'     => 'TAISHAN 台善',
+    'kind_en'  => 'Taiwanese Family Dining',
+    'kind_zh'  => '台式家庭餐饮',
+    'body_en'  => 'Bringing the authentic taste of Taiwan to modern Malaysia, from set meals to hearty family dining.',
+    'body_zh'  => '把道地台湾味带到当代马来西亚，从定食到丰盛的家庭料理。',
+    'stats'    => array(
+      array( 'Upcoming', 'First Launch',      '首店筹备中' ),
+      array( 'A New Chapter', 'In Progress',  '进行中' ),
+      array( '2026',     'Planned Expansion', '计划扩张' ),
+    ),
+    'cta_en'   => 'EXPLORE TAISHAN',
+    'cta_zh'   => '了解台善',
+    'url'      => '',
+  ),
+);
+?>
+<section class="iv-section iv-section--alt iv-port" id="portfolio">
+  <div class="iv-wrap">
+    <div class="iv-shead" data-reveal>
+      <span class="h-eyebrow"><span class="dot"></span>
+        <span data-en>INVESTMENT OPPORTUNITIES</span>
+        <span data-zh>投资机会</span>
+      </span>
+      <h2>
+        <span data-en>Our Growing <em>Portfolio</em></span>
+        <span data-zh>不断成长的<em>品牌组合</em></span>
+      </h2>
+      <p class="iv-lead">
+        <span data-en>Distinct brands. A shared purpose. Greater possibilities.</span>
+        <span data-zh>品牌各异，初心如一，可能更广。</span>
       </p>
     </div>
-    <div class="iv-metrics" data-reveal>
-      <div>
-        <div class="iv-metric__n">RM <em>800K</em></div>
-        <div class="iv-metric__l"><span data-en>Equity round now open</span><span data-zh>本轮融资金额</span></div>
-      </div>
-      <div>
-        <div class="iv-metric__n">RM <em>2.0M</em></div>
-        <div class="iv-metric__l"><span data-en>Pre-money valuation</span><span data-zh>投前估值</span></div>
-      </div>
-      <div>
-        <div class="iv-metric__n">40<em>%</em></div>
-        <div class="iv-metric__l"><span data-en>Equity offered to investors</span><span data-zh>开放股权比例</span></div>
-      </div>
-      <div>
-        <div class="iv-metric__n">~1<em>yr</em></div>
-        <div class="iv-metric__l"><span data-en>Projected capital payback</span><span data-zh>预计资本回收期</span></div>
-      </div>
+
+    <div class="iv-port__grid" data-reveal>
+      <?php foreach ( $iv_brands as $b ) : ?>
+        <article class="iv-port__card">
+          <?php if ( ! empty( $b['img'] ) ) : ?>
+            <div class="iv-port__media"><img src="<?php echo esc_url( $b['img'] ); ?>" alt="" loading="lazy" /></div>
+          <?php endif; ?>
+          <div class="iv-port__body">
+            <h3 class="iv-port__name"><?php echo wp_kses_post( $b['name'] ); ?></h3>
+            <div class="iv-port__kind"><span data-en><?php echo esc_html( $b['kind_en'] ); ?></span><span data-zh><?php echo esc_html( $b['kind_zh'] ); ?></span></div>
+            <p class="iv-port__copy"><span data-en><?php echo esc_html( $b['body_en'] ); ?></span><span data-zh><?php echo esc_html( $b['body_zh'] ); ?></span></p>
+            <div class="iv-port__stats">
+              <?php foreach ( $b['stats'] as $st ) : ?>
+                <div class="iv-port__stat">
+                  <b><?php echo esc_html( $st[0] ); ?></b>
+                  <span data-en><?php echo esc_html( $st[1] ); ?></span><span data-zh><?php echo esc_html( $st[2] ); ?></span>
+                </div>
+              <?php endforeach; ?>
+            </div>
+            <?php if ( ! empty( $b['url'] ) ) : ?>
+              <a class="iv-port__cta" href="<?php echo esc_url( $b['url'] ); ?>">
+                <span data-en><?php echo wp_kses_post( $b['cta_en'] ); ?></span><span data-zh><?php echo esc_html( $b['cta_zh'] ); ?></span><span class="arr">&rarr;</span>
+              </a>
+            <?php endif; ?>
+          </div>
+        </article>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -1123,47 +1357,6 @@ get_header();
   </div>
 </section>
 
-<!-- ============== 4. MARKET VALIDATION ============== -->
-<section class="iv-section">
-  <div class="iv-wrap">
-    <div class="iv-validation__grid">
-      <div data-reveal>
-        <div class="iv-shead">
-          <span class="h-eyebrow"><span class="dot"></span>
-            <span data-en>TARGET AUDIENCE &amp; VALIDATION</span>
-            <span data-zh>目标客群 &amp; 市场验证</span>
-          </span>
-          <h2 style="font-size:clamp(28px,3.8vw,46px);">
-            <span data-en>Built on repeat,<br/><em>everyday demand.</em></span>
-            <span data-zh>建立在反复回流的<br/><em>日常需求之上。</em></span>
-          </h2>
-        </div>
-        <div class="iv-pyramid">
-          <div class="iv-pyr iv-pyr-1"><span data-en>White-collar workers</span><span data-zh>白领上班族</span></div>
-          <div class="iv-pyr iv-pyr-2"><span data-en>Middle-aged &amp; senior consumers</span><span data-zh>中老年消费者</span></div>
-          <div class="iv-pyr iv-pyr-3"><span data-en>Families</span><span data-zh>家庭客群</span></div>
-        </div>
-      </div>
-      <div data-reveal>
-        <div class="iv-vstats">
-          <div class="iv-vstat">
-            <div class="iv-vstat__n">&gt;75<em>%</em></div>
-            <div class="iv-vstat__l"><span data-en>Member retention rate</span><span data-zh>会员回头率</span></div>
-          </div>
-          <div class="iv-vstat">
-            <div class="iv-vstat__n">8.36<em>×</em></div>
-            <div class="iv-vstat__l"><span data-en>Monthly average visit frequency</span><span data-zh>月均到店次数</span></div>
-          </div>
-          <div class="iv-vstat">
-            <div class="iv-vstat__n">RM 42.45</div>
-            <div class="iv-vstat__l"><span data-en>Average spending per customer</span><span data-zh>人均消费</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============== 4b. ORG CHART · Multi-layer F&B Business Model ============== -->
 <section class="iv-org" id="structure">
   <div class="iv-org__wrap">
@@ -1201,19 +1394,28 @@ get_header();
 
       <!-- Tier 3: Outlets -->
       <div class="iv-org__tier">
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 01</b>USJ Taipan</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 02</b>Menjalara</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 03</b>Cheras C180</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 04</b>Bandar Puteri Puchong</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 05</b>SS2</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 06</b>Sri Petaling</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 07</b>Sunway Mentari</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 08</b>Kota Damansara</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 09</b>Plaza Damansara</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 10</b>Pudu Plaza</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 11</b>Ipoh</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 12</b>Bukit Tinggi</div>
-        <div class="iv-org__node iv-org__node--outlet"><b>Outlet 13</b>Taman Segar</div>
+        <?php
+        // Outlets come from the Outlet CPT so the chart always matches the
+        // live estate; the static list is only a fallback for a fresh install.
+        $iv_outlets = function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array();
+        $iv_names   = array();
+        if ( $iv_outlets ) {
+          foreach ( $iv_outlets as $iv_o ) {
+            $iv_names[] = get_the_title( $iv_o->ID );
+          }
+        } else {
+          $iv_names = array(
+            'USJ Taipan', 'Menjalara', 'Cheras C180', 'Bandar Puteri Puchong',
+            'SS2', 'Sri Petaling', 'Sunway Mentari', 'Kota Damansara',
+            'Plaza Damansara', 'Pudu Plaza', 'Ipoh', 'Bukit Tinggi',
+            'Taman Segar', 'Setia Alam', 'Seri Kembangan', 'Kepong Metro',
+            'Bandar Sunway',
+          );
+        }
+        foreach ( $iv_names as $iv_i => $iv_name ) :
+          ?>
+          <div class="iv-org__node iv-org__node--outlet"><b><?php echo esc_html( sprintf( 'Outlet %02d', $iv_i + 1 ) ); ?></b><?php echo esc_html( $iv_name ); ?></div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>
@@ -1302,267 +1504,75 @@ get_header();
   </div>
 </section>
 
-<!-- ============== 6. EXPANSION ============== -->
-<section class="iv-section iv-expansion" id="expansion">
+<!-- ============== 7. INVESTOR UPDATES · Latest News & Milestones ============== -->
+<?php
+// News cards. Add an `img` (WP media URL) to any card and it renders a
+// photo; leave it blank and the card is text-only. Fully swappable.
+$iv_news = array(
+  array(
+    'date'    => '1 SEP 2026',
+    'img'     => '',
+    'title_en'=> 'From Grab Delivery to Hakshan&rsquo;s Official Ordering Platform',
+    'title_zh'=> '从 Grab 外送到客善自有订餐平台',
+    'body_en' => 'Hakshan launched its own ordering platform to build a more direct relationship with customers, reduce reliance on third-party platforms and improve long-term margin control.',
+    'body_zh' => '客善推出自有订餐平台，与顾客建立更直接的关系，降低对第三方平台的依赖，并改善长期毛利控制。',
+    'tags_en' => 'Direct Orders · Better Margin Control · Customer Data Ownership',
+    'tags_zh' => '直接下单 · 毛利可控 · 自有客户数据',
+    'site'    => 'order.hakshan.com',
+    'url'     => 'https://order.hakshan.com/',
+  ),
+  array(
+    'date'    => '1 SEP 2026',
+    'img'     => '',
+    'title_en'=> 'Launching Hakshan&rsquo;s Investor Portal',
+    'title_zh'=> '客善投资者平台上线',
+    'body_en' => 'A dedicated platform that gives investors clearer visibility into outlet progress, business performance, financial updates and key milestones &mdash; all in one place.',
+    'body_zh' => '专属平台，让投资者更清楚地掌握门店进度、经营表现、财务更新与重要里程碑——全部集中于一处。',
+    'tags_en' => 'Live Progress · Performance Updates · Financial Reporting · Milestones',
+    'tags_zh' => '实时进度 · 业绩更新 · 财务报告 · 里程碑',
+    'site'    => 'shareholder.hakshan.com',
+    'url'     => 'https://shareholder.hakshan.com/',
+  ),
+);
+?>
+<section class="iv-section iv-news" id="updates">
   <div class="iv-wrap">
     <div class="iv-shead" data-reveal>
       <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>STORE EXPANSION &amp; COVERAGE</span>
-        <span data-zh>门店扩张 &amp; 覆盖</span>
+        <span data-en>INVESTOR UPDATES</span><span data-zh>投资者动态</span>
       </span>
       <h2>
-        <span data-en>From Kuala Lumpur<br/><em>to the region.</em></span>
-        <span data-zh>从吉隆坡，<br/><em>走向区域市场。</em></span>
+        <span data-en>Latest News &amp; Milestones</span>
+        <span data-zh>最新消息与里程碑</span>
       </h2>
-    </div>
-    <div class="iv-miles" data-reveal>
-      <div class="iv-mile">
-        <div class="iv-mile__map">
-          <img src="https://hakshan.com/wp-content/uploads/2026/06/map-2025.png" alt="HAKSHAN 2025 footprint — seven branches across Kuala Lumpur" loading="lazy" />
-        </div>
-        <div class="iv-mile__tag">2025 · Malaysia</div>
-        <div class="iv-mile__yr"><span data-en>7 branches</span><span data-zh>7 间分店</span></div>
-        <p>
-          <span data-en>All within Kuala Lumpur. Annual revenue potential of <b style="color:var(--ink)">RM 20M</b>, based on an average RM 230K monthly revenue per outlet.</span>
-          <span data-zh>全部位于吉隆坡。年营业额潜力 <b style="color:var(--ink)">RM 20M</b>，按每店月均 RM 230K 计算。</span>
-        </p>
-      </div>
-      <div class="iv-mile iv-mile--accent">
-        <div class="iv-mile__map">
-          <img src="https://hakshan.com/wp-content/uploads/2026/06/map-2026.png" alt="HAKSHAN 2026 footprint — 17 outlets and 25 cloud kitchens in Malaysia plus regional expansion" loading="lazy" />
-        </div>
-        <div class="iv-mile__tag">2026 · Regional</div>
-        <div class="iv-mile__yr">17 + 25 + 4</div>
-        <div class="iv-mile__list">
-          <div class="iv-mile__item"><b>17 outlets</b><span><span data-en>Malaysia</span><span data-zh>马来西亚</span></span></div>
-          <div class="iv-mile__item"><b>25 cloud kitchens</b><span><span data-en>Malaysia</span><span data-zh>马来西亚</span></span></div>
-          <div class="iv-mile__item"><b>2 + 2 outlets</b><span><span data-en>Indonesia &amp; Bangkok</span><span data-zh>印尼 &amp; 曼谷</span></span></div>
-          <div class="iv-mile__item"><b>RM 74M</b><span><span data-en>Annual revenue potential</span><span data-zh>年营业额潜力</span></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== 6c. TEAM ============== -->
-<section class="iv-team" id="team">
-  <div class="iv-shead" data-reveal>
-    <span class="h-eyebrow"><span class="dot"></span>
-      <span data-en>HAKSHAN TEAM</span>
-      <span data-zh>客善团队</span>
-    </span>
-    <h2><span data-en>Operators behind <em>the bowl.</em></span><span data-zh>碗背后的<em>经营者。</em></span></h2>
-  </div>
-  <?php
-  // Team portraits — full WP-media URLs.
-  $iv_team_photos = array(
-    'ceo' => 'https://hakshan.com/wp-content/uploads/2026/06/Horvard.png',
-    'coo' => 'https://hakshan.com/wp-content/uploads/2026/06/Jordan.png',
-    'cxo' => 'https://hakshan.com/wp-content/uploads/2026/06/Aaron.png',
-    'cfo' => 'https://hakshan.com/wp-content/uploads/2026/06/Layming.png',
-    'cpo' => 'https://hakshan.com/wp-content/uploads/2026/06/Madam.png',
-  );
-  function hakshan_iv_member_photo( $slot, $name ) {
-    global $iv_team_photos;
-    if ( empty( $iv_team_photos[ $slot ] ) ) {
-      return;
-    }
-    echo '<div class="iv-member__photo">';
-    echo '<img src="' . esc_url( $iv_team_photos[ $slot ] ) . '" alt="' . esc_attr( $name ) . '" loading="lazy" />';
-    echo '</div>';
-  }
-  ?>
-  <div class="iv-team__grid" data-reveal>
-    <article class="iv-member">
-      <?php hakshan_iv_member_photo( 'ceo', 'Horvard Chong' ); ?>
-      <div class="iv-member__body">
-        <p class="iv-member__role">CEO</p>
-        <h3 class="iv-member__name">Horvard Chong</h3>
-        <ul class="iv-member__bio">
-          <li><span data-en>Founder of 營在今銷企業社 (Taiwan), Horvy Supercharge (HK), Horvy Holding Sdn Bhd</span><span data-zh>營在今銷企業社（台湾）、Horvy Supercharge（香港）、Horvy Holding Sdn Bhd 创办人</span></li>
-          <li><span data-en>Business Director EMEA of Vertis Media (UK); Managing Director of AJM Marketing Msia</span><span data-zh>Vertis Media（英国）EMEA 业务总监；AJM Marketing 马来西亚董事经理</span></li>
-          <li><span data-en>Board Member of M.CACA (NGO)</span><span data-zh>M.CACA（NGO）理事</span></li>
-          <li><span data-en>A decade in performance marketing &amp; e-commerce — data-driven strategy, conversion optimisation, revenue growth.</span><span data-zh>十年绩效营销与电商经验——数据驱动策略、转化率优化、营收增长。</span></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="iv-member">
-      <?php hakshan_iv_member_photo( 'coo', 'Jordan Lim' ); ?>
-      <div class="iv-member__body">
-        <p class="iv-member__role">COO</p>
-        <h3 class="iv-member__name">Jordan Lim</h3>
-        <ul class="iv-member__bio">
-          <li><span data-en>Managing Director of AJM Marketing (Malaysia)</span><span data-zh>AJM Marketing（马来西亚）董事经理</span></li>
-          <li><span data-en>Specialises in market strategy and business operations</span><span data-zh>专长于市场策略与业务营运</span></li>
-          <li><span data-en>Focuses on brand growth and expansion</span><span data-zh>主导品牌增长与扩张</span></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="iv-member">
-      <?php hakshan_iv_member_photo( 'cxo', 'Aaron Ee' ); ?>
-      <div class="iv-member__body">
-        <p class="iv-member__role">CBDO</p>
-        <h3 class="iv-member__name">Aaron Ee</h3>
-        <ul class="iv-member__bio">
-          <li><span data-en>Founder &amp; CEO of AJM Marketing (Malaysia)</span><span data-zh>AJM Marketing（马来西亚）创办人兼 CEO</span></li>
-          <li><span data-en>Founder &amp; CEO of The Niang's</span><span data-zh>The Niang's 创办人兼 CEO</span></li>
-          <li><span data-en>Founder &amp; CEO of Horvy Super Charge (Hong Kong)</span><span data-zh>Horvy Super Charge（香港）创办人兼 CEO</span></li>
-          <li><span data-en>Founder &amp; CBDO of HAKSHAN</span><span data-zh>客善创办人兼 CBDO</span></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="iv-member">
-      <?php hakshan_iv_member_photo( 'cfo', 'Lay Ming' ); ?>
-      <div class="iv-member__body">
-        <p class="iv-member__role">CFO</p>
-        <h3 class="iv-member__name">Lay Ming</h3>
-        <ul class="iv-member__bio">
-          <li><span data-en>13+ years in accounting, tax &amp; audit — corporate finance and regulatory compliance.</span><span data-zh>13 年以上会计、税务与审计经验——擅长企业财务与合规。</span></li>
-          <li><span data-en>Former Accountant of a U.S.-listed company — international financial perspective.</span><span data-zh>曾任美国上市公司会计——具备国际财务视角。</span></li>
-          <li><span data-en>MIA Chartered Accountant &amp; LSS Green Belt — financial optimisation and efficiency.</span><span data-zh>马来西亚特许会计师 &amp; 精益六西格玛绿带——财务优化与流程效率。</span></li>
-          <li><span data-en>IPO &amp; corporate-structuring experience — preparation, compliance, structuring.</span><span data-zh>IPO 与企业架构经验——上市准备、合规与架构搭建。</span></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="iv-member">
-      <?php hakshan_iv_member_photo( 'cpo', 'Madam Siow' ); ?>
-      <div class="iv-member__body">
-        <p class="iv-member__role">CPO</p>
-        <h3 class="iv-member__name">Madam Siow</h3>
-        <ul class="iv-member__bio">
-          <li><span data-en>Founder of Ying Ker Lou (迎客楼)</span><span data-zh>迎客楼创办人</span></li>
-          <li><span data-en>40+ years in the F&amp;B industry</span><span data-zh>四十多年餐饮业经验</span></li>
-          <li><span data-en>Mastery of traditional and modern culinary techniques</span><span data-zh>精通传统与现代烹饪技艺</span></li>
-        </ul>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============== 7. EQUITY STRUCTURE ============== -->
-<section class="iv-section iv-section--dark" id="invest">
-  <div class="iv-wrap">
-    <div class="iv-shead" data-reveal>
-      <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>THE OPPORTUNITY</span>
-        <span data-zh>投资机会</span>
-      </span>
-      <h2>
-        <span data-en>Own a stake <em>in the group.</em></span>
-        <span data-zh>持有集团的<em>一份股权。</em></span>
-      </h2>
-    </div>
-    <div class="iv-equity" data-reveal>
-      <div>
-        <div class="iv-donut">
-          <div class="iv-donut__lab iv-donut__lab--inv"><b>40%</b><span><span data-en>Open to investment</span><span data-zh>开放融资</span></span></div>
-          <div class="iv-donut__lab iv-donut__lab--hold"><b>60%</b><span><span data-en>Holding</span><span data-zh>持股方</span></span></div>
-        </div>
-      </div>
-      <div class="iv-eq__rows">
-        <div class="iv-eq__row"><span class="k"><span data-en>Pre-money valuation</span><span data-zh>投前估值</span></span><span class="v">RM <em>2,000,000</em></span></div>
-        <div class="iv-eq__row"><span class="k"><span data-en>Equity open this round</span><span data-zh>本轮开放股权</span></span><span class="v">RM <em>800,000</em> · 40%</span></div>
-        <div class="iv-eq__row"><span class="k"><span data-en>Share type</span><span data-zh>股权类型</span></span><span class="v"><span data-en>Ordinary share</span><span data-zh>普通股</span></span></div>
-        <div class="iv-eq__row"><span class="k"><span data-en>Per lot (2%)</span><span data-zh>每份额(2%)</span></span><span class="v">RM <em>40,000</em></span></div>
-        <div class="iv-eq__row"><span class="k"><span data-en>Investment range</span><span data-zh>投资区间</span></span><span class="v"><span data-en>1–5 lots · 2%–10%</span><span data-zh>1–5 份 · 2%–10%</span></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== 8. INVESTMENT MODEL ============== -->
-<section class="iv-section">
-  <div class="iv-wrap">
-    <div class="iv-shead" data-reveal>
-      <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>INVESTMENT MODEL</span>
-        <span data-zh>投资模式</span>
-      </span>
-      <h2>
-        <span data-en>Fast payback,<br/><em>then steady returns.</em></span>
-        <span data-zh>快速回本，<br/><em>稳定回报。</em></span>
-      </h2>
-      <p class="lead">
-        <span data-en>A model built to recover capital in about a year — where the conventional restaurant takes three — then reward patient holders with stable dividends.</span>
-        <span data-zh>一套约一年即可回本的模式——传统餐厅通常需要三年——之后以稳定分红回报长期股东。</span>
+      <p class="iv-lead">
+        <span data-en>Stay updated with our latest developments, from new openings to product innovation.</span>
+        <span data-zh>了解我们的最新进展，从新店开业到产品创新。</span>
       </p>
     </div>
-
-    <div class="iv-journey" data-reveal>
-      <div class="iv-jstep iv-jstep--key"><div class="iv-jstep__dot"></div><div class="iv-jstep__yr">Year 0</div><div class="iv-jstep__v">RM 200,000</div><div class="iv-jstep__d"><span data-en>Invest · 10% stake (5 lots)</span><span data-zh>投资 · 10% 股权 (5 份)</span></div></div>
-      <div class="iv-jstep iv-jstep--key"><div class="iv-jstep__dot"></div><div class="iv-jstep__yr">Year 1</div><div class="iv-jstep__v">RM 200,000</div><div class="iv-jstep__d"><span data-en>Profit share · capital fully recovered</span><span data-zh>分红 · 资本全数回收</span></div></div>
-      <div class="iv-jstep"><div class="iv-jstep__dot"></div><div class="iv-jstep__yr">Year 2</div><div class="iv-jstep__v">+ RM 45,000</div><div class="iv-jstep__d"><span data-en>Profit share · exit option opens</span><span data-zh>分红 · 可选择退出</span></div></div>
-      <div class="iv-jstep"><div class="iv-jstep__dot"></div><div class="iv-jstep__yr">Year 3</div><div class="iv-jstep__v">+ RM 45,000</div><div class="iv-jstep__d"><span data-en>Continue holding</span><span data-zh>继续持有</span></div></div>
-      <div class="iv-jstep"><div class="iv-jstep__dot"></div><div class="iv-jstep__yr">Year 4</div><div class="iv-jstep__v">+ RM 45,000</div><div class="iv-jstep__d"><span data-en>Continue holding</span><span data-zh>继续持有</span></div></div>
-      <div class="iv-jstep"><div class="iv-jstep__dot"></div><div class="iv-jstep__yr">Year 5</div><div class="iv-jstep__v">+ RM 45,000</div><div class="iv-jstep__d"><span data-en>Continue holding</span><span data-zh>继续持有</span></div></div>
-    </div>
-
-    <div class="iv-terms" data-reveal>
-      <div class="iv-term"><div class="iv-term__l"><span data-en>Entry — Valuation</span><span data-zh>入场 · 估值</span></div><div class="iv-term__v">RM 2.0M</div></div>
-      <div class="iv-term"><div class="iv-term__l"><span data-en>Open for investment</span><span data-zh>开放融资</span></div><div class="iv-term__v">RM 800K</div></div>
-      <div class="iv-term"><div class="iv-term__l"><span data-en>Per lot</span><span data-zh>每份</span></div><div class="iv-term__v">RM 40K<small><span data-en>2% · ordinary share</span><span data-zh>2% · 普通股</span></small></div></div>
-      <div class="iv-term"><div class="iv-term__l"><span data-en>Exit — after 2 years</span><span data-zh>退出 · 满 2 年后</span></div><div class="iv-term__v"><span data-en>3 options</span><span data-zh>3 种方式</span><small><span data-en>Hold · sell to investors · sell to company</span><span data-zh>继续持有 · 转让其他投资人 · 回售公司</span></small></div></div>
-    </div>
-    <p class="iv-note">
-      <span data-en>Three exit options after two years: continue holding for dividends, sell shares to other investors, or sell back to the company — at market value assessed by a third-party valuer.</span>
-      <span data-zh>满两年后三种退出方式：继续持有分红、转让予其他投资人、或回售给公司——价格由独立第三方估值机构按市值评估。</span>
-    </p>
-  </div>
-</section>
-
-<!-- ============== 9. MINIMUM GUARANTEE ============== -->
-<section class="iv-section iv-section--alt">
-  <div class="iv-wrap">
-    <div class="iv-shead" data-reveal>
-      <span class="h-eyebrow"><span class="dot"></span>
-        <span data-en>MINIMUM GUARANTEE PLAN</span>
-        <span data-zh>最低保障方案</span>
-      </span>
-      <h2><span data-en>Downside, <em>covered.</em></span><span data-zh>下行风险，<em>已被覆盖。</em></span></h2>
-    </div>
-    <div class="iv-split" data-reveal>
-      <div class="iv-split__media">
-        <img src="<?php echo esc_url( get_theme_file_uri( 'assets/img/investor-cloud.jpg' ) ); ?>" alt="HAKSHAN cloud kitchen model" loading="lazy" />
-      </div>
-      <div class="iv-checklist">
-        <div class="iv-check">
-          <span class="iv-check__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"></path></svg></span>
-          <p>
-            <span data-en>If a store's revenue falls short, the company activates a <b>Cloud Kitchen plan</b> — delivery-focused outlets in non-competing areas — to supplement returns.</span>
-            <span data-zh>若门店营收未达标，公司将启动 <b>云端厨房方案</b>——在不竞争的区域设立外卖型门店——用以补足回报。</span>
-          </p>
-        </div>
-        <div class="iv-check">
-          <span class="iv-check__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"></path></svg></span>
-          <p>
-            <span data-en>Each investor may hold up to <b>1 physical outlet + 3 cloud kitchens</b>.</span>
-            <span data-zh>每位投资人可持有最多 <b>1 间实体门店 + 3 间云端厨房</b>。</span>
-          </p>
-        </div>
-        <div class="iv-check">
-          <span class="iv-check__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"></path></svg></span>
-          <p>
-            <span data-en>Each cloud kitchen is expected to generate <b>RM 30,000</b> in monthly revenue.</span>
-            <span data-zh>每间云端厨房预计月营业额 <b>RM 30,000</b>。</span>
-          </p>
-        </div>
-        <div class="iv-check">
-          <span class="iv-check__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"></path></svg></span>
-          <p>
-            <span data-en>Each cloud kitchen is projected to earn <b>RM 10,000</b> net profit per month.</span>
-            <span data-zh>每间云端厨房预计月净利 <b>RM 10,000</b>。</span>
-          </p>
-        </div>
-      </div>
+    <div class="iv-news__grid" data-reveal>
+      <?php foreach ( $iv_news as $n ) : ?>
+        <article class="iv-news__card">
+          <?php if ( ! empty( $n['img'] ) ) : ?>
+            <div class="iv-news__media"><img src="<?php echo esc_url( $n['img'] ); ?>" alt="" loading="lazy" /></div>
+          <?php endif; ?>
+          <div class="iv-news__body">
+            <div class="iv-news__date"><?php echo esc_html( $n['date'] ); ?></div>
+            <h3><span data-en><?php echo wp_kses_post( $n['title_en'] ); ?></span><span data-zh><?php echo wp_kses_post( $n['title_zh'] ); ?></span></h3>
+            <p><span data-en><?php echo wp_kses_post( $n['body_en'] ); ?></span><span data-zh><?php echo wp_kses_post( $n['body_zh'] ); ?></span></p>
+            <div class="iv-news__tags"><span data-en><?php echo esc_html( $n['tags_en'] ); ?></span><span data-zh><?php echo esc_html( $n['tags_zh'] ); ?></span></div>
+            <div class="iv-news__foot">
+              <span class="iv-news__site"><?php echo esc_html( $n['site'] ); ?></span>
+              <a class="iv-news__cta" href="<?php echo esc_url( $n['url'] ); ?>" target="_blank" rel="noopener">
+                <span data-en>Explore Platform</span><span data-zh>前往平台</span><span class="arr">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
-
-</div><!-- /.iv -->
 
 <!-- ============== CONTACT (CF7 form, preserved) ============== -->
 <section class="inv-contact cf7-form-block" id="contact">
@@ -1628,6 +1638,39 @@ get_header();
     } else {
       reveal();
     }
+  })();
+</script>
+
+<script>
+  // Hero slideshow — cross-fade with dots. Pauses on hover and when the
+  // tab is hidden; does nothing when there is only one slide.
+  (function () {
+    var slides = document.querySelectorAll('.iv-hero2__slide');
+    var dots   = document.querySelectorAll('.iv-hero2__dot');
+    if (slides.length < 2) return;
+    var i = 0, timer = null, DELAY = 5500;
+    function go(n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+      dots.forEach(function (d, k) { d.classList.toggle('is-on', k === i); });
+    }
+    function play()  { stop(); timer = setInterval(function () { go(i + 1); }, DELAY); }
+    function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+    dots.forEach(function (d) {
+      d.addEventListener('click', function () {
+        go(parseInt(d.getAttribute('data-iv-slide'), 10) || 0);
+        play();
+      });
+    });
+    var hero = document.querySelector('.iv-hero2');
+    if (hero) {
+      hero.addEventListener('mouseenter', stop);
+      hero.addEventListener('mouseleave', play);
+    }
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { stop(); } else { play(); }
+    });
+    play();
   })();
 </script>
 
