@@ -1056,31 +1056,38 @@ get_header();
     .iv-hero2__inner{padding-bottom:64px}
   }
   /* ============ LIVE PERFORMANCE ============ */
-  .iv-live{background:var(--paper,#F9F7F2)}
-  .iv-live__eyebrow{text-align:center;margin-bottom:clamp(28px,4vw,44px)}
-  .iv-live__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center}
-  .iv-live__stat{text-align:center;padding:0 clamp(10px,2vw,28px)}
-  .iv-live__stat+.iv-live__stat{border-left:1px solid var(--line,#C9BE9F)}
-  .iv-live__n{font-family:var(--serif);font-size:clamp(34px,5.6vw,64px);line-height:1;letter-spacing:-.02em;color:var(--forest,#4F5D48)}
-  .iv-live__n em{font-style:normal;font-size:.62em;letter-spacing:0}
-  .iv-live__l{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-  .iv-live__band{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,56px);align-items:center;margin-top:clamp(36px,5vw,60px)}
-  .iv-live__cap{background:var(--forest,#4F5D48);color:var(--cream,#EBDFC4);border-radius:14px;padding:clamp(18px,2.4vw,26px) clamp(20px,2.6vw,30px);min-width:clamp(200px,22vw,250px)}
-  .iv-live__capl{font-size:13px;opacity:.82}
-  .iv-live__capn{font-family:var(--serif);font-size:clamp(19px,2.3vw,26px);line-height:1.15;margin-top:2px}
-  .iv-live__tally{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,40px);align-items:center}
-  .iv-live__brand{display:flex;align-items:center;gap:12px}
-  .iv-live__brandimg{flex:0 0 auto;width:clamp(86px,9vw,120px);aspect-ratio:4/3;border-radius:8px;overflow:hidden}
-  .iv-live__brandimg img{width:100%;height:100%;object-fit:contain;display:block}
-  .iv-live__brandph{display:block;width:100%;height:100%;background:repeating-linear-gradient(135deg,rgba(79,93,72,.07) 0 7px,rgba(79,93,72,.02) 7px 14px),linear-gradient(180deg,#e4dcc6,#d3c9ad);border-radius:8px}
-  .iv-live__brandn{font-family:var(--serif);font-size:clamp(20px,2.4vw,28px);line-height:1;color:var(--ink)}
-  .iv-live__brandn small{font-family:var(--sans);font-size:11px;margin-left:5px;color:var(--mute,#8A8775)}
-  .iv-live__brandname{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-top:5px}
+  .iv-live{background:#FDFBF6;padding-top:clamp(44px,5.5vw,72px)}
+  .iv-live__eyebrow{text-align:center;margin-bottom:clamp(34px,5vw,62px)}
+  .iv-live__eyebrow .h-eyebrow{font-size:clamp(15px,1.55vw,20px);letter-spacing:.04em;color:#6E4323}
+  .iv-live__eyebrow .h-eyebrow .dot{background:#6E4323;width:7px;height:7px}
+  .iv-live__row{display:grid;grid-template-columns:repeat(3,auto);justify-content:center;align-items:stretch;margin:0 auto}
+  .iv-live__stat{text-align:center;padding:0 clamp(14px,3.2vw,56px)}
+  .iv-live__stat+.iv-live__stat{border-left:1px solid rgba(42,46,39,.55)}
+  .iv-live__n{font-family:var(--serif);font-size:clamp(38px,5.4vw,68px);line-height:1;letter-spacing:-.02em;color:#4F5D48;white-space:nowrap}
+  .iv-live__n em{font-style:normal;font-size:.74em;letter-spacing:-.01em}
+  .iv-live__l{margin-top:clamp(10px,1.4vw,18px);font-family:var(--mono);font-size:clamp(13px,1.45vw,19px);letter-spacing:.02em;text-transform:uppercase;color:#6E4323;white-space:nowrap}
+  .iv-live__band{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,44px);align-items:center;max-width:1160px;margin:clamp(40px,5.5vw,64px) auto 0}
+  .iv-live__cap{background:#4F5D48;color:#F9F7F2;border-radius:18px;padding:clamp(18px,2.2vw,24px) clamp(18px,2.2vw,22px);min-width:clamp(200px,20vw,232px)}
+  .iv-live__capl{font-family:var(--mono);font-size:clamp(14px,1.4vw,18px);line-height:1.3}
+  .iv-live__capn{font-family:var(--serif);font-size:clamp(21px,2.3vw,29px);line-height:1.2;margin-top:1px;font-weight:500}
+  .iv-live__tally{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;gap:clamp(10px,1.6vw,24px)}
+  .iv-live__brand{display:flex;align-items:center;justify-content:center;gap:clamp(8px,1vw,14px);min-width:0}
+  .iv-live__brandtxt{flex:0 0 auto}
+  .iv-live__brandimg{flex:0 1 auto;min-width:0;height:clamp(58px,7vw,100px);display:flex;align-items:flex-end}
+  .iv-live__brandimg img{height:100%;width:auto;max-width:min(100%,150px);object-fit:contain;display:block}
+  .iv-live__brandph{display:block;width:clamp(90px,10vw,130px);height:100%;background:repeating-linear-gradient(135deg,rgba(79,93,72,.07) 0 7px,rgba(79,93,72,.02) 7px 14px),linear-gradient(180deg,#e4dcc6,#d3c9ad);border-radius:8px}
+  .iv-live__brandn{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.3vw,29px);line-height:1;color:#3A2412;white-space:nowrap}
+  .iv-live__brandn small{font-family:var(--sans);font-weight:400;font-size:11px;margin-left:4px;color:#6E4323;vertical-align:middle}
+  .iv-live__brandname{font-family:var(--mono);font-weight:700;font-size:clamp(13px,1.3vw,16px);letter-spacing:.06em;text-transform:uppercase;color:#5A3A1E;margin-top:4px;white-space:nowrap}
   @media(max-width:860px){
-    .iv-live__row{grid-template-columns:1fr;gap:26px}
-    .iv-live__stat+.iv-live__stat{border-left:0;border-top:1px solid var(--line,#C9BE9F);padding-top:22px}
-    .iv-live__band{grid-template-columns:1fr;gap:24px}
-    .iv-live__tally{justify-content:flex-start}
+    .iv-live__row{grid-template-columns:1fr;justify-content:stretch;gap:26px}
+    .iv-live__stat+.iv-live__stat{border-left:0;border-top:1px solid rgba(42,46,39,.3);padding-top:22px}
+    .iv-live__band{grid-template-columns:1fr;gap:28px}
+    .iv-live__cap{justify-self:center;text-align:center}
+    .iv-live__tally{gap:12px}
+    .iv-live__brand{flex-direction:column;gap:8px;text-align:center}
+    .iv-live__brandimg{height:58px;justify-content:center}
+    .iv-live__brandn small{display:block;margin:4px 0 0}
   }
   /* ============ PORTFOLIO ============ */
   .iv-port__head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
@@ -1391,7 +1398,7 @@ $iv_tally = array(
               <?php endif; ?>
             </div>
             <div class="iv-live__brandtxt">
-              <div class="iv-live__brandn"><?php echo esc_html( $t['n'] ); ?><small>(<span data-en><?php echo esc_html( $t['unit_en'] ); ?></span><span data-zh><?php echo esc_html( $t['unit_zh'] ); ?></span>)</small></div>
+              <div class="iv-live__brandn"><?php echo esc_html( $t['n'] ); ?><small>( <span data-en><?php echo esc_html( $t['unit_en'] ); ?></span><span data-zh><?php echo esc_html( $t['unit_zh'] ); ?></span> )</small></div>
               <div class="iv-live__brandname"><?php echo wp_kses_post( $t['name'] ); ?></div>
             </div>
           </div>
