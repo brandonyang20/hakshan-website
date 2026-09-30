@@ -1298,10 +1298,12 @@ get_header();
   .iv-bm__row--hold:hover .iv-bm__hold{transform:translateY(-2px);box-shadow:0 14px 28px -16px rgba(42,26,15,.6)}
 
   /* Layer 02: five logo marks on a bus with drops */
-  .iv-bm__row--cos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(6px,1vw,14px);padding-top:clamp(22px,2.8vw,34px)}
-  .iv-bm__row--cos::before{content:"";position:absolute;top:0;left:10%;right:10%;height:2px;background:var(--line)}
+  .iv-bm__row--cos{--g:clamp(6px,1vw,14px);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--g);padding-top:clamp(22px,2.8vw,34px)}
+  /* Bus runs exactly from the first column's centre to the last's: with 5
+     columns and gap g, a centre sits at (W - 4g)/10 from the edge. */
+  .iv-bm__row--cos::before{content:"";position:absolute;top:0;left:calc((100% - 4 * var(--g)) / 10 - 1px);right:calc((100% - 4 * var(--g)) / 10 - 1px);height:2px;background:var(--line)}
   .iv-bm__co{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(6px,.7vw,10px);min-width:0;font-size:clamp(9px,.95vw,14px);transition:transform .25s ease}
-  .iv-bm__co::before{content:"";position:absolute;bottom:100%;left:50%;width:2px;height:clamp(22px,2.8vw,34px);background:var(--line)}
+  .iv-bm__co::before{content:"";position:absolute;bottom:100%;left:calc(50% - 1px);width:2px;height:clamp(22px,2.8vw,34px);background:var(--line)}
   .iv-bm__row--cos:hover .iv-bm__co{transform:translateY(-2px)}
   .iv-bm__mark{display:inline-flex;gap:3px;flex:0 0 auto}
   .iv-bm__mark i{display:block;width:clamp(6px,.65vw,9px);height:clamp(26px,2.9vw,38px);transform:skewY(-20deg)}
@@ -1319,7 +1321,7 @@ get_header();
   .iv-bm__bus{position:absolute;top:0;height:2px;background:var(--line);left:0;width:0}
   .iv-bm__outlet{position:relative;display:flex;flex-direction:column;align-items:center;padding:clamp(7px,.8vw,10px) clamp(12px,1.4vw,18px);border-radius:10px;background:#9C6E36;color:#fff;text-align:center;font-family:var(--serif);font-weight:500;font-size:clamp(12px,1.2vw,16px);line-height:1.25;white-space:nowrap;transition:transform .25s ease,box-shadow .25s ease}
   .iv-bm__outlet b{font-weight:600;letter-spacing:.02em}
-  .iv-bm__outlet.is-top::before{content:"";position:absolute;bottom:100%;left:50%;width:2px;height:clamp(22px,2.8vw,34px);background:var(--line)}
+  .iv-bm__outlet.is-top::before{content:"";position:absolute;bottom:100%;left:calc(50% - 1px);width:2px;height:clamp(22px,2.8vw,34px);background:var(--line)}
   .iv-bm__outlet:hover{transform:translateY(-2px);box-shadow:0 12px 22px -14px rgba(42,26,15,.7)}
 
   /* Detail drawer: opens a real gap under its row (pushing the layers
@@ -2312,10 +2314,14 @@ $iv_news = array(
         p.classList.toggle('is-top', onTop);
         if (onTop) { if (!first) first = p; last = p; }
       });
-      var a = first.offsetLeft + first.offsetWidth / 2;
-      var b = last.offsetLeft + last.offsetWidth / 2;
-      bus.style.left = a + 'px';
-      bus.style.width = Math.max(0, b - a) + 'px';
+      // Sub-pixel positions (offsetLeft/offsetWidth round to whole pixels,
+      // which left the bus ends up to ~1px off the drops).
+      var rr = row.getBoundingClientRect();
+      var fr = first.getBoundingClientRect(), lr = last.getBoundingClientRect();
+      var a = fr.left - rr.left + fr.width / 2;
+      var b = lr.left - rr.left + lr.width / 2;
+      bus.style.left = (a - 1) + 'px';
+      bus.style.width = Math.max(0, b - a + 2) + 'px';
     }
     layoutBus();
     window.addEventListener('resize', layoutBus);
