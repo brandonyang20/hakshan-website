@@ -582,6 +582,7 @@ add_filter(
 		foreach ( $cols as $k => $v ) {
 			$out[ $k ] = $v;
 			if ( 'title' === $k ) {
+				$out['hakshan_order']  = __( 'Order', 'hakshan' );
 				$out['hakshan_opened'] = __( 'Opened', 'hakshan' );
 			}
 		}
@@ -591,6 +592,10 @@ add_filter(
 add_action(
 	'manage_outlet_posts_custom_column',
 	function ( $col, $post_id ) {
+		if ( 'hakshan_order' === $col ) {
+			echo (int) get_post_field( 'menu_order', $post_id );
+			return;
+		}
 		if ( 'hakshan_opened' !== $col ) {
 			return;
 		}
@@ -599,4 +604,33 @@ add_action(
 	},
 	10,
 	2
+);
+
+/* Order column is sortable, and the Outlets list defaults to the same
+   order visitors see on the site (Page Attributes → Order, lowest first). */
+add_filter(
+	'manage_edit-outlet_sortable_columns',
+	function ( $cols ) {
+		$cols['hakshan_order'] = 'menu_order';
+		return $cols;
+	}
+);
+add_action(
+	'pre_get_posts',
+	function ( $q ) {
+		if ( ! is_admin() || ! $q->is_main_query() || 'outlet' !== $q->get( 'post_type' ) ) {
+			return;
+		}
+		if ( ! $q->get( 'orderby' ) ) {
+			$q->set( 'orderby', array( 'menu_order' => 'ASC', 'title' => 'ASC' ) );
+		}
+	}
+);
+add_action(
+	'admin_head-edit.php',
+	function () {
+		if ( 'outlet' === get_current_screen()->post_type ) {
+			echo '<style>.column-hakshan_order{width:70px;text-align:center}.column-hakshan_opened{width:120px}</style>';
+		}
+	}
 );
