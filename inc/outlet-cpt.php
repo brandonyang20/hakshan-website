@@ -601,6 +601,15 @@ add_action(
 		}
 		$parts = hakshan_outlet_opened_parts( get_post_meta( $post_id, 'outlet_opened', true ) );
 		echo $parts ? esc_html( gmdate( 'j M Y', $parts['ts'] ) ) : '<span style="color:#999">&mdash;</span>';
+		// Current values for Quick Edit to prefill from (WordPress does not
+		// prefill custom fields on its own).
+		printf(
+			'<div class="hidden hakshan-qe-data" data-outlet_city="%1$s" data-outlet_phone="%2$s" data-outlet_booking_url="%3$s" data-outlet_opened="%4$s"></div>',
+			esc_attr( get_post_meta( $post_id, 'outlet_city', true ) ),
+			esc_attr( get_post_meta( $post_id, 'outlet_phone', true ) ),
+			esc_attr( get_post_meta( $post_id, 'outlet_booking_url', true ) ),
+			esc_attr( $parts ? gmdate( 'Y-m-d', $parts['ts'] ) : '' )
+		);
 	},
 	10,
 	2
@@ -632,5 +641,78 @@ add_action(
 		if ( 'outlet' === get_current_screen()->post_type ) {
 			echo '<style>.column-hakshan_order{width:70px;text-align:center}.column-hakshan_opened{width:120px}</style>';
 		}
+	}
+);
+
+/* ---------------------------------------------------------------------------
+ * Quick Edit: City, Phone, Booking link and Opening date.
+ * Saved by hakshan_save_outlet_meta() (same sanitising as the full editor);
+ * only the fields present are touched, so nothing else is overwritten.
+ * ------------------------------------------------------------------------- */
+
+function hakshan_outlet_quick_fields() {
+	return array(
+		'outlet_city'        => array( __( 'City', 'hakshan' ), 'text', 'SUBANG JAYA' ),
+		'outlet_phone'       => array( __( 'Phone', 'hakshan' ), 'text', '+60 10-433 6645' ),
+		'outlet_booking_url' => array( __( 'Booking link', 'hakshan' ), 'url', 'https://inline.app/booking/...' ),
+		'outlet_opened'      => array( __( 'Opening date', 'hakshan' ), 'date', '' ),
+	);
+}
+
+add_action(
+	'quick_edit_custom_box',
+	function ( $col, $post_type ) {
+		if ( 'outlet' !== $post_type || 'hakshan_opened' !== $col ) {
+			return;
+		}
+		wp_nonce_field( 'hakshan_outlet_fields_save', 'hakshan_outlet_fields_nonce', false );
+		?>
+		<fieldset class="inline-edit-col-right hakshan-qe-fields">
+			<div class="inline-edit-col">
+				<span class="inline-edit-legend" style="display:block;margin:.2em 0 .6em;font-weight:600"><?php esc_html_e( 'Outlet details', 'hakshan' ); ?></span>
+				<?php foreach ( hakshan_outlet_quick_fields() as $key => $f ) : ?>
+					<label>
+						<span class="title"><?php echo esc_html( $f[0] ); ?></span>
+						<span class="input-text-wrap">
+							<input type="<?php echo esc_attr( $f[1] ); ?>" name="<?php echo esc_attr( $key ); ?>" value="" placeholder="<?php echo esc_attr( $f[2] ); ?>" />
+						</span>
+					</label>
+				<?php endforeach; ?>
+			</div>
+		</fieldset>
+		<?php
+	},
+	10,
+	2
+);
+
+add_action(
+	'admin_footer-edit.php',
+	function () {
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+		if ( ! $screen || 'outlet' !== $screen->post_type ) {
+			return;
+		}
+		?>
+		<script>
+		// Prefill the custom Quick Edit fields from the row's hidden data.
+		(function ($) {
+			if (!$ || typeof inlineEditPost === 'undefined') return;
+			var keys = <?php echo wp_json_encode( array_keys( hakshan_outlet_quick_fields() ) ); ?>;
+			var orig = inlineEditPost.edit;
+			inlineEditPost.edit = function (id) {
+				orig.apply(this, arguments);
+				var postId = typeof id === 'object' ? parseInt(this.getId(id), 10) : parseInt(id, 10);
+				if (!postId) return;
+				var $data = $('#post-' + postId + ' .hakshan-qe-data');
+				var $row = $('#edit-' + postId);
+				keys.forEach(function (k) {
+					// attr() not data(): keeps "+60 ..." phone strings as text.
+					$row.find('[name="' + k + '"]').val($data.attr('data-' + k) || '');
+				});
+			};
+		})(window.jQuery);
+		</script>
+		<?php
 	}
 );
