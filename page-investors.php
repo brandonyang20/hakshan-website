@@ -1438,7 +1438,7 @@ get_header();
     .iv-bm__row--outlets{--tg:12px;max-width:none}
     .iv-bm__outlet{flex-basis:calc((100% - 2 * var(--tg)) / 3);width:calc((100% - 2 * var(--tg)) / 3)}
   }
-  /* Forecast months (Nov, Dec): the same bar, slightly greyed out. */
+  /* Forecast months (Oct, Nov, Dec): the same bar, slightly greyed out. */
   .iv-chartsec .iv-bar--proj .iv-bar__fill{background:#A7AA93;outline:none}
   .iv .iv-chartsec .iv-bar.iv-bar--proj .iv-bar__cap{color:#8A8A80}
   .iv .iv-chartsec .iv-bar--proj .iv-bar__lbl{color:#8A8A80}
@@ -1892,7 +1892,7 @@ $iv_brands = array(
         <div class="iv-bar"><div class="iv-bar__fill" data-h="45.7"><div class="iv-bar__cap">2,777,731.22</div></div><div class="iv-bar__lbl">JUL</div></div>
         <div class="iv-bar"><div class="iv-bar__fill" data-h="54.3"><div class="iv-bar__cap">3,297,316.43</div></div><div class="iv-bar__lbl">AUG</div></div>
         <div class="iv-bar"><div class="iv-bar__fill" data-h="64.2"><div class="iv-bar__cap">3,896,685.72</div></div><div class="iv-bar__lbl">SEP</div></div>
-        <div class="iv-bar"><div class="iv-bar__fill" data-h="70.4"><div class="iv-bar__cap">4,273,912.38</div></div><div class="iv-bar__lbl">OCT</div></div>
+        <div class="iv-bar iv-bar--proj"><div class="iv-bar__fill" data-h="70.4"><div class="iv-bar__cap">4,273,912.38</div></div><div class="iv-bar__lbl">OCT</div></div>
         <div class="iv-bar iv-bar--proj"><div class="iv-bar__fill" data-h="80.6"><div class="iv-bar__cap">4,897,760.51</div></div><div class="iv-bar__lbl">NOV</div></div>
         <div class="iv-bar iv-bar--proj"><div class="iv-bar__fill" data-h="100"><div class="iv-bar__cap">6,072,987.76</div></div><div class="iv-bar__lbl">DEC</div></div>
       </div>
