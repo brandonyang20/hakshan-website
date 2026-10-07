@@ -1442,9 +1442,9 @@ get_header();
   .iv-chartsec .iv-bar--proj .iv-bar__fill{background:#A7AA93;outline:none}
   .iv .iv-chartsec .iv-bar.iv-bar--proj .iv-bar__cap{color:#8A8A80}
   .iv .iv-chartsec .iv-bar--proj .iv-bar__lbl{color:#8A8A80}
-  /* 2026 pipeline: five smaller storefronts per row (four on phones). */
-  #ivOst2026 .iv-ost{flex-basis:calc((100% - 40px) / 5)}
-  @media (max-width:620px){ #ivOst2026 .iv-ost{flex-basis:calc((100% - 30px) / 4)} }
+  /* 2026 (cumulative): six smaller storefronts per row (five on phones). */
+  #ivOst2026 .iv-ost{flex-basis:calc((100% - 50px) / 6)}
+  @media (max-width:620px){ #ivOst2026 .iv-ost{flex-basis:calc((100% - 40px) / 5)} }
 </style>
 
 <div class="iv">
@@ -1739,17 +1739,20 @@ $iv_brands = array(
       </h2>
     </div>
     <?php
-    // Outlet rows for both years, detected from each outlet's Opening date:
-    //  - 2025: outlets open on or before 31 Dec 2025 (cumulative), by date.
-    //  - 2026: outlets dated 2026, plus every "(Coming Soon)" outlet (the
-    //    2026 pipeline), dated ones first.
-    // With no dates entered yet, 2025 falls back to the first seven
-    // operating outlets and 2026 to the coming-soon outlets.
-    $iv_cutoff     = gmmktime( 23, 59, 59, 12, 31, 2025 );
-    $iv_2025       = array();
-    $iv_2026       = array();
-    $iv_ops        = array();
-    $iv_any_dated  = false;
+    // Outlet rows for both years, from each outlet's Opening date. Both are
+    // cumulative ("operating by the end of that year"):
+    //  - 2025: outlets dated on or before 31 Dec 2025, by date. Until at
+    //    least one outlet carries such a date, the first seven operating
+    //    outlets are shown (matching "7 Outlets"), without dates.
+    //  - 2026: every operating outlet not dated after 2026 (so it includes
+    //    the 2025 ones; undated outlets count as already open), then the
+    //    "(Coming Soon)" outlets last as the pipeline.
+    $iv_cut25  = gmmktime( 23, 59, 59, 12, 31, 2025 );
+    $iv_cut26  = gmmktime( 23, 59, 59, 12, 31, 2026 );
+    $iv_2025   = array();
+    $iv_2026   = array();
+    $iv_ops    = array();
+    $iv_seq    = 0;
     foreach ( ( function_exists( 'hakshan_get_outlets' ) ? hakshan_get_outlets() : array() ) as $iv_tr_o ) {
       $iv_title = trim( wp_strip_all_tags( get_the_title( $iv_tr_o->ID ) ) );
       if ( '' === $iv_title ) {
@@ -1758,15 +1761,13 @@ $iv_brands = array(
       $iv_soon = false !== stripos( $iv_title, 'coming soon' );
       $iv_d    = function_exists( 'hakshan_get_outlet_data' ) ? hakshan_get_outlet_data( $iv_tr_o->ID ) : array();
       $iv_op   = ! empty( $iv_d['opened_parts'] ) ? $iv_d['opened_parts'] : null;
-      if ( $iv_op ) {
-        $iv_any_dated = true;
-      }
-      $iv_row = array(
+      $iv_row  = array(
         'name'   => $iv_soon ? trim( preg_replace( '/^\(\s*coming soon\s*\)\s*/i', '', $iv_title ) ) : $iv_title,
         'city'   => ! empty( $iv_d['city'] ) ? ucwords( strtolower( $iv_d['city'] ) ) : '',
         'opened' => $iv_op ? $iv_op['label'] : '',
-        'ts'     => $iv_op ? $iv_op['ts'] : PHP_INT_MAX,
+        'ts'     => $iv_op ? $iv_op['ts'] : 0,   // undated = already open
         'soon'   => $iv_soon,
+        'seq'    => $iv_seq++,                     // CPT (menu) order tie-break
         'img'    => hakshan_iv_img( 'render-hakshan.webp' ),
         'url'    => get_permalink( $iv_tr_o->ID ),
       );
@@ -1774,15 +1775,21 @@ $iv_brands = array(
         $iv_2026[] = $iv_row;
         continue;
       }
-      if ( $iv_op && $iv_op['ts'] <= $iv_cutoff ) {
+      if ( $iv_op && $iv_op['ts'] <= $iv_cut25 ) {
         $iv_2025[] = $iv_row;
-      } elseif ( $iv_op && 2026 === $iv_op['year'] ) {
+      }
+      if ( ! $iv_op || $iv_op['ts'] <= $iv_cut26 ) {
         $iv_2026[] = $iv_row;
       }
-      $iv_ops[] = $iv_row;
+      if ( ! $iv_op ) {
+        $iv_ops[] = $iv_row;
+      }
     }
-    $iv_by_date = static function ( $a, $b ) { return $a['ts'] <=> $b['ts']; };
-    if ( $iv_any_dated ) {
+    // Coming-soon last, then by date (undated first), then menu order.
+    $iv_by_date = static function ( $a, $b ) {
+      return array( $a['soon'], $a['ts'], $a['seq'] ) <=> array( $b['soon'], $b['ts'], $b['seq'] );
+    };
+    if ( $iv_2025 ) {
       usort( $iv_2025, $iv_by_date );
     } else {
       $iv_2025 = array_slice( $iv_ops, 0, 7 );
