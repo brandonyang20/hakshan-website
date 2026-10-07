@@ -1442,6 +1442,9 @@ get_header();
   .iv-chartsec .iv-bar--proj .iv-bar__fill{background:#A7AA93;outline:none}
   .iv .iv-chartsec .iv-bar.iv-bar--proj .iv-bar__cap{color:#8A8A80}
   .iv .iv-chartsec .iv-bar--proj .iv-bar__lbl{color:#8A8A80}
+  /* 2026 pipeline: five smaller storefronts per row (four on phones). */
+  #ivOst2026 .iv-ost{flex-basis:calc((100% - 40px) / 5)}
+  @media (max-width:620px){ #ivOst2026 .iv-ost{flex-basis:calc((100% - 30px) / 4)} }
 </style>
 
 <div class="iv">
@@ -2496,25 +2499,52 @@ $iv_news = array(
 <script>
   // Year toggles: open/close a year's outlet row. Tiles stagger in via
   // their --i delay; the row is inert while closed so hidden links cannot
-  // be tabbed to.
+  // be tabbed to. On desktop, hovering the year's column opens it and
+  // leaving closes it; clicking the arrow pins it open (or closes it).
   (function () {
+    var canHover = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+    var lastScroll = 0;
+    window.addEventListener('scroll', function () { lastScroll = Date.now(); }, { passive: true });
+
     document.querySelectorAll('.iv-yr-toggle').forEach(function (btn) {
       var panel = document.getElementById(btn.getAttribute('aria-controls'));
       if (!panel) return;
-      var timer = null;
-      btn.addEventListener('click', function () {
-        var open = btn.getAttribute('aria-expanded') !== 'true';
+      var col = btn.closest('.iv-mile');
+      var settleT = null, openT = null, closeT = null, pinned = false;
+
+      function set(open) {
+        if ((btn.getAttribute('aria-expanded') === 'true') === open) return;
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        clearTimeout(timer);
+        clearTimeout(settleT);
         panel.classList.remove('is-settled');
         panel.classList.toggle('is-open', open);
         if (open) {
           panel.removeAttribute('inert');
-          timer = setTimeout(function () { panel.classList.add('is-settled'); }, 520);
+          settleT = setTimeout(function () { panel.classList.add('is-settled'); }, 520);
         } else {
           panel.setAttribute('inert', '');
         }
+      }
+
+      btn.addEventListener('click', function () {
+        clearTimeout(openT); clearTimeout(closeT);
+        var open = btn.getAttribute('aria-expanded') !== 'true';
+        pinned = open;
+        set(open);
       });
+
+      if (canHover && col) {
+        col.addEventListener('mouseenter', function () {
+          clearTimeout(closeT);
+          if (Date.now() - lastScroll < 200) return;
+          openT = setTimeout(function () { set(true); }, 140);
+        });
+        col.addEventListener('mouseleave', function () {
+          clearTimeout(openT);
+          if (pinned) return;
+          closeT = setTimeout(function () { set(false); }, 300);
+        });
+      }
     });
   })();
 </script>
