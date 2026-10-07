@@ -1557,7 +1557,7 @@ $iv_tally = array(
         <div class="iv-live__l"><span data-en>Projected Capital Payback</span><span data-zh>预计资本回收期</span></div>
       </div>
       <div class="iv-live__stat">
-        <div class="iv-live__n">RM36.9 <em>Mil</em></div>
+        <div class="iv-live__n">RM89 <em>Mil</em></div>
         <div class="iv-live__l"><span data-en>Revenue Generated</span><span data-zh>已实现营收</span></div>
       </div>
     </div>
