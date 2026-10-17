@@ -1007,3 +1007,35 @@ function hakshan_set_dish_prices_2026_10() {
 	do_action( 'litespeed_purge_all' );
 }
 add_action( 'admin_init', 'hakshan_set_dish_prices_2026_10', 50 );
+
+/**
+ * One-time: unpublish dishes that stopped selling in Sep 2026 (no POS sales
+ * since). Moved back to draft, not deleted, so they can be restored.
+ */
+function hakshan_unpublish_dishes_2026_10() {
+	if ( get_option( 'hakshan_dishes_unpublish_2026_10' ) || ! current_user_can( 'publish_posts' ) ) {
+		return;
+	}
+	$zhs = array( '酥炸北海道带子', '北海道带子西兰花', '清蒸龙趸', '小白菜伴生菇', '蒜香巴菇菜', '黑豆乌鸡汤（套餐）' );
+	$ids = get_posts(
+		array(
+			'post_type'      => 'dish',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+	foreach ( $ids as $id ) {
+		if ( in_array( trim( (string) get_post_meta( $id, 'dish_zh', true ) ), $zhs, true ) ) {
+			wp_update_post(
+				array(
+					'ID'          => $id,
+					'post_status' => 'draft',
+				)
+			);
+		}
+	}
+	update_option( 'hakshan_dishes_unpublish_2026_10', 1 );
+	do_action( 'litespeed_purge_all' );
+}
+add_action( 'admin_init', 'hakshan_unpublish_dishes_2026_10', 60 );
