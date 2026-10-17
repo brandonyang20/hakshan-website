@@ -825,3 +825,36 @@ function hakshan_import_dish_photos_2026_10() {
 	}
 }
 add_action( 'admin_init', 'hakshan_import_dish_photos_2026_10', 30 );
+
+/**
+ * One-time: publish the Oct 2026 dishes once their photos were checked.
+ * Only drafts are touched; anything already published/trashed is left alone.
+ */
+function hakshan_publish_dishes_2026_10() {
+	if ( get_option( 'hakshan_dishes_publish_2026_10' ) || ! current_user_can( 'publish_posts' ) ) {
+		return;
+	}
+	$zhs = array( '蒜香青龙菜炒白玉菇', '咖哩鲜蔬煲', '金沙苦瓜王', '蒜香清炒奶白菜', '客家风味小炒', '客家咸香肉', '半煎焗石班魚', '清炒空心菜', '葱油菜心' );
+	foreach ( $zhs as $zh ) {
+		$ids = get_posts(
+			array(
+				'post_type'      => 'dish',
+				'post_status'    => 'draft',
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+				'meta_key'       => 'dish_zh', // phpcs:ignore WordPress.DB.SlowDBQuery
+				'meta_value'     => $zh,       // phpcs:ignore WordPress.DB.SlowDBQuery
+			)
+		);
+		if ( $ids ) {
+			wp_update_post(
+				array(
+					'ID'          => (int) $ids[0],
+					'post_status' => 'publish',
+				)
+			);
+		}
+	}
+	update_option( 'hakshan_dishes_publish_2026_10', 1 );
+}
+add_action( 'admin_init', 'hakshan_publish_dishes_2026_10', 40 );
