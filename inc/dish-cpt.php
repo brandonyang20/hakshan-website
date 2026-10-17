@@ -676,3 +676,69 @@ function hakshan_menu_seed_data() {
 		),
 	);
 }
+
+/**
+ * One-time import (Oct 2026): dishes sold in the POS but missing from the
+ * website menu. Created as DRAFTS on the next wp-admin load so photos can be
+ * added and copy checked before publishing. Skips any dish whose Chinese name
+ * already exists (any status), so it never duplicates. Matches the live menu
+ * convention: Chinese description only, no prices.
+ */
+function hakshan_import_missing_dishes_2026_10() {
+	if ( get_option( 'hakshan_dishes_import_2026_10' ) || ! current_user_can( 'edit_posts' ) ) {
+		return;
+	}
+	$dishes = array(
+		array( 'new-dish', 'Dragon Chives with Shimeji Mushrooms', '蒜香青龙菜炒白玉菇', '青龙菜清脆鲜嫩，配上白玉菇大火快炒，蒜香扑鼻，口感爽脆中带着菇香，清爽又下饭。' ),
+		array( 'new-dish', 'Claypot Curry Mixed Vegetables', '咖哩鲜蔬煲', '多种新鲜时蔬以香浓咖哩慢煮入味，瓦煲上桌热气腾腾，微辣浓郁，配饭一流。' ),
+		array( 'new-dish', 'Golden Salted Egg Bitter Gourd', '金沙苦瓜王', '苦瓜裹上金黄咸蛋酱，外层咸香酥脆，入口带着淡淡甘苦回甘，越吃越停不下来。' ),
+		array( 'new-dish', 'Bok Choy with Garlic', '蒜香清炒奶白菜', '嫩滑奶白菜加蒜蓉快炒，保留蔬菜原有的清甜，简单清爽，是餐桌上少不了的一道时蔬。' ),
+		array( 'new-dish', 'Traditional Hakka Stir-Fry', '客家风味小炒', '传承客家家常小炒做法，多种食材大火爆炒，锅气十足，咸香惹味，最适合配一碗白饭。' ),
+		array( 'new-dish', 'Hakka Pork with Leeks', '客家咸香肉', '咸香猪肉配上蒜苗同炒，肉香咸鲜入味，蒜苗清香爽口，是道地的客家下饭菜。' ),
+		array( 'new-dish', 'Pan-Seared Grouper with Superior Soy Sauce', '半煎焗石班魚', '石斑鱼半煎至外皮金香，再淋上特制豉油焗香，鱼肉鲜嫩多汁，酱香浓郁。' ),
+		array( 'vegetable-tofu', 'Stir-Fry Water Spinach', '清炒空心菜', '新鲜空心菜大火清炒，翠绿爽脆，带着淡淡蒜香，清爽开胃。' ),
+		array( 'vegetable-tofu', 'Choy Sum With Scallion', '葱油菜心', '嫩菜心淋上香葱热油，清甜爽口，葱香四溢，简单却很耐吃。' ),
+	);
+	$order = 900;
+	foreach ( $dishes as $d ) {
+		list( $section, $en, $zh, $desc_zh ) = $d;
+		$order++;
+		$exists = get_posts(
+			array(
+				'post_type'      => 'dish',
+				'post_status'    => 'any',
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+				'meta_key'       => 'dish_zh', // phpcs:ignore WordPress.DB.SlowDBQuery
+				'meta_value'     => $zh,       // phpcs:ignore WordPress.DB.SlowDBQuery
+			)
+		);
+		if ( $exists ) {
+			continue;
+		}
+		$post_id = wp_insert_post(
+			array(
+				'post_type'   => 'dish',
+				'post_status' => 'draft',
+				'post_title'  => $en,
+				'menu_order'  => $order,
+				'meta_input'  => array(
+					'dish_zh'      => $zh,
+					'dish_label'   => strtolower( $en ),
+					'dish_desc_en' => '',
+					'dish_desc_zh' => $desc_zh,
+				),
+			),
+			true
+		);
+		if ( is_wp_error( $post_id ) ) {
+			continue;
+		}
+		$term = get_term_by( 'slug', $section, 'dish_section' );
+		if ( $term && ! is_wp_error( $term ) ) {
+			wp_set_object_terms( $post_id, array( (int) $term->term_id ), 'dish_section', false );
+		}
+	}
+	update_option( 'hakshan_dishes_import_2026_10', 1 );
+}
+add_action( 'admin_init', 'hakshan_import_missing_dishes_2026_10', 20 );
