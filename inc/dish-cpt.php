@@ -858,3 +858,133 @@ function hakshan_publish_dishes_2026_10() {
 	update_option( 'hakshan_dishes_publish_2026_10', 1 );
 }
 add_action( 'admin_init', 'hakshan_publish_dishes_2026_10', 40 );
+
+/**
+ * One-time: set menu prices from the POS / order.hakshan.com menu (Oct 2026).
+ * Matched by trimmed dish_zh; only the normal price is set (the POS has no
+ * separate member price). Dishes not listed here are left untouched.
+ */
+function hakshan_set_dish_prices_2026_10() {
+	if ( get_option( 'hakshan_dish_prices_2026_10' ) || ! current_user_can( 'edit_posts' ) ) {
+		return;
+	}
+	$prices = array( /* dish_zh => price */
+		'咕噜肉' => 'RM 20',
+		'药膳盐焗鸡' => 'RM 35',
+		'葱油白切鸡' => 'RM 35',
+		'咸蛋虾球' => 'RM 30',
+		'姜葱炒鱼片' => 'RM 35',
+		'酥炸明虾球' => 'RM 30',
+		'酥炸苏东' => 'RM 25',
+		'奶油鸡塊' => 'RM 20',
+		'奶油苏东' => 'RM 25',
+		'咸蛋苏东' => 'RM 25',
+		'芋香扣肉' => 'RM 30',
+		'三杯醇香肥肠' => 'RM 25',
+		'黄梨酸香肥肠' => 'RM 20',
+		'客家香炒粒粒' => 'RM 15',
+		'山药莲藕时蔬' => 'RM 20',
+		'梅香黄金炒饭' => 'RM 15',
+		'醇香猪肚板面' => 'RM 15',
+		'蒜香青龙菜炒白玉菇' => 'RM 15',
+		'咖哩鲜蔬煲' => 'RM 30',
+		'金沙苦瓜王' => 'RM 20',
+		'蒜香清炒奶白菜' => 'RM 15',
+		'客家风味小炒' => 'RM 25',
+		'客家咸香肉' => 'RM 25',
+		'半煎焗石班魚' => 'RM 45',
+		'梅菜扣肉' => 'RM 25',
+		'猪脚醋' => 'RM 30',
+		'南乳炸肉' => 'RM 25',
+		'客家焖肉焖木耳' => 'RM 25',
+		'姜芽焖鸭' => 'RM 35',
+		'黄酒醉鸡' => 'RM 35',
+		'客家酿四宝' => 'RM 35',
+		'客家算盘子' => 'RM 20',
+		'花雕醉明虾' => 'RM 40',
+		'酸甜虾球' => 'RM 30',
+		'酸甜鸡丁' => 'RM 20',
+		'吊片西芹蒸肉饼' => 'RM 35',
+		'客家擂茶撈麵' => 'RM 18',
+		'客家擂茶冷面' => 'RM 20',
+		'传统擂茶炒饭' => 'RM 20',
+		'正宗擂茶拌饭' => 'RM 18',
+		'清韵擂茶奶茶' => 'RM 7',
+		'纯香擂茶豆奶' => 'RM 7',
+		'擂茶豆奶湯圓' => 'RM 8',
+		'咕噜肉饭' => 'RM 15',
+		'葱油白切鸡饭' => 'RM 20',
+		'客家焖肉焖木耳饭' => 'RM 15',
+		'客家酿四宝饭' => 'RM 20',
+		'南乳炸肉饭' => 'RM 15',
+		'南乳炸鸡饭' => 'RM 15',
+		'客家肉碎饭' => 'RM 15',
+		'冬菜蒸肉饼饭' => 'RM 15',
+		'奶油鷄塊飯' => 'RM 15',
+		'猪脚醋饭' => 'RM 20',
+		'药膳盐焗鸡饭' => 'RM 20',
+		'黄酒醉鸡饭' => 'RM 20',
+		'姜芽焖鸭饭' => 'RM 20',
+		'姜酒鸡面线' => 'RM 15',
+		'客家肉碎蒸矮瓜' => 'RM 20',
+		'虾仁煎蛋' => 'RM 25',
+		'菜莆煎蛋' => 'RM 20',
+		'芙蓉蛋' => 'RM 20',
+		'瓦煲肉碎豆腐羹' => 'RM 20',
+		'菜莆肉碎豆腐' => 'RM 20',
+		'虾球西兰花' => 'RM 25',
+		'瑶柱水瓜滑蛋' => 'RM 20',
+		'橄榄菜肉碎炒四季豆' => 'RM 15',
+		'客家山珍菌菇' => 'RM 20',
+		'罗宋汤 (ABC汤)' => 'RM 15',
+		'莲藕花生汤' => 'RM 15',
+		'药材鸡汤' => 'RM 15',
+		'黑豆乌鸡汤' => 'RM 15',
+		'胡椒猪肚汤' => 'RM 20',
+		'龟苓膏' => 'RM 5',
+		'桂花糕' => 'RM 5',
+		'芒果布丁' => 'RM 5',
+		'冰糖炖雪梨' => 'RM 5',
+		'姜糖汤圆' => 'RM 7',
+		'鴛鴦糍粑' => 'RM 8',
+		'酸甜百香果汁' => 'RM 8.90',
+		'纯天然蜂蜜柠檬' => 'RM 8.90',
+		'冰凉酸梅桔子汁' => 'RM 8.90',
+		'热带芒果汁' => 'RM 9.90',
+		'新鲜石榴汁' => 'RM 9.90',
+		'清爽柳橙汁' => 'RM 9.90',
+		'奶油石斑魚片' => 'RM 35',
+		'咸蛋石斑魚片' => 'RM 35',
+		'姜丝油浸鱼石斑鱼' => 'RM 50',
+		'酸甜石斑魚片' => 'RM 35',
+		'客家风味梅菜炒石斑鱼片' => 'RM 45',
+		'客家炒三宝 - 三味合一' => 'RM 20',
+		'客家养生姜炖鸡汤' => 'RM 20',
+		'冬菜蒸肉饼' => 'RM 25',
+		'客家三杯鸡' => 'RM 35',
+		'清炒油麦胆' => 'RM 15',
+		'虾油葱油豆腐' => 'RM 15',
+		'八宝凉茶' => 'RM 5',
+		'豆浆水' => 'RM 5',
+		'红糖姜茶' => 'RM 5',
+		'清炒空心菜' => 'RM 15',
+		'葱油菜心' => 'RM 20',
+	);
+	$ids = get_posts(
+		array(
+			'post_type'      => 'dish',
+			'post_status'    => 'any',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+	foreach ( $ids as $id ) {
+		$zh = trim( (string) get_post_meta( $id, 'dish_zh', true ) );
+		if ( isset( $prices[ $zh ] ) ) {
+			update_post_meta( $id, 'dish_price_normal', $prices[ $zh ] );
+		}
+	}
+	update_option( 'hakshan_dish_prices_2026_10', 1 );
+	do_action( 'litespeed_purge_all' );
+}
+add_action( 'admin_init', 'hakshan_set_dish_prices_2026_10', 50 );
