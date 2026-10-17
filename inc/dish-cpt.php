@@ -742,3 +742,86 @@ function hakshan_import_missing_dishes_2026_10() {
 	update_option( 'hakshan_dishes_import_2026_10', 1 );
 }
 add_action( 'admin_init', 'hakshan_import_missing_dishes_2026_10', 20 );
+
+/**
+ * One-time: pull photos for the Oct 2026 dishes from the POS (FeedMe) and set
+ * them as featured images. Matched by dish_zh; dishes that already have a
+ * featured image are left alone. Retries (at most every 10 min) until all done.
+ */
+function hakshan_import_dish_photos_2026_10() {
+	if ( get_option( 'hakshan_dish_photos_2026_10' ) || ! current_user_can( 'upload_files' ) || get_transient( 'hakshan_dish_photos_2026_10_lock' ) ) {
+		return;
+	}
+	set_transient( 'hakshan_dish_photos_2026_10_lock', 1, 10 * MINUTE_IN_SECONDS );
+
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/media.php';
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+
+	$base   = 'https://image.feedme.cc/';
+	$photos = array( /* dish_zh => FeedMe path */
+		'蒜香青龙菜炒白玉菇' => 'menu/699d5da687c570001c7a9840/item_2026_08_11T13_19_47_036Z_kbd3ow_msooyevz',
+		'咖哩鲜蔬煲'       => 'menu/699d5da687c570001c7a9840/item_2026_08_11T13_15_19_396Z_hhprw0_msooxg8i',
+		'金沙苦瓜王'       => 'menu/699d5da687c570001c7a9840/item_2026_08_11T13_17_56_303Z_98e198_msooy5xg',
+		'蒜香清炒奶白菜'     => 'menu/699d5da687c570001c7a9840/item_2026_08_11T13_20_40_593Z_6rgcjv_msoow4uy',
+		'客家风味小炒'      => 'menu/699d5da687c570001c7a9840/item_2026_08_11T13_16_50_439Z_n0pgl6_msooxr6v',
+		'客家咸香肉'       => 'menu/699d5da687c570001c7a9840/item_2026_08_11T13_14_28_236Z_1mb4ot_msoox7tm',
+		'半煎焗石班魚'      => 'media-image/699d5da687c570001c7a9840/product/item_2026-08-11T13_10_37.150Z_5fumsh/2026_09_06T12_47_10_076Z_nw8n',
+		'清炒空心菜'       => 'menu/699d5da687c570001c7a9840/item_2026_02_25T07_30_00_603Z_shtlae_ms6ayi1b',
+		'葱油菜心'        => 'menu/699d5da687c570001c7a9840/item_2026_02_25T07_30_00_603Z_jxcugp_ms6axqvl',
+	);
+	$exts   = array(
+		'image/jpeg' => 'jpg',
+		'image/png'  => 'png',
+		'image/webp' => 'webp',
+		'image/gif'  => 'gif',
+	);
+
+	$all_done = true;
+	foreach ( $photos as $zh => $path ) {
+		$ids = get_posts(
+			array(
+				'post_type'      => 'dish',
+				'post_status'    => 'any',
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+				'meta_key'       => 'dish_zh', // phpcs:ignore WordPress.DB.SlowDBQuery
+				'meta_value'     => $zh,       // phpcs:ignore WordPress.DB.SlowDBQuery
+			)
+		);
+		if ( ! $ids || has_post_thumbnail( $ids[0] ) ) {
+			continue;
+		}
+		$post_id = (int) $ids[0];
+
+		$tmp = download_url( $base . $path, 30 );
+		if ( is_wp_error( $tmp ) ) {
+			$all_done = false;
+			continue;
+		}
+		$mime = wp_get_image_mime( $tmp );
+		if ( ! $mime || ! isset( $exts[ $mime ] ) ) {
+			wp_delete_file( $tmp );
+			$all_done = false;
+			continue;
+		}
+		$file = array(
+			'name'     => sanitize_title( get_the_title( $post_id ) ) . '.' . $exts[ $mime ],
+			'tmp_name' => $tmp,
+		);
+		$att_id = media_handle_sideload( $file, $post_id, get_the_title( $post_id ) );
+		if ( is_wp_error( $att_id ) ) {
+			wp_delete_file( $tmp );
+			$all_done = false;
+			continue;
+		}
+		update_post_meta( $att_id, '_wp_attachment_image_alt', get_the_title( $post_id ) . ' ' . $zh );
+		set_post_thumbnail( $post_id, $att_id );
+	}
+
+	if ( $all_done ) {
+		update_option( 'hakshan_dish_photos_2026_10', 1 );
+		delete_transient( 'hakshan_dish_photos_2026_10_lock' );
+	}
+}
+add_action( 'admin_init', 'hakshan_import_dish_photos_2026_10', 30 );
