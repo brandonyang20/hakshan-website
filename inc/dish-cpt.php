@@ -866,7 +866,7 @@ add_action( 'admin_init', 'hakshan_publish_dishes_2026_10', 40 );
  * dish_zh; dishes not listed here are left untouched.
  */
 function hakshan_set_dish_prices_2026_10() {
-	if ( get_option( 'hakshan_dish_prices_2026_10b' ) || ! current_user_can( 'edit_posts' ) ) {
+	if ( get_option( 'hakshan_dish_prices_2026_10c' ) || ! current_user_can( 'edit_posts' ) ) {
 		return;
 	}
 	$prices = array( /* dish_zh => array( price, member price ) */
@@ -970,6 +970,23 @@ function hakshan_set_dish_prices_2026_10() {
 		'黑豆乌鸡汤' => array( 'RM 20', 'RM 15' ),
 		'龟苓膏' => array( 'RM 5', '' ),
 		'八宝凉茶' => array( 'RM 5', '' ),
+		/* Dine-in only (from Brand Dashboard POS sales) */
+		'4人套餐' => array( 'RM 188', 'RM 158' ),
+		'6人套餐' => array( 'RM 288', 'RM 218' ),
+		'传统客家炒面' => array( 'RM 20', 'RM 15' ),
+		'客家刀嬷切' => array( 'RM 20', 'RM 15' ),
+		'秘制肉碎客家面' => array( 'RM 20', 'RM 15' ),
+		'香辣口水鸡面' => array( 'RM 25', 'RM 20' ),
+		'客家咸香鸭' => array( 'RM 40', 'RM 35' ),
+		'铁观音' => array( 'RM 10', 'RM 5' ),
+		'普洱' => array( 'RM 10', 'RM 5' ),
+		'绿茶' => array( 'RM 10', 'RM 5' ),
+		'茉莉香片' => array( 'RM 10', 'RM 5' ),
+		'玫瑰紅棗桂圓茶' => array( 'RM 10', 'RM 5' ),
+		'山楂枸杞胎菊茶' => array( 'RM 10', 'RM 5' ),
+		'百合茉莉枸杞茶' => array( 'RM 10', 'RM 5' ),
+		'紅棗桂圓枸杞茶' => array( 'RM 10', 'RM 5' ),
+		'玫瑰茉莉胎菊茶' => array( 'RM 10', 'RM 5' ),
 	);
 	$ids = get_posts(
 		array(
@@ -986,7 +1003,7 @@ function hakshan_set_dish_prices_2026_10() {
 			update_post_meta( $id, 'dish_price_member', $prices[ $zh ][1] );
 		}
 	}
-	update_option( 'hakshan_dish_prices_2026_10b', 1 );
+	update_option( 'hakshan_dish_prices_2026_10c', 1 );
 	do_action( 'litespeed_purge_all' );
 }
 add_action( 'admin_init', 'hakshan_set_dish_prices_2026_10', 50 );
