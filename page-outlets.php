@@ -367,12 +367,12 @@ if ( ! empty( $outlet_posts ) ) {
     <span data-zh>2026拓展 · 新加坡 · 槟城</span>
   </span>
   <h2 style="font-family: var(--serif); font-style: italic; font-size: clamp(40px, 6vw, 80px); line-height: 0.95; margin: 16px 0 24px; letter-spacing: -0.025em;">
-    <span data-en>Outlet <em>10</em> opens next month.</span>
-    <span data-zh>第 <em>十</em> 家·下月开业。</span>
+    <span data-en>Outlet <em>17</em> opens next month.</span>
+    <span data-zh>第 <em>十七</em> 家·下月开业。</span>
   </h2>
   <p style="color: var(--ink-soft); max-width: 50ch; margin: 0 auto 32px;">
-    <span data-en>The 10th retail outlet opens locally next month, alongside the 3rd cloud kitchen. Penang (Tanjong Tokong) follows in Q2 2026. Sign up to be invited to the soft launch.</span>
-    <span data-zh>第10家门店与第3家云厨房将于下月同步开业。槟城丹绒道光店紧随其后，2026年第二季度开业。订阅即可获得软开邀请。</span>
+    <span data-en>The 17th retail outlet opens locally next month, alongside the 3rd cloud kitchen. Penang (Tanjong Tokong) follows in Q2 2026. Sign up to be invited to the soft launch.</span>
+    <span data-zh>第17家门店与第3家云厨房将于下月同步开业。槟城丹绒道光店紧随其后，2026年第二季度开业。订阅即可获得软开邀请。</span>
   </p>
   <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) ); ?>"><span data-en>Join the list</span><span data-zh>加入名单</span><span class="arr">→</span></a>
 </section>
