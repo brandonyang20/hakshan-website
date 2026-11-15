@@ -371,8 +371,8 @@ if ( ! empty( $outlet_posts ) ) {
     <span data-zh>第 <em>十八</em> 家·下月开业。</span>
   </h2>
   <p style="color: var(--ink-soft); max-width: 50ch; margin: 0 auto 32px;">
-    <span data-en>The 18th retail outlet opens locally next month, alongside the 3rd cloud kitchen. Penang (Tanjong Tokong) follows in Q2 2026. Sign up to be invited to the soft launch.</span>
-    <span data-zh>第18家门店与第3家云厨房将于下月同步开业。槟城丹绒道光店紧随其后，2026年第二季度开业。订阅即可获得软开邀请。</span>
+    <span data-en>The 18th retail outlet opens locally next month, alongside the 3rd cloud kitchen. Penang (Tanjong Tokong) follows in Q1 2027. Sign up to be invited to the soft launch.</span>
+    <span data-zh>第18家门店与第3家云厨房将于下月同步开业。槟城丹绒道光店紧随其后，2027年第一季度开业。订阅即可获得软开邀请。</span>
   </p>
   <a class="btn" href="<?php echo esc_url( hakshan_nav_url( 'contact' ) ); ?>"><span data-en>Join the list</span><span data-zh>加入名单</span><span class="arr">→</span></a>
 </section>
