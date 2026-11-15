@@ -1015,8 +1015,8 @@ get_header();
 <!-- ============== HERO ============== -->
 <section class="hero-a">
   <h1 class="sr-only">
-    <span data-en>Hakshan · Hakka cooking, three generations, thirteen kitchens in Malaysia.</span>
-    <span data-zh>客善 · 三代人的客家菜，十三家厨房，遍布马来西亚。</span>
+    <span data-en>Hakshan · Hakka cooking, three generations, eighteen kitchens in Malaysia.</span>
+    <span data-zh>客善 · 三代人的客家菜，十八家厨房，遍布马来西亚。</span>
   </h1>
   <div class="hero-a__logo" data-reveal>
     <img src="<?php echo esc_url( get_theme_file_uri( 'assets/brand/hakshan-logo-ground.png' ) ); ?>" alt="Hakshan 客善 · 三代人的传承" />
@@ -1235,7 +1235,7 @@ get_header();
       </p>
       <div class="charity__stats">
         <div>
-          <div class="num">17</div>
+          <div class="num">18</div>
           <div class="lbl"><span data-en>Outlets giving</span><span data-zh>参 与 门 店</span></div>
         </div>
         <div>
@@ -1258,8 +1258,8 @@ get_header();
           <span data-en>VISIT US</span><span data-zh>到访</span>
         </span>
         <h2>
-          <span data-en>Nine<br/><em>kitchens.</em></span>
-          <span data-zh>九间<br/><em>厨房。</em></span>
+          <span data-en>Eighteen<br/><em>kitchens.</em></span>
+          <span data-zh>十八间<br/><em>厨房。</em></span>
         </h2>
       </div>
       <a class="btn btn--ghost" href="<?php echo esc_url( hakshan_nav_url( 'outlets' ) ); ?>">

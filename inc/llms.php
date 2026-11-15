@@ -45,18 +45,30 @@ function hakshan_serve_llms_txt() {
 function hakshan_llms_txt_content() {
 	$home = untrailingslashit( home_url() );
 
+	// Open outlets, straight from the Outlets list (skips "Coming Soon").
+	$outlets = array();
+	foreach ( get_posts( array( 'post_type' => 'outlet', 'post_status' => 'publish', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' ) ) as $outlet ) {
+		$name = html_entity_decode( get_the_title( $outlet ), ENT_QUOTES, 'UTF-8' );
+		if ( false !== stripos( $name, 'coming soon' ) ) {
+			continue;
+		}
+		$city = ucwords( strtolower( (string) get_post_meta( $outlet->ID, 'outlet_city', true ) ) );
+		$outlets[] = '- ' . $name . ( $city ? ' — ' . $city : '' );
+	}
+	$outlets = implode( "\n", $outlets );
+
 	return <<<MARKDOWN
 # Hakshan 客善
 
-> Hakshan (客善) is a modern Hakka Chinese restaurant group in Malaysia. Three generations of the same recipes since 1928, now nine outlets across the Klang Valley and Ipoh, Perak. Part of every sale at every outlet goes to community causes.
+> Hakshan (客善) is a modern Hakka Chinese restaurant group in Malaysia. Three generations of the same recipes since 1928, now eighteen kitchens across the Klang Valley and Ipoh, Perak. Part of every sale at every outlet goes to community causes.
 
-Hakshan is rooted in heritage Hakka cuisine — mui choy pork belly, Hakka three-cup chicken, drunken chicken with rice wine, abacus seeds, thunder tea rice (lei cha), yong tau foo, Hakka pan mee — cooked the same way since 1928, when the first generation cooked at home in the ancestral village. The second generation brought the recipes south to the Klang Valley in 1972 and opened the family's first restaurant. The third generation opened Hakshan in USJ in February 2024 and has since grown to nine outlets across the Klang Valley and Ipoh, Perak, with a roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026.
+Hakshan is rooted in heritage Hakka cuisine — mui choy pork belly, Hakka three-cup chicken, drunken chicken with rice wine, abacus seeds, thunder tea rice (lei cha), yong tau foo, Hakka pan mee — cooked the same way since 1928, when the first generation cooked at home in the ancestral village. The second generation brought the recipes south to the Klang Valley in 1972 and opened the family's first restaurant. The third generation opened Hakshan in USJ in February 2024 and has since grown to eighteen kitchens across the Klang Valley and Ipoh, Perak, with a roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026.
 
 ## Core pages
 
 - [Homepage]({$home}/): Brand overview, signature dishes, three generations story, charity model
 - [Menu]({$home}/menu/): Full Hakka menu — home-style dishes, new dishes, Hakka classics, Lei Cha series, health-infuse sets, super value sets, noodles, vegetables & tofu, soups, set meals, desserts, tea, beverages
-- [Outlets]({$home}/outlets/): All nine outlets with address, hours, photos, and per-outlet reservation links
+- [Outlets]({$home}/outlets/): All outlets with address, hours, photos, and per-outlet reservation links
 - [Our Story]({$home}/story/): Three generations of Hakka cooking, from the 1928 ancestral village to a modern restaurant group; includes the charity model
 - [Pay it Forward / Social Responsibility]({$home}/social-responsibility/): Hakshan's community model — part of every sale at every outlet funds education, elderly care, and animal welfare. Built in from day one, not a post-success add-on.
 - [Investors]({$home}/investors/): Investor relations, holding structure, growth trajectory, contact form
@@ -80,17 +92,9 @@ Hakshan is rooted in heritage Hakka cuisine — mui choy pork belly, Hakka three
 
 ## Outlets
 
-All nine outlets serve the same menu under the same kitchen discipline, daily 11:00 to 22:00:
+All outlets serve the same menu under the same kitchen discipline, daily 11:00 to 22:00:
 
-- HAKSHAN USJ Taipan — Subang Jaya, Selangor
-- HAKSHAN SS2 — Subang Jaya, Selangor
-- HAKSHAN Cheras Trader Square — Cheras, Kuala Lumpur
-- HAKSHAN Sri Petaling — Sri Petaling, Kuala Lumpur
-- HAKSHAN Menjalara — Kepong, Kuala Lumpur
-- HAKSHAN Kota Damansara — Petaling Jaya, Selangor
-- HAKSHAN Bandar Puteri Puchong — Puchong, Selangor
-- HAKSHAN Ipoh — Ipoh, Perak
-- HAKSHAN Klang (Bukit Tinggi) — Klang, Selangor
+{$outlets}
 
 ## Signature dishes
 

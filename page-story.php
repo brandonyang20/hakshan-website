@@ -938,7 +938,7 @@ get_header();
     </div>
     <div class="sh-proof__grid">
       <div>
-        <div class="sh-stat__n">10</div>
+        <div class="sh-stat__n">18</div>
         <div class="sh-stat__l"><span data-en>Outlets across the Klang Valley &amp; Ipoh</span><span data-zh>巴生谷与怡保门店</span></div>
       </div>
       <div>
@@ -957,7 +957,7 @@ get_header();
   </div>
 </section>
 
-<!-- ============== OUTLETS · Ten homes, one standard ============== -->
+<!-- ============== OUTLETS · Eighteen homes, one standard ============== -->
 <section class="sh-outlets">
   <div class="sh-outlets__head">
     <div data-reveal>
@@ -966,8 +966,8 @@ get_header();
         <span data-zh>我们的门店</span>
       </span>
       <h2>
-        <span data-en>Ten homes,<br/><em>one standard.</em></span>
-        <span data-zh>十家厨房，<br/><em>同一套标准。</em></span>
+        <span data-en>Eighteen homes,<br/><em>one standard.</em></span>
+        <span data-zh>十八家厨房，<br/><em>同一套标准。</em></span>
       </h2>
       <p>
         <span data-en>Full-service restaurants designed around a single, repeatable model — consistent quality, warm rooms, and a menu the neighbourhood keeps coming back to.</span>
@@ -1042,7 +1042,7 @@ get_header();
         <span data-zh>三个方向：教育、长者关怀、动物福利。不是从利润里抽出来的捐赠。它写在厨房成本里，与租金、食材、人工同行。没有可以跳过它的选项。</span>
       </p>
       <div class="charity-block__stats">
-        <div><div class="num">9</div>
+        <div><div class="num">18</div>
           <div class="lbl"><span data-en>Outlets participating · all of them</span><span data-zh>参 与 门 店 · 全 部</span></div></div>
         <div><div class="num">3</div>
           <div class="lbl"><span data-en>Focus areas · education, elders, animals</span><span data-zh>三 个 方 向 · 教 育、长 者、动 物</span></div></div>
