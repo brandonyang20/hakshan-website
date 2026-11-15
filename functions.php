@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.184' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.185' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -94,11 +94,12 @@ add_filter( 'style_loader_tag', 'hakshan_no_optimize_styles', 10, 2 );
 
 /**
  * Set the language on <body> immediately, before LiteSpeed's delayed JS runs,
- * so visitors never see both languages at once. Mirrors initLang() in shell.js.
+ * so visitors never see both languages at once. Mirrors setLang()/initLang()
+ * in shell.js, and handles EN/中 clicks so the first tap works too.
  */
 function hakshan_early_lang() {
 	?>
-<script data-no-optimize="1" data-no-defer="1" data-cfasync="false">(function(){var l=null;try{l=localStorage.getItem("hakshan-lang");}catch(e){}if(l!=="en"&&l!=="zh"){l="en";var c=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||""];for(var i=0;i<c.length;i++){if(String(c[i]).toLowerCase().indexOf("zh")===0){l="zh";break;}}}document.body.setAttribute("data-lang",l);})();</script>
+<script data-no-optimize="1" data-no-defer="1" data-cfasync="false">(function(){function set(l){document.body.setAttribute("data-lang",l);try{localStorage.setItem("hakshan-lang",l);}catch(e){}mark(l);}function mark(l){var b=document.querySelectorAll("[data-lang-btn]");for(var i=0;i<b.length;i++){b[i].classList.toggle("is-on",b[i].getAttribute("data-lang-btn")===l);}}var l=null;try{l=localStorage.getItem("hakshan-lang");}catch(e){}if(l!=="en"&&l!=="zh"){l="en";var c=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||""];for(var i=0;i<c.length;i++){if(String(c[i]).toLowerCase().indexOf("zh")===0){l="zh";break;}}}document.body.setAttribute("data-lang",l);document.addEventListener("DOMContentLoaded",function(){mark(document.body.getAttribute("data-lang"));});document.addEventListener("click",function(e){var t=e.target.closest&&e.target.closest("[data-lang-btn]");if(t){set(t.getAttribute("data-lang-btn"));}});})();</script>
 	<?php
 }
 add_action( 'wp_body_open', 'hakshan_early_lang', 0 );
