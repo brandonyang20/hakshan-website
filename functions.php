@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.183' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.184' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -78,6 +78,30 @@ function hakshan_enqueue_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'hakshan_enqueue_assets' );
+
+/**
+ * Keep LiteSpeed's CSS optimisation (UCSS) away from the theme stylesheets.
+ * UCSS only keeps selectors it sees on first render, which drops every
+ * JS-toggled state ([data-lang], .is-open, modals, the mobile drawer).
+ */
+function hakshan_no_optimize_styles( $tag, $handle ) {
+	if ( in_array( $handle, array( 'hakshan-styles', 'hakshan-inner' ), true ) ) {
+		$tag = str_replace( '<link ', '<link data-no-optimize="1" ', $tag );
+	}
+	return $tag;
+}
+add_filter( 'style_loader_tag', 'hakshan_no_optimize_styles', 10, 2 );
+
+/**
+ * Set the language on <body> immediately, before LiteSpeed's delayed JS runs,
+ * so visitors never see both languages at once. Mirrors initLang() in shell.js.
+ */
+function hakshan_early_lang() {
+	?>
+<script data-no-optimize="1" data-no-defer="1" data-cfasync="false">(function(){var l=null;try{l=localStorage.getItem("hakshan-lang");}catch(e){}if(l!=="en"&&l!=="zh"){l="en";var c=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||""];for(var i=0;i<c.length;i++){if(String(c[i]).toLowerCase().indexOf("zh")===0){l="zh";break;}}}document.body.setAttribute("data-lang",l);})();</script>
+	<?php
+}
+add_action( 'wp_body_open', 'hakshan_early_lang', 0 );
 
 /**
  * Preconnect to Google Fonts (the design depends on it).

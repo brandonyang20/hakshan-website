@@ -689,7 +689,8 @@ body.drawer-open { overflow: hidden; }
 .container { max-width: var(--maxw); margin: 0 auto; }
 
 [data-lang="zh"] [data-en] { display: none; }
-[data-lang="en"] [data-zh] { display: none; }
+[data-lang="en"] [data-zh],
+body:not([data-lang]) [data-zh] { display: none; }
 
 /* ============== Reveal animation ============== */
 
