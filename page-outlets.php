@@ -363,8 +363,8 @@ if ( ! empty( $outlet_posts ) ) {
 
 <section class="section" style="text-align: center;">
   <span class="h-eyebrow"><span class="dot"></span>
-    <span data-en>EXPANSION 2026 · SINGAPORE · PENANG</span>
-    <span data-zh>2026拓展 · 新加坡 · 槟城</span>
+    <span data-en>EXPANSION 2026–2027 · SINGAPORE · PENANG</span>
+    <span data-zh>2026–2027拓展 · 新加坡 · 槟城</span>
   </span>
   <h2 style="font-family: var(--serif); font-style: italic; font-size: clamp(40px, 6vw, 80px); line-height: 0.95; margin: 16px 0 24px; letter-spacing: -0.025em;">
     <span data-en>Outlet <em>18</em> opens next month.</span>
