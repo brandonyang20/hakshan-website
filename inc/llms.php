@@ -60,9 +60,9 @@ function hakshan_llms_txt_content() {
 	return <<<MARKDOWN
 # Hakshan 客善
 
-> Hakshan (客善) is a modern Hakka Chinese restaurant group in Malaysia. Three generations of the same recipes since 1928, now eighteen kitchens across the Klang Valley and Ipoh, Perak. Part of every sale at every outlet goes to community causes.
+> Hakshan (客善) is a modern Hakka Chinese restaurant group in Malaysia. Three generations of the same recipes since 1928, now seventeen kitchens across the Klang Valley and Ipoh, Perak. Part of every sale at every outlet goes to community causes.
 
-Hakshan is rooted in heritage Hakka cuisine — mui choy pork belly, Hakka three-cup chicken, drunken chicken with rice wine, abacus seeds, thunder tea rice (lei cha), yong tau foo, Hakka pan mee — cooked the same way since 1928, when the first generation cooked at home in the ancestral village. The second generation brought the recipes south to the Klang Valley in 1972 and opened the family's first restaurant. The third generation opened Hakshan in USJ in February 2024 and has since grown to eighteen kitchens across the Klang Valley and Ipoh, Perak, with a roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026.
+Hakshan is rooted in heritage Hakka cuisine — mui choy pork belly, Hakka three-cup chicken, drunken chicken with rice wine, abacus seeds, thunder tea rice (lei cha), yong tau foo, Hakka pan mee — cooked the same way since 1928, when the first generation cooked at home in the ancestral village. The second generation brought the recipes south to the Klang Valley in 1972 and opened the family's first restaurant. The third generation opened Hakshan in USJ in February 2024 and has since grown to seventeen kitchens across the Klang Valley and Ipoh, Perak, with a roadmap to twenty outlets and twenty-five cloud kitchens across Malaysia and Indonesia by end of 2026.
 
 ## Core pages
 
