@@ -2,8 +2,17 @@
 /**
  * Front page template — Hakshan home.
  *
+ * The homepage now uses the new design in template-home-new.php. The previous
+ * homepage below is kept so it can be restored by setting HAKSHAN_NEW_HOME to
+ * false in functions.php.
+ *
  * @package Hakshan
  */
+
+if ( HAKSHAN_NEW_HOME ) {
+	require get_theme_file_path( 'template-home-new.php' );
+	return;
+}
 
 get_header();
 ?>

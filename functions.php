@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.191' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.192' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -44,6 +44,23 @@ function hakshan_setup() {
 add_action( 'after_setup_theme', 'hakshan_setup' );
 
 /**
+ * The homepage uses the new design (template-home-new.php). Set to false to
+ * bring back the previous homepage in front-page.php.
+ */
+if ( ! defined( 'HAKSHAN_NEW_HOME' ) ) {
+	define( 'HAKSHAN_NEW_HOME', true );
+}
+
+/**
+ * Whether the current request renders the new homepage design.
+ *
+ * @return bool
+ */
+function hakshan_is_new_home() {
+	return is_page_template( 'template-home-new.php' ) || ( HAKSHAN_NEW_HOME && is_front_page() );
+}
+
+/**
  * Enqueue front-end assets.
  */
 function hakshan_enqueue_assets() {
@@ -61,7 +78,7 @@ function hakshan_enqueue_assets() {
 		HAKSHAN_THEME_VERSION
 	);
 
-	if ( is_page_template( 'template-home-new.php' ) ) {
+	if ( hakshan_is_new_home() ) {
 		// New homepage design: its own sheet, plus the heavier Chinese weights it uses.
 		wp_enqueue_style(
 			'hakshan-home-new-fonts',
