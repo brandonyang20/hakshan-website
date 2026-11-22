@@ -172,7 +172,9 @@ get_header();
     transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
   }
   .om-backdrop.is-open .om-dialog { transform: translateY(0) scale(1); }
-  .om-dialog__visual { position: relative; min-height: 360px; }
+  /* Shopfront photo framed at 5:4 landscape, matching the homepage outlet cards */
+  .om-dialog { align-items: center; }
+  .om-dialog__visual { position: relative; aspect-ratio: 5 / 4; margin: 24px 0 24px 24px; border-radius: 10px; overflow: hidden; }
   .om-dialog__visual .ph { position: absolute; inset: 0; }
   .om-dialog__body {
     padding: 56px 48px 48px;
@@ -263,8 +265,9 @@ get_header();
     }
     .om-dialog__visual {
       flex: 0 0 auto;
-      aspect-ratio: 16/10;
-      min-height: 0;
+      aspect-ratio: 5 / 4;
+      margin: 0;
+      border-radius: 0;
       width: 100%;
     }
     .om-dialog__body { flex: 1 1 auto; padding: 28px 22px 24px; }
