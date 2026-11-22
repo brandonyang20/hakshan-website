@@ -303,7 +303,8 @@ get_header();
 		document.getElementById('hnOcPrev').addEventListener('click', function () { t.scrollBy({ left: -step() * 2, behavior: reduce ? 'auto' : 'smooth' }); });
 		document.getElementById('hnOcNext').addEventListener('click', function () { t.scrollBy({ left: step() * 2, behavior: reduce ? 'auto' : 'smooth' }); });
 		function upd() {
-			var i = Math.min(Math.round(t.scrollLeft / step()) + 1, cards.length);
+			var atEnd = t.scrollLeft + t.clientWidth >= t.scrollWidth - 2;
+			var i = atEnd ? cards.length : Math.min(Math.round(t.scrollLeft / step()) + 1, cards.length);
 			document.getElementById('hnOcCount').textContent = i + ' / ' + cards.length;
 			document.getElementById('hnOcProg').style.transform = 'scaleX(' + ((t.scrollLeft + t.clientWidth) / t.scrollWidth) + ')';
 		}
