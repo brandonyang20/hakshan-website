@@ -1,0 +1,247 @@
+/* ==========================================================================
+   Home (new design) — template-home-new.php
+   Direction: a Hakka family kitchen. One bright moment (客家), every other
+   section named by one Chinese word in the same style. Polish pass follows
+   unslop by Damir Sokolovsky (@heydamir), CC BY 4.0.
+   ========================================================================== */
+
+.hn {
+  --hn-ink-2: #4A4F45;
+  --hn-mute: #7A7766;
+  --hn-line: rgba(42, 46, 39, 0.1);
+  --hn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --hn-edge: 40px;
+  --hn-heavy: "Noto Serif SC", serif;
+  color: var(--ink);
+  background: var(--paper);
+  overflow-x: clip;
+}
+.hn a { color: inherit; text-decoration: none; }
+.hn img { display: block; max-width: 100%; }
+.hn a:focus-visible,
+.hn button:focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; }
+.hn-link {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 4px;
+  transition: color 160ms var(--hn-ease);
+}
+.hn-link:hover { color: var(--forest); }
+
+/* Signature: each section is named by one Chinese word, set the same way */
+.hn-sig { display: flex; align-items: baseline; gap: 16px; }
+.hn-sig h2 { font-family: var(--cn); font-weight: 600; font-size: 96px; line-height: 1.04; color: var(--forest); letter-spacing: 0.02em; margin: 0; }
+.hn-sig span { font-family: var(--sans); font-size: 16px; color: var(--hn-mute); }
+
+/* Brand hero: the logo alone, as on the current homepage */
+.hn-hero {
+  position: relative;
+  min-height: 100vh;
+  margin-top: -77px;
+  padding-top: 77px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.hn-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(235, 223, 196, 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(201, 190, 159, 0.22) 0%, transparent 65%);
+}
+.hn-hero img { position: relative; z-index: 2; width: clamp(200px, 35vw, 500px); max-height: 53vh; object-fit: contain; }
+.hn-hero__scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 2;
+  font-family: var(--sans); font-size: 13px; letter-spacing: 0.36em; color: var(--forest); opacity: 0.7;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.hn-hero__scroll::after { content: ""; width: 1px; height: 28px; background: var(--forest); opacity: 0.5; }
+
+/* 1. 客家: the one bright moment, food seen through the characters */
+.hn-win { padding: 96px var(--hn-edge) 0; display: grid; grid-template-columns: auto minmax(0, 360px); gap: 64px; align-items: end; justify-content: space-between; }
+.hn-win h2 {
+  font-family: var(--hn-heavy); font-weight: 900; font-size: 26vw; line-height: 1.04; padding-bottom: 0.04em;
+  letter-spacing: -0.03em; margin: 0 0 0 -1vw; white-space: nowrap;
+  background-repeat: no-repeat; background-position: 40% 55%; background-size: cover;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hn-win__cap { padding-bottom: 48px; }
+.hn-win h3 { font-family: var(--serif); font-weight: 500; font-size: 32px; line-height: 1.08; margin: 0 0 12px; }
+.hn-win p { font-size: 16px; line-height: 1.6; color: var(--hn-ink-2); margin: 0 0 16px; }
+
+/* 2. Three generations: one photo per year, years drawn like pencil */
+.hn-years { padding: 128px 0 64px; }
+.hn-yr { position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; margin-bottom: 64px; }
+.hn-yr__big { display: block; width: 66vw; height: auto; overflow: visible; }
+.hn-yr__big text { font-family: var(--serif); font-weight: 500; font-size: 330px; letter-spacing: -10px; fill: none; stroke: var(--forest); stroke-width: 1.6; stroke-dasharray: 2600; stroke-dashoffset: 0; }
+.hn-yr img { width: 32vw; aspect-ratio: 4/5; object-fit: cover; position: relative; z-index: 2; }
+.hn-yr__txt { max-width: 320px; font-size: 16px; line-height: 1.6; color: var(--hn-ink-2); }
+.hn-yr__txt b { display: block; font-family: var(--cn); font-weight: 600; font-size: 20px; color: var(--ink); margin-bottom: 8px; }
+.hn-yr--a .hn-yr__big { margin-left: -4vw; }
+.hn-yr--a img { margin: -20vw 0 0 34vw; grid-column: 1 / 3; }
+.hn-yr--a .hn-yr__txt { position: absolute; right: var(--hn-edge); top: 6vw; }
+.hn-yr--b { margin-bottom: 160px; }
+.hn-yr--b .hn-yr__big { grid-column: 2; justify-self: end; width: 56vw; margin-right: -14vw; }
+.hn-yr--b img { grid-row: 1; grid-column: 1; margin-left: 8vw; width: 28vw; aspect-ratio: 1; }
+.hn-yr--b .hn-yr__txt { position: absolute; left: 8vw; top: calc(28vw + 24px); }
+.hn-yr--c { display: block; }
+.hn-yr--c .hn-yr__big { margin-left: 18vw; }
+.hn-yr--c img { width: 42vw; aspect-ratio: 16/10; margin: -16vw 0 0 4vw; }
+.hn-yr--c .hn-yr__txt { position: absolute; right: 64px; bottom: 32px; }
+
+/* 3. 招牌: the dish cards, fanned along an arc */
+.hn-dishes { background: var(--forest); color: var(--cream); padding: 96px 0; overflow: hidden; }
+.hn-dishes__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; padding: 0 var(--hn-edge); }
+.hn-dishes .hn-sig h2 { color: var(--cream); }
+.hn-dishes .hn-sig span { color: #CFC6AD; }
+.hn-dishes__head p { max-width: 360px; font-size: 16px; line-height: 1.6; color: #D8CFB6; margin: 0; }
+.hn-sigs { position: relative; margin-top: 40px; }
+.hn-sigs__viewport { overflow: hidden; padding: 32px 0 56px; cursor: grab; user-select: none; touch-action: pan-y; }
+.hn-sigs__viewport.is-dragging { cursor: grabbing; }
+.hn-sigs__track { display: flex; gap: 24px; will-change: transform; }
+.hn-card {
+  flex: 0 0 clamp(260px, 26vw, 340px); background: var(--paper); color: var(--ink) !important;
+  border-radius: 14px; overflow: hidden; transform-origin: center bottom; will-change: transform;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 20px 36px -20px rgba(0, 0, 0, 0.45);
+  -webkit-user-drag: none; -webkit-tap-highlight-color: transparent;
+}
+.hn-card img { width: 100%; aspect-ratio: 1; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
+.hn-card__ph { aspect-ratio: 1; background: var(--cream); }
+.hn-card__body { padding: 16px 20px 20px; display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: baseline; }
+.hn-card__zh { grid-column: 1; font-family: var(--cn); font-weight: 600; font-size: 15px; color: var(--forest); }
+.hn-card h3 { grid-column: 1; font-family: var(--sans); font-weight: 500; font-size: 20px; line-height: 1.25; margin: 0; }
+.hn-card__pr { grid-column: 2; grid-row: 1 / 3; align-self: center; font-size: 15px; color: var(--hn-ink-2); font-variant-numeric: tabular-nums; }
+.hn-sigs__btn {
+  position: absolute; top: calc(50% - 24px); transform: translateY(-50%); z-index: 2;
+  width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--forest);
+  background: rgba(249, 247, 242, 0.95); color: var(--forest); display: grid; place-items: center; cursor: pointer; padding: 0;
+  transition: background-color 160ms var(--hn-ease), color 160ms var(--hn-ease);
+}
+.hn-sigs__btn:hover { background: var(--forest); color: var(--paper); border-color: var(--paper); }
+.hn-sigs__btn:active { transform: translateY(-50%) scale(0.97); }
+.hn-sigs__btn--prev { left: 24px; }
+.hn-sigs__btn--next { right: 24px; }
+.hn-dishes .hn-link { margin: 0 var(--hn-edge); display: inline-block; }
+
+/* 4. 店里: title, a short paragraph, then the rooms */
+.hn-rooms { padding: 128px var(--hn-edge); }
+.hn-rooms__lede { max-width: 560px; margin: 16px 0 0; font-size: 18px; line-height: 1.6; color: var(--hn-ink-2); }
+.hn-collage { display: grid; grid-template-columns: 7fr 4fr 4fr; grid-template-rows: 280px 240px; gap: 16px; margin-top: 48px; }
+.hn-collage img { width: 100%; height: 100%; object-fit: cover; }
+.hn-collage .c1 { grid-row: 1 / 3; }
+.hn-collage .c2 { grid-column: 2 / 4; }
+
+/* 5. 善 Pay it Forward */
+.hn-shan { background: var(--cream); padding: 128px var(--hn-edge); }
+.hn-slogan { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.hn-slogan__cn { font-family: var(--cn); font-weight: 600; font-size: 96px; line-height: 1.04; color: var(--forest); }
+.hn-slogan h2 { font-family: var(--serif); font-weight: 500; font-size: 56px; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin: 0; }
+.hn-why { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; margin-top: 48px; }
+.hn-why h3 { font-family: var(--serif); font-weight: 500; font-size: 32px; line-height: 1.08; margin: 0 0 16px; }
+.hn-why p { font-size: 17px; line-height: 1.6; color: var(--hn-ink-2); margin: 0; }
+.hn-why img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+.hn-causes { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; margin-top: 96px; }
+.hn-cause img { width: 100%; object-fit: cover; }
+.hn-cause--1 { grid-row: 1 / 3; }
+.hn-cause--1 img { aspect-ratio: 4/3; }
+.hn-cause--2 img, .hn-cause--3 img { aspect-ratio: 16/9; }
+.hn-cause__t { margin-top: 16px; max-width: 420px; font-size: 16px; line-height: 1.6; color: var(--hn-ink-2); }
+.hn-cause__t b { display: flex; align-items: baseline; gap: 12px; font-weight: 500; font-size: 20px; color: var(--ink); margin-bottom: 4px; }
+.hn-cause__t b i { font-style: normal; font-family: var(--cn); font-weight: 600; color: var(--forest); }
+.hn-shan .hn-link { display: inline-block; margin-top: 64px; }
+
+/* 6. 到访: the outlets, as a carousel of shopfronts */
+.hn-outlets { padding: 128px var(--hn-edge) 96px; }
+.hn-outlets__h { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 16px; border-bottom: 1px solid var(--hn-line); }
+.hn-outlets__note { font-size: 16px; color: var(--hn-mute); }
+.hn-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 32px calc(-1 * var(--hn-edge)) 0; padding: 0 var(--hn-edge) 8px; scroll-padding: 0 var(--hn-edge); }
+.hn-track::-webkit-scrollbar { display: none; }
+.hn-oc { flex: 0 0 360px; scroll-snap-align: start; display: flex; flex-direction: column; }
+.hn-oc img, .hn-oc__ph { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: filter 160ms var(--hn-ease); }
+.hn-oc__ph { background: var(--cream); }
+.hn-oc:hover img { filter: brightness(0.9); }
+.hn-oc h4 { font-family: var(--serif); font-weight: 500; font-size: 28px; line-height: 1.1; margin: 16px 0 0; transition: color 160ms var(--hn-ease); }
+.hn-oc:hover h4 { color: var(--forest); }
+.hn-oc__meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--hn-line); font-size: 15px; }
+.hn-oc__meta > span { color: var(--hn-mute); }
+.hn-oc--soon { justify-content: flex-end; flex-basis: 280px; }
+.hn-oc--soon h4 { color: var(--hn-ink-2); }
+.hn-oc--soon p { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--hn-mute); }
+.hn-ctl { display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center; margin-top: 32px; }
+.hn-count { font-size: 15px; color: var(--hn-mute); font-variant-numeric: tabular-nums; }
+.hn-progress { height: 1px; background: var(--hn-line); overflow: hidden; }
+.hn-progress span { display: block; height: 100%; background: var(--ink); transform-origin: left; transform: scaleX(0.2); transition: transform 180ms var(--hn-ease); }
+.hn-arrows { display: flex; gap: 8px; }
+.hn-arrows button { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; padding: 0; transition: background-color 160ms var(--hn-ease), color 160ms var(--hn-ease); }
+.hn-arrows button:hover { background: var(--ink); color: var(--paper); }
+.hn-arrows button:active { transform: scale(0.97); }
+.hn-outlets > .hn-link { display: inline-block; margin-top: 32px; }
+
+/* Motion: one easing curve, each animation plays once.
+   Hidden states only apply once the script has added .hn-js. */
+.hn-js .hn-reveal { opacity: 0; transform: translateY(12px); transition: opacity 600ms var(--hn-ease), transform 600ms var(--hn-ease); }
+.hn-js .hn-reveal.is-in { opacity: 1; transform: none; }
+.hn-js .hn-win h2 { opacity: 0; background-size: 116%; transition: opacity 700ms var(--hn-ease), background-size 1400ms var(--hn-ease); }
+.hn-js .hn-win.is-in h2 { opacity: 1; background-size: 100%; }
+.hn-js .hn-win__cap { opacity: 0; transform: translateY(12px); transition: opacity 600ms var(--hn-ease) 300ms, transform 600ms var(--hn-ease) 300ms; }
+.hn-js .hn-win.is-in .hn-win__cap { opacity: 1; transform: none; }
+.hn-js .hn-yr__big text { stroke-dashoffset: 2600; transition: stroke-dashoffset 2400ms var(--hn-ease); }
+.hn-js .hn-yr.is-in .hn-yr__big text { stroke-dashoffset: 0; }
+.hn-js .hn-outlets .hn-oc { opacity: 0; transform: translateX(32px); transition: opacity 500ms var(--hn-ease), transform 500ms var(--hn-ease); }
+.hn-js .hn-outlets.is-in .hn-oc { opacity: 1; transform: none; }
+.hn-js .hn-outlets.is-in .hn-oc:nth-child(2) { transition-delay: 80ms; }
+.hn-js .hn-outlets.is-in .hn-oc:nth-child(3) { transition-delay: 160ms; }
+.hn-js .hn-outlets.is-in .hn-oc:nth-child(4) { transition-delay: 240ms; }
+.hn-js .hn-outlets.is-in .hn-oc:nth-child(5) { transition-delay: 320ms; }
+@media (prefers-reduced-motion: reduce) {
+  .hn-js .hn-reveal, .hn-js .hn-win h2, .hn-js .hn-win__cap, .hn-js .hn-outlets .hn-oc { opacity: 1 !important; transform: none !important; transition: none !important; background-size: cover !important; }
+  .hn-js .hn-yr__big text { stroke-dashoffset: 0 !important; transition: none !important; }
+}
+
+@media (max-width: 760px) {
+  .hn { --hn-edge: 20px; }
+  .hn-sig { flex-direction: column; gap: 4px; }
+  .hn-sig h2 { font-size: 56px; }
+  .hn-win { display: block; padding-top: 64px; }
+  .hn-win h2 { font-size: 21vw; margin-left: 0; }
+  .hn-win__cap { padding: 16px 0 0; }
+  .hn-win h3 { font-size: 28px; }
+  .hn-years { padding: 96px 0 32px; }
+  .hn-yr, .hn-yr--c { display: block; padding: 0 var(--hn-edge); margin-bottom: 64px; }
+  .hn-yr__big { width: 100% !important; margin: 0 !important; }
+  .hn-yr img { width: 70vw !important; margin: -10vw 0 0 auto !important; }
+  .hn-yr__txt { position: static !important; margin-top: 16px; }
+  .hn-dishes { padding: 64px 0; }
+  .hn-dishes__head { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .hn-card { flex-basis: 72vw; }
+  .hn-card h3 { font-size: 18px; }
+  .hn-sigs__viewport { padding: 24px 0 40px; }
+  .hn-sigs__btn { width: 44px; height: 44px; }
+  .hn-sigs__btn--prev { left: 12px; }
+  .hn-sigs__btn--next { right: 12px; }
+  .hn-rooms, .hn-shan { padding: 96px var(--hn-edge); }
+  .hn-collage { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 160px 160px; gap: 8px; margin-top: 32px; }
+  .hn-collage .c1 { grid-row: auto; grid-column: 1 / 3; }
+  .hn-collage .c2 { grid-column: 1 / 3; }
+  .hn-slogan { gap: 4px; }
+  .hn-slogan__cn { font-size: 56px; }
+  .hn-slogan h2 { font-size: 36px; }
+  .hn-why { grid-template-columns: 1fr; gap: 32px; margin-top: 32px; }
+  .hn-why h3 { font-size: 28px; }
+  .hn-causes { grid-template-columns: 1fr; gap: 40px; margin-top: 64px; }
+  .hn-cause--1 { grid-row: auto; }
+  .hn-outlets { padding: 96px var(--hn-edge) 64px; }
+  .hn-outlets__h { flex-direction: column; gap: 8px; }
+  .hn-track { gap: 16px; }
+  .hn-oc { flex-basis: 78vw; }
+  .hn-oc--soon { flex-basis: 60vw; }
+  .hn-oc h4 { font-size: 24px; }
+  .hn-ctl { grid-template-columns: auto 1fr; gap: 16px; }
+  .hn-arrows { display: none; }
+}

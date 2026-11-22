@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'HAKSHAN_THEME_VERSION' ) ) {
-	define( 'HAKSHAN_THEME_VERSION', '1.4.188' );
+	define( 'HAKSHAN_THEME_VERSION', '1.4.189' );
 }
 
 require_once get_theme_file_path( 'inc/dish-cpt.php' );
@@ -20,6 +20,7 @@ require_once get_theme_file_path( 'inc/meta-pixel.php' );
 require_once get_theme_file_path( 'inc/analytics.php' );
 require_once get_theme_file_path( 'inc/popup-banner.php' );
 require_once get_theme_file_path( 'inc/investor-gate.php' );
+require_once get_theme_file_path( 'inc/home-preview.php' );
 
 /**
  * Theme setup — features and supports.
@@ -60,7 +61,21 @@ function hakshan_enqueue_assets() {
 		HAKSHAN_THEME_VERSION
 	);
 
-	if ( ! is_front_page() ) {
+	if ( is_page_template( 'template-home-new.php' ) ) {
+		// New homepage design: its own sheet, plus the heavier Chinese weights it uses.
+		wp_enqueue_style(
+			'hakshan-home-new-fonts',
+			'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&display=swap',
+			array(),
+			null
+		);
+		wp_enqueue_style(
+			'hakshan-home-new',
+			get_theme_file_uri( 'assets/css/home-new.css' ),
+			array( 'hakshan-styles' ),
+			HAKSHAN_THEME_VERSION
+		);
+	} elseif ( ! is_front_page() ) {
 		wp_enqueue_style(
 			'hakshan-inner',
 			get_theme_file_uri( 'assets/css/inner.css' ),
@@ -85,7 +100,7 @@ add_action( 'wp_enqueue_scripts', 'hakshan_enqueue_assets' );
  * JS-toggled state ([data-lang], .is-open, modals, the mobile drawer).
  */
 function hakshan_no_optimize_styles( $tag, $handle ) {
-	if ( in_array( $handle, array( 'hakshan-styles', 'hakshan-inner' ), true ) ) {
+	if ( in_array( $handle, array( 'hakshan-styles', 'hakshan-inner', 'hakshan-home-new' ), true ) ) {
 		$tag = str_replace( '<link ', '<link data-no-optimize="1" ', $tag );
 	}
 	return $tag;
