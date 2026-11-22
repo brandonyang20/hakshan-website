@@ -219,10 +219,16 @@ get_header();
 	// Reveal each section once, the first time it scrolls into view.
 	if ('IntersectionObserver' in window) {
 		root.classList.add('hn-js');
-		var io = new IntersectionObserver(function (entries) {
-			entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
-		}, { threshold: 0.15 });
-		root.querySelectorAll('.hn-win, .hn-yr, .hn-reveal').forEach(function (el) { io.observe(el); });
+		function reveal(sel, opts) {
+			var io = new IntersectionObserver(function (entries) {
+				entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+			}, opts);
+			root.querySelectorAll(sel).forEach(function (el) { io.observe(el); });
+		}
+		// Sections fade in as soon as they enter the screen.
+		reveal('.hn-reveal', { threshold: 0.15 });
+		// 客家 and the years wait until they are about a third of the way up the screen.
+		reveal('.hn-win, .hn-yr', { threshold: 0.2, rootMargin: '0px 0px -35% 0px' });
 	}
 
 	// 招牌 cards: endless loop, drag or swipe, cards tilt along an arc.

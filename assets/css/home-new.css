@@ -80,7 +80,7 @@
 .hn-yr { position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; margin-bottom: 64px; }
 .hn-yr__big { display: block; width: 66vw; height: auto; overflow: visible; }
 .hn-yr__big text { font-family: var(--serif); font-weight: 500; font-size: 330px; letter-spacing: -10px; fill: none; stroke: var(--forest); stroke-width: 1.6; stroke-dasharray: 2600; stroke-dashoffset: 0; }
-.hn-yr img { width: 32vw; aspect-ratio: 4/5; object-fit: cover; position: relative; z-index: 2; }
+.hn-yr img { width: 32vw; height: auto; aspect-ratio: 4/5; object-fit: cover; position: relative; z-index: 2; }
 .hn-yr__txt { max-width: 320px; font-size: 16px; line-height: 1.6; color: var(--hn-ink-2); }
 .hn-yr__txt b { display: block; font-family: var(--cn); font-weight: 600; font-size: 20px; color: var(--ink); margin-bottom: 8px; }
 .hn-yr--a .hn-yr__big { margin-left: -4vw; }
@@ -111,7 +111,8 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 20px 36px -20px rgba(0, 0, 0, 0.45);
   -webkit-user-drag: none; -webkit-tap-highlight-color: transparent;
 }
-.hn-card img { width: 100%; aspect-ratio: 1; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
+/* WordPress adds width/height attributes; height:auto lets aspect-ratio set the shape */
+.hn-card img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
 .hn-card__ph { aspect-ratio: 1; background: var(--cream); }
 .hn-card__body { padding: 16px 20px 20px; display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: baseline; }
 .hn-card__zh { grid-column: 1; font-family: var(--cn); font-weight: 600; font-size: 15px; color: var(--forest); }
@@ -133,7 +134,7 @@
 .hn-rooms { padding: 128px var(--hn-edge); }
 .hn-rooms__lede { max-width: 560px; margin: 16px 0 0; font-size: 18px; line-height: 1.6; color: var(--hn-ink-2); }
 .hn-collage { display: grid; grid-template-columns: 7fr 4fr 4fr; grid-template-rows: 280px 240px; gap: 16px; margin-top: 48px; }
-.hn-collage img { width: 100%; height: 100%; object-fit: cover; }
+.hn-collage img { width: 100% !important; height: 100% !important; object-fit: cover; }
 .hn-collage .c1 { grid-row: 1 / 3; }
 .hn-collage .c2 { grid-column: 2 / 4; }
 
@@ -145,9 +146,9 @@
 .hn-why { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; margin-top: 48px; }
 .hn-why h3 { font-family: var(--serif); font-weight: 500; font-size: 32px; line-height: 1.08; margin: 0 0 16px; }
 .hn-why p { font-size: 17px; line-height: 1.6; color: var(--hn-ink-2); margin: 0; }
-.hn-why img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+.hn-why img { width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; }
 .hn-causes { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; margin-top: 96px; }
-.hn-cause img { width: 100%; object-fit: cover; }
+.hn-cause img { width: 100%; height: auto; object-fit: cover; }
 .hn-cause--1 { grid-row: 1 / 3; }
 .hn-cause--1 img { aspect-ratio: 4/3; }
 .hn-cause--2 img, .hn-cause--3 img { aspect-ratio: 16/9; }
@@ -163,7 +164,7 @@
 .hn-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 32px calc(-1 * var(--hn-edge)) 0; padding: 0 var(--hn-edge) 8px; scroll-padding: 0 var(--hn-edge); }
 .hn-track::-webkit-scrollbar { display: none; }
 .hn-oc { flex: 0 0 360px; scroll-snap-align: start; display: flex; flex-direction: column; }
-.hn-oc img, .hn-oc__ph { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: filter 160ms var(--hn-ease); }
+.hn-oc img, .hn-oc__ph { width: 100%; height: auto; aspect-ratio: 5/4; object-fit: cover; transition: filter 160ms var(--hn-ease); }
 .hn-oc__ph { background: var(--cream); }
 .hn-oc:hover img { filter: brightness(0.9); }
 .hn-oc h4 { font-family: var(--serif); font-weight: 500; font-size: 28px; line-height: 1.1; margin: 16px 0 0; transition: color 160ms var(--hn-ease); }
